@@ -5,7 +5,8 @@ baseurl: ""
 url: "https://dailyfoodfighter.com"
 lang: "ko"
 
-# Google AdSense & SEO
+# Google Analytics & AdSense & SEO
+google_analytics: "G-KBV8HQ5J6Z"
 google_site_verification: "6yCtc2PFnJY8OHTOXxSchWsOM0L6kQAqDqyXYTaLisM"
 adsense_client: ""
 

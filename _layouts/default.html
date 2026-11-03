@@ -54,12 +54,12 @@
     "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
     "author": {
       "@type": "Organization",
-      "name": "FoodFighter",
+      "name": "DailyFoodFighter",
       "url": "{{ site.url }}{{ site.baseurl }}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "FoodFighter",
+      "name": "DailyFoodFighter",
       "url": "{{ site.url }}{{ site.baseurl }}"
     },
     "keywords": "{{ page.tags | join: ', ' }}"
@@ -76,6 +76,17 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   
+  <!-- Google Analytics 4 (GA4) -->
+  {% if site.google_analytics and site.google_analytics != "" %}
+  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', '{{ site.google_analytics }}');
+  </script>
+  {% endif %}
+
   <!-- Google AdSense (발급 후 site.adsense_client 입력 시 자동 적용) -->
   {% if site.adsense_client != "" %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
