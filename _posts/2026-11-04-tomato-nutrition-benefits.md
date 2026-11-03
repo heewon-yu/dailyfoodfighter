@@ -3,7 +3,7 @@ layout: post
 title: "토마토 효능과 라이코펜의 과학적 진실: 생으로 먹을까, 익혀 먹을까?"
 date: 2026-11-04 00:00:00 +0900
 lang: ko
-category: "채소"
+category: "과일"
 tags: [토마토, 라이코펜, 항산화, 영양학, 건강식단]
 description: "토마토의 핵심 항산화 물질 라이코펜의 흡수율을 4배 이상 끌어올리는 과학적인 섭취법과 심혈관 건강 및 항암 효과를 분석합니다."
 permalink: /posts/tomato-nutrition-benefits/

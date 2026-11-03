@@ -8,12 +8,12 @@
   
   <!-- Keywords & Tags for Search Engines -->
   {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, nutrition, health benefits, calories, SuperFoodFighter">
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, nutrition, health benefits, calories, DailyFoodFighter">
   {% else %}
-  <meta name="keywords" content="superfood nutrition facts, health benefits of natural foods, superfood nutrition, healthy diet, superfoodfighter, food science">
+  <meta name="keywords" content="daily food nutrition facts, health benefits of natural foods, superfood nutrition, healthy diet, dailyfoodfighter, food science">
   {% endif %}
   <meta name="robots" content="index, follow">
-  <meta name="author" content="SuperFoodFighter (슈퍼푸드파이터)">
+  <meta name="author" content="DailyFoodFighter (데일리푸드파이터)">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
@@ -88,8 +88,8 @@
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="site-logo">🥑 SuperFoodFighter</a>
-        <span class="site-tagline">{% if page.lang == 'en' %}Evidence-Based Superfood Science Guide{% else %}자연 슈퍼푸드 영양학 과학 가이드{% endif %}</span>
+        <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="site-logo">🥑 DailyFoodFighter</a>
+        <span class="site-tagline">{% if page.lang == 'en' %}Evidence-Based Food Nutrition Science Guide{% else %}매일 자연 식재료 영양학 과학 가이드{% endif %}</span>
       </div>
       <nav class="site-nav">
         {% if page.lang == 'en' %}
@@ -99,7 +99,6 @@
         <a href="{{ '/en/category/meat/' | relative_url }}">Meat & Protein</a>
         <a href="{{ '/en/category/seafood/' | relative_url }}">Seafood</a>
         <a href="{{ '/en/about/' | relative_url }}">About</a>
-        <a href="{{ '/' | relative_url }}" class="lang-switch">🇰🇷 KR</a>
         {% else %}
         <a href="{{ '/' | relative_url }}">전체글</a>
         <a href="{{ '/category/과일/' | relative_url }}">과일</a>
@@ -107,7 +106,6 @@
         <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
         <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
         <a href="{{ '/about/' | relative_url }}">소개</a>
-        <a href="{{ '/en/' | relative_url }}" class="lang-switch">🇺🇸 EN</a>
         {% endif %}
       </nav>
     </div>
@@ -121,7 +119,7 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="wrapper footer-inner">
-      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} SuperFoodFighter. All rights reserved.</p>
+      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} DailyFoodFighter. All rights reserved.</p>
       <div class="footer-links">
         {% if page.lang == 'en' %}
         <a href="{{ '/en/about/' | relative_url }}">About Us</a>
@@ -139,7 +137,7 @@
       </div>
       <p class="footer-disclaimer">
         {% if page.lang == 'en' %}
-        Disclaimer: The information provided on SuperFoodFighter is based on reputable scientific research and dietary data for educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
+        Disclaimer: The information provided on DailyFoodFighter is based on reputable scientific research and dietary data for educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
         {% else %}
         본 블로그에서 제공하는 영양 및 건강 정보는 신뢰할 수 있는 학술 연구와 과학적 데이터에 기반하여 작성되었으나, 전문적인 의료 행위나 진단을 대신할 수 없습니다. 질환이 있는 경우 반드시 전문의와 상담하시기 바랍니다.
         {% endif %}
