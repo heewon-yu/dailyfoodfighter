@@ -1,0 +1,282 @@
+/* 푸드파이터 (FoodFighter) 초경량 고속 반응형 스타일 */
+:root {
+  --primary: #10b981;
+  --primary-dark: #059669;
+  --text-main: #1f2937;
+  --text-muted: #6b7280;
+  --bg-main: #f9fafb;
+  --bg-card: #ffffff;
+  --border: #e5e7eb;
+  --radius: 8px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--text-main);
+  background-color: var(--bg-main);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrapper {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+}
+
+.brand {
+  display: flex;
+  flex-direction: column;
+}
+
+.site-logo {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--primary-dark);
+  text-decoration: none;
+  letter-spacing: -0.5px;
+}
+
+.site-tagline {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.site-nav {
+  display: flex;
+  gap: 16px;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.15s;
+}
+
+.site-nav a:hover {
+  color: var(--primary);
+}
+
+/* Main */
+.site-main {
+  padding-top: 36px;
+  padding-bottom: 60px;
+  min-height: calc(100vh - 250px);
+}
+
+/* Article */
+.post-article {
+  background: var(--bg-card);
+  padding: 40px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+}
+
+.post-header {
+  margin-bottom: 30px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 20px;
+}
+
+.post-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+
+.post-title {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.35;
+  color: #111827;
+  letter-spacing: -0.5px;
+}
+
+/* Post Content & H-tags */
+.post-content h1 {
+  font-size: 1.6rem;
+  margin: 36px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--primary);
+}
+
+.post-content h2 {
+  font-size: 1.35rem;
+  margin: 32px 0 14px;
+  color: #111827;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.post-content h3 {
+  font-size: 1.15rem;
+  margin: 24px 0 10px;
+  color: #374151;
+}
+
+.post-content p {
+  margin-bottom: 18px;
+  word-break: keep-all;
+}
+
+.post-content ul, .post-content ol {
+  margin: 16px 0 20px 24px;
+}
+
+.post-content li {
+  margin-bottom: 8px;
+}
+
+/* Table - Nutrition */
+.post-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  background: #fbfcfd;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.post-content th, .post-content td {
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.post-content th {
+  background: #f3f4f6;
+  font-weight: 700;
+  color: #374151;
+}
+
+.post-content tr:nth-child(even) {
+  background: #f9fafb;
+}
+
+/* Post List */
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.post-card {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, border-color 0.15s;
+  display: block;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--primary);
+}
+
+.post-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.post-card-excerpt {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.post-card-footer {
+  display: flex;
+  gap: 12px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* Footer */
+.site-footer {
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--primary);
+}
+
+.footer-disclaimer {
+  max-width: 600px;
+  font-size: 0.75rem;
+  line-height: 1.5;
+  color: #9ca3af;
+  margin-top: 6px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .post-article {
+    padding: 24px 18px;
+  }
+  .post-title {
+    font-size: 1.45rem;
+  }
+  .header-inner {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}

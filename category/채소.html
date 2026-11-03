@@ -1,0 +1,27 @@
+---
+layout: default
+title: "채소·야채"
+permalink: /category/채소/
+---
+
+<div class="home-intro" style="margin-bottom: 30px;">
+  <h1 style="font-size: 1.8rem; font-weight: 800; color: #111827;">🥦 채소·야채 영양학 가이드</h1>
+  <p style="color: #6b7280;">풍부한 식이섬유와 항산화 물질을 품은 채소류의 영양소 보존 조리법과 건강 효능</p>
+</div>
+
+<div class="post-list">
+  {% assign veg_posts = site.posts | where: "category", "채소" %}
+  {% for post in veg_posts %}
+  <a href="{{ post.url | relative_url }}" class="post-card">
+    <div class="post-card-footer" style="margin-bottom: 8px;">
+      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
+      <span>·</span>
+      <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
+    </div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </a>
+  {% else %}
+  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 채소 포스팅이 없습니다.</p>
+  {% endfor %}
+</div>

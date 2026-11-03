@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  
+  <!-- Open Graph / SEO -->
+  <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:url" content="{{ page.url | absolute_url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  
+  <!-- Google AdSense (발급 후 site.adsense_client 입력 시 자동 적용) -->
+  {% if site.adsense_client != "" %}
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
+  <meta name="google-adsense-account" content="{{ site.adsense_client }}">
+  {% endif %}
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="wrapper header-inner">
+      <div class="brand">
+        <a href="{{ '/' | relative_url }}" class="site-logo">🥑 푸드파이터</a>
+        <span class="site-tagline">매일 먹거리 과학 가이드</span>
+      </div>
+      <nav class="site-nav">
+        <a href="{{ '/' | relative_url }}">전체글</a>
+        <a href="{{ '/category/과일/' | relative_url }}">과일</a>
+        <a href="{{ '/category/채소/' | relative_url }}">채소·야채</a>
+        <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
+        <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
+        <a href="{{ '/about/' | relative_url }}">소개</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="site-main wrapper">
+    {{ content }}
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="wrapper footer-inner">
+      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} 푸드파이터(FoodFighter). All rights reserved.</p>
+      <div class="footer-links">
+        <a href="{{ '/about/' | relative_url }}">블로그 소개</a>
+        <span>·</span>
+        <a href="{{ '/privacy/' | relative_url }}">개인정보처리방침</a>
+        <span>·</span>
+        <a href="mailto:{{ site.email }}">문의하기</a>
+      </div>
+      <p class="footer-disclaimer">본 블로그에서 제공하는 영양 및 건강 정보는 신뢰할 수 있는 학술 연구와 과학적 데이터에 기반하여 작성되었으나, 전문적인 의료 행위나 진단을 대신할 수 없습니다. 질환이 있는 경우 반드시 전문의와 상담하시기 바랍니다.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
