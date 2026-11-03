@@ -213,6 +213,26 @@ body {
   margin: 36px 0;
 }
 
+/* Post Images & Captions (AdSense & SEO Optimized) */
+.post-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 20px auto 10px auto;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+}
+
+.post-content em:has(+ hr),
+.post-content p > em:only-child {
+  display: block;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-top: -4px;
+  margin-bottom: 24px;
+}
+
 /* Tables - Responsive Horizontal Scroll */
 .post-content table {
   width: 100%;
