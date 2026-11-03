@@ -6,8 +6,8 @@ layout: default
   <header class="post-header">
     <div class="post-meta">
       <span class="post-category">🏷️ {{ page.category | default: page.categories | first }}</span>
-      <span class="post-date">📅 {{ page.date | date: "%Y년 %m월 %d일" }}</span>
-      <span class="post-author">✍️ 영양전문 에디터</span>
+      <span class="post-date">📅 {% if page.lang == 'en' %}{{ page.date | date: "%B %d, %Y" }}{% else %}{{ page.date | date: "%Y년 %m월 %d일" }}{% endif %}</span>
+      <span class="post-author">✍️ {% if page.lang == 'en' %}Nutrition Science Team{% else %}영양전문 에디터{% endif %}</span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
   </header>
@@ -23,7 +23,7 @@ layout: default
       {% endfor %}
     </div>
     <div class="post-nav-share">
-      <a href="{{ '/' | relative_url }}" class="btn-back">← 목록으로 돌아가기</a>
+      <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="btn-back">{% if page.lang == 'en' %}← Back to All Posts{% else %}← 목록으로 돌아가기{% endif %}</a>
     </div>
   </footer>
 </article>
