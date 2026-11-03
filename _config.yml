@@ -8,6 +8,8 @@ lang: "ko"
 # Google Analytics & AdSense & SEO
 google_analytics: "G-KBV8HQ5J6Z"
 google_site_verification: "6yCtc2PFnJY8OHTOXxSchWsOM0L6kQAqDqyXYTaLisM"
+naver_site_verification: "1c2118c3fd26040e60b2680b40860e6862f5b5bb"
+indexnow_key: "c7438e83b8a14ec1a1961efce1d2f782"
 adsense_client: ""
 
 markdown: kramdown
