@@ -81,5 +81,15 @@ permalink: /en/posts/{ingredient-name}-nutrition-benefits/
 
 When executing in GPT Codex, simply use:
 ```text
-"Read .github/copilot-instructions.md and ingredients.md. Generate the next {Category} post pair (Korean & English) following the templates in _templates/, and update ingredients.md."
+"Read .github/copilot-instructions.md and ingredients.md. Generate the next {Category} post pair (Korean & English) following the templates in _templates/, update ingredients.md, commit, and execute bash scripts/ping-indexnow.sh with the new URLs to trigger instant indexing on Naver & Bing."
 ```
+
+---
+
+## 6. Post-Publication Search Engine Indexing (Mandatory Pipeline Step)
+
+Immediately following Git push, run the IndexNow automation script to force search bots (Naver, Bing, Yandex) to crawl the new posts within minutes:
+```bash
+bash scripts/ping-indexnow.sh "https://dailyfoodfighter.com/posts/{ingredient-name}-nutrition-benefits/" "https://dailyfoodfighter.com/en/posts/{ingredient-name}-nutrition-benefits/"
+```
+The site automatically updates `sitemap.xml` and `feed.xml` on every build.

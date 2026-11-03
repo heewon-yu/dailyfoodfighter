@@ -9,7 +9,7 @@
 - [ ] 오렌지 (Orange)
 - [ ] 귤 (Tangerine)
 - [ ] 포도 (Grape)
-- [ ] 블루베리 (Blueberry)
+- [x] 블루베리 (Blueberry) - 2026-11-04 한/영 발행완료
 - [ ] 딸기 (Strawberry)
 - [ ] 수박 (Watermelon)
 - [ ] 참외 (Oriental Melon)
