@@ -11,10 +11,29 @@
 3. **국문 글 작성:** `_templates/post-template-ko.md` 서식으로 `_posts/YYYY-MM-DD-{영문명}-nutrition-benefits.md` 생성
 4. **영문 글 작성:** `_templates/post-template-en.md` 서식으로 `_posts/YYYY-MM-DD-en-{영문명}-nutrition-benefits.md` 생성
 5. **체크리스트 업데이트:** `ingredients.md`에서 해당 식재료를 `[x]`로 완료 표시
-6. **Git 커밋 및 푸시:** `git add . && git commit -m "feat(post): ..." && git push origin main`
+6. **Git 커밋 및 푸시 (Cloudflare Pages 자동 배포):**
+   ```bash
+   git add .
+   git commit -m "feat(post): add {식재료} bilingual post set"
+   git push origin main
+   ```
+   *(푸시 즉시 Cloudflare Pages에서 자동 빌드되어 무제한 대역폭으로 글로벌 배포)*
 7. **검색엔진 즉시 색인(IndexNow) 호출:**
-   `bash scripts/ping-indexnow.sh "https://dailyfoodfighter.com/posts/{식재료}/" "https://dailyfoodfighter.com/en/posts/{식재료}/"`
+   ```bash
+   bash scripts/ping-indexnow.sh "https://dailyfoodfighter.com/posts/{식재료}/" "https://dailyfoodfighter.com/en/posts/{식재료}/"
+   ```
    ➔ 네이버 서치어드바이저, 마이크로소프트 빙, 얀덱스에 즉시 핑을 쏴 수분 내 크롤링 강제 트리거
+
+---
+
+## 🔗 참조용 실제 발행 완료 글 주소 (Benchmark URLs)
+
+- **토마토 (과일):**
+  - 한국어: `https://dailyfoodfighter.com/posts/tomato-nutrition-benefits/`
+  - 영문: `https://dailyfoodfighter.com/en/posts/tomato-nutrition-benefits/`
+- **블루베리 (과일):**
+  - 한국어: `https://dailyfoodfighter.com/posts/blueberry-nutrition-benefits/`
+  - 영문: `https://dailyfoodfighter.com/en/posts/blueberry-nutrition-benefits/`
 
 ---
 
@@ -22,7 +41,7 @@
 
 ChatGPT, Claude, 또는 VS Code Copilot/Codex에 아래 한 줄만 입력하면 저장소 규칙을 읽고 글을 완벽히 작성하고 색인 핑까지 수행합니다:
 
-> **"저장소의 `.github/copilot-instructions.md`와 `ingredients.md`를 읽고, `_templates/` 템플릿 규격에 맞춰 오늘 순환 카테고리의 다음 식재료 포스팅 1세트(한국어 1편 + 영문 1편)를 작성해줘. 작성 후 `ingredients.md`도 업데이트하고, `bash scripts/ping-indexnow.sh` 명령어를 안내해줘."**
+> **"저장소의 `docs/GPT_CODEX_MASTER_SPEC.md`와 `ingredients.md`를 읽고, `_templates/` 템플릿 규격에 맞춰 오늘 순환 카테고리의 다음 식재료 포스팅 1세트(한국어 1편 + 영문 1편)를 작성해줘. 작성 후 `ingredients.md`도 업데이트하고, `bash scripts/ping-indexnow.sh` 명령어를 안내해줘."**
 
 ---
 
