@@ -9,7 +9,8 @@ title: "홈"
 </div>
 
 <div class="post-list">
-  {% for post in site.posts %}
+  {% assign ko_posts = site.posts | where: "lang", "ko" %}
+  {% for post in ko_posts %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category | default: post.categories | first }}</span>

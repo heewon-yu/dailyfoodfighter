@@ -3,7 +3,7 @@
 > 자연 식재료의 과학적 효능과 영양학적 분석 가이드
 
 - **서비스 URL:** [https://dailyfoodfighter.com](https://dailyfoodfighter.com) (이전: https://heewon-yu.github.io/dailyfoodfighter/)
-- **운영자:** 유희원 (leemovie89@gmail.com)
+- **운영자:** DailyFoodFighter Editorial Team (https://dailyfoodfighter.com/contact/)
 - **발행 방식:** 피클(Pickle) 매일 아침 08:00 자동 발행 스케줄러
 - **주요 카테고리:** 과일 / 채소·야채 / 육류·단백질 / 수산물
 
