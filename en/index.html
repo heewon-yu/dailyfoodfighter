@@ -1,0 +1,30 @@
+---
+layout: default
+lang: en
+title: "Evidence-Based Food Nutrition Science Guide"
+permalink: /en/
+---
+
+<div class="home-intro" style="margin-bottom: 30px; text-align: center; padding: 20px 0;">
+  <h1 style="font-size: 2.1rem; font-weight: 800; color: #111827; margin-bottom: 10px;">Scientific Nutrition & Health Benefits of Natural Foods</h1>
+  <p style="color: #6b7280; font-size: 1.05rem;">Comprehensive evidence-based nutritional analysis, optimal cooking methods, and clinical health insights for everyday ingredients.</p>
+</div>
+
+<div class="post-list">
+  {% assign en_posts = site.posts | where: "lang", "en" %}
+  {% for post in en_posts %}
+  <a href="{{ post.url | relative_url }}" class="post-card">
+    <div class="post-card-footer" style="margin-bottom: 8px;">
+      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
+      <span>·</span>
+      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </a>
+  {% else %}
+  <div style="text-align: center; padding: 60px 0; color: #9ca3af;">
+    <p>Articles are being prepared. Daily evidence-based nutrition science guides are published here.</p>
+  </div>
+  {% endfor %}
+</div>

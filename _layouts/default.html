@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}{{ site.lang | default: 'ko' }}{% endif %}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,23 +8,23 @@
   
   <!-- Keywords & Tags for Search Engines -->
   {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, 영양학, 효능, 칼로리, 푸드파이터">
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, nutrition, health benefits, calories, FoodFighter">
   {% else %}
-  <meta name="keywords" content="음식 영양성분, 식재료 효능, 과일 영양학, 채소 효능, 건강식단, 푸드파이터, 음식궁합">
+  <meta name="keywords" content="food nutrition facts, health benefits of natural foods, superfood nutrition, healthy diet, foodfighter, food science">
   {% endif %}
   <meta name="robots" content="index, follow">
-  <meta name="author" content="푸드파이터 (FoodFighter)">
+  <meta name="author" content="FoodFighter (푸드파이터)">
 
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   
-  <!-- Open Graph / Facebook / KakaoTalk -->
+  <!-- Open Graph / Facebook / KakaoTalk / Twitter -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
-  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary">
@@ -51,14 +51,15 @@
     {% if page.layout == 'post' %}
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
     "author": {
       "@type": "Organization",
-      "name": "푸드파이터",
+      "name": "FoodFighter",
       "url": "{{ site.url }}{{ site.baseurl }}"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "푸드파이터",
+      "name": "FoodFighter",
       "url": "{{ site.url }}{{ site.baseurl }}"
     },
     "keywords": "{{ page.tags | join: ', ' }}"
@@ -87,16 +88,27 @@
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <a href="{{ '/' | relative_url }}" class="site-logo">🥑 푸드파이터</a>
-        <span class="site-tagline">매일 먹거리 과학 가이드</span>
+        <a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}" class="site-logo">🥑 FoodFighter</a>
+        <span class="site-tagline">{% if page.lang == 'en' %}Evidence-Based Food Nutrition Science Guide{% else %}매일 먹거리 과학 가이드{% endif %}</span>
       </div>
       <nav class="site-nav">
+        {% if page.lang == 'en' %}
+        <a href="{{ '/en/' | relative_url }}">All Posts</a>
+        <a href="{{ '/en/category/fruits/' | relative_url }}">Fruits</a>
+        <a href="{{ '/en/category/vegetables/' | relative_url }}">Vegetables</a>
+        <a href="{{ '/en/category/meat/' | relative_url }}">Meat & Protein</a>
+        <a href="{{ '/en/category/seafood/' | relative_url }}">Seafood</a>
+        <a href="{{ '/en/about/' | relative_url }}">About</a>
+        <a href="{{ '/' | relative_url }}" class="lang-switch">🇰🇷 KR</a>
+        {% else %}
         <a href="{{ '/' | relative_url }}">전체글</a>
         <a href="{{ '/category/과일/' | relative_url }}">과일</a>
         <a href="{{ '/category/채소/' | relative_url }}">채소·야채</a>
         <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
         <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
         <a href="{{ '/about/' | relative_url }}">소개</a>
+        <a href="{{ '/en/' | relative_url }}" class="lang-switch">🇺🇸 EN</a>
+        {% endif %}
       </nav>
     </div>
   </header>
@@ -109,15 +121,29 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="wrapper footer-inner">
-      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} 푸드파이터(FoodFighter). All rights reserved.</p>
+      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} FoodFighter. All rights reserved.</p>
       <div class="footer-links">
+        {% if page.lang == 'en' %}
+        <a href="{{ '/en/about/' | relative_url }}">About Us</a>
+        <span>·</span>
+        <a href="{{ '/en/privacy/' | relative_url }}">Privacy Policy</a>
+        <span>·</span>
+        <a href="{{ '/en/contact/' | relative_url }}">Contact Us</a>
+        {% else %}
         <a href="{{ '/about/' | relative_url }}">블로그 소개</a>
         <span>·</span>
         <a href="{{ '/privacy/' | relative_url }}">개인정보처리방침</a>
         <span>·</span>
-        <a href="mailto:{{ site.email }}">문의하기</a>
+        <a href="{{ '/contact/' | relative_url }}">문의하기</a>
+        {% endif %}
       </div>
-      <p class="footer-disclaimer">본 블로그에서 제공하는 영양 및 건강 정보는 신뢰할 수 있는 학술 연구와 과학적 데이터에 기반하여 작성되었으나, 전문적인 의료 행위나 진단을 대신할 수 없습니다. 질환이 있는 경우 반드시 전문의와 상담하시기 바랍니다.</p>
+      <p class="footer-disclaimer">
+        {% if page.lang == 'en' %}
+        Disclaimer: The information provided on FoodFighter is based on reputable scientific research and dietary data for educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
+        {% else %}
+        본 블로그에서 제공하는 영양 및 건강 정보는 신뢰할 수 있는 학술 연구와 과학적 데이터에 기반하여 작성되었으나, 전문적인 의료 행위나 진단을 대신할 수 없습니다. 질환이 있는 경우 반드시 전문의와 상담하시기 바랍니다.
+        {% endif %}
+      </p>
     </div>
   </footer>
 

@@ -1,0 +1,28 @@
+---
+layout: default
+lang: en
+title: "Fruits"
+permalink: /en/category/fruits/
+---
+
+<div class="home-intro" style="margin-bottom: 30px;">
+  <h1 style="font-size: 1.8rem; font-weight: 800; color: #111827;">🍎 Fruit Nutrition Science</h1>
+  <p style="color: #6b7280;">Evidence-based nutritional profiles, phytochemical densities, and health benefits of seasonal fruits.</p>
+</div>
+
+<div class="post-list">
+  {% assign fruit_posts = site.posts | where: "category", "Fruits" %}
+  {% for post in fruit_posts %}
+  <a href="{{ post.url | relative_url }}" class="post-card">
+    <div class="post-card-footer" style="margin-bottom: 8px;">
+      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
+      <span>·</span>
+      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+  </a>
+  {% else %}
+  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No fruit articles published yet.</p>
+  {% endfor %}
+</div>
