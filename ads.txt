@@ -1,2 +1,2 @@
-# Google AdSense ads.txt for foodfighter
+# Google AdSense ads.txt for superfoodfighter
 # google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
