@@ -6,15 +6,71 @@
   <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   
+  <!-- Keywords & Tags for Search Engines -->
+  {% if page.tags %}
+  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, 영양학, 효능, 칼로리, 푸드파이터">
+  {% else %}
+  <meta name="keywords" content="음식 영양성분, 식재료 효능, 과일 영양학, 채소 효능, 건강식단, 푸드파이터, 음식궁합">
+  {% endif %}
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="푸드파이터 (FoodFighter)">
+
   <!-- Canonical URL -->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
   
-  <!-- Open Graph / SEO -->
+  <!-- Open Graph / Facebook / KakaoTalk -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
   <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="ko_KR">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+
+  <!-- Naver / Google Webmaster Verification -->
+  {% if site.google_site_verification != "" %}
+  <meta name="google-site-verification" content="{{ site.google_site_verification }}">
+  {% endif %}
+  {% if site.naver_site_verification != "" %}
+  <meta name="naver-site-verification" content="{{ site.naver_site_verification }}">
+  {% endif %}
+
+  <!-- Schema.org JSON-LD Structured Data for Google Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
+    "name": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
+    "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
+    "description": "{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
+    "url": "{{ page.url | absolute_url }}",
+    {% if page.layout == 'post' %}
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "author": {
+      "@type": "Organization",
+      "name": "푸드파이터",
+      "url": "{{ site.url }}{{ site.baseurl }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "푸드파이터",
+      "url": "{{ site.url }}{{ site.baseurl }}"
+    },
+    "keywords": "{{ page.tags | join: ', ' }}"
+    {% else %}
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "{{ site.url }}{{ site.baseurl }}/?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+    {% endif %}
+  }
+  </script>
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
