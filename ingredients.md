@@ -30,7 +30,7 @@
 - [ ] 살구 (Apricot)
 
 ## 🥦 채소·야채 (Vegetables) - 34종
-- [ ] 양파 (Onion)
+- [x] 양파 (Onion) - 2026-11-04 한/영 발행완료
 - [ ] 마늘 (Garlic)
 - [ ] 브로콜리 (Broccoli)
 - [ ] 당근 (Carrot)
