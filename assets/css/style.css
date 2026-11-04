@@ -223,8 +223,7 @@ body {
   box-shadow: 0 4px 16px rgba(0,0,0,0.06);
 }
 
-.post-content em:has(+ hr),
-.post-content p > em:only-child {
+.post-content img + em {
   display: block;
   text-align: center;
   font-size: 0.85rem;

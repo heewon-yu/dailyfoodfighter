@@ -5,14 +5,14 @@ title: "The Clinical Nutrition Science of Onions: Quercetin, Bioavailability, an
 date: 2026-11-04 00:00:00 +0900
 category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
-description: "An evidence-based guide to Allium cepa, covering raw onion nutrition, quercetin absorption, blood pressure research, fructan tolerance, and cooking methods."
+description: "An evidence-based guide to onion nutrition, quercetin absorption, blood pressure research, fructan tolerance, and cooking methods."
 permalink: /en/posts/onion-nutrition-benefits/
 ---
 
 ![Layers visible in the cut surfaces of sliced onions](/assets/images/onion.jpg)
 *▲ Raw onions add crunch, while gentle cooking softens their pungency. Photo by Alabama Extension via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
-A raw onion can dominate a salad, while the same bulb cooked gently can become the mellow base of a stew. The bulb onion (*Allium cepa*) has long played both roles in kitchens around the world. It brings flavour and texture in portions that can range from a spoonful of chopped garnish to a substantial share of a vegetable dish.
+A raw onion can dominate a salad, while the same bulb cooked gently can become the mellow base of a stew. Even a spoonful of chopped onion can change a dish's flavour and texture.
 
 Onions also deliver quercetin, a flavonoid studied for its absorption and metabolism, and fructans, carbohydrates that intestinal bacteria can ferment. These constituents raise different questions. A blood sample can show how much quercetin reaches circulation, while a feeding study can test whether the diet changes gut bacteria or blood pressure. The type of experiment determines what its results can tell us about a serving of onions.
 
