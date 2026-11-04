@@ -22,17 +22,19 @@ Onions also deliver quercetin, a flavonoid studied for its absorption and metabo
 
 The table refers to the edible portion of raw onion. A recipe with 200 g divided among four servings supplies about half the listed amounts of each nutrient per plate before cooking. Water loss and added fat can change the values per 100 g of the finished dish.
 
-| Nutrient | Amount | U.S. Daily Value |
-| :--- | :--- | :--- |
-| Energy | 40 kcal | — |
-| Water | 89.11 g | — |
+| Nutrient | Per 100 g | U.S. %DV |
+| :--- | ---: | ---: |
+| Energy | 40 kcal | No DV |
+| Water | 89.11 g | No DV |
 | Total carbohydrate | 9.34 g | 3.4% |
 | Dietary fibre | 1.7 g | 6.1% |
-| Total sugars | 4.24 g | — |
-| Protein | 1.1 g | — |
+| Total sugars | 4.24 g | No DV |
+| Protein | 1.1 g | See note¹ |
 | Total fat | 0.10 g | 0.1% |
 | Vitamin C | 7.4 mg | 8.2% |
 | Potassium | 146 mg | 3.1% |
+
+**How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 *Source: [USDA FoodData Central, Onions, raw](https://fdc.nal.usda.gov/food-search/?query=170000). Quercetin concentrations vary by cultivar and tissue, so a single reference value is omitted.*
 

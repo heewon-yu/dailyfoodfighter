@@ -22,19 +22,21 @@ Originating from western South America and popularized through Mediterranean die
 
 Data synthesized from the United States Department of Agriculture (USDA) FoodData Central reveals the macronutrient and micronutrient density per 100-gram serving:
 
-| Nutrient | Concentration | % Daily Value (DV) |
-| :--- | :--- | :--- |
-| Energy | 18 kcal (75 kJ) | < 1% |
-| Moisture Content | 94.5 g | - |
+| Nutrient | Per 100 g | U.S. %DV |
+| :--- | ---: | ---: |
+| Energy | 18 kcal (75 kJ) | No DV |
+| Moisture Content | 94.5 g | No DV |
 | Total Carbohydrates | 3.9 g | 1.4% |
 | Dietary Fiber | 1.2 g | 4.3% |
-| Protein | 0.9 g | 1.8% |
+| Protein | 0.9 g | See note¹ |
 | Total Lipids (Fat) | 0.2 g | 0.3% |
-| **Lycopene** | **3,040 – 7,100 µg** | **Extremely High** |
+| **Lycopene** | **3,040 – 7,100 µg** | No DV |
 | Vitamin C (L-Ascorbic Acid) | 13.7 mg | 15.2% |
 | Vitamin K1 (Phylloquinone) | 7.9 µg | 6.6% |
 | Potassium (K) | 237 mg | 5.0% |
 | Folate (Vitamin B9) | 15 µg | 3.8% |
+
+**How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 ---
 

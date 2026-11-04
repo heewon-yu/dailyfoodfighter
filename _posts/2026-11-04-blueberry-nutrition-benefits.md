@@ -22,20 +22,22 @@ permalink: /posts/blueberry-nutrition-benefits/
 
 미국 농무부(USDA FoodData Central) 분석 기준, 생 블루베리 100g당 함유된 주요 거대 영양소와 생리활성 미량 영양소 수치는 다음과 같습니다.
 
-| 영양 성분 | 함량 | 일일 권장 섭취량(DV) 대비 |
-| :--- | :--- | :--- |
-| 열량 (Calories) | 57 kcal | 2.9% |
-| 수분 (Water) | 84.2 g | - |
-| 탄수화물 (Carbohydrates) | 14.5 g | 5.3% |
-| 식이섬유 (Dietary Fiber) | 2.4 g | 8.6% |
-| 당류 (Sugars) | 9.96 g | - |
-| 단백질 (Protein) | 0.74 g | 1.5% |
-| 지방 (Fat) | 0.33 g | 0.5% |
-| **안토시아닌 (Anthocyanins)** | **163~387 mg** | **초고농도** |
-| 비타민 C (Ascorbic Acid) | 9.7 mg | 11% |
-| 비타민 K (Phylloquinone) | 19.3 µg | 16% |
-| 망간 (Manganese) | 0.336 mg | 15% |
-| 칼륨 (Potassium) | 77 mg | 1.6% |
+| 영양 성분 | 100 g당 함량 | 미국 %DV |
+| :--- | ---: | ---: |
+| 열량 | 57 kcal | 기준치 없음 |
+| 수분 | 84.2 g | 기준치 없음 |
+| 탄수화물 | 14.5 g | 5.3% |
+| 식이섬유 | 2.4 g | 8.6% |
+| 당류 | 9.96 g | 기준치 없음 |
+| 단백질 | 0.74 g | 별도 표기¹ |
+| 지방 | 0.33 g | 0.4% |
+| **안토시아닌** | **163~387 mg** | 기준치 없음 |
+| 비타민 C | 9.7 mg | 10.8% |
+| 비타민 K | 19.3 µg | 16.1% |
+| 망간 | 0.336 mg | 14.6% |
+| 칼륨 | 77 mg | 1.6% |
+
+**표 읽는 법.** 미국 %DV는 생것 100 g이 [FDA 일일기준치](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label)의 몇 퍼센트인지 보여줍니다. ‘기준치 없음’은 성분이 없다는 뜻이 아닙니다. ¹ 단백질은 일반 식품 영양표시 관행에 따라 g으로 표시했습니다.
 
 *데이터 출처: USDA FoodData Central & Journal of Agricultural and Food Chemistry*
 

@@ -22,20 +22,22 @@ Beyond their favorable culinary versatility and low energy density, blueberries 
 
 Synthesized from empirical spectroscopic data published in the United States Department of Agriculture (USDA) FoodData Central, the macronutrient and micronutrient density per 100-gram raw edible portion comprises:
 
-| Nutrient | Measured Concentration | % Daily Value (DV) |
-| :--- | :--- | :--- |
-| Energy | 57.0 kcal (238 kJ) | 2.9% |
-| Moisture Content | 84.21 g | - |
+| Nutrient | Per 100 g | U.S. %DV |
+| :--- | ---: | ---: |
+| Energy | 57.0 kcal (238 kJ) | No DV |
+| Moisture Content | 84.21 g | No DV |
 | Total Carbohydrates | 14.49 g | 5.3% |
 | Dietary Fiber | 2.40 g | 8.6% |
-| Free Sugars | 9.96 g | - |
-| Crude Protein | 0.74 g | 1.5% |
-| Total Lipids (Fat) | 0.33 g | 0.5% |
-| **Total Anthocyanins** | **163.3 - 386.6 mg** | **Super-Concentrated** |
+| Free Sugars | 9.96 g | No DV |
+| Crude Protein | 0.74 g | See note¹ |
+| Total Lipids (Fat) | 0.33 g | 0.4% |
+| **Total Anthocyanins** | **163.3 - 386.6 mg** | No DV |
 | Vitamin C (Ascorbic Acid) | 9.70 mg | 10.8% |
 | Vitamin K (Phylloquinone) | 19.30 µg | 16.1% |
 | Manganese | 0.336 mg | 14.6% |
 | Potassium | 77.00 mg | 1.6% |
+
+**How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 *Data Source: USDA FoodData Central & Journal of Agricultural and Food Chemistry.*
 

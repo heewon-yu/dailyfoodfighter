@@ -22,18 +22,20 @@ Far beyond its versatile culinary profile, {English Food Name} delivers an extra
 
 Data synthesized from the United States Department of Agriculture (USDA) FoodData Central reveals the nutritional density per 100-gram raw edible portion:
 
-| Nutrient | Concentration | % Daily Value (DV) |
-| :--- | :--- | :--- |
-| Energy | 00 kcal (000 kJ) | < 0% |
-| Moisture Content | 00.0 g | - |
+| Nutrient | Per 100 g | U.S. %DV |
+| :--- | ---: | ---: |
+| Energy | 00 kcal (000 kJ) | No DV |
+| Moisture Content | 00.0 g | No DV |
 | Carbohydrates | 0.0 g | 0.0% |
 | Dietary Fiber | 0.0 g | 0.0% |
-| Protein | 0.0 g | 0.0% |
+| Protein | 0.0 g | See note¹ |
 | Total Lipids (Fat) | 0.0 g | 0.0% |
-| **{Key Bioactive 1}** | **000 mg** | **Substantial** |
+| **{Key Bioactive 1}** | **000 mg** | No DV |
 | **{Key Bioactive 2}** | **000 µg** | **00%** |
 | Potassium | 000 mg | 0% |
 | Vitamin C (Ascorbic Acid) | 00.0 mg | 00% |
+
+**How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 *Data Source: USDA FoodData Central & National Standard Food Composition Database.*
 
