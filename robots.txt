@@ -5,4 +5,40 @@ layout: null
 User-agent: *
 Allow: /
 
+# AI Search & Retrieval Crawlers (ChatGPT Search, Perplexity, Claude, Apple, Google AI)
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+# Sitemaps & RSS Feeds
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
+Sitemap: {{ '/feed.xml' | absolute_url }}
+
+# Daum Webmaster Tool Verification
+#DaumWebMasterTool:fdb49db672042e07370e6ba2b1b9d16e53f748b985e05667366d8b8cbca2ccde:u1KY4V8+6gddZ3NiGzwUZw==

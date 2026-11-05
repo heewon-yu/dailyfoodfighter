@@ -49,9 +49,15 @@
     "description": "{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
     "url": "{{ page.url | absolute_url }}",
     {% if page.layout == 'post' %}
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ page.url | absolute_url }}"
+    },
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
+    "isAccessibleForFree": "True",
+    "genre": "Nutrition Science & Food Chemistry",
     "author": {
       "@type": "Organization",
       "name": "DailyFoodFighter",
