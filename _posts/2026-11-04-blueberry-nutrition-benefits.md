@@ -7,6 +7,7 @@ category: "과일"
 tags: [블루베리, 안토시아닌, 항산화, 뇌건강, 심혈관건강]
 description: "타임지 선정 10대 슈퍼푸드 블루베리의 핵심 생리활성 물질 안토시아닌 분석과 뇌 인지기능, 혈관 보호 효능 및 최적의 섭취 가이드를 과학적으로 정리합니다."
 permalink: /posts/blueberry-nutrition-benefits/
+image: "/assets/images/blueberry.jpg"
 ---
 
 ![신선한 블루베리의 표면 과분과 짙은 보라색 색소](/assets/images/blueberry.jpg)

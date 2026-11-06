@@ -7,6 +7,7 @@ category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
 description: "An evidence-based guide to onion nutrition, quercetin absorption, blood pressure research, fructan tolerance, and cooking methods."
 permalink: /en/posts/onion-nutrition-benefits/
+image: "/assets/images/onion.jpg"
 ---
 
 ![Layers visible in the cut surfaces of sliced onions](/assets/images/onion.jpg)

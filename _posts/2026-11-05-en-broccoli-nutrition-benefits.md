@@ -7,6 +7,7 @@ category: "Vegetables"
 tags: [Broccoli, Sulforaphane, Nrf2, Chemoprotection, CruciferousVegetables]
 description: "A comprehensive clinical review evaluating Brassica oleracea var. italica, examining glucoraphanin-myrosinase hydrolysis, phase II enzyme induction, and bioavailable steaming kinetics."
 permalink: /en/posts/broccoli-nutrition-benefits/
+image: "/assets/images/broccoli.jpg"
 ---
 
 ![Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board](/assets/images/broccoli.jpg)

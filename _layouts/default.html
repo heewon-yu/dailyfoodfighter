@@ -25,11 +25,23 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
+  {% if page.image %}
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  {% else %}
+  <meta property="og:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
+  {% endif %}
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary">
+  <!-- Twitter Card (Summary Large Image) -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Dailyfoodfff">
+  <meta name="twitter:creator" content="@Dailyfoodfff">
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.image %}
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  {% else %}
+  <meta name="twitter:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
+  {% endif %}
 
   <!-- Naver / Google Webmaster Verification -->
   {% if site.google_site_verification != "" %}
@@ -53,6 +65,9 @@
       "@type": "WebPage",
       "@id": "{{ page.url | absolute_url }}"
     },
+    {% if page.image %}
+    "image": "{{ page.image | absolute_url }}",
+    {% endif %}
     "datePublished": "{{ page.date | date_to_xmlschema }}",
     "dateModified": "{{ page.date | date_to_xmlschema }}",
     "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
@@ -116,6 +131,7 @@
         <a href="{{ '/en/category/meat/' | relative_url }}">Meat & Protein</a>
         <a href="{{ '/en/category/seafood/' | relative_url }}">Seafood</a>
         <a href="{{ '/en/about/' | relative_url }}">About</a>
+        <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 @Dailyfoodfff</a>
         {% else %}
         <a href="{{ '/' | relative_url }}">전체글</a>
         <a href="{{ '/category/과일/' | relative_url }}">과일</a>
@@ -123,6 +139,7 @@
         <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
         <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
         <a href="{{ '/about/' | relative_url }}">소개</a>
+        <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 공식계정</a>
         {% endif %}
       </nav>
     </div>
@@ -141,11 +158,15 @@
         {% if page.lang == 'en' %}
         <a href="{{ '/en/about/' | relative_url }}">About Us</a>
         <span>·</span>
+        <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer">Official 𝕏 (@Dailyfoodfff)</a>
+        <span>·</span>
         <a href="{{ '/en/privacy/' | relative_url }}">Privacy Policy</a>
         <span>·</span>
         <a href="{{ '/en/contact/' | relative_url }}">Contact Us</a>
         {% else %}
         <a href="{{ '/about/' | relative_url }}">블로그 소개</a>
+        <span>·</span>
+        <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer">공식 𝕏 (@Dailyfoodfff)</a>
         <span>·</span>
         <a href="{{ '/privacy/' | relative_url }}">개인정보처리방침</a>
         <span>·</span>

@@ -7,6 +7,7 @@ category: "Fruits"
 tags: [Blueberries, Anthocyanins, Neuroprotection, VascularHealth, EvidenceBased]
 description: "A comprehensive clinical review evaluating the biochemical mechanisms of Vaccinium corymbosum, examining anthocyanin bioavailability, cognitive preservation, and metabolic modulation."
 permalink: /en/posts/blueberry-nutrition-benefits/
+image: "/assets/images/blueberry.jpg"
 ---
 
 ![Fresh organic blueberries with natural protective bloom in a rustic ceramic bowl](/assets/images/blueberry.jpg)

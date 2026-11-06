@@ -7,6 +7,7 @@ category: "육류"
 tags: [소고기등심, 헴철, 크레아틴, L카르니틴, 단백질근합성]
 description: "최고급 붉은 살코기 소고기 등심의 필수 아미노산(류신)과 생체이용률 1위 헴철(Heme Iron), 세포 에너지 대사를 이끄는 크레아틴과 카르니틴의 과학적 효능을 분석합니다."
 permalink: /posts/beef-sirloin-nutrition-benefits/
+image: "/assets/images/beef-sirloin.jpg"
 ---
 
 ![신선한 마블링의 생 소고기 등심 스테이크와 로즈마리](/assets/images/beef-sirloin.jpg)

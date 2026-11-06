@@ -7,6 +7,7 @@ category: "과일"
 tags: [토마토, 라이코펜, 항산화, 영양학, 건강식단]
 description: "토마토의 핵심 항산화 물질 라이코펜의 흡수율을 4배 이상 끌어올리는 과학적인 섭취법과 심혈관 건강 및 항암 효과를 분석합니다."
 permalink: /posts/tomato-nutrition-benefits/
+image: "/assets/images/tomato.jpg"
 ---
 
 ![신선한 완숙 토마토의 단면과 라이코펜 항산화 영양소](/assets/images/tomato.jpg)

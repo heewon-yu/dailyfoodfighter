@@ -7,6 +7,7 @@ category: "Fruits"
 tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
 description: "Discover the clinical science behind tomatoes, how thermal processing boosts lycopene absorption by over 400%, and evidence-based cardiovascular and prostate health benefits."
 permalink: /en/posts/tomato-nutrition-benefits/
+image: "/assets/images/tomato.jpg"
 ---
 
 ![Fresh red ripe tomatoes with cross section on wooden rustic background](/assets/images/tomato.jpg)

@@ -7,6 +7,7 @@ category: "채소"
 tags: [양파, 퀘르세틴, 항산화, 영양학, 건강식단]
 description: "생양파 100g의 영양 성분과 퀘르세틴 흡수 연구, 혈압 연구의 한계, 조리법과 프럭탄 섭취 주의점을 정리합니다."
 permalink: /posts/onion-nutrition-benefits/
+image: "/assets/images/onion.jpg"
 ---
 
 ![양파를 잘랐을 때 드러나는 겹겹의 단면](/assets/images/onion.jpg)

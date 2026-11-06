@@ -7,6 +7,7 @@ category: "채소"
 tags: [브로콜리, 설포라판, 십자화과채소, 항암효능, 세포해독]
 description: "십자화과 슈퍼푸드 브로콜리의 핵심 생리활성 물질 설포라판의 생성 원리와 세포 항산화 방어 체계(Nrf2), 심혈관 보호 및 최적의 찜 조리법을 과학적으로 분석합니다."
 permalink: /posts/broccoli-nutrition-benefits/
+image: "/assets/images/broccoli.jpg"
 ---
 
 ![신선한 유기농 브로콜리의 초록빛 꽃송이와 단단한 줄기 단면](/assets/images/broccoli.jpg)

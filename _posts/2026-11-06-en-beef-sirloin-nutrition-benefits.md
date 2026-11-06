@@ -7,6 +7,7 @@ category: "Meat"
 tags: [BeefSirloin, HemeIron, Creatine, LCarnitine, MuscleProteinSynthesis]
 description: "A comprehensive nutritional review evaluating top beef sirloin, analyzing leucine-mediated mTORC1 kinetics, heme iron bioavailability, cellular bioenergetics, and cardiometabolic considerations."
 permalink: /en/posts/beef-sirloin-nutrition-benefits/
+image: "/assets/images/beef-sirloin.jpg"
 ---
 
 ![Fresh raw beef sirloin steak with beautiful marbling and fresh rosemary on a rustic stone surface](/assets/images/beef-sirloin.jpg)
