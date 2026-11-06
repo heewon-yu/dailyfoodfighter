@@ -88,7 +88,7 @@
 - [ ] 낫토 (Natto)
 
 ## 🐟 수산물·해조류 (Seafood & Seaweed) - 20종
-- [ ] 연어 (Salmon)
+- [x] 연어 (Salmon) - 2026-11-06 한/영 발행완료
 - [ ] 고등어 (Mackerel)
 - [ ] 넙치/광어 (Halibut)
 - [ ] 조기/굴비 (Yellow Croaker)
