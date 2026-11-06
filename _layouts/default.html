@@ -26,9 +26,15 @@
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
   {% if page.image %}
-  <meta property="og:image" content="{{ page.image | absolute_url }}?v=2">
+  <meta property="og:image" content="{{ page.image | absolute_url }}">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="960">
   {% else %}
-  <meta property="og:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}?v=2">
+  <meta property="og:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
   {% endif %}
 
   <!-- Twitter Card (Compact Summary Card) -->
@@ -38,9 +44,11 @@
   <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   {% if page.image %}
-  <meta name="twitter:image" content="{{ page.image | absolute_url }}?v=3">
+  <meta name="twitter:image" content="{{ page.image | absolute_url }}">
+  <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   {% else %}
-  <meta name="twitter:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}?v=3">
+  <meta name="twitter:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
+  <meta name="twitter:image:alt" content="DailyFoodFighter Logo">
   {% endif %}
 
   <!-- Naver / Google Webmaster Verification -->
