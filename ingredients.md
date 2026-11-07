@@ -71,7 +71,7 @@
 - [ ] 돼지고기 삼겹살 (Pork Belly)
 - [ ] 돼지고기 목살 (Pork Shoulder)
 - [ ] 돼지고기 안심 (Pork Tenderloin)
-- [ ] 닭가슴살 (Chicken Breast)
+- [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
 - [ ] 닭다리살 (Chicken Thigh)
 - [ ] 오리고기 (Duck Meat)
 - [ ] 달걀 (Egg)
@@ -89,7 +89,7 @@
 
 ## 🐟 수산물·해조류 (Seafood & Seaweed) - 20종
 - [x] 연어 (Salmon) - 2026-11-06 한/영 발행완료
-- [ ] 고등어 (Mackerel)
+- [x] 고등어 (Mackerel) - 2026-11-07 한/영 발행완료
 - [ ] 넙치/광어 (Halibut)
 - [ ] 조기/굴비 (Yellow Croaker)
 - [ ] 삼치 (Spanish Mackerel)
