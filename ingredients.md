@@ -5,7 +5,7 @@
 - [x] 토마토 (Tomato) - 2026-11-04 한/영 발행완료
 - [ ] 사과 (Apple)
 - [ ] 배 (Asian Pear)
-- [ ] 바나나 (Banana)
+- [x] 바나나 (Banana) - 2026-11-08 한/영 발행완료
 - [ ] 오렌지 (Orange)
 - [ ] 귤 (Tangerine)
 - [ ] 포도 (Grape)
@@ -34,7 +34,7 @@
 - [ ] 마늘 (Garlic)
 - [ ] 브로콜리 (Broccoli)
 - [ ] 당근 (Carrot)
-- [ ] 시금치 (Spinach)
+- [x] 시금치 (Spinach) - 2026-11-08 한/영 발행완료
 - [ ] 양배추 (Cabbage)
 - [ ] 배추 (Napa Cabbage)
 - [ ] 무 (Radish)
