@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "소고기 등심 효능과 영양 성분의 과학적 진실: 헴철·크레아틴·L-카르니틴과 근합성 메커니즘"
+title: "소고기 등심 칼로리와 단백질 함량, 다이어트 부위별 효능과 헴철 흡수율"
 date: 2026-11-06 08:00:00 +0900
 lang: ko
 category: "육류"
 tags: [소고기등심, 헴철, 크레아틴, L카르니틴, 단백질근합성]
-description: "최고급 붉은 살코기 소고기 등심의 필수 아미노산(류신)과 생체이용률 1위 헴철(Heme Iron), 세포 에너지 대사를 이끄는 크레아틴과 카르니틴의 과학적 효능을 분석합니다."
+description: "소고기 등심 100g 영양 성분 분석: 부위별 칼로리와 단백질, 크레아틴·L-카르니틴 근합성 기전, 식물성 철분보다 4배 높은 헴철 흡수율과 다이어트 섭취 가이드."
 permalink: /posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
 ---

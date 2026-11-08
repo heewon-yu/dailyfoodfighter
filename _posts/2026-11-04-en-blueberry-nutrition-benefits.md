@@ -1,11 +1,11 @@
 ---
 layout: post
 lang: en
-title: "The Clinical Nutrition Science of Blueberries: Anthocyanin Bioavailability, Neuroprotection, and Vascular Health"
+title: "Blueberry Nutrition Facts & Calories: Fresh vs. Frozen Anthocyanin & Brain Health"
 date: 2026-11-04 08:00:00 +0900
 category: "Fruits"
 tags: [Blueberries, Anthocyanins, Neuroprotection, VascularHealth, EvidenceBased]
-description: "A comprehensive clinical review evaluating the biochemical mechanisms of Vaccinium corymbosum, examining anthocyanin bioavailability, cognitive preservation, and metabolic modulation."
+description: "Evidence-based nutrition facts of blueberries: calories, anthocyanin bioavailability in fresh vs. frozen berries, blood sugar regulation, and daily serving guidelines."
 permalink: /en/posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
 ---

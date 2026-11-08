@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "연어 효능과 영양 성분의 과학적 진실: 오메가-3(EPA·DHA)·아스타잔틴과 뇌·심혈관 항염증 메커니즘"
+title: "연어 칼로리와 오메가-3 효능, 생연어와 훈제연어 영양 성분 차이는?"
 date: 2026-11-06 18:00:00 +0900
 lang: ko
 category: "수산물"
 tags: [연어, 오메가3, 아스타잔틴, 비타민D, 심혈관건강]
-description: "천연 붉은 보석 연어(Salmon)의 생체이용률 1위 오메가-3 지방산(EPA·DHA)과 자연계 최강 항산화제 아스타잔틴, 비타민 D의 임상 영양학적 효능과 건강 조리법을 분석합니다."
+description: "연어 100g 영양 성분 정밀 분석: 부위별 칼로리, 오메가-3(EPA·DHA) 일일 충족량, 아스타잔틴 항산화력, 생연어와 훈제연어의 나트륨·영양소 보존율 비교."
 permalink: /posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 ---

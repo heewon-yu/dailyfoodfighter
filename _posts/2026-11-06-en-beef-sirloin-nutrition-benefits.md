@@ -1,11 +1,11 @@
 ---
 layout: post
 lang: en
-title: "The Clinical Nutrition Science of Beef Sirloin: Heme Iron Bioavailability, Creatine, L-Carnitine, and mTOR Muscle Protein Synthesis"
+title: "Beef Sirloin Nutrition Facts & Calories: 100g Protein Content & Heme Iron Absorption"
 date: 2026-11-06 08:00:00 +0900
 category: "Meat"
 tags: [BeefSirloin, HemeIron, Creatine, LCarnitine, MuscleProteinSynthesis]
-description: "A comprehensive nutritional review evaluating top beef sirloin, analyzing leucine-mediated mTORC1 kinetics, heme iron bioavailability, cellular bioenergetics, and cardiometabolic considerations."
+description: "Clinical guide to beef sirloin nutrition: calories, lean protein per 100g, creatine, L-carnitine muscle synthesis, and heme iron bioavailability for energy metabolism."
 permalink: /en/posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
 ---

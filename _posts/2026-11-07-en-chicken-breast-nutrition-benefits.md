@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Chicken Breast Nutrition Facts & Biochemistry: Leucine, BCAA, and Imidazole Dipeptides for Muscle Protein Synthesis"
+title: "Chicken Breast Nutrition Facts: Calories, Protein per 100g & Muscle Synthesis Guide"
 date: 2026-11-07 14:30:00 +0900
 lang: en
 category: "meat"
 tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synthesis]
-description: "Clinical nutrition analysis of chicken breast: How branched-chain amino acids (leucine) stimulate mTORC1 anabolic signaling and carnosine-anserine dipeptides mitigate cellular fatigue."
+description: "Comprehensive chicken breast nutrition guide: calories, 23g lean protein per 100g, leucine BCAA content for muscle growth, and cooking methods to prevent dryness."
 permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---

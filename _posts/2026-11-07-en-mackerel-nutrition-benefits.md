@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Mackerel Nutrition Facts & Marine Omega-3 Biochemistry: EPA, DHA, Vitamin D3, and Thrombosis Prevention"
+title: "Mackerel Nutrition Facts & Calories: Omega-3 EPA/DHA Content & Vitamin D3 Benefits"
 date: 2026-11-07 14:30:00 +0900
 lang: en
 category: "seafood"
 tags: [Mackerel, Omega-3, EPA, DHA, Cardiovascular Health, Brain Health]
-description: "Evidence-based nutritional biochemistry of Atlantic mackerel: How dense marine EPA and DHA dissolve arterial thrombi, boost neuronal synaptic plasticity, and supply natural vitamin D3."
+description: "Evidence-based mackerel nutrition guide: calories, high-potency marine omega-3 (EPA/DHA) for brain function, vitamin D3, and optimal grilling techniques to retain healthy fats."
 permalink: /en/posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---

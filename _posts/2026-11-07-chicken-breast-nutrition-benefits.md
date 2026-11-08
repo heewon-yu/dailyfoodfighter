@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "닭가슴살 단백질과 영양 성분의 생화학: BCAA·이미다졸 디펩티드와 근합성·피로 회복 메커니즘"
+title: "닭가슴살 100g 단백질 함량과 칼로리, 퍽퍽하지 않게 삶는 법과 근합성 BCAA"
 date: 2026-11-07 14:30:00 +0900
 lang: ko
 category: "육류"
 tags: [닭가슴살, 단백질, BCAA, 이미다졸디펩티드, 근합성]
-description: "고순도 단백질 급원 닭가슴살의 생화학적 가치: 필수아미노산 BCAA의 mTORC1 근합성 신호 전달 경로와 피로 물질 젖산을 분해하는 카르노신·안세린의 메커니즘을 분석합니다."
+description: "닭가슴살 100g 영양 성분 분석: 순수 단백질 23g과 칼로리, 류신(BCAA)과 이미다졸 디펩티드의 피로 회복·근합성 기전, 육즙 손실을 막는 저온 조리 과학."
 permalink: /posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---

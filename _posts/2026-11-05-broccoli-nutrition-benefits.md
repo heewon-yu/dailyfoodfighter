@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "브로콜리 효능과 영양 성분의 과학적 진실: 설포라판과 세포 해독·항암 메커니즘"
+title: "브로콜리 효능과 칼로리, 데치는 시간과 설포라판 흡수율 극대화법"
 date: 2026-11-05 08:00:00 +0900
 lang: ko
 category: "채소"
 tags: [브로콜리, 설포라판, 십자화과채소, 항암효능, 세포해독]
-description: "십자화과 슈퍼푸드 브로콜리의 핵심 생리활성 물질 설포라판의 생성 원리와 세포 항산화 방어 체계(Nrf2), 심혈관 보호 및 최적의 찜 조리법을 과학적으로 분석합니다."
+description: "브로콜리 영양 성분 과학 분석: 칼로리, 끓는 물에 1분 이상 데치면 미로시나아제가 파괴되는 이유, 찜 요리와 겨자씨 배합으로 설포라판 흡수율 3배 높이는 법."
 permalink: /posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---

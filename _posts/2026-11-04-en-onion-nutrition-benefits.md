@@ -1,11 +1,11 @@
 ---
 layout: post
 lang: en
-title: "The Clinical Nutrition Science of Onions: Quercetin, Bioavailability, and Culinary Preparation"
+title: "Onion Nutrition Facts & Calories: Raw vs. Cooked for Maximum Quercetin Absorption"
 date: 2026-11-04 00:00:00 +0900
 category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
-description: "An evidence-based guide to onion nutrition, quercetin absorption, blood pressure research, fructan tolerance, and cooking methods."
+description: "Scientific analysis of onion nutrition: calories, quercetin bioavailability in raw vs. sautéed onions, heart health benefits, and proper storage methods."
 permalink: /en/posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 ---

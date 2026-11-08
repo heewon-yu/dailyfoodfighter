@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Spinach Nutrition Facts & Biochemistry: Lutein, Dietary Nitrates, and Phylloquinone for Endothelial Function and Macular Density"
+title: "Spinach Nutrition Facts & Calories: Raw vs. Cooked Oxalate Reduction & Eye Health"
 date: 2026-11-08 08:00:00 +0900
 lang: en
 category: "vegetable"
 tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
-description: "Comprehensive biochemical breakdown of spinach: How dietary nitrates generate nitric oxide for vascular elasticity, phylloquinone (vitamin K1) activates osteocalcin for bone matrix, and lutein protects retinal photoreceptors."
+description: "Scientific analysis of spinach nutrition: calories, why blanching reduces oxalates by 87% for kidney stone prevention, lutein eye protection, and dietary nitrates."
 permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 ---

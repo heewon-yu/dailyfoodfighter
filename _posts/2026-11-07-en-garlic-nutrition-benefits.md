@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "The Clinical Biochemistry of Garlic: Allicin Biosynthesis, Organosulfur Cascades, and Cardiovascular Vasodilation"
+title: "Garlic Nutrition Facts & Health Benefits: Raw vs. Cooked Allicin & Daily Dosage"
 date: 2026-11-07 08:00:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Garlic, Allicin, Organosulfur, CardiovascularHealth, ImmuneFunction]
-description: "A comprehensive molecular analysis of raw garlic (Allium sativum): the alliinase enzymatic reaction, hydrogen sulfide gasotransmitter vasodilation, and the 10-minute culinary rule."
+description: "Clinical biochemistry of garlic: calories, why crushing and resting for 10 minutes maximizes allicin formation, cardiovascular blood pressure regulation, and immune benefits."
 permalink: /en/posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 ---

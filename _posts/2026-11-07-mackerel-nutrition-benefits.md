@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "고등어 효능과 영양 성분의 과학: 오메가-3(EPA·DHA)·핵산과 뇌세포 활성화·혈전 예방 메커니즘"
+title: "고등어 칼로리와 오메가-3 함량, 구이와 조림의 영양 보존법과 EPA·DHA 효능"
 date: 2026-11-07 14:30:00 +0900
 lang: ko
 category: "수산물"
 tags: [고등어, 오메가3, DHA, EPA, 뇌건강, 혈관건강]
-description: "푸른 바다의 영양 보고 고등어(Mackerel)의 분자생물학적 분석: 고농도 오메가-3 불포화지방산의 혈전 용해 및 뇌세포 시냅스 강화, 비타민 D·셀레늄의 면역 증강 효능을 규명합니다."
+description: "고등어 100g 영양 성분 분석: 칼로리, 등푸른 생선 중 최고 수준인 오메가-3(EPA·DHA) 함량, 뇌세포 활성화와 혈전 예방 기전, 기름에 튀길 때 오메가-3 산화 방지법."
 permalink: /posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---

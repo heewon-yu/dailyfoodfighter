@@ -1,11 +1,11 @@
 ---
 layout: post
 lang: en
-title: "The Science of Tomatoes and Lycopene: Raw vs. Cooked for Maximum Bioavailability"
+title: "Tomato Nutrition Facts & Calories: Raw vs. Cooked for Maximum Lycopene Absorption"
 date: 2026-11-04 00:00:00 +0900
 category: "Fruits"
 tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
-description: "Discover the clinical science behind tomatoes, how thermal processing boosts lycopene absorption by over 400%, and evidence-based cardiovascular and prostate health benefits."
+description: "Clinical breakdown of tomato nutrition: calories, why heating with olive oil boosts lycopene absorption by 400%, cardiovascular benefits, and prostate health."
 permalink: /en/posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
 ---

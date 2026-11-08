@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "The Molecular Biochemistry of Apple Nutrition: Pectin, Quercetin, and Gut-Endothelial Cross-Talk"
+title: "Apple Nutrition Facts & Calories: Morning Apple Benefits, Peels & Pectin Science"
 date: 2026-11-07 08:00:00 +0900
 lang: en
 category: "Fruits"
 tags: [Apple, Pectin, Quercetin, GutMicrobiome, CardiovascularHealth]
-description: "An evidence-based clinical analysis of apples: how soluble pectin fuels short-chain fatty acid (SCFA) biosynthesis and peel-bound quercetin shields vascular endothelium."
+description: "Evidence-based apple nutrition facts: calories per medium apple, why pectin and ursolic acid are concentrated in the peel, blood sugar control, and gut microbiome benefits."
 permalink: /en/posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
 ---

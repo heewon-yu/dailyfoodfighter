@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Scientific Truth of Salmon Nutrition: Long-Chain Omega-3s (EPA & DHA), Astaxanthin, and Systemic Anti-Inflammatory Mechanisms"
+title: "Salmon Nutrition Facts & Calories: Wild vs. Farmed Omega-3s & Astaxanthin Health Benefits"
 date: 2026-11-06 18:00:00 +0900
 lang: en
 category: "Seafood"
 tags: [Salmon, Omega3, Astaxanthin, VitaminD, CardiovascularHealth]
-description: "Discover the clinical biochemistry of Atlantic salmon: bioavailable long-chain omega-3 fatty acids (EPA/DHA), astaxanthin, and vitamin D for metabolic and brain health."
+description: "Scientific analysis of salmon nutrition: calories, EPA & DHA omega-3 content in wild vs. farmed salmon, astaxanthin anti-inflammatory power, and cooking retention."
 permalink: /en/posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 ---

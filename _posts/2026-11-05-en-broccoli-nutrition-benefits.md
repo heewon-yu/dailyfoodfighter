@@ -1,11 +1,11 @@
 ---
 layout: post
 lang: en
-title: "The Clinical Nutrition Science of Broccoli: Sulforaphane Biosynthesis, Cellular Nrf2 Detoxification, and Cardiometabolic Protection"
+title: "Broccoli Nutrition Facts & Calories: Steaming Time & Sulforaphane Bioavailability"
 date: 2026-11-05 08:00:00 +0900
 category: "Vegetables"
 tags: [Broccoli, Sulforaphane, Nrf2, Chemoprotection, CruciferousVegetables]
-description: "A comprehensive clinical review evaluating Brassica oleracea var. italica, examining glucoraphanin-myrosinase hydrolysis, phase II enzyme induction, and bioavailable steaming kinetics."
+description: "Evidence-based broccoli nutrition science: calories, why boiling destroys myrosinase, optimal steaming time, and how mustard seeds boost sulforaphane absorption."
 permalink: /en/posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---

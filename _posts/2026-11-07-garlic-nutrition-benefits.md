@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "마늘 효능과 영양 성분의 과학적 진실: 알리신·유기유황과 혈관 청소·면역 활성화 메커니즘"
+title: "마늘 효능과 하루 권장량, 으깬 후 10분 두어야 알리신이 생기는 이유"
 date: 2026-11-07 08:00:00 +0900
 lang: ko
 category: "채소·야채"
 tags: [마늘, 알리신, 유기유황, 면역력, 혈관건강]
-description: "자연이 준 천연 항생제 마늘(Garlic)의 핵심 유효 성분인 알리신(Allicin) 생성 생화학과 혈관벽 산화질소(NO) 합성, 면역 세포 증강 메커니즘 및 10분 활성화 조리법을 정밀 분석합니다."
+description: "마늘 영양 성분 정밀 분석: 칼로리, 으깬 직후 가열하면 알리신이 파괴되는 메커니즘과 '10분의 법칙', 혈관 이완 및 혈압 안정 효능, 하루 적정 섭취량 가이드."
 permalink: /posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 ---

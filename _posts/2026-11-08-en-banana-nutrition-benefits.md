@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Banana Nutrition Facts & Biochemistry: Potassium, Vitamin B6, and Resistant Starch for Cardiovascular and Gut Health"
+title: "Banana Nutrition Facts & Calories: Green vs. Ripe Sugar Content & Morning Fasting Guide"
 date: 2026-11-08 08:00:00 +0900
 lang: en
 category: "fruit"
 tags: [Banana, Potassium, Vitamin B6, Resistant Starch, Gut Microbiome]
-description: "Clinical biochemical analysis of bananas: How 358mg of potassium modulates the sodium pump for arterial elasticity, resistant starch fuels short-chain fatty acid synthesis, and pyridoxine optimizes serotonin neurotransmission."
+description: "Comprehensive banana nutrition guide: calories, potassium, green vs. yellow resistant starch breakdown, morning empty-stomach myths, and serotonin synthesis."
 permalink: /en/posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
 ---

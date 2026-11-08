@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "양파 효능과 영양 성분의 과학적 진실: 퀘르세틴을 섭취하려면 생으로 먹어야 할까?"
+title: "양파 효능과 칼로리, 퀘르세틴 흡수를 위해 생으로 먹을까 볶아 먹을까?"
 date: 2026-11-04 00:00:00 +0900
 lang: ko
 category: "채소"
 tags: [양파, 퀘르세틴, 항산화, 영양학, 건강식단]
-description: "생양파 100g의 영양 성분과 퀘르세틴 흡수 연구, 혈압 연구의 한계, 조리법과 프럭탄 섭취 주의점을 정리합니다."
+description: "양파 100g 영양 성분 정밀 분석: 칼로리, 가열 조리 시 퀘르세틴 파괴율과 지용성 흡수 메커니즘, 혈관 청소 및 혈당 강하 효능과 올바른 섭취법을 규명합니다."
 permalink: /posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 ---
