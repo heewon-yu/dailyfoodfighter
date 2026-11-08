@@ -77,16 +77,18 @@ jobs:
           assert 'User-agent: OAI-SearchBot' in robots and 'User-agent: Claude-SearchBot' in robots
           PY
 
-      - name: Confirm Cloudflare Pages sitemap and submit to IndexNow
+      - name: Submit the validated sitemap to IndexNow
         if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
-          for attempt in 1 2 3 4 5 6 7 8; do
-            if bash scripts/ping-indexnow.sh --deployed-sitemap _site/sitemap.xml; then
+          # Cloudflare Pages deploys in parallel with this workflow.
+          sleep 30
+          for attempt in 1 2 3; do
+            if bash scripts/ping-indexnow.sh --sitemap-file _site/sitemap.xml; then
               exit 0
             else
               result=$?
               if [ "$result" -eq 3 ]; then exit "$result"; fi
             fi
-            if [ "$attempt" -lt 8 ]; then sleep 30; fi
+            if [ "$attempt" -lt 3 ]; then sleep 30; fi
           done
           exit 1
