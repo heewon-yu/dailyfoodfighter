@@ -3,6 +3,8 @@ name: SEO validation and IndexNow submission
 on:
   pull_request:
     paths:
+      - '_posts/**'
+      - '_config.yml'
       - '_layouts/default.html'
       - 'sitemap.xml'
       - 'robots.txt'
@@ -11,6 +13,11 @@ on:
   push:
     branches: [main]
     paths:
+      - '_posts/**'
+      - '_config.yml'
+      - '_layouts/default.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
       - 'scripts/ping-indexnow.sh'
       - '.github/workflows/search-indexing.yml'
   workflow_dispatch:
@@ -21,6 +28,9 @@ permissions:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: search-indexing-${{ github.ref }}
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - name: Build and validate search files
@@ -67,19 +77,11 @@ jobs:
           assert 'User-agent: OAI-SearchBot' in robots and 'User-agent: Claude-SearchBot' in robots
           PY
 
-  submit:
-    if: github.event_name != 'pull_request'
-    needs: validate
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    concurrency:
-      group: production-indexnow
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-      - name: Wait for the public deployment and submit its sitemap URLs
+      - name: Confirm Cloudflare Pages sitemap and submit to IndexNow
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
         run: |
           for attempt in 1 2 3 4 5 6 7 8; do
-            if bash scripts/ping-indexnow.sh --sitemap; then
+            if bash scripts/ping-indexnow.sh --deployed-sitemap _site/sitemap.xml; then
               exit 0
             else
               result=$?
