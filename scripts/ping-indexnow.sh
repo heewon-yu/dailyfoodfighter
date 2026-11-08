@@ -1,55 +1,62 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-HOST="dailyfoodfighter.com"
-KEY="c7438e83b8a14ec1a1961efce1d2f782"
-KEY_LOCATION="https://dailyfoodfighter.com/c7438e83b8a14ec1a1961efce1d2f782.txt"
+python3 - "$@" <<'PY'
+import json
+import sys
+import urllib.error
+import urllib.parse
+import urllib.request
+import xml.etree.ElementTree as ET
 
-# If URLs passed as arguments, use them; otherwise, build from arguments or defaults
-URL_LIST=()
-if [ "$#" -gt 0 ]; then
-  for url in "$@"; do
-    URL_LIST+=("\"$url\"")
-  done
-else
-  # Default URLs to ping
-  URL_LIST+=("\"https://dailyfoodfighter.com/\"")
-  URL_LIST+=("\"https://dailyfoodfighter.com/en/\"")
-  URL_LIST+=("\"https://dailyfoodfighter.com/posts/tomato-nutrition-benefits/\"")
-  URL_LIST+=("\"https://dailyfoodfighter.com/en/posts/tomato-nutrition-benefits/\"")
-fi
+host = "dailyfoodfighter.com"
+origin = f"https://{host}"
+key = "c7438e83b8a14ec1a1961efce1d2f782"
+key_location = f"{origin}/{key}.txt"
+endpoint = "https://api.indexnow.org/indexnow"
 
-URLS_JSON=$(IFS=,; echo "${URL_LIST[*]}")
+def read_url(url):
+    with urllib.request.urlopen(url, timeout=20) as response:
+        if response.status != 200 or response.geturl() != url:
+            raise ValueError(f"Expected HTTP 200 without redirect: {url}")
+        return response.read()
 
-PAYLOAD=$(cat <<EOF
-{
-  "host": "$HOST",
-  "key": "$KEY",
-  "keyLocation": "$KEY_LOCATION",
-  "urlList": [
-    $URLS_JSON
-  ]
-}
-EOF
-)
+def main(args):
+    if not args:
+        raise ValueError("Usage: ping-indexnow.sh --sitemap | HTTPS_URL [HTTPS_URL ...]")
+    if args == ["--sitemap"]:
+        robots = read_url(f"{origin}/robots.txt").decode()
+        if "User-agent: Claude-SearchBot" not in robots:
+            raise ValueError("SEO crawler settings are not deployed yet.")
+        sitemap = ET.fromstring(read_url(f"{origin}/sitemap.xml"))
+        args = [loc.text.strip() for loc in sitemap.findall("./{*}url/{*}loc") if loc.text]
+    urls = list(dict.fromkeys(args))
+    if not urls or len(urls) > 10000:
+        raise ValueError("IndexNow requires between 1 and 10,000 URLs per request.")
+    for url in urls:
+        parsed = urllib.parse.urlsplit(url)
+        if parsed.scheme != "https" or parsed.netloc != host or parsed.query or parsed.fragment:
+            raise ValueError(f"Expected a canonical URL on {host}: {url}")
+    if read_url(key_location).decode().strip() != key:
+        raise ValueError("The live IndexNow key file does not match the submission key.")
+    for url in urls:
+        read_url(url)
 
-echo "=== [IndexNow Ping Request Payload] ==="
-echo "$PAYLOAD"
-echo "======================================"
+    data = json.dumps({"host": host, "key": key, "keyLocation": key_location, "urlList": urls})
+    request = urllib.request.Request(
+        endpoint,
+        data=data.encode(),
+        headers={"Content-Type": "application/json; charset=utf-8"},
+        method="POST",
+    )
+    with urllib.request.urlopen(request, timeout=30) as response:
+        if response.status not in (200, 202):
+            raise ValueError(f"Unexpected IndexNow response: HTTP {response.status}")
+        result = "accepted" if response.status == 200 else "received; key verification pending"
+        print(f"IndexNow HTTP {response.status}: {result} ({len(urls)} URLs). Indexing is separate.")
 
-# 1. IndexNow Universal API (Bing, Yandex, etc.)
-echo -n "Pinging api.indexnow.org... "
-STATUS_INDEXNOW=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD" "https://api.indexnow.org/indexnow" || true)
-echo "HTTP $STATUS_INDEXNOW"
-
-# 2. Bing IndexNow Direct API
-echo -n "Pinging www.bing.com/indexnow... "
-STATUS_BING=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD" "https://www.bing.com/indexnow" || true)
-echo "HTTP $STATUS_BING"
-
-# 3. Naver Search Advisor IndexNow API
-echo -n "Pinging searchadvisor.naver.com/indexnow... "
-STATUS_NAVER=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Content-Type: application/json; charset=utf-8" -d "$PAYLOAD" "https://searchadvisor.naver.com/indexnow" || true)
-echo "HTTP $STATUS_NAVER"
-
-echo "=== IndexNow Ping Completed ==="
+try:
+    main(sys.argv[1:])
+except (ValueError, ET.ParseError, OSError) as error:
+    sys.exit(f"IndexNow submission failed: {error}")
+PY

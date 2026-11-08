@@ -1,0 +1,85 @@
+name: SEO validation and IndexNow submission
+
+on:
+  pull_request:
+    paths:
+      - '_layouts/default.html'
+      - 'sitemap.xml'
+      - 'robots.txt'
+      - 'scripts/ping-indexnow.sh'
+      - '.github/workflows/search-indexing.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/search-indexing.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Build and validate search files
+        run: |
+          sudo gem install jekyll -v '~> 4.3' --no-document
+          jekyll build
+          bash -n scripts/ping-indexnow.sh
+          python3 - <<'PY'
+          import json
+          from html.parser import HTMLParser
+          from pathlib import Path
+          import xml.etree.ElementTree as ET
+
+          origin = 'https://dailyfoodfighter.com'
+          slug = 'tomato-nutrition-benefits'
+          urls = {'ko': f'{origin}/posts/{slug}/', 'en': f'{origin}/en/posts/{slug}/'}
+
+          class Page(HTMLParser):
+              def __init__(self):
+                  super().__init__()
+                  self.canonical = []
+                  self.alternates = {}
+              def handle_starttag(self, tag, attributes):
+                  a = dict(attributes)
+                  if tag == 'link' and a.get('rel') == 'canonical':
+                      self.canonical.append(a['href'])
+                  if tag == 'link' and a.get('rel') == 'alternate' and a.get('hreflang'):
+                      self.alternates[a['hreflang']] = a['href']
+
+          for lang, url in urls.items():
+              html = Path('_site', url.removeprefix(origin).lstrip('/'), 'index.html').read_text()
+              page = Page()
+              page.feed(html)
+              assert page.canonical == [url], (lang, page.canonical)
+              assert page.alternates == urls, (lang, page.alternates)
+              import re
+              schema = json.loads(re.search(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S).group(1))
+              assert schema['@type'] == 'BlogPosting' and schema['inLanguage'] == lang
+          root = ET.parse('_site/sitemap.xml').getroot()
+          locs = [loc.text for loc in root.findall('./{*}url/{*}loc')]
+          assert len(locs) == len(set(locs)) and set(urls.values()) <= set(locs)
+          robots = Path('_site/robots.txt').read_text()
+          assert 'User-agent: OAI-SearchBot' in robots and 'User-agent: Claude-SearchBot' in robots
+          PY
+
+  submit:
+    if: github.event_name != 'pull_request'
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    concurrency:
+      group: production-indexnow
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Wait for the public deployment and submit its sitemap URLs
+        run: |
+          for attempt in 1 2 3 4 5 6 7 8; do
+            if bash scripts/ping-indexnow.sh --sitemap; then
+              exit 0
+            fi
+            if [ "$attempt" -lt 8 ]; then sleep 30; fi
+          done
+          exit 1
