@@ -61,6 +61,7 @@ jobs:
           root = ET.parse('_site/sitemap.xml').getroot()
           locs = [loc.text for loc in root.findall('./{*}url/{*}loc')]
           assert len(locs) == len(set(locs)) and set(urls.values()) <= set(locs)
+          assert all(loc.isascii() for loc in locs), 'Sitemap URLs must be URI-encoded'
           robots = Path('_site/robots.txt').read_text()
           assert 'User-agent: OAI-SearchBot' in robots and 'User-agent: Claude-SearchBot' in robots
           PY

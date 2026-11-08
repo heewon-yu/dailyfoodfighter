@@ -25,7 +25,7 @@ layout: null
   {% for page in site.pages %}
   {% if page.url contains '/category/' %}
   <url>
-    <loc>{{ page.url | absolute_url | xml_escape }}</loc>
+    <loc>{{ page.url | absolute_url | uri_escape | xml_escape }}</loc>
   </url>
   {% endif %}
   {% endfor %}
