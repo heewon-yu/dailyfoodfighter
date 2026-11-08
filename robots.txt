@@ -50,4 +50,4 @@ Sitemap: {{ '/sitemap.xml' | absolute_url }}
 Sitemap: {{ '/feed.xml' | absolute_url }}
 
 # Daum Webmaster Tool Verification
-#DaumWebMasterTool:fdb49db672042e07370e6ba2b1b9d16e53f748b985e05667366d8b8cbca2ccde:u1KY4V8+6gddZ3NiGzwUZw==
+DaumWebMasterTool:fdb49db672042e07370e6ba2b1b9d16e53f748b985e05667366d8b8cbca2ccde:u1KY4V8+6gddZ3NiGzwUZw==
