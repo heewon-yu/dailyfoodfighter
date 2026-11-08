@@ -11,6 +11,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'scripts/ping-indexnow.sh'
       - '.github/workflows/search-indexing.yml'
   workflow_dispatch:
 
@@ -80,6 +81,9 @@ jobs:
           for attempt in 1 2 3 4 5 6 7 8; do
             if bash scripts/ping-indexnow.sh --sitemap; then
               exit 0
+            else
+              result=$?
+              if [ "$result" -eq 3 ]; then exit "$result"; fi
             fi
             if [ "$attempt" -lt 8 ]; then sleep 30; fi
           done

@@ -57,6 +57,12 @@ def main(args):
 
 try:
     main(sys.argv[1:])
+except urllib.error.HTTPError as error:
+    url = error.geturl()
+    method = "POST" if url == endpoint else "GET"
+    challenge = " (Cloudflare challenge)" if error.headers.get("cf-mitigated") == "challenge" else ""
+    print(f"IndexNow submission failed: {method} {url}: HTTP {error.code} {error.reason}{challenge}", file=sys.stderr)
+    sys.exit(3 if error.code in (401, 403, 422) else 1)
 except (ValueError, ET.ParseError, OSError) as error:
     sys.exit(f"IndexNow submission failed: {error}")
 PY
