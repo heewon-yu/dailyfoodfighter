@@ -12,9 +12,9 @@ plt.rcParams['figure.autolayout'] = False
 
 def generate_chart(output_path='downloads/dailyfoodfighter_traffic_report.png'):
     # 트래픽 데이터
-    dates = ['11/04(수)', '11/05(목)', '11/06(금)', '11/07(토)', '11/08(일,현재)']
-    uv = [6, 14, 38, 15, 18]
-    pv = [18, 39, 104, 42, 49]
+    dates = ['11/04(수)', '11/05(목)', '11/06(금)', '11/07(토)', '11/08(일,확정)']
+    uv = [6, 14, 38, 15, 19]
+    pv = [18, 39, 104, 42, 52]
 
     # 모바일 최적화 경량 규격 (dpi=110, 용량 및 CPU 점유 75% 절감)
     fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(8, 8.5), dpi=110)

@@ -1,9 +1,9 @@
-# 100가지 자연 식재료 데이터베이스 및 발행 추적기 (DailyFoodFighter Ingredients Tracker)
+# 100가지 자연 식재료 데이터베이스 및 발행 추적기
 # 상태: [ ] 대기, [x] 발행완료
 
 ## 🍎 과일 (Fruits) - 26종
 - [x] 토마토 (Tomato) - 2026-11-04 한/영 발행완료
-- [ ] 사과 (Apple)
+- [x] 사과 (Apple) - 2026-11-07 한/영 발행완료
 - [ ] 배 (Asian Pear)
 - [x] 바나나 (Banana) - 2026-11-08 한/영 발행완료
 - [ ] 오렌지 (Orange)
@@ -31,8 +31,8 @@
 
 ## 🥦 채소·야채 (Vegetables) - 34종
 - [x] 양파 (Onion) - 2026-11-04 한/영 발행완료
-- [ ] 마늘 (Garlic)
-- [ ] 브로콜리 (Broccoli)
+- [x] 마늘 (Garlic) - 2026-11-07 한/영 발행완료
+- [x] 브로콜리 (Broccoli) - 2026-11-05 한/영 발행완료
 - [ ] 당근 (Carrot)
 - [x] 시금치 (Spinach) - 2026-11-08 한/영 발행완료
 - [ ] 양배추 (Cabbage)
@@ -66,7 +66,7 @@
 - [ ] 도라지 (Bellflower Root)
 
 ## 🥩 육류·달걀·단백질 (Meat & Protein) - 20종
-- [ ] 소고기 등심 (Beef Sirloin)
+- [x] 소고기 등심 (Beef Sirloin) - 2026-11-06 한/영 발행완료
 - [ ] 소고기 우둔·사태 (Beef Round)
 - [ ] 돼지고기 삼겹살 (Pork Belly)
 - [ ] 돼지고기 목살 (Pork Shoulder)
@@ -74,7 +74,7 @@
 - [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
 - [ ] 닭다리살 (Chicken Thigh)
 - [ ] 오리고기 (Duck Meat)
-- [ ] 달걀 (Egg)
+- [x] 달걀 (Egg) - 2026-11-09 한/영 발행완료
 - [ ] 메추리알 (Quail Egg)
 - [ ] 양고기 (Lamb)
 - [ ] 두부 (Tofu)
@@ -98,7 +98,7 @@
 - [ ] 오징어 (Squid)
 - [ ] 문어 (Octopus)
 - [ ] 낙지 (Small Octopus)
-- [ ] 새우 (Shrimp)
+- [x] 새우 (Shrimp) - 2026-11-09 한/영 발행완료
 - [ ] 꽃게 (Blue Crab)
 - [ ] 전복 (Abalone)
 - [ ] 굴 (Oyster)
