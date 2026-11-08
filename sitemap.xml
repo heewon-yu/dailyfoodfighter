@@ -6,46 +6,33 @@ layout: null
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
   </url>
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/about/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/about/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/privacy/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/privacy/</loc>
-    <lastmod>{{ site.time | date_to_xmlschema }}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
+  {% for page in site.pages %}
+  {% if page.url contains '/category/' %}
+  <url>
+    <loc>{{ page.url | absolute_url | uri_escape | xml_escape }}</loc>
+  </url>
+  {% endif %}
+  {% endfor %}
   {% for post in site.posts %}
   <url>
-    <loc>{{ site.url }}{{ post.url }}</loc>
-    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+    <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
   </url>
   {% endfor %}
 </urlset>

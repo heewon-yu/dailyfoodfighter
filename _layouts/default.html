@@ -12,11 +12,31 @@
   {% else %}
   <meta name="keywords" content="daily food nutrition facts, health benefits of natural foods, superfood nutrition, healthy diet, dailyfoodfighter, food science">
   {% endif %}
-  <meta name="robots" content="index, follow">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="DailyFoodFighter (데일리푸드파이터)">
 
-  <!-- Canonical URL -->
-  <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+  {% assign canonical_path = page.url | remove: 'index.html' %}
+  <link rel="canonical" href="{{ canonical_path | absolute_url }}">
+  {% assign alternate_page = nil %}
+  {% assign language_prefix = canonical_path | slice: 0, 4 %}
+  {% if page.lang == 'en' and language_prefix == '/en/' %}
+    {% assign alternate_path = canonical_path | remove_first: '/en' %}
+    {% assign alternate_lang = 'ko' %}
+  {% elsif page.lang != 'en' and language_prefix != '/en/' %}
+    {% assign alternate_path = '/en' | append: canonical_path %}
+    {% assign alternate_lang = 'en' %}
+  {% endif %}
+  {% if alternate_path %}
+    {% if page.layout == 'post' %}
+      {% assign alternate_page = site.posts | where: 'url', alternate_path | first %}
+    {% else %}
+      {% assign alternate_page = site.pages | where: 'url', alternate_path | first %}
+    {% endif %}
+  {% endif %}
+  {% if alternate_page %}
+    <link rel="alternate" hreflang="{{ page.lang | default: 'ko' }}" href="{{ canonical_path | absolute_url }}">
+    <link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ alternate_page.url | absolute_url }}">
+  {% endif %}
   
   <!-- Open Graph / Facebook / KakaoTalk / Twitter -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
@@ -64,9 +84,9 @@
   {
     "@context": "https://schema.org",
     "@type": "{% if page.layout == 'post' %}BlogPosting{% else %}WebSite{% endif %}",
-    "name": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
-    "headline": "{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}",
-    "description": "{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}",
+    "name": {{ page.title | default: site.title | jsonify }},
+    "headline": {{ page.title | default: site.title | jsonify }},
+    "description": {{ page.description | default: site.description | jsonify }},
     "url": "{{ page.url | absolute_url }}",
     {% if page.layout == 'post' %}
     "mainEntityOfPage": {
@@ -77,9 +97,9 @@
     "image": "{{ page.image | absolute_url }}",
     {% endif %}
     "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
     "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
-    "isAccessibleForFree": "True",
+    "isAccessibleForFree": true,
     "genre": "Nutrition Science & Food Chemistry",
     "author": {
       "@type": "Organization",
@@ -132,6 +152,9 @@
         <span class="site-tagline">{% if page.lang == 'en' %}Evidence-Based Food Nutrition Science Guide{% else %}매일 자연 식재료 영양학 과학 가이드{% endif %}</span>
       </div>
       <nav class="site-nav">
+        {% if alternate_page %}
+        <a href="{{ alternate_page.url | relative_url }}" hreflang="{{ alternate_lang }}" lang="{{ alternate_lang }}">{% if alternate_lang == 'en' %}English{% else %}한국어{% endif %}</a>
+        {% endif %}
         {% if page.lang == 'en' %}
         <a href="{{ '/en/' | relative_url }}">All Posts</a>
         <a href="{{ '/en/category/fruits/' | relative_url }}">Fruits</a>
