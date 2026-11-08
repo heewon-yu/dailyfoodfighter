@@ -152,9 +152,6 @@
         <span class="site-tagline">{% if page.lang == 'en' %}Evidence-Based Food Nutrition Science Guide{% else %}매일 자연 식재료 영양학 과학 가이드{% endif %}</span>
       </div>
       <nav class="site-nav">
-        {% if alternate_page %}
-        <a href="{{ alternate_page.url | relative_url }}" hreflang="{{ alternate_lang }}" lang="{{ alternate_lang }}">{% if alternate_lang == 'en' %}English{% else %}한국어{% endif %}</a>
-        {% endif %}
         {% if page.lang == 'en' %}
         <a href="{{ '/en/' | relative_url }}">All Posts</a>
         <a href="{{ '/en/category/fruits/' | relative_url }}">Fruits</a>
