@@ -136,6 +136,27 @@ h1,h2,p,dl,dd{margin:0}
 .pending-stock{border:0;background:none;font-size:10px;font-weight:800;text-align:left;padding:0;overflow-wrap:anywhere;min-width:0}
 .cancel-order{margin-left:auto;border:1px solid var(--line);border-radius:4px;background:#fff;padding:2px 4px;font-size:9px;white-space:nowrap}
 .cancel-order:hover:not(:disabled){background:#fff0f1;color:var(--up)}
+.amend-order,.cancel-order{
+  border:1px solid var(--line);
+  border-radius:4px;
+  background:#fff;
+  padding:4px 6px;
+  font-size:10px;
+  font-weight:750;
+  white-space:nowrap;
+}
+.amend-order{margin-left:auto;color:#354d75}
+.amend-order:hover:not(:disabled){background:#edf2f8}
+.amend-order+.cancel-order{margin-left:0}
+.portfolio-panel .news-heading{flex-wrap:wrap}
+.order-history-row{display:block}
+.order-history-row time{margin-left:auto}
+.order-history-row p{line-height:1.5}
+.amend-context{margin:10px 0 8px;color:var(--muted);font-size:12px;line-height:1.5}
+.amend-fields{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.amend-fields label{display:grid;gap:5px;font-size:12px;font-weight:750}
+.amend-fields input{width:100%;min-width:0;padding:8px;border:1px solid var(--line);border-radius:6px;font:inherit}
+#amendFeedback{margin:6px 0}
 .session[data-phase=paused] #statusDot{background:var(--gold)}
 .order-type span,.order-content label{color:var(--muted);font-size:10px}
 .quantity-field{display:flex;align-items:center;border:1px solid var(--line);border-radius:5px;margin:3px 0 5px}
@@ -163,6 +184,15 @@ h1,h2,p,dl,dd{margin:0}
 .news-row p,.account-row p{color:var(--muted);margin-top:3px;line-height:1.4}
 .news-row button,.account-row button{border:0;background:none;padding:0;text-align:left;font-weight:800;font-size:11px}
 .news-row button:hover,.account-row button:hover{text-decoration:underline}
+.account-row .amend-order,.account-row .cancel-order{
+  border:1px solid var(--line);
+  background:#fff;
+  padding:4px 6px;
+  font-size:10px;
+}
+.account-row .amend-order{margin-left:0}
+.account-row .amend-order:hover:not(:disabled){background:#edf2f8}
+.account-row .cancel-order:hover:not(:disabled){background:#fff0f1}
 .news-row time,.account-row time{color:var(--muted);font-size:10px;white-space:nowrap}
 .tag{display:inline-block;font-size:9px;padding:3px 5px;border-radius:4px;background:#eef2f7;color:#44546a;font-weight:800;white-space:nowrap}
 .tag.up{background:#ffedef}
@@ -362,6 +392,7 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .mobile-jump #jumpPause{
   background:#fff6db;
 }
+.mobile-jump #jumpRestart{white-space:nowrap}
 @media(max-width:380px){
   .chart-heading .segments button{padding-inline:5px}
 }

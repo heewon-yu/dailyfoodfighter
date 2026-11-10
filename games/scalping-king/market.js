@@ -242,7 +242,7 @@
 
   function createAccount() {
     return {cash: CASH, realized: 0, fees: 0, positions: STOCKS.map(() => ({qty: 0, cost: 0})),
-      trades: [], pending: [], nextOrderId: 1};
+      trades: [], pending: [], orders: [], nextOrderId: 1};
   }
 
   const validQuantity = qty => Number.isSafeInteger(qty) && qty >= 1 && qty <= 99999;
@@ -250,13 +250,14 @@
   const orderFee = gross => Math.ceil(gross / 2000);
   const buyCost = gross => gross + orderFee(gross);
 
+  function reservation(order, price = order.price, remaining = order.remaining) {
+    const gross = price * remaining;
+    return gross + orderFee(order.gross + gross) - orderFee(order.gross);
+  }
+
   function availableCash(account) {
-    const reserved = account.pending.reduce((total, order) => {
-      if (order.side !== 'buy') return total;
-      const gross = order.price * order.remaining;
-      return total + gross + orderFee(order.gross + gross) - orderFee(order.gross);
-    }, 0);
-    return account.cash - reserved;
+    return account.cash - account.pending.reduce((total, order) =>
+      total + (order.side === 'buy' ? reservation(order) : 0), 0);
   }
 
   function availableShares(account, index) {
@@ -321,7 +322,10 @@
     const quote = quoteOrder(stock, side, qty);
     if (!quote) return {error: '호가 잔량이 부족해요. 수량을 줄여 주세요.'};
     if (side === 'buy' && quote.total > availableCash(account)) return {error: '주문 가능 현금이 부족해요.'};
-    return {trade: applyFill(stock, account, side, quote, quote.fee, time, 'market')};
+    const trade = applyFill(stock, account, side, quote, quote.fee, time, 'market');
+    account.orders.unshift({id: account.nextOrderId++, index: stock.index, side, type: 'market', price: null,
+      qty, remaining: 0, status: 'filled', time, amendments: 0});
+    return {trade};
   }
 
   function applyFill(stock, account, side, quote, fee, time, type) {
@@ -354,6 +358,8 @@
     const fee = orderFee(order.gross + quote.gross) - orderFee(order.gross);
     order.remaining -= quote.qty;
     order.gross += quote.gross;
+    order.status = order.remaining ? 'partial' : 'filled';
+    order.time = time;
     return applyFill(stock, account, order.side, quote, fee, time, 'limit');
   }
 
@@ -363,7 +369,9 @@
     if (account.pending.length >= 30) return {error: '미체결 주문은 최대 30건까지 보관할 수 있어요.'};
     if (side === 'buy' && buyCost(qty * price) > availableCash(account)) return {error: '지정가로 주문할 현금이 부족해요.'};
     if (side === 'sell' && qty > availableShares(account, stock.index)) return {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
-    const order = {id: account.nextOrderId++, index: stock.index, side, price, qty, remaining: qty, gross: 0};
+    const order = {id: account.nextOrderId++, index: stock.index, side, type: 'limit', price, qty, remaining: qty,
+      gross: 0, status: 'pending', time, amendments: 0};
+    account.orders.unshift(order);
     const trade = matchLimit(stock, account, order, time);
     if (order.remaining) account.pending.push(order);
     return {order, trade};
@@ -380,9 +388,48 @@
     return fills;
   }
 
-  function cancelLimit(account, id) {
+  function amendLimit(market, account, id, qty, price, time) {
+    const order = account.pending.find(item => item.id === id);
+    if (!order) return {error: '이미 체결되었거나 취소된 주문이에요.'};
+    if (!validQuantity(qty)) return {error: '남은 수량을 1~99,999주 사이의 정수로 입력하세요.'};
+    if (!validLimit(price)) return {error: '지정가는 50원 단위로 입력하세요.'};
+    if (qty === order.remaining && price === order.price) return {error: '바뀐 지정가나 수량을 입력하세요.'};
+    const filled = order.qty - order.remaining;
+    if (!validQuantity(filled + qty)) return {error: '이미 체결된 수량과 새 잔량의 합은 99,999주까지 가능해요.'};
+    if (order.side === 'buy' && reservation(order, price, qty) > availableCash(account) + reservation(order)) {
+      return {error: '정정한 주문을 예약할 현금이 부족해요.'};
+    }
+    if (order.side === 'sell' && qty > availableShares(account, order.index) + order.remaining) {
+      return {error: '정정할 매도 가능 수량이 부족해요.'};
+    }
+    account.pending.splice(account.pending.indexOf(order), 1);
+    order.qty = filled + qty;
+    order.remaining = qty;
+    order.price = price;
+    order.time = time;
+    order.amendments += 1;
+    const trade = matchLimit(market.stocks[order.index], account, order, time);
+    if (order.remaining) account.pending.push(order);
+    return {order, trade};
+  }
+
+  function cancelLimit(account, id, time = 0) {
     const index = account.pending.findIndex(order => order.id === id);
-    return index < 0 ? null : account.pending.splice(index, 1)[0];
+    if (index < 0) return null;
+    const [order] = account.pending.splice(index, 1);
+    order.status = 'canceled';
+    order.time = time;
+    return order;
+  }
+
+  function expirePending(account, time) {
+    const count = account.pending.length;
+    account.pending.forEach(order => {
+      order.status = 'expired';
+      order.time = time;
+    });
+    account.pending.length = 0;
+    return count;
   }
 
   function equity(market, account) {
@@ -391,6 +438,6 @@
 
   globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket,
     createAccount, quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit,
-    matchPending, cancelLimit, equity};
+    matchPending, amendLimit, cancelLimit, expirePending, equity};
 }());
 

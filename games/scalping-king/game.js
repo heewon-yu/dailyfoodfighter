@@ -3,7 +3,7 @@
 
   const {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket, createAccount,
     quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit, matchPending,
-    cancelLimit, equity} = ScalpMarket;
+    amendLimit, cancelLimit, expirePending, equity} = ScalpMarket;
   const {drawChart, timeText} = ScalpChart;
   const $ = id => document.getElementById(id);
   const fmt = new Intl.NumberFormat('ko-KR', {maximumFractionDigits: 0});
@@ -52,6 +52,7 @@
   let lastSeenNews = 0;
   let result = null;
   let watchKey = '';
+  let amendment = null;
   const canvas = $('chart');
   const orderQty = $('quantity');
   const orderPrice = $('limitPrice');
@@ -165,8 +166,10 @@
     $('heroInvite').hidden = phase === 'done';
     for (const id of ['pause', 'jumpPause']) {
       $(id).hidden = !inSession;
-      $(id).textContent = phase === 'paused' ? '거래 재개' : '일시정지';
+      $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
     }
+    $('restart').hidden = !inSession;
+    $('jumpRestart').hidden = phase !== 'paused';
     $('buy').disabled = phase !== 'live';
     $('sell').disabled = phase !== 'live';
     renderClock();
@@ -278,6 +281,23 @@
   }
 
   function renderAccount() {
+    if (accountMode === 'orders') {
+      const states = {pending: '체결 대기', partial: '부분 체결', filled: '체결 완료', canceled: '취소', expired: '마감 취소'};
+      const rows = account.orders.map(order => {
+        const stock = market.stocks[order.index];
+        const filled = order.qty - order.remaining;
+        const open = order.status === 'pending' || order.status === 'partial';
+        const remaining = open ? ' · 남은 ' + num(order.remaining) + '주' : order.remaining ? ' · 취소 ' + num(order.remaining) + '주' : '';
+        return '<article class="account-row order-history-row"><div class="pending-row-top"><span class="tag ' +
+          (order.side === 'buy' ? 'up">매수' : 'down">매도') + '</span><button type="button" data-stock="' + order.index +
+          '">' + stock.name + '</button><time>' + timeText(order.time) + '</time>' + (open ? pendingButtons(order) : '') +
+          '</div><p><strong>' + states[order.status] + '</strong> · ' + (order.type === 'market' ? '시장가' : money(order.price)) +
+          ' · 체결 ' + num(filled) + ' / ' + num(order.qty) + '주' + remaining +
+          (order.amendments ? ' · 정정 ' + order.amendments + '회' : '') + '</p></article>';
+      });
+      updateAccountList(rows, '아직 접수된 주문이 없어요.');
+      return;
+    }
     const positions = account.positions.flatMap((position, index) => {
       if (!position.qty) return [];
       const stock = market.stocks[index];
@@ -296,11 +316,23 @@
       money(trade.average) + '</p></div><time>' + timeText(trade.time) + '</time></div>');
     const rows = accountMode === 'positions' ? positions : fills;
     const fallback = accountMode === 'positions' ? '보유 중인 종목이 없어요.' : '아직 체결된 주문이 없어요.';
+    updateAccountList(rows, fallback);
+  }
+
+  function updateAccountList(rows, fallback) {
     const html = rows.length ? rows.join('') : '<div class="empty">' + fallback + '</div>';
     if ($('account').dataset.content !== html) {
       $('account').innerHTML = html;
       $('account').dataset.content = html;
     }
+  }
+
+  function pendingButtons(order) {
+    const label = market.stocks[order.index].name + ' 지정가 주문 ' + order.id + '번 ';
+    const disabled = phase === 'live' ? '' : ' disabled';
+    return '<button type="button" class="amend-order" data-amend="' + order.id + '" aria-label="' + label + '정정"' +
+      disabled + '>정정</button><button type="button" class="cancel-order" data-cancel="' + order.id + '" aria-label="' +
+      label + '취소"' + disabled + '>취소</button>';
   }
 
   function renderPending() {
@@ -314,9 +346,7 @@
       const side = order.side === 'buy' ? 'up">매수' : 'down">매도';
       return '<article class="pending-row"><div class="pending-row-top"><span class="tag ' + side +
         '</span><button type="button" class="pending-stock" data-stock="' + order.index + '">' +
-        market.stocks[order.index].name + '</button><button type="button" class="cancel-order" data-cancel="' + order.id +
-        '" aria-label="' + market.stocks[order.index].name + ' 지정가 주문 ' + order.id + '번 취소"' +
-        (phase === 'live' ? '' : ' disabled') + '>취소</button></div><p>' + money(order.price) +
+        market.stocks[order.index].name + '</button>' + pendingButtons(order) + '</div><p>' + money(order.price) +
         ' · 남은 ' + num(order.remaining) + '주</p><small>' + (filled ? '부분 체결 ' + num(filled) + ' / ' + num(order.qty) + '주' : '체결 대기') +
         '</small></article>';
     }).join('') : '<div class="empty">미체결 주문이 없어요.</div>';
@@ -412,6 +442,7 @@
     } else return;
     renderPhase();
     renderPending();
+    if (accountMode === 'orders') renderAccount();
   }
 
   function showFill(fill, remaining = 0) {
@@ -438,11 +469,59 @@
     render();
   }
 
+  function loadAmendment(order, message = '') {
+    amendment = {id: order.id, remaining: order.remaining};
+    const name = market.stocks[order.index].name;
+    $('amendContext').textContent = name + ' · ' + (order.side === 'buy' ? '매수' : '매도') +
+      ' · 기존 지정가 ' + money(order.price) + ' · 남은 ' + num(order.remaining) + '주';
+    $('amendPrice').value = String(order.price);
+    $('amendQty').value = String(order.remaining);
+    $('amendFeedback').textContent = message;
+    $('amendFeedback').dataset.type = 'error';
+  }
+
+  function openAmendment(id) {
+    syncTime();
+    if (phase !== 'live') return;
+    const order = account.pending.find(item => item.id === id);
+    if (!order) {
+      feedback('이미 체결되었거나 취소된 주문이에요.', 'error');
+      return;
+    }
+    loadAmendment(order);
+    $('amendDialog').showModal();
+  }
+
+  function submitAmendment(event) {
+    event.preventDefault();
+    syncTime();
+    if (phase !== 'live' || !amendment) return;
+    const current = account.pending.find(item => item.id === amendment.id);
+    if (!current) {
+      $('amendFeedback').textContent = '이미 체결되었거나 취소된 주문이에요.';
+      return;
+    }
+    if (current.remaining !== amendment.remaining) {
+      loadAmendment(current, '정정하는 동안 일부가 체결됐어요. 최신 잔량을 보고 다시 입력해 주세요.');
+      return;
+    }
+    const {error, order, trade: fill} = amendLimit(market, account, current.id, $('amendQty').valueAsNumber,
+      $('amendPrice').valueAsNumber, bookStep * BOOK_INTERVAL / 1000);
+    if (error) {
+      $('amendFeedback').textContent = error;
+      return;
+    }
+    $('amendDialog').close();
+    if (fill) showFill(fill, order.remaining);
+    else feedback(market.stocks[order.index].name + ' 주문 정정 · ' + money(order.price) + ' · ' +
+      num(order.remaining) + '주 체결 대기', 'ok');
+    render();
+  }
+
   function finish() {
     phase = 'done';
     clearInterval(loop);
-    const expired = account.pending.length;
-    account.pending.length = 0;
+    const expired = expirePending(account, DURATION);
     const total = equity(market, account);
     const profit = total - CASH;
     const rate = profit / CASH * 100;
@@ -461,10 +540,12 @@
     renderPhase();
     render();
     if ($('guide').open) $('guide').close();
+    if ($('amendDialog').open) $('amendDialog').close();
     $('result').showModal();
   }
 
   function reset() {
+    clearInterval(loop);
     $('result').close();
     if (/^https?:$/.test(location.protocol)) {
       const url = new URL(location.href);
@@ -475,6 +556,7 @@
     account = createAccount();
     phase = 'ready';
     result = null;
+    amendment = null;
     cursor = null;
     selected = 0;
     newsKey = '';
@@ -489,6 +571,12 @@
     render();
     window.scrollTo(0, 0);
     $('start').focus({preventScroll: true});
+  }
+
+  function restartRound() {
+    if (phase !== 'live' && phase !== 'paused') return;
+    reset();
+    start();
   }
 
   async function shareResult() {
@@ -570,11 +658,16 @@
   });
   for (const id of ['news', 'account', 'liveNews', 'pending']) {
     $(id).addEventListener('click', event => {
+      const amend = event.target.closest('[data-amend]');
+      if (amend) {
+        openAmendment(Number(amend.dataset.amend));
+        return;
+      }
       const cancel = event.target.closest('[data-cancel]');
       if (cancel) {
         syncTime();
         if (phase !== 'live') return;
-        const order = cancelLimit(account, Number(cancel.dataset.cancel));
+        const order = cancelLimit(account, Number(cancel.dataset.cancel), bookStep * BOOK_INTERVAL / 1000);
         feedback(order ? market.stocks[order.index].name + ' 미체결 ' + num(order.remaining) + '주를 취소했어요.' :
           '이미 체결되었거나 취소된 주문이에요.', order ? 'ok' : '');
         render();
@@ -594,7 +687,10 @@
   $('start').addEventListener('click', start);
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
+  $('restart').addEventListener('click', restartRound);
+  $('jumpRestart').addEventListener('click', restartRound);
   $('guideButton').addEventListener('click', () => $('guide').showModal());
+  $('amendForm').addEventListener('submit', submitAmendment);
   $('buy').addEventListener('click', () => trade('buy'));
   $('sell').addEventListener('click', () => trade('sell'));
   $('share').addEventListener('click', shareResult);
