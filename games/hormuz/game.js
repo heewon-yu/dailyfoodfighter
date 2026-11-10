@@ -26,6 +26,7 @@ function toast(message) {
 function render(now = performance.now()) {
   const {config, attack, status} = voyage;
   const sailing = status === 'sailing';
+  const pirate = sailing && voyage.pirate?.status === 'approaching' ? voyage.pirate : null;
   setText('stage-number', fmt(voyage.stage));
   setText('time', `${voyage.time.toFixed(1)}초`);
   setText('batteries', `${voyage.stage}곳`);
@@ -34,17 +35,20 @@ function render(now = performance.now()) {
   setText('mode', `3D · ${modeText[status]}`);
   byId('mode').classList.toggle('active', sailing);
   setText('credits', run.credits.toLocaleString('ko-KR'));
-  setText('shields', String(run.shields));
-  byId('buy').disabled = run.credits < Escape.shieldCost || status === 'failed';
+  setText('shields', pirate ? '—' : String(run.shields));
+  const canBuy = Escape.canBuy(run, voyage);
+  byId('buy').disabled = !canBuy;
+  byId('prepare-buy').hidden = !canBuy;
+  setText('buy-label', sailing ? '출항 전 구매 가능' : '방어권 1회 구매');
   setText('clears', `${run.stage - 1 + Number(status === 'cleared')} / ${stages}`);
   setText('dodges', `${voyage.dodges}회`);
   setText('volleys', `${voyage.launched}회`);
-  setText('difficulty', `${config.name} · 포대 ${voyage.stage}곳 · ${config.interval.toFixed(1)}초마다 포격`);
+  const interval = config.interval.toFixed(2).replace(/0$/, '');
+  setText('difficulty', `${config.name} · 포대 ${voyage.stage}곳 · ${interval}초마다 포격`);
   thrust.disabled = !sailing;
   byId('overlay').hidden = sailing;
 
   const danger = sailing && attack;
-  const pirate = sailing && voyage.pirate?.status === 'approaching' ? voyage.pirate : null;
   const coasting = danger && Escape.isCoasting(voyage);
   const message = pirate ? `⚠ 해적 고속정 ${pirate.boats}척 접근!`
     : danger
@@ -63,11 +67,6 @@ function render(now = performance.now()) {
   thrust.classList.toggle('brake', Boolean(danger && !attack.boost));
   const hint = attack?.boost ? '지금 연타해서 통과' : coasting ? '저속 항해 중 · 착탄까지 기다리세요' : '추진에서 손을 떼세요';
   setText('thrust-hint', danger ? hint : '터치할 때마다 가속');
-  byId('pirate-panel').hidden = !pirate;
-  if (pirate) {
-    byId('pirate-buy').disabled = run.credits < Escape.shieldCost || run.shields >= pirate.boats;
-    setText('pirate-shield', `방어권 보유 ${run.shields}장 / 필요 ${pirate.boats}장`);
-  }
   scene.draw(voyage, now);
 }
 
@@ -77,16 +76,19 @@ function showResult() {
   setText('mission', `MISSION ${fmt(voyage.stage)} / ${stages}`);
   setText('result-title', finished ? '10단계 완전 탈출!' : cleared ? '해협 탈출 성공!' : '항해 실패');
   setText('result-detail', cleared
-    ? `+${voyage.config.reward} 크레딧 획득 · 포격 ${voyage.dodges}회 회피`
+    ? `+${voyage.config.reward} 크레딧 획득 · 포격 ${voyage.dodges}회 회피${finished ? '' : ' · 다음 출항 전 방어권 구매 가능'}`
     : `${voyage.notice} 새 항해는 1단계에서 시작합니다.`);
   setText('launch', cleared && !finished ? `${voyage.stage + 1}단계 출항 →` : '1단계 다시 시작 →');
   launchButton.focus({preventScroll: true});
 }
 
 function frame(now) {
-  const dt = Math.min(0.05, (now - clock) / 1000);
+  const elapsed = Math.min(voyage.time + 0.05, Math.max(0, now - clock) / 1000);
   clock = now;
-  Escape.tick(voyage, run, dt);
+  const steps = Math.max(1, Math.ceil(elapsed / 0.05));
+  for (let i = 0; i < steps && voyage.status === 'sailing'; i++) {
+    Escape.tick(voyage, run, elapsed / steps);
+  }
   if (voyage.status === 'failed') run = Escape.newRun();
   render(now);
   if (voyage.status === 'sailing') requestAnimationFrame(frame);
@@ -109,11 +111,11 @@ function launch() {
 launchButton.addEventListener('click', launch);
 thrust.addEventListener('click', () => Escape.tap(voyage, performance.now() / 1000));
 function buyShield() {
-  if (Escape.buy(run)) toast('방어권 1회를 구매했습니다.');
+  if (Escape.buy(run, voyage)) toast('방어권 1회를 구매했습니다.');
   render();
 }
 byId('buy').addEventListener('click', buyShield);
-byId('pirate-buy').addEventListener('click', buyShield);
+byId('prepare-buy').addEventListener('click', buyShield);
 byId('share').addEventListener('click', async () => {
   const url = new URL('./', location.href).href;
   try {

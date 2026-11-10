@@ -7,12 +7,12 @@
   <meta name="theme-color" content="#0f172a">
   <meta name="description" content="실제 호르무즈 해협을 3D로 구현한 10단계 상선 탈출 웹게임">
   <title>호르무즈 해협 탈출하기</title>
-  <link rel="stylesheet" href="./game.css?v=6">
+  <link rel="stylesheet" href="./game.css?v=8">
   <script defer src="./coast.js"></script>
-  <script defer src="./engine.js?v=7"></script>
+  <script defer src="./engine.js?v=8"></script>
   <script defer src="./world.js?v=7"></script>
   <script defer src="./scene.js?v=7"></script>
-  <script defer src="./game.js?v=7"></script>
+  <script defer src="./game.js?v=8"></script>
 </head>
 <body>
   <header class="top">
@@ -46,8 +46,11 @@
             <div class="overlay-card">
               <div class="kicker" id="mission">MISSION 01 / 10</div>
               <h3 id="result-title">항해 준비 완료</h3>
-              <p id="result-detail">추진을 터치해 속도를 높이세요. 경보가 뜨면 연타하거나 손을 떼 착탄 구역을 피하세요.</p>
-              <button class="gold" id="launch" type="button">1단계 출항 <span aria-hidden="true">→</span></button>
+              <p id="result-detail">30초 안에 해협을 탈출하세요. 추진을 터치해 가속하고, 경보에 맞춰 착탄 구역을 피하세요.</p>
+              <div class="departure-actions">
+                <button class="buy" id="prepare-buy" type="button" hidden>방어권 구매 <span>80 C</span></button>
+                <button class="gold" id="launch" type="button">1단계 출항 <span aria-hidden="true">→</span></button>
+              </div>
             </div>
           </div>
         </div>
@@ -56,10 +59,6 @@
           <div class="meter" aria-hidden="true"><div id="power"></div></div>
           <div class="controls">
             <button type="button" class="gold thrust" id="thrust" disabled><b>⚡ 추진</b><small id="thrust-hint">터치할 때마다 가속</small></button>
-          </div>
-          <div class="pirate-panel" id="pirate-panel" hidden>
-            <span id="pirate-shield"></span>
-            <button class="buy" id="pirate-buy" type="button">방어권 구매 <span>80 C</span></button>
           </div>
         </div>
       </section>
@@ -71,7 +70,7 @@
             <div><span>보유 방어권</span><strong id="shields">0</strong></div>
           </div>
           <p>피격 시 방어권 1개를 자동으로 사용합니다. 방어권이 없으면 즉시 1단계부터 다시 시작합니다.</p>
-          <button class="buy" id="buy" type="button">방어권 1회 구매 <span>80 C</span></button>
+          <button class="buy" id="buy" type="button"><strong id="buy-label">방어권 1회 구매</strong><span>80 C</span></button>
         </section>
         <section class="card">
           <div class="kicker">03 / LOGBOOK</div><h2>항해 기록</h2>
@@ -85,7 +84,7 @@
           <ol>
             <li><strong>추진</strong>을 연타해 제한 시간 안에 도착하세요.</li>
             <li><strong>가속 경보</strong>에는 연타해 착탄 구역을 통과하세요. <strong>감속 경보</strong>에는 손을 떼고 저속으로 항해하면서 착탄을 기다리세요.</li>
-            <li><strong>해적 경보</strong> 때는 고속정 한 척당 방어권 한 장이 필요합니다. 경보 중에도 구매할 수 있습니다.</li>
+            <li>방어권은 <strong>출항 전</strong>에만 살 수 있습니다. 해적 습격 때는 고속정 한 척당 한 장을 사용합니다.</li>
             <li>탈출하면 <strong>크레딧</strong>을 받고 다음 단계로 진입합니다.</li>
           </ol>
           <div class="difficulty" id="difficulty"></div>

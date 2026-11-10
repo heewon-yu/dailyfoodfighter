@@ -6,8 +6,8 @@ const Escape = (() => {
   const stages = batteries.length;
   const shieldCost = 80;
   const tapGap = 0.085;
-  const idleSpeed = 0.003;
-  const thrustSpeed = 0.028;
+  const idleSpeed = 0.0066;
+  const thrustSpeed = 0.064;
   const reactionTime = 0.7;
   const coastDelay = 0.25;
   const coastDrain = 2.9;
@@ -18,9 +18,9 @@ const Escape = (() => {
   function difficulty(stage) {
     const rank = (stage - 1) / (stages - 1);
     return {
-      time: [54, 54, 53, 53, 53, 53, 52, 52, 54, 56][stage - 1],
-      interval: [8.4, 7.1, 6, 5.05, 4.4, 3.88, 3.52, 3.18, 2.96, 2.8][stage - 1],
-      warning: 4.1 - 1.75 * rank,
+      time: 30,
+      interval: [5.2, 4.55, 4.05, 3.55, 3.15, 2.9, 2.7, 2.5, 2.32, 2.15][stage - 1],
+      warning: 2.65 - 0.95 * rank,
       gain: 0.52 - 0.32 * rank,
       drain: 0.24 + 0.34 * rank,
       reward: 80 + stage * 8,
@@ -38,12 +38,12 @@ const Escape = (() => {
   function newVoyage(stage, pirateSeen = false, random = Math.random) {
     const config = difficulty(stage);
     const pirateAt = config.pirateBoats > 0 && !pirateSeen && random() < config.pirateChance
-      ? 0.26 + random() * 0.37 : Infinity;
+      ? 0.19 + random() * 0.17 : Infinity;
     return {
       stage, config, time: config.time, progress: 0, power: 0,
       attack: null, impact: null, launched: 0, dodges: 0, lastAttackBoost: false,
       pirateAt, pirate: null,
-      nextIn: 5.4 - (stage - 1) * 0.23,
+      nextIn: 3.5 - (stage - 1) * 0.155,
       lastTap: -Infinity, tapIdle: Infinity, status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
     };
   }
@@ -56,8 +56,13 @@ const Escape = (() => {
     voyage.power = Math.min(1, voyage.power + gain);
   }
 
-  function buy(run) {
-    if (run.credits < shieldCost) return false;
+  function canBuy(run, voyage) {
+    const preparing = voyage.status === 'ready' || (voyage.status === 'cleared' && voyage.stage < stages);
+    return preparing && run.credits >= shieldCost;
+  }
+
+  function buy(run, voyage) {
+    if (!canBuy(run, voyage)) return false;
     run.credits -= shieldCost;
     run.shields++;
     return true;
@@ -112,7 +117,26 @@ const Escape = (() => {
     voyage.progress = Math.min(1, voyage.progress + speed(voyage.power) * dt);
     if (!voyage.pirate) voyage.nextIn -= dt;
 
-    if (voyage.progress >= 1) {
+    if (voyage.pirate) {
+      const pirate = voyage.pirate;
+      pirate.remaining -= dt;
+      if (pirate.remaining <= 0) {
+        if (pirate.status === 'repelled') {
+          voyage.pirate = null;
+        } else if (run.shields >= pirate.boats) {
+          run.shields -= pirate.boats;
+          voyage.pirate = {boats: pirate.boats, remaining: 1.25, total: 1.25, status: 'repelled'};
+          voyage.notice = `방어권 ${pirate.boats}장을 사용해 해적 고속정 ${pirate.boats}척을 물리쳤습니다.`;
+        } else {
+          pirate.remaining = 0;
+          voyage.status = 'failed';
+          voyage.notice = '방어권이 부족해 소말리아 해적에게 화물을 약탈당했습니다.';
+          return;
+        }
+      }
+    }
+
+    if (voyage.progress >= 1 && voyage.pirate?.status !== 'approaching') {
       voyage.status = 'cleared';
       run.credits += config.reward;
       voyage.notice = '해협 탈출 성공!';
@@ -145,30 +169,11 @@ const Escape = (() => {
       }
     }
 
-    const pirateWarning = 4 + config.pirateBoats;
+    const pirateWarning = 3 + config.pirateBoats;
     if (!voyage.attack && !voyage.pirate && voyage.progress >= voyage.pirateAt && voyage.time > pirateWarning) {
       voyage.pirateAt = Infinity;
       voyage.pirate = {boats: config.pirateBoats, remaining: pirateWarning, total: pirateWarning, status: 'approaching'};
       run.pirateSeen = true;
-    }
-
-    if (voyage.pirate) {
-      const pirate = voyage.pirate;
-      pirate.remaining -= dt;
-      if (pirate.remaining <= 0) {
-        if (pirate.status === 'repelled') {
-          voyage.pirate = null;
-        } else if (run.shields >= pirate.boats) {
-          run.shields -= pirate.boats;
-          voyage.pirate = {boats: pirate.boats, remaining: 1.25, total: 1.25, status: 'repelled'};
-          voyage.notice = `방어권 ${pirate.boats}장을 사용해 해적 고속정 ${pirate.boats}척을 물리쳤습니다.`;
-        } else {
-          pirate.remaining = 0;
-          voyage.status = 'failed';
-          voyage.notice = `방어권 ${pirate.boats}장이 필요했습니다. 소말리아 해적에게 화물을 약탈당했습니다.`;
-          return;
-        }
-      }
     }
 
     if (!voyage.pirate && !voyage.attack && voyage.nextIn <= 0 && voyage.time > config.warning && voyage.progress < 0.97) {
@@ -184,5 +189,5 @@ const Escape = (() => {
     }
   }
 
-  return {stages, batteries, shieldCost, difficulty, newRun, newVoyage, speed, isCoasting, tap, buy, tick};
+  return {stages, batteries, shieldCost, difficulty, newRun, newVoyage, speed, isCoasting, tap, canBuy, buy, tick};
 })();
