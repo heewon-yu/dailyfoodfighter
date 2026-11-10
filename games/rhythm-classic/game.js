@@ -6,12 +6,12 @@
 (function() {
   'use strict';
 
-  // Game States
   const STATE = {
     LOBBY: 0,
-    PLAYING: 1,
-    PAUSED: 2,
-    RESULT: 3
+    COUNTDOWN: 1,
+    PLAYING: 2,
+    PAUSED: 3,
+    RESULT: 4
   };
 
   class RhythmGame {
@@ -37,10 +37,8 @@
 
       // Gameplay Data
       this.notes = [];
-      this.songStartTime = 0;
       this.currentTime = 0;
       this.score = 0;
-      this.maxScore = 1000000;
       this.combo = 0;
       this.maxCombo = 0;
       this.life = 100;
@@ -53,13 +51,17 @@
 
       // Visual Effects
       this.particles = [];
-      this.lasers = [0, 0, 0, 0]; // Beam decay
+      this.lasers = [0, 0, 0, 0];
       this.hitBursts = [0, 0, 0, 0];
-      this.activeJudgement = null; // { text, color, scale, alpha, time }
+      this.activeJudgement = null;
       this.comboBounce = 0;
       this.bgaBeat = 0;
+      this.screenShake = 0;
 
-      // Audio Time Tracking
+      // Countdown
+      this.countdownTimer = 3;
+      this.countdownStart = 0;
+
       this.lastFrameTime = performance.now();
       this.animationFrameId = null;
 
@@ -69,12 +71,23 @@
     }
 
     initDomEvents() {
-      // Song Cards in Lobby
       this.renderSongCards();
+
+      // Fullscreen Button
+      const fsBtn = document.getElementById('fullscreenToggleBtn');
+      if (fsBtn) {
+        fsBtn.addEventListener('click', () => {
+          if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen().catch(() => {});
+          } else {
+            document.exitFullscreen().catch(() => {});
+          }
+        });
+      }
 
       // Speed Buttons
       document.querySelectorAll('.btn-speed').forEach(btn => {
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', () => {
           document.querySelectorAll('.btn-speed').forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
           this.speed = parseFloat(btn.dataset.speed);
@@ -91,7 +104,7 @@
         });
       }
 
-      // Start Game Button
+      // Start Button
       const startBtn = document.getElementById('startGameBtn');
       if (startBtn) {
         startBtn.addEventListener('click', () => this.startGame());
@@ -116,13 +129,13 @@
       window.addEventListener('keydown', (e) => this.handleKeyDown(e));
       window.addEventListener('keyup', (e) => this.handleKeyUp(e));
 
-      // Mobile Multi-touch Controls
+      // Mobile Touch Controls
       this.initTouchControls();
     }
 
     initTouchControls() {
       const touchCols = document.querySelectorAll('.touch-col');
-      const touchMap = new Map(); // identifier -> lane
+      const touchMap = new Map();
 
       const handleTouchStart = (e) => {
         e.preventDefault();
@@ -155,9 +168,9 @@
         col.addEventListener('touchcancel', handleTouchEnd, { passive: false });
       });
 
-      // Canvas Direct Touch (Allows hitting directly on bottom half of 3D canvas)
+      // Canvas Direct Touch
       this.canvas.addEventListener('touchstart', (e) => {
-        if (this.state !== STATE.PLAYING) return;
+        if (this.state !== STATE.PLAYING && this.state !== STATE.COUNTDOWN) return;
         e.preventDefault();
         const rect = this.canvas.getBoundingClientRect();
         for (let i = 0; i < e.changedTouches.length; i++) {
@@ -165,8 +178,7 @@
           const canvasX = (t.clientX - rect.left) * (this.width / rect.width);
           const canvasY = (t.clientY - rect.top) * (this.height / rect.height);
 
-          if (canvasY > this.hitlineY - 140) {
-            // Determine lane from X position
+          if (canvasY > this.hitlineY - 160) {
             const trackLeft = (this.width - this.trackWidthBottom) / 2;
             const laneW = this.trackWidthBottom / 4;
             const lane = Math.floor((canvasX - trackLeft) / laneW);
@@ -189,31 +201,31 @@
 
       const scores = JSON.parse(localStorage.getItem('beat_classic_scores') || '{}');
 
-      SONGS.forEach((song, idx) => {
+      SONGS.forEach((song) => {
         const card = document.createElement('div');
         card.className = 'song-card' + (song.id === this.selectedSong.id ? ' selected' : '');
         card.dataset.id = song.id;
 
         const best = scores[song.id] || null;
         const bestHtml = best
-          ? `<div class="high-score-tag"><span>BEST SCORE</span><span>${best.score.toLocaleString()} (${best.rank})</span></div>`
-          : `<div class="high-score-tag"><span>BEST SCORE</span><span>---</span></div>`;
+          ? `<span class="best-score-chip">🏆 ${best.score.toLocaleString()} (${best.rank})</span>`
+          : `<span class="best-score-chip" style="color:var(--text-muted);">---</span>`;
 
         card.innerHTML = `
           <div>
-            <div class="song-card-header">
-              <span class="song-badge">${song.badge}</span>
+            <div class="jacket-header">
+              <div class="jacket-icon-badge">
+                <span class="jacket-icon">${song.icon}</span>
+                <span class="song-badge">${song.badge}</span>
+              </div>
               <span class="bpm-badge"><i class="bpm-dot"></i> ${song.bpm} BPM</span>
             </div>
             <div class="song-name">${song.title}</div>
             <div class="song-composer">${song.composer} · ${song.genre}</div>
-            <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4;">${song.description}</div>
+            <div class="song-desc">${song.description}</div>
           </div>
-          <div>
-            <div class="song-info-row">
-              <span>난이도: ${song.stars} (${song.difficulty})</span>
-              <span>시간: ${song.durationSec}초</span>
-            </div>
+          <div class="song-footer">
+            <span class="diff-chip">${song.stars} (${song.difficulty})</span>
             ${bestHtml}
           </div>
         `;
@@ -247,7 +259,6 @@
 
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
 
-      // Adjust 3D Perspective Tracks
       this.horizonY = this.height * 0.16;
       this.hitlineY = this.height * 0.82;
       this.trackWidthTop = this.width * 0.32;
@@ -269,7 +280,7 @@
         return;
       }
 
-      if (this.state !== STATE.PLAYING) return;
+      if (this.state !== STATE.PLAYING && this.state !== STATE.COUNTDOWN) return;
 
       const keyMap = { 'KeyD': 0, 'KeyF': 1, 'KeyJ': 2, 'KeyK': 3 };
       if (keyMap[e.code] !== undefined) {
@@ -282,7 +293,6 @@
     }
 
     handleKeyUp(e) {
-      if (this.state !== STATE.PLAYING) return;
       const keyMap = { 'KeyD': 0, 'KeyF': 1, 'KeyJ': 2, 'KeyK': 3 };
       if (keyMap[e.code] !== undefined) {
         e.preventDefault();
@@ -297,18 +307,15 @@
       this.lasers[lane] = 1.0;
       this.hitBursts[lane] = 1.0;
 
-      // Update mobile touch button UI
       const touchCol = document.querySelector(`.touch-col[data-lane="${lane}"]`);
       if (touchCol) touchCol.classList.add('active');
 
-      // Haptic feedback
-      if (navigator.vibrate) navigator.vibrate(10);
-
-      // Play Sound
+      if (navigator.vibrate) navigator.vibrate(15);
       this.sound.playHitSound(lane);
 
-      // Check Note Hit
-      this.judgeNoteHit(lane);
+      if (this.state === STATE.PLAYING) {
+        this.judgeNoteHit(lane);
+      }
     }
 
     releaseKey(lane) {
@@ -318,10 +325,8 @@
     }
 
     judgeNoteHit(lane) {
-      if (!this.sound.ctx) return;
-      const curTime = this.sound.ctx.currentTime - this.songStartTime + (this.offsetMs / 1000);
+      const curTime = this.currentTime;
 
-      // Windows (in seconds): Perfect +-0.05, Great +-0.10, Good +-0.16
       const PERFECT_WINDOW = 0.055;
       const GREAT_WINDOW = 0.11;
       const GOOD_WINDOW = 0.17;
@@ -344,7 +349,7 @@
         closestNote.hit = true;
         let rating = 'GOOD';
         let color = '#39ff14';
-        let scoreInc = 0;
+        let scoreInc = 400;
 
         if (minDiff <= PERFECT_WINDOW) {
           rating = 'PERFECT';
@@ -352,6 +357,7 @@
           scoreInc = 1000;
           this.judgements.perfect++;
           this.life = Math.min(100, this.life + 2);
+          this.screenShake = 3;
         } else if (minDiff <= GREAT_WINDOW) {
           rating = 'GREAT';
           color = '#00f0ff';
@@ -359,9 +365,6 @@
           this.judgements.great++;
           this.life = Math.min(100, this.life + 1);
         } else {
-          rating = 'GOOD';
-          color = '#39ff14';
-          scoreInc = 400;
           this.judgements.good++;
         }
 
@@ -390,15 +393,15 @@
       const px = coords.xMid;
       const py = coords.y;
 
-      for (let i = 0; i < 16; i++) {
+      for (let i = 0; i < 20; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const spd = 2 + Math.random() * 6;
+        const spd = 2 + Math.random() * 7;
         this.particles.push({
           x: px,
           y: py,
           vx: Math.cos(angle) * spd,
           vy: Math.sin(angle) * spd - 2,
-          radius: 2 + Math.random() * 3,
+          radius: 2 + Math.random() * 3.5,
           color: color,
           alpha: 1.0,
           decay: 0.03 + Math.random() * 0.03
@@ -406,25 +409,20 @@
       }
     }
 
-    async startGame() {
-      this.sound.init();
-      await this.sound.resume();
-
+    startGame() {
       this.sound.stopAll();
 
-      // Setup DOM
       document.getElementById('lobbyScreen').style.display = 'none';
       document.getElementById('resultModal').style.display = 'none';
       const gameContainer = document.getElementById('gameContainer');
       gameContainer.style.display = 'flex';
 
-      // HUD Setup
       document.getElementById('hudSongTitle').textContent = this.selectedSong.title;
       document.getElementById('hudSongMeta').textContent = `${this.selectedSong.bpm} BPM · ${this.selectedSong.difficulty}`;
 
       this.resizeCanvas();
 
-      // Reset State
+      // Reset Stats
       this.score = 0;
       this.combo = 0;
       this.maxCombo = 0;
@@ -434,16 +432,24 @@
       this.lasers = [0, 0, 0, 0];
       this.hitBursts = [0, 0, 0, 0];
       this.activeJudgement = null;
+      this.screenShake = 0;
 
-      // Generate Notes and Audio
-      const now = this.sound.ctx.currentTime;
-      this.songStartTime = now + 1.2; // 1.2s lead-in
-      this.notes = this.selectedSong.generateChartAndAudio(this.sound, this.songStartTime);
+      // Dynamic Procedural Chart Generation (Anti-memorization!)
+      this.notes = this.selectedSong.generateChart(0.8);
       this.totalNotes = this.notes.length;
 
-      this.state = STATE.PLAYING;
-      this.lastFrameTime = performance.now();
+      // Start Countdown
+      this.state = STATE.COUNTDOWN;
+      this.countdownTimer = 3;
+      this.countdownStart = performance.now();
 
+      const cdOverlay = document.getElementById('countdownOverlay');
+      if (cdOverlay) {
+        cdOverlay.style.display = 'block';
+        cdOverlay.textContent = '3';
+      }
+
+      this.lastFrameTime = performance.now();
       if (this.animationFrameId) cancelAnimationFrame(this.animationFrameId);
       this.animationFrameId = requestAnimationFrame(() => this.gameLoop());
     }
@@ -451,12 +457,12 @@
     togglePause() {
       if (this.state === STATE.PLAYING) {
         this.state = STATE.PAUSED;
-        if (this.sound.ctx) this.sound.ctx.suspend();
+        this.sound.pauseAudio();
         const pauseBtn = document.getElementById('pauseBtn');
         if (pauseBtn) pauseBtn.textContent = '▶ 재개';
       } else if (this.state === STATE.PAUSED) {
         this.state = STATE.PLAYING;
-        if (this.sound.ctx) this.sound.ctx.resume();
+        this.sound.resumeAudio();
         const pauseBtn = document.getElementById('pauseBtn');
         if (pauseBtn) pauseBtn.textContent = '⏸ 일시정지';
         this.lastFrameTime = performance.now();
@@ -474,41 +480,64 @@
     }
 
     gameLoop() {
-      if (this.state !== STATE.PLAYING) return;
+      if (this.state === STATE.LOBBY || this.state === STATE.RESULT) return;
 
       const now = performance.now();
       const dt = (now - this.lastFrameTime) / 1000;
       this.lastFrameTime = now;
 
-      this.update(dt);
+      this.update(dt, now);
       this.render();
 
       this.animationFrameId = requestAnimationFrame(() => this.gameLoop());
     }
 
-    update(dt) {
-      if (!this.sound.ctx) return;
-      const curAudioTime = this.sound.ctx.currentTime - this.songStartTime + (this.offsetMs / 1000);
-      this.currentTime = curAudioTime;
+    update(dt, now) {
+      if (this.state === STATE.COUNTDOWN) {
+        const elapsed = (now - this.countdownStart) / 1000;
+        const cdOverlay = document.getElementById('countdownOverlay');
 
-      // Update BGA Beat Pulse
+        if (elapsed < 1.0) {
+          if (cdOverlay) cdOverlay.textContent = '3';
+        } else if (elapsed < 2.0) {
+          if (cdOverlay) cdOverlay.textContent = '2';
+        } else if (elapsed < 3.0) {
+          if (cdOverlay) cdOverlay.textContent = '1';
+        } else {
+          if (cdOverlay) {
+            cdOverlay.textContent = 'START!';
+            setTimeout(() => { if (cdOverlay) cdOverlay.style.display = 'none'; }, 500);
+          }
+          this.state = STATE.PLAYING;
+          // Start real audio!
+          this.sound.playRealAudio(this.selectedSong.audioFile);
+        }
+        return;
+      }
+
+      if (this.state !== STATE.PLAYING) return;
+
+      // Sync strictly to real audio current playback time
+      this.currentTime = this.sound.getAudioCurrentTime() + (this.offsetMs / 1000);
+
+      // Pulse Beat for DJMAX Side Visualizer Equalizers
       const beatInterval = 60 / this.selectedSong.bpm;
-      this.bgaBeat = (Math.sin(curAudioTime * Math.PI * 2 / beatInterval) + 1) / 2;
+      this.bgaBeat = (Math.sin(this.currentTime * Math.PI * 2 / beatInterval) + 1) / 2;
 
       // Check Missed Notes
       const MISS_THRESHOLD = 0.17;
       for (let i = 0; i < this.notes.length; i++) {
         const note = this.notes[i];
-        if (!note.hit && !note.missed && curAudioTime > note.time + MISS_THRESHOLD) {
+        if (!note.hit && !note.missed && this.currentTime > note.time + MISS_THRESHOLD) {
           note.missed = true;
           this.combo = 0;
           this.judgements.miss++;
-          this.life = Math.max(0, this.life - 8);
+          this.life = Math.max(0, this.life - 6);
           this.showJudgement('MISS', '#ff3366');
         }
       }
 
-      // Update Lasers and Particles
+      // Lasers and Particle decays
       for (let i = 0; i < 4; i++) {
         if (!this.keysDown[i]) {
           this.lasers[i] = Math.max(0, this.lasers[i] - dt * 6);
@@ -516,7 +545,6 @@
         this.hitBursts[i] = Math.max(0, this.hitBursts[i] - dt * 4);
       }
 
-      // Update Particles
       for (let i = this.particles.length - 1; i >= 0; i--) {
         const p = this.particles[i];
         p.x += p.vx;
@@ -525,15 +553,16 @@
         if (p.alpha <= 0) this.particles.splice(i, 1);
       }
 
-      // Update Combo Bounce & Judgement
       this.comboBounce = Math.max(0, this.comboBounce - dt * 4);
+      this.screenShake = Math.max(0, this.screenShake - dt * 10);
+
       if (this.activeJudgement) {
         this.activeJudgement.scale = Math.max(1.0, this.activeJudgement.scale - dt * 2.5);
         this.activeJudgement.alpha = Math.max(0, this.activeJudgement.alpha - dt * 1.5);
         if (this.activeJudgement.alpha <= 0) this.activeJudgement = null;
       }
 
-      // HUD Update
+      // Update HUD
       document.getElementById('hudScore').textContent = this.score.toString().padStart(7, '0');
       const totalJudged = this.judgements.perfect + this.judgements.great + this.judgements.good + this.judgements.miss;
       const acc = totalJudged > 0
@@ -544,16 +573,14 @@
 
       // Check Song End
       const lastNoteTime = this.notes.length > 0 ? this.notes[this.notes.length - 1].time : 0;
-      if (curAudioTime > lastNoteTime + 2.0) {
+      if (this.currentTime > lastNoteTime + 2.5 || (this.sound.audioElement && this.sound.audioElement.ended)) {
         this.endGame();
       }
     }
 
     get3DCoords(lane, progress) {
-      // 3D Perspective Projection:
-      // progress: 0.0 at horizon, 1.0 at hitline
       const p = Math.max(0, progress);
-      const curvedP = Math.pow(p, 1.25); // Perspective acceleration
+      const curvedP = Math.pow(p, 1.25);
 
       const y = this.horizonY + (this.hitlineY - this.horizonY) * curvedP;
       const trackW = this.trackWidthTop + (this.trackWidthBottom - this.trackWidthTop) * curvedP;
@@ -571,54 +598,50 @@
       const ctx = this.ctx;
       ctx.clearRect(0, 0, this.width, this.height);
 
-      // 1. Draw Space Background & BGA Visualizer Bars
+      ctx.save();
+      if (this.screenShake > 0) {
+        const sx = (Math.random() - 0.5) * this.screenShake;
+        const sy = (Math.random() - 0.5) * this.screenShake;
+        ctx.translate(sx, sy);
+      }
+
       this.renderBackground(ctx);
-
-      // 2. Draw 3D Highway Roadway & Glowing Borders
       this.render3DHighway(ctx);
-
-      // 3. Draw 3D Key Lasers / Beams
       this.renderKeyLasers(ctx);
-
-      // 4. Draw 3D Falling Notes
       this.render3DNotes(ctx);
-
-      // 5. Draw 3D Hit Receptors & Judgement Line
       this.render3DReceptors(ctx);
-
-      // 6. Draw Hit Particles & Bursts
       this.renderParticles(ctx);
-
-      // 7. Draw Combo & Judgement Text Overlay
       this.renderJudgementOverlay(ctx);
+
+      ctx.restore();
     }
 
     renderBackground(ctx) {
-      // Cosmic Grid Background
       const grad = ctx.createRadialGradient(this.width / 2, this.horizonY, 20, this.width / 2, this.height / 2, this.width);
-      grad.addColorStop(0, '#10142c');
-      grad.addColorStop(1, '#06070d');
+      grad.addColorStop(0, '#121832');
+      grad.addColorStop(1, '#05060b');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, this.width, this.height);
 
-      // DJMAX Side Equalizer Visualizer Bars
+      // DJMAX BGA Equalizer Visualizers
       const numBars = 12;
       const leftMargin = 12;
       const rightMargin = this.width - 24;
-      const barHeightMax = 120;
 
       for (let i = 0; i < numBars; i++) {
         const barVal = Math.sin(this.currentTime * 6 + i) * 0.5 + 0.5;
-        const h = 10 + barVal * barHeightMax * (0.6 + this.bgaBeat * 0.4);
+        const alpha = 0.2 + barVal * 0.5 * (0.6 + this.bgaBeat * 0.4);
 
-        // Left Speaker
-        ctx.fillStyle = `rgba(0, 240, 255, ${0.15 + barVal * 0.25})`;
+        ctx.fillStyle = `rgba(0, 240, 255, ${alpha})`;
+        ctx.shadowColor = '#00f0ff';
+        ctx.shadowBlur = 8;
         ctx.fillRect(leftMargin, this.hitlineY - 40 - i * 11, 8, 8);
 
-        // Right Speaker
-        ctx.fillStyle = `rgba(255, 0, 127, ${0.15 + barVal * 0.25})`;
+        ctx.fillStyle = `rgba(255, 0, 127, ${alpha})`;
+        ctx.shadowColor = '#ff007f';
         ctx.fillRect(rightMargin, this.hitlineY - 40 - i * 11, 8, 8);
       }
+      ctx.shadowBlur = 0;
     }
 
     render3DHighway(ctx) {
@@ -627,7 +650,7 @@
       const botL = (this.width - this.trackWidthBottom) / 2;
       const botR = botL + this.trackWidthBottom;
 
-      // Track Surface
+      // Track Highway Surface
       ctx.save();
       ctx.beginPath();
       ctx.moveTo(topL, this.horizonY);
@@ -637,22 +660,22 @@
       ctx.closePath();
 
       const roadGrad = ctx.createLinearGradient(0, this.horizonY, 0, this.hitlineY);
-      roadGrad.addColorStop(0, 'rgba(16, 20, 36, 0.95)');
-      roadGrad.addColorStop(1, 'rgba(8, 9, 18, 0.98)');
+      roadGrad.addColorStop(0, 'rgba(18, 22, 40, 0.95)');
+      roadGrad.addColorStop(1, 'rgba(8, 10, 20, 0.98)');
       ctx.fillStyle = roadGrad;
       ctx.fill();
 
-      // Outer 3D Neon Borders (DJMAX style neon rails)
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = 'rgba(0, 240, 255, 0.6)';
+      // Neon Rails (Outer 3D borders)
+      ctx.lineWidth = 3.5;
+      ctx.strokeStyle = '#00f0ff';
       ctx.shadowColor = '#00f0ff';
-      ctx.shadowBlur = 12;
+      ctx.shadowBlur = 14;
       ctx.beginPath();
       ctx.moveTo(topL, this.horizonY);
       ctx.lineTo(botL, this.hitlineY + 60);
       ctx.stroke();
 
-      ctx.strokeStyle = 'rgba(255, 0, 127, 0.6)';
+      ctx.strokeStyle = '#ff007f';
       ctx.shadowColor = '#ff007f';
       ctx.beginPath();
       ctx.moveTo(topR, this.horizonY);
@@ -660,12 +683,12 @@
       ctx.stroke();
       ctx.restore();
 
-      // Inner Lane Dividers
+      // Inner Lane Lines
       for (let l = 1; l < 4; l++) {
         const topLaneX = topL + l * (this.trackWidthTop / 4);
         const botLaneX = botL + l * (this.trackWidthBottom / 4);
 
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
         ctx.moveTo(topLaneX, this.horizonY);
@@ -673,12 +696,12 @@
         ctx.stroke();
       }
 
-      // Horizontal Speed Lines (Speed sensation)
+      // 3D Speed Grid Lines
       const numLines = 6;
       for (let i = 0; i < numLines; i++) {
         const lineP = ((this.currentTime * this.speed * 1.5 + i / numLines) % 1.0);
         const coords = this.get3DCoords(0, lineP);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${lineP * 0.1})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${lineP * 0.12})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(coords.trackLeft, coords.y);
@@ -688,14 +711,12 @@
     }
 
     renderKeyLasers(ctx) {
-      // 3D Beams shooting upwards when keys are pressed
       for (let lane = 0; lane < 4; lane++) {
         if (this.lasers[lane] > 0.05) {
           const alpha = this.lasers[lane];
           const topCoords = this.get3DCoords(lane, 0.0);
           const botCoords = this.get3DCoords(lane, 1.0);
-
-          const color = (lane === 0 || lane === 3) ? '#00f0ff' : '#ff007f';
+          const isOuter = (lane === 0 || lane === 3);
 
           ctx.save();
           ctx.beginPath();
@@ -706,8 +727,8 @@
           ctx.closePath();
 
           const laserGrad = ctx.createLinearGradient(0, topCoords.y, 0, botCoords.y);
-          laserGrad.addColorStop(0, `rgba(${lane === 0 || lane === 3 ? '0, 240, 255' : '255, 0, 127'}, 0)`);
-          laserGrad.addColorStop(1, `rgba(${lane === 0 || lane === 3 ? '0, 240, 255' : '255, 0, 127'}, ${alpha * 0.45})`);
+          laserGrad.addColorStop(0, `rgba(${isOuter ? '0, 240, 255' : '255, 0, 127'}, 0)`);
+          laserGrad.addColorStop(1, `rgba(${isOuter ? '0, 240, 255' : '255, 0, 127'}, ${alpha * 0.5})`);
 
           ctx.fillStyle = laserGrad;
           ctx.fill();
@@ -718,28 +739,27 @@
 
     render3DNotes(ctx) {
       const curT = this.currentTime;
-      const travelTime = 1.8 / this.speed; // Seconds from horizon to hitline
+      const travelTime = 2.0 / this.speed;
 
       for (let i = 0; i < this.notes.length; i++) {
         const note = this.notes[i];
         if (note.hit || note.missed) continue;
 
         const timeDiff = note.time - curT;
-        if (timeDiff > travelTime) continue; // Not on screen yet
-        if (timeDiff < -0.15) continue; // Already passed
+        if (timeDiff > travelTime) continue;
+        if (timeDiff < -0.16) continue;
 
         const progress = 1.0 - (timeDiff / travelTime);
-        if (progress < 0 || progress > 1.1) continue;
+        if (progress < -0.05 || progress > 1.1) continue;
 
-        const noteHeightProgress = 0.045; // Note thickness
-        const botCoords = this.get3DCoords(note.lane, progress);
+        const noteHeightProgress = 0.045;
+        const botCoords = this.get3DCoords(note.lane, Math.max(0, progress));
         const topCoords = this.get3DCoords(note.lane, Math.max(0, progress - noteHeightProgress));
 
         const isOuter = (note.lane === 0 || note.lane === 3);
         const noteColor = isOuter ? '#00f0ff' : '#ff007f';
-        const noteGlow = isOuter ? 'rgba(0, 240, 255, 0.6)' : 'rgba(255, 0, 127, 0.6)';
+        const noteGlow = isOuter ? 'rgba(0, 240, 255, 0.7)' : 'rgba(255, 0, 127, 0.7)';
 
-        // Draw 3D Beveled Note Block
         ctx.save();
         ctx.beginPath();
         ctx.moveTo(topCoords.xLeft + 2, topCoords.y);
@@ -748,18 +768,16 @@
         ctx.lineTo(botCoords.xLeft + 2, botCoords.y);
         ctx.closePath();
 
-        // 3D Glossy Note Fill
         const noteGrad = ctx.createLinearGradient(0, topCoords.y, 0, botCoords.y);
         noteGrad.addColorStop(0, '#ffffff');
         noteGrad.addColorStop(0.3, noteColor);
-        noteGrad.addColorStop(1, isOuter ? '#0070aa' : '#aa0055');
+        noteGrad.addColorStop(1, isOuter ? '#0070bb' : '#aa0055');
 
         ctx.fillStyle = noteGrad;
         ctx.shadowColor = noteGlow;
-        ctx.shadowBlur = 10 * progress;
+        ctx.shadowBlur = 12 * Math.max(0.4, progress);
         ctx.fill();
 
-        // Top Gloss Highlight
         ctx.strokeStyle = '#ffffff';
         ctx.lineWidth = 1.5;
         ctx.beginPath();
@@ -772,21 +790,21 @@
     }
 
     render3DReceptors(ctx) {
-      // Judgement Line (Laser Bar across track)
       const botL = (this.width - this.trackWidthBottom) / 2;
       const botR = botL + this.trackWidthBottom;
 
+      // Golden Judgement Bar
       ctx.save();
       ctx.strokeStyle = '#ffd700';
-      ctx.lineWidth = 3;
+      ctx.lineWidth = 3.5;
       ctx.shadowColor = '#ffd700';
-      ctx.shadowBlur = 14;
+      ctx.shadowBlur = 16;
       ctx.beginPath();
       ctx.moveTo(botL - 6, this.hitlineY);
       ctx.lineTo(botR + 6, this.hitlineY);
       ctx.stroke();
 
-      // 4 Bottom Receptors (O2Jam Style 3D Keys)
+      // 4 Heavy Arcade 3D Receptors
       const keyLabels = ['D', 'F', 'J', 'K'];
       for (let lane = 0; lane < 4; lane++) {
         const coords = this.get3DCoords(lane, 1.0);
@@ -796,16 +814,16 @@
 
         const rx = coords.xLeft + 3;
         const rw = coords.laneW - 6;
-        const ry = this.hitlineY + (isPressed ? 6 : 2);
-        const rh = 40;
+        const ry = this.hitlineY + (isPressed ? 7 : 2);
+        const rh = 42;
 
         ctx.beginPath();
-        ctx.roundRect(rx, ry, rw, rh, 6);
+        ctx.roundRect(rx, ry, rw, rh, 8);
 
         if (isPressed) {
           ctx.fillStyle = col;
           ctx.shadowColor = col;
-          ctx.shadowBlur = 18;
+          ctx.shadowBlur = 22;
         } else {
           ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
           ctx.shadowBlur = 0;
@@ -813,12 +831,11 @@
         ctx.fill();
 
         ctx.strokeStyle = isPressed ? '#ffffff' : col;
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 2.5;
         ctx.stroke();
 
-        // Key Label
         ctx.fillStyle = isPressed ? '#000000' : '#ffffff';
-        ctx.font = 'bold 15px monospace';
+        ctx.font = 'bold 16px monospace';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(keyLabels[lane], coords.xMid, ry + rh / 2);
@@ -842,20 +859,19 @@
     }
 
     renderJudgementOverlay(ctx) {
-      // 1. Combo Counter (Bouncing Arcade Display)
       if (this.combo > 1) {
         ctx.save();
         const comboY = this.hitlineY - 110;
-        const scale = 1.0 + this.comboBounce * 0.25;
+        const scale = 1.0 + this.comboBounce * 0.28;
 
         ctx.translate(this.width / 2, comboY);
         ctx.scale(scale, scale);
 
         ctx.textAlign = 'center';
-        ctx.font = '900 42px "Segoe UI", sans-serif';
+        ctx.font = '900 44px "Pretendard", sans-serif';
         ctx.fillStyle = '#ffffff';
         ctx.shadowColor = '#00f0ff';
-        ctx.shadowBlur = 16;
+        ctx.shadowBlur = 18;
         ctx.fillText(this.combo.toString(), 0, 0);
 
         ctx.font = '800 13px monospace';
@@ -866,7 +882,6 @@
         ctx.restore();
       }
 
-      // 2. Judgement Text (PERFECT, GREAT, GOOD, MISS)
       if (this.activeJudgement) {
         ctx.save();
         const j = this.activeJudgement;
@@ -877,10 +892,10 @@
         ctx.globalAlpha = j.alpha;
 
         ctx.textAlign = 'center';
-        ctx.font = '900 28px "Segoe UI", sans-serif';
+        ctx.font = '900 30px "Pretendard", sans-serif';
         ctx.fillStyle = j.color;
         ctx.shadowColor = j.color;
-        ctx.shadowBlur = 14;
+        ctx.shadowBlur = 16;
         ctx.fillText(j.text, 0, 0);
         ctx.restore();
       }
@@ -890,7 +905,6 @@
       this.sound.stopAll();
       this.state = STATE.RESULT;
 
-      // Calculate Results
       const totalJudged = this.judgements.perfect + this.judgements.great + this.judgements.good + this.judgements.miss;
       const acc = totalJudged > 0
         ? ((this.judgements.perfect * 100 + this.judgements.great * 80 + this.judgements.good * 50) / (totalJudged * 100) * 100)
@@ -902,7 +916,6 @@
       else if (acc >= 75) rank = 'B';
       else if (acc >= 60) rank = 'C';
 
-      // Save Best Score
       const scores = JSON.parse(localStorage.getItem('beat_classic_scores') || '{}');
       const prev = scores[this.selectedSong.id] || { score: 0 };
       if (this.score > prev.score) {
@@ -910,7 +923,6 @@
         localStorage.setItem('beat_classic_scores', JSON.stringify(scores));
       }
 
-      // Populate Result Screen
       document.getElementById('resultRank').textContent = rank;
       document.getElementById('resultScore').textContent = this.score.toLocaleString();
       document.getElementById('resPerfect').textContent = this.judgements.perfect;
@@ -935,7 +947,6 @@
     }
   }
 
-  // Initialize Game on Window Load
   window.addEventListener('DOMContentLoaded', () => {
     window.game = new RhythmGame();
   });

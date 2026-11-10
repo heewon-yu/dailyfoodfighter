@@ -4,37 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="theme-color" content="#090a12">
+  <meta name="theme-color" content="#05060a">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <title>비트 클래식 (Beat Classic) | 3D 건반 리듬게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-02">
-  <script defer src="./audio.js?v=20261110-02"></script>
-  <script defer src="./game.js?v=20261110-02"></script>
+  <title>비트 클래식 (Beat Classic) | 3D 아케이드 리듬게임</title>
+  <link rel="stylesheet" href="./style.css?v=20261110-03">
+  <script defer src="./audio.js?v=20261110-03"></script>
+  <script defer src="./game.js?v=20261110-03"></script>
 </head>
 <body>
 
   <!-- Top Global Header -->
   <header class="topbar">
     <div class="brand">
-      <div class="brand-icon">⚡</div>
+      <div class="brand-emblem">⚡</div>
       <div>
         <div class="brand-title">비트 클래식 (Beat Classic)</div>
         <div class="brand-sub">O2 & DJMAX 3D RHYTHM ARENA</div>
       </div>
     </div>
-    <div class="top-nav">
-      <span class="badge-tag">100% 무지출 웹 오디오</span>
-      <a href="https://hw-os.pages.dev/" target="_blank" rel="noopener" class="btn-secondary">HW-OS 관제 ↗</a>
+    <div class="top-actions">
+      <span class="tag-badge">100% 퍼블릭 도메인 클래식</span>
+      <button type="button" class="btn-arcade-sub" id="fullscreenToggleBtn">⛶ 전체화면</button>
     </div>
   </header>
 
   <!-- 1. Lobby & Song Selection Screen -->
   <main class="lobby-container" id="lobbyScreen">
-    <div class="section-head">
+    <div class="lobby-header">
       <div>
-        <div class="section-title">🎵 수록곡 선택 (SELECT MUSIC)</div>
-        <div class="section-desc">오투잼·펌프·디맥 전설의 저작권 프리 클래식 명곡 10선 · BPM & 난이도 완비</div>
+        <div class="lobby-title">🎵 수록곡 선택 (SELECT MUSIC)</div>
+        <div class="lobby-desc">오투잼·펌프·디맥 전설의 클래식 명곡 10선 · 실기 오디오 음원 & 동적 랜덤 채보 탑재</div>
       </div>
     </div>
 
@@ -43,11 +43,11 @@
       <!-- Injected by game.js -->
     </div>
 
-    <!-- Settings Bar (Speed, Offset, Key Mapping) -->
-    <section class="control-panel">
-      <div class="setting-group">
-        <span class="setting-label">배속 설정 (SPEED)</span>
-        <div class="speed-btns">
+    <!-- Arcade Console Bar (Speed, Offset, Key Mapping) -->
+    <section class="arcade-console">
+      <div class="console-group">
+        <span class="console-label">배속 설정 (SPEED)</span>
+        <div class="speed-cluster">
           <button type="button" class="btn-speed" data-speed="1.0">1.0x</button>
           <button type="button" class="btn-speed active" data-speed="1.5">1.5x</button>
           <button type="button" class="btn-speed" data-speed="2.0">2.0x</button>
@@ -56,26 +56,26 @@
         </div>
       </div>
 
-      <div class="setting-group">
-        <span class="setting-label">싱크 조절 (OFFSET)</span>
-        <div class="offset-control">
+      <div class="console-group">
+        <span class="console-label">싱크 조절 (OFFSET)</span>
+        <div class="offset-box">
           <input type="range" id="offsetInput" min="-100" max="100" value="0" step="10">
-          <span class="offset-val" id="offsetVal">0ms</span>
+          <span class="offset-text" id="offsetVal">0ms</span>
         </div>
       </div>
 
-      <div class="keys-guide">
-        <span class="setting-label">조작키:</span>
-        <span class="kbd">D</span>
-        <span class="kbd">F</span>
-        <span class="kbd">J</span>
-        <span class="kbd">K</span>
-        <span style="margin-left: 6px;">(모바일 하단 터치 지원)</span>
+      <div class="key-guide-box">
+        <span class="console-label">조작키:</span>
+        <span class="key-chip">D</span>
+        <span class="key-chip">F</span>
+        <span class="key-chip">J</span>
+        <span class="key-chip">K</span>
+        <span style="font-size: 11px; color: var(--text-muted); margin-left: 4px;">(모바일 하단 터치 지원)</span>
       </div>
     </section>
 
     <!-- Start Button -->
-    <button type="button" class="btn-start-game" id="startGameBtn">
+    <button type="button" class="btn-start-arcade" id="startGameBtn">
       <span>▶ 게임 시작 (GAME START)</span>
       <span style="font-size: 13px; font-weight: normal; opacity: 0.85;">[SPACE / ENTER]</span>
     </button>
@@ -84,23 +84,24 @@
   <!-- 2. In-Game 3D Canvas Screen -->
   <div class="game-container" id="gameContainer">
     <div class="game-hud">
-      <div class="hud-left">
+      <div>
         <div class="hud-song-title" id="hudSongTitle">캐논 변주곡</div>
         <div class="hud-song-meta" id="hudSongMeta">132 BPM · Normal</div>
       </div>
-      <div class="hud-center">
+      <div style="text-align: center;">
         <div class="hud-score" id="hudScore">0000000</div>
         <div class="hud-acc" id="hudAcc">정확도 100.0%</div>
       </div>
-      <div class="hud-right">
+      <div style="display: flex; align-items: center; gap: 12px;">
         <div class="life-bar-wrap" title="HP 게이지">
           <div class="life-bar-fill" id="lifeBarFill"></div>
         </div>
-        <button type="button" class="btn-pause" id="pauseBtn">⏸ 일시정지</button>
+        <button type="button" class="btn-hud-control" id="pauseBtn">⏸ 일시정지</button>
       </div>
     </div>
 
     <div class="canvas-wrapper">
+      <div class="countdown-overlay" id="countdownOverlay">3</div>
       <canvas id="gameCanvas"></canvas>
     </div>
 
@@ -146,7 +147,7 @@
       <div class="result-actions">
         <button type="button" class="result-btn btn-replay" id="replayBtn">🔄 다시 플레이</button>
         <button type="button" class="result-btn btn-lobby" id="lobbyBtn">📋 곡 선택</button>
-        <button type="button" class="result-btn btn-lobby" id="shareBtn" style="border-color: var(--primary);">📢 공유</button>
+        <button type="button" class="result-btn btn-lobby" id="shareBtn" style="border-color: var(--cyan);">📢 기록 복사</button>
       </div>
     </div>
   </div>

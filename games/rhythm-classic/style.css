@@ -1,22 +1,23 @@
 :root {
-  --bg-dark: #090a12;
-  --bg-surface: #121424;
-  --bg-card: #181b30;
-  --bg-card-hover: #222644;
-  --primary: #00f0ff;
-  --primary-glow: rgba(0, 240, 255, 0.4);
-  --secondary: #ff007f;
-  --secondary-glow: rgba(255, 0, 127, 0.4);
-  --accent: #ffd700;
-  --text-main: #f0f3ff;
-  --text-muted: #8b92b2;
-  --border-light: rgba(255, 255, 255, 0.1);
-  --border-active: rgba(0, 240, 255, 0.5);
-  --lane-0: #00f0ff;
-  --lane-1: #ff007f;
-  --lane-2: #ff007f;
-  --lane-3: #00f0ff;
-  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  --bg-deep: #05060a;
+  --bg-surface: #0c0e18;
+  --bg-panel: #131728;
+  --bg-card: #191e34;
+  --bg-card-hover: #222947;
+  --cyan: #00f0ff;
+  --cyan-glow: rgba(0, 240, 255, 0.45);
+  --pink: #ff007f;
+  --pink-glow: rgba(255, 0, 127, 0.45);
+  --gold: #ffd700;
+  --gold-glow: rgba(255, 215, 0, 0.5);
+  --green: #39ff14;
+  --red: #ff3366;
+  --border: rgba(255, 255, 255, 0.12);
+  --border-active: rgba(0, 240, 255, 0.6);
+  --text-main: #f8faff;
+  --text-muted: #8c96ba;
+  --font-main: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
+  --font-arcade: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SF Mono", Menlo, Consolas, monospace;
 }
 
@@ -26,10 +27,11 @@
   padding: 0;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background-color: var(--bg-dark);
+  background-color: var(--bg-deep);
   color: var(--text-main);
   font-family: var(--font-main);
   overflow-x: hidden;
@@ -37,19 +39,21 @@ body {
   display: flex;
   flex-direction: column;
   background-image:
-    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.1) 0%, transparent 60%),
-    radial-gradient(circle at 80% 80%, rgba(255, 0, 127, 0.08) 0%, transparent 50%);
+    radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.12) 0%, transparent 55%),
+    radial-gradient(circle at 85% 85%, rgba(255, 0, 127, 0.1) 0%, transparent 50%),
+    linear-gradient(180deg, #07080f 0%, #030407 100%);
 }
 
-/* Header */
+/* DJMAX / Arcade Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 24px;
-  background: rgba(18, 20, 36, 0.85);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-light);
+  padding: 12px 24px;
+  background: rgba(12, 14, 24, 0.88);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
   z-index: 50;
 }
 
@@ -59,107 +63,112 @@ body {
   gap: 12px;
 }
 
-.brand-icon {
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
+.brand-emblem {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--cyan), var(--pink));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
-  font-weight: 900;
-  box-shadow: 0 0 16px var(--primary-glow);
+  font-size: 20px;
+  box-shadow: 0 0 16px var(--cyan-glow);
 }
 
 .brand-title {
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: -0.3px;
-  color: white;
+  font-size: 18px;
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
 }
 
 .brand-sub {
   font-size: 10px;
   font-family: var(--font-mono);
-  color: var(--primary);
-  letter-spacing: 1.5px;
+  color: var(--cyan);
+  letter-spacing: 1.8px;
 }
 
-.top-nav {
+.top-actions {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.badge-tag {
+.tag-badge {
   font-size: 11px;
+  font-weight: 700;
   padding: 4px 10px;
-  border-radius: 20px;
-  background: rgba(0, 240, 255, 0.12);
-  color: var(--primary);
-  border: 1px solid rgba(0, 240, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(0, 240, 255, 0.1);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 240, 255, 0.25);
   font-family: var(--font-mono);
 }
 
-.btn-secondary {
+.btn-arcade-sub {
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid var(--border-light);
-  color: var(--text-main);
+  border: 1px solid var(--border);
+  color: #fff;
   padding: 6px 14px;
   border-radius: 8px;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.3);
+.btn-arcade-sub:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
-/* Lobby Container */
+/* Main Lobby */
 .lobby-container {
-  max-width: 960px;
+  max-width: 1040px;
   margin: 0 auto;
-  padding: 24px 16px 40px;
+  padding: 24px 20px 48px;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.section-head {
+.lobby-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 14px;
 }
 
-.section-title {
-  font-size: 20px;
-  font-weight: 800;
+.lobby-title {
+  font-size: 22px;
+  font-weight: 900;
+  color: #fff;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
-.section-desc {
+.lobby-desc {
   font-size: 13px;
   color: var(--text-muted);
   margin-top: 4px;
 }
 
-/* Song Selection Cards */
+/* DJMAX Style Track Jacket Grid */
 .song-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
 }
 
 .song-card {
   background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
   padding: 18px;
   cursor: pointer;
   transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
@@ -168,7 +177,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 180px;
+  min-height: 190px;
 }
 
 .song-card::before {
@@ -177,77 +186,101 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  height: 3px;
+  height: 4px;
   background: transparent;
   transition: background 0.3s ease;
 }
 
 .song-card:hover {
   background: var(--bg-card-hover);
-  border-color: rgba(0, 240, 255, 0.3);
-  transform: translateY(-2px);
+  border-color: rgba(0, 240, 255, 0.35);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
 .song-card.selected {
-  background: linear-gradient(145deg, rgba(24, 27, 48, 0.95), rgba(0, 240, 255, 0.08));
-  border-color: var(--primary);
-  box-shadow: 0 0 24px rgba(0, 240, 255, 0.2);
+  background: linear-gradient(145deg, rgba(25, 30, 52, 0.95), rgba(0, 240, 255, 0.12));
+  border-color: var(--cyan);
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.25);
 }
 
 .song-card.selected::before {
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  background: linear-gradient(90deg, var(--cyan), var(--pink));
 }
 
-.song-card-header {
+.jacket-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 10px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.jacket-icon-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.jacket-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .song-badge {
   font-size: 11px;
-  font-weight: 700;
-  padding: 3px 8px;
+  font-weight: 800;
+  padding: 4px 8px;
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.08);
   color: #fff;
 }
 
 .song-card.selected .song-badge {
-  background: var(--primary);
+  background: var(--cyan);
   color: #000;
 }
 
 .bpm-badge {
   font-family: var(--font-mono);
   font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
+  font-weight: 800;
+  color: var(--gold);
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 6px;
+  background: rgba(255, 215, 0, 0.1);
+  padding: 3px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 215, 0, 0.25);
 }
 
 .bpm-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 8px var(--accent);
-  animation: pulse-bpm 0.8s infinite alternate;
+  background: var(--gold);
+  box-shadow: 0 0 8px var(--gold);
+  animation: pulse-dot 0.75s infinite alternate;
 }
 
-@keyframes pulse-bpm {
-  0% { transform: scale(0.8); opacity: 0.6; }
-  100% { transform: scale(1.3); opacity: 1; }
+@keyframes pulse-dot {
+  0% { transform: scale(0.8); opacity: 0.5; }
+  100% { transform: scale(1.4); opacity: 1; }
 }
 
 .song-name {
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 800;
   color: #fff;
   margin-bottom: 4px;
+  letter-spacing: -0.3px;
 }
 
 .song-composer {
@@ -256,56 +289,69 @@ body {
   margin-bottom: 8px;
 }
 
-.song-info-row {
-  display: flex;
-  gap: 12px;
-  font-size: 12px;
-  color: #abb3d4;
-  margin-top: 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
-  padding-top: 10px;
+.song-desc {
+  font-size: 11px;
+  color: #9ba6cc;
+  line-height: 1.45;
+  margin-bottom: 12px;
 }
 
-.high-score-tag {
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--primary);
+.song-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 10px;
+  font-size: 12px;
 }
 
-/* Options / Settings Bar */
-.control-panel {
-  background: var(--bg-card);
-  border: 1px solid var(--border-light);
-  border-radius: 14px;
+.diff-chip {
+  font-weight: 800;
+  color: var(--pink);
+  font-family: var(--font-mono);
+}
+
+.best-score-chip {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+/* Control Console Bar */
+.arcade-console {
+  background: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
   padding: 18px 24px;
   display: flex;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.setting-group {
+.console-group {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
-.setting-label {
-  font-size: 13px;
-  font-weight: 700;
+.console-label {
+  font-size: 12px;
+  font-weight: 800;
   color: var(--text-muted);
+  letter-spacing: 0.5px;
 }
 
-.speed-btns {
+.speed-cluster {
   display: flex;
   gap: 4px;
-  background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.4);
   padding: 4px;
   border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .btn-speed {
@@ -314,83 +360,84 @@ body {
   color: var(--text-muted);
   padding: 6px 12px;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 800;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-speed.active {
-  background: var(--primary);
+  background: var(--cyan);
   color: #000;
-  box-shadow: 0 0 10px var(--primary-glow);
+  box-shadow: 0 0 12px var(--cyan-glow);
 }
 
-.offset-control {
+.offset-box {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.offset-control input[type="range"] {
-  accent-color: var(--primary);
-  width: 100px;
+.offset-box input[type="range"] {
+  accent-color: var(--cyan);
+  width: 90px;
   cursor: pointer;
 }
 
-.offset-val {
+.offset-text {
   font-family: var(--font-mono);
   font-size: 12px;
-  color: var(--primary);
+  color: var(--cyan);
   min-width: 45px;
 }
 
-.keys-guide {
+.key-guide-box {
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 12px;
-  color: var(--text-muted);
 }
 
-.kbd {
-  display: inline-block;
-  padding: 3px 7px;
-  background: #252a48;
+.key-chip {
+  padding: 4px 8px;
+  background: #1c223c;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 4px;
+  border-radius: 5px;
   font-family: var(--font-mono);
-  font-weight: 700;
+  font-weight: 800;
+  font-size: 12px;
   color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Play Action Button */
-.btn-start-game {
+/* Big Start Button */
+.btn-start-arcade {
   width: 100%;
   padding: 18px;
   font-size: 18px;
   font-weight: 900;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   color: #000;
   background: linear-gradient(90deg, #00f0ff, #ff007f);
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
   cursor: pointer;
-  box-shadow: 0 4px 24px rgba(0, 240, 255, 0.35);
-  transition: all 0.2s ease;
+  box-shadow: 0 6px 28px rgba(0, 240, 255, 0.4);
+  transition: all 0.25s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
+  text-transform: uppercase;
 }
 
-.btn-start-game:hover {
+.btn-start-arcade:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 32px rgba(255, 0, 127, 0.45);
+  box-shadow: 0 8px 36px rgba(255, 0, 127, 0.5);
+  filter: brightness(1.1);
 }
 
-/* In-Game Screen */
+/* In-Game 3D Screen */
 .game-container {
   display: none;
   position: fixed;
@@ -398,7 +445,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: #06070c;
+  background: #040508;
   z-index: 100;
   flex-direction: column;
   overflow: hidden;
@@ -409,55 +456,36 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background: rgba(12, 14, 26, 0.9);
+  background: rgba(10, 12, 22, 0.94);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   font-family: var(--font-mono);
   font-size: 14px;
   z-index: 10;
 }
 
-.hud-left {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
 .hud-song-title {
   font-size: 15px;
-  font-weight: 800;
+  font-weight: 900;
   color: #fff;
   font-family: var(--font-main);
 }
 
 .hud-song-meta {
   font-size: 11px;
-  color: var(--primary);
-}
-
-.hud-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+  color: var(--cyan);
 }
 
 .hud-score {
   font-size: 26px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 1px;
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+  letter-spacing: 2px;
+  text-shadow: 0 0 12px var(--cyan-glow);
 }
 
 .hud-acc {
   font-size: 12px;
-  color: var(--accent);
-}
-
-.hud-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  color: var(--gold);
 }
 
 .life-bar-wrap {
@@ -466,35 +494,35 @@ body {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 6px;
   overflow: hidden;
-  position: relative;
 }
 
 .life-bar-fill {
   height: 100%;
   width: 100%;
   background: linear-gradient(90deg, #ff007f, #00f0ff);
-  transition: width 0.15s ease;
-  box-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  transition: width 0.1s ease;
+  box-shadow: 0 0 10px var(--cyan-glow);
 }
 
-.btn-pause {
+.btn-hud-control {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border);
   color: #fff;
   padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
+  font-weight: 700;
 }
 
-/* Playfield Canvas */
+/* Canvas Area */
 .canvas-wrapper {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  background: radial-gradient(circle at 50% 50%, #0d1020 0%, #06070c 100%);
+  background: radial-gradient(circle at 50% 40%, #0d1124 0%, #040508 100%);
 }
 
 #gameCanvas {
@@ -503,14 +531,16 @@ body {
   object-fit: contain;
 }
 
-/* Mobile Touch Controls */
+/* Pro DJMAX Mobile Arcade Touch Bar */
 .mobile-touch-bar {
   display: none;
-  height: 90px;
+  height: 96px;
   width: 100%;
-  background: #090a14;
-  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  background: #070810;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   touch-action: manipulation;
+  padding: 6px 8px;
+  gap: 8px;
 }
 
 .touch-col {
@@ -519,29 +549,48 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: #14182a;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
   font-family: var(--font-mono);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.4);
-  transition: background 0.05s ease;
-}
-
-.touch-col:last-child {
-  border-right: none;
+  color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  transition: all 0.04s ease;
 }
 
 .touch-col:nth-child(1), .touch-col:nth-child(4) {
-  color: rgba(0, 240, 255, 0.7);
+  border-color: rgba(0, 240, 255, 0.5);
+  color: var(--cyan);
 }
 
 .touch-col:nth-child(2), .touch-col:nth-child(3) {
-  color: rgba(255, 0, 127, 0.7);
+  border-color: rgba(255, 0, 127, 0.5);
+  color: var(--pink);
 }
 
 .touch-col.active {
-  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(4px);
+  background: #252e50;
+  box-shadow: 0 0 18px var(--cyan-glow);
   color: #fff;
+}
+
+/* Countdown Overlay */
+.countdown-overlay {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 72px;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 30px var(--cyan-glow);
+  font-family: var(--font-mono);
+  pointer-events: none;
+  display: none;
+  z-index: 20;
 }
 
 /* Result Modal */
@@ -552,8 +601,8 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(8px);
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(12px);
   z-index: 200;
   justify-content: center;
   align-items: center;
@@ -561,10 +610,10 @@ body {
 }
 
 .result-card {
-  background: var(--bg-card);
+  background: var(--bg-surface);
   border: 1px solid rgba(0, 240, 255, 0.4);
-  box-shadow: 0 0 40px rgba(0, 240, 255, 0.25);
-  border-radius: 18px;
+  box-shadow: 0 0 50px rgba(0, 240, 255, 0.25);
+  border-radius: 20px;
   width: 100%;
   max-width: 480px;
   padding: 28px;
@@ -572,38 +621,32 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  animation: pop-in 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-}
-
-@keyframes pop-in {
-  0% { transform: scale(0.85); opacity: 0; }
-  100% { transform: scale(1); opacity: 1; }
 }
 
 .result-rank-badge {
-  font-size: 64px;
+  font-size: 72px;
   font-weight: 900;
   font-family: var(--font-mono);
   background: linear-gradient(135deg, #ffd700, #ff007f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-  margin-bottom: 4px;
+  text-shadow: 0 0 24px rgba(255, 215, 0, 0.6);
+  margin-bottom: 2px;
 }
 
 .result-title {
-  font-size: 20px;
-  font-weight: 800;
+  font-size: 22px;
+  font-weight: 900;
   color: #fff;
+  letter-spacing: 0.5px;
 }
 
 .result-score {
   font-family: var(--font-mono);
-  font-size: 34px;
+  font-size: 36px;
   font-weight: 900;
-  color: var(--primary);
-  margin: 12px 0 18px;
-  letter-spacing: 1px;
+  color: var(--cyan);
+  margin: 10px 0 18px;
 }
 
 .result-stats-grid {
@@ -640,34 +683,33 @@ body {
   flex: 1;
   padding: 14px;
   font-size: 15px;
-  font-weight: 800;
-  border-radius: 10px;
+  font-weight: 900;
+  border-radius: 12px;
   cursor: pointer;
   border: none;
   transition: all 0.2s ease;
 }
 
 .btn-replay {
-  background: var(--primary);
+  background: var(--cyan);
   color: #000;
 }
 
 .btn-lobby {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--border);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .mobile-touch-bar {
     display: flex;
   }
-  .control-panel {
+  .arcade-console {
     flex-direction: column;
     align-items: flex-start;
   }
-  .keys-guide {
+  .key-guide-box {
     display: none;
   }
 }
