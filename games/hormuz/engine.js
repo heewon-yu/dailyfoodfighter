@@ -29,7 +29,7 @@ const Escape = (() => {
     const config = difficulty(stage);
     return {
       stage, config, time: config.time, progress: 0, power: 0,
-      attack: null, impact: null, launched: 0, dodges: 0,
+      attack: null, impact: null, launched: 0, dodges: 0, lastAttackBoost: false,
       nextIn: 7 - (stage - 1) * 0.35,
       lastTap: -Infinity, status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
     };
@@ -48,14 +48,15 @@ const Escape = (() => {
     return true;
   }
 
-  function projectedArrival(voyage, startTapping) {
+  function projectedArrival(voyage, startTapping, stopTapping = Infinity) {
     const {warning, drain, gain} = voyage.config;
     let progress = voyage.progress;
     let power = voyage.power;
     let nextTap = startTapping;
     const step = warning / 100;
     for (let frame = 0; frame < 100; frame++) {
-      if (frame * step >= nextTap) {
+      const time = frame * step;
+      if (time >= nextTap && time < stopTapping) {
         power = Math.min(1, power + gain);
         nextTap += 0.18;
       }
@@ -65,23 +66,24 @@ const Escape = (() => {
     return progress;
   }
 
-  function planAttack(voyage) {
+  function planAttack(voyage, random) {
     const {stage, config, launched} = voyage;
-    // Allow time for the player to see the warning before beginning to tap.
-    const slow = projectedArrival(voyage, Infinity);
-    const fast = projectedArrival(voyage, 0.56);
+    const boost = stage < 3 || !voyage.lastAttackBoost || (stage >= 7 && random() < 0.42);
+    // Keep a response window even when the player was already tapping as the warning appeared.
+    const slow = boost ? projectedArrival(voyage, Infinity) : projectedArrival(voyage, 0, 0.56);
+    const fast = projectedArrival(voyage, boost ? 0.56 : 0);
     const width = (fast - slow) * (0.48 + (stage - 1) * 0.022);
-    const start = slow - 0.021;
-    const end = slow + width;
+    const start = boost ? slow - 0.021 : fast - width;
+    const end = boost ? slow + width : fast + 0.021;
     const shellCount = stage >= 9 ? 3 : stage >= 5 ? 2 : 1;
     const shots = Array.from({length: shellCount}, (_, index) => ({
       battery: (launched + index) % stage,
       target: start + (end - start) * (index + 1) / (shellCount + 1),
     }));
-    return {start, end, shots, remaining: config.warning, total: config.warning};
+    return {boost, start, end, shots, remaining: config.warning, total: config.warning};
   }
 
-  function tick(voyage, run, dt) {
+  function tick(voyage, run, dt, random = Math.random) {
     if (voyage.status !== 'sailing') return;
     const {config} = voyage;
     voyage.time = Math.max(0, voyage.time - dt);
@@ -123,7 +125,8 @@ const Escape = (() => {
     }
 
     if (!voyage.attack && voyage.nextIn <= 0 && voyage.time > config.warning && voyage.progress < 0.97) {
-      voyage.attack = planAttack(voyage);
+      voyage.attack = planAttack(voyage, random);
+      voyage.lastAttackBoost = voyage.attack.boost;
       voyage.nextIn += config.interval;
       voyage.launched++;
     }

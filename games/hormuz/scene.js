@@ -339,11 +339,11 @@ function createScene(canvas) {
     text('선교 · 전방 시점', 19, 20, 10, '#e4efea', 'left');
     text(`방위 ${String(course).padStart(3, '0')}°`, 19, 34, 8, '#acd6d9', 'left');
     if (voyage.attack) {
-      const {remaining} = voyage.attack;
+      const {boost, remaining} = voyage.attack;
       const w = width < 500 ? 141 : 164;
       const y = width < 500 ? 82 : 18;
       box((width - w) / 2, y, w, 28, 6, '#642626ef', '#ffc498');
-      text(`가속 경보  ·  착탄 ${remaining.toFixed(1)}초`, width / 2, y + 14, 11, '#fff0d5');
+      text(`${boost ? '가속' : '감속'} 경보  ·  착탄 ${remaining.toFixed(1)}초`, width / 2, y + 14, 11, '#fff0d5');
     }
     drawChart(voyage);
   }
