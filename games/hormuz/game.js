@@ -41,10 +41,9 @@ function render(now = performance.now()) {
   byId('prepare-buy').hidden = !canBuy;
   setText('buy-label', sailing ? '출항 전 구매 가능' : '방어권 1회 구매');
   setText('clears', `${run.stage - 1 + Number(status === 'cleared')} / ${stages}`);
-  setText('dodges', `${voyage.dodges}회`);
-  setText('volleys', `${voyage.launched}회`);
-  const interval = config.interval.toFixed(2).replace(/0$/, '');
-  setText('difficulty', `${config.name} · 포대 ${voyage.stage}곳 · ${interval}초마다 포격`);
+  setText('dodges', `${voyage.dodges}발`);
+  setText('volleys', `${voyage.launched}발`);
+  setText('difficulty', `${config.name} · 포대 ${voyage.stage}곳 개별 발사`);
   thrust.disabled = !sailing;
   byId('overlay').hidden = sailing;
 
@@ -61,7 +60,7 @@ function render(now = performance.now()) {
   else if (danger) timer = `착탄 ${attack.remaining.toFixed(1)}초`;
   else if (sailing && voyage.pirate) timer = '해적 퇴각 중';
   else if (sailing && voyage.progress >= 0.97) timer = '탈출 지점 접근';
-  else if (sailing && voyage.time > config.warning) timer = `다음 포격 ${Math.max(0, voyage.nextIn).toFixed(1)}초`;
+  else if (sailing && voyage.time > config.warning) timer = `다음 포격 ${Escape.nextFireIn(voyage).toFixed(1)}초`;
   setText('shot-clock', timer);
   shotClock.classList.toggle('danger', Boolean(danger || pirate));
   thrust.classList.toggle('brake', Boolean(danger && !attack.boost));
@@ -76,7 +75,7 @@ function showResult() {
   setText('mission', `MISSION ${fmt(voyage.stage)} / ${stages}`);
   setText('result-title', finished ? '10단계 완전 탈출!' : cleared ? '해협 탈출 성공!' : '항해 실패');
   setText('result-detail', cleared
-    ? `+${voyage.config.reward} 크레딧 획득 · 포격 ${voyage.dodges}회 회피${finished ? '' : ' · 다음 출항 전 방어권 구매 가능'}`
+    ? `+${voyage.config.reward} 크레딧 획득 · 포탄 ${voyage.dodges}발 회피${finished ? '' : ' · 다음 출항 전 방어권 구매 가능'}`
     : `${voyage.notice} 새 항해는 1단계에서 시작합니다.`);
   setText('launch', cleared && !finished ? `${voyage.stage + 1}단계 출항 →` : '1단계 다시 시작 →');
   launchButton.focus({preventScroll: true});
@@ -99,7 +98,7 @@ function launch() {
   if (voyage.status === 'sailing') return;
   if (voyage.status === 'cleared' && run.stage < stages) run.stage++;
   else if (voyage.status !== 'ready') run = Escape.newRun();
-  voyage = Escape.newVoyage(run.stage, run.pirateSeen);
+  voyage = Escape.newVoyage(run.stage, run.pirateBoatsFaced);
   voyage.status = 'sailing';
   voyage.notice = '추진을 터치해 속도를 올리세요.';
   clock = performance.now();

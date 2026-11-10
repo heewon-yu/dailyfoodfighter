@@ -225,11 +225,12 @@ function createScene(canvas) {
     return Array.from({length: 17}, (_, index) => routePoint(start + (end - start) * index / 16, side));
   }
 
-  function drawRange(attack, now) {
-    const start = clamp(attack.start, 0, 1);
-    const end = clamp(attack.end, 0, 1);
-    const pulse = 0.48 + 0.12 * Math.sin(now / 120);
+  function drawRange(shot, now, primary) {
+    const start = clamp(shot.start, 0, 1);
+    const end = clamp(shot.end, 0, 1);
+    const pulse = primary ? 0.48 + 0.12 * Math.sin(now / 120) : 0.19;
     paint([...section(start, end, -14), ...section(end, start, 14)], `rgba(250,67,37,${pulse})`, '#ffc297');
+    if (!primary) return;
     for (let stripe = 1; stripe < 6; stripe++) {
       const p = start + (end - start) * stripe / 6;
       line([routePoint(p, -14), routePoint(p, 14)], '#ffd3a79e', 1);
@@ -253,13 +254,14 @@ function createScene(canvas) {
     }
   }
 
-  function drawShell(shot, phase, index, highDetail) {
+  function drawShell(shot, highDetail) {
     const [sx, sz] = batteries[shot.battery];
     const [tx, tz] = at(shot.target);
     const arcHeight = 31 + Math.min(33, Math.hypot(tx - sx, tz - sz) * 0.073);
     const launchHeight = (highDetail ? world.heightAt(sx, sz) : cliffHeight(sx, sz)) + 4;
     const arc = t => [sx + (tx - sx) * t, launchHeight * (1 - t) + Math.sin(t * Math.PI) * arcHeight, sz + (tz - sz) * t];
-    const delay = 0.17 + index * 0.035;
+    const phase = 1 - shot.remaining / shot.total;
+    const delay = 0.17;
     const flight = Math.max(0, (phase - delay) / (1 - delay));
     if (flight <= 0) return;
     const tail = Array.from({length: 13}, (_, i) => arc(Math.max(0, flight - (12 - i) / 42)));
@@ -421,12 +423,11 @@ function createScene(canvas) {
     ctx.lineWidth = 1;
     ctx.stroke();
     if (voyage.attack) {
-      const {start, end} = voyage.attack;
-      screenPath(section(start, end, 0).map(([x, , z]) => chart(x, z)));
-      ctx.lineWidth = 3;
-      ctx.strokeStyle = '#ff704d';
-      ctx.stroke();
-      for (const {battery} of voyage.attack.shots) {
+      for (const {battery, start, end} of voyage.attack.shots) {
+        screenPath(section(start, end, 0).map(([x, , z]) => chart(x, z)));
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = '#ff704d';
+        ctx.stroke();
         const [bx, by] = chart(...batteries[battery]);
         ctx.fillStyle = '#ff8c56';
         ctx.fillRect(bx - 1.2, by - 1.2, 2.4, 2.4);
@@ -481,16 +482,15 @@ function createScene(canvas) {
         drawCoast();
       }
       drawRoute(voyage.progress);
-      if (voyage.attack) drawRange(voyage.attack, now);
+      if (voyage.attack) voyage.attack.shots.forEach((shot, index) => drawRange(shot, now, index === 0));
       skiffs.forEach(skiff => drawSkiffWake(skiff, now));
-      if (voyage.impact) drawSplash(voyage.impact);
+      voyage.impacts.forEach(drawSplash);
       if (highDetail) ctx.restore();
       else {
         skiffs.forEach(drawSkiffFallback);
         drawDeck(x, z);
       }
-      if (voyage.attack) voyage.attack.shots.forEach((shot, index) =>
-        drawShell(shot, 1 - voyage.attack.remaining / voyage.attack.total, index, highDetail));
+      if (voyage.attack) voyage.attack.shots.forEach(shot => drawShell(shot, highDetail));
       if (skiffs.length && voyage.pirate.status === 'approaching') markSkiff(skiffs[0]);
       drawBridge(voyage);
     },
