@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="description" content="실제 호르무즈 해협을 배경으로 펼쳐지는 100단계 상선 탈출 웹게임">
+  <title>호르무즈 해협 탈출하기</title>
+  <link rel="stylesheet" href="./game.css">
+  <script defer src="./coast.js"></script>
+  <script defer src="./engine.js"></script>
+  <script defer src="./game.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="top-inner">
+      <div class="brand"><span class="mark" aria-hidden="true">◈</span><div>HORMUZ ESCAPE<small>MERCHANT VOYAGE</small></div></div>
+      <button class="share" id="share" type="button"><span aria-hidden="true">↗</span> 링크 공유</button>
+    </div>
+  </header>
+  <main>
+    <div class="intro">
+      <div class="eyebrow"><span></span> STRAIT OF HORMUZ · 26° N 56° E</div>
+      <h1>호르무즈 해협 <span>탈출하기</span></h1>
+      <p>상선을 조종해 이란의 공격을 피하고 오만만으로 탈출하세요.</p>
+    </div>
+    <div class="layout">
+      <section class="bridge" aria-label="상선 조종실">
+        <div class="bridge-head">
+          <div><div class="kicker">01 / NAVIGATION</div><h2>항해 조종실</h2></div>
+          <span class="badge" id="mode">출항 대기</span>
+        </div>
+        <div class="hud">
+          <div><span>항해 단계</span><strong id="stage">01 <small>/ 100</small></strong></div>
+          <div><span>남은 시간</span><strong id="time">—</strong></div>
+          <div><span>선체 내구도</span><strong id="hull">3 / 3</strong></div>
+          <div><span>도착 진행률</span><strong id="progress">0%</strong></div>
+        </div>
+        <div class="map-frame">
+          <svg id="map" viewBox="0 0 1000 610" role="img" aria-label="이란 남쪽 해안과 오만 무산담반도 사이의 호르무즈 해협 지도"></svg>
+          <div class="map-caption"><span><i></i> 항로</span><span>실제 해안선 · 게임 항로</span></div>
+          <div class="overlay" id="overlay">
+            <div class="overlay-card">
+              <div class="kicker" id="mission">MISSION 01 / 100</div>
+              <h3 id="result-title">항해 준비 완료</h3>
+              <p id="result-detail">추진을 누를 때마다 속도가 붙습니다. 경보가 울리면 표시된 항로에서 벗어나세요.</p>
+              <button class="gold" id="launch" type="button">1단계 출항 <span aria-hidden="true">→</span></button>
+            </div>
+          </div>
+        </div>
+        <div class="nav-controls">
+          <div class="nav-heading"><span id="alert" role="status" aria-live="polite">출항 버튼을 눌러 항해를 시작하세요.</span><span id="speed">0.0 kt</span></div>
+          <div class="meter" aria-hidden="true"><div id="power"></div></div>
+          <div class="controls">
+            <button type="button" class="steer" id="north" disabled>↑ 북쪽<kbd>↑</kbd></button>
+            <button type="button" class="gold thrust" id="thrust" disabled><b>⚡ 추진</b><small>연속 터치 · Space</small></button>
+            <button type="button" class="steer" id="south" disabled>↓ 남쪽<kbd>↓</kbd></button>
+          </div>
+        </div>
+      </section>
+      <aside aria-label="항해 보급 및 기록">
+        <section class="card">
+          <div class="kicker">02 / SUPPLIES</div><h2>방어 보급소</h2>
+          <div class="stats">
+            <div><span>탈출 크레딧</span><strong id="credits">0</strong></div>
+            <div><span>보유 방어권</span><strong id="shields">0</strong></div>
+          </div>
+          <p>공격에 맞는 순간 방어권 1개가 자동으로 소모되어 선체를 보호합니다.</p>
+          <button class="buy" id="buy" type="button">방어권 1회 구매 <span>80 C</span></button>
+        </section>
+        <section class="card">
+          <div class="kicker">03 / LOGBOOK</div><h2>항해 기록</h2>
+          <div class="record"><span>탈출 성공</span><strong id="clears">0 / 100</strong></div>
+          <div class="record"><span>이번 항해 회피</span><strong id="dodges">0회</strong></div>
+          <p>항해에 실패하거나 페이지를 다시 열면 1단계부터 시작합니다.</p>
+        </section>
+        <section class="card guide">
+          <div class="kicker">04 / BRIEFING</div><h2>조작 방법</h2>
+          <ol>
+            <li><strong>추진</strong>을 연타해 제한 시간 안에 도착하세요.</li>
+            <li><strong>북쪽·남쪽</strong> 버튼 또는 ↑ ↓ 키로 경보가 뜬 항로를 피하세요.</li>
+            <li>탈출하면 <strong>크레딧</strong>을 받고 다음 단계로 진입합니다.</li>
+          </ol>
+          <div class="difficulty" id="difficulty"></div>
+        </section>
+      </aside>
+    </div>
+    <div class="source">해안선 데이터 <a href="https://www.naturalearthdata.com/downloads/10m-physical-vectors/10m-land/" target="_blank" rel="noopener">Natural Earth 1:10m</a> <span>·</span> 항로와 전투는 게임용으로 구성했습니다.</div>
+  </main>
+  <footer>created by 16100901</footer>
+  <div id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
