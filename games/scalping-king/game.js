@@ -16,7 +16,6 @@
   const randomSeed = () => crypto.getRandomValues(new Uint32Array(1))[0];
   const code = seed => seed.toString(36).toUpperCase().padStart(7, '0');
   const bestKey = 'scalping-king.best.v1';
-  const publicURL = 'https://dailyfoodfighter.com/games/scalping-king/';
 
   function initialSeed() {
     const raw = new URLSearchParams(location.search).get('seed');
@@ -33,7 +32,19 @@
     } catch { return null; }
   }
 
-  let market = createMarket(initialSeed());
+  function readScoreFromAddress() {
+    const match = /^#score=([a-z0-9]{1,7}),(\d{1,16}),(\d{1,16}),(\d{1,16}),([01])$/i.exec(location.hash);
+    if (!match) return null;
+    const [, seedCode, amount, trades, charges, record] = match;
+    const seed = parseInt(seedCode, 36);
+    const [total, count, fees] = [amount, trades, charges].map(Number);
+    if (seed > 0xffffffff || ![total, count, fees].every(Number.isSafeInteger)) return null;
+    const profit = total - CASH;
+    return {seed, total, profit, rate: profit / CASH * 100, count, fees, record: record === '1'};
+  }
+
+  let result = readScoreFromAddress();
+  let market = createMarket(result?.seed ?? initialSeed());
   let account = createAccount();
   let best = readBest();
   let selected = 0;
@@ -50,7 +61,6 @@
   let newsKey = '';
   let stockNewsKey = '';
   let lastSeenNews = 0;
-  let result = null;
   let scoreImage = null;
   let watchKey = '';
   let amendment = null;
@@ -160,9 +170,9 @@
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
-    $('start').hidden = phase !== 'ready';
-    $('openScoreShare').hidden = phase !== 'done';
-    $('startNextRound').hidden = phase !== 'done';
+    $('start').hidden = phase !== 'ready' || Boolean(result);
+    $('openScoreShare').hidden = !result;
+    $('startNextRound').hidden = !result;
     for (const id of ['pause', 'jumpPause']) {
       $(id).hidden = !inSession;
       $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
@@ -525,19 +535,24 @@
       best = rate;
       try { localStorage.setItem(bestKey, String(best)); } catch { /* Per-session records still work. */ }
     }
-    result = {total, profit, rate, count: account.trades.length, fees: account.fees, record};
-    $('score').innerHTML = '<span>' + (record ? '개인 최고 기록' : '최종 수익률') + '</span><strong>' + pct(rate) +
-      '</strong><dl><div><dt>최종 평가자산</dt><dd>' + money(total) + '</dd></div><div><dt>총손익</dt><dd>' + signed(profit) +
-      '원</dd></div><div><dt>거래 횟수</dt><dd>' + result.count + '회</dd></div><div><dt>총수수료</dt><dd>' + money(result.fees) +
-      '</dd></div><div><dt>장세 코드</dt><dd>' + code(market.seed) + '</dd></div></dl>';
+    result = {seed: market.seed, total, profit, rate, count: account.trades.length, fees: account.fees, record};
     feedback(expired ? '장이 마감되어 미체결 ' + expired + '건이 자동 취소됐어요.' :
       '장이 마감됐어요. 최종 평가자산은 보유 종목을 종가로 계산했어요.');
     renderPhase();
     render();
     if ($('guide').open) $('guide').close();
     if ($('amendDialog').open) $('amendDialog').close();
+    openResult();
+  }
+
+  function openResult() {
+    const {seed, record, rate, total, profit, count, fees} = result;
+    $('score').innerHTML = '<span>' + (record ? '개인 최고 기록' : '최종 수익률') + '</span><strong>' + pct(rate) +
+      '</strong><dl><div><dt>최종 평가자산</dt><dd>' + money(total) + '</dd></div><div><dt>총손익</dt><dd>' + signed(profit) +
+      '원</dd></div><div><dt>거래 횟수</dt><dd>' + count + '회</dd></div><div><dt>총수수료</dt><dd>' + money(fees) +
+      '</dd></div><div><dt>장세 코드</dt><dd>' + code(seed) + '</dd></div></dl>';
     $('result').showModal();
-    prepareScoreImage(result, code(market.seed));
+    prepareScoreImage(result, code(seed));
   }
 
   function reset() {
@@ -546,6 +561,7 @@
     if (/^https?:$/.test(location.protocol)) {
       const url = new URL(location.href);
       url.searchParams.delete('seed');
+      if (url.hash.startsWith('#score=')) url.hash = '';
       history.replaceState(null, '', url);
     }
     market = createMarket(randomSeed());
@@ -562,6 +578,7 @@
     stockNewsKey = '';
     lastSeenNews = 0;
     $('shareFeedback').textContent = '';
+    $('scoreShareLink').hidden = true;
     $('search').value = '';
     orderQty.value = '100';
     orderPrice.value = String(market.stocks[selected].price);
@@ -573,34 +590,18 @@
   }
 
   function restartRound() {
-    if (phase === 'ready') return;
+    if (phase === 'ready' && !result) return;
     reset();
     start();
   }
 
-  async function shareResult() {
-    if (!result) return;
-    const url = publicURL + '?seed=' + code(market.seed);
-    const message = ['[5분 단타왕] ' + pct(result.rate) + (result.record ? ' · 개인 최고 기록' : ''),
-      '1억 → ' + money(result.total) + ' / 총손익 ' + signed(result.profit) + '원',
-      '체결 ' + result.count + '회 · 장세 코드 ' + code(market.seed), '같은 장세에 도전: ' + url].join('\n');
-    try {
-      await navigator.clipboard.writeText(message);
-      $('shareFeedback').textContent = '성적과 도전 링크를 복사했어요.';
-    } catch {
-      const field = document.createElement('textarea');
-      field.value = message;
-      field.setAttribute('aria-label', '공유할 결과');
-      $('shareFeedback').replaceChildren(field);
-      field.style.width = '100%';
-      field.rows = 4;
-      field.select();
-    }
+  function setShareEnabled(enabled) {
+    $('openScoreShare').disabled = !enabled;
+    $('shareImage').disabled = !enabled;
   }
 
   function prepareScoreImage(snapshot, seedCode) {
-    $('shareImage').disabled = true;
-    $('saveScore').disabled = true;
+    setShareEnabled(false);
     const image = document.createElement('canvas');
     image.width = 920;
     image.height = 660;
@@ -634,37 +635,47 @@
     image.toBlob(blob => {
       if (result !== snapshot) return;
       if (!blob) {
-        $('shareFeedback').textContent = '성적표 이미지를 만들 수 없어요.';
+        showShareHelp('성적표 이미지를 만들지 못했어요.');
         return;
       }
       scoreImage = new File([blob], 'scalping-king-' + seedCode + '.png', {type: 'image/png'});
-      $('shareImage').disabled = false;
-      $('saveScore').disabled = false;
+      setShareEnabled(true);
     }, 'image/png');
   }
 
-  function saveScore() {
-    if (!scoreImage) return;
-    const link = document.createElement('a');
-    link.href = URL.createObjectURL(scoreImage);
-    link.download = scoreImage.name;
-    link.click();
-    setTimeout(() => URL.revokeObjectURL(link.href), 30000);
-    $('shareFeedback').textContent = '성적표 PNG 다운로드를 시작했어요.';
+  function showShareHelp(message) {
+    const {seed, total, count, fees, record} = result;
+    const url = new URL(location.href);
+    url.hash = 'score=' + [code(seed), total, count, fees, Number(record)].join(',');
+    try { history.replaceState(null, '', url); } catch { /* The result address is still available below. */ }
+    const link = $('scoreShareLink');
+    link.value = url.href;
+    link.hidden = false;
+    $('shareFeedback').textContent = message +
+      ' 카카오톡에서 열었다면 메뉴에서 외부 브라우저로 열어 주세요. 아래 주소를 Chrome이나 Safari에서 열어도 같은 성적표를 이어서 공유할 수 있어요.';
+    if (!$('result').open) $('result').showModal();
   }
 
   async function shareScoreImage() {
     if (!scoreImage) return;
-    const files = [scoreImage];
+    const file = scoreImage;
+    const files = [file];
+    $('shareFeedback').textContent = '';
+    $('scoreShareLink').hidden = true;
     try {
-      if (navigator.share && navigator.canShare?.({files})) {
-        await navigator.share({title: '5분 단타왕 성적표', files});
+      if (!navigator.share || (navigator.canShare && !navigator.canShare({files}))) {
+        showShareHelp('현재 브라우저에서 이미지 공유 메뉴를 열 수 없어요.');
         return;
       }
+      setShareEnabled(false);
+      await navigator.share({files});
     } catch (error) {
-      if (error.name === 'AbortError') return;
+      if (error.name !== 'AbortError' && scoreImage === file) {
+        showShareHelp('이미지 공유 메뉴를 열지 못했어요.');
+      }
+    } finally {
+      if (scoreImage === file) setShareEnabled(true);
     }
-    saveScore();
   }
 
   function segment(name, update) {
@@ -714,7 +725,7 @@
   $('sort').addEventListener('change', renderWatchlist);
   $('showMA').addEventListener('change', renderChart);
   $('start').addEventListener('click', start);
-  $('openScoreShare').addEventListener('click', () => $('result').showModal());
+  $('openScoreShare').addEventListener('click', shareScoreImage);
   $('startNextRound').addEventListener('click', restartRound);
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
@@ -724,9 +735,7 @@
   $('amendForm').addEventListener('submit', submitAmendment);
   $('buy').addEventListener('click', () => trade('buy'));
   $('sell').addEventListener('click', () => trade('sell'));
-  $('share').addEventListener('click', shareResult);
   $('shareImage').addEventListener('click', shareScoreImage);
-  $('saveScore').addEventListener('click', saveScore);
   $('playAgain').addEventListener('click', restartRound);
   orderQty.addEventListener('input', () => renderEstimate());
   orderPrice.value = String(market.stocks[selected].price);
@@ -796,5 +805,6 @@
 
   renderPhase();
   render();
+  if (result) openResult();
 }());
 

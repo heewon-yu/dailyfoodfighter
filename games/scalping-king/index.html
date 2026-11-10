@@ -7,10 +7,10 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-03">
+  <link rel="stylesheet" href="./style.css?v=20261110-05">
   <script defer src="./market.js?v=20261110-03"></script>
   <script defer src="./chart.js?v=20261110-03"></script>
-  <script defer src="./game.js?v=20261110-04"></script>
+  <script defer src="./game.js?v=20261110-05"></script>
 </head>
 <body>
   <header class="topbar">
@@ -51,7 +51,7 @@
             <button id="start" class="gold" type="button"><span aria-hidden="true">▶</span> 5분 거래 시작</button>
             <button id="pause" class="ghost" type="button" hidden>일시정지</button>
             <button id="restart" class="ghost" type="button" hidden>다시하기</button>
-            <button id="openScoreShare" class="ghost" type="button" hidden>성적표 공유하기</button>
+            <button id="openScoreShare" class="ghost" type="button" hidden disabled>결과 공유하기</button>
             <button id="startNextRound" class="gold" type="button" hidden>한 번 더 하기</button>
             <button id="marketJump" class="ghost" type="button">종목 살펴보기 ↓</button>
           </div>
@@ -155,7 +155,7 @@
       <li><strong>1억으로 5분 거래하기</strong><p>호재와 악재가 뜨면 가격과 거래량이 움직여요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
       <li><strong>시장가 또는 지정가로 주문하기</strong><p>지정가는 입력한 가격 또는 더 유리한 호가에서 체결돼요. 미체결 잔량은 주문 내역에서 정정하거나 취소할 수 있고, 마감하면 자동 취소돼요. 수수료는 0.05%예요.</p></li>
       <li><strong>잠깐 쉬거나 다시 시작하기</strong><p>일시정지하면 타이머와 장세가 멈춰요. 거래 재개를 누르면 남은 시간이 이어지고, 다시하기를 누르면 새 장세가 즉시 시작돼요.</p></li>
-      <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 성적표를 이미지로 공유하거나, PNG로 저장하거나, 결과와 장세 링크를 복사할 수 있어요.</p></li>
+      <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 결과 공유하기를 누르면 기기의 공유 메뉴에서 성적표 이미지를 보낼 수 있어요.</p></li>
     </ol>
     <form method="dialog"><button class="gold modal-primary">시장 살펴보기</button></form>
   </dialog>
@@ -174,9 +174,9 @@
   <dialog id="result" class="modal result-modal">
     <div class="modal-head"><div><div class="eyebrow">FINAL SCORE</div><h2>장 마감 성적표</h2></div><form method="dialog"><button class="subtle" aria-label="성적표 닫기">✕</button></form></div>
     <div id="score" class="score"></div>
-    <div class="result-actions"><button type="button" id="shareImage" class="gold" disabled>이미지 공유</button><button type="button" id="share" class="subtle">결과 복사</button><button type="button" id="saveScore" class="subtle" disabled>PNG 저장</button></div>
-    <div class="result-actions"><button type="button" id="playAgain" class="subtle">한 번 더 하기</button></div>
+    <div class="result-actions"><button type="button" id="shareImage" class="gold" disabled>결과 공유하기</button><button type="button" id="playAgain" class="subtle">한 번 더 하기</button></div>
     <div id="shareFeedback" class="feedback" role="status"></div>
+    <input id="scoreShareLink" class="score-share-link" type="url" aria-label="다른 브라우저에서 열 성적표 주소" readonly hidden>
   </dialog>
 </body>
 </html>
