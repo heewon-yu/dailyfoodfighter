@@ -315,17 +315,23 @@ function createScene(canvas) {
     ctx.clip('evenodd');
   }
 
-  function piratePosition(voyage, x, z, now) {
+  function piratePositions(voyage, x, z, now) {
     const pirate = voyage.pirate;
-    if (!pirate) return null;
+    if (!pirate) return [];
     const phase = 1 - pirate.remaining / pirate.total;
     const retreat = pirate.status === 'repelled';
-    const side = retreat ? 15.5 + 84 * phase : 15.5 + 76 * (1 - phase) ** 1.65;
+    const distance = retreat ? 15.5 + 84 * phase : 15.5 + 76 * (1 - phase) ** 1.65;
     const ahead = retreat ? 37 + 24 * phase : 45 - 8 * phase;
-    return {
-      x: x + forwardX * ahead - forwardZ * side, z: z + forwardZ * ahead + forwardX * side,
-      y: Math.sin(now * 0.006) * 0.28, heading: retreat ? 0.7 : -0.8 + 0.6 * phase,
-    };
+    const formation = [[1, 0, 0], [-1, 5, 7], [1, 21, 23]];
+    return formation.slice(0, pirate.boats).map(([wing, sideOffset, aheadOffset], index) => {
+      const side = wing * (distance + sideOffset);
+      const forward = ahead + aheadOffset;
+      return {
+        x: x + forwardX * forward - forwardZ * side, z: z + forwardZ * forward + forwardX * side,
+        y: Math.sin(now * 0.006 + index * 1.4) * 0.28,
+        heading: wing * (retreat ? 0.7 : -0.8 + 0.6 * phase),
+      };
+    });
   }
 
   function drawSkiffWake(skiff, now) {
@@ -444,7 +450,7 @@ function createScene(canvas) {
       const w = pirate ? 188 : width < 500 ? 141 : 164;
       const y = width < 500 ? 82 : 18;
       box((width - w) / 2, y, w, 28, 6, '#642626ef', '#ffc498');
-      const title = pirate ? '소말리아 해적 접근' : `${boost ? '가속' : '감속'} 경보`;
+      const title = pirate ? `소말리아 해적 ${voyage.pirate.boats}척` : `${boost ? '가속' : '감속'} 경보`;
       text(`${title} · ${pirate ? '남은 시간' : '착탄'} ${remaining.toFixed(1)}초`, width / 2, y + 14, 11, '#fff0d5');
     }
     drawChart(voyage);
@@ -463,10 +469,10 @@ function createScene(canvas) {
       eyeZ = z - forwardZ * 13;
       eyeY = 16 + Math.sin(now / 710) * 0.43;
       horizon = height * 0.39 + Math.sin(now / 930) * 1.6;
-      const skiff = piratePosition(voyage, x, z, now);
+      const skiffs = piratePositions(voyage, x, z, now);
       ctx.clearRect(0, 0, width, height);
       const highDetail = world?.render({width, height, density, focal, horizon, eyeX, eyeY, eyeZ, forwardX, forwardZ,
-        x, z, now, voyage, skiff});
+        x, z, now, voyage, skiffs});
       if (highDetail) {
         ctx.save();
         maskDeck(x, z);
@@ -476,16 +482,16 @@ function createScene(canvas) {
       }
       drawRoute(voyage.progress);
       if (voyage.attack) drawRange(voyage.attack, now);
-      if (skiff) drawSkiffWake(skiff, now);
+      skiffs.forEach(skiff => drawSkiffWake(skiff, now));
       if (voyage.impact) drawSplash(voyage.impact);
       if (highDetail) ctx.restore();
       else {
-        if (skiff) drawSkiffFallback(skiff);
+        skiffs.forEach(drawSkiffFallback);
         drawDeck(x, z);
       }
       if (voyage.attack) voyage.attack.shots.forEach((shot, index) =>
         drawShell(shot, 1 - voyage.attack.remaining / voyage.attack.total, index, highDetail));
-      if (skiff && voyage.pirate.status === 'approaching') markSkiff(skiff);
+      if (skiffs.length && voyage.pirate.status === 'approaching') markSkiff(skiffs[0]);
       drawBridge(voyage);
     },
   };

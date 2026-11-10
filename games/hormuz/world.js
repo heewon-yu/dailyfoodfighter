@@ -363,7 +363,7 @@ function createWorldRenderer(canvas, land, batteries) {
       for(let i=0;i<frame.voyage.stage;i++)draw(batteryMeshes[i]);
       const angle=Math.atan2(frame.forwardZ,frame.forwardX);
       draw(ship,frame.x,0,frame.z,angle);
-      if(frame.skiff)draw(skiff,frame.skiff.x,frame.skiff.y,frame.skiff.z,angle+frame.skiff.heading);
+      for (const boat of frame.skiffs) draw(skiff,boat.x,boat.y,boat.z,angle+boat.heading);
       return true;
     },
   };

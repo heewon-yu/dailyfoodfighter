@@ -44,16 +44,16 @@ function render(now = performance.now()) {
   byId('overlay').hidden = sailing;
 
   const danger = sailing && attack;
-  const pirate = sailing && voyage.pirate?.status === 'approaching';
+  const pirate = sailing && voyage.pirate?.status === 'approaching' ? voyage.pirate : null;
   const coasting = danger && Escape.isCoasting(voyage);
-  const message = pirate ? '⚠ 소말리아 해적 접근 · 방어권 1개가 필요합니다!'
+  const message = pirate ? `⚠ 해적 고속정 ${pirate.boats}척 접근!`
     : danger
     ? attack.boost ? '⚠ 가속 경보 · 연타해서 착탄 구역을 통과하세요!' : '⚠ 감속 경보 · 손을 떼고 착탄을 기다리세요!'
     : voyage.notice;
   setText('alert', message);
   alert.classList.toggle('danger', Boolean(danger || pirate));
   let timer = '';
-  if (pirate) timer = `접근 ${voyage.pirate.remaining.toFixed(1)}초`;
+  if (pirate) timer = `접근 ${pirate.remaining.toFixed(1)}초`;
   else if (danger) timer = `착탄 ${attack.remaining.toFixed(1)}초`;
   else if (sailing && voyage.pirate) timer = '해적 퇴각 중';
   else if (sailing && voyage.progress >= 0.97) timer = '탈출 지점 접근';
@@ -64,8 +64,10 @@ function render(now = performance.now()) {
   const hint = attack?.boost ? '지금 연타해서 통과' : coasting ? '저속 항해 중 · 착탄까지 기다리세요' : '추진에서 손을 떼세요';
   setText('thrust-hint', danger ? hint : '터치할 때마다 가속');
   byId('pirate-panel').hidden = !pirate;
-  byId('pirate-buy').disabled = run.credits < Escape.shieldCost;
-  setText('pirate-shield', `방어권 ${run.shields}개`);
+  if (pirate) {
+    byId('pirate-buy').disabled = run.credits < Escape.shieldCost || run.shields >= pirate.boats;
+    setText('pirate-shield', `방어권 보유 ${run.shields}장 / 필요 ${pirate.boats}장`);
+  }
   scene.draw(voyage, now);
 }
 

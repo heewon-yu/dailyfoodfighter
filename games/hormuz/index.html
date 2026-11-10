@@ -9,10 +9,10 @@
   <title>호르무즈 해협 탈출하기</title>
   <link rel="stylesheet" href="./game.css?v=6">
   <script defer src="./coast.js"></script>
-  <script defer src="./engine.js?v=6"></script>
-  <script defer src="./world.js?v=6"></script>
-  <script defer src="./scene.js?v=6"></script>
-  <script defer src="./game.js?v=6"></script>
+  <script defer src="./engine.js?v=7"></script>
+  <script defer src="./world.js?v=7"></script>
+  <script defer src="./scene.js?v=7"></script>
+  <script defer src="./game.js?v=7"></script>
 </head>
 <body>
   <header class="top">
@@ -58,7 +58,7 @@
             <button type="button" class="gold thrust" id="thrust" disabled><b>⚡ 추진</b><small id="thrust-hint">터치할 때마다 가속</small></button>
           </div>
           <div class="pirate-panel" id="pirate-panel" hidden>
-            <span id="pirate-shield">방어권 0개</span>
+            <span id="pirate-shield"></span>
             <button class="buy" id="pirate-buy" type="button">방어권 구매 <span>80 C</span></button>
           </div>
         </div>
@@ -85,7 +85,7 @@
           <ol>
             <li><strong>추진</strong>을 연타해 제한 시간 안에 도착하세요.</li>
             <li><strong>가속 경보</strong>에는 연타해 착탄 구역을 통과하세요. <strong>감속 경보</strong>에는 손을 떼고 저속으로 항해하면서 착탄을 기다리세요.</li>
-            <li><strong>해적 경보</strong> 때 방어권이 없으면 약탈당합니다. 경보 중에도 방어권을 구매할 수 있습니다.</li>
+            <li><strong>해적 경보</strong> 때는 고속정 한 척당 방어권 한 장이 필요합니다. 경보 중에도 구매할 수 있습니다.</li>
             <li>탈출하면 <strong>크레딧</strong>을 받고 다음 단계로 진입합니다.</li>
           </ol>
           <div class="difficulty" id="difficulty"></div>

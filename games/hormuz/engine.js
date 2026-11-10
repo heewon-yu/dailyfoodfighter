@@ -12,7 +12,6 @@ const Escape = (() => {
   const coastDelay = 0.25;
   const coastDrain = 2.9;
   const boostMultiplier = 1.25;
-  const pirateWarning = 5;
   const speed = power => idleSpeed + thrustSpeed * power;
   const isCoasting = voyage => voyage.attack?.boost === false && voyage.tapIdle >= coastDelay;
 
@@ -26,6 +25,8 @@ const Escape = (() => {
       drain: 0.24 + 0.34 * rank,
       reward: 80 + stage * 8,
       shells: stage === 10 ? 4 : stage >= 7 ? 3 : stage >= 4 ? 2 : 1,
+      pirateBoats: stage >= 8 ? 3 : stage >= 5 ? 2 : stage >= 2 ? 1 : 0,
+      pirateChance: stage >= 2 ? 0.12 + (stage - 2) * 0.0225 : 0,
       name: ['입문', '정찰', '접근', '해협 진입', '경계', '집중 포격', '교전', '교차 포격', '봉쇄 돌파', '최종 탈출'][stage - 1],
     };
   }
@@ -36,7 +37,7 @@ const Escape = (() => {
 
   function newVoyage(stage, pirateSeen = false, random = Math.random) {
     const config = difficulty(stage);
-    const pirateAt = stage >= 2 && !pirateSeen && random() < 0.1 + stage * 0.009
+    const pirateAt = config.pirateBoats > 0 && !pirateSeen && random() < config.pirateChance
       ? 0.26 + random() * 0.37 : Infinity;
     return {
       stage, config, time: config.time, progress: 0, power: 0,
@@ -144,9 +145,10 @@ const Escape = (() => {
       }
     }
 
+    const pirateWarning = 4 + config.pirateBoats;
     if (!voyage.attack && !voyage.pirate && voyage.progress >= voyage.pirateAt && voyage.time > pirateWarning) {
       voyage.pirateAt = Infinity;
-      voyage.pirate = {remaining: pirateWarning, total: pirateWarning, status: 'approaching'};
+      voyage.pirate = {boats: config.pirateBoats, remaining: pirateWarning, total: pirateWarning, status: 'approaching'};
       run.pirateSeen = true;
     }
 
@@ -156,14 +158,14 @@ const Escape = (() => {
       if (pirate.remaining <= 0) {
         if (pirate.status === 'repelled') {
           voyage.pirate = null;
-        } else if (run.shields > 0) {
-          run.shields--;
-          voyage.pirate = {remaining: 1.25, total: 1.25, status: 'repelled'};
-          voyage.notice = '방어권 1회를 사용해 해적을 물리쳤습니다.';
+        } else if (run.shields >= pirate.boats) {
+          run.shields -= pirate.boats;
+          voyage.pirate = {boats: pirate.boats, remaining: 1.25, total: 1.25, status: 'repelled'};
+          voyage.notice = `방어권 ${pirate.boats}장을 사용해 해적 고속정 ${pirate.boats}척을 물리쳤습니다.`;
         } else {
           pirate.remaining = 0;
           voyage.status = 'failed';
-          voyage.notice = '소말리아 해적에게 화물을 약탈당했습니다.';
+          voyage.notice = `방어권 ${pirate.boats}장이 필요했습니다. 소말리아 해적에게 화물을 약탈당했습니다.`;
           return;
         }
       }
