@@ -18,7 +18,7 @@
 - [ ] 감 (Persimmon)
 - [ ] 키위 (Kiwi)
 - [ ] 레몬 (Lemon)
-- [ ] 아보카도 (Avocado)
+- [x] 아보카도 (Avocado) - 2026-11-10 한/영 발행완료
 - [ ] 파인애플 (Pineapple)
 - [ ] 망고 (Mango)
 - [ ] 석류 (Pomegranate)
@@ -33,7 +33,7 @@
 - [x] 양파 (Onion) - 2026-11-04 한/영 발행완료
 - [x] 마늘 (Garlic) - 2026-11-07 한/영 발행완료
 - [x] 브로콜리 (Broccoli) - 2026-11-05 한/영 발행완료
-- [ ] 당근 (Carrot)
+- [x] 당근 (Carrot) - 2026-11-10 한/영 발행완료
 - [x] 시금치 (Spinach) - 2026-11-08 한/영 발행완료
 - [ ] 양배추 (Cabbage)
 - [ ] 배추 (Napa Cabbage)
@@ -77,7 +77,7 @@
 - [x] 달걀 (Egg) - 2026-11-09 한/영 발행완료
 - [ ] 메추리알 (Quail Egg)
 - [ ] 양고기 (Lamb)
-- [ ] 두부 (Tofu)
+- [x] 두부 (Tofu) - 2026-11-11 한/영 발행완료
 - [ ] 콩/대두 (Soybean)
 - [ ] 병아리콩 (Chickpea)
 - [ ] 렌틸콩 (Lentil)
@@ -101,7 +101,7 @@
 - [x] 새우 (Shrimp) - 2026-11-09 한/영 발행완료
 - [ ] 꽃게 (Blue Crab)
 - [ ] 전복 (Abalone)
-- [ ] 굴 (Oyster)
+- [x] 굴 (Oyster) - 2026-11-11 한/영 발행완료
 - [ ] 바지락 (Manila Clam)
 - [ ] 홍합 (Mussel)
 - [ ] 미역 (Seaweed / Wakame)
