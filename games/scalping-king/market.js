@@ -7,6 +7,7 @@
   const BOOK_INTERVAL = INTERVAL / 2;
   const TOTAL_TICKS = DURATION * 1000 / INTERVAL;
   const PRICE_STEP = 50;
+  const CHART_PERIODS = [1, 5, 10, 20];
   const STOCKS = [
     ['네오칩스', '반도체', 'NC', '#4338ca', 'AI 서버용 고대역폭 메모리 검사 장비를 만드는 기업.', '신규 검사 장비의 고객사 평가가 시작됐어요.', 1.1],
     ['볼트에너지', '2차전지', 'VE', '#0f766e', '전기차와 에너지 저장 장치용 배터리 소재를 생산하는 기업.', '배터리 소재 공장의 가동률 회복이 관측됐어요.', .9],
@@ -94,7 +95,7 @@
   }
 
   function initialTicks(random, bars) {
-    return bars.slice(-2).flatMap((bar) => {
+    return bars.flatMap((bar) => {
       let previous = bar.open;
       return Array.from({length: 40}, (_, index) => {
         const close = index === 39 ? bar.close : Math.max(bar.low, Math.min(bar.high,
@@ -105,6 +106,38 @@
         return point;
       });
     });
+  }
+
+  function fillHistoricalTicks(anchors) {
+    return anchors.flatMap(anchor => {
+      let open = anchor.open;
+      return Array.from({length: 3}, (_, index) => {
+        const close = priceStep(anchor.open + (anchor.close - anchor.open) * (index + 1) / 3);
+        const volume = Math.floor(anchor.volume * (index + 1) / 3) - Math.floor(anchor.volume * index / 3);
+        const tick = {time: anchor.time + (index + 1) / 2, open, close,
+          high: Math.max(open, close), low: Math.min(open, close), volume};
+        open = close;
+        return tick;
+      });
+    });
+  }
+
+  function updateSeries(series, point) {
+    const timeMs = Math.round(point.time * 1000) - 1;
+    for (const period of CHART_PERIODS) {
+      const bars = series[period];
+      const time = Math.floor(timeMs / (period * 1000)) * period;
+      const last = bars.at(-1);
+      if (last?.time === time) {
+        last.high = Math.max(last.high, point.high);
+        last.low = Math.min(last.low, point.low);
+        last.close = point.close;
+        last.volume += point.volume;
+      } else {
+        bars.push({...point, time});
+        if (bars.length > 100) bars.shift();
+      }
+    }
   }
 
   function bookFor(stock, random) {
@@ -143,12 +176,17 @@
   function createMarket(seed) {
     const random = randomGenerator(seed);
     const bookRandom = randomGenerator(seed ^ 0x6ab02ed9);
+    const historyRandom = randomGenerator(seed ^ 0x3c7fd5a5);
     const stocks = STOCKS.map(([name, sector, short, color, description, preview, volatility], index) => {
       const reference = integer(random, 200, 1000) * PRICE_STEP;
       const bars = barsFromHistory(random, reference);
-      const ticks = initialTicks(random, bars);
+      const earlier = initialTicks(historyRandom, bars.slice(-10, -2));
+      const recent = initialTicks(random, bars.slice(-2));
+      const history = fillHistoricalTicks(earlier.concat(recent));
+      const series = Object.fromEntries(CHART_PERIODS.map(period => [period, []]));
+      history.forEach(point => updateSeries(series, point));
       const stock = {index, name, sector, short, color, description, preview, volatility,
-        reference, bars, ticks, price: reference, fairPrice: reference, volume: 0,
+        reference, series, ticks: history.slice(-180), price: reference, fairPrice: reference, volume: 0,
         high: reference, low: reference, shock: 0, shockTicks: 0};
       stock.book = bookFor(stock, bookRandom);
       return stock;
@@ -192,16 +230,7 @@
       const point = {time, open, high, low, close: stock.price, volume};
       stock.ticks.push(point);
       if (stock.ticks.length > 180) stock.ticks.shift();
-      const minute = Math.floor((market.tick * INTERVAL - 1) / 60000) * 60;
-      const last = stock.bars.at(-1);
-      if (last.time === minute) {
-        last.high = Math.max(last.high, high);
-        last.low = Math.min(last.low, low);
-        last.close = stock.price;
-        last.volume += volume;
-      } else {
-        stock.bars.push({...point, time: minute});
-      }
+      updateSeries(stock.series, point);
       stock.shockTicks = Math.max(0, stock.shockTicks - 1);
       stock.shock = stock.shockTicks ? stock.shock * .977 : 0;
     });

@@ -39,7 +39,7 @@
   let startedAt = 0;
   let loop = 0;
   let bookStep = 0;
-  let chartMode = 'minute';
+  let chartMode = '10';
   let newsMode = 'all';
   let accountMode = 'positions';
   let cursor = null;
@@ -473,7 +473,7 @@
   segment('chart', value => {
     chartMode = value;
     cursor = null;
-    $('chartLabel').textContent = value === 'tick' ? '체결가 · 거래량' : '1분 시가·고가·저가·종가';
+    $('chartLabel').textContent = value + '초 시가·고가·저가·종가';
     renderChart();
   });
   segment('news', value => { newsMode = value; renderNews(); });

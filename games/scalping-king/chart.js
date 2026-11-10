@@ -35,9 +35,10 @@
     ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
     ctx.clearRect(0, 0, width, height);
 
-    const isTick = options.mode === 'tick';
-    const data = isTick ? stock.ticks : stock.bars;
-    const visible = Math.min(data.length, isTick ? (width < 490 ? 49 : 76) : 30);
+    const period = Number(options.mode);
+    const data = stock.series[period];
+    const limit = {1: 68, 5: 50, 10: 38, 20: 32}[period];
+    const visible = Math.min(data.length, width < 490 ? Math.round(limit * .75) : limit);
     const start = data.length - visible;
     const bars = data.slice(start);
     const left = 9;
@@ -78,7 +79,7 @@
       const index = Math.round(i * (visible - 1) / (labels - 1));
       const position = x(index);
       line(position, top, position, base, '#f0f3f7');
-      const label = timeText(bars[index].time, isTick);
+      const label = timeText(bars[index].time);
       const labelWidth = ctx.measureText(label).width;
       ctx.fillStyle = colors.mute;
       ctx.fillText(label, Math.max(left, Math.min(right - labelWidth, position - labelWidth / 2)), base + 13);

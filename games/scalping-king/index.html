@@ -71,13 +71,15 @@
               <div class="quote"><strong id="price"></strong><span id="change"></span></div>
             </div>
             <div class="segments" aria-label="차트 주기">
-              <button type="button" data-chart="tick" aria-pressed="false">1틱</button>
-              <button type="button" data-chart="minute" aria-pressed="true">1분봉</button>
+              <button type="button" data-chart="1" aria-pressed="false">1초봉</button>
+              <button type="button" data-chart="5" aria-pressed="false">5초봉</button>
+              <button type="button" data-chart="10" aria-pressed="true">10초봉</button>
+              <button type="button" data-chart="20" aria-pressed="false">20초봉</button>
             </div>
           </header>
           <button type="button" id="liveNews" class="live-news" hidden></button>
           <div class="chart-dark">
-            <div class="chart-key"><span id="chartLabel">1분 시가·고가·저가·종가</span><label><input id="showMA" type="checkbox" checked> 이동평균선</label><span id="maKey"></span><span id="ohlc"></span></div>
+            <div class="chart-key"><span id="chartLabel">10초 시가·고가·저가·종가</span><label><input id="showMA" type="checkbox" checked> 이동평균선</label><span id="maKey"></span><span id="ohlc"></span></div>
             <canvas id="chart" role="img" aria-label="선택 종목의 가격과 거래량 차트"></canvas>
           </div>
           <div class="chart-stats">
@@ -125,7 +127,7 @@
     <div class="modal-head"><div><div class="eyebrow">QUICK GUIDE</div><h2>5분 단타왕 플레이 가이드</h2></div><form method="dialog"><button class="subtle" aria-label="가이드 닫기">✕</button></form></div>
     <ol class="guide-list">
       <li><strong>개장 전 관심 종목 고르기</strong><p>종목 10개의 기업 정보와 사전 뉴스를 읽으세요. 기준가는 판마다 1만~5만 원에서 정해져요.</p></li>
-      <li><strong>1억으로 5분 거래하기</strong><p>호재와 악재가 뜨면 가격과 거래량이 움직여요. 1틱과 1분봉을 전환하고 호가 잔량을 확인하세요.</p></li>
+      <li><strong>1억으로 5분 거래하기</strong><p>호재와 악재가 뜨면 가격과 거래량이 움직여요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
       <li><strong>수량을 정해 시장가로 주문하기</strong><p>가장 유리한 호가부터 체결돼요. 주문이 크면 여러 호가를 사용하며 매수·매도 각각 0.05% 수수료가 붙어요.</p></li>
       <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 결과와 장세 링크를 복사하거나 이미지를 저장할 수 있어요.</p></li>
     </ol>
