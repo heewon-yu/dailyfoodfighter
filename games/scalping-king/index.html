@@ -7,10 +7,10 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-07">
-  <script defer src="./market.js?v=20261110-03"></script>
+  <link rel="stylesheet" href="./style.css?v=20261110-08">
+  <script defer src="./market.js?v=20261110-08"></script>
   <script defer src="./chart.js?v=20261110-07"></script>
-  <script defer src="./game.js?v=20261110-07"></script>
+  <script defer src="./game.js?v=20261110-08"></script>
 </head>
 <body>
   <header class="topbar">
@@ -115,6 +115,20 @@
             <label for="quantity">주문 수량</label>
             <div class="quantity-field"><button type="button" id="minus" aria-label="수량 1주 줄이기">−</button><input id="quantity" type="number" min="1" max="99999" step="1" value="100" inputmode="numeric"><span>주</span><button type="button" id="plus" aria-label="수량 1주 늘리기">+</button></div>
             <div class="presets"><button type="button" data-quantity="10">10주</button><button type="button" data-quantity="100">100주</button><button type="button" data-quantity="500">500주</button></div>
+            <div class="percent-order">
+              <div class="percent-heading">
+                <span>비율 주문</span>
+                <strong id="percentTotal" role="status">비율 미선택</strong>
+                <button id="clearPercent" type="button" hidden>초기화</button>
+              </div>
+              <div class="presets" role="group" aria-label="주문 비율 더하기">
+                <button type="button" data-percent="5" aria-label="5% 더하기">5%</button>
+                <button type="button" data-percent="10" aria-label="10% 더하기">10%</button>
+                <button type="button" data-percent="25" aria-label="25% 더하기">25%</button>
+                <button type="button" data-percent="50" aria-label="50% 더하기">50%</button>
+              </div>
+              <p>매수는 주문 가능 현금, 매도는 매도 가능 수량 기준</p>
+            </div>
             <div class="presets max-buttons"><button type="button" id="maxBuy">최대 매수</button><button type="button" id="maxSell">최대 매도</button></div>
             <dl class="estimate"><div><dt id="buyLabel">매수 예상 결제</dt><dd id="estimateBuy"></dd></div><div><dt id="sellLabel">매도 예상 정산</dt><dd id="estimateSell"></dd></div><div><dt>매도 가능 / 보유</dt><dd id="held"></dd></div></dl>
             <div class="trade-buttons"><button id="buy" type="button" disabled>매수</button><button id="sell" type="button" disabled>매도</button></div>
@@ -151,9 +165,9 @@
     <div class="modal-head"><div><div class="eyebrow">QUICK GUIDE</div><h2>5분 단타왕 플레이 가이드</h2></div><form method="dialog"><button class="subtle" aria-label="가이드 닫기">✕</button></form></div>
     <p class="mobile-guide-intro">5분간 1억원으로 단타를 쳐서 수익을 내보세요!<br>5분간의 게임으로 내기한판 어때요?</p>
     <ol class="guide-list">
-      <li><strong>개장 전 관심 종목 고르기</strong><p>판마다 가상 기업 20개 중 10개가 열려요. 기업 정보와 사전 뉴스를 살펴보세요. 기준가는 1만~5만 원에서 정해져요.</p></li>
-      <li><strong>1억으로 5분 거래하기</strong><p>호재와 악재가 뜨면 가격과 거래량이 움직여요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
-      <li><strong>시장가 또는 지정가로 주문하기</strong><p>지정가는 입력한 가격 또는 더 유리한 호가에서 체결돼요. 미체결 잔량은 주문 내역에서 정정하거나 취소할 수 있고, 마감하면 자동 취소돼요. 수수료는 0.05%예요.</p></li>
+      <li><strong>개장 전 관심 종목 고르기</strong><p>판마다 가상 기업 30개 중 10개가 열려요. 기업 정보와 사전 뉴스를 살펴보세요. 기준가는 1만~5만 원에서 정해져요.</p></li>
+      <li><strong>1억으로 5분 거래하기</strong><p>장전 뉴스는 판마다 달라져요. 장중에는 종목마다 속보가 1~5건 나오고, 가격과 거래량에 영향을 줘요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
+      <li><strong>시장가 또는 지정가로 주문하기</strong><p>지정가는 입력한 가격 또는 더 유리한 호가에서 체결돼요. 미체결 잔량은 주문 내역에서 정정하거나 취소할 수 있고, 마감하면 자동 취소돼요. 수수료는 0.05%예요. 비율 버튼은 누를 때마다 합산돼요. 매수는 주문 가능 현금, 매도는 매도 가능 수량 기준이며 최대 100%까지 선택할 수 있어요.</p></li>
       <li><strong>잠깐 쉬거나 다시 시작하기</strong><p>일시정지하면 타이머와 장세가 멈춰요. 거래 재개를 누르면 남은 시간이 이어지고, 다시하기를 누르면 새 장세가 즉시 시작돼요.</p></li>
       <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 결과 공유하기를 누르면 기기의 공유 메뉴에서 성적표 이미지를 보낼 수 있어요.</p></li>
     </ol>

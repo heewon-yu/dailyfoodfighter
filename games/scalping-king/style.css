@@ -167,6 +167,12 @@ h1,h2,p,dl,dd{margin:0}
 .quantity-field span{font-size:11px;color:var(--muted);margin-right:6px}
 .presets,.trade-buttons,.result-actions{display:flex;gap:5px}
 .presets button{flex:1;background:#fff;border:1px solid var(--line);border-radius:4px;font-size:10px;font-weight:700;padding:4px 1px;white-space:nowrap}
+.percent-order{margin:6px 0}
+.percent-heading{display:flex;align-items:center;flex-wrap:wrap;gap:3px 5px;min-height:22px;font-size:11px;color:var(--muted)}
+.percent-heading strong{margin-inline-start:auto;color:var(--navy)}
+.percent-heading button{background:#fff;border:1px solid var(--line);border-radius:4px;color:var(--navy);padding:2px 4px;font-size:10px}
+.percent-order .presets button{min-height:28px}
+.percent-order p{margin:3px 0 0;color:var(--muted);font-size:10px;line-height:1.35}
 .max-buttons{margin-top:4px}
 .estimate{margin:7px 0;font-size:10px}
 .estimate div{display:flex;justify-content:space-between;gap:5px;padding:2px 0;color:var(--muted)}

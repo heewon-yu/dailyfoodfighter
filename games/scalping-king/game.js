@@ -12,6 +12,10 @@
   const signed = value => (value > 0 ? '+' : '') + num(value);
   const pct = value => (value > 0 ? '+' : '') + value.toFixed(2) + '%';
   const tone = value => value > 0 ? 'up' : value < 0 ? 'down' : '';
+  const newsLabel = item => {
+    const sentiment = item.direction > 0 ? '호재' : item.direction < 0 ? '악재' : '';
+    return item.time ? sentiment : '개장 전' + (sentiment ? ' · ' + sentiment : '');
+  };
   const delta = stock => (stock.price / stock.reference - 1) * 100;
   const randomSeed = () => crypto.getRandomValues(new Uint32Array(1))[0];
   const code = seed => seed.toString(36).toUpperCase().padStart(7, '0');
@@ -56,6 +60,7 @@
   let chartMode = '10';
   let newsMode = 'all';
   let orderType = 'market';
+  let orderPercent = 0;
   let accountMode = 'positions';
   let cursor = null;
   let newsKey = '';
@@ -241,14 +246,28 @@
       num(bar.close) + '</span><span>' + num(bar.volume) + '주</span></div>').join('');
   }
 
+  function orderQuantity(stock, side) {
+    if (!orderPercent) return orderQty.valueAsNumber;
+    const limit = orderType === 'limit' ? orderPrice.valueAsNumber : undefined;
+    return maxOrder(stock, account, side, limit, orderPercent);
+  }
+
+  function setOrderPercent(percent) {
+    orderPercent = percent;
+    $('percentTotal').textContent = percent ? percent + '% 선택' : '비율 미선택';
+    $('clearPercent').hidden = !percent;
+  }
+
   function renderEstimate(stock = market.stocks[selected]) {
-    const qty = orderQty.valueAsNumber;
-    const limit = orderType === 'limit';
-    const estimate = limit ? limitEstimate(qty, orderPrice.valueAsNumber) : {
-      buy: quoteOrder(stock, 'buy', qty)?.total, sell: quoteOrder(stock, 'sell', qty)?.total,
-    };
-    $('estimateBuy').textContent = estimate?.buy === undefined ? '—' : money(estimate.buy);
-    $('estimateSell').textContent = estimate?.sell === undefined ? '—' : money(estimate.sell);
+    for (const side of ['buy', 'sell']) {
+      const qty = orderQuantity(stock, side);
+      const estimate = orderType === 'limit' ? limitEstimate(qty, orderPrice.valueAsNumber)?.[side] :
+        quoteOrder(stock, side, qty)?.total;
+      const button = $(side);
+      const label = side === 'buy' ? '매수' : '매도';
+      button.textContent = orderPercent ? label + ' ' + num(qty) + '주' : label;
+      $(side === 'buy' ? 'estimateBuy' : 'estimateSell').textContent = estimate === undefined ? '—' : money(estimate);
+    }
     $('held').textContent = num(availableShares(account, stock.index)) + ' / ' + num(account.positions[stock.index].qty) + '주';
   }
 
@@ -259,7 +278,7 @@
     stockNewsKey = key;
     $('stockNewsName').textContent = market.stocks[selected].name;
     $('stockNews').innerHTML = headlines.map(item => {
-      const label = item.direction > 0 ? '호재' : item.direction < 0 ? '악재' : '개장 전';
+      const label = newsLabel(item);
       return '<article class="stock-news-row"><div><span class="tag ' + tone(item.direction) + '">' + label +
         '</span>' + (item.time ? '<time>' + timeText(item.time) + '</time>' : '') + '</div><p>' + item.title + '</p></article>';
     }).join('');
@@ -274,7 +293,7 @@
     const headlines = market.headlines.filter(item => newsMode === 'all' || item.index === selected);
     $('news').innerHTML = headlines.map(item => {
       const stock = market.stocks[item.index];
-      const type = item.direction > 0 ? '호재' : item.direction < 0 ? '악재' : '개장 전';
+      const type = newsLabel(item);
       return '<article class="news-row"><span class="tag ' + tone(item.direction) + '">' + type +
         '</span><div><button type="button" data-stock="' + stock.index + '">' + stock.name +
         '</button><p>' + item.title + '</p></div><time>' + (item.time ? timeText(item.time) : '개장 전') + '</time></article>';
@@ -389,7 +408,10 @@
 
   function selectStock(index, jump) {
     if (!market.stocks[index]) return;
-    if (selected !== index) orderPrice.value = String(market.stocks[index].price);
+    if (selected !== index) {
+      orderPrice.value = String(market.stocks[index].price);
+      setOrderPercent(0);
+    }
     selected = index;
     cursor = null;
     if (phase === 'live') feedback(market.stocks[index].name + ' 주문을 준비할 수 있어요.');
@@ -466,7 +488,15 @@
     syncTime();
     if (phase !== 'live') return;
     const stock = market.stocks[selected];
-    const qty = orderQty.valueAsNumber;
+    const qty = orderQuantity(stock, side);
+    if (orderPercent && orderType === 'limit' && !limitEstimate(1, orderPrice.valueAsNumber)) {
+      feedback('지정가를 50원 단위로 입력하세요.', 'error');
+      return;
+    }
+    if (orderPercent && !qty) {
+      feedback('선택한 비율로 주문 가능한 수량이 0주예요.', 'error');
+      return;
+    }
     const time = bookStep * BOOK_INTERVAL / 1000;
     const {error, trade: fill, order} = orderType === 'limit' ?
       placeLimit(stock, account, side, qty, orderPrice.valueAsNumber, time) : executeOrder(stock, account, side, qty, time);
@@ -474,6 +504,7 @@
       feedback(error, 'error');
       return;
     }
+    setOrderPercent(0);
     if (fill) showFill(fill, order?.remaining);
     else feedback(stock.name + ' 지정가 ' + (side === 'buy' ? '매수 ' : '매도 ') + num(qty) + '주 접수 · 체결 대기', 'ok');
     render();
@@ -569,7 +600,10 @@
       if (url.hash.startsWith('#score=')) url.hash = '';
       history.replaceState(null, '', url);
     }
-    market = createMarket(randomSeed());
+    const previousOpenings = new Set(market.stocks.map(stock => stock.preview));
+    do {
+      market = createMarket(randomSeed());
+    } while (market.stocks.some(stock => previousOpenings.has(stock.preview)));
     account = createAccount();
     stockButtons = buildWatchlist();
     watchKey = '';
@@ -586,6 +620,7 @@
     $('scoreShareLink').hidden = true;
     $('search').value = '';
     orderQty.value = '100';
+    setOrderPercent(0);
     orderPrice.value = String(market.stocks[selected].price);
     feedback('거래를 시작하면 주문할 수 있어요.');
     renderPhase();
@@ -741,7 +776,21 @@
   $('buy').addEventListener('click', () => trade('buy'));
   $('sell').addEventListener('click', () => trade('sell'));
   $('shareImage').addEventListener('click', shareScoreImage);
-  orderQty.addEventListener('input', () => renderEstimate());
+  orderQty.addEventListener('input', () => {
+    setOrderPercent(0);
+    renderEstimate();
+  });
+  for (const button of document.querySelectorAll('[data-percent]')) {
+    button.addEventListener('click', () => {
+      setOrderPercent(Math.min(100, orderPercent + Number(button.dataset.percent)));
+      renderEstimate();
+    });
+  }
+  $('clearPercent').addEventListener('click', () => {
+    setOrderPercent(0);
+    renderEstimate();
+    orderQty.focus({preventScroll: true});
+  });
   orderPrice.value = String(market.stocks[selected].price);
   orderPrice.addEventListener('input', () => renderEstimate());
   for (const [id, bookSide] of [['bestBid', 'bids'], ['bestAsk', 'asks']]) {
@@ -755,6 +804,7 @@
     });
   }
   function setQuantity(value) {
+    setOrderPercent(0);
     orderQty.value = String(Math.max(1, Math.min(99999, value)));
     renderEstimate();
   }
