@@ -11,6 +11,16 @@ function createScene(canvas) {
   const segments = route.slice(1).map(([x, z], i) => Math.hypot(x - route[i][0], z - route[i][1]));
   const routeLength = segments.reduce((sum, length) => sum + length, 0);
   const batteries = Escape.batteries.map(point => mapPoint(...point));
+  const worldCanvas = document.createElement('canvas');
+  worldCanvas.className = 'world-canvas';
+  worldCanvas.setAttribute('aria-hidden', 'true');
+  let world = null;
+  try {
+    world = createWorldRenderer(worldCanvas, land, batteries);
+    if (world) canvas.before(worldCanvas);
+  } catch (error) {
+    console.warn('3D renderer unavailable. Using the compatible renderer.', error);
+  }
   const near = 3;
   const clamp = (n, min, max) => Math.max(min, Math.min(n, max));
   let width, height, density, focal, horizon, eyeX, eyeY, eyeZ, forwardX, forwardZ;
@@ -243,23 +253,28 @@ function createScene(canvas) {
     }
   }
 
-  function drawShell(shot, phase) {
+  function drawShell(shot, phase, index, highDetail) {
     const [sx, sz] = batteries[shot.battery];
     const [tx, tz] = at(shot.target);
     const arcHeight = 31 + Math.min(33, Math.hypot(tx - sx, tz - sz) * 0.073);
-    const arc = t => [sx + (tx - sx) * t, (cliffHeight(sx, sz) + 3) * (1 - t) + Math.sin(t * Math.PI) * arcHeight, sz + (tz - sz) * t];
-    const flight = Math.max(0, (phase - 0.23) / 0.77);
+    const launchHeight = (highDetail ? world.heightAt(sx, sz) : cliffHeight(sx, sz)) + 4;
+    const arc = t => [sx + (tx - sx) * t, launchHeight * (1 - t) + Math.sin(t * Math.PI) * arcHeight, sz + (tz - sz) * t];
+    const delay = 0.17 + index * 0.035;
+    const flight = Math.max(0, (phase - delay) / (1 - delay));
     if (flight <= 0) return;
     const tail = Array.from({length: 13}, (_, i) => arc(Math.max(0, flight - (12 - i) / 42)));
-    line(tail, '#fb6129a3', 5);
-    line(tail, '#fff0b9', 1.7);
+    line(tail, '#2e2d3580', 7);
+    line(tail.slice(5), '#ff6d38c9', 4);
+    line(tail.slice(8), '#fff0b9', 1.7);
     const head = local(arc(flight));
     if (head[2] < near) return;
     const [x, y] = project(head);
-    ctx.beginPath();
-    ctx.arc(x, y, 3.2, 0, Math.PI * 2);
-    ctx.fillStyle = '#fff6c9';
-    ctx.fill();
+    const glow = ctx.createRadialGradient(x, y, 1, x, y, 10);
+    glow.addColorStop(0, '#fffae2');
+    glow.addColorStop(0.29, '#ffcb6b');
+    glow.addColorStop(1, '#ff633000');
+    ctx.fillStyle = glow;
+    ctx.fillRect(x - 10, y - 10, 20, 20);
   }
 
   function drawSplash(impact) {
@@ -274,9 +289,89 @@ function createScene(canvas) {
       });
       line(ring, '#d8faff', 2.2);
       const pillar = 5 + Math.sin(phase * Math.PI) * 29;
-      paint([[x - 4, 0, z], [x, pillar, z], [x + 4, 0, z]], '#d8faffaf');
+      for (let i = 0; i < 13; i++) {
+        const angle = i * 2.4;
+        const spray = 1.4 + phase * (5 + i % 5);
+        const p = [x + Math.cos(angle) * spray, pillar * (0.36 + (i % 6) * 0.1), z + Math.sin(angle) * spray];
+        line([[x + Math.cos(angle) * spray * 0.5, 0, z + Math.sin(angle) * spray * 0.5], p],
+          i % 3 ? '#d9f7ffe1' : '#fff2bf', i % 3 ? 1.35 : 2.5);
+      }
     }
     ctx.globalAlpha = 1;
+  }
+
+  function maskDeck(x, z) {
+    const profile = [[-9, 6, -9.3], [15, 6.2, -9.2], [23, 6.2, -6.9], [32, 5.25, -0.8],
+      [32, 5.25, 0.8], [23, 6.2, 6.9], [15, 6.2, 9.2], [-9, 6, 9.3]];
+    ctx.beginPath();
+    ctx.rect(0, 0, width, height);
+    profile.forEach(([ahead, y, side], i) => {
+      const point = [x + forwardX * ahead - forwardZ * side, y, z + forwardZ * ahead + forwardX * side];
+      const [px, py] = project(local(point));
+      if (i) ctx.lineTo(px, py);
+      else ctx.moveTo(px, py);
+    });
+    ctx.closePath();
+    ctx.clip('evenodd');
+  }
+
+  function piratePosition(voyage, x, z, now) {
+    const pirate = voyage.pirate;
+    if (!pirate) return null;
+    const phase = 1 - pirate.remaining / pirate.total;
+    const retreat = pirate.status === 'repelled';
+    const side = retreat ? 15.5 + 84 * phase : 15.5 + 76 * (1 - phase) ** 1.65;
+    const ahead = retreat ? 37 + 24 * phase : 45 - 8 * phase;
+    return {
+      x: x + forwardX * ahead - forwardZ * side, z: z + forwardZ * ahead + forwardX * side,
+      y: Math.sin(now * 0.006) * 0.28, heading: retreat ? 0.7 : -0.8 + 0.6 * phase,
+    };
+  }
+
+  function drawSkiffWake(skiff, now) {
+    const heading = Math.atan2(forwardZ, forwardX) + skiff.heading;
+    const dx = Math.cos(heading), dz = Math.sin(heading);
+    for (const side of [-1, 1]) {
+      const wake = Array.from({length: 13}, (_, index) => {
+        const s = index / 12;
+        const width = side * (1.35 + 3.1 * s + Math.sin(s * 11 + now / 120) * 0.3);
+        const tail = -4.7 - s * 15;
+        return [skiff.x + dx * tail - dz * width, 0.17, skiff.z + dz * tail + dx * width];
+      });
+      line(wake, '#b9e9ef91', 2.3);
+      line(wake.slice(0, 8), '#e4fcffe0', 1.35);
+    }
+  }
+
+  function drawSkiffFallback(skiff) {
+    const angle = Math.atan2(forwardZ, forwardX) + skiff.heading;
+    const at = ([d, y, b]) => [skiff.x + Math.cos(angle) * d - Math.sin(angle) * b, y + skiff.y,
+      skiff.z + Math.sin(angle) * d + Math.cos(angle) * b];
+    const hull = [[-5, 0.8, -2.3], [3, 1.2, -2.3], [6.6, 1.5, 0], [3, 1.2, 2.3], [-5, 0.8, 2.3]];
+    paint(hull.map(at), '#26383e', '#9fa498');
+    for (const [x, side] of [[-3, 1.2], [-1.3, -0.2], [2.9, 0.4]]) {
+      const head = local(at([x, 3.25, side]));
+      if (head[2] < near) continue;
+      const [px, py] = project(head);
+      line([[x, 1.3, side], [x, 2.9, side]].map(at), '#292d24', 3);
+      ctx.beginPath();
+      ctx.arc(px, py, 2, 0, Math.PI * 2);
+      ctx.fillStyle = '#7c6146';
+      ctx.fill();
+    }
+  }
+
+  function markSkiff(skiff) {
+    const position = local([skiff.x, 5.7, skiff.z]);
+    if (position[2] < near) return;
+    const [x, y] = project(position);
+    if (x < 38 || x > width - 38 || y < 18 || y > height - 26) return;
+    box(x - 36, y - 12, 72, 18, 5, '#532921de', '#fbb685af');
+    text('해적 고속정', x, y - 3, 9, '#ffebc7');
+    screenPath([[x - 4, y + 10], [x, y + 14], [x + 4, y + 10]]);
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = '#ffc4a0';
+    ctx.stroke();
   }
 
   function drawDeck(x, z) {
@@ -325,6 +420,11 @@ function createScene(canvas) {
       ctx.lineWidth = 3;
       ctx.strokeStyle = '#ff704d';
       ctx.stroke();
+      for (const {battery} of voyage.attack.shots) {
+        const [bx, by] = chart(...batteries[battery]);
+        ctx.fillStyle = '#ff8c56';
+        ctx.fillRect(bx - 1.2, by - 1.2, 2.4, 2.4);
+      }
     }
     const [x, y] = chart(...at(voyage.progress));
     ctx.beginPath();
@@ -338,12 +438,14 @@ function createScene(canvas) {
     box(11, 11, 105, 31, 6, '#0a233be6', '#c7e2df64');
     text('선교 · 전방 시점', 19, 20, 10, '#e4efea', 'left');
     text(`방위 ${String(course).padStart(3, '0')}°`, 19, 34, 8, '#acd6d9', 'left');
-    if (voyage.attack) {
-      const {boost, remaining} = voyage.attack;
-      const w = width < 500 ? 141 : 164;
+    if (voyage.attack || voyage.pirate?.status === 'approaching') {
+      const {boost, remaining} = voyage.attack ?? voyage.pirate;
+      const pirate = Boolean(voyage.pirate);
+      const w = pirate ? 188 : width < 500 ? 141 : 164;
       const y = width < 500 ? 82 : 18;
       box((width - w) / 2, y, w, 28, 6, '#642626ef', '#ffc498');
-      text(`${boost ? '가속' : '감속'} 경보  ·  착탄 ${remaining.toFixed(1)}초`, width / 2, y + 14, 11, '#fff0d5');
+      const title = pirate ? '소말리아 해적 접근' : `${boost ? '가속' : '감속'} 경보`;
+      text(`${title} · ${pirate ? '남은 시간' : '착탄'} ${remaining.toFixed(1)}초`, width / 2, y + 14, 11, '#fff0d5');
     }
     drawChart(voyage);
   }
@@ -361,13 +463,29 @@ function createScene(canvas) {
       eyeZ = z - forwardZ * 13;
       eyeY = 16 + Math.sin(now / 710) * 0.43;
       horizon = height * 0.39 + Math.sin(now / 930) * 1.6;
-      drawSea(now);
-      drawCoast();
+      const skiff = piratePosition(voyage, x, z, now);
+      ctx.clearRect(0, 0, width, height);
+      const highDetail = world?.render({width, height, density, focal, horizon, eyeX, eyeY, eyeZ, forwardX, forwardZ,
+        x, z, now, voyage, skiff});
+      if (highDetail) {
+        ctx.save();
+        maskDeck(x, z);
+      } else {
+        drawSea(now);
+        drawCoast();
+      }
       drawRoute(voyage.progress);
       if (voyage.attack) drawRange(voyage.attack, now);
-      drawDeck(x, z);
-      if (voyage.attack) voyage.attack.shots.forEach(shot => drawShell(shot, 1 - voyage.attack.remaining / voyage.attack.total));
+      if (skiff) drawSkiffWake(skiff, now);
       if (voyage.impact) drawSplash(voyage.impact);
+      if (highDetail) ctx.restore();
+      else {
+        if (skiff) drawSkiffFallback(skiff);
+        drawDeck(x, z);
+      }
+      if (voyage.attack) voyage.attack.shots.forEach((shot, index) =>
+        drawShell(shot, 1 - voyage.attack.remaining / voyage.attack.total, index, highDetail));
+      if (skiff && voyage.pirate.status === 'approaching') markSkiff(skiff);
       drawBridge(voyage);
     },
   };

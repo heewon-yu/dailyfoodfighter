@@ -31,7 +31,8 @@ h2{font-size:19px;letter-spacing:-.04em;margin-top:4px}
 .hud #stage-number{display:inline;color:inherit;font-size:inherit}
 .hud small{font-size:10px;color:#94a3b8}
 .map-frame{position:relative;isolation:isolate;overflow:hidden;background:#092037}
-#map{display:block;width:100%;height:clamp(235px,min(41vw,100svh - 515px),465px);background:#0b2a41}
+.world-canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+#map{position:relative;display:block;width:100%;height:clamp(235px,min(41vw,100svh - 515px),465px)}
 .map-caption{display:flex;justify-content:space-between;gap:8px;position:absolute;inset:auto 10px 8px;color:#c5d6e9;pointer-events:none;font-size:10px;text-shadow:0 1px 4px #000}
 .map-caption i{display:inline-block;width:13px;border-top:2px dashed var(--gold);vertical-align:middle;margin-right:3px}
 .overlay{position:absolute;inset:0;display:flex;align-items:end;justify-content:center;padding:0 10px 26px;background:linear-gradient(transparent 28%,#070f1aa8)}
@@ -62,6 +63,8 @@ aside{display:grid;gap:12px}
 .card p,.guide li{font-size:12px}
 .buy{width:100%;display:flex;align-items:center;justify-content:space-between;gap:5px;border:1px solid #f5d87e;background:#fffbeb;color:#713f12;font-size:12px;font-weight:900;border-radius:8px;padding:9px;margin-top:10px}
 .buy span{background:#fde68a;color:#422006;padding:3px 6px;border-radius:5px;white-space:nowrap}
+.pirate-panel{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding:6px 9px;background:#412b31;border:1px solid #c3806a;border-radius:8px;color:#ffdfc0;font-size:12px;font-weight:800}
+.pirate-panel[hidden]{display:none}.pirate-panel .buy{width:auto;margin:0;padding:5px 7px}
 .record{display:flex;justify-content:space-between;align-items:center;gap:5px;padding:8px 0;border-bottom:1px solid var(--line);font-size:12px;color:var(--slate)}
 .record strong{color:var(--navy);white-space:nowrap}.record + p{margin-top:7px}
 .guide ol{padding-left:18px;margin:9px 0}

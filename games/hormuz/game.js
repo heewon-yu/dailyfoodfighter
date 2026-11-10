@@ -44,21 +44,28 @@ function render(now = performance.now()) {
   byId('overlay').hidden = sailing;
 
   const danger = sailing && attack;
+  const pirate = sailing && voyage.pirate?.status === 'approaching';
   const coasting = danger && Escape.isCoasting(voyage);
-  const message = danger
+  const message = pirate ? '⚠ 소말리아 해적 접근 · 방어권 1개가 필요합니다!'
+    : danger
     ? attack.boost ? '⚠ 가속 경보 · 연타해서 착탄 구역을 통과하세요!' : '⚠ 감속 경보 · 손을 떼고 착탄을 기다리세요!'
     : voyage.notice;
   setText('alert', message);
-  alert.classList.toggle('danger', Boolean(danger));
+  alert.classList.toggle('danger', Boolean(danger || pirate));
   let timer = '';
-  if (danger) timer = `착탄 ${attack.remaining.toFixed(1)}초`;
+  if (pirate) timer = `접근 ${voyage.pirate.remaining.toFixed(1)}초`;
+  else if (danger) timer = `착탄 ${attack.remaining.toFixed(1)}초`;
+  else if (sailing && voyage.pirate) timer = '해적 퇴각 중';
   else if (sailing && voyage.progress >= 0.97) timer = '탈출 지점 접근';
   else if (sailing && voyage.time > config.warning) timer = `다음 포격 ${Math.max(0, voyage.nextIn).toFixed(1)}초`;
   setText('shot-clock', timer);
-  shotClock.classList.toggle('danger', Boolean(danger));
+  shotClock.classList.toggle('danger', Boolean(danger || pirate));
   thrust.classList.toggle('brake', Boolean(danger && !attack.boost));
   const hint = attack?.boost ? '지금 연타해서 통과' : coasting ? '저속 항해 중 · 착탄까지 기다리세요' : '추진에서 손을 떼세요';
   setText('thrust-hint', danger ? hint : '터치할 때마다 가속');
+  byId('pirate-panel').hidden = !pirate;
+  byId('pirate-buy').disabled = run.credits < Escape.shieldCost;
+  setText('pirate-shield', `방어권 ${run.shields}개`);
   scene.draw(voyage, now);
 }
 
@@ -88,7 +95,7 @@ function launch() {
   if (voyage.status === 'sailing') return;
   if (voyage.status === 'cleared' && run.stage < stages) run.stage++;
   else if (voyage.status !== 'ready') run = Escape.newRun();
-  voyage = Escape.newVoyage(run.stage);
+  voyage = Escape.newVoyage(run.stage, run.pirateSeen);
   voyage.status = 'sailing';
   voyage.notice = '추진을 터치해 속도를 올리세요.';
   clock = performance.now();
@@ -99,10 +106,12 @@ function launch() {
 
 launchButton.addEventListener('click', launch);
 thrust.addEventListener('click', () => Escape.tap(voyage, performance.now() / 1000));
-byId('buy').addEventListener('click', () => {
+function buyShield() {
   if (Escape.buy(run)) toast('방어권 1회를 구매했습니다.');
   render();
-});
+}
+byId('buy').addEventListener('click', buyShield);
+byId('pirate-buy').addEventListener('click', buyShield);
 byId('share').addEventListener('click', async () => {
   const url = new URL('./', location.href).href;
   try {
