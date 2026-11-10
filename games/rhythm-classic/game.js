@@ -143,8 +143,8 @@
 
       tabContainer.innerHTML = `
         <button type="button" class="tab-btn active" data-cat="all">전체 곡 (20)</button>
-        <button type="button" class="tab-btn" data-cat="classic">클래식 명곡 (10)</button>
-        <button type="button" class="tab-btn" data-cat="arcade">아케이드 & EDM (10)</button>
+        <button type="button" class="tab-btn" data-cat="classic">클래식 명곡 (5)</button>
+        <button type="button" class="tab-btn" data-cat="arcade">오투잼·펌프 레전드 (15)</button>
       `;
 
       tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
@@ -181,7 +181,7 @@
 
         const catBadge = song.category === 'classic'
           ? '<span class="cat-pill classic">CLASSIC</span>'
-          : '<span class="cat-pill arcade">ARCADE</span>';
+          : '<span class="cat-pill arcade">O2JAM/ARCADE</span>';
 
         card.innerHTML = `
           <div class="card-left">

@@ -579,49 +579,109 @@ body {
   object-fit: contain;
 }
 
-/* Pro Mobile Touch Bar */
+/* Pro DJMAX Style Metallic Arcade Touch Console */
 .mobile-touch-bar {
-  display: none;
-  height: 82px;
+  display: flex;
+  height: 94px;
   width: 100%;
-  background: #060810;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  max-width: 520px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, #1c2032 0%, #101320 30%, #07080f 100%);
+  border-top: 2px solid rgba(0, 240, 255, 0.4);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.15);
   touch-action: manipulation;
-  padding: 6px 8px;
-  gap: 8px;
+  padding: 8px 10px max(10px, env(safe-area-inset-bottom));
+  gap: 10px;
+  z-index: 10;
+  box-sizing: border-box;
 }
 
 .touch-col {
   flex: 1;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #121626;
-  border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  border-radius: 12px;
   font-family: var(--font-mono);
-  font-size: 20px;
+  box-shadow: 0 6px 0 #04050a, 0 8px 16px rgba(0, 0, 0, 0.6);
+  transition: transform 0.04s cubic-bezier(0.1, 0.9, 0.2, 1), background 0.04s ease, box-shadow 0.04s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.key-led {
+  position: absolute;
+  top: 4px;
+  left: 15%;
+  right: 15%;
+  height: 3px;
+  border-radius: 2px;
+  opacity: 0.65;
+  transition: opacity 0.05s ease, box-shadow 0.05s ease;
+}
+
+.key-char {
+  font-size: 24px;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  transition: all 0.04s ease;
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
+.key-sub {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  margin-top: 3px;
+  opacity: 0.75;
+}
+
+/* Outer Lanes (Cyan / Left & Right) */
 .touch-col:nth-child(1), .touch-col:nth-child(4) {
-  border-color: rgba(0, 240, 255, 0.5);
-  color: var(--cyan);
+  background: linear-gradient(180deg, #13243a 0%, #0a1422 100%);
+  border: 1.5px solid rgba(0, 240, 255, 0.7);
+  color: #00f0ff;
 }
 
+.touch-col:nth-child(1) .key-led, .touch-col:nth-child(4) .key-led {
+  background: #00f0ff;
+  box-shadow: 0 0 8px #00f0ff;
+}
+
+/* Inner Lanes (Pink / Center) */
 .touch-col:nth-child(2), .touch-col:nth-child(3) {
-  border-color: rgba(255, 0, 127, 0.5);
-  color: var(--pink);
+  background: linear-gradient(180deg, #2e1324 0%, #180a14 100%);
+  border: 1.5px solid rgba(255, 0, 127, 0.7);
+  color: #ff007f;
 }
 
-.touch-col.active {
-  transform: translateY(3px);
-  background: #242c4c;
-  box-shadow: 0 0 16px var(--cyan-glow);
+.touch-col:nth-child(2) .key-led, .touch-col:nth-child(3) .key-led {
+  background: #ff007f;
+  box-shadow: 0 0 8px #ff007f;
+}
+
+/* Active Pressed States (Tactile Mechanical Depress) */
+.touch-col:nth-child(1).active, .touch-col:nth-child(4).active {
+  transform: translateY(5px);
+  background: linear-gradient(180deg, #00f0ff 0%, #0099bb 100%);
+  color: #000;
+  box-shadow: 0 1px 0 #04050a, 0 0 24px rgba(0, 240, 255, 0.9);
+}
+
+.touch-col:nth-child(2).active, .touch-col:nth-child(3).active {
+  transform: translateY(5px);
+  background: linear-gradient(180deg, #ff007f 0%, #aa0055 100%);
   color: #fff;
+  box-shadow: 0 1px 0 #04050a, 0 0 24px rgba(255, 0, 127, 0.9);
+}
+
+.touch-col.active .key-led {
+  opacity: 1;
+  background: #ffffff;
+  box-shadow: 0 0 12px #ffffff;
 }
 
 /* Countdown Overlay */

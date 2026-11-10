@@ -1,8 +1,9 @@
 /**
  * Beat Classic - Audio & Dynamic Chart Engine
- * 20 Studio-Master MP3 Tracks (10 Classical + 10 Electronic/Arcade)
+ * 20 Studio-Master MP3 Tracks (5 Classical Masters + 15 O2Jam/Pump/EDM Legends)
+ * Clean Mechanical Arcade Keypad Click (Zero Musical Pitch Collision)
  * Long Notes (Hold Notes) + Max 2 Simultaneous Touches (Thumb Optimized)
- * Song-Specific Hit Sound System (Acoustic Piano, 808/909 EDM, Orchestral Timpani)
+ * Relaxed Ergonomic Hit Windows for 2-Thumb Mobile Play
  */
 
 class SoundEngine {
@@ -13,7 +14,7 @@ class SoundEngine {
     this.audioElement = new Audio();
     this.audioElement.preload = 'auto';
     this.isAudioPlaying = false;
-    this.activeHoldOscs = [null, null, null, null];
+    this.keySoundEnabled = true;
   }
 
   init() {
@@ -74,7 +75,6 @@ class SoundEngine {
       this.audioElement.pause();
       this.isAudioPlaying = false;
     }
-    this.stopAllHoldSounds();
   }
 
   resumeAudio() {
@@ -90,265 +90,220 @@ class SoundEngine {
       this.audioElement.currentTime = 0;
       this.isAudioPlaying = false;
     }
-    this.stopAllHoldSounds();
   }
+
+  startHoldSound(lane) {}
+  stopHoldSound(lane) {}
+  stopAllHoldSounds() {}
 
   /**
-   * Song-Specific Sound Effect Engine
-   * Generates authentic instrument strikes matching each song type
+   * Crisp Mechanical Arcade Keypad Click
+   * - Pure transient physical microswitch click (NO synthetic oscillators or clashing pitches)
+   * - Perfectly blends with studio BGM without muddying the music
    */
-  playHitSound(lane = 0, songStyle = 'PIANO', basePitch = 523.25) {
-    if (!this.ctx) return;
+  playHitSound(lane = 0, volume = 0.45) {
+    if (!this.ctx || !this.keySoundEnabled) return;
     const now = this.ctx.currentTime;
 
-    if (songStyle === 'PIANO') {
-      // Acoustic Classical Piano Strike: Multi-harmonic hammer attack
-      const osc1 = this.ctx.createOscillator();
-      const osc2 = this.ctx.createOscillator();
-      const gain = this.ctx.createGain();
-
-      const pitches = [basePitch, basePitch * 1.25, basePitch * 1.5, basePitch * 2.0];
-      const p = pitches[lane % 4];
-
-      osc1.type = 'triangle';
-      osc1.frequency.setValueAtTime(p, now);
-
-      osc2.type = 'sine';
-      osc2.frequency.setValueAtTime(p * 2, now);
-
-      gain.gain.setValueAtTime(0.35, now);
-      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-
-      osc1.connect(gain);
-      osc2.connect(gain);
-      gain.connect(this.compressor);
-
-      osc1.start(now);
-      osc2.start(now);
-      osc1.stop(now + 0.12);
-      osc2.stop(now + 0.12);
-
-    } else if (songStyle === 'ELECTRONIC') {
-      // 808/909 Electronic Arcade Drum & Synth Punch
-      if (lane === 0 || lane === 3) {
-        // Punchy 808 Kick / Sub-bass
-        const kickOsc = this.ctx.createOscillator();
-        const kickGain = this.ctx.createGain();
-        kickOsc.frequency.setValueAtTime(160, now);
-        kickOsc.frequency.exponentialRampToValueAtTime(45, now + 0.08);
-
-        kickGain.gain.setValueAtTime(0.5, now);
-        kickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.1);
-
-        kickOsc.connect(kickGain);
-        kickGain.connect(this.compressor);
-        kickOsc.start(now);
-        kickOsc.stop(now + 0.1);
-      } else {
-        // Crispy Electro Clap / Snare Pluck
-        const noiseBuffer = this.ctx.createBuffer(1, this.ctx.sampleRate * 0.06, this.ctx.sampleRate);
-        const output = noiseBuffer.getChannelData(0);
-        for (let i = 0; i < noiseBuffer.length; i++) {
-          output[i] = Math.random() * 2 - 1;
-        }
-        const whiteNoise = this.ctx.createBufferSource();
-        whiteNoise.buffer = noiseBuffer;
-
-        const noiseFilter = this.ctx.createBiquadFilter();
-        noiseFilter.type = 'bandpass';
-        noiseFilter.frequency.setValueAtTime(1800, now);
-        noiseFilter.Q.setValueAtTime(3.0, now);
-
-        const noiseGain = this.ctx.createGain();
-        noiseGain.gain.setValueAtTime(0.4, now);
-        noiseGain.gain.exponentialRampToValueAtTime(0.001, now + 0.07);
-
-        whiteNoise.connect(noiseFilter);
-        noiseFilter.connect(noiseGain);
-        noiseGain.connect(this.compressor);
-        whiteNoise.start(now);
+    try {
+      // 1. Ultra-short high-passed transient noise impulse (mechanical switch click)
+      const bufferLen = Math.floor(this.ctx.sampleRate * 0.012); // 12ms
+      const noiseBuffer = this.ctx.createBuffer(1, bufferLen, this.ctx.sampleRate);
+      const data = noiseBuffer.getChannelData(0);
+      for (let i = 0; i < bufferLen; i++) {
+        // Fast exponential decay
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (this.ctx.sampleRate * 0.0018));
       }
-    } else {
-      // ORCHESTRAL: Heavy Timpani & Brass Chord Hit
-      const timpOsc = this.ctx.createOscillator();
-      const timpGain = this.ctx.createGain();
-      timpOsc.type = 'sine';
-      timpOsc.frequency.setValueAtTime(110 + lane * 30, now);
-      timpOsc.frequency.exponentialRampToValueAtTime(60, now + 0.15);
 
-      timpGain.gain.setValueAtTime(0.45, now);
-      timpGain.gain.exponentialRampToValueAtTime(0.001, now + 0.16);
+      const noiseSource = this.ctx.createBufferSource();
+      noiseSource.buffer = noiseBuffer;
 
-      timpOsc.connect(timpGain);
-      timpGain.connect(this.compressor);
-      timpOsc.start(now);
-      timpOsc.stop(now + 0.16);
+      const hpFilter = this.ctx.createBiquadFilter();
+      hpFilter.type = 'highpass';
+      hpFilter.frequency.setValueAtTime(3400, now);
+
+      const clickGain = this.ctx.createGain();
+      clickGain.gain.setValueAtTime(volume * 0.35, now);
+
+      noiseSource.connect(hpFilter);
+      hpFilter.connect(clickGain);
+      clickGain.connect(this.masterGain);
+      noiseSource.start(now);
+
+      // 2. Subtle low-mid acoustic rim tap (gives tactile weight without pitch collision)
+      const tapOsc = this.ctx.createOscillator();
+      const tapGain = this.ctx.createGain();
+      tapOsc.type = 'sine';
+      tapOsc.frequency.setValueAtTime(420 + (lane % 2) * 40, now);
+      tapOsc.frequency.exponentialRampToValueAtTime(110, now + 0.022);
+
+      tapGain.gain.setValueAtTime(volume * 0.22, now);
+      tapGain.gain.exponentialRampToValueAtTime(0.0001, now + 0.022);
+
+      tapOsc.connect(tapGain);
+      tapGain.connect(this.masterGain);
+
+      tapOsc.start(now);
+      tapOsc.stop(now + 0.025);
+    } catch (e) {
+      // Ignore audio glitches safely
     }
   }
 
-  startHoldSound(lane = 0) {
-    if (!this.ctx) return;
-    this.stopHoldSound(lane);
-
+  playHoldTick(lane = 0) {
+    if (!this.ctx || !this.keySoundEnabled) return;
     const now = this.ctx.currentTime;
-    const osc = this.ctx.createOscillator();
-    const gain = this.ctx.createGain();
+    try {
+      // Gentle electric spark tick during hold notes
+      const tickOsc = this.ctx.createOscillator();
+      const tickGain = this.ctx.createGain();
+      tickOsc.type = 'triangle';
+      tickOsc.frequency.setValueAtTime(880, now);
+      tickGain.gain.setValueAtTime(0.08, now);
+      tickGain.gain.exponentialRampToValueAtTime(0.001, now + 0.015);
 
-    osc.type = 'sawtooth';
-    const pitches = [220, 277.18, 329.63, 440];
-    osc.frequency.setValueAtTime(pitches[lane % 4], now);
-
-    const filter = this.ctx.createBiquadFilter();
-    filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(1200, now);
-
-    gain.gain.setValueAtTime(0.12, now);
-
-    osc.connect(filter);
-    filter.connect(gain);
-    gain.connect(this.compressor);
-    osc.start(now);
-
-    this.activeHoldOscs[lane] = { osc, gain };
-  }
-
-  stopHoldSound(lane = 0) {
-    if (this.activeHoldOscs[lane]) {
-      const { osc, gain } = this.activeHoldOscs[lane];
-      if (this.ctx) {
-        const now = this.ctx.currentTime;
-        gain.gain.setValueAtTime(gain.gain.value, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-        setTimeout(() => {
-          try { osc.stop(); } catch(e) {}
-        }, 50);
-      }
-      this.activeHoldOscs[lane] = null;
-    }
-  }
-
-  stopAllHoldSounds() {
-    for (let i = 0; i < 4; i++) {
-      this.stopHoldSound(i);
-    }
+      tickOsc.connect(tickGain);
+      tickGain.connect(this.masterGain);
+      tickOsc.start(now);
+      tickOsc.stop(now + 0.018);
+    } catch(e) {}
   }
 }
 
 /**
- * Dynamic Procedural Chart Generator
- * - STRICT RULE: Maximum 2 simultaneous notes at any moment (Thumb ergonomics)
- * - LONG NOTES (Hold Notes): Sustained key holds on one hand while other hand taps
- * - Dynamic pattern generator with Staircase, Trill, Alternating, and Hold Combos
+ * Procedural Dynamic Rhythm Chart Generator
+ * - STRICT RULE 1: Maximum 2 simultaneous notes at any moment (Thumb Ergonomics)
+ * - STRICT RULE 2: Natural musical flow (locked to 1/4 quarter notes & 1/8 eighth notes)
+ * - RELAXED DIFFICULTY: Reduced note density, no impossible finger-trap spam
+ * - LONG NOTES: Natural phrase-sustained hold notes on outer lanes
  */
-function generateDynamicChart(bpm, durationSec, difficultyLevel, startTime = 0.5) {
+function generateDynamicChart(bpm, durationSec, diffLevel = 2, startTime = 0.6) {
   const notes = [];
   const beat = 60 / bpm;
   const eighth = beat / 2;
   const sixteenth = beat / 4;
 
   let currentT = startTime;
-  let lastLane = Math.floor(Math.random() * 4);
-  let activeHoldEnd = [0, 0, 0, 0]; // Track end time of active hold in each lane
+  let activeHoldEnd = [0, 0, 0, 0];
 
-  const totalMeasures = Math.floor((durationSec - startTime) / (4 * beat));
-  const density = difficultyLevel; // 1 to 5
+  const totalMeasures = Math.floor((durationSec - startTime - 1.5) / (4 * beat));
+  const density = Math.min(4, Math.max(1, diffLevel)); // Relaxed density clamp (1 to 4)
 
   for (let m = 0; m < totalMeasures; m++) {
-    // 1. Chance to spawn Long Note (Hold Note)
-    const canSpawnHold = density >= 2 && Math.random() < 0.45;
+    const measureStart = currentT;
+
+    // 1. Long Note (Hold Note) placement
+    // Allowed every 3-4 measures on outer lanes (0 or 3)
+    const canSpawnHold = density >= 2 && m % 3 === 1 && Math.random() < 0.6;
     let holdLane = -1;
 
     if (canSpawnHold) {
-      holdLane = Math.random() < 0.5 ? 0 : 3; // Put hold on outer lanes for thumb stability
-      const holdDuration = beat * (1.5 + Math.floor(Math.random() * 3)); // 1.5 to 3.5 beats
-      activeHoldEnd[holdLane] = currentT + holdDuration;
+      holdLane = Math.random() < 0.5 ? 0 : 3;
+      const holdDuration = beat * (density === 1 ? 1.5 : 2.0);
+      activeHoldEnd[holdLane] = measureStart + holdDuration;
 
       notes.push({
-        time: currentT,
+        time: measureStart,
         lane: holdLane,
         duration: holdDuration,
         isLong: true
       });
     }
 
-    // 2. Measure Pattern Mode
-    const patternMode = Math.floor(Math.random() * 5);
-
-    // Strict Rule: If no hold is active, allow max 1 double chord at start of measure
-    const isHoldActiveNow = activeHoldEnd.some(t => t > currentT);
-    if (!isHoldActiveNow && density >= 3 && Math.random() < 0.35) {
-      const chordPair = Math.random() < 0.5 ? [0, 3] : [1, 2];
-      notes.push({ time: currentT, lane: chordPair[0] });
-      notes.push({ time: currentT, lane: chordPair[1] });
+    // 2. Downbeat note (Beat 1)
+    const freeAtStart = [0, 1, 2, 3].filter(l => measureStart >= activeHoldEnd[l]);
+    if (freeAtStart.length > 0) {
+      // If density >= 3 and no active hold, occasionally spawn a comfortable 2-thumb chord
+      if (density >= 3 && holdLane === -1 && m % 2 === 0 && Math.random() < 0.4) {
+        notes.push({ time: measureStart, lane: 0 });
+        notes.push({ time: measureStart, lane: 3 });
+      } else {
+        notes.push({ time: measureStart, lane: freeAtStart[m % freeAtStart.length] });
+      }
     }
 
-    if (patternMode === 0) {
-      // Staircase (계단)
-      const count = (density >= 4 && m % 2 === 1) ? 6 : 4;
-      const sub = (density >= 4 && m % 2 === 1) ? sixteenth : eighth;
+    // 3. Measure Sub-Pattern Generation
+    // Pattern type based on difficulty
+    const patternType = m % 4;
 
-      for (let i = 0; i < count; i++) {
-        const t = currentT + i * sub;
-        // Find available lanes not currently held
-        const freeLanes = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
-        if (freeLanes.length > 0) {
-          const lane = freeLanes[i % freeLanes.length];
-          // Ensure max 2 notes at this timestamp
-          const countAtT = notes.filter(n => Math.abs(n.time - t) < 0.04).length;
-          if (countAtT < 2) {
+    if (density === 1) {
+      // Easy: Gentle quarter-note pulse (1 note per beat)
+      for (let b = 1; b < 4; b++) {
+        const t = measureStart + b * beat;
+        const avail = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
+        if (avail.length > 0) {
+          notes.push({ time: t, lane: avail[(m + b) % avail.length] });
+        }
+      }
+    } else if (density === 2) {
+      // Normal: Quarter notes with occasional 8th note melody step
+      for (let b = 1; b < 4; b++) {
+        const t = measureStart + b * beat;
+        const avail = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
+        if (avail.length > 0) {
+          notes.push({ time: t, lane: avail[(m * 2 + b) % avail.length] });
+        }
+        // Occasional off-beat melody tap
+        if (b === 2 && Math.random() < 0.5) {
+          const tHalf = t + eighth;
+          const availHalf = [0, 1, 2, 3].filter(l => tHalf >= activeHoldEnd[l]);
+          if (availHalf.length > 0) {
+            notes.push({ time: tHalf, lane: availHalf[(m + 1) % availHalf.length] });
+          }
+        }
+      }
+    } else if (density >= 3) {
+      // Hard / Very Hard: Melodic 8th note flows matching rhythm games
+      if (patternType === 0) {
+        // Staircase Flow (계단)
+        const count = 4;
+        for (let i = 1; i < count; i++) {
+          const t = measureStart + i * eighth;
+          const avail = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
+          if (avail.length > 0) {
+            notes.push({ time: t, lane: avail[i % avail.length] });
+          }
+        }
+        // Rest on beat 3, single note on beat 4
+        const t4 = measureStart + 3 * beat;
+        const avail4 = [0, 1, 2, 3].filter(l => t4 >= activeHoldEnd[l]);
+        if (avail4.length > 0) {
+          notes.push({ time: t4, lane: avail4[0] });
+        }
+      } else if (patternType === 1) {
+        // Alternating Left-Right Trill (트릴 그루브)
+        const trillLanes = [1, 2];
+        for (let i = 1; i < 5; i++) {
+          const t = measureStart + i * eighth;
+          const lane = trillLanes[i % 2];
+          if (t >= activeHoldEnd[lane]) {
             notes.push({ time: t, lane: lane });
           }
         }
-      }
-    } else if (patternMode === 1) {
-      // Trill (트릴: 빠른 2건반 교차)
-      const freeLanes = [0, 1, 2, 3].filter(l => currentT >= activeHoldEnd[l]);
-      if (freeLanes.length >= 2) {
-        const laneA = freeLanes[0];
-        const laneB = freeLanes[1];
-        const count = density >= 3 ? 5 : 3;
-
-        for (let i = 0; i < count; i++) {
-          const t = currentT + i * eighth;
-          const lane = (i % 2 === 0) ? laneA : laneB;
-          const countAtT = notes.filter(n => Math.abs(n.time - t) < 0.04).length;
-          if (countAtT < 2) {
-            notes.push({ time: t, lane: lane });
+      } else if (patternType === 2) {
+        // Syncopated Dance Rhythm (엇박자 그루브)
+        const offsets = [beat, beat + eighth, 2 * beat + eighth, 3 * beat];
+        offsets.forEach((off, idx) => {
+          const t = measureStart + off;
+          const avail = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
+          if (avail.length > 0) {
+            notes.push({ time: t, lane: avail[idx % avail.length] });
           }
-        }
-      }
-    } else if (patternMode === 2) {
-      // Melodic Tap Run with Hold Note interaction
-      const step = eighth;
-      for (let i = 0; i < 4; i++) {
-        const t = currentT + i * step;
-        const freeLanes = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
-        if (freeLanes.length > 0) {
-          let nextLane = freeLanes[Math.floor(Math.random() * freeLanes.length)];
-          if (nextLane === lastLane && freeLanes.length > 1) {
-            nextLane = freeLanes.find(l => l !== lastLane) || nextLane;
+        });
+      } else {
+        // Climax Stream (빠른 질주 - strictly max 2 notes)
+        for (let b = 1; b < 4; b++) {
+          const t = measureStart + b * beat;
+          const avail = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
+          if (avail.length > 0) {
+            notes.push({ time: t, lane: avail[(m + b) % avail.length] });
           }
-          const countAtT = notes.filter(n => Math.abs(n.time - t) < 0.04).length;
-          if (countAtT < 2) {
-            notes.push({ time: t, lane: nextLane });
-            lastLane = nextLane;
-          }
-        }
-      }
-    } else {
-      // Dynamic Organic Flow
-      const count = density >= 4 ? 6 : (density >= 2 ? 4 : 3);
-      const step = (4 * beat) / count;
-
-      for (let i = 0; i < count; i++) {
-        const t = currentT + i * step;
-        const freeLanes = [0, 1, 2, 3].filter(l => t >= activeHoldEnd[l]);
-        if (freeLanes.length > 0) {
-          let nextLane = freeLanes[Math.floor(Math.random() * freeLanes.length)];
-          const countAtT = notes.filter(n => Math.abs(n.time - t) < 0.04).length;
-          if (countAtT < 2) {
-            notes.push({ time: t, lane: nextLane });
-            lastLane = nextLane;
+          if (b === 1 || b === 3) {
+            const tSub = t + eighth;
+            const availSub = [0, 1, 2, 3].filter(l => tSub >= activeHoldEnd[l]);
+            if (availSub.length > 0) {
+              notes.push({ time: tSub, lane: availSub[(m + b + 1) % availSub.length] });
+            }
           }
         }
       }
@@ -357,26 +312,35 @@ function generateDynamicChart(bpm, durationSec, difficultyLevel, startTime = 0.5
     currentT += 4 * beat;
   }
 
-  // Final check: Remove any accidental 3+ simultaneous notes
-  const timeBuckets = new Map();
-  const filteredNotes = [];
-
+  // Sort notes by timestamp
   notes.sort((a, b) => a.time - b.time);
-  for (const n of notes) {
-    const key = Math.round(n.time * 25); // 40ms bucket
-    const currentCount = timeBuckets.get(key) || 0;
-    if (currentCount < 2) {
-      timeBuckets.set(key, currentCount + 1);
-      filteredNotes.push(n);
-    }
-  }
 
-  return filteredNotes;
+  // Guarantee Strict Rule: NEVER more than 2 notes at any identical timestamp
+  const sanitized = [];
+  const timeBuckets = new Map();
+
+  notes.forEach(n => {
+    const bucketKey = Math.round(n.time * 50); // 20ms bucket
+    const currentInBucket = timeBuckets.get(bucketKey) || [];
+    if (currentInBucket.length < 2) {
+      currentInBucket.push(n);
+      timeBuckets.set(bucketKey, currentInBucket);
+      sanitized.push(n);
+    }
+  });
+
+  return sanitized;
 }
 
-// 20 Full Track Masterpieces (10 Classical + 10 Electronic/Arcade)
+/**
+ * 20 Authentic Studio-Master Tracks
+ * - 5 Classical Rhythm Masterpieces (Canon, Turkish, Beethoven Virus, Winter, Bumblebee)
+ * - 15 O2Jam / Pump It Up / Rhythm Game Legends
+ */
 const SONGS = [
-  // === CATEGORY 1: CLASSIC MASTERPIECES (10곡) ===
+  // ==========================================
+  // CATEGORY 1: CLASSICAL MASTERS (5곡)
+  // ==========================================
   {
     id: "canon-rock",
     category: "classic",
@@ -386,14 +350,12 @@ const SONGS = [
     audioFile: "./audio/canon.mp3",
     icon: "🎻",
     bpm: 132,
-    difficulty: "Normal",
-    diffLevel: 2,
-    stars: "★★☆",
+    difficulty: "Easy",
+    diffLevel: 1,
+    stars: "★☆☆",
     badge: "입문 추천",
-    durationSec: 72,
-    soundStyle: "PIANO",
-    basePitch: 587.33, // D5
-    description: "세계에서 가장 사랑받는 캐논 선율! 경쾌한 피아노 록 그루브",
+    durationSec: 60,
+    description: "세계에서 가장 친숙한 캐논 멜로디! 경쾌한 두 대의 피아노 그루브 완곡",
     generateChart: function(startTime = 0.8) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -407,14 +369,12 @@ const SONGS = [
     audioFile: "./audio/turkish.mp3",
     icon: "🎹",
     bpm: 148,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "화려한 건반",
-    durationSec: 70,
-    soundStyle: "PIANO",
-    basePitch: 440.0, // A4
-    description: "모차르트 피아노 소나타의 경쾌한 론도! 펌프·오투잼 대표 테크니컬 건반",
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "명품 건반",
+    durationSec: 112,
+    description: "모차르트 피아노 소나타의 경쾌한 론도! 펌프·오투잼 대표 테크니컬 건반 완곡",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -428,14 +388,12 @@ const SONGS = [
     audioFile: "./audio/pathetique.mp3",
     icon: "⚡",
     bpm: 162,
-    difficulty: "Very Hard",
-    diffLevel: 4,
-    stars: "★★★★",
-    badge: "초고속 폭타",
-    durationSec: 72,
-    soundStyle: "PIANO",
-    basePitch: 523.25, // C5
-    description: "비창 3악장의 폭발적인 드라이브! 펌프 잇 업을 상징하는 전설의 피아노 폭타",
+    difficulty: "Hard",
+    diffLevel: 3,
+    stars: "★★★",
+    badge: "펌프 레전드",
+    durationSec: 67,
+    description: "비창 3악장의 폭발적인 드라이브! 펌프 잇 업을 상징하는 전설의 피아노 테마",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -449,14 +407,12 @@ const SONGS = [
     audioFile: "./audio/winter.mp3",
     icon: "❄️",
     bpm: 140,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "질주하는 비트",
-    durationSec: 68,
-    soundStyle: "ORCHESTRAL",
-    basePitch: 587.33, // D5
-    description: "사계 '겨울' 1악장! 미 공군 밴드의 긴박한 현악 스타카토와 시원한 질주감",
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "시원한 질주",
+    durationSec: 98,
+    description: "사계 '겨울' 1악장! 미 공군 현악단의 긴박한 바이올린 스타카토와 질주감",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -470,143 +426,74 @@ const SONGS = [
     audioFile: "./audio/bumblebee.mp3",
     icon: "🐝",
     bpm: 174,
-    difficulty: "Extreme",
-    diffLevel: 5,
-    stars: "★★★★★",
-    badge: "손가락 한계",
-    durationSec: 65,
-    soundStyle: "PIANO",
-    basePitch: 493.88, // B4
-    description: "오투잼 전설의 초고속 반음계 연타! 174 BPM 극한 스피드 핑거 테크닉",
+    difficulty: "Very Hard",
+    diffLevel: 4,
+    stars: "★★★★",
+    badge: "초고속 완곡",
+    durationSec: 41,
+    description: "오투잼 전설의 초고속 반음계 연타! 174 BPM 극한 스피드 핑거 테크닉 완곡",
     generateChart: function(startTime = 0.5) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
   },
-  {
-    id: "fate-symphony",
-    category: "classic",
-    title: "운명 교향곡 (Symphony No.5)",
-    composer: "L. v. Beethoven",
-    genre: "Orchestra Classic Rock",
-    audioFile: "./audio/fate.mp3",
-    icon: "💥",
-    bpm: 150,
-    difficulty: "Hard",
-    diffLevel: 4,
-    stars: "★★★★",
-    badge: "강렬한 타격",
-    durationSec: 70,
-    soundStyle: "ORCHESTRAL",
-    basePitch: 523.25, // C5
-    description: "빠-빠-빠-빰! 세상을 뒤흔든 운명의 4음 모티브와 풀 오케스트라의 묵직한 타격감",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "ode-to-joy",
-    category: "classic",
-    title: "환희의 송가 (Ode to Joy)",
-    composer: "L. v. Beethoven",
-    genre: "Symphonic Brass Anthem",
-    audioFile: "./audio/ode.mp3",
-    icon: "🎺",
-    bpm: 136,
-    difficulty: "Normal",
-    diffLevel: 2,
-    stars: "★★☆",
-    badge: "신나는 리듬",
-    durationSec: 59,
-    soundStyle: "ORCHESTRAL",
-    basePitch: 587.33, // D5
-    description: "베토벤 9번 교향곡의 벅찬 환희를 담은 미 해군 관악단의 당당한 브라스 행진",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "new-world",
-    category: "classic",
-    title: "신세계 교향곡 4악장 (New World)",
-    composer: "A. Dvořák",
-    genre: "Symphonic Power",
-    audioFile: "./audio/new_world.mp3",
-    icon: "🌋",
-    bpm: 152,
-    difficulty: "Very Hard",
-    diffLevel: 4,
-    stars: "★★★★",
-    badge: "웅장한 대서사",
-    durationSec: 70,
-    soundStyle: "ORCHESTRAL",
-    basePitch: 659.25, // E5
-    description: "드보르자크 교향곡 9번 4악장! 웅장한 브라스 팡파르와 폭풍처럼 쏟아지는 건반 노트",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "air-g-string",
-    category: "classic",
-    title: "G선상의 아리아 (Air on G String)",
-    composer: "J. S. Bach",
-    genre: "String Orchestra / Chill",
-    audioFile: "./audio/air.mp3",
-    icon: "🕊️",
-    bpm: 118,
-    difficulty: "Easy",
-    diffLevel: 1,
-    stars: "★☆☆",
-    badge: "힐링 앤 그루브",
-    durationSec: 70,
-    soundStyle: "PIANO",
-    basePitch: 587.33, // D5
-    description: "미 공군 현악단의 맑고 청아한 선율! 우아한 바흐 명작과 잔잔한 롱노트 그루브",
-    generateChart: function(startTime = 0.8) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "carmen-tolead",
-    category: "classic",
-    title: "카르멘 - 투우사의 노래 (Toreador)",
-    composer: "G. Bizet",
-    genre: "Opera March / Arcade",
-    audioFile: "./audio/carmen.mp3",
-    icon: "🚩",
-    bpm: 144,
-    difficulty: "Normal",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "리드미컬 행진",
-    durationSec: 70,
-    soundStyle: "ORCHESTRAL",
-    basePitch: 698.46, // F5
-    description: "오페라 카르멘의 대표 행진곡! 어깨가 들썩이는 위풍당당한 아케이드 행진 선율",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
 
-  // === CATEGORY 2: ARCADE & ELECTRONIC LEGENDS (10곡) ===
+  // ==========================================
+  // CATEGORY 2: O2JAM & PUMP & EDM LEGENDS (15곡)
+  // ==========================================
   {
     id: "chaoz-fantasy",
     category: "arcade",
     title: "Chaoz Fantasy",
     composer: "ParagonX9",
-    genre: "Flash / O2Jam Anthem",
+    genre: "Flash / O2Jam Legend",
     audioFile: "./audio/chaoz_fantasy.mp3",
     icon: "🔥",
     bpm: 160,
+    difficulty: "Hard",
+    diffLevel: 3,
+    stars: "★★★",
+    badge: "오투잼 감성",
+    durationSec: 67,
+    description: "플래시 및 오투잼 시대를 풍미한 불후의 명곡! 감성적인 피아노와 스피디 비트",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "chaoz-airflow",
+    category: "arcade",
+    title: "Chaoz Airflow",
+    composer: "ParagonX9",
+    genre: "Speed Piano / Breakbeat",
+    audioFile: "./audio/chaoz_airflow.mp3",
+    icon: "🌪️",
+    bpm: 150,
+    difficulty: "Hard",
+    diffLevel: 3,
+    stars: "★★★",
+    badge: "피아노 질주",
+    durationSec: 126,
+    description: "Chaoz 시리즈의 서막! 화려한 피아노 아르페지오와 브레이크비트의 질주",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "chaoz-impact",
+    category: "arcade",
+    title: "Chaoz Impact",
+    composer: "ParagonX9",
+    genre: "Breakcore / Extreme Beat",
+    audioFile: "./audio/chaoz_impact.mp3",
+    icon: "💥",
+    bpm: 175,
     difficulty: "Very Hard",
     diffLevel: 4,
     stars: "★★★★",
-    badge: "리듬 레전드",
-    durationSec: 70,
-    soundStyle: "PIANO",
-    basePitch: 523.25,
-    description: "플래시 및 오투잼·스텝매니아를 풍미한 전설의 명곡! 감성적인 피아노 멜로디와 스피디 비트",
-    generateChart: function(startTime = 0.6) {
+    badge: "Chaoz 완결작",
+    durationSec: 58,
+    description: "ParagonX9 전설의 Chaoz 3부작 최종 완성작! 175 BPM 강력한 드럼비트 폭격",
+    generateChart: function(startTime = 0.5) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
   },
@@ -619,14 +506,12 @@ const SONGS = [
     audioFile: "./audio/unity.mp3",
     icon: "👑",
     bpm: 105,
-    difficulty: "Normal",
-    diffLevel: 2,
-    stars: "★★☆",
+    difficulty: "Easy",
+    diffLevel: 1,
+    stars: "★☆☆",
     badge: "전세계 히트",
-    durationSec: 75,
-    soundStyle: "ELECTRONIC",
-    basePitch: 440.0,
-    description: "전 세계 게이머들의 심장을 울린 레전드 EDM! 중독적인 신스 리프와 폭발적인 드롭",
+    durationSec: 124,
+    description: "전 세계 게이머들의 가슴을 뛰게 한 레전드 EDM! 중독적인 신스 리프와 시원한 드롭",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -634,19 +519,17 @@ const SONGS = [
   {
     id: "electroman-adventures",
     category: "arcade",
-    title: "Electroman Adventures V3",
+    title: "Electroman Adventures",
     composer: "Waterflame",
     genre: "Chiptune Electro / GD",
     audioFile: "./audio/electroman.mp3",
     icon: "🕹️",
     bpm: 145,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "질주 칩튠",
-    durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 523.25,
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "8비트 신스",
+    durationSec: 125,
     description: "지오메트리 대시를 뒤흔든 워터플레임의 역작! 짜릿한 8비트 아케이드 신스와 롤러코스터 질주",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
@@ -661,56 +544,12 @@ const SONGS = [
     audioFile: "./audio/nova.mp3",
     icon: "🌌",
     bpm: 150,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "감성 트랜스",
-    durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 587.33,
-    description: "오투잼 감성의 아련하고 아름다운 멜로딕 트랜스! 밤하늘을 수놓는 별빛 같은 신스 멜로디",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "outbreaker-hinkik",
-    category: "arcade",
-    title: "Outbreaker",
-    composer: "Hinkik",
-    genre: "Glitch Hop / Bass",
-    audioFile: "./audio/outbreaker.mp3",
-    icon: "💥",
-    bpm: 128,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "육중한 베이스",
-    durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 440.0,
-    description: "묵직한 글리치합 드럼과 화려한 컷팅 신스! 디제이맥스 클럽 스테이지에 온 듯한 강렬한 타격감",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "skystrike-hinkik",
-    category: "arcade",
-    title: "Skystrike",
-    composer: "Hinkik",
-    genre: "Arcade Dance / High-Speed",
-    audioFile: "./audio/skystrike.mp3",
-    icon: "🚀",
-    bpm: 140,
-    difficulty: "Very Hard",
-    diffLevel: 4,
-    stars: "★★★★",
-    badge: "하늘 질주",
-    durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 523.25,
-    description: "구름 위를 가르는 듯한 벅찬 신스 멜로디와 쾌속 질주감! 롱노트와 계단 배치가 어우러진 명곡",
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "감성 멜로디",
+    durationSec: 95,
+    description: "오투잼 감성의 아련하고 아름다운 멜로딕 트랜스! 밤하늘을 수놓는 별빛 같은 선율",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -718,41 +557,18 @@ const SONGS = [
   {
     id: "ping-exyl",
     category: "arcade",
-    title: "Ping",
+    title: "Ping!",
     composer: "Exyl",
-    genre: "Chiptune Glitch Pop",
+    genre: "Electro Funk / Bass",
     audioFile: "./audio/ping.mp3",
-    icon: "📡",
-    bpm: 130,
-    difficulty: "Hard",
-    diffLevel: 3,
-    stars: "★★★",
-    badge: "통통 튀는 핑",
-    durationSec: 68,
-    soundStyle: "ELECTRONIC",
-    basePitch: 587.33,
-    description: "유튜브와 틱톡을 강타한 천재 비트메이커 Exyl의 핑 사운드! 톡톡 튀는 건반 타격감의 정점",
-    generateChart: function(startTime = 0.6) {
-      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
-    }
-  },
-  {
-    id: "chaoz-airflow",
-    category: "arcade",
-    title: "Chaoz Airflow",
-    composer: "ParagonX9",
-    genre: "Speed D&B / Piano Solo",
-    audioFile: "./audio/chaoz_airflow.mp3",
-    icon: "🌪️",
-    bpm: 155,
-    difficulty: "Very Hard",
-    diffLevel: 4,
-    stars: "★★★★",
-    badge: "피아노 질주",
-    durationSec: 70,
-    soundStyle: "PIANO",
-    basePitch: 523.25,
-    description: "초고속 드럼앤베이스 위에 수놓는 유려한 피아노 솔로! 디맥 피아노 솔로곡을 연상시키는 쾌감",
+    icon: "🔔",
+    bpm: 128,
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "찰진 타격감",
+    durationSec: 81,
+    description: "오락실 핑 사운드와 슬랩베이스의 중독적 그루브! 입에 착착 달라붙는 리드미컬 펀치",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -762,18 +578,54 @@ const SONGS = [
     category: "arcade",
     title: "Never Letting Go",
     composer: "Exyl",
-    genre: "Melodic Electro Pop",
+    genre: "Melodic Synthwave",
     audioFile: "./audio/never_letting_go.mp3",
-    icon: "💖",
+    icon: "🚀",
     bpm: 128,
     difficulty: "Normal",
     diffLevel: 2,
     stars: "★★☆",
-    badge: "감성 멜로디",
-    durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 440.0,
-    description: "신나면서도 감미로운 멜로디 라인! 초보자도 쉽게 즐길 수 있는 경쾌한 아케이드 댄스",
+    badge: "벅찬 감동",
+    durationSec: 108,
+    description: "청량감 넘치는 보컬 찹과 레트로 신스웨이브 비트! 질주하는 고속도로 드라이브 사운드",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "skystrike-hinkik",
+    category: "arcade",
+    title: "Skystrike",
+    composer: "Hinkik",
+    genre: "Euphoric Electro",
+    audioFile: "./audio/skystrike.mp3",
+    icon: "🌠",
+    bpm: 128,
+    difficulty: "Hard",
+    diffLevel: 3,
+    stars: "★★★",
+    badge: "슈퍼 드롭",
+    durationSec: 105,
+    description: "하늘을 찌를 듯 솟구치는 유포릭 신스 리드! 오락실 스피커를 터뜨리는 초강력 베이스",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "outbreaker-hinkik",
+    category: "arcade",
+    title: "Outbreaker",
+    composer: "Hinkik",
+    genre: "Complextro / Hardcore",
+    audioFile: "./audio/outbreaker.mp3",
+    icon: "🌋",
+    bpm: 128,
+    difficulty: "Hard",
+    diffLevel: 3,
+    stars: "★★★",
+    badge: "헤비 드라이브",
+    durationSec: 108,
+    description: "거침없이 쪼개지는 컴플렉스트로 글리치와 폭발적인 드롭! 헤비한 아케이드 킥",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
@@ -783,23 +635,94 @@ const SONGS = [
     category: "arcade",
     title: "Wicked",
     composer: "Avenza",
-    genre: "Electro House / Club Mix",
+    genre: "Electro Swing / Glitch",
     audioFile: "./audio/wicked.mp3",
-    icon: "👿",
-    bpm: 135,
+    icon: "🎩",
+    bpm: 128,
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "스윙 그루브",
+    durationSec: 110,
+    description: "1930년대 빈티지 재즈 브라스와 현대 글리치합의 만남! 신나게 튀어 오르는 스윙 리듬",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "final-phase",
+    category: "arcade",
+    title: "The Final Phase",
+    composer: "Deemo-R",
+    genre: "Speedcore / Boss Theme",
+    audioFile: "./audio/final_phase.mp3",
+    icon: "⚔️",
+    bpm: 175,
+    difficulty: "Very Hard",
+    diffLevel: 4,
+    stars: "★★★★",
+    badge: "보스 테마",
+    durationSec: 175,
+    description: "오투잼·디맥 최상위 보스곡 감성! 175 BPM 긴박하게 몰아치는 스피드코어의 절정",
+    generateChart: function(startTime = 0.5) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "synergetic-enigma",
+    category: "arcade",
+    title: "Synergetic Enigma",
+    composer: "Dan Johansen",
+    genre: "Cyberpunk Synthmetal",
+    audioFile: "./audio/synergetic.mp3",
+    icon: "🦾",
+    bpm: 140,
     difficulty: "Hard",
     diffLevel: 3,
     stars: "★★★",
-    badge: "클럽 바운스",
+    badge: "전자기타 리프",
+    durationSec: 133,
+    description: "사이버펑크 전자기타 리프와 펌프 스타일 신스비트! 어두운 미래 도시를 달리는 헤비 메탈",
+    generateChart: function(startTime = 0.6) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "apoplexy-beehunter",
+    category: "arcade",
+    title: "Apoplexy",
+    composer: "Beehunter",
+    genre: "Drum & Bass / 180 BPM",
+    audioFile: "./audio/apoplexy.mp3",
+    icon: "⚡",
+    bpm: 180,
+    difficulty: "Very Hard",
+    diffLevel: 4,
+    stars: "★★★★",
+    badge: "180 D&B",
     durationSec: 70,
-    soundStyle: "ELECTRONIC",
-    basePitch: 523.25,
-    description: "디제이맥스 아케이드의 클럽 바운스 감성! 터프한 베이스 드롭과 손맛 넘치는 4키 리듬",
+    description: "180 BPM 초고속 드럼앤베이스 & 브레이크코어 리듬의 정수! 숨 쉴 틈 없는 비트 폭타",
+    generateChart: function(startTime = 0.5) {
+      return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
+    }
+  },
+  {
+    id: "level-five",
+    category: "arcade",
+    title: "Level Five",
+    composer: "DJ Striden",
+    genre: "Hands-Up / Euro Dance",
+    audioFile: "./audio/level_five.mp3",
+    icon: "🎉",
+    bpm: 140,
+    difficulty: "Normal",
+    diffLevel: 2,
+    stars: "★★☆",
+    badge: "신나는 댄스",
+    durationSec: 105,
+    description: "경쾌하고 신나는 오락실 핸즈업 유로댄스! 누구나 어깨를 들썩이게 만드는 건반 멜로디",
     generateChart: function(startTime = 0.6) {
       return generateDynamicChart(this.bpm, this.durationSec, this.diffLevel, startTime);
     }
   }
 ];
-
-window.SoundEngine = SoundEngine;
-window.SONGS = SONGS;
