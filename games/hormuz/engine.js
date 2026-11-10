@@ -1,19 +1,23 @@
 const Escape = (() => {
-  const stages = 100;
+  const batteries = [
+    [55.83, 26.77], [56.03, 26.88], [56.16, 26.95], [56.48, 27.19], [56.61, 27.18],
+    [56.75, 27.19], [56.90, 27.13], [57.01, 26.98], [57.09, 26.77], [57.10, 26.52],
+  ];
+  const stages = batteries.length;
   const shieldCost = 80;
-  const laneNames = ['북쪽', '중앙', '남쪽'];
-  const clamp = (n, min, max) => Math.max(min, Math.min(n, max));
+  const tapGap = 0.085;
+  const speed = power => 0.003 + 0.028 * power;
 
   function difficulty(stage) {
     const rank = (stage - 1) / (stages - 1);
     return {
-      time: 33 - 18 * rank,
-      attacks: 1 + Math.floor(rank * 12),
-      warning: 2.3 - 1.66 * rank,
-      gain: 0.43 - 0.275 * rank,
-      drain: 0.24 + 0.32 * rank,
-      reward: 50 + stage * 4,
-      name: ['아주 쉬움', '쉬움', '보통', '어려움', '아주 어려움'][Math.min(4, Math.floor(rank * 5))],
+      time: 78 - 10 * rank,
+      interval: [11, 8.6, 7, 5.8, 5.1, 4.55, 4.05, 3.65, 3.28, 3][stage - 1],
+      warning: 4.1 - 1.75 * rank,
+      gain: 0.52 - 0.32 * rank,
+      drain: 0.24 + 0.34 * rank,
+      reward: 80 + stage * 8,
+      name: ['입문', '정찰', '접근', '해협 진입', '경계', '집중 포격', '교전', '교차 포격', '봉쇄 돌파', '최종 탈출'][stage - 1],
     };
   }
 
@@ -24,20 +28,17 @@ const Escape = (() => {
   function newVoyage(stage) {
     const config = difficulty(stage);
     return {
-      stage, config, time: config.time, progress: 0, power: 0, hull: 3, lane: 1,
-      attack: null, launched: 0, dodges: 0, cooldown: 0, lastTap: -Infinity,
-      status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
+      stage, config, time: config.time, progress: 0, power: 0,
+      attack: null, impact: null, launched: 0, dodges: 0, lastAttackBoost: false,
+      nextIn: 7 - (stage - 1) * 0.35,
+      lastTap: -Infinity, status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
     };
   }
 
   function tap(voyage, now) {
-    if (voyage.status !== 'sailing' || now - voyage.lastTap < 0.08) return;
+    if (voyage.status !== 'sailing' || now - voyage.lastTap < tapGap) return;
     voyage.lastTap = now;
-    voyage.power = clamp(voyage.power + voyage.config.gain, 0, 1);
-  }
-
-  function steer(voyage, direction) {
-    if (voyage.status === 'sailing') voyage.lane = clamp(voyage.lane + direction, 0, 2);
+    voyage.power = Math.min(1, voyage.power + voyage.config.gain);
   }
 
   function buy(run) {
@@ -47,13 +48,56 @@ const Escape = (() => {
     return true;
   }
 
+  function projectedArrival(voyage, startTapping, stopTapping = Infinity) {
+    const {warning, drain, gain} = voyage.config;
+    let progress = voyage.progress;
+    let power = voyage.power;
+    let nextTap = startTapping;
+    const step = warning / 100;
+    for (let frame = 0; frame < 100; frame++) {
+      const time = frame * step;
+      if (time >= nextTap && time < stopTapping) {
+        power = Math.min(1, power + gain);
+        nextTap += 0.18;
+      }
+      power = Math.max(0, power - drain * step);
+      progress += speed(power) * step;
+    }
+    return progress;
+  }
+
+  function planAttack(voyage, random) {
+    const {stage, config, launched} = voyage;
+    const boost = stage < 3 || !voyage.lastAttackBoost || (stage >= 7 && random() < 0.42);
+    // Keep a response window even when the player was already tapping as the warning appeared.
+    const slow = boost ? projectedArrival(voyage, Infinity) : projectedArrival(voyage, 0, 0.56);
+    const fast = projectedArrival(voyage, boost ? 0.56 : 0);
+    const width = (fast - slow) * (0.48 + (stage - 1) * 0.022);
+    const start = boost ? slow - 0.021 : fast - width;
+    const end = boost ? slow + width : fast + 0.021;
+    const shellCount = stage >= 9 ? 3 : stage >= 5 ? 2 : 1;
+    const shots = Array.from({length: shellCount}, (_, index) => ({
+      battery: (launched + index) % stage,
+      target: start + (end - start) * (index + 1) / (shellCount + 1),
+    }));
+    return {boost, start, end, shots, remaining: config.warning, total: config.warning};
+  }
+
   function tick(voyage, run, dt, random = Math.random) {
     if (voyage.status !== 'sailing') return;
     const {config} = voyage;
     voyage.time = Math.max(0, voyage.time - dt);
     voyage.power = Math.max(0, voyage.power - config.drain * dt);
-    voyage.progress = Math.min(1, voyage.progress + (0.01 + 0.105 * voyage.power) * dt);
-    voyage.cooldown = Math.max(0, voyage.cooldown - dt);
+    voyage.progress = Math.min(1, voyage.progress + speed(voyage.power) * dt);
+    voyage.nextIn -= dt;
+
+    if (voyage.progress >= 1) {
+      voyage.status = 'cleared';
+      run.credits += config.reward;
+      voyage.notice = '해협 탈출 성공!';
+      return;
+    }
+
     if (voyage.impact) {
       voyage.impact.remaining -= dt;
       if (voyage.impact.remaining <= 0) voyage.impact = null;
@@ -63,46 +107,35 @@ const Escape = (() => {
       const attack = voyage.attack;
       attack.remaining -= dt;
       if (attack.remaining <= 0) {
-        if (!attack.lanes.includes(voyage.lane)) {
+        const hit = voyage.progress >= attack.start && voyage.progress <= attack.end;
+        if (!hit) {
           voyage.dodges++;
           voyage.notice = '회피 성공. 계속 추진하세요!';
         } else if (run.shields > 0) {
           run.shields--;
           voyage.notice = '방어권 1회 사용. 선체를 보호했습니다.';
         } else {
-          voyage.hull--;
-          voyage.notice = '피격! 선체 내구도가 1 감소했습니다.';
+          voyage.status = 'failed';
+          voyage.notice = '포탄에 맞았습니다. 남은 방어권이 없어 항해가 종료됐습니다.';
         }
-        voyage.impact = {lanes: attack.lanes, progress: voyage.progress, remaining: 0.38};
+        voyage.impact = {shots: attack.shots, remaining: 0.85, hit};
         voyage.attack = null;
-        voyage.cooldown = 0.17;
+        if (voyage.status === 'failed') return;
       }
     }
 
-    const nextAttackAt = 0.12 + 0.72 * voyage.launched / config.attacks;
-    if (!voyage.attack && !voyage.cooldown && voyage.launched < config.attacks && voyage.progress >= nextAttackAt) {
-      const lanes = [voyage.lane];
-      const doubleChance = clamp((voyage.stage - 22) / 100, 0, 0.76);
-      if (random() < doubleChance) {
-        const adjacent = [voyage.lane - 1, voyage.lane + 1].filter(lane => lane >= 0 && lane <= 2);
-        lanes.push(adjacent[Math.floor(random() * adjacent.length)]);
-      }
-      voyage.attack = {lanes, remaining: config.warning, total: config.warning};
+    if (!voyage.attack && voyage.nextIn <= 0 && voyage.time > config.warning && voyage.progress < 0.97) {
+      voyage.attack = planAttack(voyage, random);
+      voyage.lastAttackBoost = voyage.attack.boost;
+      voyage.nextIn += config.interval;
       voyage.launched++;
     }
 
-    if (voyage.hull <= 0) {
-      voyage.status = 'failed';
-      voyage.notice = '선체가 파손되어 항해가 종료됐습니다.';
-    } else if (voyage.progress >= 1 && voyage.launched === config.attacks && !voyage.attack) {
-      voyage.status = 'cleared';
-      run.credits += config.reward;
-      voyage.notice = '해협 탈출 성공!';
-    } else if (voyage.time <= 0) {
+    if (voyage.time <= 0) {
       voyage.status = 'failed';
       voyage.notice = '제한 시간 안에 해협을 벗어나지 못했습니다.';
     }
   }
 
-  return {stages, shieldCost, laneNames, difficulty, newRun, newVoyage, tap, steer, buy, tick};
+  return {stages, batteries, shieldCost, difficulty, newRun, newVoyage, speed, tap, buy, tick};
 })();

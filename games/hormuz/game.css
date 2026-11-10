@@ -28,9 +28,10 @@ h2{font-size:19px;letter-spacing:-.04em;margin-top:4px}
 .hud div{min-width:0;background:#17243b;border:1px solid #2a3952;border-radius:8px;padding:7px 10px}
 .hud span,.stats span{display:block;color:#a9b9d2;font-size:10px;white-space:nowrap}
 .hud strong{font-size:clamp(14px,2vw,22px);font-variant-numeric:tabular-nums;white-space:nowrap}
+.hud #stage-number{display:inline;color:inherit;font-size:inherit}
 .hud small{font-size:10px;color:#94a3b8}
 .map-frame{position:relative;isolation:isolate;overflow:hidden;background:#092037}
-#map{display:block;width:100%;height:clamp(250px,min(41vw,100svh - 485px),465px);background:#0b2a41}
+#map{display:block;width:100%;height:clamp(235px,min(41vw,100svh - 515px),465px);background:#0b2a41}
 .map-caption{display:flex;justify-content:space-between;gap:8px;position:absolute;inset:auto 10px 8px;color:#c5d6e9;pointer-events:none;font-size:10px;text-shadow:0 1px 4px #000}
 .map-caption i{display:inline-block;width:13px;border-top:2px dashed var(--gold);vertical-align:middle;margin-right:3px}
 .overlay{position:absolute;inset:0;display:flex;align-items:end;justify-content:center;padding:0 10px 26px;background:linear-gradient(transparent 28%,#070f1aa8)}
@@ -39,18 +40,18 @@ h2{font-size:19px;letter-spacing:-.04em;margin-top:4px}
 .overlay-card h3{margin:3px 0;font-size:clamp(18px,3vw,26px);letter-spacing:-.05em}
 .overlay-card p{margin:3px 0 9px;color:#d0dbeb;font-size:12px;line-height:1.45}
 .gold{background:var(--gold);color:#171200;border:1px solid #ffd465;border-radius:9px;font-weight:900}
-.gold:not(:disabled):hover{background:#fcd34d}.gold:not(:disabled):active,.steer:not(:disabled):active{transform:translateY(2px)}
+.gold:not(:disabled):hover{background:#fcd34d}.gold:not(:disabled):active{transform:translateY(2px)}
 #launch{padding:8px 17px;min-height:40px} #launch span{margin-left:7px}
 .nav-controls{padding:12px 18px 17px}
 .nav-heading{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:12px;min-height:22px;color:#cbd5e1}
-#alert.danger{color:#fecaca;font-weight:800} #speed{color:#fde68a;font-variant-numeric:tabular-nums;white-space:nowrap}
+#alert.danger{color:#fecaca;font-weight:800}
+#shot-clock{color:#fde68a;font-variant-numeric:tabular-nums;white-space:nowrap}
+#shot-clock.danger{color:#fecaca;font-weight:900}
 .meter{height:5px;background:#2e3b53;border-radius:6px;margin:5px 0 10px;overflow:hidden}
 #power{height:100%;width:0;background:linear-gradient(90deg,#0f766e,#2dd4bf,#fbbf24)}
-.controls{display:grid;grid-template-columns:1fr 1.4fr 1fr;gap:7px;user-select:none}
+.controls{display:grid;user-select:none}
 .controls button{min-height:54px}
-.steer{border:1px solid #455772;background:#23334c;color:#f1f5f9;border-radius:9px;font-weight:800;white-space:nowrap}
-.steer:not(:disabled):hover{background:#334865}
-kbd{font:inherit;font-size:10px;color:#bbcadf;margin-left:5px}
+.gold.thrust.brake{background:#6f292a;border-color:#fa9490;color:#fff3e9}
 .thrust b,.thrust small{display:block}.thrust b{font-size:17px}.thrust small{font-size:10px;margin-top:2px}
 aside{display:grid;gap:12px}
 .card{background:white;border:1px solid var(--line);border-radius:14px;padding:15px;box-shadow:0 4px 14px #0f172a06}
@@ -78,6 +79,6 @@ footer{text-align:center;color:#94a3b8;font-size:10px;font-weight:400;line-heigh
   .bridge{border-radius:12px}.bridge-head{padding:9px 10px}.bridge-head h2{font-size:15px}.hud{padding:0 8px 8px;gap:4px}.hud div{padding:5px}
   #map{height:clamp(220px,62vw,340px)}.overlay{padding-bottom:24px}.overlay-card{padding:7px 10px}
   .nav-controls{padding:7px 8px 10px}.nav-heading{font-size:11px}.controls button{min-height:49px}
-  .steer kbd{display:none}aside{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{padding:10px}.guide{grid-column:1/-1}
+  aside{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.card{padding:10px}.guide{grid-column:1/-1}
   .card h2{font-size:16px}.card p,.guide li{font-size:11px}
 }

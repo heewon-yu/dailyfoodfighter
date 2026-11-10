@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#0f172a">
-  <meta name="description" content="실제 호르무즈 해협을 배경으로 펼쳐지는 100단계 상선 탈출 웹게임">
+  <meta name="description" content="실제 호르무즈 해협을 3D로 구현한 10단계 상선 탈출 웹게임">
   <title>호르무즈 해협 탈출하기</title>
-  <link rel="stylesheet" href="./game.css">
+  <link rel="stylesheet" href="./game.css?v=2">
   <script defer src="./coast.js"></script>
-  <script defer src="./engine.js"></script>
-  <script defer src="./game.js"></script>
+  <script defer src="./engine.js?v=2"></script>
+  <script defer src="./scene.js?v=2"></script>
+  <script defer src="./game.js?v=2"></script>
 </head>
 <body>
   <header class="top">
@@ -29,33 +30,31 @@
       <section class="bridge" aria-label="상선 조종실">
         <div class="bridge-head">
           <div><div class="kicker">01 / NAVIGATION</div><h2>항해 조종실</h2></div>
-          <span class="badge" id="mode">출항 대기</span>
+          <span class="badge" id="mode">3D · 출항 대기</span>
         </div>
         <div class="hud">
-          <div><span>항해 단계</span><strong id="stage">01 <small>/ 100</small></strong></div>
+          <div><span>항해 단계</span><strong><span id="stage-number">01</span> <small>/ 10</small></strong></div>
           <div><span>남은 시간</span><strong id="time">—</strong></div>
-          <div><span>선체 내구도</span><strong id="hull">3 / 3</strong></div>
+          <div><span>활성 포대</span><strong id="batteries">1곳</strong></div>
           <div><span>도착 진행률</span><strong id="progress">0%</strong></div>
         </div>
         <div class="map-frame">
-          <svg id="map" viewBox="0 0 1000 610" role="img" aria-label="이란 남쪽 해안과 오만 무산담반도 사이의 호르무즈 해협 지도"></svg>
-          <div class="map-caption"><span><i></i> 항로</span><span>실제 해안선 · 게임 항로</span></div>
+          <canvas id="map" role="img" aria-label="이란 남쪽 해안과 오만 무산담반도 사이의 3D 호르무즈 해협"></canvas>
+          <div class="map-caption"><span><i></i> 항로</span><span>실제 해안선 기반 · 3D</span></div>
           <div class="overlay" id="overlay">
             <div class="overlay-card">
-              <div class="kicker" id="mission">MISSION 01 / 100</div>
+              <div class="kicker" id="mission">MISSION 01 / 10</div>
               <h3 id="result-title">항해 준비 완료</h3>
-              <p id="result-detail">추진을 누를 때마다 속도가 붙습니다. 경보가 울리면 표시된 항로에서 벗어나세요.</p>
+              <p id="result-detail">추진을 터치해 속도를 높이세요. 경보가 뜨면 연타하거나 손을 떼 착탄 구역을 피하세요.</p>
               <button class="gold" id="launch" type="button">1단계 출항 <span aria-hidden="true">→</span></button>
             </div>
           </div>
         </div>
         <div class="nav-controls">
-          <div class="nav-heading"><span id="alert" role="status" aria-live="polite">출항 버튼을 눌러 항해를 시작하세요.</span><span id="speed">0.0 kt</span></div>
+          <div class="nav-heading"><span id="alert" role="status" aria-live="polite">출항 버튼을 눌러 항해를 시작하세요.</span><span id="shot-clock"></span></div>
           <div class="meter" aria-hidden="true"><div id="power"></div></div>
           <div class="controls">
-            <button type="button" class="steer" id="north" disabled>↑ 북쪽<kbd>↑</kbd></button>
-            <button type="button" class="gold thrust" id="thrust" disabled><b>⚡ 추진</b><small>연속 터치 · Space</small></button>
-            <button type="button" class="steer" id="south" disabled>↓ 남쪽<kbd>↓</kbd></button>
+            <button type="button" class="gold thrust" id="thrust" disabled><b>⚡ 추진</b><small id="thrust-hint">터치할 때마다 가속</small></button>
           </div>
         </div>
       </section>
@@ -66,20 +65,21 @@
             <div><span>탈출 크레딧</span><strong id="credits">0</strong></div>
             <div><span>보유 방어권</span><strong id="shields">0</strong></div>
           </div>
-          <p>공격에 맞는 순간 방어권 1개가 자동으로 소모되어 선체를 보호합니다.</p>
+          <p>피격 시 방어권 1개를 자동으로 사용합니다. 방어권이 없으면 즉시 1단계부터 다시 시작합니다.</p>
           <button class="buy" id="buy" type="button">방어권 1회 구매 <span>80 C</span></button>
         </section>
         <section class="card">
           <div class="kicker">03 / LOGBOOK</div><h2>항해 기록</h2>
-          <div class="record"><span>탈출 성공</span><strong id="clears">0 / 100</strong></div>
+          <div class="record"><span>탈출 성공</span><strong id="clears">0 / 10</strong></div>
           <div class="record"><span>이번 항해 회피</span><strong id="dodges">0회</strong></div>
+          <div class="record"><span>이번 항해 포격</span><strong id="volleys">0회</strong></div>
           <p>항해에 실패하거나 페이지를 다시 열면 1단계부터 시작합니다.</p>
         </section>
         <section class="card guide">
           <div class="kicker">04 / BRIEFING</div><h2>조작 방법</h2>
           <ol>
             <li><strong>추진</strong>을 연타해 제한 시간 안에 도착하세요.</li>
-            <li><strong>북쪽·남쪽</strong> 버튼 또는 ↑ ↓ 키로 경보가 뜬 항로를 피하세요.</li>
+            <li><strong>가속 경보</strong>에는 연타해 착탄 구역을 통과하세요. <strong>감속 경보</strong>에는 손을 떼고 폭발할 때까지 기다리세요.</li>
             <li>탈출하면 <strong>크레딧</strong>을 받고 다음 단계로 진입합니다.</li>
           </ol>
           <div class="difficulty" id="difficulty"></div>
