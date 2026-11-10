@@ -644,6 +644,7 @@
     $('buyLabel').textContent = isLimit ? '매수 예약 금액' : '매수 예상 결제';
     $('sellLabel').textContent = isLimit ? '매도 최소 정산' : '매도 예상 정산';
     renderEstimate();
+    if (isLimit) orderPrice.scrollIntoView({block: 'nearest', inline: 'nearest'});
   });
   segment('account', value => { accountMode = value; renderAccount(); });
   $('jumpChart').addEventListener('click', () => $('market').scrollIntoView({block: 'start'}));

@@ -99,7 +99,7 @@
         <section class="panel order-panel" aria-labelledby="orderTitle">
           <div class="card-heading"><div class="eyebrow">04 / TRADE TICKET</div><h2 id="orderTitle">주문하기</h2><p id="orderStock"></p></div>
           <div class="order-content">
-            <div class="order-type"><div class="segments" aria-label="주문 방식"><button type="button" data-order="market" aria-pressed="true">시장가</button><button id="limitMode" type="button" data-order="limit" aria-pressed="false">지정가</button></div><span>수수료 0.05%</span></div>
+            <div class="order-type"><div class="segments" aria-label="주문 방식"><button type="button" data-order="market" aria-pressed="true">시장가</button><button id="limitMode" type="button" data-order="limit" aria-pressed="false" aria-controls="limitFields">지정가</button></div><span>수수료 0.05%</span></div>
             <div id="limitFields" hidden>
               <label for="limitPrice">지정가</label>
               <div class="quantity-field limit-field"><input id="limitPrice" type="number" min="50" max="1000000" step="50" inputmode="numeric"><span>원</span></div>
