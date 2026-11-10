@@ -191,6 +191,7 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .guide-list{padding-left:22px}
 .guide-list li{margin:11px 0;font-size:13px}
 .guide-list p{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.5}
+.mobile-guide-intro{display:none}
 .modal-primary{width:100%}
 .score{background:var(--navy);color:#fff;padding:17px;border-radius:8px;margin:12px 0}
 .score>span{color:#cbd5e1;font-size:11px}
@@ -217,8 +218,15 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .shell footer{grid-row:5}
 }
 @media(max-width:550px){
-  .desk{grid-template-areas:"chart chart" "order depth" "lower lower";grid-template-rows:auto}
-  .trade-column{gap:5px}
+  .hero #heroText{display:none}
+  .desk{grid-template-areas:"chart chart" "order depth" "stock-news stock-news" "pending pending" "lower lower";grid-template-rows:auto}
+  .trade-column{display:contents}
+  .order-panel{grid-area:order}
+  .stock-news-panel{grid-area:stock-news}
+  .pending-panel{grid-area:pending}
+  .stock-news-panel .card-heading,.pending-panel .card-heading{padding-inline:10px}
+  #stockNews,#pending{padding-inline:10px}
+  .mobile-guide-intro{display:block;margin:10px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
   .mobile-jump{grid-row:5}
   .shell footer{grid-row:6}
 }
