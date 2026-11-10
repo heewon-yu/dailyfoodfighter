@@ -44,8 +44,9 @@ function render(now = performance.now()) {
   byId('overlay').hidden = sailing;
 
   const danger = sailing && attack;
+  const coasting = danger && Escape.isCoasting(voyage);
   const message = danger
-    ? attack.boost ? '⚠ 가속 경보 · 연타해서 착탄 구역을 통과하세요!' : '⚠ 감속 경보 · 터치를 멈추고 기다리세요!'
+    ? attack.boost ? '⚠ 가속 경보 · 연타해서 착탄 구역을 통과하세요!' : '⚠ 감속 경보 · 손을 떼고 착탄을 기다리세요!'
     : voyage.notice;
   setText('alert', message);
   alert.classList.toggle('danger', Boolean(danger));
@@ -56,7 +57,8 @@ function render(now = performance.now()) {
   setText('shot-clock', timer);
   shotClock.classList.toggle('danger', Boolean(danger));
   thrust.classList.toggle('brake', Boolean(danger && !attack.boost));
-  setText('thrust-hint', danger ? attack.boost ? '지금 연타해서 통과' : '지금 터치를 멈추세요' : '터치할 때마다 가속');
+  const hint = attack?.boost ? '지금 연타해서 통과' : coasting ? '저속 항해 중 · 착탄까지 기다리세요' : '추진에서 손을 떼세요';
+  setText('thrust-hint', danger ? hint : '터치할 때마다 가속');
   scene.draw(voyage, now);
 }
 

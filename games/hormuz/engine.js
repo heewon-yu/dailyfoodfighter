@@ -6,7 +6,14 @@ const Escape = (() => {
   const stages = batteries.length;
   const shieldCost = 80;
   const tapGap = 0.085;
-  const speed = power => 0.003 + 0.028 * power;
+  const idleSpeed = 0.003;
+  const thrustSpeed = 0.028;
+  const reactionTime = 0.7;
+  const coastDelay = 0.25;
+  const coastDrain = 2.9;
+  const boostMultiplier = 1.25;
+  const speed = power => idleSpeed + thrustSpeed * power;
+  const isCoasting = voyage => voyage.attack?.boost === false && voyage.tapIdle >= coastDelay;
 
   function difficulty(stage) {
     const rank = (stage - 1) / (stages - 1);
@@ -31,14 +38,16 @@ const Escape = (() => {
       stage, config, time: config.time, progress: 0, power: 0,
       attack: null, impact: null, launched: 0, dodges: 0, lastAttackBoost: false,
       nextIn: 7 - (stage - 1) * 0.35,
-      lastTap: -Infinity, status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
+      lastTap: -Infinity, tapIdle: Infinity, status: 'ready', notice: '출항 버튼을 눌러 항해를 시작하세요.',
     };
   }
 
   function tap(voyage, now) {
     if (voyage.status !== 'sailing' || now - voyage.lastTap < tapGap) return;
     voyage.lastTap = now;
-    voyage.power = Math.min(1, voyage.power + voyage.config.gain);
+    voyage.tapIdle = 0;
+    const gain = voyage.config.gain * (voyage.attack?.boost ? boostMultiplier : 1);
+    voyage.power = Math.min(1, voyage.power + gain);
   }
 
   function buy(run) {
@@ -48,17 +57,16 @@ const Escape = (() => {
     return true;
   }
 
-  function projectedArrival(voyage, startTapping, stopTapping = Infinity) {
-    const {warning, drain, gain} = voyage.config;
+  function projectedArrival(voyage, startTapping, gain = voyage.config.gain) {
+    const {warning, drain} = voyage.config;
     let progress = voyage.progress;
     let power = voyage.power;
     let nextTap = startTapping;
     const step = warning / 100;
     for (let frame = 0; frame < 100; frame++) {
-      const time = frame * step;
-      if (time >= nextTap && time < stopTapping) {
+      if (frame * step >= nextTap) {
         power = Math.min(1, power + gain);
-        nextTap += 0.18;
+        nextTap += 0.24;
       }
       power = Math.max(0, power - drain * step);
       progress += speed(power) * step;
@@ -69,12 +77,17 @@ const Escape = (() => {
   function planAttack(voyage, random) {
     const {stage, config, launched} = voyage;
     const boost = stage < 3 || !voyage.lastAttackBoost || (stage >= 7 && random() < 0.42);
-    // Keep a response window even when the player was already tapping as the warning appeared.
-    const slow = boost ? projectedArrival(voyage, Infinity) : projectedArrival(voyage, 0, 0.56);
-    const fast = projectedArrival(voyage, boost ? 0.56 : 0);
-    const width = (fast - slow) * (0.48 + (stage - 1) * 0.022);
-    const start = boost ? slow - 0.021 : fast - width;
-    const end = boost ? slow + width : fast + 0.021;
+    // A player can keep tapping through the reaction window before settling to idle speed.
+    const frameMargin = 0.05;
+    const coastDistance = idleSpeed * (config.warning + frameMargin)
+      + thrustSpeed * (reactionTime + coastDelay + frameMargin + 0.5 / coastDrain);
+    const slow = boost ? projectedArrival(voyage, Infinity) : voyage.progress + coastDistance;
+    const fast = boost
+      ? projectedArrival(voyage, reactionTime, config.gain * boostMultiplier)
+      : projectedArrival(voyage, 0);
+    const width = Math.max(0, fast - slow) * (0.48 + (stage - 1) * 0.022);
+    const start = boost ? slow - 0.021 : Math.max(slow + 0.002, fast - width);
+    const end = boost ? slow + width : Math.max(start + 0.014, fast + 0.021);
     const shellCount = stage >= 9 ? 3 : stage >= 5 ? 2 : 1;
     const shots = Array.from({length: shellCount}, (_, index) => ({
       battery: (launched + index) % stage,
@@ -87,7 +100,9 @@ const Escape = (() => {
     if (voyage.status !== 'sailing') return;
     const {config} = voyage;
     voyage.time = Math.max(0, voyage.time - dt);
-    voyage.power = Math.max(0, voyage.power - config.drain * dt);
+    voyage.tapIdle += dt;
+    const drain = isCoasting(voyage) ? coastDrain : config.drain;
+    voyage.power = Math.max(0, voyage.power - drain * dt);
     voyage.progress = Math.min(1, voyage.progress + speed(voyage.power) * dt);
     voyage.nextIn -= dt;
 
@@ -137,5 +152,5 @@ const Escape = (() => {
     }
   }
 
-  return {stages, batteries, shieldCost, difficulty, newRun, newVoyage, speed, tap, buy, tick};
+  return {stages, batteries, shieldCost, difficulty, newRun, newVoyage, speed, isCoasting, tap, buy, tick};
 })();
