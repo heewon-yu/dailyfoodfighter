@@ -8,9 +8,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>비트 클래식 (Beat Classic) | 3D 아케이드 리듬게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-05">
-  <script defer src="./audio.js?v=20261110-05"></script>
-  <script defer src="./game.js?v=20261110-05"></script>
+  <link rel="stylesheet" href="./style.css?v=20261111-01">
+  <script defer src="./audio.js?v=20261111-01"></script>
+  <script defer src="./game.js?v=20261111-01"></script>
 </head>
 <body>
 
@@ -34,7 +34,7 @@
     <div class="lobby-header">
       <div>
         <div class="lobby-title">🎵 수록곡 선택 (SELECT MUSIC)</div>
-        <div class="lobby-desc">클래식 명곡 10선 + 오투잼·디맥 감성의 아케이드 & EDM 10선 · 실기 MP3 완비</div>
+        <div class="lobby-desc">클래식 명곡 5선 + 오투잼·펌프 레전드 15선 · 실기 MP3 완곡 완비</div>
       </div>
     </div>
 
@@ -66,6 +66,14 @@
         <div class="offset-box">
           <input type="range" id="offsetInput" min="-100" max="100" value="0" step="10">
           <span class="offset-text" id="offsetVal">0ms</span>
+        </div>
+      </div>
+
+      <div class="console-group">
+        <span class="console-label">볼륨 (VOLUME)</span>
+        <div class="offset-box">
+          <input type="range" id="volumeInput" min="0" max="100" value="45" step="5">
+          <span class="offset-text" id="volumeVal">45%</span>
         </div>
       </div>
 

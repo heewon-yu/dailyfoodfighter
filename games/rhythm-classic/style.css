@@ -181,30 +181,61 @@ body {
   box-shadow: 0 0 14px rgba(0, 240, 255, 0.3);
 }
 
-/* Compact DJMAX Tracklist Cards (20 Songs) */
+/* Full DJMAX Tracklist Cards (All Tabs Uniform Spacious Style) */
+.song-grid,
 .song-grid.compact-grid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-height: 520px;
+  gap: 12px;
+  max-height: 560px;
   overflow-y: auto;
-  padding-right: 4px;
+  overflow-x: hidden;
+  padding-right: 6px;
+  scroll-behavior: smooth;
 }
 
+/* Custom Sleek Cyberpunk Scrollbar */
+.song-grid::-webkit-scrollbar,
+.song-grid.compact-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.song-grid::-webkit-scrollbar-track,
+.song-grid.compact-grid::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 4px;
+}
+
+.song-grid::-webkit-scrollbar-thumb,
+.song-grid.compact-grid::-webkit-scrollbar-thumb {
+  background: rgba(0, 240, 255, 0.35);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.song-grid::-webkit-scrollbar-thumb:hover,
+.song-grid.compact-grid::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+.song-card,
 .song-card.compact {
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: 12px;
-  padding: 10px 14px;
+  padding: 12px 18px;
+  min-height: 76px;
+  flex-shrink: 0; /* CRITICAL: Never shrink cards in any tab! */
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
 }
 
+.song-card::before,
 .song-card.compact::before {
   content: '';
   position: absolute;
@@ -216,18 +247,21 @@ body {
   transition: background 0.25s ease;
 }
 
+.song-card:hover,
 .song-card.compact:hover {
   background: var(--bg-card-hover);
   border-color: rgba(0, 240, 255, 0.4);
-  transform: translateX(3px);
+  transform: translateX(4px);
 }
 
+.song-card.selected,
 .song-card.compact.selected {
   background: linear-gradient(90deg, rgba(22, 26, 46, 0.95), rgba(0, 240, 255, 0.14));
   border-color: var(--cyan);
   box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
 }
 
+.song-card.selected::before,
 .song-card.compact.selected::before {
   background: linear-gradient(180deg, var(--cyan), var(--pink));
 }
@@ -235,8 +269,9 @@ body {
 .card-left {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-width: 65px;
+  gap: 12px;
+  min-width: 70px;
+  flex-shrink: 0;
 }
 
 .song-num {
@@ -247,28 +282,33 @@ body {
 }
 
 .song-avatar {
-  width: 36px;
-  height: 36px;
-  border-radius: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
   background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 .card-mid {
   flex: 1;
   min-width: 0;
-  padding: 0 12px;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
 }
 
 .song-title-row {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 2px;
+  line-height: 1.3;
 }
 
 .song-title-text {
@@ -281,11 +321,12 @@ body {
 }
 
 .cat-pill {
-  font-size: 9px;
+  font-size: 10px;
   font-family: var(--font-mono);
   font-weight: 800;
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 4px;
+  flex-shrink: 0;
 }
 
 .cat-pill.classic {
@@ -303,26 +344,30 @@ body {
 .song-meta-text {
   font-size: 11px;
   color: var(--text-muted);
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .song-desc-text {
-  font-size: 10px;
-  color: #7b88b2;
+  font-size: 11px;
+  color: #8e9bbd;
+  line-height: 1.3;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-top: 2px;
+  margin-top: 1px;
 }
 
 .card-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 3px;
-  min-width: 90px;
+  justify-content: center;
+  gap: 4px;
+  min-width: 100px;
+  flex-shrink: 0;
 }
 
 .bpm-pill {
@@ -331,15 +376,18 @@ body {
   font-weight: 800;
   color: var(--gold);
   background: rgba(255, 215, 0, 0.1);
-  padding: 2px 6px;
+  padding: 2px 7px;
   border-radius: 4px;
   border: 1px solid rgba(255, 215, 0, 0.25);
+  white-space: nowrap;
 }
 
 .diff-stars {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--pink);
   font-weight: 800;
+  letter-spacing: 1px;
+  white-space: nowrap;
 }
 
 .best-score-chip {
@@ -347,6 +395,7 @@ body {
   font-size: 10px;
   color: var(--cyan);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 /* Console Bar */

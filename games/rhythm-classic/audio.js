@@ -10,10 +10,25 @@ class SoundEngine {
   constructor() {
     this.audioElement = new Audio();
     this.audioElement.preload = 'auto';
+    // User feedback: volume was too loud, lower overall default volume
+    const savedVol = typeof localStorage !== 'undefined' ? localStorage.getItem('beat_classic_volume') : null;
+    this.masterVolume = savedVol !== null ? parseInt(savedVol, 10) / 100 : 0.45;
+    this.audioElement.volume = this.masterVolume;
     this.isAudioPlaying = false;
     this.lastAudioTime = 0;
     this.lastAudioUpdate = 0;
     this.audioStartTime = 0;
+  }
+
+  setMasterVolume(vol) {
+    this.masterVolume = Math.max(0, Math.min(1, vol));
+    if (this.audioElement) {
+      this.audioElement.volume = this.masterVolume;
+    }
+  }
+
+  getMasterVolume() {
+    return this.masterVolume;
   }
 
   init() {
@@ -28,6 +43,7 @@ class SoundEngine {
     this.audioElement.pause();
     this.audioElement.src = audioUrl;
     this.audioElement.currentTime = 0;
+    this.audioElement.volume = this.masterVolume;
     this.isAudioPlaying = false;
     this.lastAudioTime = 0;
     this.lastAudioUpdate = performance.now();

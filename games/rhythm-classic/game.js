@@ -108,6 +108,22 @@
         });
       }
 
+      // Volume Slider
+      const volumeInput = document.getElementById('volumeInput');
+      const volumeVal = document.getElementById('volumeVal');
+      if (volumeInput && volumeVal) {
+        const currentVolPercent = Math.round(this.sound.getMasterVolume() * 100);
+        volumeInput.value = currentVolPercent;
+        volumeVal.textContent = currentVolPercent + '%';
+
+        volumeInput.addEventListener('input', (e) => {
+          const v = parseInt(e.target.value, 10);
+          volumeVal.textContent = v + '%';
+          this.sound.setMasterVolume(v / 100);
+          localStorage.setItem('beat_classic_volume', v);
+        });
+      }
+
       // Start Button
       const startBtn = document.getElementById('startGameBtn');
       if (startBtn) {
@@ -171,7 +187,7 @@
 
       filteredSongs.forEach((song, idx) => {
         const card = document.createElement('div');
-        card.className = 'song-card compact' + (song.id === this.selectedSong.id ? ' selected' : '');
+        card.className = 'song-card' + (song.id === this.selectedSong.id ? ' selected' : '');
         card.dataset.id = song.id;
 
         const best = scores[song.id] || null;
@@ -181,7 +197,7 @@
 
         const catBadge = song.category === 'classic'
           ? '<span class="cat-pill classic">CLASSIC</span>'
-          : '<span class="cat-pill arcade">O2JAM/ARCADE</span>';
+          : '<span class="cat-pill arcade">O2JAM/PUMP</span>';
 
         card.innerHTML = `
           <div class="card-left">
