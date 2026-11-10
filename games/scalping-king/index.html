@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="./style.css?v=20261110-03">
   <script defer src="./market.js?v=20261110-03"></script>
   <script defer src="./chart.js?v=20261110-03"></script>
-  <script defer src="./game.js?v=20261110-03"></script>
+  <script defer src="./game.js?v=20261110-04"></script>
 </head>
 <body>
   <header class="topbar">
@@ -47,7 +47,14 @@
           <div class="hero-kicker"><span></span> FIVE MINUTE CHALLENGE</div>
           <h1>5분 단타<span>왕</span></h1>
           <p id="heroText"><span id="heroMain">5분간 1억원으로 단타를 쳐서 수익을 내보세요!</span><span id="heroInvite">5분간의 게임으로 내기한판 어때요?</span></p>
-          <div class="hero-actions"><button id="start" class="gold" type="button"><span aria-hidden="true">▶</span> 5분 거래 시작</button><button id="pause" class="ghost" type="button" hidden>일시정지</button><button id="restart" class="ghost" type="button" hidden>다시하기</button><button id="marketJump" class="ghost" type="button">종목 살펴보기 ↓</button></div>
+          <div class="hero-actions">
+            <button id="start" class="gold" type="button"><span aria-hidden="true">▶</span> 5분 거래 시작</button>
+            <button id="pause" class="ghost" type="button" hidden>일시정지</button>
+            <button id="restart" class="ghost" type="button" hidden>다시하기</button>
+            <button id="openScoreShare" class="ghost" type="button" hidden>성적표 공유하기</button>
+            <button id="startNextRound" class="gold" type="button" hidden>한 번 더 하기</button>
+            <button id="marketJump" class="ghost" type="button">종목 살펴보기 ↓</button>
+          </div>
         </div>
         <div class="session">
           <div class="session-label"><span id="statusDot"></span><span id="status">개장 대기</span></div>
@@ -168,7 +175,7 @@
     <div class="modal-head"><div><div class="eyebrow">FINAL SCORE</div><h2>장 마감 성적표</h2></div><form method="dialog"><button class="subtle" aria-label="성적표 닫기">✕</button></form></div>
     <div id="score" class="score"></div>
     <div class="result-actions"><button type="button" id="shareImage" class="gold" disabled>이미지 공유</button><button type="button" id="share" class="subtle">결과 복사</button><button type="button" id="saveScore" class="subtle" disabled>PNG 저장</button></div>
-    <div class="result-actions"><button type="button" id="playAgain" class="subtle">한 번 더</button></div>
+    <div class="result-actions"><button type="button" id="playAgain" class="subtle">한 번 더 하기</button></div>
     <div id="shareFeedback" class="feedback" role="status"></div>
   </dialog>
 </body>

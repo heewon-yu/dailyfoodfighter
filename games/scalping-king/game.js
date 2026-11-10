@@ -160,11 +160,9 @@
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
-    $('start').hidden = inSession;
-    $('start').textContent = phase === 'done' ? '성적표 다시 보기' : '▶ 5분 거래 시작';
-    $('heroMain').textContent = phase === 'done' ? '마감 수익률을 확인하고 성적표를 공유하세요.' :
-      '5분간 1억원으로 단타를 쳐서 수익을 내보세요!';
-    $('heroInvite').hidden = phase === 'done';
+    $('start').hidden = phase !== 'ready';
+    $('openScoreShare').hidden = phase !== 'done';
+    $('startNextRound').hidden = phase !== 'done';
     for (const id of ['pause', 'jumpPause']) {
       $(id).hidden = !inSession;
       $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
@@ -413,10 +411,6 @@
   }
 
   function start() {
-    if (phase === 'done') {
-      $('result').showModal();
-      return;
-    }
     if (phase !== 'ready') return;
     startedAt = performance.now();
     bookStep = 0;
@@ -579,7 +573,7 @@
   }
 
   function restartRound() {
-    if (phase !== 'live' && phase !== 'paused') return;
+    if (phase === 'ready') return;
     reset();
     start();
   }
@@ -720,6 +714,8 @@
   $('sort').addEventListener('change', renderWatchlist);
   $('showMA').addEventListener('change', renderChart);
   $('start').addEventListener('click', start);
+  $('openScoreShare').addEventListener('click', () => $('result').showModal());
+  $('startNextRound').addEventListener('click', restartRound);
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
   $('restart').addEventListener('click', restartRound);
@@ -731,7 +727,7 @@
   $('share').addEventListener('click', shareResult);
   $('shareImage').addEventListener('click', shareScoreImage);
   $('saveScore').addEventListener('click', saveScore);
-  $('playAgain').addEventListener('click', reset);
+  $('playAgain').addEventListener('click', restartRound);
   orderQty.addEventListener('input', () => renderEstimate());
   orderPrice.value = String(market.stocks[selected].price);
   orderPrice.addEventListener('input', () => renderEstimate());
