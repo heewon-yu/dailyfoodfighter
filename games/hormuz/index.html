@@ -7,11 +7,11 @@
   <meta name="theme-color" content="#0f172a">
   <meta name="description" content="실제 호르무즈 해협을 3D로 구현한 10단계 상선 탈출 웹게임">
   <title>호르무즈 해협 탈출하기</title>
-  <link rel="stylesheet" href="./game.css?v=2">
+  <link rel="stylesheet" href="./game.css?v=4">
   <script defer src="./coast.js"></script>
-  <script defer src="./engine.js?v=2"></script>
-  <script defer src="./scene.js?v=3"></script>
-  <script defer src="./game.js?v=2"></script>
+  <script defer src="./engine.js?v=4"></script>
+  <script defer src="./scene.js?v=4"></script>
+  <script defer src="./game.js?v=4"></script>
 </head>
 <body>
   <header class="top">
@@ -45,7 +45,7 @@
             <div class="overlay-card">
               <div class="kicker" id="mission">MISSION 01 / 10</div>
               <h3 id="result-title">항해 준비 완료</h3>
-              <p id="result-detail">추진을 터치해 속도를 높이세요. 경보가 뜨면 연타하거나 손을 떼 착탄 구역을 피하세요.</p>
+              <p id="result-detail">추진을 터치해 속도를 높이세요. 경보가 뜨면 연타해서 착탄 전에 붉은 구역을 통과하세요.</p>
               <button class="gold" id="launch" type="button">1단계 출항 <span aria-hidden="true">→</span></button>
             </div>
           </div>
@@ -79,7 +79,7 @@
           <div class="kicker">04 / BRIEFING</div><h2>조작 방법</h2>
           <ol>
             <li><strong>추진</strong>을 연타해 제한 시간 안에 도착하세요.</li>
-            <li><strong>가속 경보</strong>에는 연타해 착탄 구역을 통과하세요. <strong>감속 경보</strong>에는 손을 떼고 폭발할 때까지 기다리세요.</li>
+            <li><strong>가속 경보</strong>가 뜨면 추진을 빠르게 연타해 착탄 전에 붉은 구역을 통과하세요.</li>
             <li>탈출하면 <strong>크레딧</strong>을 받고 다음 단계로 진입합니다.</li>
           </ol>
           <div class="difficulty" id="difficulty"></div>
