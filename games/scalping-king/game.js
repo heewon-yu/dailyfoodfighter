@@ -185,7 +185,12 @@
   }
 
   function renderChart() {
-    const display = drawChart(canvas, market.stocks[selected], {mode: chartMode, showMA: $('showMA').checked, cursor});
+    const position = account.positions[selected];
+    const averagePrice = position.qty > 0 ? position.cost / position.qty : null;
+    const key = $('averagePriceKey');
+    key.hidden = averagePrice === null;
+    key.textContent = averagePrice === null ? '' : '매수평균가 ' + money(averagePrice);
+    const display = drawChart(canvas, market.stocks[selected], {mode: chartMode, showMA: $('showMA').checked, cursor, averagePrice});
     if (!display) return;
     const {bar, legend} = display;
     $('ohlc').textContent = '시 ' + num(bar.open) + ' 고 ' + num(bar.high) + ' 저 ' + num(bar.low) + ' 종 ' + num(bar.close);

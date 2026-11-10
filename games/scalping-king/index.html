@@ -7,10 +7,10 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-05">
+  <link rel="stylesheet" href="./style.css?v=20261110-07">
   <script defer src="./market.js?v=20261110-03"></script>
-  <script defer src="./chart.js?v=20261110-03"></script>
-  <script defer src="./game.js?v=20261110-06"></script>
+  <script defer src="./chart.js?v=20261110-07"></script>
+  <script defer src="./game.js?v=20261110-07"></script>
 </head>
 <body>
   <header class="topbar">
@@ -86,7 +86,7 @@
           </header>
           <button type="button" id="liveNews" class="live-news" hidden></button>
           <div class="chart-dark">
-            <div class="chart-key"><span id="chartLabel">10초 시가·고가·저가·종가</span><label><input id="showMA" type="checkbox" checked> 이동평균선</label><span id="maKey"></span><span id="ohlc"></span></div>
+            <div class="chart-key"><span id="chartLabel">10초 시가·고가·저가·종가</span><label><input id="showMA" type="checkbox" checked> 이동평균선</label><span id="maKey"></span><b id="averagePriceKey" title="매수 수수료를 포함한 보유 주식의 평균 매입가" hidden></b><span id="ohlc"></span></div>
             <canvas id="chart" role="img" aria-label="선택 종목의 가격과 거래량 차트"></canvas>
           </div>
           <div class="chart-stats">

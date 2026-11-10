@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  const colors = {up: '#e13342', down: '#3971dd', ink: '#1f3049', mute: '#56677e', grid: '#e9eef5'};
+  const colors = {up: '#e13342', down: '#3971dd', ink: '#1f3049', mute: '#56677e', grid: '#e9eef5', average: '#4338ca'};
   const averages = [{period: 5, color: '#7944c4'}, {period: 10, color: '#b3660b'}, {period: 20, color: '#11826b'}];
   const number = new Intl.NumberFormat('ko-KR', {maximumFractionDigits: 0});
   const priceText = value => number.format(value);
@@ -51,9 +51,13 @@
     const x = index => left + spacing * (index + .5);
     const minimum = Math.min(...bars.map(bar => bar.low));
     const maximum = Math.max(...bars.map(bar => bar.high));
-    const padding = Math.max(90, (maximum - minimum) * .12);
-    const low = minimum - padding;
-    const high = maximum + padding;
+    const averagePrice = options.averagePrice;
+    const hasAverage = Number.isFinite(averagePrice);
+    const floor = hasAverage ? Math.min(minimum, averagePrice) : minimum;
+    const ceiling = hasAverage ? Math.max(maximum, averagePrice) : maximum;
+    const padding = Math.max(90, (ceiling - floor) * .12);
+    const low = floor - padding;
+    const high = ceiling + padding;
     const y = price => top + (high - price) * (priceBottom - top) / (high - low);
     const maxVolume = Math.max(1, ...bars.map(bar => bar.volume));
 
@@ -141,6 +145,18 @@
     ctx.fillStyle = 'white';
     ctx.font = '700 10px system-ui, sans-serif';
     ctx.fillText(priceText(lastPrice), right + 6, lastY);
+
+    if (hasAverage) {
+      const averageY = y(averagePrice);
+      ctx.setLineDash([6, 3]);
+      line(left, averageY, right, averageY, colors.average);
+      ctx.setLineDash([]);
+      const label = '평단 ' + priceText(averagePrice);
+      ctx.fillStyle = colors.average;
+      ctx.fillRect(left, averageY - 8, ctx.measureText(label).width + 10, 16);
+      ctx.fillStyle = 'white';
+      ctx.fillText(label, left + 5, averageY);
+    }
 
     const cursor = options.cursor;
     let bar = bars.at(-1);
