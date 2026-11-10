@@ -51,6 +51,7 @@
   let stockNewsKey = '';
   let lastSeenNews = 0;
   let result = null;
+  let scoreImage = null;
   let watchKey = '';
   let amendment = null;
   const canvas = $('chart');
@@ -90,7 +91,7 @@
     });
   }
 
-  const stockButtons = buildWatchlist();
+  let stockButtons = buildWatchlist();
 
   function change10(stock) {
     const lookback = 10000 / INTERVAL;
@@ -185,7 +186,7 @@
   }
 
   function renderStock(stock) {
-    $('stockTitle').innerHTML = stock.name + '<small>SIM-' + String(stock.index + 1).padStart(2, '0') + ' · ' + stock.sector + '</small>';
+    $('stockTitle').innerHTML = stock.name + '<small>SIM-' + String(stock.sourceIndex + 1).padStart(2, '0') + ' · ' + stock.sector + '</small>';
     $('price').textContent = num(stock.price);
     $('price').className = tone(delta(stock));
     const jump = stock.price - stock.reference;
@@ -542,6 +543,7 @@
     if ($('guide').open) $('guide').close();
     if ($('amendDialog').open) $('amendDialog').close();
     $('result').showModal();
+    prepareScoreImage(result, code(market.seed));
   }
 
   function reset() {
@@ -554,8 +556,11 @@
     }
     market = createMarket(randomSeed());
     account = createAccount();
+    stockButtons = buildWatchlist();
+    watchKey = '';
     phase = 'ready';
     result = null;
+    scoreImage = null;
     amendment = null;
     cursor = null;
     selected = 0;
@@ -599,43 +604,73 @@
     }
   }
 
-  function saveScore() {
-    if (!result) return;
+  function prepareScoreImage(snapshot, seedCode) {
+    $('shareImage').disabled = true;
+    $('saveScore').disabled = true;
     const image = document.createElement('canvas');
-    image.width = 1000;
-    image.height = 560;
+    image.width = 920;
+    image.height = 660;
     const ctx = image.getContext('2d');
+    ctx.fillStyle = '#edf2f8';
+    ctx.fillRect(0, 0, image.width, image.height);
     ctx.fillStyle = '#0f172a';
-    ctx.fillRect(0, 0, 1000, 560);
-    ctx.fillStyle = '#1b2943';
-    ctx.fillRect(48, 42, 904, 476);
+    ctx.fillRect(28, 28, 864, 604);
     ctx.fillStyle = '#fbbf24';
-    ctx.fillRect(48, 42, 904, 6);
+    ctx.fillRect(28, 28, 864, 6);
     function label(value, x, y, size, color, weight = 600) {
       ctx.fillStyle = color;
       ctx.font = weight + ' ' + size + 'px "Malgun Gothic", "Noto Sans KR", sans-serif';
       ctx.fillText(value, x, y);
     }
-    label('5분 단타왕  /  SCALPING ARENA', 84, 110, 33, '#ffffff', 800);
-    label('최종 수익률' + (result.record ? ' · 개인 최고 기록' : ''), 86, 173, 23, '#cbd5e1');
-    label(pct(result.rate), 79, 280, 96, '#fbbf24', 900);
-    label('최종 평가자산', 86, 349, 22, '#cbd5e1');
-    label(money(result.total), 86, 395, 40, '#ffffff', 800);
-    label('총손익', 555, 349, 22, '#cbd5e1');
-    label(signed(result.profit) + '원', 555, 395, 40, '#ffffff', 800);
-    label('체결 ' + result.count + '회  ·  장세 ' + code(market.seed) + '  ·  가상 모의거래', 86, 474, 22, '#cbd5e1');
+    function field(name, value, x, y) {
+      ctx.fillStyle = '#475569';
+      ctx.fillRect(x, y - 24, 360, 1);
+      label(name, x, y + 3, 19, '#cbd5e1');
+      label(value, x, y + 41, 29, '#fff', 800);
+    }
+    label('5분 단타왕  /  장 마감 성적표', 63, 103, 33, '#fff', 800);
+    label(snapshot.record ? '최종 수익률 · 개인 최고 기록' : '최종 수익률', 65, 166, 22, '#cbd5e1');
+    label(pct(snapshot.rate), 59, 268, 94, '#fbbf24', 900);
+    field('최종 평가자산', money(snapshot.total), 65, 333);
+    field('총손익', signed(snapshot.profit) + '원', 495, 333);
+    field('거래 횟수', snapshot.count + '회', 65, 427);
+    field('총수수료', money(snapshot.fees), 495, 427);
+    field('장세 코드', seedCode, 65, 521);
+    label('가상 모의거래 · dailyfoodfighter.com', 65, 605, 18, '#94a3b8');
     image.toBlob(blob => {
+      if (result !== snapshot) return;
       if (!blob) {
         $('shareFeedback').textContent = '성적표 이미지를 만들 수 없어요.';
         return;
       }
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = 'scalping-king-' + code(market.seed) + '.png';
-      link.click();
-      setTimeout(() => URL.revokeObjectURL(link.href), 30000);
-      $('shareFeedback').textContent = '성적표 이미지 다운로드를 시작했어요.';
+      scoreImage = new File([blob], 'scalping-king-' + seedCode + '.png', {type: 'image/png'});
+      $('shareImage').disabled = false;
+      $('saveScore').disabled = false;
     }, 'image/png');
+  }
+
+  function saveScore() {
+    if (!scoreImage) return;
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(scoreImage);
+    link.download = scoreImage.name;
+    link.click();
+    setTimeout(() => URL.revokeObjectURL(link.href), 30000);
+    $('shareFeedback').textContent = '성적표 PNG 다운로드를 시작했어요.';
+  }
+
+  async function shareScoreImage() {
+    if (!scoreImage) return;
+    const files = [scoreImage];
+    try {
+      if (navigator.share && navigator.canShare?.({files})) {
+        await navigator.share({title: '5분 단타왕 성적표', files});
+        return;
+      }
+    } catch (error) {
+      if (error.name === 'AbortError') return;
+    }
+    saveScore();
   }
 
   function segment(name, update) {
@@ -694,6 +729,7 @@
   $('buy').addEventListener('click', () => trade('buy'));
   $('sell').addEventListener('click', () => trade('sell'));
   $('share').addEventListener('click', shareResult);
+  $('shareImage').addEventListener('click', shareScoreImage);
   $('saveScore').addEventListener('click', saveScore);
   $('playAgain').addEventListener('click', reset);
   orderQty.addEventListener('input', () => renderEstimate());

@@ -7,6 +7,7 @@
   const BOOK_INTERVAL = INTERVAL / 2;
   const TOTAL_TICKS = DURATION * 1000 / INTERVAL;
   const PRICE_STEP = 50;
+  const WATCHLIST_SIZE = 10;
   const CHART_PERIODS = [1, 5, 10, 20];
   const STOCKS = [
     ['네오칩스', '반도체', 'NC', '#4338ca', 'AI 서버용 고대역폭 메모리 검사 장비를 만드는 기업.', '신규 검사 장비의 고객사 평가가 시작됐어요.', 1.1],
@@ -19,6 +20,38 @@
     ['솔라리움', '신재생', 'SL', '#917020', '태양광 인버터와 발전량 예측 서비스를 개발하는 기업.', '대형 태양광 단지의 예비 사업자 명단에 올랐어요.', .95],
     ['하버링크', '물류', 'HL', '#3d5a70', '스마트 항만 운영과 선박 화물 추적 솔루션을 제공하는 기업.', '주요 항만의 물동량 회복 전망이 나왔어요.', .72],
     ['루미네트', '클라우드', 'LN', '#007883', 'GPU 임대형 클라우드와 데이터센터 운영을 하는 기업.', 'GPU 리전의 예약 물량이 공개됐어요.', 1.15],
+    ['오션브릿지', '조선', 'OB', '#24568e', '친환경 화물선과 선박 추진 시스템을 설계하는 기업.', '친환경 선박의 설계 심사 일정이 잡혔어요.', 1.12],
+    ['아크모빌리티', '자동차부품', 'AM', '#90472c', '전기차 구동 모터와 차량용 전력 제어기를 만드는 기업.', '신형 전력 제어기의 고객사 시험이 시작됐어요.', 1.16],
+    ['트루세이프', '보안', 'TS', '#365c64', '기업용 네트워크 탐지와 인증 소프트웨어를 공급하는 기업.', '공공 보안 사업의 예비 사업자 명단에 올랐어요.', .97],
+    ['퀀텀데이터', '데이터', 'QD', '#5642a2', '고속 데이터 분석 엔진과 기업용 검색 시스템을 개발하는 기업.', '신형 분석 엔진의 사전 체험이 열렸어요.', 1.29],
+    ['클린워터', '환경', 'CW', '#147594', '산업용 수처리 설비와 센서를 설계하고 운영하는 기업.', '해외 수처리 사업의 현장 평가에 참여했어요.', .88],
+    ['블루커머스', '유통', 'BC', '#316594', '온라인 공동구매 플랫폼과 지역 배송망을 운영하는 기업.', '분기 판매 실적 공개 일정을 발표했어요.', .92],
+    ['에코메탈', '소재', 'EM', '#596745', '전자제품에서 희소금속을 회수해 산업 소재로 재가공하는 기업.', '신규 금속 회수 공장의 시운전 일정이 공개됐어요.', 1.22],
+    ['비전옵틱스', '광학', 'VO', '#65458f', '산업용 머신비전 카메라와 정밀 렌즈를 만드는 기업.', '고해상도 검사 카메라의 시제품을 선보였어요.', 1.07],
+    ['스카이메디', '의료기기', 'SM', '#a14564', '소형 영상 진단 장비와 원격 판독 소프트웨어를 개발하는 기업.', '휴대형 진단 장비의 해외 심사에 들어갔어요.', 1.37],
+    ['넥스트페이', '핀테크', 'NP', '#2b6c69', '온라인 결제 게이트웨이와 사업자 정산 도구를 공급하는 기업.', '오프라인 결제 서비스의 시범 운영이 시작됐어요.', 1.13],
+  ];
+  const OPENING_ALTS = [
+    '반도체 장비 전시회에 신규 검사 모듈을 출품했어요.',
+    '차세대 전해질의 시험 생산 일정이 공개됐어요.',
+    '진단 플랫폼의 검증에 참여할 병원을 모집하고 있어요.',
+    '소형 위성 통신 모듈의 지상 시험에 들어갔어요.',
+    '협동로봇의 상용 테스트를 진행할 제조사를 모집해요.',
+    '신형 변압기 생산 일정에 관한 설명회를 열어요.',
+    '신규 게임의 글로벌 테스트 지역을 공개했어요.',
+    '새 인버터의 외부 성능 평가가 시작됐어요.',
+    '화물 위치 추적 시스템의 시범 운영을 확대했어요.',
+    '데이터센터의 전력 사용 효율 보고서를 공개했어요.',
+    '신형 추진 시스템의 해상 시험을 준비 중이에요.',
+    '자동차 박람회에서 차세대 모터 시제품을 공개했어요.',
+    '통합 인증 서비스의 기업 베타 프로그램을 열었어요.',
+    '차기 데이터 처리 제품의 출시 일정을 예고했어요.',
+    '재이용수 공급 시설의 사업 타당성 조사를 시작했어요.',
+    '새벽 배송 대상 지역을 추가한다고 밝혔어요.',
+    '폐배터리 분리 공정의 시험 결과를 발표할 예정이에요.',
+    '차세대 고배율 렌즈의 공급 협의가 시작됐어요.',
+    '원격 판독 서비스의 실증 사업에 지원했어요.',
+    '해외 결제 기능의 제한 공개를 시작했어요.',
   ];
   const NEWS = [
     [
@@ -60,6 +93,46 @@
     [
       ['GPU 장기 임대 계약 공시', '데이터센터 신규 리전 개장', '대기업 클라우드 이전 수주'],
       ['주요 데이터센터 서비스 장애', 'GPU 공급 일정 지연', '대형 고객 계약 갱신 보류'],
+    ],
+    [
+      ['친환경 화물선 공급 계약', '신형 추진 장치 시험 통과', '해외 선주 신규 수주'],
+      ['선박 인도 일정 지연', '선박용 강재 원가 급등', '주요 선주 발주 취소'],
+    ],
+    [
+      ['전기차 모터 대량 공급 계약', '신형 제어기 고객사 승인', '해외 완성차 첫 납품'],
+      ['구동 모터 품질 검사 지연', '전기차 부품 발주 축소', '주요 부품 조달 일정 차질'],
+    ],
+    [
+      ['공공망 보안 사업 수주', '글로벌 인증 솔루션 공급 확대', '대형 금융사 보안 계약'],
+      ['보안 사업 우선협상 대상 제외', '인증 서비스 장애 공지', '주요 고객사 계약 만료'],
+    ],
+    [
+      ['신형 분석 엔진 대형 계약', '글로벌 데이터 업체와 제휴', '클라우드 검색 제품 흥행'],
+      ['분석 엔진 출시 일정 지연', '데이터 이전 작업 오류 보고', '해외 사업 파트너 계약 종료'],
+    ],
+    [
+      ['대형 산업단지 수처리 사업 수주', '고효율 정수 장치 인증 획득', '해외 수처리 공급 계약'],
+      ['산업단지 공사 착수 지연', '필터 핵심 소재 가격 상승', '설비 프로젝트 계약 보류'],
+    ],
+    [
+      ['분기 거래액 예상 상회', '대형 유통사 상품 입점 확정', '지역 배송 단가 절감'],
+      ['분기 거래액 예상 하회', '새벽 배송망 운영 차질', '대형 판매사 입점 계획 철회'],
+    ],
+    [
+      ['희소금속 재활용 공급 계약', '금속 회수 신공정 실증 통과', '회수 공장 조기 가동'],
+      ['희소금속 판매 가격 급락', '회수 설비 보완 요청', '시운전 일정 지연'],
+    ],
+    [
+      ['고해상도 카메라 대량 발주', '차세대 렌즈 품질 인증 통과', '반도체 검사 장비 공급 계약'],
+      ['카메라 이미지 센서 공급 지연', '정밀 렌즈 수율 하락', '해외 검사장비 공급 계약 보류'],
+    ],
+    [
+      ['휴대형 진단 장비 해외 승인', '종합병원 원격 판독 계약', '영상 진단 장비 입찰 수주'],
+      ['해외 장비 심사 일정 연기', '영상 장비 리콜 공지', '원격 판독 실증 사업 탈락'],
+    ],
+    [
+      ['대형 쇼핑몰 결제 계약', '해외 정산 서비스 신규 출시', '가맹점 결제액 예상 상회'],
+      ['결제 시스템 장애 보고', '해외 정산 심사 일정 지연', '대형 가맹점 계약 종료'],
     ],
   ];
 
@@ -152,12 +225,12 @@
     return {asks, bids};
   }
 
-  function eventSchedule(random) {
+  function eventSchedule(random, stocks) {
     const events = [];
-    const firstSide = STOCKS.map(() => random() < .5 ? -1 : 1);
-    const newsOffset = STOCKS.map(() => integer(random, 0, 2));
+    const firstSide = stocks.map(() => random() < .5 ? -1 : 1);
+    const newsOffset = stocks.map(() => integer(random, 0, 2));
     for (let round = 0; round < 3; round++) {
-      const order = STOCKS.map((_, index) => index);
+      const order = stocks.map((_, index) => index);
       for (let i = order.length - 1; i > 0; i--) {
         const next = integer(random, 0, i);
         [order[i], order[next]] = [order[next], order[i]];
@@ -165,7 +238,7 @@
       order.forEach((index, position) => {
         const direction = round === 0 ? firstSide[index] : round === 1 ? -firstSide[index] : (random() < .5 ? -1 : 1);
         const tick = 12 + round * 186 + position * 16 + integer(random, 0, 9);
-        const title = NEWS[index][direction > 0 ? 0 : 1][(newsOffset[index] + round) % 3];
+        const title = NEWS[stocks[index].sourceIndex][direction > 0 ? 0 : 1][(newsOffset[index] + round) % 3];
         const strength = .0015 + random() * .0033;
         events.push({index, direction, tick, title, strength, duration: integer(random, 20, 34)});
       });
@@ -177,7 +250,15 @@
     const random = randomGenerator(seed);
     const bookRandom = randomGenerator(seed ^ 0x6ab02ed9);
     const historyRandom = randomGenerator(seed ^ 0x3c7fd5a5);
-    const stocks = STOCKS.map(([name, sector, short, color, description, preview, volatility], index) => {
+    const rosterRandom = randomGenerator(seed ^ 0x1c86470b);
+    const roster = STOCKS.map((_, index) => index);
+    for (let i = 0; i < WATCHLIST_SIZE; i++) {
+      const pick = integer(rosterRandom, i, roster.length - 1);
+      [roster[i], roster[pick]] = [roster[pick], roster[i]];
+    }
+    const stocks = roster.slice(0, WATCHLIST_SIZE).map((sourceIndex, index) => {
+      const [name, sector, short, color, description, preview, volatility] = STOCKS[sourceIndex];
+      const headline = rosterRandom() < .5 ? preview : OPENING_ALTS[sourceIndex];
       const reference = integer(random, 200, 1000) * PRICE_STEP;
       const bars = barsFromHistory(random, reference);
       const earlier = initialTicks(historyRandom, bars.slice(-10, -2));
@@ -185,14 +266,14 @@
       const history = fillHistoricalTicks(earlier.concat(recent));
       const series = Object.fromEntries(CHART_PERIODS.map(period => [period, []]));
       history.forEach(point => updateSeries(series, point));
-      const stock = {index, name, sector, short, color, description, preview, volatility,
+      const stock = {index, sourceIndex, name, sector, short, color, description, preview: headline, volatility,
         reference, series, ticks: history.slice(-180), price: reference, fairPrice: reference, volume: 0,
         high: reference, low: reference, shock: 0, shockTicks: 0};
       stock.book = bookFor(stock, bookRandom);
       return stock;
     });
     const headlines = stocks.map(stock => ({index: stock.index, title: stock.preview, time: 0, direction: 0}));
-    return {seed, stocks, headlines, random, bookRandom, events: eventSchedule(random), eventIndex: 0, tick: 0};
+    return {seed, stocks, headlines, random, bookRandom, events: eventSchedule(random, stocks), eventIndex: 0, tick: 0};
   }
 
   function refreshBooks(market) {
@@ -241,7 +322,7 @@
   }
 
   function createAccount() {
-    return {cash: CASH, realized: 0, fees: 0, positions: STOCKS.map(() => ({qty: 0, cost: 0})),
+    return {cash: CASH, realized: 0, fees: 0, positions: Array.from({length: WATCHLIST_SIZE}, () => ({qty: 0, cost: 0})),
       trades: [], pending: [], orders: [], nextOrderId: 1};
   }
 
