@@ -736,7 +736,6 @@
   $('buy').addEventListener('click', () => trade('buy'));
   $('sell').addEventListener('click', () => trade('sell'));
   $('shareImage').addEventListener('click', shareScoreImage);
-  $('playAgain').addEventListener('click', restartRound);
   orderQty.addEventListener('input', () => renderEstimate());
   orderPrice.value = String(market.stocks[selected].price);
   orderPrice.addEventListener('input', () => renderEstimate());
