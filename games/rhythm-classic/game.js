@@ -343,8 +343,8 @@
       const touchCol = document.querySelector(`.touch-col[data-lane="${lane}"]`);
       if (touchCol) touchCol.classList.add('active');
 
-      if (navigator.vibrate) navigator.vibrate(15);
-      this.sound.playHitSound(lane, this.selectedSong.soundStyle, this.selectedSong.basePitch);
+      if (navigator.vibrate) navigator.vibrate(12);
+      // Pure studio music only (hit sound effects completely removed as requested)
 
       if (this.state === STATE.PLAYING) {
         this.judgeNoteHit(lane);
@@ -502,7 +502,7 @@
       this.screenShake = 0;
 
       // Dynamic Procedural Chart Generation (Strict max 2 fingers + Long Notes!)
-      this.notes = this.selectedSong.generateChart(0.8);
+      this.notes = this.selectedSong.generateChart();
       this.totalNotes = this.notes.length;
 
       // Start Countdown
