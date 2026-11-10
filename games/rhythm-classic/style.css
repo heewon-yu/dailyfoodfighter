@@ -2,8 +2,8 @@
   --bg-deep: #05060a;
   --bg-surface: #0c0e18;
   --bg-panel: #131728;
-  --bg-card: #191e34;
-  --bg-card-hover: #222947;
+  --bg-card: #161a2e;
+  --bg-card-hover: #1f2542;
   --cyan: #00f0ff;
   --cyan-glow: rgba(0, 240, 255, 0.45);
   --pink: #ff007f;
@@ -17,7 +17,6 @@
   --text-main: #f8faff;
   --text-muted: #8c96ba;
   --font-main: -apple-system, BlinkMacSystemFont, "Pretendard", "Segoe UI", Roboto, sans-serif;
-  --font-arcade: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SF Mono", Menlo, Consolas, monospace;
 }
 
@@ -44,13 +43,13 @@ body {
     linear-gradient(180deg, #07080f 0%, #030407 100%);
 }
 
-/* DJMAX / Arcade Topbar */
+/* Topbar */
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 24px;
-  background: rgba(12, 14, 24, 0.88);
+  padding: 10px 20px;
+  background: rgba(12, 14, 24, 0.92);
   backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--border);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
@@ -60,47 +59,46 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .brand-emblem {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
   background: linear-gradient(135deg, var(--cyan), var(--pink));
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  box-shadow: 0 0 16px var(--cyan-glow);
+  font-size: 18px;
+  box-shadow: 0 0 14px var(--cyan-glow);
 }
 
 .brand-title {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 900;
-  letter-spacing: -0.2px;
   color: #fff;
-  text-shadow: 0 0 10px rgba(0, 240, 255, 0.3);
+  letter-spacing: -0.2px;
 }
 
 .brand-sub {
-  font-size: 10px;
+  font-size: 9px;
   font-family: var(--font-mono);
   color: var(--cyan);
-  letter-spacing: 1.8px;
+  letter-spacing: 1.5px;
 }
 
 .top-actions {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .tag-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 4px 10px;
-  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 4px 8px;
+  border-radius: 5px;
   background: rgba(0, 240, 255, 0.1);
   color: var(--cyan);
   border: 1px solid rgba(0, 240, 255, 0.25);
@@ -108,259 +106,289 @@ body {
 }
 
 .btn-arcade-sub {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid var(--border);
   color: #fff;
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 12px;
+  padding: 5px 12px;
+  border-radius: 6px;
+  font-size: 11px;
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
-.btn-arcade-sub:hover {
-  background: rgba(255, 255, 255, 0.14);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
 /* Main Lobby */
 .lobby-container {
-  max-width: 1040px;
+  max-width: 980px;
   margin: 0 auto;
-  padding: 24px 20px 48px;
+  padding: 16px 16px 40px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-}
-
-.lobby-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 14px;
-}
-
-.lobby-title {
-  font-size: 22px;
-  font-weight: 900;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.lobby-desc {
-  font-size: 13px;
-  color: var(--text-muted);
-  margin-top: 4px;
-}
-
-/* DJMAX Style Track Jacket Grid */
-.song-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 16px;
 }
 
-.song-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px;
-  cursor: pointer;
-  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 190px;
+.lobby-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
 }
 
-.song-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: transparent;
-  transition: background 0.3s ease;
-}
-
-.song-card:hover {
-  background: var(--bg-card-hover);
-  border-color: rgba(0, 240, 255, 0.35);
-  transform: translateY(-3px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
-}
-
-.song-card.selected {
-  background: linear-gradient(145deg, rgba(25, 30, 52, 0.95), rgba(0, 240, 255, 0.12));
-  border-color: var(--cyan);
-  box-shadow: 0 0 28px rgba(0, 240, 255, 0.25);
-}
-
-.song-card.selected::before {
-  background: linear-gradient(90deg, var(--cyan), var(--pink));
-}
-
-.jacket-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 12px;
-}
-
-.jacket-icon-badge {
+.lobby-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: #fff;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.jacket-icon {
-  width: 32px;
-  height: 32px;
+.lobby-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+/* Category Filter Tabs */
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+
+.tab-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 7px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+.tab-btn.active {
+  background: linear-gradient(90deg, rgba(0, 240, 255, 0.2), rgba(255, 0, 127, 0.2));
+  border-color: var(--cyan);
+  color: #fff;
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.3);
+}
+
+/* Compact DJMAX Tracklist Cards (20 Songs) */
+.song-grid.compact-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.song-card.compact {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.song-card.compact::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  background: transparent;
+  transition: background 0.25s ease;
+}
+
+.song-card.compact:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(0, 240, 255, 0.4);
+  transform: translateX(3px);
+}
+
+.song-card.compact.selected {
+  background: linear-gradient(90deg, rgba(22, 26, 46, 0.95), rgba(0, 240, 255, 0.14));
+  border-color: var(--cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.song-card.compact.selected::before {
+  background: linear-gradient(180deg, var(--cyan), var(--pink));
+}
+
+.card-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 65px;
+}
+
+.song-num {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 900;
+  color: var(--text-muted);
+}
+
+.song-avatar {
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.song-badge {
-  font-size: 11px;
-  font-weight: 800;
-  padding: 4px 8px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+.card-mid {
+  flex: 1;
+  min-width: 0;
+  padding: 0 12px;
 }
 
-.song-card.selected .song-badge {
-  background: var(--cyan);
-  color: #000;
-}
-
-.bpm-badge {
-  font-family: var(--font-mono);
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--gold);
+.song-title-row {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 8px;
+  margin-bottom: 2px;
+}
+
+.song-title-text {
+  font-size: 15px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cat-pill {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.cat-pill.classic {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+.cat-pill.arcade {
+  background: rgba(255, 0, 127, 0.15);
+  color: var(--pink);
+  border: 1px solid rgba(255, 0, 127, 0.3);
+}
+
+.song-meta-text {
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-desc-text {
+  font-size: 10px;
+  color: #7b88b2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 2px;
+}
+
+.card-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 3px;
+  min-width: 90px;
+}
+
+.bpm-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--gold);
   background: rgba(255, 215, 0, 0.1);
-  padding: 3px 8px;
-  border-radius: 6px;
+  padding: 2px 6px;
+  border-radius: 4px;
   border: 1px solid rgba(255, 215, 0, 0.25);
 }
 
-.bpm-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 8px var(--gold);
-  animation: pulse-dot 0.75s infinite alternate;
-}
-
-@keyframes pulse-dot {
-  0% { transform: scale(0.8); opacity: 0.5; }
-  100% { transform: scale(1.4); opacity: 1; }
-}
-
-.song-name {
-  font-size: 17px;
-  font-weight: 800;
-  color: #fff;
-  margin-bottom: 4px;
-  letter-spacing: -0.3px;
-}
-
-.song-composer {
-  font-size: 12px;
-  color: var(--text-muted);
-  margin-bottom: 8px;
-}
-
-.song-desc {
+.diff-stars {
   font-size: 11px;
-  color: #9ba6cc;
-  line-height: 1.45;
-  margin-bottom: 12px;
-}
-
-.song-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 10px;
-  font-size: 12px;
-}
-
-.diff-chip {
-  font-weight: 800;
   color: var(--pink);
-  font-family: var(--font-mono);
+  font-weight: 800;
 }
 
 .best-score-chip {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 10px;
   color: var(--cyan);
   font-weight: 700;
 }
 
-/* Control Console Bar */
+/* Console Bar */
 .arcade-console {
   background: var(--bg-surface);
   border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 18px 24px;
+  border-radius: 14px;
+  padding: 14px 20px;
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 16px;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .console-group {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
 }
 
 .console-label {
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 800;
   color: var(--text-muted);
-  letter-spacing: 0.5px;
 }
 
 .speed-cluster {
   display: flex;
-  gap: 4px;
+  gap: 3px;
   background: rgba(0, 0, 0, 0.4);
-  padding: 4px;
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 3px;
+  border-radius: 6px;
 }
 
 .btn-speed {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 6px 12px;
-  border-radius: 6px;
-  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 11px;
   font-family: var(--font-mono);
   font-weight: 800;
   cursor: pointer;
@@ -370,7 +398,7 @@ body {
 .btn-speed.active {
   background: var(--cyan);
   color: #000;
-  box-shadow: 0 0 12px var(--cyan-glow);
+  box-shadow: 0 0 10px var(--cyan-glow);
 }
 
 .offset-box {
@@ -381,54 +409,51 @@ body {
 
 .offset-box input[type="range"] {
   accent-color: var(--cyan);
-  width: 90px;
+  width: 80px;
   cursor: pointer;
 }
 
 .offset-text {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 11px;
   color: var(--cyan);
-  min-width: 45px;
+  min-width: 40px;
 }
 
 .key-guide-box {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .key-chip {
-  padding: 4px 8px;
+  padding: 3px 7px;
   background: #1c223c;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
+  border-radius: 4px;
   font-family: var(--font-mono);
   font-weight: 800;
-  font-size: 12px;
+  font-size: 11px;
   color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
 /* Big Start Button */
 .btn-start-arcade {
   width: 100%;
-  padding: 18px;
-  font-size: 18px;
+  padding: 16px;
+  font-size: 17px;
   font-weight: 900;
-  letter-spacing: 1px;
   color: #000;
   background: linear-gradient(90deg, #00f0ff, #ff007f);
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   cursor: pointer;
   box-shadow: 0 6px 28px rgba(0, 240, 255, 0.4);
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  text-transform: uppercase;
+  gap: 10px;
 }
 
 .btn-start-arcade:hover {
@@ -451,48 +476,72 @@ body {
   overflow: hidden;
 }
 
+/* Safe Clean Single-Line Top HUD */
 .game-hud {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background: rgba(10, 12, 22, 0.94);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 8px 16px;
+  background: rgba(10, 12, 22, 0.96);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   font-family: var(--font-mono);
-  font-size: 14px;
   z-index: 10;
+  gap: 8px;
+}
+
+.hud-left {
+  flex: 1;
+  min-width: 0;
 }
 
 .hud-song-title {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 900;
   color: #fff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-family: var(--font-main);
+  max-width: 130px;
 }
 
 .hud-song-meta {
-  font-size: 11px;
+  font-size: 10px;
   color: var(--cyan);
+  white-space: nowrap;
+}
+
+.hud-center {
+  text-align: center;
+  flex-shrink: 0;
 }
 
 .hud-score {
-  font-size: 26px;
+  font-size: 22px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 2px;
-  text-shadow: 0 0 12px var(--cyan-glow);
+  letter-spacing: 1.5px;
+  text-shadow: 0 0 10px var(--cyan-glow);
+  line-height: 1.1;
 }
 
 .hud-acc {
-  font-size: 12px;
+  font-size: 10px;
   color: var(--gold);
 }
 
+.hud-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
 .life-bar-wrap {
-  width: 140px;
-  height: 10px;
+  width: 80px;
+  height: 8px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 4px;
   overflow: hidden;
 }
 
@@ -501,14 +550,13 @@ body {
   width: 100%;
   background: linear-gradient(90deg, #ff007f, #00f0ff);
   transition: width 0.1s ease;
-  box-shadow: 0 0 10px var(--cyan-glow);
 }
 
 .btn-hud-control {
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid var(--border);
   color: #fff;
-  padding: 6px 12px;
+  padding: 4px 10px;
   border-radius: 6px;
   cursor: pointer;
   font-size: 12px;
@@ -522,21 +570,21 @@ body {
   justify-content: center;
   align-items: center;
   position: relative;
-  background: radial-gradient(circle at 50% 40%, #0d1124 0%, #040508 100%);
+  background: radial-gradient(circle at 50% 30%, #0d1124 0%, #040508 100%);
 }
 
 #gameCanvas {
   max-width: 100%;
-  max-height: calc(100vh - 120px);
+  max-height: 100%;
   object-fit: contain;
 }
 
-/* Pro DJMAX Mobile Arcade Touch Bar */
+/* Pro Mobile Touch Bar */
 .mobile-touch-bar {
   display: none;
-  height: 96px;
+  height: 82px;
   width: 100%;
-  background: #070810;
+  background: #060810;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   touch-action: manipulation;
   padding: 6px 8px;
@@ -546,17 +594,16 @@ body {
 .touch-col {
   flex: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #14182a;
+  background: #121626;
   border: 2px solid rgba(255, 255, 255, 0.15);
-  border-radius: 12px;
+  border-radius: 10px;
   font-family: var(--font-mono);
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   color: rgba(255, 255, 255, 0.6);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   transition: all 0.04s ease;
 }
 
@@ -571,9 +618,9 @@ body {
 }
 
 .touch-col.active {
-  transform: translateY(4px);
-  background: #252e50;
-  box-shadow: 0 0 18px var(--cyan-glow);
+  transform: translateY(3px);
+  background: #242c4c;
+  box-shadow: 0 0 16px var(--cyan-glow);
   color: #fff;
 }
 
@@ -583,10 +630,10 @@ body {
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 900;
   color: #fff;
-  text-shadow: 0 0 30px var(--cyan-glow);
+  text-shadow: 0 0 28px var(--cyan-glow);
   font-family: var(--font-mono);
   pointer-events: none;
   display: none;
@@ -615,8 +662,8 @@ body {
   box-shadow: 0 0 50px rgba(0, 240, 255, 0.25);
   border-radius: 20px;
   width: 100%;
-  max-width: 480px;
-  padding: 28px;
+  max-width: 460px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -624,48 +671,46 @@ body {
 }
 
 .result-rank-badge {
-  font-size: 72px;
+  font-size: 64px;
   font-weight: 900;
   font-family: var(--font-mono);
   background: linear-gradient(135deg, #ffd700, #ff007f);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 24px rgba(255, 215, 0, 0.6);
   margin-bottom: 2px;
 }
 
 .result-title {
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 900;
   color: #fff;
-  letter-spacing: 0.5px;
 }
 
 .result-score {
   font-family: var(--font-mono);
-  font-size: 36px;
+  font-size: 32px;
   font-weight: 900;
   color: var(--cyan);
-  margin: 10px 0 18px;
+  margin: 8px 0 16px;
 }
 
 .result-stats-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
+  gap: 8px;
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .stat-box {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 10px 14px;
+  border-radius: 8px;
+  padding: 8px 12px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 13px;
+  font-size: 12px;
 }
 
 .stat-box.perfect { border-left: 3px solid #ffd700; }
@@ -675,16 +720,16 @@ body {
 
 .result-actions {
   display: flex;
-  gap: 12px;
+  gap: 10px;
   width: 100%;
 }
 
 .result-btn {
   flex: 1;
-  padding: 14px;
-  font-size: 15px;
+  padding: 12px;
+  font-size: 14px;
   font-weight: 900;
-  border-radius: 12px;
+  border-radius: 10px;
   cursor: pointer;
   border: none;
   transition: all 0.2s ease;

@@ -1,6 +1,6 @@
 /**
  * Beat Classic - 3D Perspective Rhythm Game Engine
- * O2Jam & DJMAX Arcade Style Canvas Renderer & Gameplay Loop
+ * 20 Tracks · Long Notes System · High-End DJMAX Metallic Arcade Deck
  */
 
 (function() {
@@ -19,6 +19,7 @@
       this.state = STATE.LOBBY;
       this.sound = new SoundEngine();
       this.selectedSong = SONGS[0];
+      this.currentCategory = 'all'; // 'all', 'classic', 'arcade'
       this.speed = 1.5;
       this.offsetMs = 0;
 
@@ -30,10 +31,10 @@
       this.height = 800;
 
       // Track 3D Perspective Geometry
-      this.horizonY = 140;
-      this.hitlineY = 660;
+      this.horizonY = 120;
+      this.hitlineY = 710;
       this.trackWidthTop = 130;
-      this.trackWidthBottom = 330;
+      this.trackWidthBottom = 340;
 
       // Gameplay Data
       this.notes = [];
@@ -45,9 +46,11 @@
       this.judgements = { perfect: 0, great: 0, good: 0, miss: 0 };
       this.totalNotes = 0;
 
-      // Key States [D, F, J, K]
+      // Key States & Active Hold Notes
       this.keysDown = [false, false, false, false];
       this.keyPressTime = [0, 0, 0, 0];
+      this.activeHolds = [null, null, null, null]; // Currently held long note in each lane
+      this.holdTickTimer = 0;
 
       // Visual Effects
       this.particles = [];
@@ -71,6 +74,7 @@
     }
 
     initDomEvents() {
+      this.renderCategoryTabs();
       this.renderSongCards();
 
       // Fullscreen Button
@@ -129,21 +133,108 @@
       window.addEventListener('keydown', (e) => this.handleKeyDown(e));
       window.addEventListener('keyup', (e) => this.handleKeyUp(e));
 
-      // Mobile Touch Controls
+      // Mobile Direct Touch & Touch Bar Controls
       this.initTouchControls();
     }
 
+    renderCategoryTabs() {
+      const tabContainer = document.getElementById('categoryTabs');
+      if (!tabContainer) return;
+
+      tabContainer.innerHTML = `
+        <button type="button" class="tab-btn active" data-cat="all">전체 곡 (20)</button>
+        <button type="button" class="tab-btn" data-cat="classic">클래식 명곡 (10)</button>
+        <button type="button" class="tab-btn" data-cat="arcade">아케이드 & EDM (10)</button>
+      `;
+
+      tabContainer.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          tabContainer.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          this.currentCategory = btn.dataset.cat;
+          this.renderSongCards();
+        });
+      });
+    }
+
+    renderSongCards() {
+      const grid = document.getElementById('songGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+
+      const scores = JSON.parse(localStorage.getItem('beat_classic_scores') || '{}');
+
+      const filteredSongs = SONGS.filter(s => {
+        if (this.currentCategory === 'all') return true;
+        return s.category === this.currentCategory;
+      });
+
+      filteredSongs.forEach((song, idx) => {
+        const card = document.createElement('div');
+        card.className = 'song-card compact' + (song.id === this.selectedSong.id ? ' selected' : '');
+        card.dataset.id = song.id;
+
+        const best = scores[song.id] || null;
+        const bestHtml = best
+          ? `<span class="best-score-chip">🏆 ${best.score.toLocaleString()} (${best.rank})</span>`
+          : `<span class="best-score-chip" style="color:var(--text-muted);">---</span>`;
+
+        const catBadge = song.category === 'classic'
+          ? '<span class="cat-pill classic">CLASSIC</span>'
+          : '<span class="cat-pill arcade">ARCADE</span>';
+
+        card.innerHTML = `
+          <div class="card-left">
+            <span class="song-num">${(idx + 1).toString().padStart(2, '0')}</span>
+            <div class="song-avatar">${song.icon}</div>
+          </div>
+          <div class="card-mid">
+            <div class="song-title-row">
+              <span class="song-title-text">${song.title}</span>
+              ${catBadge}
+            </div>
+            <div class="song-meta-text">${song.composer} · ${song.genre}</div>
+            <div class="song-desc-text">${song.description}</div>
+          </div>
+          <div class="card-right">
+            <div class="bpm-pill">${song.bpm} BPM</div>
+            <div class="diff-stars">${song.stars}</div>
+            ${bestHtml}
+          </div>
+        `;
+
+        card.addEventListener('click', () => {
+          document.querySelectorAll('.song-card').forEach(c => c.classList.remove('selected'));
+          card.classList.add('selected');
+          this.selectedSong = song;
+          this.sound.init();
+          this.sound.resume();
+        });
+
+        grid.appendChild(card);
+      });
+    }
+
     initTouchControls() {
-      const touchCols = document.querySelectorAll('.touch-col');
       const touchMap = new Map();
 
       const handleTouchStart = (e) => {
+        if (this.state !== STATE.PLAYING && this.state !== STATE.COUNTDOWN) return;
         e.preventDefault();
+        const rect = this.canvas.getBoundingClientRect();
+
         for (let i = 0; i < e.changedTouches.length; i++) {
           const t = e.changedTouches[i];
-          const target = document.elementFromPoint(t.clientX, t.clientY);
-          if (target && target.dataset.lane !== undefined) {
-            const lane = parseInt(target.dataset.lane, 10);
+          const canvasX = (t.clientX - rect.left) * (this.width / rect.width);
+          const canvasY = (t.clientY - rect.top) * (this.height / rect.height);
+
+          // Lower 40% of the canvas is touchable
+          if (canvasY > this.hitlineY - 200) {
+            const trackLeft = (this.width - this.trackWidthBottom) / 2;
+            const laneW = this.trackWidthBottom / 4;
+            let lane = Math.floor((canvasX - trackLeft) / laneW);
+            lane = Math.max(0, Math.min(3, lane));
+
             touchMap.set(t.identifier, lane);
             this.pressKey(lane);
           }
@@ -162,83 +253,24 @@
         }
       };
 
-      touchCols.forEach(col => {
-        col.addEventListener('touchstart', handleTouchStart, { passive: false });
-        col.addEventListener('touchend', handleTouchEnd, { passive: false });
-        col.addEventListener('touchcancel', handleTouchEnd, { passive: false });
-      });
-
-      // Canvas Direct Touch
-      this.canvas.addEventListener('touchstart', (e) => {
-        if (this.state !== STATE.PLAYING && this.state !== STATE.COUNTDOWN) return;
-        e.preventDefault();
-        const rect = this.canvas.getBoundingClientRect();
-        for (let i = 0; i < e.changedTouches.length; i++) {
-          const t = e.changedTouches[i];
-          const canvasX = (t.clientX - rect.left) * (this.width / rect.width);
-          const canvasY = (t.clientY - rect.top) * (this.height / rect.height);
-
-          if (canvasY > this.hitlineY - 160) {
-            const trackLeft = (this.width - this.trackWidthBottom) / 2;
-            const laneW = this.trackWidthBottom / 4;
-            const lane = Math.floor((canvasX - trackLeft) / laneW);
-            if (lane >= 0 && lane < 4) {
-              touchMap.set(t.identifier, lane);
-              this.pressKey(lane);
-            }
-          }
-        }
-      }, { passive: false });
-
+      this.canvas.addEventListener('touchstart', handleTouchStart, { passive: false });
       this.canvas.addEventListener('touchend', handleTouchEnd, { passive: false });
       this.canvas.addEventListener('touchcancel', handleTouchEnd, { passive: false });
-    }
 
-    renderSongCards() {
-      const grid = document.getElementById('songGrid');
-      if (!grid) return;
-      grid.innerHTML = '';
+      // Mobile Touch Bar buttons at bottom
+      const touchCols = document.querySelectorAll('.touch-col');
+      touchCols.forEach(col => {
+        col.addEventListener('touchstart', (e) => {
+          e.preventDefault();
+          const lane = parseInt(col.dataset.lane, 10);
+          this.pressKey(lane);
+        }, { passive: false });
 
-      const scores = JSON.parse(localStorage.getItem('beat_classic_scores') || '{}');
-
-      SONGS.forEach((song) => {
-        const card = document.createElement('div');
-        card.className = 'song-card' + (song.id === this.selectedSong.id ? ' selected' : '');
-        card.dataset.id = song.id;
-
-        const best = scores[song.id] || null;
-        const bestHtml = best
-          ? `<span class="best-score-chip">🏆 ${best.score.toLocaleString()} (${best.rank})</span>`
-          : `<span class="best-score-chip" style="color:var(--text-muted);">---</span>`;
-
-        card.innerHTML = `
-          <div>
-            <div class="jacket-header">
-              <div class="jacket-icon-badge">
-                <span class="jacket-icon">${song.icon}</span>
-                <span class="song-badge">${song.badge}</span>
-              </div>
-              <span class="bpm-badge"><i class="bpm-dot"></i> ${song.bpm} BPM</span>
-            </div>
-            <div class="song-name">${song.title}</div>
-            <div class="song-composer">${song.composer} · ${song.genre}</div>
-            <div class="song-desc">${song.description}</div>
-          </div>
-          <div class="song-footer">
-            <span class="diff-chip">${song.stars} (${song.difficulty})</span>
-            ${bestHtml}
-          </div>
-        `;
-
-        card.addEventListener('click', () => {
-          document.querySelectorAll('.song-card').forEach(c => c.classList.remove('selected'));
-          card.classList.add('selected');
-          this.selectedSong = song;
-          this.sound.init();
-          this.sound.resume();
-        });
-
-        grid.appendChild(card);
+        col.addEventListener('touchend', (e) => {
+          e.preventDefault();
+          const lane = parseInt(col.dataset.lane, 10);
+          this.releaseKey(lane);
+        }, { passive: false });
       });
     }
 
@@ -250,7 +282,7 @@
       const isMobile = window.innerWidth <= 768;
 
       this.width = isMobile ? Math.min(rect.width, 480) : 520;
-      this.height = Math.min(rect.height || 760, 840);
+      this.height = Math.min(rect.height || 780, 860);
 
       this.canvas.width = this.width * this.dpr;
       this.canvas.height = this.height * this.dpr;
@@ -259,10 +291,11 @@
 
       this.ctx.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
 
-      this.horizonY = this.height * 0.16;
-      this.hitlineY = this.height * 0.82;
-      this.trackWidthTop = this.width * 0.32;
-      this.trackWidthBottom = this.width * 0.74;
+      this.horizonY = this.height * 0.14;
+      // Ergonomic bottom placement for thumbs
+      this.hitlineY = isMobile ? (this.height - 76) : (this.height - 84);
+      this.trackWidthTop = this.width * 0.30;
+      this.trackWidthBottom = this.width * 0.76;
     }
 
     handleKeyDown(e) {
@@ -311,7 +344,7 @@
       if (touchCol) touchCol.classList.add('active');
 
       if (navigator.vibrate) navigator.vibrate(15);
-      this.sound.playHitSound(lane);
+      this.sound.playHitSound(lane, this.selectedSong.soundStyle, this.selectedSong.basePitch);
 
       if (this.state === STATE.PLAYING) {
         this.judgeNoteHit(lane);
@@ -322,6 +355,31 @@
       this.keysDown[lane] = false;
       const touchCol = document.querySelector(`.touch-col[data-lane="${lane}"]`);
       if (touchCol) touchCol.classList.remove('active');
+
+      // Check if releasing a Long Note
+      const activeHold = this.activeHolds[lane];
+      if (activeHold) {
+        const holdProgress = (this.currentTime - activeHold.time) / activeHold.duration;
+        this.sound.stopHoldSound(lane);
+
+        if (holdProgress >= 0.80) {
+          // Complete hold successfully!
+          activeHold.completed = true;
+          this.score += 500;
+          this.combo++;
+          if (this.combo > this.maxCombo) this.maxCombo = this.combo;
+          this.showJudgement('PERFECT', '#ffd700');
+          this.spawnHitParticles(lane, '#ffd700');
+        } else {
+          // Dropped hold prematurely
+          activeHold.missed = true;
+          this.combo = 0;
+          this.judgements.miss++;
+          this.life = Math.max(0, this.life - 5);
+          this.showJudgement('MISS', '#ff3366');
+        }
+        this.activeHolds[lane] = null;
+      }
     }
 
     judgeNoteHit(lane) {
@@ -375,6 +433,13 @@
 
         this.showJudgement(rating, color);
         this.spawnHitParticles(lane, color);
+
+        // If it's a Long Note, start holding!
+        if (closestNote.isLong) {
+          closestNote.isHolding = true;
+          this.activeHolds[lane] = closestNote;
+          this.sound.startHoldSound(lane);
+        }
       }
     }
 
@@ -393,18 +458,18 @@
       const px = coords.xMid;
       const py = coords.y;
 
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 18; i++) {
         const angle = Math.random() * Math.PI * 2;
-        const spd = 2 + Math.random() * 7;
+        const spd = 2 + Math.random() * 6;
         this.particles.push({
           x: px,
           y: py,
           vx: Math.cos(angle) * spd,
           vy: Math.sin(angle) * spd - 2,
-          radius: 2 + Math.random() * 3.5,
+          radius: 2 + Math.random() * 3,
           color: color,
           alpha: 1.0,
-          decay: 0.03 + Math.random() * 0.03
+          decay: 0.035 + Math.random() * 0.03
         });
       }
     }
@@ -417,6 +482,7 @@
       const gameContainer = document.getElementById('gameContainer');
       gameContainer.style.display = 'flex';
 
+      // Safe clean single-line HUD
       document.getElementById('hudSongTitle').textContent = this.selectedSong.title;
       document.getElementById('hudSongMeta').textContent = `${this.selectedSong.bpm} BPM · ${this.selectedSong.difficulty}`;
 
@@ -431,10 +497,11 @@
       this.particles = [];
       this.lasers = [0, 0, 0, 0];
       this.hitBursts = [0, 0, 0, 0];
+      this.activeHolds = [null, null, null, null];
       this.activeJudgement = null;
       this.screenShake = 0;
 
-      // Dynamic Procedural Chart Generation (Anti-memorization!)
+      // Dynamic Procedural Chart Generation (Strict max 2 fingers + Long Notes!)
       this.notes = this.selectedSong.generateChart(0.8);
       this.totalNotes = this.notes.length;
 
@@ -509,7 +576,7 @@
             setTimeout(() => { if (cdOverlay) cdOverlay.style.display = 'none'; }, 500);
           }
           this.state = STATE.PLAYING;
-          // Start real audio!
+          // Play real studio-master MP3!
           this.sound.playRealAudio(this.selectedSong.audioFile);
         }
         return;
@@ -520,9 +587,38 @@
       // Sync strictly to real audio current playback time
       this.currentTime = this.sound.getAudioCurrentTime() + (this.offsetMs / 1000);
 
-      // Pulse Beat for DJMAX Side Visualizer Equalizers
+      // Pulse Beat for DJMAX Side Visualizer
       const beatInterval = 60 / this.selectedSong.bpm;
       this.bgaBeat = (Math.sin(this.currentTime * Math.PI * 2 / beatInterval) + 1) / 2;
+
+      // Process Active Long Notes (Hold Notes)
+      this.holdTickTimer += dt;
+      for (let lane = 0; lane < 4; lane++) {
+        const holdNote = this.activeHolds[lane];
+        if (holdNote) {
+          this.lasers[lane] = 1.0;
+          this.hitBursts[lane] = 1.0;
+
+          // Continuous hold score & combo tick
+          if (this.holdTickTimer >= 0.14) {
+            this.score += 80;
+            this.combo++;
+            if (this.combo > this.maxCombo) this.maxCombo = this.combo;
+            this.spawnHitParticles(lane, (lane === 0 || lane === 3) ? '#00f0ff' : '#ff007f');
+            if (navigator.vibrate) navigator.vibrate(10);
+          }
+
+          // Check if hold duration naturally completed
+          if (this.currentTime >= holdNote.time + holdNote.duration) {
+            holdNote.completed = true;
+            this.sound.stopHoldSound(lane);
+            this.activeHolds[lane] = null;
+            this.score += 600;
+            this.showJudgement('PERFECT', '#ffd700');
+          }
+        }
+      }
+      if (this.holdTickTimer >= 0.14) this.holdTickTimer = 0;
 
       // Check Missed Notes
       const MISS_THRESHOLD = 0.17;
@@ -539,7 +635,7 @@
 
       // Lasers and Particle decays
       for (let i = 0; i < 4; i++) {
-        if (!this.keysDown[i]) {
+        if (!this.keysDown[i] && !this.activeHolds[i]) {
           this.lasers[i] = Math.max(0, this.lasers[i] - dt * 6);
         }
         this.hitBursts[i] = Math.max(0, this.hitBursts[i] - dt * 4);
@@ -572,15 +668,16 @@
       document.getElementById('lifeBarFill').style.width = this.life + '%';
 
       // Check Song End
-      const lastNoteTime = this.notes.length > 0 ? this.notes[this.notes.length - 1].time : 0;
-      if (this.currentTime > lastNoteTime + 2.5 || (this.sound.audioElement && this.sound.audioElement.ended)) {
+      const lastNote = this.notes[this.notes.length - 1];
+      const lastNoteEnd = lastNote ? (lastNote.time + (lastNote.duration || 0)) : 0;
+      if (this.currentTime > lastNoteEnd + 2.5 || (this.sound.audioElement && this.sound.audioElement.ended)) {
         this.endGame();
       }
     }
 
     get3DCoords(lane, progress) {
       const p = Math.max(0, progress);
-      const curvedP = Math.pow(p, 1.25);
+      const curvedP = Math.pow(p, 1.22);
 
       const y = this.horizonY + (this.hitlineY - this.horizonY) * curvedP;
       const trackW = this.trackWidthTop + (this.trackWidthBottom - this.trackWidthTop) * curvedP;
@@ -609,7 +706,7 @@
       this.render3DHighway(ctx);
       this.renderKeyLasers(ctx);
       this.render3DNotes(ctx);
-      this.render3DReceptors(ctx);
+      this.renderDJMaxArcadeDeck(ctx); // High-end metallic arcade deck
       this.renderParticles(ctx);
       this.renderJudgementOverlay(ctx);
 
@@ -618,15 +715,15 @@
 
     renderBackground(ctx) {
       const grad = ctx.createRadialGradient(this.width / 2, this.horizonY, 20, this.width / 2, this.height / 2, this.width);
-      grad.addColorStop(0, '#121832');
-      grad.addColorStop(1, '#05060b');
+      grad.addColorStop(0, '#10152e');
+      grad.addColorStop(1, '#040508');
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, this.width, this.height);
 
-      // DJMAX BGA Equalizer Visualizers
+      // Side Equalizers
       const numBars = 12;
-      const leftMargin = 12;
-      const rightMargin = this.width - 24;
+      const leftMargin = 10;
+      const rightMargin = this.width - 20;
 
       for (let i = 0; i < numBars; i++) {
         const barVal = Math.sin(this.currentTime * 6 + i) * 0.5 + 0.5;
@@ -635,11 +732,11 @@
         ctx.fillStyle = `rgba(0, 240, 255, ${alpha})`;
         ctx.shadowColor = '#00f0ff';
         ctx.shadowBlur = 8;
-        ctx.fillRect(leftMargin, this.hitlineY - 40 - i * 11, 8, 8);
+        ctx.fillRect(leftMargin, this.hitlineY - 50 - i * 11, 7, 7);
 
         ctx.fillStyle = `rgba(255, 0, 127, ${alpha})`;
         ctx.shadowColor = '#ff007f';
-        ctx.fillRect(rightMargin, this.hitlineY - 40 - i * 11, 8, 8);
+        ctx.fillRect(rightMargin, this.hitlineY - 50 - i * 11, 7, 7);
       }
       ctx.shadowBlur = 0;
     }
@@ -655,44 +752,44 @@
       ctx.beginPath();
       ctx.moveTo(topL, this.horizonY);
       ctx.lineTo(topR, this.horizonY);
-      ctx.lineTo(botR, this.hitlineY + 60);
-      ctx.lineTo(botL, this.hitlineY + 60);
+      ctx.lineTo(botR, this.hitlineY + 45);
+      ctx.lineTo(botL, this.hitlineY + 45);
       ctx.closePath();
 
       const roadGrad = ctx.createLinearGradient(0, this.horizonY, 0, this.hitlineY);
-      roadGrad.addColorStop(0, 'rgba(18, 22, 40, 0.95)');
-      roadGrad.addColorStop(1, 'rgba(8, 10, 20, 0.98)');
+      roadGrad.addColorStop(0, 'rgba(16, 20, 36, 0.94)');
+      roadGrad.addColorStop(1, 'rgba(6, 8, 16, 0.98)');
       ctx.fillStyle = roadGrad;
       ctx.fill();
 
-      // Neon Rails (Outer 3D borders)
+      // Outer Neon Rails
       ctx.lineWidth = 3.5;
       ctx.strokeStyle = '#00f0ff';
       ctx.shadowColor = '#00f0ff';
       ctx.shadowBlur = 14;
       ctx.beginPath();
       ctx.moveTo(topL, this.horizonY);
-      ctx.lineTo(botL, this.hitlineY + 60);
+      ctx.lineTo(botL, this.hitlineY + 45);
       ctx.stroke();
 
       ctx.strokeStyle = '#ff007f';
       ctx.shadowColor = '#ff007f';
       ctx.beginPath();
       ctx.moveTo(topR, this.horizonY);
-      ctx.lineTo(botR, this.hitlineY + 60);
+      ctx.lineTo(botR, this.hitlineY + 45);
       ctx.stroke();
       ctx.restore();
 
-      // Inner Lane Lines
+      // Inner Lane Dividers
       for (let l = 1; l < 4; l++) {
         const topLaneX = topL + l * (this.trackWidthTop / 4);
         const botLaneX = botL + l * (this.trackWidthBottom / 4);
 
-        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-        ctx.lineWidth = 1.5;
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.12)';
+        ctx.lineWidth = 1.2;
         ctx.beginPath();
         ctx.moveTo(topLaneX, this.horizonY);
-        ctx.lineTo(botLaneX, this.hitlineY + 60);
+        ctx.lineTo(botLaneX, this.hitlineY + 45);
         ctx.stroke();
       }
 
@@ -701,7 +798,7 @@
       for (let i = 0; i < numLines; i++) {
         const lineP = ((this.currentTime * this.speed * 1.5 + i / numLines) % 1.0);
         const coords = this.get3DCoords(0, lineP);
-        ctx.strokeStyle = `rgba(255, 255, 255, ${lineP * 0.12})`;
+        ctx.strokeStyle = `rgba(255, 255, 255, ${lineP * 0.10})`;
         ctx.lineWidth = 1;
         ctx.beginPath();
         ctx.moveTo(coords.trackLeft, coords.y);
@@ -728,7 +825,7 @@
 
           const laserGrad = ctx.createLinearGradient(0, topCoords.y, 0, botCoords.y);
           laserGrad.addColorStop(0, `rgba(${isOuter ? '0, 240, 255' : '255, 0, 127'}, 0)`);
-          laserGrad.addColorStop(1, `rgba(${isOuter ? '0, 240, 255' : '255, 0, 127'}, ${alpha * 0.5})`);
+          laserGrad.addColorStop(1, `rgba(${isOuter ? '0, 240, 255' : '255, 0, 127'}, ${alpha * 0.55})`);
 
           ctx.fillStyle = laserGrad;
           ctx.fill();
@@ -743,103 +840,194 @@
 
       for (let i = 0; i < this.notes.length; i++) {
         const note = this.notes[i];
-        if (note.hit || note.missed) continue;
-
-        const timeDiff = note.time - curT;
-        if (timeDiff > travelTime) continue;
-        if (timeDiff < -0.16) continue;
-
-        const progress = 1.0 - (timeDiff / travelTime);
-        if (progress < -0.05 || progress > 1.1) continue;
-
-        const noteHeightProgress = 0.045;
-        const botCoords = this.get3DCoords(note.lane, Math.max(0, progress));
-        const topCoords = this.get3DCoords(note.lane, Math.max(0, progress - noteHeightProgress));
+        if (note.completed || (note.missed && !note.isLong)) continue;
 
         const isOuter = (note.lane === 0 || note.lane === 3);
         const noteColor = isOuter ? '#00f0ff' : '#ff007f';
-        const noteGlow = isOuter ? 'rgba(0, 240, 255, 0.7)' : 'rgba(255, 0, 127, 0.7)';
+        const noteGlow = isOuter ? 'rgba(0, 240, 255, 0.75)' : 'rgba(255, 0, 127, 0.75)';
 
-        ctx.save();
-        ctx.beginPath();
-        ctx.moveTo(topCoords.xLeft + 2, topCoords.y);
-        ctx.lineTo(topCoords.xRight - 2, topCoords.y);
-        ctx.lineTo(botCoords.xRight - 2, botCoords.y);
-        ctx.lineTo(botCoords.xLeft + 2, botCoords.y);
-        ctx.closePath();
+        // 1. Render Long Note Body (Hold Ribbon)
+        if (note.isLong) {
+          const noteEndTime = note.time + note.duration;
+          if (curT > noteEndTime + 0.15) continue;
 
-        const noteGrad = ctx.createLinearGradient(0, topCoords.y, 0, botCoords.y);
-        noteGrad.addColorStop(0, '#ffffff');
-        noteGrad.addColorStop(0.3, noteColor);
-        noteGrad.addColorStop(1, isOuter ? '#0070bb' : '#aa0055');
+          // Start point of ribbon on track
+          const startT = note.isHolding ? curT : note.time;
+          const endT = noteEndTime;
 
-        ctx.fillStyle = noteGrad;
-        ctx.shadowColor = noteGlow;
-        ctx.shadowBlur = 12 * Math.max(0.4, progress);
-        ctx.fill();
+          const startDiff = startT - curT;
+          const endDiff = endT - curT;
 
-        ctx.strokeStyle = '#ffffff';
-        ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.moveTo(topCoords.xLeft + 3, topCoords.y + 1);
-        ctx.lineTo(topCoords.xRight - 3, topCoords.y + 1);
-        ctx.stroke();
+          if (startDiff <= travelTime && endDiff >= -0.1) {
+            const startProg = Math.max(0, Math.min(1.0, 1.0 - (startDiff / travelTime)));
+            const endProg = Math.max(0, Math.min(1.0, 1.0 - (endDiff / travelTime)));
 
-        ctx.restore();
+            const headCoords = this.get3DCoords(note.lane, startProg);
+            const tailCoords = this.get3DCoords(note.lane, endProg);
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.moveTo(tailCoords.xLeft + 4, tailCoords.y);
+            ctx.lineTo(tailCoords.xRight - 4, tailCoords.y);
+            ctx.lineTo(headCoords.xRight - 4, headCoords.y);
+            ctx.lineTo(headCoords.xLeft + 4, headCoords.y);
+            ctx.closePath();
+
+            const ribbonGrad = ctx.createLinearGradient(0, tailCoords.y, 0, headCoords.y);
+            ribbonGrad.addColorStop(0, isOuter ? 'rgba(0, 240, 255, 0.25)' : 'rgba(255, 0, 127, 0.25)');
+            ribbonGrad.addColorStop(1, isOuter ? 'rgba(0, 240, 255, 0.65)' : 'rgba(255, 0, 127, 0.65)');
+
+            ctx.fillStyle = ribbonGrad;
+            ctx.shadowColor = noteColor;
+            ctx.shadowBlur = 10;
+            ctx.fill();
+
+            // Glowing side edges of the ribbon
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 1.8;
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
+
+        // 2. Render Note Head (or Regular Tap Note)
+        if (!note.hit && !note.missed) {
+          const timeDiff = note.time - curT;
+          if (timeDiff > travelTime || timeDiff < -0.16) continue;
+
+          const progress = 1.0 - (timeDiff / travelTime);
+          if (progress < -0.05 || progress > 1.1) continue;
+
+          const noteHeightProgress = 0.045;
+          const botCoords = this.get3DCoords(note.lane, Math.max(0, progress));
+          const topCoords = this.get3DCoords(note.lane, Math.max(0, progress - noteHeightProgress));
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(topCoords.xLeft + 2, topCoords.y);
+          ctx.lineTo(topCoords.xRight - 2, topCoords.y);
+          ctx.lineTo(botCoords.xRight - 2, botCoords.y);
+          ctx.lineTo(botCoords.xLeft + 2, botCoords.y);
+          ctx.closePath();
+
+          const noteGrad = ctx.createLinearGradient(0, topCoords.y, 0, botCoords.y);
+          noteGrad.addColorStop(0, '#ffffff');
+          noteGrad.addColorStop(0.35, noteColor);
+          noteGrad.addColorStop(1, isOuter ? '#0066aa' : '#990044');
+
+          ctx.fillStyle = noteGrad;
+          ctx.shadowColor = noteGlow;
+          ctx.shadowBlur = 14 * Math.max(0.4, progress);
+          ctx.fill();
+
+          ctx.strokeStyle = '#ffffff';
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          ctx.moveTo(topCoords.xLeft + 3, topCoords.y + 1);
+          ctx.lineTo(topCoords.xRight - 3, topCoords.y + 1);
+          ctx.stroke();
+
+          // If long note, draw hold lightning symbol
+          if (note.isLong) {
+            ctx.fillStyle = '#ffffff';
+            ctx.font = 'bold 12px monospace';
+            ctx.textAlign = 'center';
+            ctx.fillText('⚡', botCoords.xMid, (topCoords.y + botCoords.y) / 2 + 4);
+          }
+
+          ctx.restore();
+        }
       }
     }
 
-    render3DReceptors(ctx) {
+    /**
+     * Professional DJMAX Respect Metallic Arcade Deck
+     * High-end beveled metallic receptor console perfectly fitted at bottom
+     */
+    renderDJMaxArcadeDeck(ctx) {
       const botL = (this.width - this.trackWidthBottom) / 2;
       const botR = botL + this.trackWidthBottom;
 
-      // Golden Judgement Bar
       ctx.save();
+
+      // 1. Laser Judgement Beam Line
       ctx.strokeStyle = '#ffd700';
       ctx.lineWidth = 3.5;
       ctx.shadowColor = '#ffd700';
-      ctx.shadowBlur = 16;
+      ctx.shadowBlur = 18;
       ctx.beginPath();
-      ctx.moveTo(botL - 6, this.hitlineY);
-      ctx.lineTo(botR + 6, this.hitlineY);
+      ctx.moveTo(botL - 8, this.hitlineY);
+      ctx.lineTo(botR + 8, this.hitlineY);
       ctx.stroke();
 
-      // 4 Heavy Arcade 3D Receptors
+      // 2. Heavy Metallic Console Base Chassis
+      const deckH = 50;
+      const deckGrad = ctx.createLinearGradient(0, this.hitlineY, 0, this.hitlineY + deckH);
+      deckGrad.addColorStop(0, '#1a1f34');
+      deckGrad.addColorStop(0.3, '#0c0e18');
+      deckGrad.addColorStop(1, '#05060b');
+
+      ctx.fillStyle = deckGrad;
+      ctx.fillRect(botL - 10, this.hitlineY + 1, (botR - botL) + 20, deckH + 8);
+
+      // Chassis metallic bevel border
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.22)';
+      ctx.lineWidth = 1.5;
+      ctx.strokeRect(botL - 10, this.hitlineY + 1, (botR - botL) + 20, deckH + 8);
+
+      // 3. 4 Crystal Acrylic LED Key Pads
       const keyLabels = ['D', 'F', 'J', 'K'];
       for (let lane = 0; lane < 4; lane++) {
         const coords = this.get3DCoords(lane, 1.0);
-        const isPressed = this.keysDown[lane];
+        const isPressed = this.keysDown[lane] || !!this.activeHolds[lane];
         const isOuter = (lane === 0 || lane === 3);
         const col = isOuter ? '#00f0ff' : '#ff007f';
 
         const rx = coords.xLeft + 3;
         const rw = coords.laneW - 6;
-        const ry = this.hitlineY + (isPressed ? 7 : 2);
-        const rh = 42;
+        const ry = this.hitlineY + (isPressed ? 6 : 2);
+        const rh = 44;
 
         ctx.beginPath();
         ctx.roundRect(rx, ry, rw, rh, 8);
 
         if (isPressed) {
-          ctx.fillStyle = col;
+          // Bright Neon LED Flood Glow
+          const padGrad = ctx.createLinearGradient(0, ry, 0, ry + rh);
+          padGrad.addColorStop(0, '#ffffff');
+          padGrad.addColorStop(0.35, col);
+          padGrad.addColorStop(1, isOuter ? '#004c80' : '#800040');
+
+          ctx.fillStyle = padGrad;
           ctx.shadowColor = col;
-          ctx.shadowBlur = 22;
+          ctx.shadowBlur = 24;
         } else {
-          ctx.fillStyle = 'rgba(255, 255, 255, 0.08)';
+          // Dark Brushed Metallic / Crystal Acrylic
+          const padGrad = ctx.createLinearGradient(0, ry, 0, ry + rh);
+          padGrad.addColorStop(0, 'rgba(255, 255, 255, 0.12)');
+          padGrad.addColorStop(1, 'rgba(10, 14, 28, 0.9)');
+
+          ctx.fillStyle = padGrad;
           ctx.shadowBlur = 0;
         }
         ctx.fill();
 
+        // High-Gloss Neon Key Border
         ctx.strokeStyle = isPressed ? '#ffffff' : col;
-        ctx.lineWidth = 2.5;
+        ctx.lineWidth = isPressed ? 2.5 : 1.8;
+        ctx.shadowColor = col;
+        ctx.shadowBlur = isPressed ? 16 : 6;
         ctx.stroke();
 
+        // Arcade Key Indicator Stencil
+        ctx.shadowBlur = 0;
         ctx.fillStyle = isPressed ? '#000000' : '#ffffff';
-        ctx.font = 'bold 16px monospace';
+        ctx.font = '900 16px "SF Mono", monospace';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.fillText(keyLabels[lane], coords.xMid, ry + rh / 2);
       }
+
       ctx.restore();
     }
 
@@ -868,7 +1056,7 @@
         ctx.scale(scale, scale);
 
         ctx.textAlign = 'center';
-        ctx.font = '900 44px "Pretendard", sans-serif';
+        ctx.font = '900 46px "Pretendard", sans-serif';
         ctx.fillStyle = '#ffffff';
         ctx.shadowColor = '#00f0ff';
         ctx.shadowBlur = 18;
@@ -892,7 +1080,7 @@
         ctx.globalAlpha = j.alpha;
 
         ctx.textAlign = 'center';
-        ctx.font = '900 30px "Pretendard", sans-serif';
+        ctx.font = '900 32px "Pretendard", sans-serif';
         ctx.fillStyle = j.color;
         ctx.shadowColor = j.color;
         ctx.shadowBlur = 16;

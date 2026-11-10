@@ -8,9 +8,9 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <title>비트 클래식 (Beat Classic) | 3D 아케이드 리듬게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-03">
-  <script defer src="./audio.js?v=20261110-03"></script>
-  <script defer src="./game.js?v=20261110-03"></script>
+  <link rel="stylesheet" href="./style.css?v=20261110-04">
+  <script defer src="./audio.js?v=20261110-04"></script>
+  <script defer src="./game.js?v=20261110-04"></script>
 </head>
 <body>
 
@@ -24,7 +24,7 @@
       </div>
     </div>
     <div class="top-actions">
-      <span class="tag-badge">100% 퍼블릭 도메인 클래식</span>
+      <span class="tag-badge">총 20곡 라인업</span>
       <button type="button" class="btn-arcade-sub" id="fullscreenToggleBtn">⛶ 전체화면</button>
     </div>
   </header>
@@ -34,12 +34,17 @@
     <div class="lobby-header">
       <div>
         <div class="lobby-title">🎵 수록곡 선택 (SELECT MUSIC)</div>
-        <div class="lobby-desc">오투잼·펌프·디맥 전설의 클래식 명곡 10선 · 실기 오디오 음원 & 동적 랜덤 채보 탑재</div>
+        <div class="lobby-desc">클래식 명곡 10선 + 오투잼·디맥 감성의 아케이드 & EDM 10선 · 실기 MP3 완비</div>
       </div>
     </div>
 
-    <!-- 10 Song Cards Grid -->
-    <div class="song-grid" id="songGrid">
+    <!-- Category Filter Tabs -->
+    <div class="category-tabs" id="categoryTabs">
+      <!-- Injected by game.js -->
+    </div>
+
+    <!-- 20 Song Cards Grid (Compact DJMAX Tracklist) -->
+    <div class="song-grid compact-grid" id="songGrid">
       <!-- Injected by game.js -->
     </div>
 
@@ -70,7 +75,7 @@
         <span class="key-chip">F</span>
         <span class="key-chip">J</span>
         <span class="key-chip">K</span>
-        <span style="font-size: 11px; color: var(--text-muted); margin-left: 4px;">(모바일 하단 터치 지원)</span>
+        <span style="font-size: 11px; color: var(--text-muted); margin-left: 4px;">(엄지 2개 최적화 · 롱노트 지원)</span>
       </div>
     </section>
 
@@ -84,19 +89,19 @@
   <!-- 2. In-Game 3D Canvas Screen -->
   <div class="game-container" id="gameContainer">
     <div class="game-hud">
-      <div>
+      <div class="hud-left">
         <div class="hud-song-title" id="hudSongTitle">캐논 변주곡</div>
         <div class="hud-song-meta" id="hudSongMeta">132 BPM · Normal</div>
       </div>
-      <div style="text-align: center;">
+      <div class="hud-center">
         <div class="hud-score" id="hudScore">0000000</div>
         <div class="hud-acc" id="hudAcc">정확도 100.0%</div>
       </div>
-      <div style="display: flex; align-items: center; gap: 12px;">
+      <div class="hud-right">
         <div class="life-bar-wrap" title="HP 게이지">
           <div class="life-bar-fill" id="lifeBarFill"></div>
         </div>
-        <button type="button" class="btn-hud-control" id="pauseBtn">⏸ 일시정지</button>
+        <button type="button" class="btn-hud-control" id="pauseBtn">⏸</button>
       </div>
     </div>
 
