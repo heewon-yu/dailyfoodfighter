@@ -46,8 +46,8 @@
         <div class="hero-copy">
           <div class="hero-kicker"><span></span> FIVE MINUTE CHALLENGE</div>
           <h1>5분 단타<span>왕</span></h1>
-          <p id="heroText">1억으로 시작해 5분 안에 수익률을 높이세요.<br>뉴스가 뜨면 호가와 거래량을 확인하고 움직이세요.</p>
-          <div class="hero-actions"><button id="start" class="gold" type="button"><span aria-hidden="true">▶</span> 5분 거래 시작</button><button id="marketJump" class="ghost" type="button">종목 살펴보기 ↓</button></div>
+          <p id="heroText"><span id="heroMain">5분간 1억원으로 단타를 쳐서 수익을 내보세요!</span><span id="heroInvite">5분간의 게임으로 내기한판 어때요?</span></p>
+          <div class="hero-actions"><button id="start" class="gold" type="button"><span aria-hidden="true">▶</span> 5분 거래 시작</button><button id="pause" class="ghost" type="button" hidden>일시정지</button><button id="marketJump" class="ghost" type="button">종목 살펴보기 ↓</button></div>
         </div>
         <div class="session">
           <div class="session-label"><span id="statusDot"></span><span id="status">개장 대기</span></div>
@@ -89,37 +89,54 @@
         </section>
         <section class="panel depth-panel" aria-labelledby="depthTitle">
           <div class="card-heading"><div class="eyebrow">03 / ORDER BOOK</div><h2 id="depthTitle">실시간 호가</h2></div>
+          <p class="depth-hint">호가를 누르면 지정가에 입력돼요.</p>
           <div class="depth-label"><span>구분</span><span>호가 (원)</span><span>잔량 (주)</span></div>
           <div id="orderBook"></div>
           <div class="tape-head"><strong>최근 체결</strong><span>가격 · 거래량</span></div>
           <div id="tape" class="tape"></div>
         </section>
+        <div class="trade-column">
         <section class="panel order-panel" aria-labelledby="orderTitle">
           <div class="card-heading"><div class="eyebrow">04 / TRADE TICKET</div><h2 id="orderTitle">주문하기</h2><p id="orderStock"></p></div>
           <div class="order-content">
-            <div class="order-type"><strong>시장가</strong><span>수수료 0.05%</span></div>
+            <div class="order-type"><div class="segments" aria-label="주문 방식"><button type="button" data-order="market" aria-pressed="true">시장가</button><button id="limitMode" type="button" data-order="limit" aria-pressed="false">지정가</button></div><span>수수료 0.05%</span></div>
+            <div id="limitFields" hidden>
+              <label for="limitPrice">지정가</label>
+              <div class="quantity-field limit-field"><input id="limitPrice" type="number" min="50" max="1000000" step="50" inputmode="numeric"><span>원</span></div>
+              <div class="presets"><button id="bestBid" type="button">매수 1호가</button><button id="bestAsk" type="button">매도 1호가</button></div>
+            </div>
             <label for="quantity">주문 수량</label>
             <div class="quantity-field"><button type="button" id="minus" aria-label="수량 1주 줄이기">−</button><input id="quantity" type="number" min="1" max="99999" step="1" value="100" inputmode="numeric"><span>주</span><button type="button" id="plus" aria-label="수량 1주 늘리기">+</button></div>
             <div class="presets"><button type="button" data-quantity="10">10주</button><button type="button" data-quantity="100">100주</button><button type="button" data-quantity="500">500주</button></div>
             <div class="presets max-buttons"><button type="button" id="maxBuy">최대 매수</button><button type="button" id="maxSell">최대 매도</button></div>
-            <dl class="estimate"><div><dt>매수 예상 결제</dt><dd id="estimateBuy"></dd></div><div><dt>매도 예상 정산</dt><dd id="estimateSell"></dd></div><div><dt>보유 수량</dt><dd id="held"></dd></div></dl>
+            <dl class="estimate"><div><dt id="buyLabel">매수 예상 결제</dt><dd id="estimateBuy"></dd></div><div><dt id="sellLabel">매도 예상 정산</dt><dd id="estimateSell"></dd></div><div><dt>매도 가능 / 보유</dt><dd id="held"></dd></div></dl>
             <div class="trade-buttons"><button id="buy" type="button" disabled>매수</button><button id="sell" type="button" disabled>매도</button></div>
             <div id="feedback" class="feedback" role="status">거래를 시작하면 주문할 수 있어요.</div>
+            <button id="pendingJump" class="pending-jump" type="button">미체결 0건 ↓</button>
           </div>
         </section>
-      </div>
-      <div class="lower">
-        <section class="panel news-panel" aria-labelledby="newsTitle">
-          <div class="card-heading news-heading"><div><div class="eyebrow">05 / MARKET NEWS</div><h2 id="newsTitle">시장 뉴스</h2></div><div class="segments" aria-label="뉴스 필터"><button type="button" data-news="all" aria-pressed="true">전체</button><button type="button" data-news="selected" aria-pressed="false">선택 종목</button></div></div>
-          <div id="news"></div>
+        <section class="panel stock-news-panel" aria-labelledby="stockNewsTitle">
+          <div class="card-heading"><div class="eyebrow">SELECTED NEWS</div><h2 id="stockNewsTitle">종목 뉴스</h2><p id="stockNewsName"></p></div>
+          <div id="stockNews" aria-live="polite"></div>
         </section>
+        <section class="panel pending-panel" aria-labelledby="pendingTitle">
+          <div class="card-heading"><div class="eyebrow">OPEN ORDERS</div><h2 id="pendingTitle">미체결 주문</h2><p id="reservedCash"></p></div>
+          <div id="pending"></div>
+        </section>
+        </div>
+      <div class="lower">
         <section class="panel portfolio-panel" aria-labelledby="portfolioTitle">
-          <div class="card-heading news-heading"><div><div class="eyebrow">06 / MY ACCOUNT</div><h2 id="portfolioTitle">내 계좌</h2></div><div class="segments" aria-label="계좌 내역"><button type="button" data-account="positions" aria-pressed="true">보유 종목</button><button type="button" data-account="fills" aria-pressed="false">체결 내역</button></div></div>
-          <div class="realized">실현손익 <strong id="realized">0원</strong></div>
+          <div class="card-heading news-heading"><div><div class="eyebrow">05 / MY ACCOUNT</div><h2 id="portfolioTitle">계좌 내역</h2></div><div class="segments" aria-label="계좌 내역"><button type="button" data-account="positions" aria-pressed="true">보유 종목</button><button type="button" data-account="fills" aria-pressed="false">체결 내역</button></div></div>
+          <dl class="account-summary"><div><dt>보유 종목</dt><dd id="positionCount">0개</dd></div><div><dt>평가손익</dt><dd id="unrealized">0원</dd></div><div><dt>실현손익</dt><dd id="realized">0원</dd></div></dl>
           <div id="account"></div>
         </section>
+        <section class="panel news-panel" aria-labelledby="newsTitle">
+          <div class="card-heading news-heading"><div><div class="eyebrow">06 / MARKET NEWS</div><h2 id="newsTitle">시장 뉴스</h2></div><div class="segments" aria-label="뉴스 필터"><button type="button" data-news="all" aria-pressed="true">전체</button><button type="button" data-news="selected" aria-pressed="false">선택 종목</button></div></div>
+          <div id="news"></div>
+        </section>
       </div>
-      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button></nav>
+      </div>
+      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button><button id="jumpPause" type="button" hidden>일시정지</button></nav>
       <footer>created by 16100901</footer>
     </div>
   </main>
@@ -128,7 +145,8 @@
     <ol class="guide-list">
       <li><strong>개장 전 관심 종목 고르기</strong><p>종목 10개의 기업 정보와 사전 뉴스를 읽으세요. 기준가는 판마다 1만~5만 원에서 정해져요.</p></li>
       <li><strong>1억으로 5분 거래하기</strong><p>호재와 악재가 뜨면 가격과 거래량이 움직여요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
-      <li><strong>수량을 정해 시장가로 주문하기</strong><p>가장 유리한 호가부터 체결돼요. 주문이 크면 여러 호가를 사용하며 매수·매도 각각 0.05% 수수료가 붙어요.</p></li>
+      <li><strong>시장가 또는 지정가로 주문하기</strong><p>지정가는 입력한 가격 또는 더 유리한 호가에서 체결돼요. 미체결 잔량은 취소할 수 있고, 마감하면 자동 취소돼요. 수수료는 0.05%예요.</p></li>
+      <li><strong>잠깐 쉬어가기</strong><p>일시정지하면 타이머와 장세가 멈춰요. 거래 재개를 누르면 미체결 주문과 남은 시간이 이어져요.</p></li>
       <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 결과와 장세 링크를 복사하거나 이미지를 저장할 수 있어요.</p></li>
     </ol>
     <form method="dialog"><button class="gold modal-primary">시장 살펴보기</button></form>
@@ -137,7 +155,7 @@
     <div class="modal-head"><div><div class="eyebrow">FINAL SCORE</div><h2>장 마감 성적표</h2></div><form method="dialog"><button class="subtle" aria-label="성적표 닫기">✕</button></form></div>
     <div id="score" class="score"></div>
     <div class="result-actions"><button type="button" id="share" class="gold">결과 복사</button><button type="button" id="saveScore" class="subtle">PNG 저장</button></div>
-    <div class="result-actions"><button type="button" id="sameMarket" class="subtle">같은 장세 다시</button><button type="button" id="newMarket" class="subtle">새 장세 열기</button></div>
+    <div class="result-actions"><button type="button" id="playAgain" class="subtle">한 번 더</button></div>
     <div id="shareFeedback" class="feedback" role="status"></div>
   </dialog>
 </body>

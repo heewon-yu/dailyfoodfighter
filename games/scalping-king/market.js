@@ -208,18 +208,20 @@
       const stock = market.stocks[next.index];
       stock.shock = next.direction * next.strength;
       stock.shockTicks = next.duration;
-      stock.gap = next.direction * (next.strength * 1.7 + .0025);
+      stock.gap = next.direction * (next.strength * 2.6 + .007);
       market.headlines.unshift({index: next.index, title: next.title, time, direction: next.direction});
       market.eventIndex += 1;
     }
     market.stocks.forEach(stock => {
       const {random} = market;
       const open = stock.price;
-      const noise = (random() + random() - 1) * .0049 * stock.volatility;
-      const pullback = (stock.reference - stock.fairPrice) / stock.reference * .0016;
-      const movement = noise + pullback + stock.shock * stock.volatility * .67 + (stock.gap ?? 0);
+      const signal = random() + random() - 1;
+      const burst = !stock.shockTicks && Math.abs(signal) > .91 ? signal * .009 : 0;
+      const noise = (signal * .0072 + burst) * stock.volatility;
+      const pullback = (stock.reference - stock.fairPrice) / stock.reference * .002;
+      const movement = noise + pullback + stock.shock * stock.volatility + (stock.gap ?? 0);
       stock.gap = 0;
-      stock.fairPrice = Math.max(stock.reference * .65, Math.min(stock.reference * 1.4, stock.fairPrice * (1 + movement)));
+      stock.fairPrice = Math.max(stock.reference * .6, Math.min(stock.reference * 1.5, stock.fairPrice * (1 + movement)));
       stock.price = priceStep(stock.fairPrice);
       stock.high = Math.max(stock.high, stock.price);
       stock.low = Math.min(stock.low, stock.price);
@@ -239,15 +241,35 @@
   }
 
   function createAccount() {
-    return {cash: CASH, realized: 0, fees: 0, positions: STOCKS.map(() => ({qty: 0, cost: 0})), trades: []};
+    return {cash: CASH, realized: 0, fees: 0, positions: STOCKS.map(() => ({qty: 0, cost: 0})),
+      trades: [], pending: [], nextOrderId: 1};
   }
 
-  function quoteOrder(stock, side, qty) {
-    if (!Number.isSafeInteger(qty) || qty < 1 || qty > 99999) return null;
+  const validQuantity = qty => Number.isSafeInteger(qty) && qty >= 1 && qty <= 99999;
+  const validLimit = price => Number.isSafeInteger(price) && price >= PRICE_STEP && price <= 1_000_000 && price % PRICE_STEP === 0;
+  const orderFee = gross => Math.ceil(gross / 2000);
+  const buyCost = gross => gross + orderFee(gross);
+
+  function availableCash(account) {
+    const reserved = account.pending.reduce((total, order) => {
+      if (order.side !== 'buy') return total;
+      const gross = order.price * order.remaining;
+      return total + gross + orderFee(order.gross + gross) - orderFee(order.gross);
+    }, 0);
+    return account.cash - reserved;
+  }
+
+  function availableShares(account, index) {
+    return account.positions[index].qty - account.pending.reduce((reserved, order) => reserved +
+      (order.side === 'sell' && order.index === index ? order.remaining : 0), 0);
+  }
+
+  function sweepBook(stock, side, qty, limit) {
     let remaining = qty;
     let gross = 0;
     const levels = [];
     for (const level of (side === 'buy' ? stock.book.asks : stock.book.bids)) {
+      if (limit !== undefined && (side === 'buy' ? level.price > limit : level.price < limit)) break;
       const take = Math.min(level.qty, remaining);
       if (take > 0) {
         gross += take * level.price;
@@ -256,56 +278,119 @@
       }
       if (!remaining) break;
     }
-    if (remaining) return null;
-    const fee = Math.ceil(gross / 2000);
-    return {gross, fee, average: gross / qty, total: side === 'buy' ? gross + fee : gross - fee, levels};
+    return {gross, qty: qty - remaining, levels};
   }
 
-  function maxOrder(stock, account, side) {
+  function quoteOrder(stock, side, qty) {
+    if (!validQuantity(qty)) return null;
+    const sweep = sweepBook(stock, side, qty);
+    if (sweep.qty !== qty) return null;
+    const fee = orderFee(sweep.gross);
+    return {...sweep, fee, average: sweep.gross / qty, total: sweep.gross + (side === 'buy' ? fee : -fee)};
+  }
+
+  function limitEstimate(qty, limit) {
+    if (!validQuantity(qty) || !validLimit(limit)) return null;
+    const gross = qty * limit;
+    return {buy: buyCost(gross), sell: gross - orderFee(gross)};
+  }
+
+  function maxOrder(stock, account, side, limit) {
+    const cash = availableCash(account);
+    const shares = availableShares(account, stock.index);
+    if (limit !== undefined) {
+      if (!validLimit(limit)) return 0;
+      return Math.min(99999, side === 'buy' ? Math.floor(cash * 2000 / (limit * 2001)) : shares);
+    }
     const book = side === 'buy' ? stock.book.asks : stock.book.bids;
     const liquidity = book.reduce((total, level) => total + level.qty, 0);
-    if (side === 'sell') return Math.min(liquidity, account.positions[stock.index].qty);
+    if (side === 'sell') return Math.min(liquidity, shares);
     let low = 0;
     let high = liquidity;
     while (low < high) {
       const mid = Math.ceil((low + high) / 2);
-      if (quoteOrder(stock, side, mid).total <= account.cash) low = mid;
+      if (quoteOrder(stock, side, mid).total <= cash) low = mid;
       else high = mid - 1;
     }
     return low;
   }
 
   function executeOrder(stock, account, side, qty, time) {
-    if (!Number.isSafeInteger(qty) || qty < 1 || qty > 99999) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
-    const position = account.positions[stock.index];
-    if (side === 'sell' && qty > position.qty) return {error: '보유 수량이 부족해요.'};
+    if (!validQuantity(qty)) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
+    if (side === 'sell' && qty > availableShares(account, stock.index)) return {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
     const quote = quoteOrder(stock, side, qty);
     if (!quote) return {error: '호가 잔량이 부족해요. 수량을 줄여 주세요.'};
-    if (side === 'buy' && quote.total > account.cash) return {error: '주문 가능 현금이 부족해요.'};
+    if (side === 'buy' && quote.total > availableCash(account)) return {error: '주문 가능 현금이 부족해요.'};
+    return {trade: applyFill(stock, account, side, quote, quote.fee, time, 'market')};
+  }
+
+  function applyFill(stock, account, side, quote, fee, time, type) {
+    const {gross, qty, levels} = quote;
+    const total = gross + (side === 'buy' ? fee : -fee);
+    const position = account.positions[stock.index];
     let profit = 0;
     if (side === 'buy') {
-      account.cash -= quote.total;
+      account.cash -= total;
       position.qty += qty;
-      position.cost += quote.total;
+      position.cost += total;
     } else {
       const cost = qty === position.qty ? position.cost : Math.round(position.cost * qty / position.qty);
       position.qty -= qty;
       position.cost -= cost;
-      account.cash += quote.total;
-      profit = quote.total - cost;
+      account.cash += total;
+      profit = total - cost;
       account.realized += profit;
     }
-    quote.levels.forEach(fill => { fill.level.qty -= fill.qty; });
-    account.fees += quote.fee;
-    const trade = {index: stock.index, side, qty, time, average: quote.average, fee: quote.fee, total: quote.total, profit};
+    levels.forEach(fill => { fill.level.qty -= fill.qty; });
+    account.fees += fee;
+    const trade = {index: stock.index, side, qty, time, average: gross / qty, fee, total, profit, type};
     account.trades.unshift(trade);
-    return {trade};
+    return trade;
+  }
+
+  function matchLimit(stock, account, order, time) {
+    const quote = sweepBook(stock, order.side, order.remaining, order.price);
+    if (!quote.qty) return null;
+    const fee = orderFee(order.gross + quote.gross) - orderFee(order.gross);
+    order.remaining -= quote.qty;
+    order.gross += quote.gross;
+    return applyFill(stock, account, order.side, quote, fee, time, 'limit');
+  }
+
+  function placeLimit(stock, account, side, qty, price, time) {
+    if (!validQuantity(qty)) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
+    if (!validLimit(price)) return {error: '지정가는 50원 단위로 입력하세요.'};
+    if (account.pending.length >= 30) return {error: '미체결 주문은 최대 30건까지 보관할 수 있어요.'};
+    if (side === 'buy' && buyCost(qty * price) > availableCash(account)) return {error: '지정가로 주문할 현금이 부족해요.'};
+    if (side === 'sell' && qty > availableShares(account, stock.index)) return {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
+    const order = {id: account.nextOrderId++, index: stock.index, side, price, qty, remaining: qty, gross: 0};
+    const trade = matchLimit(stock, account, order, time);
+    if (order.remaining) account.pending.push(order);
+    return {order, trade};
+  }
+
+  function matchPending(market, account, time) {
+    const fills = [];
+    if (!account.pending.length) return fills;
+    account.pending = account.pending.filter(order => {
+      const trade = matchLimit(market.stocks[order.index], account, order, time);
+      if (trade) fills.push({trade, remaining: order.remaining});
+      return order.remaining > 0;
+    });
+    return fills;
+  }
+
+  function cancelLimit(account, id) {
+    const index = account.pending.findIndex(order => order.id === id);
+    return index < 0 ? null : account.pending.splice(index, 1)[0];
   }
 
   function equity(market, account) {
     return account.cash + market.stocks.reduce((total, stock) => total + stock.price * account.positions[stock.index].qty, 0);
   }
 
-  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket, createAccount, quoteOrder, maxOrder, executeOrder, equity};
+  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket,
+    createAccount, quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit,
+    matchPending, cancelLimit, equity};
 }());
 
