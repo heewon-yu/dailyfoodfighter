@@ -78,6 +78,7 @@ class SoundEngine {
   // Melodic Lead Synth Note
   scheduleLeadNote(freq, time, duration, timbre = 'saw') {
     if (!this.ctx || time < this.ctx.currentTime - 0.1) return;
+    const safeFreq = (typeof freq === 'number' && isFinite(freq)) ? freq : 440.0;
     const osc1 = this.ctx.createOscillator();
     const osc2 = this.ctx.createOscillator();
     const filter = this.ctx.createBiquadFilter();
@@ -85,8 +86,8 @@ class SoundEngine {
 
     osc1.type = timbre === 'square' ? 'square' : 'sawtooth';
     osc2.type = 'sawtooth';
-    osc1.frequency.setValueAtTime(freq, time);
-    osc2.frequency.setValueAtTime(freq * 1.004, time); // detune chorus
+    osc1.frequency.setValueAtTime(safeFreq, time);
+    osc2.frequency.setValueAtTime(safeFreq * 1.004, time); // detune chorus
 
     filter.type = 'lowpass';
     filter.frequency.setValueAtTime(1400, time);
@@ -114,11 +115,12 @@ class SoundEngine {
   // Bass Synth Note
   scheduleBassNote(freq, time, duration) {
     if (!this.ctx || time < this.ctx.currentTime - 0.1) return;
+    const safeFreq = (typeof freq === 'number' && isFinite(freq)) ? freq : 110.0;
     const osc = this.ctx.createOscillator();
     const gain = this.ctx.createGain();
 
     osc.type = 'triangle';
-    osc.frequency.setValueAtTime(freq, time);
+    osc.frequency.setValueAtTime(safeFreq, time);
 
     gain.gain.setValueAtTime(0.0001, time);
     gain.gain.linearRampToValueAtTime(0.24, time + 0.02);
@@ -226,13 +228,13 @@ class SoundEngine {
   }
 }
 
-// Frequency Constants
+// Full Chromatic Frequency Map (C2 ~ B6)
 const F = {
-  G2: 98.00, A2: 110.00, B2: 123.47,
-  C3: 130.81, D3: 146.83, E3: 164.81, F3: 174.61, G3: 196.00, Ab3: 207.65, A3: 220.00, Bb3: 233.08, B3: 246.94,
+  C2: 65.41, Cs2: 69.30, D2: 73.42, Eb2: 77.78, E2: 82.41, F2: 87.31, Fs2: 92.50, G2: 98.00, Ab2: 103.83, A2: 110.00, Bb2: 116.54, B2: 123.47,
+  C3: 130.81, Cs3: 138.59, D3: 146.83, Eb3: 155.56, E3: 164.81, F3: 174.61, Fs3: 185.00, G3: 196.00, Ab3: 207.65, A3: 220.00, Bb3: 233.08, B3: 246.94,
   C4: 261.63, Cs4: 277.18, D4: 293.66, Eb4: 311.13, E4: 329.63, F4: 349.23, Fs4: 369.99, G4: 392.00, Ab4: 415.30, A4: 440.00, Bb4: 466.16, B4: 493.88,
-  C5: 523.25, Cs5: 554.37, D5: 587.33, Eb5: 622.25, E5: 659.25, F5: 698.46, Fs5: 739.99, G5: 783.99, Ab5: 830.61, A5: 880.00, Bb5: 932.33, B5: 987.77,
-  C6: 1046.50, D6: 1174.66, E6: 1318.51, F6: 1396.91, G6: 1567.98, A6: 1760.00
+  C5: 523.25, Cs5: 554.37, D5: 587.33, Eb5: 622.25, E5: 659.26, F5: 698.46, Fs5: 739.99, G5: 783.99, Ab5: 830.61, A5: 880.00, Bb5: 932.33, B5: 987.77,
+  C6: 1046.50, Cs6: 1108.73, D6: 1174.66, Eb6: 1244.51, E6: 1318.51, F6: 1396.91, Fs6: 1479.98, G6: 1567.98, Ab6: 1661.22, A6: 1760.00, Bb6: 1864.66, B6: 1975.53
 };
 
 // 10 Songs Definitions
