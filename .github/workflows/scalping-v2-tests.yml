@@ -1,0 +1,30 @@
+name: Scalping King v2 foundation tests
+on:
+  push:
+    branches:
+      - feature/scalping-king-v2-foundation
+    paths:
+      - 'games/scalping-king/risk-v2.js'
+      - 'games/scalping-king/risk-v2.test.cjs'
+      - 'games/scalping-king/microstructure-v2.js'
+      - 'games/scalping-king/microstructure-v2.test.cjs'
+      - '.github/workflows/scalping-v2-tests.yml'
+  pull_request:
+    paths:
+      - 'games/scalping-king/**'
+      - '.github/workflows/scalping-v2-tests.yml'
+permissions:
+  contents: read
+jobs:
+  node-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Risk and accounting
+        run: node games/scalping-king/risk-v2.test.cjs
+      - name: Persistent order book and VI
+        run: node games/scalping-king/microstructure-v2.test.cjs
