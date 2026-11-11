@@ -371,8 +371,8 @@
       button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
     }
     if (testTools) {
-      $('rewardHint').textContent = account.everFilledCreditBuy ? '테스트 모드 · 광고 없이 이용 가능' :
-        '테스트 모드 · 긴급자금대출은 신용매수 체결 후 이용 가능';
+      $('rewardHint').textContent = account.everFilledCreditBuy ? '광고 없이 이용 가능' :
+        '긴급자금대출은 신용매수 체결 후 이용 가능';
       return;
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
