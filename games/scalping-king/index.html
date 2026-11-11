@@ -7,10 +7,15 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261110-08">
-  <script defer src="./market.js?v=20261110-09"></script>
+  <link rel="stylesheet" href="./style.css?v=20261111-v2">
+  <script defer src="./risk-v2.js?v=20261111-v2"></script>
+  <script defer src="./microstructure-v2.js?v=20261111-v2"></script>
+  <script defer src="./ledger-v2.js?v=20261111-v2"></script>
+  <script defer src="./engine-v2.js?v=20261111-v2"></script>
+  <script defer src="./reward-v2.js?v=20261111-v2"></script>
+  <script defer src="./market.js?v=20261111-v2"></script>
   <script defer src="./chart.js?v=20261110-07"></script>
-  <script defer src="./game.js?v=20261110-08"></script>
+  <script defer src="./game.js?v=20261111-v2"></script>
 </head>
 <body>
   <header class="topbar">
@@ -30,7 +35,7 @@
         <h2>시장 탐색 <span id="listCount">10</span></h2>
         <label class="search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="5.5"/><path d="m15 15 5 5"/></svg><input id="search" type="search" placeholder="종목명 · 업종 검색" aria-label="종목명 또는 업종 검색"></label>
       </div>
-      <div class="sort-bar"><label for="sort">종목 정렬</label><select id="sort"><option value="default">기본 순서</option><option value="surge">최근 10초 급등</option><option value="drop">최근 10초 급락</option><option value="volume">거래량 순</option></select></div>
+      <div class="sort-bar"><label for="sort">종목 정렬</label><select id="sort"><option value="default">기본 순서</option><option value="surge">최근 10초 급등</option><option value="drop">최근 10초 급락</option><option value="rise">상승률 순</option><option value="fall">하락률 순</option><option value="volume">거래량 순</option><option value="value">거래대금 순</option><option value="strength">체결강도 순</option></select></div>
       <div class="stock-labels"><span>종목</span><span>현재가 / 등락률</span></div>
       <div id="watchlist" class="watchlist"></div>
       <div class="sidebar-foot"><span class="mini-dot"></span><span>장중에도 종목을 바꿀 수 있어요.</span></div>
@@ -64,10 +69,19 @@
         </div>
       </section>
       <section class="metrics" aria-label="계좌 요약">
-        <div class="panel metric"><span>총 평가자산</span><strong id="equity">100,000,000<small> 원</small></strong></div>
+        <div class="panel metric"><span>순자산</span><strong id="equity">100,000,000<small> 원</small></strong></div>
         <div class="panel metric"><span>주문 가능 현금</span><strong id="cash">100,000,000<small> 원</small></strong></div>
         <div class="panel metric"><span>총 수익률</span><strong id="returnRate">0.00<small>%</small></strong></div>
         <div class="panel metric"><span>나의 최고 수익률</span><strong id="best">—</strong></div>
+        <section class="panel risk-bar" aria-label="신용 및 담보 상태">
+          <div><span>신용채무</span><strong id="creditDebt">0원</strong></div>
+          <div><span>인정 담보자산</span><strong id="collateralAssets">100,000,000원</strong></div>
+          <div><span>담보비율</span><strong id="collateralRatio">—</strong></div>
+          <div><span>반대매매 위험</span><strong id="marginState">정상</strong></div>
+          <div><span>긴급자금 채무 · 상환</span><strong id="emergencyDebt">0원 · 0원</strong></div>
+          <label><input id="warningSound" type="checkbox" checked> 경고음</label>
+          <div class="risk-notice" id="riskNotice" role="status" hidden></div>
+        </section>
       </section>
       <div id="market" class="desk">
         <section class="panel chart-panel" aria-labelledby="stockTitle">
@@ -92,6 +106,8 @@
           <div class="chart-stats">
             <div><span>기준가</span><strong id="reference"></strong></div><div><span>고가</span><strong id="high"></strong></div><div><span>저가</span><strong id="low"></strong></div><div><span>거래량</span><strong id="volume"></strong></div>
           </div>
+          <div class="quote-stats"><span id="quoteBand"></span><span id="quoteValue"></span><span id="quoteStrength"></span><span id="quoteAggression"></span></div>
+          <p class="halt-notice" id="stockHalt" role="status" hidden></p>
           <details class="company" open><summary>기업 정보 <span id="volatility"></span></summary><p id="company"></p></details>
         </section>
         <section class="panel depth-panel" aria-labelledby="depthTitle">
@@ -133,6 +149,12 @@
             <dl class="estimate"><div><dt id="buyLabel">매수 예상 결제</dt><dd id="estimateBuy"></dd></div><div><dt id="sellLabel">매도 예상 정산</dt><dd id="estimateSell"></dd></div><div><dt>매도 가능 / 보유</dt><dd id="held"></dd></div></dl>
             <div class="trade-buttons"><button id="buy" type="button" disabled>매수</button><button id="sell" type="button" disabled>매도</button></div>
             <div id="feedback" class="feedback" role="status">거래를 시작하면 주문할 수 있어요.</div>
+            <div class="advanced-tools">
+              <button type="button" id="creditTool">신용매수</button>
+              <button type="button" id="emergencyTool">긴급자금</button>
+              <button type="button" id="stopTool">로스컷</button>
+            </div>
+            <p class="tool-hint" id="rewardHint"></p>
             <button id="pendingJump" class="pending-jump" type="button">미체결 0건 ↓</button>
           </div>
         </section>
@@ -157,7 +179,7 @@
         </section>
       </div>
       </div>
-      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button><button id="jumpPause" type="button" hidden>일시정지</button><button id="jumpRestart" type="button" hidden>다시하기</button></nav>
+      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><span id="mobileTimer" aria-hidden="true">05:00</span><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button><button id="jumpPause" type="button" hidden>일시정지</button><button id="jumpRestart" type="button" hidden>다시하기</button></nav>
       <footer>created by 16100901</footer>
     </div>
   </main>
@@ -168,8 +190,10 @@
       <li><strong>개장 전 관심 종목 고르기</strong><p>판마다 가상 기업 30개 중 10개가 열려요. 기업 정보와 사전 뉴스를 살펴보세요. 기준가는 1만~5만 원에서 정해져요.</p></li>
       <li><strong>1억으로 5분 거래하기</strong><p>장전 뉴스는 종목별 후보 8~9개 중 하나가 나오고, 연속해서 등장한 종목은 다음 판에 다른 뉴스가 나와요. 장중에는 종목마다 속보가 1~5건 나오고, 가격과 거래량에 영향을 줘요. 1·5·10·20초봉을 전환하고 호가 잔량을 확인하세요.</p></li>
       <li><strong>시장가 또는 지정가로 주문하기</strong><p>지정가는 입력한 가격 또는 더 유리한 호가에서 체결돼요. 미체결 잔량은 주문 내역에서 정정하거나 취소할 수 있고, 마감하면 자동 취소돼요. 수수료는 0.05%예요. 비율 버튼은 누를 때마다 합산돼요. 매수는 주문 가능 현금, 매도는 매도 가능 수량 기준이며 최대 100%까지 선택할 수 있어요.</p></li>
+      <li><strong>VI와 가격제한폭</strong><p>VI가 발동하면 해당 종목의 주문·정정·취소·체결이 10초간 정지돼요. 다른 종목은 계속 거래할 수 있어요. 상·하한가는 기준가 대비 ±30% 범위에서 호가단위에 맞춰 적용해요.</p></li>
+      <li><strong>신용과 자동 매도</strong><p>보상형 광고로 기능별 잠금을 해제할 수 있어요. 담보는 계좌 내 주식 평가액과 현금에서 긴급자금 채무를 뺀 금액이에요. 신용채무 대비 담보비율이 150% 미만으로 30초간 유지되면 반대매매를 제출해요.</p></li>
       <li><strong>잠깐 쉬거나 다시 시작하기</strong><p>일시정지하면 타이머와 장세가 멈춰요. 거래 재개를 누르면 남은 시간이 이어지고, 다시하기를 누르면 새 장세가 즉시 시작돼요.</p></li>
-      <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액으로 최종 수익률을 계산해요. 결과 공유하기를 누르면 기기의 공유 메뉴에서 성적표 이미지를 보낼 수 있어요.</p></li>
+      <li><strong>성적표 공유하기</strong><p>마감 후 현금과 보유 주식의 종가 평가액에서 신용 및 긴급자금 채무를 빼 최종 수익률을 계산해요. 결과 공유하기를 누르면 기기의 공유 메뉴에서 성적표 이미지를 보낼 수 있어요.</p></li>
     </ol>
     <form method="dialog"><button class="gold modal-primary">시장 살펴보기</button></form>
   </dialog>
@@ -184,6 +208,22 @@
       <p id="amendFeedback" class="feedback" role="status"></p>
       <button type="submit" class="gold modal-primary">정정 주문</button>
     </form>
+  </dialog>
+  <dialog id="creditDialog" class="modal">
+    <form method="dialog" class="modal-close"><button type="submit" aria-label="닫기">×</button></form>
+    <h2>신용매수</h2><p>1억원 기준 총 투자 목표를 설정하세요. 기존 보유와 미체결 예약 금액을 포함합니다.</p>
+    <div class="credit-inputs"><label for="creditRange">투자비율 <input id="creditRange" type="range" min="0" max="300" step="10" value="150"></label>
+      <label for="creditPercent"><input id="creditPercent" type="number" min="0" max="300" step="10" value="150" inputmode="numeric"> %</label></div>
+    <dl id="creditDetails" class="credit-details"></dl>
+    <button type="button" id="creditConfirm" class="gold">매수 확정</button>
+    <p id="creditFeedback" class="feedback" role="status"></p>
+  </dialog>
+  <dialog id="stopDialog" class="modal">
+    <form method="dialog" class="modal-close"><button type="submit" aria-label="닫기">×</button></form>
+    <h2>로스컷</h2><p>평균 매입가 대비 손실률에 도달하면 하한가 지정가 매도를 제출합니다. 실제 체결가는 상대 호가에 따라 달라집니다.</p>
+    <p id="stopStock"></p>
+    <label for="stopPercent">손실률 <input id="stopPercent" type="number" min="-99" max="-.1" step=".1" value="-3" inputmode="decimal"> %</label>
+    <div class="advanced-tools"><button type="button" id="stopSave" class="gold">적용</button><button type="button" id="stopClear">해제</button></div>
   </dialog>
   <dialog id="result" class="modal result-modal">
     <div class="modal-head"><div><div class="eyebrow">FINAL SCORE</div><h2>장 마감 성적표</h2></div><form method="dialog"><button class="subtle" aria-label="성적표 닫기">✕</button></form></div>

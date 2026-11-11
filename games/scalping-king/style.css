@@ -405,3 +405,83 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .chart-heading .segments button{padding-inline:5px}
 }
 
+
+/* Account risk and order flow */
+.risk-bar {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) auto;
+  align-items: center;
+  gap: .65rem;
+  padding: .65rem .8rem;
+  font-variant-numeric: tabular-nums;
+}
+.risk-bar > div { min-width: 0; }
+.risk-bar span, .risk-bar label, .quote-stats, .tool-hint {
+  color: #4e6076;
+  font-size: .75rem;
+}
+.risk-bar strong { display: block; margin-top: .12rem; font-size: .85rem; }
+.risk-bar label { white-space: nowrap; }
+.risk-notice, .halt-notice {
+  background: #fffbeb;
+  border: 1px solid #f4d487;
+  color: #744508;
+  padding: .55rem .75rem;
+  border-radius: .5rem;
+  font-size: .8rem;
+  margin: 0 0 .65rem;
+}
+.risk-notice { grid-column: 1 / -1; margin: 0; }
+.halt-notice { margin: .3rem .65rem .65rem; }
+.quote-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  padding: .55rem .75rem;
+  gap: .3rem .55rem;
+  font-variant-numeric: tabular-nums;
+}
+.advanced-tools { display: flex; flex-wrap: wrap; gap: .4rem; }
+.advanced-tools button {
+  flex: 1 0 auto;
+  min-height: 36px;
+  padding: .35rem .55rem;
+  border: 1px solid #d9e2ef;
+  border-radius: .45rem;
+  background: #f4f7fb;
+  color: #17263d;
+  font-weight: 700;
+}
+.advanced-tools .gold { background: #fbbf24; }
+.advanced-tools button:disabled { color: #53647a; opacity: .82; }
+.tool-hint { margin: .3rem 0 .55rem; }
+.credit-inputs { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: .7rem; }
+.credit-inputs input[type="range"] { display: block; width: 100%; min-height: 34px; accent-color: #0f766e; }
+.credit-inputs input[type="number"], #stopPercent { width: 5em; padding: .45em; border: 1px solid #c9d6e4; border-radius: .4rem; }
+.credit-details { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem .8rem; }
+.credit-details div { border-top: 1px solid #e1e8f1; padding-top: .4rem; }
+.credit-details dt { color: #526278; font-size: .75rem; }
+.credit-details dd { margin: .18rem 0 0; font-weight: 700; }
+.modal-close { float: right; }
+.modal-close button { min-width: 36px; min-height: 36px; border: 1px solid #d9e2ef; border-radius: .4rem; }
+#stopDialog .advanced-tools { margin-top: .8rem; }
+#creditDialog, #stopDialog, #result { max-height: min(90dvh, 780px); overflow-y: auto; }
+#creditConfirm { min-height: 42px; }
+#creditConfirm:disabled { opacity: .5; }
+#mobileTimer { align-self: center; font-weight: 800; font-size: .74rem; color: #0f172a; font-variant-numeric: tabular-nums; }
+.watchlist [data-rank]:not([data-rank=""])::after {
+  content: attr(data-rank);
+  align-self: center;
+  font-size: .65rem;
+  font-variant-numeric: tabular-nums;
+  color: #55667d;
+}
+@media (max-width: 810px) {
+  .risk-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .45rem .6rem; }
+  .risk-bar label { align-self: end; }
+  .advanced-tools button { min-height: 42px; }
+}
+@media (max-width: 385px) {
+  .quote-stats { grid-template-columns: 1fr; }
+  #mobileTimer { font-size: .65rem; }
+}

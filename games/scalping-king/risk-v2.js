@@ -1,5 +1,4 @@
-/* Scalping King v2: isolated accounting and risk rules.
- * Pure functions only: never modifies the live game until integration is reviewed.
+/* Scalping King v2: accounting and risk rules.
  */
 (function (root, factory) {
   const api = factory();
@@ -31,7 +30,7 @@
       emergencyDebt: 0,
       emergencyUsed: false,
       everFilledCreditBuy: false,
-      creditPositions: {},
+      emergencyRepaid: 0,
       fees: 0,
     };
   }
@@ -124,6 +123,7 @@
         cash: ledger.cash + netProceeds - creditRepayment - emergencyRepayment,
         creditDebt: ledger.creditDebt - creditRepayment,
         emergencyDebt: ledger.emergencyDebt - emergencyRepayment,
+        emergencyRepaid: (ledger.emergencyRepaid ?? 0) + emergencyRepayment,
       },
       creditRepayment,
       emergencyRepayment,
@@ -135,8 +135,8 @@
     finiteNonnegative(reference, 'reference');
     if (!(reference > 0) || !Number.isFinite(proposed)) throw new RangeError('invalid price');
     if (!Number.isInteger(tickSize) || tickSize < 1) throw new RangeError('invalid tick size');
-    const floor = Math.ceil(reference * 0.7 / tickSize) * tickSize;
-    const ceiling = Math.floor(reference * 1.3 / tickSize) * tickSize;
+    const floor = Math.ceil(reference * 70 / (100 * tickSize)) * tickSize;
+    const ceiling = Math.floor(reference * 130 / (100 * tickSize)) * tickSize;
     return Math.min(ceiling, Math.max(floor, Math.round(proposed / tickSize) * tickSize));
   }
 

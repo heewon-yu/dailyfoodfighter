@@ -1,5 +1,4 @@
 /* Scalping King v2 isolated persistent order-book prototype.
- * Integration into the active 5-minute game is intentionally separate.
  * Both NPC and player orders follow the same price-time matching rules.
  */
 (function (root, factory) {
@@ -19,8 +18,8 @@
   };
   function band(reference, tick = 50) {
     integer(reference, 'reference'); integer(tick, 'tick');
-    return { lower: Math.ceil(reference * 0.7 / tick) * tick,
-      upper: Math.floor(reference * 1.3 / tick) * tick };
+    return { lower: Math.ceil(reference * 70 / (100 * tick)) * tick,
+      upper: Math.floor(reference * 130 / (100 * tick)) * tick };
   }
   function createBook(reference, tick = 50) {
     const limits = band(reference, tick);
@@ -49,7 +48,7 @@
     queue.push(order);
     queue.sort((a,b) => (side === 'buy' ? b.price - a.price : a.price - b.price) || a.seq - b.seq);
   }
-  function submit(book, input, gameSecond = 0) {
+  function submit(book, input, gameSecond = 0, onFill, allowMaker) {
     const {side, qty, price = null, owner = 'npc'} = input;
     sideKey(side); integer(qty, 'qty');
     if (!Number.isFinite(gameSecond) || gameSecond < 0) throw new RangeError('invalid gameSecond');
@@ -59,10 +58,19 @@
     const current = {id, owner, side, price, qty, remaining:qty, seq:book.seq++};
     const opposite = side === 'buy' ? book.asks : book.bids;
     const fills = [];
+    let selfBlocked = false;
     while (current.remaining && opposite.length) {
       const resting = opposite[0];
       if (price !== null && (side === 'buy' ? price < resting.price : price > resting.price)) break;
+      if (owner !== 'npc' && owner === resting.owner) {
+        selfBlocked = true;
+        break;
+      }
       const units = Math.min(current.remaining, resting.remaining);
+      if (allowMaker && !allowMaker(resting, units)) {
+        opposite.shift();
+        continue;
+      }
       current.remaining -= units;
       resting.remaining -= units;
       const trade = {price:resting.price, qty:units, buyer:side==='buy'?owner:resting.owner,
@@ -76,10 +84,12 @@
       if (side === 'buy') book.aggressiveBuyVolume += units;
       else book.aggressiveSellVolume += units;
       if (!resting.remaining) opposite.shift();
+      onFill?.(trade);
     }
-    if (current.remaining && price !== null) append(book[sideKey(side)], current, side);
-    return {id, fills, filled:qty-current.remaining, remaining:current.remaining,
-      status:!current.remaining?'filled':price===null?'unfilled':current.remaining===qty?'pending':'partial'};
+    const resting = Boolean(current.remaining && price !== null && !selfBlocked);
+    if (resting) append(book[sideKey(side)], current, side);
+    return {id, fills, resting, filled:qty-current.remaining, remaining:current.remaining,
+      status:!current.remaining?'filled':!resting?'unfilled':current.remaining===qty?'pending':'partial'};
   }
   function cancel(book, id, gameSecond = 0) {
     if (isHalted(book, gameSecond)) return {error:'VI_HALT'};

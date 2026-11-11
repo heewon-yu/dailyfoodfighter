@@ -1,5 +1,7 @@
 # Scalping King v2 — Codex implementation handoff (2026-11-11)
 
+The following handoff records the foundation branch before integration. See the implementation and test commands at the end.
+
 ## Status and safety
 - Production: https://dailyfoodfighter.com/games/scalping-king/
 - Repo: heewon-yu/dailyfoodfighter; production branch `main` NOT modified.
@@ -64,3 +66,19 @@ This document is a real code-source-based handoff; it is NOT a claim of complete
 - Attempted to fetch code into the local Node runtime, but outbound raw.githubusercontent.com DNS was unavailable. Do not label tests as passed without inspecting workflow execution/logs.
 - Microstructure API currently uses a simplified fixed 50 KRW tick. It does not implement cash/debt/account reservations or cancel/replace depth events from a full market participant agent; these MUST be built and integrated before release.
 - Existing `main` / public website is unchanged. All new sources should remain excluded from production until a full tested migration.
+
+## Integrated game
+
+- The shared order book matches player and simulated participants by price and time. Replace orders lose their time priority. The tape, current price, live candles, volume, value and aggression counters are derived from the same fills.
+- The game uses a fixed tick per stock session, 50 won below a 50,000 won reference and 100 won at that reference. A 10-second VI starts after the triggering incoming order finishes matching, with a further 25-second cooldown. Rolling anchors are refreshed at the start of 3-second and 20-second windows.
+- Credit targets use the position basis plus open buy reservations. Fees are reserved, available own cash is used first, and pending credit orders are checked again before matching.
+- Collateral is shared across positions. Eligible collateral is marked holdings plus cash less the outstanding emergency loan, floored at zero. The common collateral ratio drives risk for all credit holdings. Ordinary sales allocate cash-funded shares first, and forced sales target credit-funded shares. Unpaid credit principal survives the sale.
+- The browser uses one simulation clock. Manual pause, rewarded ads and background tabs freeze all market timers. A background pause resumes on return to the tab.
+- A web or future native ad adapter may set window.scalpRewardProvider with isAvailable(feature) and show({feature, signal, onReward}). show resolves to completed after the ad closes or canceled if abandoned. Unlocks require the provider reward callback and completed outcome for the same round. Dispatch scalp-reward-availability when readiness changes. The deployed page includes no provider and keeps the three features locked.
+
+## Repeatable checks
+
+- node games/scalping-king/risk-v2.test.cjs
+- node games/scalping-king/microstructure-v2.test.cjs
+- node games/scalping-king/integration-v2.test.cjs
+- Install playwright-core and its Chromium, then run node games/scalping-king/browser-v2.test.cjs. Set SCALPING_TEST_URL to smoke-test a deployed copy. The test supplies its own ad callbacks inside the browser context.

@@ -38,7 +38,7 @@ assert.equal(m.submit(vi,{side:'buy',qty:5,price:10100},23).error,'VI_HALT');
 assert.equal(m.cancel(vi,1,25).error,'VI_HALT');
 assert.equal(m.submit(vi,{side:'buy',qty:5,price:10100},32).filled,5);
 assert.equal(vi.volume,5);
-assert.equal(m.submit(vi,{side:'buy',qty:1,price:14000}).error,'PRICE_BAND');
+assert.equal(m.submit(vi,{side:'buy',qty:1,price:14000},32).error,'PRICE_BAND');
 assert.equal(m.strength(vi),Infinity);
 assert.equal(m.disclosure('new_contract',0).direction,1);
 assert.throws(()=>m.disclosure('trading_halt',0),RangeError);

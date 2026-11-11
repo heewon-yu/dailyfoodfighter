@@ -1,9 +1,13 @@
 (function () {
   'use strict';
 
-  const {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket, createAccount,
-    quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit, matchPending,
-    amendLimit, cancelLimit, expirePending, equity} = ScalpMarket;
+  const {CASH, DURATION, INTERVAL, TOTAL_TICKS, createMarket, stepMarket, createAccount,
+    quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit,
+    amendLimit, cancelLimit, expirePending, equity, isHalted, priceStatus, executeCredit, creditQuote, notify} = ScalpMarket;
+  const risk = ScalpRisk;
+  const ledger = ScalpLedger;
+  const strength = stock => ScalpMicrostructure.strength(stock.depth);
+  const ratioText = value => value === Infinity ? '—' : value.toFixed(1) + '%';
   const {drawChart, timeText} = ScalpChart;
   const $ = id => document.getElementById(id);
   const fmt = new Intl.NumberFormat('ko-KR', {maximumFractionDigits: 0});
@@ -14,6 +18,7 @@
   const tone = value => value > 0 ? 'up' : value < 0 ? 'down' : '';
   const newsLabel = item => {
     const sentiment = item.direction > 0 ? '호재' : item.direction < 0 ? '악재' : '';
+    if (item.type) return '공시 · ' + item.label;
     return item.time ? sentiment : '개장 전' + (sentiment ? ' · ' + sentiment : '');
   };
   const delta = stock => (stock.price / stock.reference - 1) * 100;
@@ -56,7 +61,10 @@
   let startedAt = 0;
   let pausedAt = 0;
   let loop = 0;
-  let bookStep = 0;
+  let adController = null;
+  let pauseReason = null;
+  let audio = null;
+  let latestNotice = null;
   let chartMode = '10';
   let newsMode = 'all';
   let orderType = 'market';
@@ -121,7 +129,11 @@
     if (phase !== 'ready') {
       if (sort === 'surge') stocks.sort((a, b) => change10(b) - change10(a));
       if (sort === 'drop') stocks.sort((a, b) => change10(a) - change10(b));
+      if (sort === 'rise') stocks.sort((a, b) => delta(b) - delta(a));
+      if (sort === 'fall') stocks.sort((a, b) => delta(a) - delta(b));
       if (sort === 'volume') stocks.sort((a, b) => b.volume - a.volume);
+      if (sort === 'value') stocks.sort((a, b) => b.depth.value - a.depth.value);
+      if (sort === 'strength') stocks.sort((a, b) => (strength(b) ?? -1) - (strength(a) ?? -1));
     }
     const key = stocks.map(stock => stock.index).join(',') || '-';
     if (key !== watchKey) {
@@ -132,14 +144,16 @@
       $('listCount').textContent = stocks.length;
       watchKey = key;
     }
-    stocks.forEach(stock => {
+    stocks.forEach((stock, rank) => {
       const button = stockButtons[stock.index];
       const period = phase !== 'ready' && (sort === 'surge' || sort === 'drop') ? change10(stock) : delta(stock);
       const [price, rate] = button.lastElementChild.children;
       button.setAttribute('aria-pressed', String(stock.index === selected));
+      button.dataset.rank = sort === 'default' ? '' : String(rank + 1);
       price.textContent = num(stock.price);
       price.className = tone(delta(stock));
-      rate.textContent = pct(period);
+      const status = isHalted(stock) ? 'VI' : priceStatus(stock);
+      rate.textContent = (status ? status + ' · ' : '') + pct(period);
       rate.className = tone(period);
     });
   }
@@ -153,7 +167,7 @@
     $('returnRate').textContent = pct(profit / CASH * 100);
     $('best').textContent = best === null ? '—' : pct(best);
     $('best').className = best === null ? '' : tone(best);
-    const unrealized = profit - account.realized;
+    const unrealized = ledger.markedValue(market.stocks, account) - account.positions.reduce((sum, position) => sum + position.cost, 0);
     $('positionCount').textContent = account.positions.filter(position => position.qty).length + '개';
     $('unrealized').textContent = signed(unrealized) + '원';
     $('unrealized').className = tone(unrealized);
@@ -162,16 +176,15 @@
   }
 
   function renderClock() {
-    const now = phase === 'paused' ? pausedAt : performance.now();
-    const remaining = phase === 'done' ? 0 : phase === 'ready' ? DURATION :
-      Math.max(0, Math.ceil(DURATION - (now - startedAt) / 1000));
+    const remaining = Math.max(0, Math.ceil(DURATION - market.time));
     $('timer').textContent = String(Math.floor(remaining / 60)).padStart(2, '0') + ':' + String(remaining % 60).padStart(2, '0');
     $('timer').classList.toggle('urgent', phase === 'live' && remaining <= 30);
     $('timerBar').style.width = remaining / DURATION * 100 + '%';
+    $('mobileTimer').textContent = $('timer').textContent;
   }
 
   function renderPhase() {
-    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: '일시정지', done: '장 마감'}[phase];
+    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: pauseReason === 'ad' ? '광고 시청 중' : '일시정지', done: '장 마감'}[phase];
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
@@ -180,12 +193,12 @@
     $('startNextRound').hidden = !result;
     for (const id of ['pause', 'jumpPause']) {
       $(id).hidden = !inSession;
+      $(id).disabled = Boolean(adController);
       $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
     }
-    $('restart').hidden = !inSession;
-    $('jumpRestart').hidden = phase !== 'paused';
-    $('buy').disabled = phase !== 'live';
-    $('sell').disabled = phase !== 'live';
+    $('restart').hidden = !inSession || Boolean(adController);
+    $('jumpRestart').hidden = phase !== 'paused' || Boolean(adController);
+    renderOrderAvailability();
     renderClock();
   }
 
@@ -214,6 +227,17 @@
     $('high').textContent = num(stock.high);
     $('low').textContent = num(stock.low);
     $('volume').textContent = num(stock.volume) + '주';
+    const depth = stock.depth;
+    $('quoteBand').textContent = '하한 ' + num(depth.limits.lower) + ' · 상한 ' + num(depth.limits.upper);
+    $('quoteValue').textContent = '거래대금 ' + money(depth.value);
+    const power = strength(stock);
+    $('quoteStrength').textContent = '체결강도 ' + (power === Infinity ? '∞' : power === null ? '—' : power.toFixed(1) + '%');
+    $('quoteAggression').textContent = '매수 주도 ' + num(depth.aggressiveBuyVolume) + '주 · 매도 주도 ' + num(depth.aggressiveSellVolume) + '주';
+    $('stockHalt').hidden = !isHalted(stock);
+    if (isHalted(stock)) $('stockHalt').textContent = 'VI 거래정지 · 재개까지 ' + Math.ceil(depth.haltedUntil - market.time) + '초';
+    orderPrice.min = String(depth.limits.lower);
+    orderPrice.max = String(depth.limits.upper);
+    orderPrice.step = String(depth.tick);
     $('company').textContent = stock.description + ' 개장 전 뉴스: ' + stock.preview;
     $('volatility').textContent = '변동성 ' + (stock.volatility >= 1.2 ? '높음' : stock.volatility >= .9 ? '보통' : '낮음');
     $('orderStock').textContent = stock.name + ' · 현재가 ' + money(stock.price);
@@ -224,8 +248,16 @@
     const {asks, bids} = stock.book;
     const peak = Math.max(1, ...asks.map(level => level.qty), ...bids.map(level => level.qty));
     function updateRows(rows, levels) {
-      levels.forEach((level, index) => {
-        const {row, price, qty} = rows[index];
+      rows.forEach(({row, price, qty}, index) => {
+        const level = levels[index];
+        price.disabled = !level;
+        if (!level) {
+          row.style.setProperty('--size', '0%');
+          delete price.dataset.price;
+          price.textContent = qty.textContent = '—';
+          price.removeAttribute('aria-label');
+          return;
+        }
         row.style.setProperty('--size', Math.round(level.qty / peak * 79) + '%');
         if (price.dataset.price !== String(level.price)) {
           price.dataset.price = String(level.price);
@@ -241,10 +273,250 @@
     const insideBid = bids.find(level => level.qty > 0);
     const spread = insideAsk && insideBid ? money(insideAsk.price - insideBid.price) : '—';
     spreadRow.lastElementChild.textContent = spread;
-    $('tape').innerHTML = stock.ticks.slice(-4).reverse().map(bar =>
-      '<div class="tape-row"><span>' + timeText(bar.time) + '</span><span class="' + tone(bar.close - bar.open) + '">' +
-      num(bar.close) + '</span><span>' + num(bar.volume) + '주</span></div>').join('');
+    $('tape').innerHTML = stock.depth.trades.slice(-4).reverse().map(fill =>
+      '<div class="tape-row"><span>' + timeText(fill.time) + '</span><span class="' + (fill.aggressor === 'buy' ? 'up' : 'down') + '">' +
+      num(fill.price) + '</span><span>' + num(fill.qty) + '주</span></div>').join('') || '<div class="empty">체결 대기 중</div>';
   }
+
+  function renderOrderAvailability() {
+    const disabled = phase !== 'live' || isHalted(market.stocks[selected]);
+    $('buy').disabled = disabled;
+    $('sell').disabled = disabled;
+    $('start').disabled = Boolean(adController);
+  }
+
+  function setupAudio() {
+    if (!$('warningSound').checked) return;
+    const Audio = window.AudioContext || window.webkitAudioContext;
+    if (!Audio) return;
+    try {
+      audio ??= new Audio();
+      audio.resume().catch(() => {});
+    } catch { /* Visual warnings stay available. */ }
+  }
+
+  function playWarning() {
+    if (!$('warningSound').checked || audio?.state !== 'running') return;
+    const oscillator = audio.createOscillator();
+    const gain = audio.createGain();
+    const start = audio.currentTime;
+    oscillator.frequency.value = 760;
+    gain.gain.setValueAtTime(.08, start);
+    gain.gain.exponentialRampToValueAtTime(.001, start + .16);
+    oscillator.connect(gain).connect(audio.destination);
+    oscillator.start(start);
+    oscillator.stop(start + .16);
+  }
+
+  function renderRisk() {
+    const marginRatio = ledger.ratio(market, account);
+    $('creditDebt').textContent = money(account.creditDebt);
+    $('collateralRatio').textContent = ratioText(marginRatio);
+    $('collateralAssets').textContent = money(ledger.collateral(market, account));
+    $('emergencyDebt').textContent = money(account.emergencyDebt) + ' · ' + money(account.emergencyRepaid);
+    const margin = account.marginSince !== null;
+    const remaining = margin ? Math.max(0, Math.ceil(risk.LIQUIDATION_DELAY_SECONDS - (market.time - account.marginSince))) : null;
+    const activeLiquidation = account.pending.some(order => order.type === 'forced') || account.queued.includes('forced');
+    $('marginState').textContent = activeLiquidation ? '청산 대기' :
+      !margin ? '정상' : remaining ? '미달 · ' + remaining + '초' : '150% 미달';
+    $('marginState').className = margin || activeLiquidation ? 'up' : '';
+    const items = market.notices.filter(item => market.time - item.time < 5)
+      .sort((a, b) => Number(b.warning) - Number(a.warning)).slice(0, 3);
+    const newest = market.notices[0];
+    if (newest && newest !== latestNotice) {
+      const since = latestNotice ? market.notices.indexOf(latestNotice) : market.notices.length;
+      if (market.notices.slice(0, since < 0 ? 3 : since).some(item => item.warning)) playWarning();
+      latestNotice = newest;
+    }
+    const text = items.map(item => item.message).join('  ·  ');
+    const notice = $('riskNotice');
+    notice.hidden = !text;
+    if (notice.textContent !== text) notice.textContent = text;
+    renderRewardTools();
+    if ($('creditDialog').open) renderCredit();
+  }
+
+  const rewardTools = [
+    {key: 'credit', id: 'creditTool', label: '신용매수'},
+    {key: 'emergency', id: 'emergencyTool', label: '긴급자금'},
+    {key: 'stop', id: 'stopTool', label: '로스컷'},
+  ];
+
+  function renderRewardTools() {
+    const provider = window.scalpRewardProvider;
+    for (const {key, id, label} of rewardTools) {
+      const button = $(id);
+      const unlocked = account.unlocks[key];
+      const funded = key === 'emergency' && account.emergencyUsed;
+      const eligible = key !== 'emergency' || risk.canUseEmergency(account);
+      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+        (!unlocked && !ScalpReward.ready(provider, key));
+      button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
+    }
+    $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
+      !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
+        '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
+        account.everFilledCreditBuy ? '기능별 보상형 광고 1회 · 이번 판에만 적용' :
+          '긴급자금은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
+  }
+
+  function showCredit() {
+    $('creditFeedback').textContent = '';
+    $('creditDialog').showModal();
+    renderCredit();
+  }
+
+  function creditPercent() {
+    const value = $('creditPercent').valueAsNumber;
+    return Number.isInteger(value) && value >= 0 && value <= 300 && value % 10 === 0 ? value : null;
+  }
+
+  function renderCredit() {
+    const percent = creditPercent();
+    const stock = market.stocks[selected];
+    const limit = orderType === 'limit' ? orderPrice.valueAsNumber : undefined;
+    const plan = percent === null ? null : creditQuote(stock, account, percent, limit);
+    const items = [
+      ['종목 · 주문 방식', stock.name + (limit === undefined ? ' · 시장가' : ' · 지정가 ' + money(limit))],
+      ['현재 자기자본', money(equity(market, account))],
+      ['총 투자규모 목표', plan ? money(plan.target.total) : '—'],
+      ['신용매수 예정금액', plan ? money(plan.creditReserve) : '—'],
+      ['신용채무 잔액', money(account.creditDebt)],
+      ['남은 신용한도', money(risk.availableCredit(account, ledger.reserved(account, 'creditReserve')))],
+      ['예상 매수수량', plan ? num(plan.qty) + '주' : '—'],
+      ['예상 담보비율', plan ? ratioText(plan.expectedRatio) : '—'],
+      ['유지담보비율', '150%'],
+    ];
+    const html = items.map(([label, value]) => '<div><dt>' + label + '</dt><dd>' + value + '</dd></div>').join('');
+    if ($('creditDetails').innerHTML !== html) $('creditDetails').innerHTML = html;
+    $('creditConfirm').disabled = phase !== 'live' || !plan?.qty || Boolean(adController);
+    if (percent === null) $('creditFeedback').textContent = '0~300% 범위에서 10% 단위로 입력하세요.';
+    else if (phase === 'ready') $('creditFeedback').textContent = '거래를 시작한 뒤 매수를 확정할 수 있어요.';
+  }
+
+  function showStop() {
+    $('stopStock').textContent = market.stocks[selected].name + ' · ' + num(account.positions[selected].qty) + '주 보유';
+    $('stopPercent').value = String(account.stops[selected] ?? -3);
+    $('stopDialog').showModal();
+  }
+
+  async function unlock(key) {
+    if (adController || phase === 'done' || result) return;
+    if (account.unlocks[key]) {
+      if (key === 'credit') showCredit();
+      if (key === 'stop') showStop();
+      return;
+    }
+    if (key === 'emergency' && !risk.canUseEmergency(account)) return;
+    const provider = window.scalpRewardProvider;
+    if (!ScalpReward.ready(provider, key)) return;
+    const wasLive = phase === 'live';
+    if (wasLive) suspend('ad');
+    if (phase === 'done') return;
+    const controller = new AbortController();
+    const round = account;
+    adController = controller;
+    renderPhase();
+    renderRisk();
+    const earned = await ScalpReward.request(provider, key, controller.signal);
+    if (adController !== controller || account !== round) return;
+    adController = null;
+    if (earned) {
+      if (key === 'emergency') {
+        Object.assign(account, risk.issueEmergency(account));
+        notify(market, '긴급자금 5,000만원 지급 · 동일 금액 채무 기록');
+      }
+      account.unlocks[key] = true;
+      feedback(rewardTools.find(item => item.key === key).label + ' 기능을 사용할 수 있어요.', 'ok');
+    } else feedback('광고가 완료되지 않았어요. 기존 장세를 이어갑니다.', 'error');
+    if (wasLive) {
+      pauseReason = document.hidden ? 'background' : 'ad';
+      resume();
+    }
+    renderPhase();
+    render();
+    if (earned && key === 'credit') showCredit();
+    if (earned && key === 'stop') showStop();
+  }
+
+  function renderScoreDetails(details) {
+    if (!details) return;
+    const stockResult = stock => stock ? stock.name + ' · ' + signed(stock.profit) + '원' : '—';
+    const entries = [
+      ['최초 투자원금', money(details.initial)],
+      ['장중 최고 수익률', pct(details.bestRate)],
+      ['최대 낙폭', details.drawdown.toFixed(2) + '%'],
+      ['실현손익', signed(details.realized) + '원'],
+      ['평가손익', signed(details.unrealized) + '원'],
+      ['신용매수 사용액', money(details.creditUsed)],
+      ['신용채무 잔액', money(details.creditDebt)],
+      ['긴급자금 사용액', money(details.emergencyUsed)],
+      ['긴급자금 상환액', money(details.emergencyRepaid)],
+      ['긴급자금 잔여 채무', money(details.emergencyDebt)],
+      ['반대매매', details.forcedCount + '회'],
+      ['로스컷 발동', details.stopCount + '회'],
+      ['최고 수익 종목', stockResult(details.bestStock)],
+      ['최대 손실 종목', stockResult(details.worstStock)],
+    ];
+    const list = document.createElement('dl');
+    list.className = 'score-details';
+    for (const [label, value] of entries) {
+      const item = document.createElement('div');
+      const term = document.createElement('dt');
+      const description = document.createElement('dd');
+      term.textContent = label;
+      description.textContent = value;
+      item.append(term, description);
+      list.append(item);
+    }
+    $('score').append(list);
+  }
+
+  for (const {id, key} of rewardTools) $(id).addEventListener('click', () => unlock(key));
+  window.addEventListener('scalp-reward-availability', renderRewardTools);
+  $('warningSound').addEventListener('change', setupAudio);
+  $('creditRange').addEventListener('input', () => {
+    $('creditPercent').value = $('creditRange').value;
+    $('creditFeedback').textContent = '';
+    renderCredit();
+  });
+  $('creditPercent').addEventListener('input', () => {
+    const value = creditPercent();
+    if (value !== null) $('creditRange').value = String(value);
+    $('creditFeedback').textContent = '';
+    renderCredit();
+  });
+  $('creditConfirm').addEventListener('click', () => {
+    syncTime();
+    const percent = creditPercent();
+    if (phase !== 'live' || percent === null || adController) return;
+    const stock = market.stocks[selected];
+    const limit = orderType === 'limit' ? orderPrice.valueAsNumber : undefined;
+    const {error, trade: fill, order} = executeCredit(stock, account, percent, limit);
+    if (error) {
+      $('creditFeedback').textContent = error;
+      return;
+    }
+    $('creditDialog').close();
+    if (fill) showFill(fill, order.status === 'canceled' ? 0 : order.remaining);
+    else feedback(order.status === 'canceled' ? '본인 주문과 충돌해 취소됐어요.' : '신용 지정가 주문이 접수됐어요.');
+    render();
+  });
+  $('stopSave').addEventListener('click', () => {
+    if (phase === 'done' || !account.unlocks.stop || adController) return;
+    const field = $('stopPercent');
+    if (!field.checkValidity() || !Number.isFinite(field.valueAsNumber)) return field.reportValidity();
+    account.stops[selected] = field.valueAsNumber;
+    $('stopDialog').close();
+    feedback(market.stocks[selected].name + ' 로스컷 ' + account.stops[selected] + '% 적용', 'ok');
+    render();
+  });
+  $('stopClear').addEventListener('click', () => {
+    account.stops[selected] = null;
+    $('stopDialog').close();
+    feedback(market.stocks[selected].name + ' 로스컷 설정을 해제했어요.', 'ok');
+    render();
+  });
 
   function orderQuantity(stock, side) {
     if (!orderPercent) return orderQty.valueAsNumber;
@@ -304,7 +576,7 @@
       $('liveNews').hidden = false;
       $('liveNews').dataset.stock = stock.index;
       $('liveNews').className = 'live-news ' + tone(latest.direction);
-      $('liveNews').innerHTML = '<span class="tag ' + tone(latest.direction) + '">' + (latest.direction > 0 ? '속보 · 호재' : '속보 · 악재') +
+      $('liveNews').innerHTML = '<span class="tag ' + tone(latest.direction) + '">' + (latest.type ? newsLabel(latest) : '속보 · ' + newsLabel(latest)) +
         '</span><strong>' + stock.name + '</strong><span>' + latest.title + '</span>';
       $('newsUnread').hidden = lastSeenNews >= market.headlines.length;
     } else {
@@ -340,12 +612,15 @@
         '</span><div><button type="button" data-stock="' + index + '">' + stock.name +
         '</button><p>' + num(position.qty) + '주 · 평균 매입 ' + money(position.cost / position.qty) +
         (reserved ? ' · 매도 예약 ' + num(reserved) + '주' : '') +
+        (position.principal ? ' · 신용 ' + num(position.creditQty) + '주 · 신용 평단 ' + money(position.creditCost / position.creditQty) +
+          ' · 연결 채무 ' + money(position.principal) + ' · 공동담보 ' + ratioText(ledger.ratio(market, account)) : '') +
+        (account.stops[index] === null ? '' : ' · 로스컷 ' + account.stops[index] + '%') +
         '</p></div><strong class="' + tone(profit) + '">' + signed(profit) + '원</strong></div>';
     });
     const fills = account.trades.map(trade =>
       '<div class="account-row"><span class="tag ' + (trade.side === 'buy' ? 'up">매수' : 'down">매도') +
       '</span><div><button type="button" data-stock="' + trade.index + '">' + market.stocks[trade.index].name +
-      '</button><p>' + (trade.type === 'limit' ? '지정가' : '시장가') + ' · ' + num(trade.qty) + '주 × 평균 ' +
+      '</button><p>' + ({limit: '지정가', forced: '반대매매', stop: '로스컷'}[trade.type] || '시장가') + ' · ' + num(trade.qty) + '주 × 평균 ' +
       money(trade.average) + '</p></div><time>' + timeText(trade.time) + '</time></div>');
     const rows = accountMode === 'positions' ? positions : fills;
     const fallback = accountMode === 'positions' ? '보유 중인 종목이 없어요.' : '아직 체결된 주문이 없어요.';
@@ -362,7 +637,8 @@
 
   function pendingButtons(order) {
     const label = market.stocks[order.index].name + ' 지정가 주문 ' + order.id + '번 ';
-    const disabled = phase === 'live' ? '' : ' disabled';
+    if (order.type === 'forced' || order.type === 'stop') return '<small>' + (order.type === 'forced' ? '반대매매' : '로스컷') + '</small>';
+    const disabled = phase === 'live' && !isHalted(market.stocks[order.index]) ? '' : ' disabled';
     return '<button type="button" class="amend-order" data-amend="' + order.id + '" aria-label="' + label + '정정"' +
       disabled + '>정정</button><button type="button" class="cancel-order" data-cancel="' + order.id + '" aria-label="' +
       label + '취소"' + disabled + '>취소</button>';
@@ -372,7 +648,7 @@
     const count = account.pending.length;
     $('pendingJump').textContent = '미체결 ' + count + '건 ↓';
     const reserved = account.cash - availableCash(account);
-    $('reservedCash').textContent = '대기 ' + count + '건 · 예약 현금 ' + money(reserved);
+    $('reservedCash').textContent = '대기 ' + count + '건 · 예약 현금 ' + money(reserved) + ' · 예약 신용 ' + money(ledger.reserved(account, 'creditReserve'));
     const list = $('pending');
     const html = count ? account.pending.map(order => {
       const filled = order.qty - order.remaining;
@@ -399,6 +675,8 @@
     renderMetrics();
     renderAccount();
     renderPending();
+    renderOrderAvailability();
+    renderRisk();
   }
 
   function feedback(message, type = '') {
@@ -421,28 +699,16 @@
 
   function syncTime() {
     if (phase !== 'live') return;
-    const target = Math.min(TOTAL_TICKS * 2, Math.floor((performance.now() - startedAt) / BOOK_INTERVAL));
-    if (target > bookStep) {
-      const previousTick = market.tick;
-      let lastFill = null;
-      while (bookStep < target) {
-        bookStep += 1;
-        if (bookStep % 2) refreshBooks(market);
-        else stepMarket(market);
-        if (bookStep < TOTAL_TICKS * 2) {
-          lastFill = matchPending(market, account, bookStep * BOOK_INTERVAL / 1000).at(-1) ?? lastFill;
-        }
-      }
+    const target = Math.min(TOTAL_TICKS, Math.floor((performance.now() - startedAt) / INTERVAL));
+    if (market.tick < target) {
+      const last = account.trades[0];
+      while (market.tick < target) stepMarket(market, account);
       if (market.tick === TOTAL_TICKS) {
         finish();
         return;
       }
-      if (lastFill) showFill(lastFill.trade, lastFill.remaining);
-      if (lastFill || market.tick > previousTick) render();
-      else {
-        renderDepth(market.stocks[selected]);
-        renderEstimate();
-      }
+      if (account.trades[0] !== last) showFill(account.trades[0]);
+      render();
     }
     renderClock();
   }
@@ -450,7 +716,7 @@
   function start() {
     if (phase !== 'ready') return;
     startedAt = performance.now();
-    bookStep = 0;
+    setupAudio();
     phase = 'live';
     feedback('수량을 확인한 뒤 매수 또는 매도를 누르세요.');
     renderPhase();
@@ -458,27 +724,41 @@
     if (window.matchMedia('(max-width: 550px)').matches) $('market').scrollIntoView({block: 'start'});
   }
 
-  function togglePause() {
-    if (phase === 'live') {
-      syncTime();
-      if (phase !== 'live') return;
-      pausedAt = performance.now();
-      phase = 'paused';
-      clearInterval(loop);
-      feedback('거래를 재개하면 남은 시간과 미체결 주문이 이어져요.');
-    } else if (phase === 'paused') {
-      startedAt += performance.now() - pausedAt;
-      phase = 'live';
-      loop = window.setInterval(syncTime, 50);
-      feedback('거래를 재개했어요.');
-    } else return;
+  function suspend(reason) {
+    if (phase !== 'live') return;
+    syncTime();
+    if (phase !== 'live') return;
+    pausedAt = performance.now();
+    phase = 'paused';
+    pauseReason = reason;
+    clearInterval(loop);
     renderPhase();
-    renderPending();
-    if (accountMode === 'orders') renderAccount();
+    render();
+  }
+
+  function resume() {
+    if (phase !== 'paused' || adController || document.hidden) return;
+    startedAt += performance.now() - pausedAt;
+    phase = 'live';
+    pauseReason = null;
+    loop = window.setInterval(syncTime, 50);
+    renderPhase();
+    render();
+  }
+
+  function togglePause() {
+    if (adController) return;
+    if (phase === 'live') {
+      suspend('manual');
+      if (phase === 'paused') feedback('거래를 재개하면 남은 시간과 미체결 주문이 이어져요.');
+    } else if (phase === 'paused') {
+      resume();
+      if (phase === 'live') feedback('거래를 재개했어요.');
+    }
   }
 
   function showFill(fill, remaining = 0) {
-    const type = fill.type === 'limit' ? '지정가 ' : '';
+    const type = {limit: '지정가 ', forced: '반대매매 ', stop: '로스컷 '}[fill.type] || '';
     const side = fill.side === 'buy' ? '매수 ' : '매도 ';
     feedback(market.stocks[fill.index].name + ' ' + type + side + num(fill.qty) + '주 체결 · 평균 ' +
       money(fill.average) + (remaining ? ' · 남은 ' + num(remaining) + '주' : ''), 'ok');
@@ -490,22 +770,22 @@
     const stock = market.stocks[selected];
     const qty = orderQuantity(stock, side);
     if (orderPercent && orderType === 'limit' && !limitEstimate(1, orderPrice.valueAsNumber)) {
-      feedback('지정가를 50원 단위로 입력하세요.', 'error');
+      feedback('가격제한폭과 호가단위를 확인하세요.', 'error');
       return;
     }
     if (orderPercent && !qty) {
       feedback('선택한 비율로 주문 가능한 수량이 0주예요.', 'error');
       return;
     }
-    const time = bookStep * BOOK_INTERVAL / 1000;
     const {error, trade: fill, order} = orderType === 'limit' ?
-      placeLimit(stock, account, side, qty, orderPrice.valueAsNumber, time) : executeOrder(stock, account, side, qty, time);
+      placeLimit(stock, account, side, qty, orderPrice.valueAsNumber) : executeOrder(stock, account, side, qty);
     if (error) {
       feedback(error, 'error');
       return;
     }
     setOrderPercent(0);
-    if (fill) showFill(fill, order?.remaining);
+    if (fill) showFill(fill, order.status === 'canceled' ? 0 : order.remaining);
+    else if (order.status === 'canceled') feedback('본인 미체결 주문과 충돌해 잔량이 취소됐어요.', 'error');
     else feedback(stock.name + ' 지정가 ' + (side === 'buy' ? '매수 ' : '매도 ') + num(qty) + '주 접수 · 체결 대기', 'ok');
     render();
   }
@@ -515,6 +795,10 @@
     const name = market.stocks[order.index].name;
     $('amendContext').textContent = name + ' · ' + (order.side === 'buy' ? '매수' : '매도') +
       ' · 기존 지정가 ' + money(order.price) + ' · 남은 ' + num(order.remaining) + '주';
+    const {limits, tick} = market.stocks[order.index].depth;
+    $('amendPrice').min = String(limits.lower);
+    $('amendPrice').max = String(limits.upper);
+    $('amendPrice').step = String(tick);
     $('amendPrice').value = String(order.price);
     $('amendQty').value = String(order.remaining);
     $('amendFeedback').textContent = message;
@@ -547,7 +831,7 @@
       return;
     }
     const {error, order, trade: fill} = amendLimit(market, account, current.id, $('amendQty').valueAsNumber,
-      $('amendPrice').valueAsNumber, bookStep * BOOK_INTERVAL / 1000);
+      $('amendPrice').valueAsNumber);
     if (error) {
       $('amendFeedback').textContent = error;
       return;
@@ -562,7 +846,7 @@
   function finish() {
     phase = 'done';
     clearInterval(loop);
-    const expired = expirePending(account, DURATION);
+    const expired = expirePending(market, account);
     const total = equity(market, account);
     const profit = total - CASH;
     const rate = profit / CASH * 100;
@@ -571,22 +855,23 @@
       best = rate;
       try { localStorage.setItem(bestKey, String(best)); } catch { /* Per-session records still work. */ }
     }
-    result = {seed: market.seed, total, profit, rate, count: account.trades.length, fees: account.fees, record};
+    result = {seed: market.seed, total, profit, rate, count: account.trades.length, fees: account.fees, record, details: ledger.snapshot(market, account)};
     feedback(expired ? '장이 마감되어 미체결 ' + expired + '건이 자동 취소됐어요.' :
       '장이 마감됐어요. 최종 평가자산은 보유 종목을 종가로 계산했어요.');
     renderPhase();
     render();
     if ($('guide').open) $('guide').close();
-    if ($('amendDialog').open) $('amendDialog').close();
+    for (const id of ['amendDialog', 'creditDialog', 'stopDialog']) if ($(id).open) $(id).close();
     openResult();
   }
 
   function openResult() {
     const {seed, record, rate, total, profit, count, fees} = result;
     $('score').innerHTML = '<span>' + (record ? '개인 최고 기록' : '최종 수익률') + '</span><strong>' + pct(rate) +
-      '</strong><dl><div><dt>최종 평가자산</dt><dd>' + money(total) + '</dd></div><div><dt>총손익</dt><dd>' + signed(profit) +
+      '</strong><dl><div><dt>최종 순자산</dt><dd>' + money(total) + '</dd></div><div><dt>총손익</dt><dd>' + signed(profit) +
       '원</dd></div><div><dt>거래 횟수</dt><dd>' + count + '회</dd></div><div><dt>총수수료</dt><dd>' + money(fees) +
       '</dd></div><div><dt>장세 코드</dt><dd>' + code(seed) + '</dd></div></dl>';
+    renderScoreDetails(result.details);
     $('result').showModal();
     prepareScoreImage(result, code(seed));
   }
@@ -594,6 +879,9 @@
   function reset() {
     clearInterval(loop);
     $('result').close();
+    for (const id of ['creditDialog', 'stopDialog', 'amendDialog']) if ($(id).open) $(id).close();
+    pauseReason = null;
+    latestNotice = null;
     if (/^https?:$/.test(location.protocol)) {
       const url = new URL(location.href);
       url.searchParams.delete('seed');
@@ -630,7 +918,7 @@
   }
 
   function restartRound() {
-    if (phase === 'ready' && !result) return;
+    if (adController || (phase === 'ready' && !result)) return;
     reset();
     start();
   }
@@ -747,9 +1035,8 @@
       if (cancel) {
         syncTime();
         if (phase !== 'live') return;
-        const order = cancelLimit(account, Number(cancel.dataset.cancel), bookStep * BOOK_INTERVAL / 1000);
-        feedback(order ? market.stocks[order.index].name + ' 미체결 ' + num(order.remaining) + '주를 취소했어요.' :
-          '이미 체결되었거나 취소된 주문이에요.', order ? 'ok' : '');
+        const {order, error} = cancelLimit(market, account, Number(cancel.dataset.cancel));
+        feedback(error || market.stocks[order.index].name + ' 미체결 ' + num(order.remaining) + '주를 취소했어요.', order ? 'ok' : 'error');
         render();
         return;
       }
@@ -855,7 +1142,10 @@
   });
   canvas.addEventListener('pointerleave', () => { cursor = null; renderChart(); });
   new ResizeObserver(renderChart).observe(canvas);
-  document.addEventListener('visibilitychange', syncTime);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) suspend('background');
+    else if (pauseReason === 'background') resume();
+  });
 
   renderPhase();
   render();

@@ -1,13 +1,11 @@
-name: Scalping King v2 foundation tests
+name: Scalping King v2 tests
 on:
   push:
     branches:
+      - main
       - feature/scalping-king-v2-foundation
     paths:
-      - 'games/scalping-king/risk-v2.js'
-      - 'games/scalping-king/risk-v2.test.cjs'
-      - 'games/scalping-king/microstructure-v2.js'
-      - 'games/scalping-king/microstructure-v2.test.cjs'
+      - 'games/scalping-king/**'
       - '.github/workflows/scalping-v2-tests.yml'
   pull_request:
     paths:
@@ -16,9 +14,9 @@ on:
 permissions:
   contents: read
 jobs:
-  node-test:
+  test:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -28,3 +26,11 @@ jobs:
         run: node games/scalping-king/risk-v2.test.cjs
       - name: Persistent order book and VI
         run: node games/scalping-king/microstructure-v2.test.cjs
+      - name: Integrated market and reward lifecycle
+        run: node games/scalping-king/integration-v2.test.cjs
+      - name: Install Chromium for browser tests
+        run: |
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright-core@1.65.0
+          npx playwright-core install --with-deps chromium
+      - name: Desktop and mobile touch smoke tests
+        run: node games/scalping-king/browser-v2.test.cjs

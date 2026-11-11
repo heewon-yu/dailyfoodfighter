@@ -4,9 +4,10 @@
   const CASH = 100_000_000;
   const DURATION = 300;
   const INTERVAL = 500;
-  const BOOK_INTERVAL = INTERVAL / 2;
   const TOTAL_TICKS = DURATION * 1000 / INTERVAL;
   const PRICE_STEP = 50;
+  const engine = ScalpEngine;
+  const ledger = ScalpLedger;
   const WATCHLIST_SIZE = 10;
   const CHART_PERIODS = [1, 5, 10, 20];
   // Each company has an opening pool [sentiment, title] and separate intraday pools for gains and losses.
@@ -519,6 +520,8 @@
       const time = Math.floor(timeMs / (period * 1000)) * period;
       const last = bars.at(-1);
       if (last?.time === time) {
+        if (!point.volume) continue;
+        if (!last.volume) Object.assign(last, point, {time, volume: 0});
         last.high = Math.max(last.high, point.high);
         last.low = Math.min(last.low, point.low);
         last.close = point.close;
@@ -528,18 +531,6 @@
         if (bars.length > 100) bars.shift();
       }
     }
-  }
-
-  function bookFor(stock, random) {
-    const asks = [];
-    const bids = [];
-    const spread = stock.shockTicks > 0 ? 2 : 1;
-    for (let i = 0; i < 5; i++) {
-      const offset = (i + spread) * PRICE_STEP;
-      asks.push({price: stock.price + offset, qty: integer(random, 210, 980) + i * 180});
-      bids.push({price: stock.price - offset, qty: integer(random, 210, 980) + i * 180});
-    }
-    return {asks, bids};
   }
 
   function eventSchedule(random, stocks) {
@@ -577,6 +568,7 @@
       const pick = integer(rosterRandom, i, roster.length - 1);
       [roster[i], roster[pick]] = [roster[pick], roster[i]];
     }
+    const market = {seed, time: 0, tick: 0, notices: [], eventIndex: 0};
     const stocks = roster.slice(0, WATCHLIST_SIZE).map((sourceIndex, index) => {
       const [name, sector, short, color, description, volatility, {opening}] = STOCKS[sourceIndex];
       const [openingDirection, preview] = opening[integer(rosterRandom, 0, opening.length - 1)];
@@ -588,259 +580,95 @@
       const series = Object.fromEntries(CHART_PERIODS.map(period => [period, []]));
       history.forEach(point => updateSeries(series, point));
       const stock = {index, sourceIndex, name, sector, short, color, description, preview, openingDirection, volatility,
-        reference, series, ticks: history.slice(-180), price: reference, fairPrice: reference, volume: 0,
+        reference, series, ticks: history.slice(-180), price: reference, volume: 0,
         high: reference, low: reference, shock: 0, shockTicks: 0};
-      stock.book = bookFor(stock, bookRandom);
+      engine.initialize(stock, market, bookRandom, fill => {
+        const point = {time: fill.time || .001, open: fill.price, close: fill.price,
+          high: fill.price, low: fill.price, volume: fill.qty};
+        updateSeries(stock.series, point);
+        if (stock.currentPoint) {
+          if (!stock.currentPoint.volume) Object.assign(stock.currentPoint, point, {time: stock.currentPoint.time, volume: 0});
+          stock.currentPoint.high = Math.max(stock.currentPoint.high, point.high);
+          stock.currentPoint.low = Math.min(stock.currentPoint.low, point.low);
+          stock.currentPoint.close = fill.price;
+          stock.currentPoint.volume += fill.qty;
+        }
+      });
       return stock;
     });
     const headlines = stocks.map(stock => ({index: stock.index, title: stock.preview, time: 0, direction: stock.openingDirection}));
-    return {seed, stocks, headlines, random, bookRandom, events: eventSchedule(random, stocks), eventIndex: 0, tick: 0};
-  }
-
-  function refreshBooks(market) {
-    market.stocks.forEach(stock => { stock.book = bookFor(stock, market.bookRandom); });
-  }
-
-  function stepMarket(market) {
-    if (market.tick >= TOTAL_TICKS) return false;
-    market.tick += 1;
-    const time = market.tick * INTERVAL / 1000;
-    const next = market.events[market.eventIndex];
-    if (next?.tick === market.tick) {
-      const stock = market.stocks[next.index];
-      stock.shock = next.direction * next.strength;
-      stock.shockTicks = next.duration;
-      stock.gap = next.direction * (next.strength * 2.6 + .007);
-      market.headlines.unshift({index: next.index, title: next.title, time, direction: next.direction});
-      market.eventIndex += 1;
+    const disclosureRandom = randomGenerator(seed ^ 0x96f89e43);
+    const disclosures = disclosureSchedule(disclosureRandom, stocks);
+    if (disclosureRandom() < .55) {
+      const index = integer(disclosureRandom, 0, stocks.length - 1);
+      const direction = disclosureRandom() < .5 ? -1 : 1;
+      disclosures.push({index, direction, tick: integer(disclosureRandom, 60, 365),
+        title: direction > 0 ? "대량 매수 주문에 추격매수가 유입되고 있어요." : "대량 매도에 차익실현과 손절 주문이 몰리고 있어요.",
+        strength: 0, duration: 0, flowDuration: integer(disclosureRandom, 82, 113)});
     }
-    market.stocks.forEach(stock => {
-      const {random} = market;
-      const open = stock.price;
-      const signal = random() + random() - 1;
-      const burst = !stock.shockTicks && Math.abs(signal) > .91 ? signal * .009 : 0;
-      const noise = (signal * .0072 + burst) * stock.volatility;
-      const pullback = (stock.reference - stock.fairPrice) / stock.reference * .002;
-      const openingDrift = stock.openingDirection * .001 * Math.max(0, 1 - market.tick / 20);
-      const movement = noise + pullback + openingDrift + stock.shock * stock.volatility + (stock.gap ?? 0);
-      stock.gap = 0;
-      stock.fairPrice = Math.max(stock.reference * .6, Math.min(stock.reference * 1.5, stock.fairPrice * (1 + movement)));
-      stock.price = priceStep(stock.fairPrice);
-      stock.high = Math.max(stock.high, stock.price);
-      stock.low = Math.min(stock.low, stock.price);
-      const volume = Math.round(integer(random, 60, 495) * (1 + Math.abs(movement) * 270 + (stock.shockTicks > 0 ? 1.7 : 0)));
-      stock.volume += volume;
-      const high = Math.max(open, stock.price);
-      const low = Math.min(open, stock.price);
-      const point = {time, open, high, low, close: stock.price, volume};
+    return Object.assign(market, {stocks, headlines, random: bookRandom,
+      events: eventSchedule(random, stocks).concat(disclosures).sort((a, b) => a.tick - b.tick)});
+  }
+
+
+  function disclosureSchedule(random, stocks) {
+    const disclosures = [
+      ['rights_offering', '유상증자', n => n + '만주 발행 · 할인율 ' + (10 + n % 17) + '% · 조달 예정 ' + (n * 3) + '억원'],
+      ['bonus_issue', '무상증자', n => '1주당 ' + (n % 3 + 1) + '주 배정 예정 · ' + (n % 2 ? '기대 매수 유입' : '차익실현 주목')],
+      ['shareholder_return', '주주환원', n => '자사주 ' + n + '억원 매입 · 매입분 소각 예정 · 주당 배당 ' + (n * 10) + '원'],
+      ['earnings_release', '실적발표', n => '매출 ' + (n * 24) + '억원 · 영업이익 ' + n + '억원(전년 대비 ' +
+        (n % 2 ? '+' : '-') + (n % 21 + 1) + '%) · 시장 예상 ' + (n + (n % 2 ? -8 : 8)) + '억원 · ' + (n % 2 ? '어닝 서프라이즈' : '어닝 쇼크')],
+      ['new_contract', '수주 발표', n => '신규 계약 ' + (n * 8) + '억원 · 연매출 대비 ' + (n % 16 + 5) + '% · 예상 이익률 ' +
+        (n % 9 + 3) + '% · 시장 예상 계약 규모 ' + (n * 8 + (n % 2 ? -40 : 40)) + '억원'],
+    ];
+    const count = 10;
+    for (let i = disclosures.length - 1; i > 0; i--) {
+      const pick = integer(random, 0, i);
+      [disclosures[i], disclosures[pick]] = [disclosures[pick], disclosures[i]];
+    }
+    return Array.from({length: count}, (_, i) => {
+      const [type, label, details] = disclosures[i % disclosures.length];
+      const index = integer(random, 0, stocks.length - 1);
+      const amount = integer(random, 21, 95);
+      const intent = ScalpMicrostructure.disclosure(type, index);
+      const direction = intent.direction && random() > .28 ? intent.direction : (random() < .5 ? -1 : 1);
+      return {index, tick: 25 + i * 55 + integer(random, 0, 21), type, label, title: details(amount),
+        direction, strength: .0028 + random() * .004, duration: integer(random, 14, 28)};
+    });
+  }
+
+  function stepMarket(market, account) {
+    if (market.tick >= TOTAL_TICKS) return false;
+    market.account = account;
+    market.tick++;
+    market.time = market.tick * INTERVAL / 1000;
+    while (market.events[market.eventIndex]?.tick === market.tick) {
+      const next = market.events[market.eventIndex++];
+      const stock = market.stocks[next.index];
+      if (next.flowDuration) {
+        stock.flowUntil = market.tick + next.flowDuration;
+        stock.flowDirection = next.direction;
+      }
+      stock.shock = next.direction * next.strength * 53;
+      stock.shockTicks = next.duration;
+      market.headlines.unshift({...next, time: market.time});
+      if (next.type) engine.notify(market, stock.name + ' 공시 · ' + next.label);
+    }
+    for (const stock of market.stocks) {
+      const point = {time: market.time, open: stock.price, high: stock.price, low: stock.price, close: stock.price, volume: 0};
+      stock.currentPoint = point;
+      engine.participant(stock, market.random);
+      if (!point.volume) updateSeries(stock.series, point);
       stock.ticks.push(point);
       if (stock.ticks.length > 180) stock.ticks.shift();
-      updateSeries(stock.series, point);
       stock.shockTicks = Math.max(0, stock.shockTicks - 1);
-      stock.shock = stock.shockTicks ? stock.shock * .977 : 0;
-    });
-    refreshBooks(market);
+      stock.shock = stock.shockTicks ? stock.shock * .974 : 0;
+    }
+    if (account) engine.updateRisk(market, account);
     return true;
   }
 
-  function createAccount() {
-    return {cash: CASH, realized: 0, fees: 0, positions: Array.from({length: WATCHLIST_SIZE}, () => ({qty: 0, cost: 0})),
-      trades: [], pending: [], orders: [], nextOrderId: 1};
-  }
-
-  const validQuantity = qty => Number.isSafeInteger(qty) && qty >= 1 && qty <= 99999;
-  const validLimit = price => Number.isSafeInteger(price) && price >= PRICE_STEP && price <= 1_000_000 && price % PRICE_STEP === 0;
-  const orderFee = gross => Math.ceil(gross / 2000);
-  const buyCost = gross => gross + orderFee(gross);
-
-  function reservation(order, price = order.price, remaining = order.remaining) {
-    const gross = price * remaining;
-    return gross + orderFee(order.gross + gross) - orderFee(order.gross);
-  }
-
-  function availableCash(account) {
-    return account.cash - account.pending.reduce((total, order) =>
-      total + (order.side === 'buy' ? reservation(order) : 0), 0);
-  }
-
-  function availableShares(account, index) {
-    return account.positions[index].qty - account.pending.reduce((reserved, order) => reserved +
-      (order.side === 'sell' && order.index === index ? order.remaining : 0), 0);
-  }
-
-  function sweepBook(stock, side, qty, limit) {
-    let remaining = qty;
-    let gross = 0;
-    const levels = [];
-    for (const level of (side === 'buy' ? stock.book.asks : stock.book.bids)) {
-      if (limit !== undefined && (side === 'buy' ? level.price > limit : level.price < limit)) break;
-      const take = Math.min(level.qty, remaining);
-      if (take > 0) {
-        gross += take * level.price;
-        levels.push({level, qty: take});
-        remaining -= take;
-      }
-      if (!remaining) break;
-    }
-    return {gross, qty: qty - remaining, levels};
-  }
-
-  function quoteOrder(stock, side, qty) {
-    if (!validQuantity(qty)) return null;
-    const sweep = sweepBook(stock, side, qty);
-    if (sweep.qty !== qty) return null;
-    const fee = orderFee(sweep.gross);
-    return {...sweep, fee, average: sweep.gross / qty, total: sweep.gross + (side === 'buy' ? fee : -fee)};
-  }
-
-  function limitEstimate(qty, limit) {
-    if (!validQuantity(qty) || !validLimit(limit)) return null;
-    const gross = qty * limit;
-    return {buy: buyCost(gross), sell: gross - orderFee(gross)};
-  }
-
-  function maxOrder(stock, account, side, limit, percent = 100) {
-    const cash = Math.floor(availableCash(account) * percent / 100);
-    const shares = Math.floor(availableShares(account, stock.index) * percent / 100);
-    if (limit !== undefined) {
-      if (!validLimit(limit)) return 0;
-      return Math.min(99999, side === 'buy' ? Math.floor(cash * 2000 / (limit * 2001)) : shares);
-    }
-    const book = side === 'buy' ? stock.book.asks : stock.book.bids;
-    const liquidity = book.reduce((total, level) => total + level.qty, 0);
-    if (side === 'sell') return Math.min(liquidity, shares);
-    let low = 0;
-    let high = liquidity;
-    while (low < high) {
-      const mid = Math.ceil((low + high) / 2);
-      if (quoteOrder(stock, side, mid).total <= cash) low = mid;
-      else high = mid - 1;
-    }
-    return low;
-  }
-
-  function executeOrder(stock, account, side, qty, time) {
-    if (!validQuantity(qty)) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
-    if (side === 'sell' && qty > availableShares(account, stock.index)) return {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
-    const quote = quoteOrder(stock, side, qty);
-    if (!quote) return {error: '호가 잔량이 부족해요. 수량을 줄여 주세요.'};
-    if (side === 'buy' && quote.total > availableCash(account)) return {error: '주문 가능 현금이 부족해요.'};
-    const trade = applyFill(stock, account, side, quote, quote.fee, time, 'market');
-    account.orders.unshift({id: account.nextOrderId++, index: stock.index, side, type: 'market', price: null,
-      qty, remaining: 0, status: 'filled', time, amendments: 0});
-    return {trade};
-  }
-
-  function applyFill(stock, account, side, quote, fee, time, type) {
-    const {gross, qty, levels} = quote;
-    const total = gross + (side === 'buy' ? fee : -fee);
-    const position = account.positions[stock.index];
-    let profit = 0;
-    if (side === 'buy') {
-      account.cash -= total;
-      position.qty += qty;
-      position.cost += total;
-    } else {
-      const cost = qty === position.qty ? position.cost : Math.round(position.cost * qty / position.qty);
-      position.qty -= qty;
-      position.cost -= cost;
-      account.cash += total;
-      profit = total - cost;
-      account.realized += profit;
-    }
-    levels.forEach(fill => { fill.level.qty -= fill.qty; });
-    account.fees += fee;
-    const trade = {index: stock.index, side, qty, time, average: gross / qty, fee, total, profit, type};
-    account.trades.unshift(trade);
-    return trade;
-  }
-
-  function matchLimit(stock, account, order, time) {
-    const quote = sweepBook(stock, order.side, order.remaining, order.price);
-    if (!quote.qty) return null;
-    const fee = orderFee(order.gross + quote.gross) - orderFee(order.gross);
-    order.remaining -= quote.qty;
-    order.gross += quote.gross;
-    order.status = order.remaining ? 'partial' : 'filled';
-    order.time = time;
-    return applyFill(stock, account, order.side, quote, fee, time, 'limit');
-  }
-
-  function placeLimit(stock, account, side, qty, price, time) {
-    if (!validQuantity(qty)) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
-    if (!validLimit(price)) return {error: '지정가는 50원 단위로 입력하세요.'};
-    if (account.pending.length >= 30) return {error: '미체결 주문은 최대 30건까지 보관할 수 있어요.'};
-    if (side === 'buy' && buyCost(qty * price) > availableCash(account)) return {error: '지정가로 주문할 현금이 부족해요.'};
-    if (side === 'sell' && qty > availableShares(account, stock.index)) return {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
-    const order = {id: account.nextOrderId++, index: stock.index, side, type: 'limit', price, qty, remaining: qty,
-      gross: 0, status: 'pending', time, amendments: 0};
-    account.orders.unshift(order);
-    const trade = matchLimit(stock, account, order, time);
-    if (order.remaining) account.pending.push(order);
-    return {order, trade};
-  }
-
-  function matchPending(market, account, time) {
-    const fills = [];
-    if (!account.pending.length) return fills;
-    account.pending = account.pending.filter(order => {
-      const trade = matchLimit(market.stocks[order.index], account, order, time);
-      if (trade) fills.push({trade, remaining: order.remaining});
-      return order.remaining > 0;
-    });
-    return fills;
-  }
-
-  function amendLimit(market, account, id, qty, price, time) {
-    const order = account.pending.find(item => item.id === id);
-    if (!order) return {error: '이미 체결되었거나 취소된 주문이에요.'};
-    if (!validQuantity(qty)) return {error: '남은 수량을 1~99,999주 사이의 정수로 입력하세요.'};
-    if (!validLimit(price)) return {error: '지정가는 50원 단위로 입력하세요.'};
-    if (qty === order.remaining && price === order.price) return {error: '바뀐 지정가나 수량을 입력하세요.'};
-    const filled = order.qty - order.remaining;
-    if (!validQuantity(filled + qty)) return {error: '이미 체결된 수량과 새 잔량의 합은 99,999주까지 가능해요.'};
-    if (order.side === 'buy' && reservation(order, price, qty) > availableCash(account) + reservation(order)) {
-      return {error: '정정한 주문을 예약할 현금이 부족해요.'};
-    }
-    if (order.side === 'sell' && qty > availableShares(account, order.index) + order.remaining) {
-      return {error: '정정할 매도 가능 수량이 부족해요.'};
-    }
-    account.pending.splice(account.pending.indexOf(order), 1);
-    order.qty = filled + qty;
-    order.remaining = qty;
-    order.price = price;
-    order.time = time;
-    order.amendments += 1;
-    const trade = matchLimit(market.stocks[order.index], account, order, time);
-    if (order.remaining) account.pending.push(order);
-    return {order, trade};
-  }
-
-  function cancelLimit(account, id, time = 0) {
-    const index = account.pending.findIndex(order => order.id === id);
-    if (index < 0) return null;
-    const [order] = account.pending.splice(index, 1);
-    order.status = 'canceled';
-    order.time = time;
-    return order;
-  }
-
-  function expirePending(account, time) {
-    const count = account.pending.length;
-    account.pending.forEach(order => {
-      order.status = 'expired';
-      order.time = time;
-    });
-    account.pending.length = 0;
-    return count;
-  }
-
-  function equity(market, account) {
-    return account.cash + market.stocks.reduce((total, stock) => total + stock.price * account.positions[stock.index].qty, 0);
-  }
-
-  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, BOOK_INTERVAL, TOTAL_TICKS, createMarket, refreshBooks, stepMarket,
-    createAccount, quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit,
-    matchPending, amendLimit, cancelLimit, expirePending, equity};
+  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, TOTAL_TICKS, createMarket, stepMarket,
+    createAccount: () => ledger.createAccount(WATCHLIST_SIZE), ...engine,
+    availableCash: ledger.availableCash, availableShares: ledger.availableShares, equity: ledger.equity};
 }());
-
