@@ -93,7 +93,7 @@ function checkAccounting(market, account) {
   const collateral = ledger.collateral(market, account);
   Object.assign(account, risk.issueEmergency(account));
   assert.equal(game.equity(market, account), equity);
-  assert.equal(ledger.collateral(market, account), collateral);
+  assert.equal(ledger.collateral(market, account), collateral + 50e6);
   assert.throws(() => risk.issueEmergency(account));
   clearNpc(stock);
   const beforeDebt = account.creditDebt;
@@ -102,7 +102,8 @@ function checkAccounting(market, account) {
   assert.equal(sale.trade.qty, 100);
   assert.equal(sale.order.remaining, 20);
   assert.ok(account.creditDebt < beforeDebt);
-  assert.ok(account.emergencyDebt < 50e6);
+  assert.equal(account.emergencyDebt, 0);
+  assert.equal(sale.trade.emergencyRepayment, 50e6);
   assert.equal(account.emergencyDebt + account.emergencyRepaid, 50e6);
   checkAccounting(market, account);
 }

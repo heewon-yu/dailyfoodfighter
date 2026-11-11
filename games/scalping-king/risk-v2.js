@@ -110,13 +110,14 @@
   // Sell proceeds are net of fees. The credit principal tied to the SOLD shares
   // has priority; only the residual amount repays emergency debt.
   // The caller must update positions and realized profit in the SAME transaction.
-  function settleSale(ledger, netProceeds, principalRequiredForSoldShares = 0) {
+  function settleSale(ledger, netProceeds, principalRequiredForSoldShares = 0, cashForEmergency = 0) {
     finiteNonnegative(netProceeds, 'netProceeds');
     finiteNonnegative(principalRequiredForSoldShares, 'principalRequiredForSoldShares');
     if (principalRequiredForSoldShares > ledger.creditDebt) throw new Error('repayment exceeds credit debt');
     const creditRepayment = Math.min(netProceeds, principalRequiredForSoldShares);
+    finiteNonnegative(cashForEmergency, 'cashForEmergency');
     const emergencyRepayment = Math.min(
-      Math.max(0, netProceeds - creditRepayment), ledger.emergencyDebt);
+      netProceeds - creditRepayment + Math.min(ledger.cash, cashForEmergency), ledger.emergencyDebt);
     return {
       ledger: {
         ...ledger,

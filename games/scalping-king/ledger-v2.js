@@ -38,10 +38,8 @@
     return risk.equity(account, markedValue(market.stocks, account));
   }
 
-  // This is one cross-collateralized account. Emergency debt always offsets cash
-  // or pledged shares, so drawing or spending it cannot manufacture collateral.
   function collateral(market, account) {
-    return Math.max(0, markedValue(market.stocks, account) + account.cash - account.emergencyDebt);
+    return Math.max(0, markedValue(market.stocks, account) + account.cash);
   }
 
   function ratio(market, account) {
@@ -100,7 +98,8 @@
       position.cost -= basis;
       position.principal -= principal;
       if (!position.qty) account.stops[stock.index] = null;
-      const settlement = risk.settleSale(account, total, principal);
+      const cashForEmergency = creditQty > 0 ? availableCash(account) : 0;
+      const settlement = risk.settleSale(account, total, principal, cashForEmergency);
       Object.assign(account, settlement.ledger);
       emergencyRepayment = settlement.emergencyRepayment;
       profit = total - basis;

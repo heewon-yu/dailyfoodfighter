@@ -53,7 +53,7 @@
     if (!loan) return true;
     const {market} = stock;
     const postCollateral = ledger.markedValue(market.stocks, account, stock.index, mark) +
-      qty * mark + account.cash - cash - account.emergencyDebt;
+      qty * mark + account.cash - cash;
     return postCollateral * 2 >= (account.creditDebt + loan) * 3;
   }
 
@@ -255,7 +255,7 @@
       } else {
         low = qty;
         const assets = ledger.markedValue(stock.market.stocks, account, stock.index, quote.mark) +
-          qty * quote.mark + account.cash - plan.cashReserve - account.emergencyDebt;
+          qty * quote.mark + account.cash - plan.cashReserve;
         best = {qty, ...plan, expectedRatio: risk.collateralRatio(Math.max(0, assets), account.creditDebt + plan.creditReserve)};
       }
     }
