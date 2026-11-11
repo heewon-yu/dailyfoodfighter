@@ -56,3 +56,11 @@
 Submit SHA(s), branch, changed filenames, executed tests with results, preview URL if verified, specific remaining blockers and how to reproduce. Do not claim production deployment unless verified. Preserve prod and provide rollback instruction.
 
 This document is a real code-source-based handoff; it is NOT a claim of completed web-game upgrade.
+
+## Additional independent foundation work (2026-11-11)
+- Added `microstructure-v2.js` as pure, isolated persistent price-time order-book prototype with player/NPC orders, partial fills, ±30% order price validation, 10-second VI trading halt, cancel, aggregation, trade-sourced volume, trade value, aggression strength, and five disclosure intent types. It is **not integrated into the live game**.
+- Added `microstructure-v2.test.cjs` to assert upper/lower price-lock inventory, genuine last-trade changes only upon execution, VI blocking and disclosure whitelist.
+- Added `.github/workflows/scalping-v2-tests.yml` so GitHub Actions can run both isolated Node test suites for the development branch and PRs. Workflow result is NOT yet verified.
+- Attempted to fetch code into the local Node runtime, but outbound raw.githubusercontent.com DNS was unavailable. Do not label tests as passed without inspecting workflow execution/logs.
+- Microstructure API currently uses a simplified fixed 50 KRW tick. It does not implement cash/debt/account reservations or cancel/replace depth events from a full market participant agent; these MUST be built and integrated before release.
+- Existing `main` / public website is unchanged. All new sources should remain excluded from production until a full tested migration.
