@@ -57,19 +57,29 @@ async function run() {
       await desktop.setViewportSize({width, height: 950});
       await desktop.waitForFunction(() => {
         const order = document.querySelector('.order-panel').offsetHeight;
-        return ['.sidebar', '.chart-panel', '.depth-panel'].every(selector => document.querySelector(selector).offsetHeight === order);
+        return ['.chart-panel', '.depth-panel'].every(selector => document.querySelector(selector).offsetHeight === order);
       });
       const {heights, tops, newsTop} = await layout();
-      assert.equal(new Set(heights).size, 1);
+      assert.equal(new Set(heights.slice(1)).size, 1);
+      assert.ok(heights[0] >= heights[3]);
       if (width >= 1050) {
         assert.equal(new Set(tops).size, 1);
         assert.ok(newsTop > tops[3] + heights[3]);
       }
     }
     await desktop.setViewportSize({width: 1440, height: 700});
-    await desktop.evaluate(() => window.scrollTo(0, 500));
-    await desktop.waitForFunction(() => Math.abs(document.querySelector('.sidebar').getBoundingClientRect().top - 8) < 2);
+    await desktop.evaluate(() => {
+      const sidebar = document.querySelector('.sidebar');
+      window.scrollBy(0, sidebar.getBoundingClientRect().top - parseFloat(getComputedStyle(sidebar).top) + 15);
+    });
+    await desktop.waitForFunction(() => {
+      const sidebar = document.querySelector('.sidebar');
+      return Math.abs(sidebar.getBoundingClientRect().top - parseFloat(getComputedStyle(sidebar).top)) < 2;
+    }, {timeout: 3000});
     await desktop.evaluate(() => window.scrollTo(0, 0));
+    const listFits = page => page.locator('#watchlist').evaluate(list =>
+      list.scrollHeight <= list.clientHeight && list.scrollWidth <= list.clientWidth);
+    assert.ok(await listFits(desktop));
     const dots = desktop.locator('#watchlist .stock-news-dot');
     assert.equal(await dots.count(), 10);
     assert.ok((await dots.evaluateAll(items => items.map(item => item.title))).every(title => title.startsWith('장전')));
@@ -152,6 +162,7 @@ async function run() {
     await mobile.goto(target + '?seed=5');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth), 390);
+    assert.ok(await listFits(mobile));
     await mobile.locator('#start').tap();
     await mobile.locator('#creditTool').tap();
     assert.equal(await mobile.locator('#creditDialog').isVisible(), true);
