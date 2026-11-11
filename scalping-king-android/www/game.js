@@ -214,6 +214,7 @@
       $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
     }
     $('restart').hidden = !inSession || Boolean(adController);
+    $('gameHome').disabled = Boolean(adController);
     $('jumpRestart').hidden = phase !== 'paused' || Boolean(adController);
     renderOrderAvailability();
     renderClock();
@@ -1120,6 +1121,7 @@
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
   $('restart').addEventListener('click', restartRound);
+  $('gameHome').addEventListener('click', () => { if (!adController) reset(); });
   $('jumpRestart').addEventListener('click', restartRound);
   $('guideButton').addEventListener('click', () => $('guide').showModal());
   $('amendForm').addEventListener('submit', submitAmendment);
@@ -1225,4 +1227,3 @@
   render();
   if (result) openResult();
 }());
-
