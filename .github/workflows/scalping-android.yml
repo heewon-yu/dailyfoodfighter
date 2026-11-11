@@ -41,7 +41,7 @@ jobs:
           npm run android:sync
       - name: Build debug APK and compile instrumentation tests
         working-directory: scalping-king-android/android
-        run: ./gradlew --no-daemon testDebugUnitTest assembleDebug assembleDebugAndroidTest
+        run: ./gradlew --no-daemon :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest
       - name: Verify signed APK and embedded game
         run: |
           set -euo pipefail
