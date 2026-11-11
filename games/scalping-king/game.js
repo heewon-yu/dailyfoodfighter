@@ -3,7 +3,7 @@
 
   const {CASH, DURATION, INTERVAL, TOTAL_TICKS, createMarket, stepMarket, createAccount,
     quoteOrder, maxOrder, executeOrder, limitEstimate, availableCash, availableShares, placeLimit,
-    amendLimit, cancelLimit, expirePending, equity, isHalted, priceStatus, executeCredit, creditQuote, notify} = ScalpMarket;
+    amendLimit, cancelLimit, expirePending, equity, isHalted, priceStatus, executeCredit, executeCreditSale, creditQuote, notify} = ScalpMarket;
   const risk = ScalpRisk;
   const ledger = ScalpLedger;
   const strength = stock => ScalpMicrostructure.strength(stock.depth);
@@ -354,7 +354,7 @@
   }
 
   const rewardTools = [
-    {key: 'credit', id: 'creditTool', label: '신용매수'},
+    {key: 'credit', id: 'creditTool', label: '신용거래'},
     {key: 'emergency', id: 'emergencyTool', label: '긴급자금대출'},
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
@@ -384,6 +384,9 @@
 
   function showCredit() {
     $('creditFeedback').textContent = '';
+    $('creditOrderType').value = orderType;
+    $('creditLimitPrice').value = orderPrice.value;
+    $('creditSellQty').value = '';
     $('creditDialog').showModal();
     renderCredit();
   }
@@ -393,10 +396,21 @@
     return Number.isInteger(value) && value >= 0 && value <= 300 && value % 10 === 0 ? value : null;
   }
 
+  function creditLimit() {
+    return $('creditOrderType').value === 'limit' ? $('creditLimitPrice').valueAsNumber : undefined;
+  }
+
   function renderCredit() {
     const percent = creditPercent();
     const stock = market.stocks[selected];
-    const limit = orderType === 'limit' ? orderPrice.valueAsNumber : undefined;
+    const limit = creditLimit();
+    $('creditLimitField').hidden = limit === undefined;
+    const saleQty = $('creditSellQty').valueAsNumber;
+    const available = ledger.availableCreditShares(account, stock.index);
+    const validLimit = limit === undefined || ScalpMicrostructure.validPrice(stock.depth, limit);
+    $('creditSellConfirm').disabled = phase !== 'live' || Boolean(adController) ||
+      !validLimit || !ledger.validQuantity(saleQty) || saleQty > available;
+    $('creditSellAll').disabled = available <= 0;
     const plan = percent === null ? null : creditQuote(stock, account, percent, limit);
     const items = [
       ['종목 · 주문 방식', stock.name + (limit === undefined ? ' · 시장가' : ' · 지정가 ' + money(limit))],
@@ -405,6 +419,7 @@
       ['신용매수 예정금액', plan ? money(plan.creditReserve) : '—'],
       ['신용채무 잔액', money(account.creditDebt)],
       ['남은 신용한도', money(risk.availableCredit(account, ledger.reserved(account, 'creditReserve')))],
+      ['신용매도 가능', num(available) + '주'],
       ['예상 매수수량', plan ? num(plan.qty) + '주' : '—'],
       ['예상 담보비율', plan ? ratioText(plan.expectedRatio) : '—'],
       ['유지담보비율', '150%'],
@@ -520,13 +535,27 @@
     $('creditFeedback').textContent = '';
     renderCredit();
   });
-  $('creditConfirm').addEventListener('click', () => {
+  for (const id of ['creditOrderType', 'creditLimitPrice', 'creditSellQty']) {
+    $(id).addEventListener('input', () => {
+      $('creditFeedback').textContent = '';
+      renderCredit();
+    });
+  }
+  $('creditSellAll').addEventListener('click', () => {
+    $('creditSellQty').value = String(Math.min(99999, ledger.availableCreditShares(account, selected)));
+    renderCredit();
+  });
+  $('creditSellConfirm').addEventListener('click', () => submitCreditOrder('sell'));
+  $('creditConfirm').addEventListener('click', () => submitCreditOrder('buy'));
+
+  function submitCreditOrder(side) {
     syncTime();
     const percent = creditPercent();
-    if (phase !== 'live' || percent === null || adController) return;
+    if (phase !== 'live' || adController || (side === 'buy' && percent === null)) return;
     const stock = market.stocks[selected];
-    const limit = orderType === 'limit' ? orderPrice.valueAsNumber : undefined;
-    const {error, trade: fill, order} = executeCredit(stock, account, percent, limit);
+    const limit = creditLimit();
+    const {error, trade: fill, order} = side === 'buy' ? executeCredit(stock, account, percent, limit) :
+      executeCreditSale(stock, account, $('creditSellQty').valueAsNumber, limit);
     if (error) {
       $('creditFeedback').textContent = error;
       return;
@@ -535,7 +564,7 @@
     if (fill) showFill(fill, order.status === 'canceled' ? 0 : order.remaining);
     else feedback(order.status === 'canceled' ? '본인 주문과 충돌해 취소됐어요.' : '신용 지정가 주문이 접수됐어요.');
     render();
-  });
+  }
   $('stopSave').addEventListener('click', () => {
     if (phase === 'done' || !account.unlocks.stop || adController) return;
     const field = $('stopPercent');

@@ -173,6 +173,15 @@ async function run() {
     assert.equal(await mobile.locator('#creditRange').inputValue(), '300');
     await mobile.locator('#creditConfirm').tap();
     assert.notEqual(await mobile.locator('#creditDebt').innerText(), '0원');
+    await mobile.locator('#creditTool').tap();
+    await mobile.locator('#creditOrderType').selectOption('limit');
+    const upper = await mobile.locator('#limitPrice').getAttribute('max');
+    await mobile.locator('#creditLimitPrice').fill(upper);
+    await mobile.locator('#creditSellAll').tap();
+    assert.ok(Number(await mobile.locator('#creditSellQty').inputValue()) > 0);
+    await mobile.locator('#creditSellConfirm').tap();
+    assert.match(await mobile.locator('#feedback').innerText(), /신용 지정가 주문이 접수/);
+    await mobile.locator('#pending [data-cancel]').tap();
     assert.equal(await mobile.locator('#emergencyTool').isEnabled(), true);
     await mobile.locator('#emergencyTool').tap();
     assert.equal(await mobile.locator('#emergencyDebt').innerText(), '50,000,000원 · 0원');

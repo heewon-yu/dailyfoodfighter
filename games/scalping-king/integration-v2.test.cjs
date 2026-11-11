@@ -50,6 +50,51 @@ function checkAccounting(market, account) {
   assert.equal(result.realized + result.unrealized, game.equity(market, account) - risk.STARTING_EQUITY);
 }
 
+
+{
+  for (const seed of [5, 12, 37, 89]) {
+    const {market, account, stock} = fixture(seed);
+    account.unlocks.credit = true;
+    const reference = stock.price;
+    const tick = stock.depth.tick;
+    const buy = game.executeCredit(stock, account, 300);
+    assert.equal(buy.order.status, 'filled');
+    assert.ok(buy.order.gross > 299e6);
+    assert.ok(Math.abs(stock.price - reference) <= tick);
+    const creditShares = ledger.availableCreditShares(account, stock.index);
+    assert.ok(creditShares > 0);
+    const beforeSale = stock.price;
+    const sale = game.executeCreditSale(stock, account, creditShares);
+    assert.equal(sale.order.status, 'filled');
+    assert.equal(account.positions[stock.index].creditQty, 0);
+    assert.ok(Math.abs(stock.price - beforeSale) <= 2 * tick);
+    checkAccounting(market, account);
+  }
+}
+
+{
+  const {market, account, stock} = fixture();
+  account.unlocks.credit = true;
+  const price = stock.reference;
+  const tick = stock.depth.tick;
+  const buy = game.executeCredit(stock, account, 300, price - tick);
+  assert.equal(buy.order.status, 'pending');
+  npc(stock, 'sell', 99999, price - tick);
+  assert.equal(buy.order.status, 'filled');
+  const shares = ledger.availableCreditShares(account, stock.index);
+  assert.ok(shares > 0);
+  const sell = game.executeCreditSale(stock, account, shares, price + tick);
+  assert.equal(sell.order.status, 'pending');
+  assert.equal(ledger.availableCreditShares(account, stock.index), 0);
+  assert.ok(game.executeCreditSale(stock, account, 1, price + tick).error);
+  assert.equal(game.amendLimit(market, account, sell.order.id, shares, price).order.creditOnly, true);
+  npc(stock, 'buy', 99999, price);
+  assert.equal(sell.order.status, 'filled');
+  assert.equal(account.positions[stock.index].creditQty, 0);
+  checkAccounting(market, account);
+}
+
+
 {
   const {market, account, stock} = fixture();
   const price = stock.reference;

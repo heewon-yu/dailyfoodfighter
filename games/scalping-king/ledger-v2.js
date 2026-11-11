@@ -30,6 +30,12 @@
       sum + (order !== except && order.index === index && order.side === 'sell' ? order.remaining : 0), 0);
   }
 
+  function availableCreditShares(account, index, except) {
+    const reservedCredit = account.pending.reduce((sum, order) =>
+      sum + (order !== except && order.index === index && order.creditOnly ? order.remaining : 0), 0);
+    return Math.min(availableShares(account, index, except), account.positions[index].creditQty - reservedCredit);
+  }
+
   function markedValue(stocks, account, index = -1, price = 0) {
     return stocks.reduce((sum, stock) => sum + (stock.index === index ? price : stock.price) * account.positions[stock.index].qty, 0);
   }
@@ -87,7 +93,7 @@
       const full = fill.qty === position.qty;
       const basis = full ? position.cost : Math.round(position.cost * fill.qty / position.qty);
       // Voluntary sales allocate cash shares first, while forced sales target credit shares.
-      const creditQty = order.type === 'forced' ? Math.min(fill.qty, position.creditQty) :
+      const creditQty = (order.type === 'forced' || order.creditOnly) ? Math.min(fill.qty, position.creditQty) :
         Math.max(0, fill.qty - (position.qty - position.creditQty));
       const closesCredit = creditQty === position.creditQty;
       const principal = closesCredit ? position.principal : Math.floor(position.principal * creditQty / position.creditQty);
@@ -134,5 +140,5 @@
   }
 
   globalThis.ScalpLedger = {validQuantity, fee, cost, createAccount, reserved, availableCash,
-    availableShares, markedValue, equity, collateral, ratio, applyFill, snapshot, markPerformance};
+    availableShares, availableCreditShares, markedValue, equity, collateral, ratio, applyFill, snapshot, markPerformance};
 }());

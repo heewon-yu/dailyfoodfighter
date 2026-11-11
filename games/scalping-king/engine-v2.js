@@ -115,10 +115,32 @@
     return {...result, trade: fills.at(-1)};
   }
 
+  function replenishLiquidity(stock) {
+    const {depth, market} = stock;
+    const targetValue = 3 * risk.STARTING_EQUITY + risk.EMERGENCY_FUND;
+    for (const side of ['buy', 'sell']) {
+      const buying = side === 'buy';
+      const queue = buying ? depth.bids : depth.asks;
+      const opposite = buying ? depth.asks : depth.bids;
+      const offset = buying ? -depth.tick : depth.tick;
+      const near = Math.max(depth.limits.lower, Math.min(depth.limits.upper, stock.price + offset));
+      const bound = opposite.length ? opposite[0].price + offset : near;
+      const price = buying ? Math.min(near, bound) : Math.max(near, bound);
+      const previous = queue.find(order => order.id === stock.liquidityOrders[side]);
+      const minimum = Math.min(99999, Math.ceil(targetValue / price));
+      if (previous?.price === price && previous.remaining >= minimum) continue;
+      if (previous) book.cancel(depth, previous.id, market.time);
+      if (!book.validPrice(depth, price)) continue;
+      const quote = book.submit(depth, {side, price, qty: Math.min(99999, Math.ceil(targetValue * 1.5 / price)), time: market.time});
+      stock.liquidityOrders[side] = quote.id;
+    }
+    updateDepth(stock);
+  }
+
   function initialize(stock, market, random, pointFill) {
     const tick = stock.reference < 50000 ? 50 : 100;
     Object.assign(stock, {market, pointFill, depth: book.createBook(stock.reference, tick),
-      playerOrders: new Map(), book: {}, viReadyAt: 5,
+      playerOrders: new Map(), liquidityOrders: {}, book: {}, viReadyAt: 5,
       fastAnchor: stock.reference, slowAnchor: stock.reference, wasHalted: false});
     for (const [side, direction] of [['buy', -1], ['sell', 1]]) {
       for (let i = 1; i <= 8; i++) {
@@ -126,7 +148,7 @@
           qty: 250 + Math.floor(random() * 550) + i * 90});
       }
     }
-    updateDepth(stock);
+    replenishLiquidity(stock);
   }
 
   function participant(stock, random) {
@@ -173,6 +195,7 @@
       }
       if (isHalted(stock)) break;
     }
+    if (!isHalted(stock)) replenishLiquidity(stock);
   }
 
   function quoteOrder(stock, side, qty) {
@@ -262,13 +285,13 @@
     return {...budget, ...best};
   }
 
-  function validate(stock, account, side, qty, price, percent, except, type) {
+  function validate(stock, account, side, qty, price, percent, except, type, creditOnly = false) {
     if (isHalted(stock)) return {error: haltedMessage};
     if (!ledger.validQuantity(qty)) return {error: '수량을 1~99,999주 사이의 정수로 입력하세요.'};
     if (price !== null && !book.validPrice(stock.depth, price)) return {error: '가격제한폭과 ' + stock.depth.tick + '원 호가단위를 확인하세요.'};
     if (side === 'sell' && type !== 'forced' && type !== 'stop' && account.queued[stock.index])
       return {error: '자동 청산이 대기 중이에요.'};
-    if (side === 'sell') return qty <= ledger.availableShares(account, stock.index, except) ? {} :
+    if (side === 'sell') return qty <= (creditOnly ? ledger.availableCreditShares(account, stock.index, except) : ledger.availableShares(account, stock.index, except)) ? {} :
       {error: '매도 가능 수량이 부족해요. 미체결 주문도 확인해 주세요.'};
     if (percent !== null && !account.unlocks.credit) return {error: '신용매수가 잠겨 있어요.'};
     const quote = price === null ? quoteOrder(stock, side, qty) : {qty, gross: price * qty, total: ledger.cost(price * qty), mark: Math.min(price, stock.price, stock.depth.asks[0]?.price ?? price)};
@@ -290,15 +313,15 @@
     return {order, trade: result.trade};
   }
 
-  function place(stock, account, side, qty, price, type, percent = null) {
+  function place(stock, account, side, qty, price, type, percent = null, creditOnly = false) {
     if (price !== null && account.pending.length >= 30 && type === 'limit')
       return {error: '미체결 주문은 최대 30건까지 보관할 수 있어요.'};
-    const checked = validate(stock, account, side, qty, price, percent, null, type);
+    const checked = validate(stock, account, side, qty, price, percent, null, type, creditOnly);
     if (checked.error) return checked;
     if (price === null && !quoteOrder(stock, side, qty)) return {error: '체결 가능한 상대 호가가 없어요.'};
     stock.market.account = account;
     const order = {id: account.nextOrderId++, index: stock.index, side, type, price, qty, remaining: qty,
-      percent, gross: 0, status: 'pending', time: stock.market.time, amendments: 0, ...checked};
+      percent, creditOnly, gross: 0, status: 'pending', time: stock.market.time, amendments: 0, ...checked};
     account.orders.unshift(order);
     return send(stock, account, order);
   }
@@ -309,6 +332,10 @@
 
   function placeLimit(stock, account, side, qty, price) {
     return place(stock, account, side, qty, price, 'limit');
+  }
+
+  function executeCreditSale(stock, account, qty, limit) {
+    return place(stock, account, 'sell', qty, limit ?? null, limit === undefined ? 'market' : 'limit', null, true);
   }
 
   function executeCredit(stock, account, percent, limit) {
@@ -338,7 +365,7 @@
     const filled = order.qty - order.remaining;
     if (!ledger.validQuantity(filled + qty)) return {error: '기존 체결 수량을 합쳐 99,999주까지 가능해요.'};
     const stock = market.stocks[order.index];
-    const checked = validate(stock, account, order.side, qty, price, order.percent, order, order.type);
+    const checked = validate(stock, account, order.side, qty, price, order.percent, order, order.type, order.creditOnly);
     if (checked.error) return checked;
     cancelLimit(market, account, id);
     Object.assign(order, checked, {qty: filled + qty, remaining: qty, price, status: filled ? 'partial' : 'pending',
@@ -402,5 +429,5 @@
   }
 
   globalThis.ScalpEngine = {initialize, participant, submitParticipant: submit, updateRisk, isHalted, priceStatus, notify,
-    quoteOrder, maxOrder, limitEstimate, executeOrder, placeLimit, cancelLimit, amendLimit, expirePending, executeCredit, creditQuote};
+    quoteOrder, maxOrder, limitEstimate, executeOrder, placeLimit, cancelLimit, amendLimit, expirePending, executeCredit, executeCreditSale, creditQuote};
 }());
