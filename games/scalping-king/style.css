@@ -485,3 +485,58 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .quote-stats { grid-template-columns: 1fr; }
   #mobileTimer { font-size: .65rem; }
 }
+
+/* Keep the order ticket as the height reference. Scroll long lists inside their cards. */
+.stock-name-line { display: flex; align-items: center; gap: 4px; min-width: 0; }
+.stock-news-dot { flex: 0 0 7px; height: 7px; border-radius: 50%; background: #6b7280; }
+.stock-news-dot[data-tone="up"] { background: var(--up); }
+.stock-news-dot[data-tone="down"] { background: var(--down); }
+
+.sidebar { position: sticky; top: 8px; z-index: 4; }
+.desk > .order-panel { align-self: start; }
+.chart-panel, .depth-panel { height: var(--order-panel-height, auto); min-height: 0; align-self: start; }
+.chart-panel { overflow: auto; }
+.chart-dark { flex: 1 0 155px; min-height: 0; }
+.chart-panel > :not(.chart-dark) { flex-shrink: 0; }
+#chart { flex: 1 1 0; height: 0; min-height: 0; }
+.depth-panel { display: flex; flex-direction: column; overflow: auto; }
+.depth-panel > :not(.tape) { flex-shrink: 0; }
+.tape { min-height: 46px; overflow-y: auto; }
+
+@media (min-width: 811px) {
+  .workspace { display: contents; }
+  .workspace > .hero, .workspace > .metrics, .workspace > .desk, .workspace > footer { grid-column: 2; }
+  .workspace > .hero { grid-row: 1; }
+  .workspace > .metrics { grid-row: 2; }
+  .workspace > .desk { grid-row: 3; }
+  .workspace > footer { grid-row: 4; }
+  .sidebar {
+    grid-area: 3 / 1 / 5 / 2;
+    height: var(--order-panel-height, auto);
+    top: min(8px, calc(100dvh - var(--order-panel-height, 0px) - 8px));
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar > :not(.watchlist) { flex-shrink: 0; }
+  .watchlist { flex: 1; overflow-y: auto; }
+}
+
+@media (min-width: 551px) {
+  .trade-column { display: contents; }
+  .desk { grid-template-areas: "chart order" "depth stock-news" "depth pending" "lower lower"; }
+  .order-panel { grid-area: order; }
+  .stock-news-panel { grid-area: stock-news; }
+  .pending-panel { grid-area: pending; }
+}
+
+@media (min-width: 1050px) {
+  .desk { grid-template-areas: "chart depth order" "lower lower stock-news" "lower lower pending"; }
+}
+
+@media (max-width: 810px) {
+  #market, #orderTitle, #stockNewsTitle, #pendingTitle { scroll-margin-top: var(--watchlist-offset, 116px); }
+}
+
+@media (max-width: 550px) {
+  .order-panel { align-self: start; }
+}

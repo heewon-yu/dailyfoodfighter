@@ -74,7 +74,7 @@
       if (player) {
         const trade = ledger.applyFill(stock, account, player, fill);
         fills.push(trade);
-        if (trade.emergencyRepayment) notify(market, '긴급자금 ' + format.format(trade.emergencyRepayment) + '원 자동 상환');
+        if (trade.emergencyRepayment) notify(market, '긴급자금대출 ' + format.format(trade.emergencyRepayment) + '원 자동 상환');
         if (!player.remaining) {
           stock.playerOrders.delete(fill.makerOrderId);
           removePending(account, player, 'filled', market.time);

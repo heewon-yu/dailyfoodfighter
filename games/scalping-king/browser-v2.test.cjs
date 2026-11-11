@@ -44,9 +44,35 @@ async function run() {
     });
     await desktop.goto(target + '?seed=5');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
-    assert.equal(await desktop.locator('#creditTool').isDisabled(), true);
-    assert.equal(await desktop.locator('#stopTool').isDisabled(), true);
+    assert.equal(await desktop.locator('#creditTool').isEnabled(), true);
+    assert.equal(await desktop.locator('#stopTool').isEnabled(), true);
     assert.equal(await desktop.locator('#emergencyTool').isDisabled(), true);
+    const layout = () => desktop.evaluate(() => {
+      const rect = selector => document.querySelector(selector).getBoundingClientRect();
+      const panels = ['.sidebar', '.chart-panel', '.depth-panel', '.order-panel'].map(rect);
+      return {heights: panels.map(panel => Math.round(panel.height)),
+        tops: panels.map(panel => Math.round(panel.top)), newsTop: rect('.stock-news-panel').top};
+    });
+    for (const width of [1440, 1120, 900]) {
+      await desktop.setViewportSize({width, height: 950});
+      await desktop.waitForFunction(() => {
+        const order = document.querySelector('.order-panel').offsetHeight;
+        return ['.sidebar', '.chart-panel', '.depth-panel'].every(selector => document.querySelector(selector).offsetHeight === order);
+      });
+      const {heights, tops, newsTop} = await layout();
+      assert.equal(new Set(heights).size, 1);
+      if (width >= 1050) {
+        assert.equal(new Set(tops).size, 1);
+        assert.ok(newsTop > tops[3] + heights[3]);
+      }
+    }
+    await desktop.setViewportSize({width: 1440, height: 700});
+    await desktop.evaluate(() => window.scrollTo(0, 500));
+    await desktop.waitForFunction(() => Math.abs(document.querySelector('.sidebar').getBoundingClientRect().top - 8) < 2);
+    await desktop.evaluate(() => window.scrollTo(0, 0));
+    const dots = desktop.locator('#watchlist .stock-news-dot');
+    assert.equal(await dots.count(), 10);
+    assert.ok((await dots.evaluateAll(items => items.map(item => item.title))).every(title => title.startsWith('장전')));
     await desktop.locator('#start').click();
     await desktop.locator('#quantity').fill('2');
     await desktop.locator('#buy').click();
@@ -93,7 +119,7 @@ async function run() {
     await desktop.clock.fastForward(305000);
     assert.equal(await desktop.locator('#timer').innerText(), '00:00');
     assert.equal(await desktop.locator('#result').isVisible(), true);
-    assert.match(await desktop.locator('#score').innerText(), /최초 투자원금[\s\S]*100,000,000원[\s\S]*최대 낙폭[\s\S]*긴급자금 상환액/);
+    assert.match(await desktop.locator('#score').innerText(), /최초 투자원금[\s\S]*100,000,000원[\s\S]*최대 낙폭[\s\S]*긴급자금대출 상환액/);
     await desktop.locator('#shareImage:not([disabled])').waitFor();
     await desktop.locator('#shareImage').click();
     const [shared] = await desktop.evaluate(() => window.sharedScore);
@@ -108,7 +134,6 @@ async function run() {
       hasTouch: true, deviceScaleFactor: 2});
     attach(mobile);
     await mobile.clock.install();
-    // This provider exists only in the test browser and is never served as a site asset.
     await mobile.addInitScript(() => {
       Object.defineProperty(window, 'ScalpMarket', {configurable: true, set(api) {
         const original = api.createMarket;
@@ -123,48 +148,32 @@ async function run() {
         };
         Object.defineProperty(window, 'ScalpMarket', {value: api});
       }});
-      window.scalpRewardProvider = {
-        isAvailable: () => true,
-        show: ({feature, onReward}) => new Promise(resolve => {
-          window.endTestAd = (outcome, earned) => {
-            if (earned) { onReward(); onReward(); }
-            resolve(outcome);
-          };
-          window.testAdFeature = feature;
-        }),
-      };
     });
     await mobile.goto(target + '?seed=5');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth), 390);
     await mobile.locator('#start').tap();
     await mobile.locator('#creditTool').tap();
-    assert.equal(await mobile.evaluate(() => window.testAdFeature), 'credit');
-    const adTimer = await mobile.locator('#timer').innerText();
-    const adPrice = await mobile.locator('#price').innerText();
-    const adBook = await mobile.locator('#orderBook').innerText();
-    await mobile.clock.fastForward(20000);
-    assert.equal(await mobile.locator('#timer').innerText(), adTimer);
-    assert.equal(await mobile.locator('#price').innerText(), adPrice);
-    assert.equal(await mobile.locator('#orderBook').innerText(), adBook);
-    await mobile.evaluate(() => window.endTestAd('canceled', true));
-    assert.equal(await mobile.locator('#creditDialog').isVisible(), false);
-    assert.match(await mobile.locator('#creditTool').innerText(), /잠금/);
-    await mobile.locator('#creditTool').tap();
-    await mobile.evaluate(() => window.endTestAd('completed', true));
     assert.equal(await mobile.locator('#creditDialog').isVisible(), true);
     await mobile.locator('#creditPercent').fill('0');
     assert.equal(await mobile.locator('#creditConfirm').isDisabled(), true);
+    assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     await mobile.locator('#creditPercent').fill('300');
     assert.equal(await mobile.locator('#creditRange').inputValue(), '300');
     await mobile.locator('#creditConfirm').tap();
     assert.notEqual(await mobile.locator('#creditDebt').innerText(), '0원');
     assert.equal(await mobile.locator('#emergencyTool').isEnabled(), true);
     await mobile.locator('#emergencyTool').tap();
-    assert.equal(await mobile.evaluate(() => window.testAdFeature), 'emergency');
-    await mobile.evaluate(() => window.endTestAd('completed', true));
     assert.equal(await mobile.locator('#emergencyDebt').innerText(), '50,000,000원 · 0원');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
+    await mobile.evaluate(() => {
+      window.testMarket.headlines.unshift(...[1, -1, 0].map((direction, index) =>
+        ({index, direction, time: 1, title: '검증 뉴스'})));
+    });
+    await mobile.clock.fastForward(600);
+    const newsDots = mobile.locator('#watchlist .stock-news-dot');
+    assert.deepEqual(await newsDots.evaluateAll(items => items.slice(0, 3).map(dot => dot.dataset.tone)), ['up', 'down', '']);
+    assert.match(await newsDots.first().getAttribute('title'), /^장중 호재/);
     await mobile.evaluate(() => {
       const stock = window.testMarket.stocks[0];
       ScalpMicrostructure.halt(stock.depth, window.testMarket.time);
@@ -178,8 +187,6 @@ async function run() {
     await mobile.clock.fastForward(10000);
     assert.equal(await mobile.locator('#buy').isEnabled(), true);
     await mobile.locator('#stopTool').tap();
-    assert.equal(await mobile.evaluate(() => window.testAdFeature), 'stop');
-    await mobile.evaluate(() => window.endTestAd('completed', true));
     assert.equal(await mobile.locator('#stopDialog').isVisible(), true);
     assert.equal(await mobile.locator('#stopPercent').inputValue(), '-3');
     await mobile.locator('#stopPercent').fill('-8');
@@ -190,8 +197,9 @@ async function run() {
     await mobile.clock.fastForward(10000);
     assert.equal(await mobile.locator('#mobileTimer').innerText(), pausedMobile);
     await mobile.locator('#jumpRestart').tap();
-    assert.match(await mobile.locator('#creditTool').innerText(), /잠금/);
-    assert.match(await mobile.locator('#stopTool').innerText(), /잠금/);
+    assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
+    assert.equal(await mobile.locator('#creditTool').isEnabled(), true);
+    assert.equal(await mobile.locator('#stopTool').isEnabled(), true);
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 390px touch browser tests passed at ' + target);
   } finally {

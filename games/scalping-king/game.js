@@ -82,6 +82,7 @@
   const orderPrice = $('limitPrice');
   const watchlist = $('watchlist');
   const orderBook = $('orderBook');
+  const testTools = document.body.dataset.testTools === 'enabled';
 
   function buildDepthRows(side) {
     return Array.from({length: 5}, (_, index) => {
@@ -108,7 +109,8 @@
       button.className = 'stock-row';
       button.dataset.stock = stock.index;
       button.innerHTML = '<span class="stock-icon" style="--icon:' + stock.color + '">' + stock.short +
-        '</span><span class="stock-name"><b>' + stock.name + '</b><small>' + stock.sector +
+        '</span><span class="stock-name"><span class="stock-name-line"><b>' + stock.name +
+        '</b><span class="stock-news-dot" hidden></span></span><small>' + stock.sector +
         '</small></span><span class="stock-value"><b></b><small></small></span>';
       return button;
     });
@@ -144,10 +146,25 @@
       $('listCount').textContent = stocks.length;
       watchKey = key;
     }
+    const latestNews = new Map();
+    for (const item of market.headlines) {
+      if (!latestNews.has(item.index)) latestNews.set(item.index, item);
+    }
     stocks.forEach((stock, rank) => {
       const button = stockButtons[stock.index];
       const period = phase !== 'ready' && (sort === 'surge' || sort === 'drop') ? change10(stock) : delta(stock);
       const [price, rate] = button.lastElementChild.children;
+      const item = latestNews.get(stock.index);
+      const dot = button.querySelector('.stock-news-dot');
+      dot.hidden = !item;
+      if (item) {
+        dot.dataset.tone = tone(item.direction);
+        const session = item.time ? '장중' : '장전';
+        const sentiment = item.direction > 0 ? '호재' : item.direction < 0 ? '악재' : '중립';
+        dot.title = session + ' ' + sentiment + ' · ' + item.title;
+        dot.setAttribute('aria-label', session + ' ' + sentiment);
+        dot.setAttribute('role', 'img');
+      }
       button.setAttribute('aria-pressed', String(stock.index === selected));
       button.dataset.rank = sort === 'default' ? '' : String(rank + 1);
       price.textContent = num(stock.price);
@@ -338,7 +355,7 @@
 
   const rewardTools = [
     {key: 'credit', id: 'creditTool', label: '신용매수'},
-    {key: 'emergency', id: 'emergencyTool', label: '긴급자금'},
+    {key: 'emergency', id: 'emergencyTool', label: '긴급자금대출'},
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
 
@@ -346,18 +363,23 @@
     const provider = window.scalpRewardProvider;
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = account.unlocks[key];
+      const unlocked = testTools || account.unlocks[key];
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
     }
+    if (testTools) {
+      $('rewardHint').textContent = account.everFilledCreditBuy ? '테스트 모드 · 광고 없이 이용 가능' :
+        '테스트 모드 · 긴급자금대출은 신용매수 체결 후 이용 가능';
+      return;
+    }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
       !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '기능별 보상형 광고 1회 · 이번 판에만 적용' :
-          '긴급자금은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
+          '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
   }
 
   function showCredit() {
@@ -400,14 +422,31 @@
     $('stopDialog').showModal();
   }
 
+  function grantTool(key) {
+    if (key === 'emergency') {
+      Object.assign(account, risk.issueEmergency(account));
+      notify(market, '긴급자금대출 5,000만원 지급 · 동일 금액 채무 기록');
+    }
+    account.unlocks[key] = true;
+  }
+
+  function openTool(key) {
+    if (key === 'credit') showCredit();
+    if (key === 'stop') showStop();
+  }
+
   async function unlock(key) {
     if (adController || phase === 'done' || result) return;
-    if (account.unlocks[key]) {
-      if (key === 'credit') showCredit();
-      if (key === 'stop') showStop();
+    if (key === 'emergency' && !risk.canUseEmergency(account)) return;
+    if (testTools || account.unlocks[key]) {
+      if (!account.unlocks[key]) grantTool(key);
+      if (key === 'emergency') {
+        feedback('긴급자금대출 5,000만원이 입금됐어요.', 'ok');
+        render();
+      }
+      openTool(key);
       return;
     }
-    if (key === 'emergency' && !risk.canUseEmergency(account)) return;
     const provider = window.scalpRewardProvider;
     if (!ScalpReward.ready(provider, key)) return;
     const wasLive = phase === 'live';
@@ -422,11 +461,7 @@
     if (adController !== controller || account !== round) return;
     adController = null;
     if (earned) {
-      if (key === 'emergency') {
-        Object.assign(account, risk.issueEmergency(account));
-        notify(market, '긴급자금 5,000만원 지급 · 동일 금액 채무 기록');
-      }
-      account.unlocks[key] = true;
+      grantTool(key);
       feedback(rewardTools.find(item => item.key === key).label + ' 기능을 사용할 수 있어요.', 'ok');
     } else feedback('광고가 완료되지 않았어요. 기존 장세를 이어갑니다.', 'error');
     if (wasLive) {
@@ -435,8 +470,7 @@
     }
     renderPhase();
     render();
-    if (earned && key === 'credit') showCredit();
-    if (earned && key === 'stop') showStop();
+    if (earned) openTool(key);
   }
 
   function renderScoreDetails(details) {
@@ -450,9 +484,9 @@
       ['평가손익', signed(details.unrealized) + '원'],
       ['신용매수 사용액', money(details.creditUsed)],
       ['신용채무 잔액', money(details.creditDebt)],
-      ['긴급자금 사용액', money(details.emergencyUsed)],
-      ['긴급자금 상환액', money(details.emergencyRepaid)],
-      ['긴급자금 잔여 채무', money(details.emergencyDebt)],
+      ['긴급자금대출 사용액', money(details.emergencyUsed)],
+      ['긴급자금대출 상환액', money(details.emergencyRepaid)],
+      ['긴급자금대출 잔여 채무', money(details.emergencyDebt)],
       ['반대매매', details.forcedCount + '회'],
       ['로스컷 발동', details.stopCount + '회'],
       ['최고 수익 종목', stockResult(details.bestStock)],
@@ -1142,6 +1176,17 @@
   });
   canvas.addEventListener('pointerleave', () => { cursor = null; renderChart(); });
   new ResizeObserver(renderChart).observe(canvas);
+  const shell = document.querySelector('.shell');
+  const orderPanel = document.querySelector('.order-panel');
+  const sidebar = document.querySelector('.sidebar');
+  const panelSizes = new ResizeObserver(entries => {
+    for (const {target} of entries) {
+      if (target === orderPanel) shell.style.setProperty('--order-panel-height', target.offsetHeight + 'px');
+      else shell.style.setProperty('--watchlist-offset', target.offsetHeight + 12 + 'px');
+    }
+  });
+  panelSizes.observe(orderPanel, {box: 'border-box'});
+  panelSizes.observe(sidebar, {box: 'border-box'});
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) suspend('background');
     else if (pauseReason === 'background') resume();

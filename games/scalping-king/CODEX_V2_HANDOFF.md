@@ -82,3 +82,9 @@ This document is a real code-source-based handoff; it is NOT a claim of complete
 - node games/scalping-king/microstructure-v2.test.cjs
 - node games/scalping-king/integration-v2.test.cjs
 - Install playwright-core and its Chromium, then run node games/scalping-king/browser-v2.test.cjs. Set SCALPING_TEST_URL to smoke-test a deployed copy. The test supplies its own ad callbacks inside the browser context.
+
+## Layout and public playtest
+
+- The order ticket sets the desktop height of the watchlist, chart, and order book. On phones the sticky watchlist remains a compact horizontal strip. The chart and order book still follow the order ticket height. Selected-stock news starts on the row below the order ticket on wide screens.
+- The watchlist dot reflects the latest opening or intraday headline for each stock. Red is positive, blue is negative, gray is neutral. The dot title carries the headline.
+- `data-test-tools="enabled"` on the game page enables credit purchases and stop loss without an ad. Emergency loans become available after a credit purchase fills and can be drawn once per round. Remove the attribute when switching back to the rewarded-ad flow and configure the provider documented above.
