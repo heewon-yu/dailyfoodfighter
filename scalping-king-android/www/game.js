@@ -448,12 +448,7 @@
   async function unlock(key) {
     if (adController || phase === 'done' || result) return;
     if (key === 'emergency' && !risk.canUseEmergency(account)) return;
-    if (testTools || account.unlocks[key]) {
-      if (!account.unlocks[key]) grantTool(key);
-      if (key === 'emergency') {
-        feedback('긴급자금대출 5,000만원이 입금됐어요.', 'ok');
-        render();
-      }
+    if (account.unlocks[key]) {
       openTool(key);
       return;
     }
