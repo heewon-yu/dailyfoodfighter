@@ -1,0 +1,97 @@
+name: Scalping King Android
+on:
+  push:
+    branches: [codex/scalping-king-android]
+    paths:
+      - 'scalping-king-android/**'
+      - '.github/workflows/scalping-android.yml'
+  pull_request:
+    paths:
+      - 'scalping-king-android/**'
+      - '.github/workflows/scalping-android.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  debug-apk:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: scalping-king-android
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: scalping-king-android/package-lock.json
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@be39fa834029ff78f1a44aa3bb0819b8fc2bd8fd # v4
+        with:
+          packages: platform-tools platforms;android-36 build-tools;36.0.0
+          log-accepted-android-sdk-licenses: false
+      - name: Install and sync Capacitor
+        run: |
+          npm ci
+          npm run android:sync
+      - name: Build debug APK and compile instrumentation tests
+        working-directory: scalping-king-android/android
+        run: ./gradlew --no-daemon :app:testDebugUnitTest :app:assembleDebug :app:assembleDebugAndroidTest
+      - name: Verify signed APK and embedded game
+        run: |
+          set -euo pipefail
+          apk=android/app/build/outputs/apk/debug/app-debug.apk
+          tools="$ANDROID_HOME/build-tools/36.0.0"
+          "$tools/apksigner" verify "$apk"
+          badging=$("$tools/aapt" dump badging "$apk")
+          grep -F "package: name='com.dailyfoodfighter.scalpingking'" <<< "$badging"
+          grep -F "targetSdkVersion:'36'" <<< "$badging"
+          python3 - "$apk" <<'PY'
+          from pathlib import Path
+          from sys import argv
+          from zipfile import ZipFile
+
+          with ZipFile(argv[1]) as apk:
+              files = [file for file in Path("www").iterdir() if file.is_file()]
+              assert any(file.name == "index.html" for file in files)
+              for file in files:
+                  assert apk.read("assets/public/" + file.name) == file.read_bytes(), file
+          PY
+      - name: Build unsigned Play release bundle
+        working-directory: scalping-king-android/android
+        run: ./gradlew --no-daemon :app:bundleRelease
+      - name: Verify embedded game in release bundle
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          with ZipFile("android/app/build/outputs/bundle/release/app-release.aab") as bundle:
+              assert "base/manifest/AndroidManifest.xml" in bundle.namelist()
+              for file in Path("www").iterdir():
+                  if file.is_file():
+                      assert bundle.read("base/assets/public/" + file.name) == file.read_bytes(), file
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Scalping-King-Android-Unsigned-AAB
+          path: scalping-king-android/android/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Scalping-King-Android-Debug-APK
+          path: scalping-king-android/android/app/build/outputs/apk/debug/app-debug.apk
+          if-no-files-found: error
+          retention-days: 30
+      - name: Compile optional AdMob release configuration
+        working-directory: scalping-king-android/android
+        env:
+          SCALP_ADMOB_APP_ID: ca-app-pub-1111111111111111~1111111111
+          SCALP_ADMOB_REWARDED_ID: ca-app-pub-1111111111111111/2222222222
+        run: ./gradlew --no-daemon :app:compileReleaseJavaWithJavac
