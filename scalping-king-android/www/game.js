@@ -1026,9 +1026,12 @@
 
   function showShareHelp(message) {
     const {seed, total, count, fees, record} = result;
-    const url = new URL(location.href);
+    const android = window.Capacitor?.getPlatform?.() === 'android';
+    const url = new URL(android ? 'https://dailyfoodfighter.com/games/scalping-king/' : location.href);
     url.hash = 'score=' + [code(seed), total, count, fees, Number(record)].join(',');
-    try { history.replaceState(null, '', url); } catch { /* The result address is still available below. */ }
+    if (!android) {
+      try { history.replaceState(null, '', url); } catch { /* The result address is still available below. */ }
+    }
     const link = $('scoreShareLink');
     link.value = url.href;
     link.hidden = false;
@@ -1044,6 +1047,17 @@
     $('shareFeedback').textContent = '';
     $('scoreShareLink').hidden = true;
     try {
+      const native = window.Capacitor?.Plugins?.ScalpScoreShare;
+      if (native) {
+        setShareEnabled(false);
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const chunks = [];
+        for (let offset = 0; offset < bytes.length; offset += 8192) {
+          chunks.push(String.fromCharCode(...bytes.subarray(offset, offset + 8192)));
+        }
+        await native.sharePng({data: btoa(chunks.join(''))});
+        return;
+      }
       if (!navigator.share || (navigator.canShare && !navigator.canShare({files}))) {
         showShareHelp('현재 브라우저에서 이미지 공유 메뉴를 열 수 없어요.');
         return;
