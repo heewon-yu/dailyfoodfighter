@@ -1104,11 +1104,9 @@ const official = window.scalpOfficial;
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
     if (official && typeof official.signedIn === 'function' && official.signedIn()) return startOfficial();
-    const nick = localStorage.getItem('scalpNickname') || officialProfile?.nickname;
-    if (!nick) {
-      if (!$('officialAccountDialog').open) $('officialAccountDialog').showModal();
-      $('officialNickname').focus();
-      return;
+    const nick = localStorage.getItem('scalpNickname') || officialProfile?.nickname || '단타왕';
+    if (!localStorage.getItem('scalpNickname')) {
+      try { localStorage.setItem('scalpNickname', nick); } catch {}
     }
     const quota = getLocalQuota();
     if (quota.free <= 0 && quota.bonus <= 0) {
