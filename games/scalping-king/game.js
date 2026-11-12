@@ -354,7 +354,7 @@
   }
 
   const rewardTools = [
-    {key: 'credit', id: 'creditTool', label: '신용거래'},
+    {key: 'credit', id: 'creditTool', label: '신용매수'},
     {key: 'emergency', id: 'emergencyTool', label: '긴급자금대출'},
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
