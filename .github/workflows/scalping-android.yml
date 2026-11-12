@@ -62,6 +62,27 @@ jobs:
               for file in files:
                   assert apk.read("assets/public/" + file.name) == file.read_bytes(), file
           PY
+      - name: Build unsigned Play release bundle
+        working-directory: scalping-king-android/android
+        run: ./gradlew --no-daemon :app:bundleRelease
+      - name: Verify embedded game in release bundle
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+
+          with ZipFile("android/app/build/outputs/bundle/release/app-release.aab") as bundle:
+              assert "base/manifest/AndroidManifest.xml" in bundle.namelist()
+              for file in Path("www").iterdir():
+                  if file.is_file():
+                      assert bundle.read("base/assets/public/" + file.name) == file.read_bytes(), file
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Scalping-King-Android-Unsigned-AAB
+          path: scalping-king-android/android/app/build/outputs/bundle/release/app-release.aab
+          if-no-files-found: error
+          retention-days: 30
       - uses: actions/upload-artifact@v4
         with:
           name: Scalping-King-Android-Debug-APK
