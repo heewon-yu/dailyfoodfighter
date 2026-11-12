@@ -764,7 +764,15 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .official-form { display: grid; gap: 8px; margin-bottom: 10px; }
 .official-form[hidden], .official-panel[hidden] { display: none; }
 
-/* Desktop 2-column layout */
+@media (max-width: 810px) {
+  .shell:has(.official-panel:not([hidden])) .hero { grid-row: 1; }
+  .shell:has(.official-panel:not([hidden])) .official-panel { grid-row: 2; }
+  .shell:has(.official-panel:not([hidden])) .metrics { grid-row: 3; }
+  .shell:has(.official-panel:not([hidden])) .sidebar { grid-row: 4; }
+  .shell:has(.official-panel:not([hidden])) .desk { grid-row: 5; }
+  .shell:has(.official-panel:not([hidden])) .lower { grid-row: 6; }
+  .shell:has(.official-panel:not([hidden])) footer { grid-row: 7; }
+}
 @media (min-width: 811px) {
   .workspace > .official-panel { grid-column: 2; grid-row: 2; }
   .workspace:has(.official-panel:not([hidden])) > .metrics { grid-row: 3; }
