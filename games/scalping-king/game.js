@@ -674,9 +674,10 @@ const official = window.scalpOfficial;
 
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
+    const hasProvider = Boolean(provider && (ScalpReward.ready(provider, 'credit') || ScalpReward.ready(provider, 'stop')));
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = account.unlocks[key];
+      const unlocked = account.unlocks[key] || !hasProvider;
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
@@ -684,7 +685,7 @@ const official = window.scalpOfficial;
       button.textContent = funded ? label + ' · 사용 완료' : unlocked || !eligible || !ScalpReward.ready(provider, key) ? label : '광고 보고 ' + label + ' 이용하기';
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
-      !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
+      hasProvider && !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '' :
           '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
@@ -745,13 +746,18 @@ const official = window.scalpOfficial;
 
   async function unlock(key) {
     if (adController || privacyBusy || phase === 'done' || result) return;
-    if (key === 'emergency' && !risk.canUseEmergency(account)) return;
-    if (account.unlocks[key]) {
+    if (key === 'emergency' && !risk.canUseEmergency(account)) {
+      feedback('긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.', 'error');
+      return;
+    }
+    const provider = window.scalpRewardProvider;
+    const hasProvider = Boolean(provider && (ScalpReward.ready(provider, 'credit') || ScalpReward.ready(provider, 'stop')));
+    if (account.unlocks[key] || !hasProvider) {
+      account.unlocks[key] = true;
       openTool(key);
       return;
     }
     if (official) return officialAd(key);
-    const provider = window.scalpRewardProvider;
     if (!ScalpReward.ready(provider, key)) return;
     const wasLive = phase === 'live';
     if (wasLive) suspend('ad');
