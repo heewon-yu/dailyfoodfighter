@@ -759,16 +759,17 @@ const official = window.scalpOfficial;
       const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider);
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
-      button.disabled = phase !== 'live' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = funded ? label + ' · 사용 완료' :
-        unlocked ? label :
-        provider && ScalpReward.ready(provider, key) ? '광고 보고 ' + label :
-        label;
+        unlocked || !eligible || !ScalpReward.ready(provider, key) ? label :
+        '광고 보고 ' + label + ' 이용하기';
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
-      account.everFilledCreditBuy ? '' :
-        '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
+      !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
+        '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
+        account.everFilledCreditBuy ? '' :
+          '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
   }
 
   function showCredit() {
