@@ -386,7 +386,6 @@
     $('creditFeedback').textContent = '';
     $('creditOrderType').value = orderType;
     $('creditLimitPrice').value = orderPrice.value;
-    $('creditSellQty').value = '';
     $('creditDialog').showModal();
     renderCredit();
   }
@@ -405,12 +404,6 @@
     const stock = market.stocks[selected];
     const limit = creditLimit();
     $('creditLimitField').hidden = limit === undefined;
-    const saleQty = $('creditSellQty').valueAsNumber;
-    const available = ledger.availableCreditShares(account, stock.index);
-    const validLimit = limit === undefined || ScalpMicrostructure.validPrice(stock.depth, limit);
-    $('creditSellConfirm').disabled = phase !== 'live' || Boolean(adController) ||
-      !validLimit || !ledger.validQuantity(saleQty) || saleQty > available;
-    $('creditSellAll').disabled = available <= 0;
     const plan = percent === null ? null : creditQuote(stock, account, percent, limit);
     const items = [
       ['종목 · 주문 방식', stock.name + (limit === undefined ? ' · 시장가' : ' · 지정가 ' + money(limit))],
@@ -419,7 +412,6 @@
       ['신용매수 예정금액', plan ? money(plan.creditReserve) : '—'],
       ['신용채무 잔액', money(account.creditDebt)],
       ['남은 신용한도', money(risk.availableCredit(account, ledger.reserved(account, 'creditReserve')))],
-      ['신용매도 가능', num(available) + '주'],
       ['예상 매수수량', plan ? num(plan.qty) + '주' : '—'],
       ['예상 담보비율', plan ? ratioText(plan.expectedRatio) : '—'],
       ['유지담보비율', '150%'],
@@ -535,27 +527,21 @@
     $('creditFeedback').textContent = '';
     renderCredit();
   });
-  for (const id of ['creditOrderType', 'creditLimitPrice', 'creditSellQty']) {
+  for (const id of ['creditOrderType', 'creditLimitPrice']) {
     $(id).addEventListener('input', () => {
       $('creditFeedback').textContent = '';
       renderCredit();
     });
   }
-  $('creditSellAll').addEventListener('click', () => {
-    $('creditSellQty').value = String(Math.min(99999, ledger.availableCreditShares(account, selected)));
-    renderCredit();
-  });
-  $('creditSellConfirm').addEventListener('click', () => submitCreditOrder('sell'));
-  $('creditConfirm').addEventListener('click', () => submitCreditOrder('buy'));
+  $('creditConfirm').addEventListener('click', () => submitCreditOrder());
 
-  function submitCreditOrder(side) {
+  function submitCreditOrder() {
     syncTime();
     const percent = creditPercent();
-    if (phase !== 'live' || adController || (side === 'buy' && percent === null)) return;
+    if (phase !== 'live' || adController || percent === null) return;
     const stock = market.stocks[selected];
     const limit = creditLimit();
-    const {error, trade: fill, order} = side === 'buy' ? executeCredit(stock, account, percent, limit) :
-      executeCreditSale(stock, account, $('creditSellQty').valueAsNumber, limit);
+    const {error, trade: fill, order} = executeCredit(stock, account, percent, limit);
     if (error) {
       $('creditFeedback').textContent = error;
       return;
