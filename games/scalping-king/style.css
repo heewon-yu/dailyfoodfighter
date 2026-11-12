@@ -593,14 +593,6 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .official-panel > span { flex: 1 1 155px; font-weight: 700; color: #facc15; }
 .official-form { display: grid; gap: 8px; margin-bottom: 10px; }
 .official-form[hidden], .official-panel[hidden] { display: none; }
-@media (max-width: 810px) {
-  .workspace > .official-panel { grid-row: 2; margin-block: 2px; }
-  .workspace:has(.official-panel:not([hidden])) > .metrics { grid-row: 3; }
-  .shell:has(.official-panel:not([hidden])) .sidebar { grid-row: 4; }
-  .workspace:has(.official-panel:not([hidden])) > .desk { grid-row: 5; }
-  .workspace:has(.official-panel:not([hidden])) > .lower { grid-row: 6; }
-  .workspace:has(.official-panel:not([hidden])) > footer { grid-row: 7; }
-}
 @media (min-width: 811px) {
   .workspace > .official-panel { grid-column: 2; grid-row: 2; }
   .workspace:has(.official-panel:not([hidden])) > .metrics { grid-row: 3; }
