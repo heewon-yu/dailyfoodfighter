@@ -680,7 +680,7 @@ const official = window.scalpOfficial;
       const unlocked = account.unlocks[key] || !hasProvider;
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
-      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+      button.disabled = phase !== 'live' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = funded ? label + ' · 사용 완료' : unlocked || !eligible || !ScalpReward.ready(provider, key) ? label : '광고 보고 ' + label + ' 이용하기';
     }
