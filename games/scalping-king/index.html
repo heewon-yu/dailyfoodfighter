@@ -7,7 +7,7 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261112-integration">
+  <link rel="stylesheet" href="./style.css?v=20261112-ranking-ui">
   <script defer src="./risk-v2.js?v=20261111-emergency-collateral"></script>
   <script defer src="./microstructure-v2.js?v=20261111-v2"></script>
   <script defer src="./ledger-v2.js?v=20261112-integration"></script>
@@ -15,9 +15,9 @@
   <script defer src="./reward-v2.js?v=20261111-v2"></script>
   <script defer src="./market.js?v=20261111-v2"></script>
   <script defer src="./chart.js?v=20261110-07"></script>
-  <script defer src="./official-config.js?v=20261112-v3"></script>
-  <script defer src="./official-client.js?v=20261112-v3"></script>
-  <script defer src="./game.js?v=20261112-v3"></script>
+  <script defer src="./official-config.js?v=20261112-v4"></script>
+  <script defer src="./official-client.js?v=20261112-v4"></script>
+  <script defer src="./game.js?v=20261112-v4"></script>
 </head>
 <body>
   <header class="topbar">
@@ -205,12 +205,40 @@
     </form>
     <p id="officialAccountFeedback" class="feedback" role="status"></p>
   </dialog>
-  <dialog id="officialRankingDialog" class="modal">
-    <form method="dialog" class="modal-close"><button type="submit" aria-label="닫기">×</button></form>
-    <h2>일일 단타왕</h2>
-    <p id="officialRankingStatus" role="status"></p>
-    <h3>수익률 TOP5</h3><ol id="officialRates"></ol>
-    <h3>수익금 TOP5</h3><ol id="officialProfits"></ol>
+  <dialog id="officialRankingDialog" class="modal result-modal ranking-modal">
+    <div class="modal-head">
+      <div>
+        <div class="eyebrow">DAILY LEADERBOARD</div>
+        <h2>일일 단타왕 TOP 5</h2>
+      </div>
+      <form method="dialog"><button class="subtle" aria-label="닫기">✕</button></form>
+    </div>
+    <div class="ranking-header">
+      <span class="ranking-tag">실시간 집계</span>
+      <p id="officialRankingStatus" class="ranking-date" role="status">2026-11-12 한국시간</p>
+    </div>
+
+    <div class="ranking-board">
+      <div class="ranking-section">
+        <div class="ranking-section-title">
+          <span>🏆 수익률 TOP 5</span>
+          <small>최고 수익률 기준</small>
+        </div>
+        <ol id="officialRates" class="ranking-list"></ol>
+      </div>
+
+      <div class="ranking-section">
+        <div class="ranking-section-title">
+          <span>💰 수익금 TOP 5</span>
+          <small>최고 수익금 기준</small>
+        </div>
+        <ol id="officialProfits" class="ranking-list"></ol>
+      </div>
+    </div>
+
+    <div class="result-actions">
+      <form method="dialog" style="width:100%"><button type="submit" class="gold modal-primary" aria-label="닫기">확인</button></form>
+    </div>
   </dialog>
   <dialog id="guide" class="modal">
     <div class="modal-head"><div><div class="eyebrow">QUICK GUIDE</div><h2>5분 단타왕 플레이 가이드</h2></div><form method="dialog"><button class="subtle" aria-label="가이드 닫기">✕</button></form></div>

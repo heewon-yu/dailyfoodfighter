@@ -355,17 +355,28 @@ const official = window.scalpOfficial;
         }
         const {day, rates, profits} = data;
         target.textContent = (day || getKstDay()) + ' 한국시간';
-        for (const [id, rows, format] of [['officialRates', rates, pct], ['officialProfits', profits, money]]) {
+        for (const [id, rows, format, isRate] of [
+          ['officialRates', rates, pct, true],
+          ['officialProfits', profits, money, false],
+        ]) {
           const list = $(id);
-          list.replaceChildren(...(rows || []).map(row => {
-            const item = document.createElement('li');
-            item.textContent = row.nickname + ' · ' + format(Number(row.value));
-            return item;
-          }));
-          if (!rows || !rows.length) {
+          if (rows && rows.length) {
+            list.replaceChildren(...rows.map((row, idx) => {
+              const item = document.createElement('li');
+              item.className = 'ranking-row' + (idx === 0 ? ' rank-1' : '');
+              const medals = ['🥇', '🥈', '🥉', '4', '5'];
+              item.innerHTML = '<span class="ranking-row-user">' +
+                '<span class="ranking-medal">' + (medals[idx] || (idx + 1)) + '</span>' +
+                '<span class="ranking-name">' + row.nickname + '</span>' +
+                '</span>' +
+                '<span class="ranking-val ' + (isRate ? 'gold' : '') + '">' + format(Number(row.value)) + '</span>';
+              return item;
+            }));
+          } else {
             const empty = document.createElement('li');
-            empty.textContent = '아직 등록된 기록이 없어요.';
-            list.append(empty);
+            empty.className = 'ranking-empty';
+            empty.textContent = '아직 등록된 기록이 없어요. 오늘의 첫 번째 랭커에 도전하세요!';
+            list.replaceChildren(empty);
           }
         }
       } catch (error) { target.textContent = officialMessage(error); }
@@ -674,18 +685,17 @@ const official = window.scalpOfficial;
 
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
-    const hasProvider = Boolean(provider && (ScalpReward.ready(provider, 'credit') || ScalpReward.ready(provider, 'stop')));
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = account.unlocks[key] || !hasProvider;
+      const unlocked = account.unlocks[key] || !provider;
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
-      button.disabled = phase !== 'live' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = funded ? label + ' · 사용 완료' : unlocked || !eligible || !ScalpReward.ready(provider, key) ? label : '광고 보고 ' + label + ' 이용하기';
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
-      hasProvider && !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
+      provider && !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '' :
           '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
@@ -751,8 +761,7 @@ const official = window.scalpOfficial;
       return;
     }
     const provider = window.scalpRewardProvider;
-    const hasProvider = Boolean(provider && (ScalpReward.ready(provider, 'credit') || ScalpReward.ready(provider, 'stop')));
-    if (account.unlocks[key] || !hasProvider) {
+    if (account.unlocks[key] || !provider) {
       account.unlocks[key] = true;
       openTool(key);
       return;
@@ -1110,20 +1119,6 @@ const official = window.scalpOfficial;
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
     if (official && typeof official.signedIn === 'function' && official.signedIn()) return startOfficial();
-    const nick = localStorage.getItem('scalpNickname') || officialProfile?.nickname || '단타왕';
-    if (!localStorage.getItem('scalpNickname')) {
-      try { localStorage.setItem('scalpNickname', nick); } catch {}
-    }
-    const quota = getLocalQuota();
-    if (quota.free <= 0 && quota.bonus <= 0) {
-      feedback('오늘의 무료 5판을 모두 사용했어요. 광고를 보고 추가 플레이를 진행하세요.', 'error');
-      $('officialExtra').hidden = false;
-      return;
-    }
-    const used = Number(localStorage.getItem('scalpQuotaUsed') || '0');
-    localStorage.setItem('scalpQuotaUsed', String(used + 1));
-    refreshOfficialProfile();
-
     startedAt = performance.now();
     setupAudio();
     phase = 'live';

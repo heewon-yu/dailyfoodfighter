@@ -240,6 +240,26 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .result-actions{margin-top:5px}
 .result-actions button{flex:1;font-size:12px}
 .score-share-link{width:100%;padding:8px;border:1px solid var(--line);border-radius:6px;font:inherit}
+.ranking-modal{background:#0f172a;border:1px solid #334155;color:#f8fafc}
+.ranking-modal .modal-head h2{color:#f8fafc}
+.ranking-modal .modal-head .eyebrow{color:#fbbf24}
+.ranking-header{display:flex;align-items:center;gap:8px;margin:6px 0 14px}
+.ranking-tag{background:#0284c7;color:#fff;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px}
+.ranking-date{color:#94a3b8;font-size:12px;margin:0}
+.ranking-board{display:grid;gap:12px;margin-bottom:14px}
+.ranking-section{background:#1e293b;border:1px solid #334155;border-radius:8px;padding:12px 14px}
+.ranking-section-title{display:flex;justify-content:space-between;align-items:baseline;border-bottom:1px solid #334155;padding-bottom:7px;margin-bottom:8px}
+.ranking-section-title span{font-size:14px;font-weight:700;color:#facc15}
+.ranking-section-title small{font-size:11px;color:#94a3b8}
+.ranking-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.ranking-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:6px;background:#0f172a;font-size:13px}
+.ranking-row.rank-1{background:#2a2010;border:1px solid #ca8a04}
+.ranking-row-user{display:flex;align-items:center;gap:8px}
+.ranking-medal{font-size:14px;font-weight:800;width:22px;text-align:center;color:#fbbf24}
+.ranking-name{font-weight:600;color:#f8fafc}
+.ranking-val{font-weight:700;color:#38bdf8}
+.ranking-val.gold{color:#facc15}
+.ranking-empty{text-align:center;padding:14px;color:#94a3b8;font-size:12px}
 @media(max-width:1100px){.shell{grid-template-columns:185px minmax(0,1fr)}.desk{grid-template-columns:minmax(0,1fr) 224px}.hero p{display:none}}
 @media(min-width:1050px){
   .desk{grid-template-columns:minmax(0,1fr) minmax(155px,16%) minmax(214px,21%);grid-template-areas:"chart depth order" "lower lower order"}
