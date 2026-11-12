@@ -558,7 +558,7 @@
     }));
   }
 
-  function createMarket(seed) {
+  function createMarket(seed, liveSeed) {
     const random = randomGenerator(seed);
     const bookRandom = randomGenerator(seed ^ 0x6ab02ed9);
     const historyRandom = randomGenerator(seed ^ 0x3c7fd5a5);
@@ -597,7 +597,8 @@
       return stock;
     });
     const headlines = stocks.map(stock => ({index: stock.index, title: stock.preview, time: 0, direction: stock.openingDirection}));
-    const disclosureRandom = randomGenerator(seed ^ 0x96f89e43);
+    const scheduleRandom = liveSeed === undefined ? random : randomGenerator(liveSeed);
+    const disclosureRandom = randomGenerator((liveSeed ?? seed) ^ 0x96f89e43);
     const disclosures = disclosureSchedule(disclosureRandom, stocks);
     if (disclosureRandom() < .55) {
       const index = integer(disclosureRandom, 0, stocks.length - 1);
@@ -607,7 +608,7 @@
         strength: 0, duration: 0, flowDuration: integer(disclosureRandom, 82, 113)});
     }
     return Object.assign(market, {stocks, headlines, random: bookRandom,
-      events: eventSchedule(random, stocks).concat(disclosures).sort((a, b) => a.tick - b.tick)});
+      events: eventSchedule(scheduleRandom, stocks).concat(disclosures).sort((a, b) => a.tick - b.tick)});
   }
 
 
@@ -668,7 +669,7 @@
     return true;
   }
 
-  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, TOTAL_TICKS, createMarket, stepMarket,
+  globalThis.ScalpMarket = {CASH, DURATION, INTERVAL, TOTAL_TICKS, createMarket, stepMarket, randomGenerator,
     createAccount: () => ledger.createAccount(WATCHLIST_SIZE), ...engine,
     availableCash: ledger.availableCash, availableShares: ledger.availableShares, equity: ledger.equity};
 }());

@@ -1,0 +1,104 @@
+apply plugin: 'com.android.application'
+
+def releaseAdmobAppId = providers.environmentVariable('SCALP_ADMOB_APP_ID').orElse('').get().trim()
+def releaseRewardedId = providers.environmentVariable('SCALP_ADMOB_REWARDED_ID').orElse('').get().trim()
+def releasePlacements = ['EMERGENCY', 'STOP', 'EXTRA'].collectEntries { feature ->
+    [(feature): providers.environmentVariable('SCALP_ADMOB_' + feature + '_ID').orElse('').get().trim()]
+}
+def releaseAds = !releaseAdmobAppId.isEmpty() || !releaseRewardedId.isEmpty() || releasePlacements.values().any { !it.isEmpty() }
+if (releaseAds && (!(releaseAdmobAppId ==~ /ca-app-pub-[0-9]{16}~[0-9]{10}/) ||
+    !(releaseRewardedId ==~ /ca-app-pub-[0-9]{16}\/[0-9]{10}/) ||
+    releaseAdmobAppId.startsWith('ca-app-pub-3940256099942544') ||
+    releaseAdmobAppId.split('~')[0] != releaseRewardedId.split('/')[0])) {
+    throw new GradleException('Configure matching production AdMob app and rewarded unit IDs, or omit both.')
+}
+
+releasePlacements.values().findAll { !it.isEmpty() }.each { unit ->
+    if (!(unit ==~ /ca-app-pub-[0-9]{16}\/[0-9]{10}/) || !unit.startsWith(releaseAdmobAppId.split('~')[0] + '/')) {
+        throw new GradleException('Each rewarded placement must match the AdMob app publisher.')
+    }
+}
+if (releaseAds && ([releaseRewardedId] + releasePlacements.values().findAll { !it.isEmpty() }).unique().size() !=
+    1 + releasePlacements.values().count { !it.isEmpty() }) {
+    throw new GradleException('Each rewarded placement requires its own ad unit.')
+}
+
+android {
+    namespace = "com.dailyfoodfighter.scalpingking"
+    compileSdk = rootProject.ext.compileSdkVersion
+    defaultConfig {
+        applicationId "com.dailyfoodfighter.scalpingking"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode 2
+        versionName "1.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        aaptOptions {
+             // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
+             // Default: https://android.googlesource.com/platform/frameworks/base/+/282e181b58cf72b6ca770dc7ca5f91f135444502/tools/aapt/AaptAssets.cpp#61
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+    buildFeatures {
+        buildConfig true
+    }
+    if (releaseAds) {
+        sourceSets.release.java.setSrcDirs(['src/debug/java'])
+        sourceSets.release.manifest.srcFile 'src/debug/AndroidManifest.xml'
+    }
+    buildTypes {
+        debug {
+            manifestPlaceholders.scalpAdmobAppId = 'ca-app-pub-3940256099942544~3347511713'
+            buildConfigField 'String', 'SCALP_REWARDED_ID', '"ca-app-pub-3940256099942544/5224354917"'
+            releasePlacements.keySet().each { feature ->
+                buildConfigField 'String', 'SCALP_' + feature + '_ID', '"ca-app-pub-3940256099942544/5224354917"'
+            }
+        }
+        release {
+            if (releaseAds) {
+                manifestPlaceholders.scalpAdmobAppId = releaseAdmobAppId
+                buildConfigField 'String', 'SCALP_REWARDED_ID', '"' + releaseRewardedId + '"'
+                releasePlacements.each { feature, unit ->
+                    buildConfigField 'String', 'SCALP_' + feature + '_ID', '"' + unit + '"'
+                }
+            }
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+repositories {
+    flatDir{
+        dirs '../capacitor-cordova-android-plugins/src/main/libs', 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    debugImplementation "com.google.android.gms:play-services-ads:25.5.0"
+    debugImplementation "com.google.android.ump:user-messaging-platform:4.0.0"
+    if (releaseAds) {
+        releaseImplementation "com.google.android.gms:play-services-ads:25.5.0"
+        releaseImplementation "com.google.android.ump:user-messaging-platform:4.0.0"
+    }
+    testImplementation "junit:junit:$junitVersion"
+    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
+
+try {
+    def servicesJSON = file('google-services.json')
+    if (servicesJSON.text) {
+        apply plugin: 'com.google.gms.google-services'
+    }
+} catch(Exception e) {
+    logger.info("google-services.json not found, google-services plugin not applied. Push Notifications won't work")
+}

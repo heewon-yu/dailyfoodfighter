@@ -1,0 +1,46 @@
+name: Scalping King database maintenance
+run-name: Scalping King DB (${{ inputs.job || (github.event.schedule == '0 18 * * *' && 'cleanup' || 'keepalive') }})
+on:
+  push:
+    branches: [codex/scalping-king-integration-20261112]
+    paths: ['.github/workflows/scalping-maintenance.yml', 'supabase/ops/**']
+  schedule:
+    - cron: '10 0 * * *'
+    - cron: '0 18 * * *'
+  workflow_dispatch:
+    inputs:
+      job:
+        type: choice
+        options: [keepalive, cleanup]
+        default: keepalive
+      verify_failure_alert:
+        type: boolean
+        default: false
+permissions:
+  contents: read
+  actions: read
+jobs:
+  database:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    env:
+      JOB: ${{ inputs.job || (github.event.schedule == '0 18 * * *' && 'cleanup' || 'keepalive') }}
+      SERVICE_URL: ${{ vars.SCALPING_SERVICE_URL }}
+      MAINTENANCE_TOKEN: ${{ secrets.SCALPING_MAINTENANCE_TOKEN }}
+      ALERT_URL: ${{ secrets.SCALPING_NTFY_URL }}
+      VERIFY_FAILURE: ${{ inputs.verify_failure_alert }}
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check database and retention
+        run: python3 supabase/ops/maintenance.py
+      - name: Verify rejected credentials in the integration branch
+        if: github.event_name == 'push'
+        env:
+          VERIFY_FAILURE: 'true'
+          ALERT_URL: ''
+        run: |
+          if python3 supabase/ops/maintenance.py > /tmp/scalping-ops-negative.log 2>&1; then
+            exit 1
+          fi
+          grep -F 'HTTP 401' /tmp/scalping-ops-negative.log
