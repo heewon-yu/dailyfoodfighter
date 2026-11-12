@@ -131,15 +131,14 @@ const official = window.scalpOfficial;
   }
 
   async function refreshOfficialProfile() {
-    if (!official) return;
-    if (official.signedIn()) {
+    if (official && typeof official.signedIn === 'function' && official.signedIn()) {
       try { officialProfile = await official.call({action: 'profile'}); } catch { officialProfile = null; }
     }
     if (!officialProfile) {
       officialProfile = getLocalQuota();
     }
     if (officialProfile?.nickname) {
-      localStorage.setItem('scalpNickname', officialProfile.nickname);
+      try { localStorage.setItem('scalpNickname', officialProfile.nickname); } catch {}
       $('officialStatus').textContent = officialProfile.nickname + ' · 오늘 무료 ' + officialProfile.free + '/5판' + (officialProfile.bonus > 0 ? ' · 추가 ' + officialProfile.bonus + '판' : '');
       $('officialAccount').textContent = '닉네임 변경';
     } else {
@@ -314,8 +313,8 @@ const official = window.scalpOfficial;
   }
 
   function setupOfficial() {
-    if (!official) return;
     $('officialPanel').hidden = false;
+    refreshOfficialProfile();
     $('officialAccount').addEventListener('click', () => {
       $('officialAccountFeedback').textContent = '';
       $('officialAccountDialog').showModal();
@@ -329,13 +328,13 @@ const official = window.scalpOfficial;
         return;
       }
       try {
-        if (official.signedIn()) {
-          await official.call({action: 'profile', nickname: nick});
-        }
         localStorage.setItem('scalpNickname', nick);
         await refreshOfficialProfile();
         $('officialAccountDialog').close();
-        feedback(nick + ' 님, 닉네임이 설정되었습니다!');
+        feedback(nick + ' 님, 닉네임 설정 완료! 5분 모의투자를 시작합니다.', 'ok');
+        if (phase === 'ready') {
+          start();
+        }
       } catch (error) {
         $('officialAccountFeedback').textContent = officialMessage(error);
       }
@@ -346,18 +345,26 @@ const official = window.scalpOfficial;
       const target = $('officialRankingStatus');
       target.textContent = '불러오는 중…';
       try {
-        const {day, rates, profits} = await official.rankings();
-        target.textContent = day + ' 한국시간';
+        let data = null;
+        if (official?.rankings) {
+          try { data = await official.rankings(); } catch { data = null; }
+        }
+        if (!data || !data.rates) {
+          const res = await fetch('/api/scalping/rankings');
+          data = await res.json();
+        }
+        const {day, rates, profits} = data;
+        target.textContent = (day || getKstDay()) + ' 한국시간';
         for (const [id, rows, format] of [['officialRates', rates, pct], ['officialProfits', profits, money]]) {
           const list = $(id);
-          list.replaceChildren(...rows.map(row => {
+          list.replaceChildren(...(rows || []).map(row => {
             const item = document.createElement('li');
             item.textContent = row.nickname + ' · ' + format(Number(row.value));
             return item;
           }));
-          if (!rows.length) {
+          if (!rows || !rows.length) {
             const empty = document.createElement('li');
-            empty.textContent = '아직 검증된 기록이 없어요.';
+            empty.textContent = '아직 등록된 기록이 없어요.';
             list.append(empty);
           }
         }
@@ -1096,7 +1103,23 @@ const official = window.scalpOfficial;
 
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
-    if (official) return startOfficial();
+    if (official && typeof official.signedIn === 'function' && official.signedIn()) return startOfficial();
+    const nick = localStorage.getItem('scalpNickname') || officialProfile?.nickname;
+    if (!nick) {
+      if (!$('officialAccountDialog').open) $('officialAccountDialog').showModal();
+      $('officialNickname').focus();
+      return;
+    }
+    const quota = getLocalQuota();
+    if (quota.free <= 0 && quota.bonus <= 0) {
+      feedback('오늘의 무료 5판을 모두 사용했어요. 광고를 보고 추가 플레이를 진행하세요.', 'error');
+      $('officialExtra').hidden = false;
+      return;
+    }
+    const used = Number(localStorage.getItem('scalpQuotaUsed') || '0');
+    localStorage.setItem('scalpQuotaUsed', String(used + 1));
+    refreshOfficialProfile();
+
     startedAt = performance.now();
     setupAudio();
     phase = 'live';
@@ -1244,6 +1267,14 @@ const official = window.scalpOfficial;
       try { localStorage.setItem(bestKey, String(best)); } catch { /* Per-session records still work. */ }
     }
     result = {seed: market.seed, total, profit, rate, count: account.trades.length, fees: account.fees, record, details: ledger.snapshot(market, account)};
+    const currentNick = localStorage.getItem('scalpNickname') || officialProfile?.nickname;
+    if (currentNick && account.trades.length > 0) {
+      fetch('/api/scalping/rankings', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({nickname: currentNick, rate, profit})
+      }).catch(() => {});
+    }
     feedback(expired ? '장이 마감되어 미체결 ' + expired + '건이 자동 취소됐어요.' :
       '장이 마감됐어요. 최종 평가자산은 보유 종목을 종가로 계산했어요.');
     renderPhase();
@@ -1311,7 +1342,7 @@ const official = window.scalpOfficial;
 
   function restartRound() {
     if (adController || privacyBusy || (phase === 'ready' && !result)) return;
-    if (official) return startOfficial(true);
+    if (official && typeof official.signedIn === 'function' && official.signedIn()) return startOfficial(true);
     reset();
     start();
   }
