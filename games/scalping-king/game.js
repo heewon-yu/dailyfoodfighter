@@ -417,9 +417,9 @@ const official = window.scalpOfficial;
         profits = profits.slice(0, 5).map((row, idx) => ({...row, rank: idx + 1}));
 
         target.textContent = day + ' 한국시간';
-        for (const [id, rows, format, isRate] of [
-          ['officialRates', rates, pct, true],
-          ['officialProfits', profits, money, false],
+        for (const [id, rows, isRate] of [
+          ['officialRates', rates, true],
+          ['officialProfits', profits, false],
         ]) {
           const list = $(id);
           if (rows && rows.length) {
@@ -427,12 +427,20 @@ const official = window.scalpOfficial;
               const item = document.createElement('li');
               item.className = 'ranking-row' + (idx === 0 ? ' rank-1' : '');
               const medals = ['🥇', '🥈', '🥉', '4', '5'];
+              const val = Number(row.value);
+              const isUp = val > 0;
+              const isDown = val < 0;
+              const colorClass = isUp ? 'up' : isDown ? 'down' : '';
+              const displayVal = isRate ?
+                ((isUp ? '+' : '') + val.toFixed(2) + '%') :
+                ((isUp ? '+' : '') + num(Math.round(val)) + '원');
+
               item.innerHTML = '<span class="ranking-row-user">' +
                 '<span class="ranking-medal">' + (medals[idx] || (idx + 1)) + '</span>' +
                 '<span class="ranking-name">' + escapeHtml(row.nickname) + '</span>' +
                 '</span>' +
-                '<span class="ranking-val ' + (isRate ? 'gold' : '') + '">' +
-                (isRate ? (row.value > 0 ? '+' : '') + format(Number(row.value)) : signed(Number(row.value)) + '원') +
+                '<span class="ranking-val ' + colorClass + '">' +
+                displayVal +
                 '</span>';
               return item;
             }));

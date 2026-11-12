@@ -244,6 +244,7 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .ranking-modal .modal-head h2{color:#f8fafc}
 .ranking-modal .modal-head .eyebrow{color:#fbbf24}
 .ranking-modal .modal-head button.subtle,
+.ranking-close-button,
 .modal-close button {
   background: #1e293b !important;
   color: #f8fafc !important;
@@ -262,6 +263,7 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 .ranking-modal .modal-head button.subtle:hover,
+.ranking-close-button:hover,
 .modal-close button:hover {
   background: #334155 !important;
   color: #ffffff !important;
@@ -277,12 +279,13 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 .ranking-section-title small{font-size:11px;color:#94a3b8}
 .ranking-list{list-style:none;padding:0;margin:0;display:grid;gap:6px}
 .ranking-row{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-radius:6px;background:#0f172a;font-size:13px}
-.ranking-row.rank-1{background:#2a2010;border:1px solid #ca8a04}
+.ranking-row.rank-1{background:#1a2234;border:1px solid #ca8a04}
 .ranking-row-user{display:flex;align-items:center;gap:8px}
 .ranking-medal{font-size:14px;font-weight:800;width:22px;text-align:center;color:#fbbf24}
 .ranking-name{font-weight:600;color:#f8fafc}
-.ranking-val{font-weight:700;color:#38bdf8}
-.ranking-val.gold{color:#facc15}
+.ranking-val{font-weight:700;font-variant-numeric:tabular-nums;font-size:13px;color:#f8fafc}
+.ranking-val.up{color:#ef4444 !important}
+.ranking-val.down{color:#38bdf8 !important}
 .ranking-empty{text-align:center;padding:14px;color:#94a3b8;font-size:12px}
 
 /* Unified Dark Theme for In-game Modals: 닉네임 설정, 신용매수, 긴급자금대출, 로스컷, 주문 정정 */
