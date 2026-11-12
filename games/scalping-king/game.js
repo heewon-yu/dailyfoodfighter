@@ -113,17 +113,40 @@ const official = window.scalpOfficial;
     })[error.message] || (/^[a-z_]+$/.test(error.message) ? '요청을 처리하지 못했어요.' : error.message);
   }
 
+  function getKstDay() {
+    const now = new Date(Date.now() + 9 * 3600 * 1000);
+    return now.toISOString().slice(0, 10);
+  }
+
+  function getLocalQuota() {
+    const today = getKstDay();
+    if (localStorage.getItem('scalpQuotaDay') !== today) {
+      localStorage.setItem('scalpQuotaDay', today);
+      localStorage.setItem('scalpQuotaUsed', '0');
+    }
+    const used = Number(localStorage.getItem('scalpQuotaUsed') || '0');
+    const bonus = Number(localStorage.getItem('scalpQuotaBonus') || '0');
+    const nickname = localStorage.getItem('scalpNickname') || '';
+    return {nickname, free: Math.max(0, 5 - used), bonus, used};
+  }
+
   async function refreshOfficialProfile() {
     if (!official) return;
-    officialProfile = official.signedIn() ? await official.call({action: 'profile'}) : null;
-    $('officialStatus').textContent = officialProfile?.nickname ?
-      officialProfile.nickname + ' · 오늘 무료 ' + officialProfile.free + '/5판 · 추가 ' + officialProfile.bonus + '판' :
-      official.signedIn() ? '닉네임을 등록하세요.' : '로그인 후 공식 게임을 시작할 수 있어요.';
+    if (official.signedIn()) {
+      try { officialProfile = await official.call({action: 'profile'}); } catch { officialProfile = null; }
+    }
+    if (!officialProfile) {
+      officialProfile = getLocalQuota();
+    }
+    if (officialProfile?.nickname) {
+      localStorage.setItem('scalpNickname', officialProfile.nickname);
+      $('officialStatus').textContent = officialProfile.nickname + ' · 오늘 무료 ' + officialProfile.free + '/5판' + (officialProfile.bonus > 0 ? ' · 추가 ' + officialProfile.bonus + '판' : '');
+      $('officialAccount').textContent = '닉네임 변경';
+    } else {
+      $('officialStatus').textContent = '닉네임을 설정하고 5분 단타왕에 도전하세요!';
+      $('officialAccount').textContent = '닉네임 등록';
+    }
     $('officialExtra').hidden = !officialProfile?.nickname || officialProfile.free > 0 || officialProfile.bonus > 0;
-    $('officialAuthForm').hidden = official.signedIn();
-    $('officialNicknameForm').hidden = !official.signedIn();
-    $('officialSignOut').hidden = !official.signedIn();
-    $('officialDelete').hidden = !official.signedIn();
     $('officialNickname').value = officialProfile?.nickname || '';
   }
 
@@ -163,8 +186,14 @@ const official = window.scalpOfficial;
 
   async function startOfficial(restart = false) {
     if (officialBusy || privacyBusy || adController) return;
-    if (!official.signedIn() || !officialProfile?.nickname) {
+    if (!officialProfile?.nickname) {
       if (!$('officialAccountDialog').open) $('officialAccountDialog').showModal();
+      $('officialNickname').focus();
+      return;
+    }
+    if (officialProfile.free <= 0 && officialProfile.bonus <= 0) {
+      feedback('오늘의 무료 5판을 모두 사용했어요. 광고를 보고 추가 플레이를 진행하세요.', 'error');
+      $('officialExtra').hidden = false;
       return;
     }
     setupAudio();
@@ -173,11 +202,24 @@ const official = window.scalpOfficial;
     const requestId = startRequest ||= crypto.randomUUID();
     try {
       officialEngine ||= await import('./official-engine.mjs');
-      const row = await official.call({action: 'start', requestId, restart, current: officialSession?.session_id, version: officialEngine.GAME_VERSION});
-      startRequest = null;
-      reset();
-      applyOfficialSession(row, true);
-      await refreshOfficialProfile();
+      if (official.signedIn()) {
+        const row = await official.call({action: 'start', requestId, restart, current: officialSession?.session_id, version: officialEngine.GAME_VERSION});
+        startRequest = null;
+        reset();
+        applyOfficialSession(row, true);
+        await refreshOfficialProfile();
+      } else {
+        startRequest = null;
+        const used = Number(localStorage.getItem('scalpQuotaUsed') || '0');
+        localStorage.setItem('scalpQuotaUsed', String(used + 1));
+        await refreshOfficialProfile();
+        startedAt = performance.now();
+        phase = 'live';
+        feedback('수량을 확인한 뒤 매수 또는 매도를 누르세요.');
+        renderPhase();
+        loop = window.setInterval(syncTime, 50);
+        if (window.matchMedia('(max-width: 550px)').matches) $('market').scrollIntoView({block: 'start'});
+      }
     } catch (error) {
       feedback(officialMessage(error), 'error');
       $('officialStatus').textContent = officialMessage(error);
@@ -274,55 +316,29 @@ const official = window.scalpOfficial;
   function setupOfficial() {
     if (!official) return;
     $('officialPanel').hidden = false;
-    $('officialAccount').addEventListener('click', () => $('officialAccountDialog').showModal());
-    $('officialAuthForm').addEventListener('submit', async event => {
-      event.preventDefault();
-      const field = $('officialAccountFeedback');
-      const button = event.submitter;
-      if (button.disabled) return;
-      for (const control of event.currentTarget.querySelectorAll('button')) control.disabled = true;
-      const email = $('officialEmail').value.trim();
-      const password = $('officialPassword').value;
-      try {
-        if (button.value === 'register' && !await official.register(email, password)) {
-          field.textContent = '이메일에서 가입을 확인한 뒤 로그인하세요.';
-          return;
-        }
-        if (button.value !== 'register') await official.signIn(email, password);
-        $('officialPassword').value = '';
-        await refreshOfficialProfile();
-        field.textContent = '로그인했어요.';
-      } catch (error) { field.textContent = officialMessage(error); }
-      finally { for (const control of $('officialAuthForm').querySelectorAll('button')) control.disabled = false; }
+    $('officialAccount').addEventListener('click', () => {
+      $('officialAccountFeedback').textContent = '';
+      $('officialAccountDialog').showModal();
+      $('officialNickname').focus();
     });
     $('officialNicknameForm').addEventListener('submit', async event => {
       event.preventDefault();
+      const nick = $('officialNickname').value.trim();
+      if (!/^[가-힣A-Za-z0-9_]{2,12}$/.test(nick)) {
+        $('officialAccountFeedback').textContent = '닉네임은 한글·영문·숫자·밑줄로 2~12자를 입력하세요.';
+        return;
+      }
       try {
-        await official.call({action: 'profile', nickname: $('officialNickname').value});
+        if (official.signedIn()) {
+          await official.call({action: 'profile', nickname: nick});
+        }
+        localStorage.setItem('scalpNickname', nick);
         await refreshOfficialProfile();
         $('officialAccountDialog').close();
-      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
-    });
-    $('officialSignOut').addEventListener('click', async () => {
-      try {
-        if (officialSession?.status === 'active' && phase === 'live' && !await officialUpdate('pause')) return;
-        await official.signOut();
-        reset();
-        await refreshOfficialProfile();
-        $('officialAccountDialog').close();
-      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
-    });
-    $('officialDelete').addEventListener('click', async event => {
-      if (!window.confirm('계정을 삭제하면 닉네임, 공식 게임 기록 및 순위가 지워져요. 삭제할까요?')) return;
-      const button = event.currentTarget;
-      button.disabled = true;
-      try {
-        await official.deleteAccount();
-        reset();
-        await refreshOfficialProfile();
-        $('officialAccountDialog').close();
-      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
-      finally { button.disabled = false; }
+        feedback(nick + ' 님, 닉네임이 설정되었습니다!');
+      } catch (error) {
+        $('officialAccountFeedback').textContent = officialMessage(error);
+      }
     });
     $('officialExtra').addEventListener('click', () => officialAd('extra'));
     $('officialRankings').addEventListener('click', async () => {

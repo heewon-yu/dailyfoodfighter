@@ -75,7 +75,7 @@
 
       <section id="officialPanel" class="panel official-panel" aria-label="공식 게임" hidden>
         <span id="officialStatus" role="status"></span>
-        <button id="officialAccount" class="subtle" type="button">계정</button>
+        <button id="officialAccount" class="subtle" type="button">닉네임</button>
         <button id="officialRankings" class="subtle" type="button">일일 단타왕</button>
         <button id="officialExtra" class="gold" type="button" hidden>광고 보고 한 판 더</button>
       </section>
@@ -197,20 +197,13 @@
 
   <dialog id="officialAccountDialog" class="modal">
     <form method="dialog" class="modal-close"><button type="submit" aria-label="닫기">×</button></form>
-    <h2>공식 게임 계정</h2>
-    <form id="officialAuthForm" class="official-form">
-      <label for="officialEmail">이메일</label><input id="officialEmail" type="email" autocomplete="email" required>
-      <label for="officialPassword">비밀번호</label><input id="officialPassword" type="password" autocomplete="current-password" minlength="8" required>
-      <div><button class="gold" type="submit" value="login">로그인</button><button class="subtle" type="submit" value="register">계정 만들기</button></div>
-    </form>
-    <form id="officialNicknameForm" class="official-form" hidden>
+    <h2>닉네임 설정</h2>
+    <form id="officialNicknameForm" class="official-form">
       <label for="officialNickname">닉네임 (한글·영문·숫자·밑줄 2~12자)</label>
-      <input id="officialNickname" minlength="2" maxlength="12" required>
-      <button class="gold" type="submit">닉네임 저장</button>
+      <input id="officialNickname" minlength="2" maxlength="12" required placeholder="닉네임 입력">
+      <button class="gold" type="submit">확인</button>
     </form>
-    <button id="officialSignOut" class="subtle" type="button" hidden>로그아웃</button>
-    <button id="officialDelete" class="subtle" type="button" hidden>계정 삭제</button>
-    <p id="officialAccountFeedback" role="status"></p>
+    <p id="officialAccountFeedback" class="feedback" role="status"></p>
   </dialog>
   <dialog id="officialRankingDialog" class="modal">
     <form method="dialog" class="modal-close"><button type="submit" aria-label="닫기">×</button></form>
