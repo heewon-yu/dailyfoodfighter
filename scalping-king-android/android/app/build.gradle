@@ -2,12 +2,25 @@ apply plugin: 'com.android.application'
 
 def releaseAdmobAppId = providers.environmentVariable('SCALP_ADMOB_APP_ID').orElse('').get().trim()
 def releaseRewardedId = providers.environmentVariable('SCALP_ADMOB_REWARDED_ID').orElse('').get().trim()
-def releaseAds = !releaseAdmobAppId.isEmpty() || !releaseRewardedId.isEmpty()
+def releasePlacements = ['EMERGENCY', 'STOP', 'EXTRA'].collectEntries { feature ->
+    [(feature): providers.environmentVariable('SCALP_ADMOB_' + feature + '_ID').orElse('').get().trim()]
+}
+def releaseAds = !releaseAdmobAppId.isEmpty() || !releaseRewardedId.isEmpty() || releasePlacements.values().any { !it.isEmpty() }
 if (releaseAds && (!(releaseAdmobAppId ==~ /ca-app-pub-[0-9]{16}~[0-9]{10}/) ||
     !(releaseRewardedId ==~ /ca-app-pub-[0-9]{16}\/[0-9]{10}/) ||
     releaseAdmobAppId.startsWith('ca-app-pub-3940256099942544') ||
     releaseAdmobAppId.split('~')[0] != releaseRewardedId.split('/')[0])) {
     throw new GradleException('Configure matching production AdMob app and rewarded unit IDs, or omit both.')
+}
+
+releasePlacements.values().findAll { !it.isEmpty() }.each { unit ->
+    if (!(unit ==~ /ca-app-pub-[0-9]{16}\/[0-9]{10}/) || !unit.startsWith(releaseAdmobAppId.split('~')[0] + '/')) {
+        throw new GradleException('Each rewarded placement must match the AdMob app publisher.')
+    }
+}
+if (releaseAds && ([releaseRewardedId] + releasePlacements.values().findAll { !it.isEmpty() }).unique().size() !=
+    1 + releasePlacements.values().count { !it.isEmpty() }) {
+    throw new GradleException('Each rewarded placement requires its own ad unit.')
 }
 
 android {
@@ -17,8 +30,8 @@ android {
         applicationId "com.dailyfoodfighter.scalpingking"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         aaptOptions {
              // Files and dirs to omit from the packaged assets dir, modified to accommodate modern web apps.
@@ -37,11 +50,17 @@ android {
         debug {
             manifestPlaceholders.scalpAdmobAppId = 'ca-app-pub-3940256099942544~3347511713'
             buildConfigField 'String', 'SCALP_REWARDED_ID', '"ca-app-pub-3940256099942544/5224354917"'
+            releasePlacements.keySet().each { feature ->
+                buildConfigField 'String', 'SCALP_' + feature + '_ID', '"ca-app-pub-3940256099942544/5224354917"'
+            }
         }
         release {
             if (releaseAds) {
                 manifestPlaceholders.scalpAdmobAppId = releaseAdmobAppId
                 buildConfigField 'String', 'SCALP_REWARDED_ID', '"' + releaseRewardedId + '"'
+                releasePlacements.each { feature, unit ->
+                    buildConfigField 'String', 'SCALP_' + feature + '_ID', '"' + unit + '"'
+                }
             }
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'

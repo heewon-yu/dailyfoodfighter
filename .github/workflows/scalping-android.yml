@@ -1,13 +1,15 @@
 name: Scalping King Android
 on:
   push:
-    branches: [codex/scalping-king-android]
+    branches: [codex/scalping-king-android, codex/scalping-king-integration-20261112, main]
     paths:
       - 'scalping-king-android/**'
+      - 'games/scalping-king/**'
       - '.github/workflows/scalping-android.yml'
   pull_request:
     paths:
       - 'scalping-king-android/**'
+      - 'games/scalping-king/**'
       - '.github/workflows/scalping-android.yml'
   workflow_dispatch:
 permissions:

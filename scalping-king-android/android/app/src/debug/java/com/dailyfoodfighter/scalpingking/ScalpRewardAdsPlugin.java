@@ -4,6 +4,11 @@ import android.app.Activity;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
 import androidx.annotation.NonNull;
 import com.getcapacitor.JSObject;
 import com.getcapacitor.Plugin;
@@ -17,6 +22,7 @@ import com.google.android.gms.ads.LoadAdError;
 import com.google.android.gms.ads.MobileAds;
 import com.google.android.gms.ads.rewarded.RewardedAd;
 import com.google.android.gms.ads.rewarded.RewardedAdLoadCallback;
+import com.google.android.gms.ads.rewarded.ServerSideVerificationOptions;
 import com.google.android.ump.ConsentInformation;
 import com.google.android.ump.ConsentRequestParameters;
 import com.google.android.ump.UserMessagingPlatform;
@@ -26,13 +32,20 @@ public class ScalpRewardAdsPlugin extends Plugin {
     private static final long MAX_AD_AGE_MS = 50 * 60_000L;
 
     private final Handler main = new Handler(Looper.getMainLooper());
-    private RewardedAd ad;
+    private static final Map<String, String> UNITS = new HashMap<>();
+    static {
+        UNITS.put("credit", BuildConfig.SCALP_REWARDED_ID);
+        UNITS.put("emergency", BuildConfig.SCALP_EMERGENCY_ID);
+        UNITS.put("stop", BuildConfig.SCALP_STOP_ID);
+        UNITS.put("extra", BuildConfig.SCALP_EXTRA_ID);
+    }
+    private final Map<String, RewardedAd> ads = new HashMap<>();
+    private final Map<String, Long> loadedAt = new HashMap<>();
+    private final Set<String> loading = new HashSet<>();
     private PluginCall showing;
     private boolean initializing;
     private boolean initialized;
-    private boolean loading;
     private boolean destroyed;
-    private long loadedAt;
     private ConsentInformation consent;
     private boolean consentStarted;
     private boolean privacyBusy;
@@ -87,7 +100,8 @@ public class ScalpRewardAdsPlugin extends Plugin {
     private void setPrivacyBusy(boolean busy) {
         privacyBusy = busy;
         if (busy) {
-            ad = null;
+            ads.clear();
+            loadedAt.clear();
             consentEpoch++;
         }
         announceAvailability();
@@ -122,16 +136,22 @@ public class ScalpRewardAdsPlugin extends Plugin {
     @PluginMethod
     public void show(PluginCall call) {
         String feature = call.getString("feature", "");
-        if (!"credit".equals(feature) && !"emergency".equals(feature) && !"stop".equals(feature)) {
+        if (!UNITS.containsKey(feature) || UNITS.get(feature).isEmpty()) {
             call.reject("Unknown reward feature");
             return;
         }
-        main.post(() -> showOnMain(call));
+        main.post(() -> showOnMain(call, UNITS.get(feature)));
     }
 
     private JSObject availability() {
         JSObject result = new JSObject();
-        result.put("ready", ad != null && showing == null && !destroyed && !privacyBusy && canRequestAds());
+        JSONArray features = new JSONArray();
+        if (showing == null && !destroyed && !privacyBusy && canRequestAds()) {
+            UNITS.forEach((feature, unit) -> { if (isFresh(unit)) features.put(feature); });
+        }
+        result.put("ready", features.length() > 0);
+        result.put("features", features);
+        result.put("serverVerifiedOnly", !BuildConfig.DEBUG);
         result.put("privacyRequired", privacyRequired());
         result.put("privacyBusy", privacyBusy);
         return result;
@@ -141,49 +161,60 @@ public class ScalpRewardAdsPlugin extends Plugin {
         if (!destroyed) notifyListeners("availabilityChanged", availability());
     }
 
+    private boolean isFresh(String unit) {
+        return ads.containsKey(unit) && SystemClock.elapsedRealtime() - loadedAt.get(unit) < MAX_AD_AGE_MS;
+    }
+
     private void preload() {
-        if (destroyed || !initialized || loading || showing != null || privacyBusy || !canRequestAds()) return;
-        if (ad != null && SystemClock.elapsedRealtime() - loadedAt < MAX_AD_AGE_MS) return;
-        ad = null;
-        loading = true;
-        announceAvailability();
-        int requestEpoch = consentEpoch;
-        RewardedAd.load(getContext(), BuildConfig.SCALP_REWARDED_ID, new AdRequest.Builder().build(), new RewardedAdLoadCallback() {
+        if (destroyed || !initialized || showing != null || privacyBusy || !canRequestAds()) return;
+        for (String unit : new HashSet<>(UNITS.values())) if (!unit.isEmpty()) preloadUnit(unit);
+    }
+
+    private void preloadUnit(String unit) {
+        if (isFresh(unit) || !loading.add(unit)) return;
+        ads.remove(unit);
+        loadedAt.remove(unit);
+        int epoch = consentEpoch;
+        RewardedAd.load(getContext(), unit, new AdRequest.Builder().build(), new RewardedAdLoadCallback() {
             @Override
             public void onAdLoaded(@NonNull RewardedAd loaded) {
+                loading.remove(unit);
                 if (destroyed) return;
-                loading = false;
-                if (requestEpoch != consentEpoch || privacyBusy || !canRequestAds()) {
+                if (epoch != consentEpoch || privacyBusy || !canRequestAds()) {
                     preload();
                     return;
                 }
-                ad = loaded;
-                loadedAt = SystemClock.elapsedRealtime();
+                ads.put(unit, loaded);
+                loadedAt.put(unit, SystemClock.elapsedRealtime());
                 announceAvailability();
             }
 
             @Override
             public void onAdFailedToLoad(@NonNull LoadAdError error) {
+                loading.remove(unit);
                 if (destroyed) return;
-                loading = false;
                 announceAvailability();
                 main.postDelayed(ScalpRewardAdsPlugin.this::preload, 20_000);
             }
         });
     }
 
-    private void showOnMain(PluginCall call) {
+    private void showOnMain(PluginCall call, String unit) {
         Activity activity = getActivity();
-        if (destroyed || showing != null || ad == null || activity == null || privacyBusy || !canRequestAds() ||
+        String nonce = call.getString("nonce", "");
+        if (destroyed || showing != null || !isFresh(unit) || activity == null || privacyBusy || !canRequestAds() ||
             activity.isFinishing() || activity.isDestroyed() ||
-            SystemClock.elapsedRealtime() - loadedAt >= MAX_AD_AGE_MS) {
+            (!BuildConfig.DEBUG && !nonce.matches("[0-9a-fA-F-]{36}"))) {
             resolve(call, false);
             preload();
             return;
         }
 
-        RewardedAd selected = ad;
-        ad = null;
+        RewardedAd selected = ads.remove(unit);
+        loadedAt.remove(unit);
+        if (!nonce.isEmpty()) {
+            selected.setServerSideVerificationOptions(new ServerSideVerificationOptions.Builder().setCustomData(nonce).build());
+        }
         showing = call;
         announceAvailability();
         class AdCallbacks extends FullScreenContentCallback {
@@ -233,7 +264,8 @@ public class ScalpRewardAdsPlugin extends Plugin {
     protected void handleOnDestroy() {
         destroyed = true;
         main.removeCallbacksAndMessages(null);
-        ad = null;
+        ads.clear();
+        loadedAt.clear();
         if (showing != null) {
             resolve(showing, false);
             showing = null;

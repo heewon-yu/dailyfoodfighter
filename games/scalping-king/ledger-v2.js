@@ -90,13 +90,17 @@
       }
     } else {
       total = gross - tradeFee;
-      const full = fill.qty === position.qty;
-      const basis = full ? position.cost : Math.round(position.cost * fill.qty / position.qty);
       // All sales settle outstanding credit-backed shares before cash-backed shares.
       const creditQty = Math.min(fill.qty, position.creditQty);
       const closesCredit = creditQty === position.creditQty;
       const principal = closesCredit ? position.principal : Math.floor(position.principal * creditQty / position.creditQty);
       const creditCost = closesCredit ? position.creditCost : Math.round(position.creditCost * creditQty / position.creditQty);
+      const cashQty = fill.qty - creditQty;
+      const ownedCashQty = position.qty - position.creditQty;
+      const ownedCashCost = position.cost - position.creditCost;
+      const cashCost = cashQty === ownedCashQty ? ownedCashCost :
+        Math.round(ownedCashCost * cashQty / ownedCashQty);
+      const basis = creditCost + cashCost;
       position.creditQty -= creditQty;
       position.creditCost -= creditCost;
       position.qty -= fill.qty;

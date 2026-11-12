@@ -3,29 +3,31 @@
 
   const native = window.Capacitor?.Plugins?.ScalpRewardAds;
   if (!native) return;
-  let ready = false;
+  let features = new Set();
+  let serverVerifiedOnly = true;
   let privacyRequired = false;
   let privacyBusy = false;
 
   function updateAvailability(status) {
-    ready = status?.ready === true;
+    features = new Set(Array.isArray(status?.features) ? status.features : []);
+    serverVerifiedOnly = status?.serverVerifiedOnly !== false;
     privacyRequired = status?.privacyRequired === true;
     privacyBusy = status?.privacyBusy === true;
     window.dispatchEvent(new Event('scalp-reward-availability'));
   }
 
   window.scalpRewardProvider = {
-    isAvailable() {
-      return ready;
+    isAvailable(feature) {
+      return features.has(feature) && (!serverVerifiedOnly || Boolean(window.scalpOfficial));
     },
     privacyRequired: () => privacyRequired,
     privacyBusy: () => privacyBusy,
     openPrivacyOptions: () => native.openPrivacyOptions(),
-    async show({feature, signal, onReward}) {
-      if (!ready || signal.aborted) return 'canceled';
-      ready = false;
+    async show({feature, signal, onReward, nonce}) {
+      if (!this.isAvailable(feature) || signal.aborted || (serverVerifiedOnly && !nonce)) return 'canceled';
+      features.clear();
       window.dispatchEvent(new Event('scalp-reward-availability'));
-      const result = await native.show({feature});
+      const result = await native.show({feature, nonce});
       if (result?.earned !== true || signal.aborted) return 'canceled';
       onReward();
       return 'completed';

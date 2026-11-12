@@ -1,0 +1,5 @@
+project_id = "scalping-king"
+
+[functions.scalping-king]
+# The function checks persistent Auth tokens itself and verifies Google callbacks cryptographically.
+verify_jwt = false

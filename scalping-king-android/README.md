@@ -52,3 +52,8 @@ AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록�
 
 - [Google UMP 설정](https://developers.google.com/admob/android/privacy)
 - [AdMob 보상형 광고](https://developers.google.com/admob/android/rewarded)
+
+
+### Official rewarded placements
+
+Set SCALP_ADMOB_APP_ID and SCALP_ADMOB_REWARDED_ID for credit. Set SCALP_ADMOB_EMERGENCY_ID, SCALP_ADMOB_STOP_ID and SCALP_ADMOB_EXTRA_ID for their respective verified placements. Each production placement uses a distinct ad unit. The Android release bridge requires a server-issued nonce and the game waits for server-side confirmation. Configure each AdMob SSV URL to the deployed /scalping-king/admob route before enabling its ID. The debug APK uses Google’s official sample unit only.

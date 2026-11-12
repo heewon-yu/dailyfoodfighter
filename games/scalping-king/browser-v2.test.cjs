@@ -44,8 +44,8 @@ async function run() {
     });
     await desktop.goto(target + '?seed=5');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
-    assert.equal(await desktop.locator('#creditTool').isEnabled(), true);
-    assert.equal(await desktop.locator('#stopTool').isEnabled(), true);
+    assert.equal(await desktop.locator('#creditTool').isDisabled(), true);
+    assert.equal(await desktop.locator('#stopTool').isDisabled(), true);
     assert.equal(await desktop.locator('#emergencyTool').isDisabled(), true);
     const layout = () => desktop.evaluate(() => {
       const rect = selector => document.querySelector(selector).getBoundingClientRect();
@@ -145,6 +145,7 @@ async function run() {
     attach(mobile);
     await mobile.clock.install();
     await mobile.addInitScript(() => {
+      window.scalpRewardProvider = {isAvailable: () => true, async show({onReward}) { onReward(); return 'completed'; }};
       Object.defineProperty(window, 'ScalpMarket', {configurable: true, set(api) {
         const original = api.createMarket;
         api.createMarket = seed => {
@@ -163,6 +164,18 @@ async function run() {
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth), 390);
     assert.ok(await listFits(mobile));
+    for (const width of [320, 360, 390, 412, 430]) {
+      await mobile.setViewportSize({width, height: 844});
+      const size = await mobile.evaluate(() => {
+        const rect = selector => document.querySelector(selector).getBoundingClientRect();
+        return [document.documentElement.scrollWidth, rect('#chart').height, rect('#buy').top - rect('#chart').bottom, rect('.depth-panel').top - rect('#buy').bottom];
+      });
+      assert.equal(size[0], width);
+      assert.ok(size[1] >= 180 && size[1] <= 220, String(size));
+      assert.ok(size[2] >= 0 && size[2] < 370, String(size));
+      assert.ok(size[3] >= 0, String(size));
+    }
+    await mobile.setViewportSize({width: 390, height: 844});
     await mobile.locator('#start').tap();
     await mobile.locator('#creditTool').tap();
     assert.equal(await mobile.locator('#creditDialog').isVisible(), true);
@@ -173,17 +186,19 @@ async function run() {
     assert.equal(await mobile.locator('#creditRange').inputValue(), '300');
     await mobile.locator('#creditConfirm').tap();
     assert.notEqual(await mobile.locator('#creditDebt').innerText(), '0원');
-    await mobile.locator('#creditTool').tap();
-    await mobile.locator('#creditOrderType').selectOption('limit');
+    assert.equal(await mobile.locator('#creditSellQty').count(), 0);
+    await mobile.locator('#limitMode').tap();
     const upper = await mobile.locator('#limitPrice').getAttribute('max');
-    await mobile.locator('#creditLimitPrice').fill(upper);
-    await mobile.locator('#creditSellAll').tap();
-    assert.ok(Number(await mobile.locator('#creditSellQty').inputValue()) > 0);
-    await mobile.locator('#creditSellConfirm').tap();
-    assert.match(await mobile.locator('#feedback').innerText(), /신용 지정가 주문이 접수/);
+    await mobile.locator('#limitPrice').fill(upper);
+    await mobile.locator('#quantity').fill('1');
+    await mobile.locator('#sell').tap();
+    assert.match(await mobile.locator('#feedback').innerText(), /지정가 매도 .*접수/);
     await mobile.locator('#pending [data-cancel]').tap();
     assert.equal(await mobile.locator('#emergencyTool').isEnabled(), true);
     await mobile.locator('#emergencyTool').tap();
+    assert.ok(await mobile.locator('#emergencyDialog').isVisible());
+    assert.equal(await mobile.locator('#emergencyDebt').innerText(), '0원 · 0원');
+    await mobile.locator('#emergencyConfirm').tap();
     assert.equal(await mobile.locator('#emergencyDebt').innerText(), '50,000,000원 · 0원');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     await mobile.evaluate(() => {
@@ -221,7 +236,7 @@ async function run() {
     assert.equal(await mobile.locator('#creditTool').isEnabled(), true);
     assert.equal(await mobile.locator('#stopTool').isEnabled(), true);
     assert.deepEqual(errors, []);
-    console.log('Chrome desktop and 390px touch browser tests passed at ' + target);
+    console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
   } finally {
     if (browser) await browser.close();
     if (server) server.close();

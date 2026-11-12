@@ -63,7 +63,9 @@
   let loop = 0;
   let adController = null;
   let pauseReason = null;
+  let privacyBusy = false;
   let audio = null;
+  let closingSoundPlayed = false;
   let latestNotice = null;
   let chartMode = '10';
   let newsMode = 'all';
@@ -82,7 +84,273 @@
   const orderPrice = $('limitPrice');
   const watchlist = $('watchlist');
   const orderBook = $('orderBook');
-  const testTools = document.body.dataset.testTools === 'enabled';
+
+const official = window.scalpOfficial;
+  let officialSession = null;
+  let officialEngine;
+  let officialBusy = false;
+  let startRequest;
+  let officialProfile;
+  let finishRetryAt = 0;
+  let officialFeed = {seeds: [], events: []};
+  let officialFeedPending = false;
+  let nextOfficialPoll = 0;
+
+  function officialMessage(error) {
+    return ({
+      sign_in_required: '공식 게임을 시작하려면 로그인하세요.',
+      nickname_required: '공식 게임을 시작하려면 닉네임을 등록하세요.',
+      nickname_taken: '이미 사용 중인 닉네임이에요.',
+      invalid_nickname: '닉네임은 한글·영문·숫자·밑줄로 2~12자를 입력하세요.',
+      quota_exhausted: '오늘 무료 5판을 모두 사용했어요.',
+      retry_session: '다른 기기의 변경을 불러왔어요. 주문을 다시 확인해 주세요.',
+      inactive_session: '다른 기기에서 이 게임을 종료했어요.',
+      ad_unavailable: '지금은 광고를 사용할 수 없어요.',
+      ad_not_verified: '광고 확인이 아직 완료되지 않았어요.',
+      round_in_progress: '서버에서 장 마감을 기다리는 중이에요.',
+      order_rate_limit: '주문이 너무 빨라요. 잠시 후 다시 시도해 주세요.',
+      service_unavailable: '서버에 연결할 수 없어요. 잠시 후 다시 시도해 주세요.',
+    })[error.message] || (/^[a-z_]+$/.test(error.message) ? '요청을 처리하지 못했어요.' : error.message);
+  }
+
+  async function refreshOfficialProfile() {
+    if (!official) return;
+    officialProfile = official.signedIn() ? await official.call({action: 'profile'}) : null;
+    $('officialStatus').textContent = officialProfile?.nickname ?
+      officialProfile.nickname + ' · 오늘 무료 ' + officialProfile.free + '/5판 · 추가 ' + officialProfile.bonus + '판' :
+      official.signedIn() ? '닉네임을 등록하세요.' : '로그인 후 공식 게임을 시작할 수 있어요.';
+    $('officialExtra').hidden = !officialProfile?.nickname || officialProfile.free > 0 || officialProfile.bonus > 0;
+    $('officialAuthForm').hidden = official.signedIn();
+    $('officialNicknameForm').hidden = !official.signedIn();
+    $('officialSignOut').hidden = !official.signedIn();
+    $('officialDelete').hidden = !official.signedIn();
+    $('officialNickname').value = officialProfile?.nickname || '';
+  }
+
+  function addOfficialFeed(row) {
+    const known = officialFeed.seeds.length;
+    if (row.feedAfter > known) throw new Error('market_feed_gap');
+    officialFeed.seeds.push(...row.feed.seeds.slice(known - row.feedAfter));
+    officialFeed.events.push(...row.feed.events.filter(event => event.tick > known));
+  }
+
+  function applyOfficialSession(row, newRound = false) {
+    if (newRound) officialFeed = {seeds: [], events: []};
+    addOfficialFeed(row);
+    const prior = account.trades.length;
+    const next = officialEngine.replay(row.server_seed, row.commands, officialEngine.tickAt(row.elapsed), officialFeed);
+    officialSession = row;
+    market = next.market;
+    account = next.account;
+    if (newRound) {
+      stockButtons = buildWatchlist();
+      orderPrice.value = String(market.stocks[selected].price);
+      watchKey = newsKey = stockNewsKey = '';
+    }
+    clearInterval(loop);
+    phase = row.paused ? 'paused' : 'live';
+    pauseReason = row.paused ? 'manual' : null;
+    startedAt = performance.now() - row.elapsed;
+    if (row.status === 'completed') {
+      finish();
+      return;
+    }
+    if (!row.paused) loop = setInterval(syncTime, 100);
+    if (!newRound && account.trades.length > prior) showFill(account.trades[0]);
+    renderPhase();
+    render();
+  }
+
+  async function startOfficial(restart = false) {
+    if (officialBusy || privacyBusy || adController) return;
+    if (!official.signedIn() || !officialProfile?.nickname) {
+      if (!$('officialAccountDialog').open) $('officialAccountDialog').showModal();
+      return;
+    }
+    setupAudio();
+    officialBusy = true;
+    renderPhase();
+    const requestId = startRequest ||= crypto.randomUUID();
+    try {
+      officialEngine ||= await import('./official-engine.mjs');
+      const row = await official.call({action: 'start', requestId, restart, version: officialEngine.GAME_VERSION});
+      startRequest = null;
+      reset();
+      applyOfficialSession(row, true);
+      await refreshOfficialProfile();
+    } catch (error) {
+      feedback(officialMessage(error), 'error');
+      $('officialStatus').textContent = officialMessage(error);
+    } finally { officialBusy = false; renderPhase(); }
+  }
+
+  async function officialUpdate(action, args = {}, after, errorElement) {
+    if (officialBusy || !officialSession) return false;
+    officialBusy = true;
+    renderOrderAvailability();
+    try {
+      const row = await official.call({action, sessionId: officialSession.session_id, feedAfter: officialFeed.seeds.length, ...args});
+      applyOfficialSession(row);
+      after?.();
+      return true;
+    } catch (error) {
+      if (error.message === 'retry_session') {
+        try {
+          const row = await official.call({action: 'session', sessionId: officialSession.session_id, feedAfter: officialFeed.seeds.length});
+          if (row?.status === 'active') applyOfficialSession(row);
+        } catch { /* A later interaction can reload the session. */ }
+      }
+      if (errorElement) errorElement.textContent = officialMessage(error);
+      else feedback(officialMessage(error), 'error');
+      if (action === 'finish') finishRetryAt = performance.now() + 2000;
+      return false;
+    } finally { officialBusy = false; renderOrderAvailability(); }
+  }
+
+  async function pollOfficial() {
+    if (officialBusy || officialFeedPending || performance.now() < nextOfficialPoll) return;
+    if (market.tick >= TOTAL_TICKS) {
+      if (performance.now() >= finishRetryAt) officialUpdate('finish');
+      return;
+    }
+    const {session_id: sessionId, revision} = officialSession;
+    officialFeedPending = true;
+    nextOfficialPoll = performance.now() + 900;
+    try {
+      const row = await official.call({action: 'feed', sessionId, feedAfter: officialFeed.seeds.length});
+      if (officialBusy || officialSession?.session_id !== sessionId || officialSession.revision !== revision) return;
+      if (row.revision !== revision) { officialUpdate('session'); return; }
+      addOfficialFeed(row);
+      const previousTrades = account.trades.length;
+      officialEngine.advance({market, account, seeds: officialFeed.seeds}, officialEngine.tickAt(row.elapsed));
+      const fills = account.trades.slice(0, account.trades.length - previousTrades);
+      if (fills.length) { playFillEffects(fills); showFill(fills[0], 0, false); }
+      renderClock();
+      render();
+      if (market.tick === TOTAL_TICKS) officialUpdate('finish');
+    } catch (error) {
+      nextOfficialPoll = performance.now() + 2500;
+      feedback(officialMessage(error), 'error');
+    } finally { officialFeedPending = false; }
+  }
+
+  function officialCommand(command, after, errorElement) {
+    return officialUpdate('command', {command, requestId: crypto.randomUUID()}, after, errorElement);
+  }
+
+  async function officialAd(feature) {
+    const provider = window.scalpRewardProvider;
+    if (!ScalpReward.ready(provider, feature) || adController || officialBusy) return;
+    const round = officialSession;
+    const wasLive = round && phase === 'live';
+    if (wasLive && !await officialUpdate('pause')) return;
+    const controller = new AbortController();
+    adController = controller;
+    renderPhase();
+    renderRewardTools();
+    let confirmed;
+    try {
+      const intent = await official.call({action: 'adIntent', feature, sessionId: feature === 'extra' ? null : round?.session_id});
+      const earned = await ScalpReward.request({
+        isAvailable: key => ScalpReward.ready(provider, key),
+        show: options => provider.show({...options, nonce: intent.nonce}),
+      }, feature, controller.signal);
+      if (!earned) throw new Error('ad_unavailable');
+      for (let attempt = 0; attempt < 8; attempt++) {
+        const verified = await official.call({action: 'adStatus', nonce: intent.nonce});
+        if (verified?.verified_at) { confirmed = intent.nonce; break; }
+        await new Promise(resolve => setTimeout(resolve, 1500));
+      }
+      if (!confirmed) throw new Error('ad_not_verified');
+    } catch (error) { feedback(officialMessage(error), 'error'); }
+    finally { adController = null; renderPhase(); renderRewardTools(); }
+    if (confirmed && feature !== 'extra') await officialCommand({kind: 'activate', feature, nonce: confirmed}, () => openTool(feature));
+    if (wasLive) await officialUpdate('resume');
+    if (confirmed && feature === 'extra') {
+      try { await refreshOfficialProfile(); } catch (error) { feedback(officialMessage(error), 'error'); }
+    }
+  }
+
+  function setupOfficial() {
+    if (!official) return;
+    $('officialPanel').hidden = false;
+    $('officialAccount').addEventListener('click', () => $('officialAccountDialog').showModal());
+    $('officialAuthForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      const field = $('officialAccountFeedback');
+      const button = event.submitter;
+      if (button.disabled) return;
+      for (const control of event.currentTarget.querySelectorAll('button')) control.disabled = true;
+      const email = $('officialEmail').value.trim();
+      const password = $('officialPassword').value;
+      try {
+        if (button.value === 'register' && !await official.register(email, password)) {
+          field.textContent = '이메일에서 가입을 확인한 뒤 로그인하세요.';
+          return;
+        }
+        if (button.value !== 'register') await official.signIn(email, password);
+        $('officialPassword').value = '';
+        await refreshOfficialProfile();
+        field.textContent = '로그인했어요.';
+      } catch (error) { field.textContent = officialMessage(error); }
+      finally { for (const control of $('officialAuthForm').querySelectorAll('button')) control.disabled = false; }
+    });
+    $('officialNicknameForm').addEventListener('submit', async event => {
+      event.preventDefault();
+      try {
+        await official.call({action: 'profile', nickname: $('officialNickname').value});
+        await refreshOfficialProfile();
+        $('officialAccountDialog').close();
+      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
+    });
+    $('officialSignOut').addEventListener('click', async () => {
+      try {
+        if (officialSession?.status === 'active' && phase === 'live' && !await officialUpdate('pause')) return;
+        await official.signOut();
+        reset();
+        await refreshOfficialProfile();
+        $('officialAccountDialog').close();
+      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
+    });
+    $('officialDelete').addEventListener('click', async event => {
+      if (!window.confirm('계정을 삭제하면 닉네임, 공식 게임 기록 및 순위가 지워져요. 삭제할까요?')) return;
+      const button = event.currentTarget;
+      button.disabled = true;
+      try {
+        await official.deleteAccount();
+        reset();
+        await refreshOfficialProfile();
+        $('officialAccountDialog').close();
+      } catch (error) { $('officialAccountFeedback').textContent = officialMessage(error); }
+      finally { button.disabled = false; }
+    });
+    $('officialExtra').addEventListener('click', () => officialAd('extra'));
+    $('officialRankings').addEventListener('click', async () => {
+      $('officialRankingDialog').showModal();
+      const target = $('officialRankingStatus');
+      target.textContent = '불러오는 중…';
+      try {
+        const {day, rates, profits} = await official.rankings();
+        target.textContent = day + ' 한국시간';
+        for (const [id, rows, format] of [['officialRates', rates, pct], ['officialProfits', profits, money]]) {
+          const list = $(id);
+          list.replaceChildren(...rows.map(row => {
+            const item = document.createElement('li');
+            item.textContent = row.nickname + ' · ' + format(Number(row.value));
+            return item;
+          }));
+          if (!rows.length) {
+            const empty = document.createElement('li');
+            empty.textContent = '아직 검증된 기록이 없어요.';
+            list.append(empty);
+          }
+        }
+      } catch (error) { target.textContent = officialMessage(error); }
+    });
+    refreshOfficialProfile().catch(error => { $('officialStatus').textContent = officialMessage(error); });
+  }
+
+
 
   function buildDepthRows(side) {
     return Array.from({length: 5}, (_, index) => {
@@ -176,7 +444,7 @@
   }
 
   function renderMetrics() {
-    const total = equity(market, account);
+    const total = officialSession?.score?.final_equity ?? equity(market, account);
     const profit = total - CASH;
     $('equity').innerHTML = num(total) + '<small> 원</small>';
     $('cash').innerHTML = num(availableCash(account)) + '<small> 원</small>';
@@ -198,10 +466,18 @@
     $('timer').classList.toggle('urgent', phase === 'live' && remaining <= 30);
     $('timerBar').style.width = remaining / DURATION * 100 + '%';
     $('mobileTimer').textContent = $('timer').textContent;
+    const finalSeconds = phase === 'live' && remaining > 0 && remaining <= 5;
+    $('timer').classList.toggle('final-seconds', finalSeconds);
+    $('mobileTimer').classList.toggle('final-seconds', finalSeconds);
+    $('clockLabel').textContent = finalSeconds ? '마감 임박' : '남은 시간';
+    if (finalSeconds && !closingSoundPlayed) {
+      closingSoundPlayed = true;
+      playEffect([880, 880, 1175], .13, .09);
+    }
   }
 
   function renderPhase() {
-    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: pauseReason === 'ad' ? '광고 시청 중' : '일시정지', done: '장 마감'}[phase];
+    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: pauseReason === 'ad' ? '광고 시청 중' : pauseReason === 'privacy' ? '개인정보 설정 중' : '일시정지', done: '장 마감'}[phase];
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
@@ -214,6 +490,7 @@
       $(id).textContent = phase === 'paused' ? (id === 'pause' ? '거래 재개' : '재개') : '일시정지';
     }
     $('restart').hidden = !inSession || Boolean(adController);
+    $('gameHome').disabled = Boolean(adController);
     $('jumpRestart').hidden = phase !== 'paused' || Boolean(adController);
     renderOrderAvailability();
     renderClock();
@@ -296,10 +573,10 @@
   }
 
   function renderOrderAvailability() {
-    const disabled = phase !== 'live' || isHalted(market.stocks[selected]);
+    const disabled = officialBusy || phase !== 'live' || isHalted(market.stocks[selected]);
     $('buy').disabled = disabled;
     $('sell').disabled = disabled;
-    $('start').disabled = Boolean(adController);
+    $('start').disabled = Boolean(adController) || privacyBusy || officialBusy;
   }
 
   function setupAudio() {
@@ -312,17 +589,31 @@
     } catch { /* Visual warnings stay available. */ }
   }
 
-  function playWarning() {
+  function playEffect(frequencies, duration = .09, volume = .06, delay = 0) {
     if (!$('warningSound').checked || audio?.state !== 'running') return;
-    const oscillator = audio.createOscillator();
-    const gain = audio.createGain();
-    const start = audio.currentTime;
-    oscillator.frequency.value = 760;
-    gain.gain.setValueAtTime(.08, start);
-    gain.gain.exponentialRampToValueAtTime(.001, start + .16);
-    oscillator.connect(gain).connect(audio.destination);
-    oscillator.start(start);
-    oscillator.stop(start + .16);
+    const start = audio.currentTime + delay;
+    frequencies.forEach((frequency, index) => {
+      const at = start + index * (duration + .04);
+      const oscillator = audio.createOscillator();
+      const gain = audio.createGain();
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(.001, at);
+      gain.gain.exponentialRampToValueAtTime(volume, at + .012);
+      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+      oscillator.connect(gain).connect(audio.destination);
+      oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); };
+      oscillator.start(at);
+      oscillator.stop(at + duration);
+    });
+  }
+
+  function playWarning() { playEffect([760], .16, .08); }
+
+  function playFillEffects(fills) {
+    const sides = [...new Set(fills.map(fill => fill.side))];
+    sides.forEach((side, index) => {
+      playEffect(side === 'buy' ? [520, 740] : [660, 420], .075, .055, index * .22);
+    });
   }
 
   function renderRisk() {
@@ -363,17 +654,12 @@
     const provider = window.scalpRewardProvider;
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = testTools || account.unlocks[key];
+      const unlocked = account.unlocks[key];
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
-      button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
-    }
-    if (testTools) {
-      $('rewardHint').textContent = account.everFilledCreditBuy ? '' :
-        '긴급자금대출은 신용매수 체결 후 이용 가능';
-      return;
+      button.textContent = funded ? label + ' · 사용 완료' : unlocked || !eligible || !ScalpReward.ready(provider, key) ? label : '광고 보고 ' + label + ' 이용하기';
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
       !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
@@ -429,31 +715,20 @@
     $('stopDialog').showModal();
   }
 
-  function grantTool(key) {
-    if (key === 'emergency') {
-      Object.assign(account, risk.issueEmergency(account));
-      notify(market, '긴급자금대출 5,000만원 지급 · 동일 금액 채무 기록');
-    }
-    account.unlocks[key] = true;
-  }
-
   function openTool(key) {
     if (key === 'credit') showCredit();
     if (key === 'stop') showStop();
+    if (key === 'emergency') $('emergencyDialog').showModal();
   }
 
   async function unlock(key) {
-    if (adController || phase === 'done' || result) return;
+    if (adController || privacyBusy || phase === 'done' || result) return;
     if (key === 'emergency' && !risk.canUseEmergency(account)) return;
-    if (testTools || account.unlocks[key]) {
-      if (!account.unlocks[key]) grantTool(key);
-      if (key === 'emergency') {
-        feedback('긴급자금대출 5,000만원이 입금됐어요.', 'ok');
-        render();
-      }
+    if (account.unlocks[key]) {
       openTool(key);
       return;
     }
+    if (official) return officialAd(key);
     const provider = window.scalpRewardProvider;
     if (!ScalpReward.ready(provider, key)) return;
     const wasLive = phase === 'live';
@@ -468,7 +743,7 @@
     if (adController !== controller || account !== round) return;
     adController = null;
     if (earned) {
-      grantTool(key);
+      account.unlocks[key] = true;
       feedback(rewardTools.find(item => item.key === key).label + ' 기능을 사용할 수 있어요.', 'ok');
     } else feedback('광고가 완료되지 않았어요. 기존 장세를 이어갑니다.', 'error');
     if (wasLive) {
@@ -514,7 +789,42 @@
   }
 
   for (const {id, key} of rewardTools) $(id).addEventListener('click', () => unlock(key));
-  window.addEventListener('scalp-reward-availability', renderRewardTools);
+  function syncPrivacyOptions() {
+    const provider = window.scalpRewardProvider;
+    const pending = provider?.privacyBusy?.() === true;
+    const button = $('adPrivacy');
+    button.hidden = provider?.privacyRequired?.() !== true;
+    button.disabled = pending || Boolean(adController);
+    if (privacyBusy === pending) return;
+    privacyBusy = pending;
+    if (pending && phase === 'live') suspend('privacy');
+    if (!pending && pauseReason === 'privacy') {
+      if (document.hidden) pauseReason = 'background';
+      else resume();
+    }
+    renderPhase();
+  }
+  window.addEventListener('scalp-reward-availability', () => {
+    syncPrivacyOptions();
+    renderRewardTools();
+  });
+  $('adPrivacy').addEventListener('click', async () => {
+    if (privacyBusy || adController) return;
+    try { await window.scalpRewardProvider?.openPrivacyOptions(); }
+    catch { feedback('광고 개인정보 설정을 열지 못했어요.', 'error'); }
+  });
+  $('emergencyConfirm').addEventListener('click', () => {
+    if (!account.unlocks.emergency || !risk.canUseEmergency(account) || phase === 'done' || adController) return;
+    if (officialSession) return officialCommand({kind: 'emergency'}, () => {
+      $('emergencyDialog').close();
+      feedback('긴급자금대출 5,000만원이 입금됐어요.', 'ok');
+    });
+    Object.assign(account, risk.issueEmergency(account));
+    notify(market, '긴급자금대출 5,000만원 지급 · 동일 금액 채무 기록');
+    $('emergencyDialog').close();
+    feedback('긴급자금대출 5,000만원이 입금됐어요.', 'ok');
+    render();
+  });
   $('warningSound').addEventListener('change', setupAudio);
   $('creditRange').addEventListener('input', () => {
     $('creditPercent').value = $('creditRange').value;
@@ -541,6 +851,8 @@
     if (phase !== 'live' || adController || percent === null) return;
     const stock = market.stocks[selected];
     const limit = creditLimit();
+    if (officialSession) return officialCommand({kind: 'credit', stock: selected, percent, price: limit ?? null},
+      () => $('creditDialog').close(), $('creditFeedback'));
     const {error, trade: fill, order} = executeCredit(stock, account, percent, limit);
     if (error) {
       $('creditFeedback').textContent = error;
@@ -555,12 +867,14 @@
     if (phase === 'done' || !account.unlocks.stop || adController) return;
     const field = $('stopPercent');
     if (!field.checkValidity() || !Number.isFinite(field.valueAsNumber)) return field.reportValidity();
+    if (officialSession) return officialCommand({kind: 'stop', stock: selected, percent: field.valueAsNumber}, () => $('stopDialog').close());
     account.stops[selected] = field.valueAsNumber;
     $('stopDialog').close();
     feedback(market.stocks[selected].name + ' 로스컷 ' + account.stops[selected] + '% 적용', 'ok');
     render();
   });
   $('stopClear').addEventListener('click', () => {
+    if (officialSession) return officialCommand({kind: 'stop', stock: selected, percent: null}, () => $('stopDialog').close());
     account.stops[selected] = null;
     $('stopDialog').close();
     feedback(market.stocks[selected].name + ' 로스컷 설정을 해제했어요.', 'ok');
@@ -748,22 +1062,26 @@
 
   function syncTime() {
     if (phase !== 'live') return;
+    if (officialSession) { pollOfficial(); return; }
     const target = Math.min(TOTAL_TICKS, Math.floor((performance.now() - startedAt) / INTERVAL));
     if (market.tick < target) {
-      const last = account.trades[0];
+      const previousTrades = account.trades.length;
       while (market.tick < target) stepMarket(market, account);
+      const fills = account.trades.slice(0, account.trades.length - previousTrades);
+      playFillEffects(fills);
       if (market.tick === TOTAL_TICKS) {
         finish();
         return;
       }
-      if (account.trades[0] !== last) showFill(account.trades[0]);
+      if (fills.length) showFill(fills[0], 0, false);
       render();
     }
     renderClock();
   }
 
   function start() {
-    if (phase !== 'ready') return;
+    if (phase !== 'ready' || privacyBusy) return;
+    if (official) return startOfficial();
     startedAt = performance.now();
     setupAudio();
     phase = 'live';
@@ -786,7 +1104,7 @@
   }
 
   function resume() {
-    if (phase !== 'paused' || adController || document.hidden) return;
+    if (phase !== 'paused' || adController || privacyBusy || document.hidden) return;
     startedAt += performance.now() - pausedAt;
     phase = 'live';
     pauseReason = null;
@@ -796,6 +1114,7 @@
   }
 
   function togglePause() {
+    if (officialSession) return officialUpdate(phase === 'paused' ? 'resume' : 'pause');
     if (adController) return;
     if (phase === 'live') {
       suspend('manual');
@@ -806,7 +1125,8 @@
     }
   }
 
-  function showFill(fill, remaining = 0) {
+  function showFill(fill, remaining = 0, sound = true) {
+    if (sound) playFillEffects([fill]);
     const type = {limit: '지정가 ', forced: '반대매매 ', stop: '로스컷 '}[fill.type] || '';
     const side = fill.side === 'buy' ? '매수 ' : '매도 ';
     feedback(market.stocks[fill.index].name + ' ' + type + side + num(fill.qty) + '주 체결 · 평균 ' +
@@ -826,6 +1146,8 @@
       feedback('선택한 비율로 주문 가능한 수량이 0주예요.', 'error');
       return;
     }
+    if (officialSession) return officialCommand({kind: 'order', stock: selected, side, qty,
+      price: orderType === 'limit' ? orderPrice.valueAsNumber : null}, () => setOrderPercent(0));
     const {error, trade: fill, order} = orderType === 'limit' ?
       placeLimit(stock, account, side, qty, orderPrice.valueAsNumber) : executeOrder(stock, account, side, qty);
     if (error) {
@@ -879,6 +1201,8 @@
       loadAmendment(current, '정정하는 동안 일부가 체결됐어요. 최신 잔량을 보고 다시 입력해 주세요.');
       return;
     }
+    if (officialSession) return officialCommand({kind: 'amend', order: current.id, qty: $('amendQty').valueAsNumber,
+      price: $('amendPrice').valueAsNumber}, () => $('amendDialog').close(), $('amendFeedback'));
     const {error, order, trade: fill} = amendLimit(market, account, current.id, $('amendQty').valueAsNumber,
       $('amendPrice').valueAsNumber);
     if (error) {
@@ -910,7 +1234,7 @@
     renderPhase();
     render();
     if ($('guide').open) $('guide').close();
-    for (const id of ['amendDialog', 'creditDialog', 'stopDialog']) if ($(id).open) $(id).close();
+    for (const id of ['amendDialog', 'creditDialog', 'stopDialog', 'emergencyDialog']) if ($(id).open) $(id).close();
     openResult();
   }
 
@@ -927,10 +1251,14 @@
 
   function reset() {
     clearInterval(loop);
+    officialSession = null;
+    finishRetryAt = 0;
+    nextOfficialPoll = 0;
     $('result').close();
-    for (const id of ['creditDialog', 'stopDialog', 'amendDialog']) if ($(id).open) $(id).close();
+    for (const id of ['creditDialog', 'stopDialog', 'amendDialog', 'emergencyDialog']) if ($(id).open) $(id).close();
     pauseReason = null;
     latestNotice = null;
+    closingSoundPlayed = false;
     if (/^https?:$/.test(location.protocol)) {
       const url = new URL(location.href);
       url.searchParams.delete('seed');
@@ -967,7 +1295,8 @@
   }
 
   function restartRound() {
-    if (adController || (phase === 'ready' && !result)) return;
+    if (adController || privacyBusy || (phase === 'ready' && !result)) return;
+    if (official) return startOfficial(true);
     reset();
     start();
   }
@@ -1022,9 +1351,12 @@
 
   function showShareHelp(message) {
     const {seed, total, count, fees, record} = result;
-    const url = new URL(location.href);
+    const android = window.Capacitor?.getPlatform?.() === 'android';
+    const url = new URL(android ? 'https://dailyfoodfighter.com/games/scalping-king/' : location.href);
     url.hash = 'score=' + [code(seed), total, count, fees, Number(record)].join(',');
-    try { history.replaceState(null, '', url); } catch { /* The result address is still available below. */ }
+    if (!android) {
+      try { history.replaceState(null, '', url); } catch { /* The result address is still available below. */ }
+    }
     const link = $('scoreShareLink');
     link.value = url.href;
     link.hidden = false;
@@ -1040,6 +1372,17 @@
     $('shareFeedback').textContent = '';
     $('scoreShareLink').hidden = true;
     try {
+      const native = window.Capacitor?.Plugins?.ScalpScoreShare;
+      if (native) {
+        setShareEnabled(false);
+        const bytes = new Uint8Array(await file.arrayBuffer());
+        const chunks = [];
+        for (let offset = 0; offset < bytes.length; offset += 8192) {
+          chunks.push(String.fromCharCode(...bytes.subarray(offset, offset + 8192)));
+        }
+        await native.sharePng({data: btoa(chunks.join(''))});
+        return;
+      }
       if (!navigator.share || (navigator.canShare && !navigator.canShare({files}))) {
         showShareHelp('현재 브라우저에서 이미지 공유 메뉴를 열 수 없어요.');
         return;
@@ -1084,6 +1427,7 @@
       if (cancel) {
         syncTime();
         if (phase !== 'live') return;
+        if (officialSession) return officialCommand({kind: 'cancel', order: Number(cancel.dataset.cancel)}, () => feedback('주문을 취소했어요.', 'ok'));
         const {order, error} = cancelLimit(market, account, Number(cancel.dataset.cancel));
         feedback(error || market.stocks[order.index].name + ' 미체결 ' + num(order.remaining) + '주를 취소했어요.', order ? 'ok' : 'error');
         render();
@@ -1106,6 +1450,7 @@
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
   $('restart').addEventListener('click', restartRound);
+  $('gameHome').addEventListener('click', () => { if (!adController && !privacyBusy) reset(); });
   $('jumpRestart').addEventListener('click', restartRound);
   $('guideButton').addEventListener('click', () => $('guide').showModal());
   $('amendForm').addEventListener('submit', submitAmendment);
@@ -1174,6 +1519,7 @@
     if (isLimit) orderPrice.scrollIntoView({block: 'nearest', inline: 'nearest'});
   });
   segment('account', value => { accountMode = value; renderAccount(); });
+  $('jumpStocks').addEventListener('click', () => document.querySelector('.sidebar').scrollIntoView({block: 'start'}));
   $('jumpChart').addEventListener('click', () => $('market').scrollIntoView({block: 'start'}));
   $('jumpTrade').addEventListener('click', () => $('orderTitle').scrollIntoView({block: 'start'}));
   $('marketJump').addEventListener('click', () => $('search').focus());
@@ -1203,10 +1549,21 @@
   panelSizes.observe(orderPanel, {box: 'border-box'});
   panelSizes.observe(sidebar, {box: 'border-box'});
   document.addEventListener('visibilitychange', () => {
+    if (officialSession) {
+      if (document.hidden && phase === 'live' && !officialBusy && !adController) {
+        officialUpdate('pause', {}, () => {
+          pauseReason = 'background';
+          if (!document.hidden) setTimeout(() => officialUpdate('resume'), 0);
+        });
+      } else if (!document.hidden && pauseReason === 'background') officialUpdate('resume');
+      return;
+    }
     if (document.hidden) suspend('background');
     else if (pauseReason === 'background') resume();
   });
 
+  setupOfficial();
+  syncPrivacyOptions();
   renderPhase();
   render();
   if (result) openResult();

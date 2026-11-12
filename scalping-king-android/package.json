@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "android:add": "cap add android",
-    "android:sync": "cap sync android",
+    "android:sync": "node scripts/sync-game.cjs && cap sync android",
     "android:open": "cap open android"
   },
   "dependencies": {

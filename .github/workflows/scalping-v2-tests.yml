@@ -4,12 +4,15 @@ on:
     branches:
       - main
       - feature/scalping-king-v2-foundation
+      - codex/scalping-king-integration-20261112
     paths:
       - 'games/scalping-king/**'
+      - 'supabase/**'
       - '.github/workflows/scalping-v2-tests.yml'
   pull_request:
     paths:
       - 'games/scalping-king/**'
+      - 'supabase/**'
       - '.github/workflows/scalping-v2-tests.yml'
 permissions:
   contents: read
@@ -30,7 +33,9 @@ jobs:
         run: node games/scalping-king/integration-v2.test.cjs
       - name: Install Chromium for browser tests
         run: |
-          npm install --no-save --no-package-lock --no-audit --no-fund playwright-core@1.65.0
+          npm install --no-save --no-package-lock --no-audit --no-fund playwright-core@1.65.0 @electric-sql/pglite@0.5.16
           npx playwright-core install --with-deps chromium
+      - name: Server result, signed callback and PostgreSQL isolation
+        run: node games/scalping-king/official-v2.test.cjs
       - name: Desktop and mobile touch smoke tests
         run: node games/scalping-king/browser-v2.test.cjs
