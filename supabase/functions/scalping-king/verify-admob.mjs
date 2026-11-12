@@ -1,4 +1,5 @@
 import {verify} from 'node:crypto';
+import {Buffer} from 'node:buffer';
 
 const publicKeys = 'https://www.gstatic.com/admob/reward/verifier-keys.json';
 let cache;
@@ -25,7 +26,9 @@ export async function verifyAdMob(url, units, loadKeys = keys) {
   const nonce = args.get('custom_data');
   const transaction = args.get('transaction_id');
   const at = args.get('timestamp');
-  if (!feature || !nonce || !/^[0-9a-f]{16,128}$/i.test(transaction || '') || !/^\d{13}$/.test(at || '')) return null;
+  const test = args.get('ad_unit') === '1234567890' && transaction === '123456789' &&
+    nonce === '00000000-0000-4000-8000-000000000001';
+  if ((!test && (!feature || !/^[0-9a-f]{16,128}$/i.test(transaction || ''))) || !nonce || !/^\d{13}$/.test(at || '')) return null;
   const matching = data => data.find(entry => String(entry.keyId) === keyId)?.pem;
   let pem = matching(await loadKeys());
   if (!pem && loadKeys === keys && (!cache?.refreshed || Date.now() - cache.refreshed > 60000)) {
@@ -35,6 +38,16 @@ export async function verifyAdMob(url, units, loadKeys = keys) {
   }
   let bytes;
   try { bytes = Buffer.from(decodeURIComponent(signature), 'base64url'); } catch { return null; }
-  if (!pem || !verify('sha256', Buffer.from(message), pem, bytes)) return null;
-  return {feature, nonce, transaction, rewardedAt: new Date(Number(at)).toISOString()};
+  if (!pem) return null;
+  let verified = verify('sha256', Buffer.from(message), pem, bytes);
+  // The AdMob console test tool signs form-decoded text for its synthetic ad unit.
+  // The test still requires Google's signature and never grants a game entitlement.
+  if (!verified && test) {
+    try {
+      const decoded = decodeURIComponent(message.replaceAll('+', '%20'));
+      verified = verify('sha256', Buffer.from(decoded), pem, bytes);
+    } catch { return null; }
+  }
+  if (!verified) return null;
+  return {feature, nonce, transaction, test, rewardedAt: new Date(Number(at)).toISOString()};
 }

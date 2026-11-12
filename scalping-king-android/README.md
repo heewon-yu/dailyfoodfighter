@@ -57,3 +57,5 @@ AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록�
 ### Official rewarded placements
 
 Set SCALP_ADMOB_APP_ID and SCALP_ADMOB_REWARDED_ID for credit. Set SCALP_ADMOB_EMERGENCY_ID, SCALP_ADMOB_STOP_ID and SCALP_ADMOB_EXTRA_ID for their respective verified placements. Each production placement uses a distinct ad unit. The Android release bridge requires a server-issued nonce and the game waits for server-side confirmation. Configure each AdMob SSV URL to the deployed /scalping-king/admob route before enabling its ID. The debug APK uses Google’s official sample unit only.
+
+Production AdMob app ID: ca-app-pub-7921440641343288~9202520759. The four placement suffixes are 6576357419 (credit), 5263275745 (emergency), 3638689534 (stop), and 7071482751 (extra round).

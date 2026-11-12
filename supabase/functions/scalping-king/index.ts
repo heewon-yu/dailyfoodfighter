@@ -14,10 +14,10 @@ const origins = new Set((Deno.env.get('SCALPING_ALLOWED_ORIGINS') ||
   'https://dailyfoodfighter.com,https://localhost,https://codex-scalping-king-integrat.dailyfoodfighter.pages.dev').split(','));
 const uuid = (value: unknown): value is string => typeof value === 'string' && /^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/i.test(value);
 const productionUnits: Record<string, string> = {
-  credit: Deno.env.get('SCALPING_AD_CREDIT') || '',
-  emergency: Deno.env.get('SCALPING_AD_EMERGENCY') || '',
-  stop: Deno.env.get('SCALPING_AD_STOP') || '',
-  extra: Deno.env.get('SCALPING_AD_EXTRA') || '',
+  credit: Deno.env.get('SCALPING_AD_CREDIT') || '6576357419',
+  emergency: Deno.env.get('SCALPING_AD_EMERGENCY') || '5263275745',
+  stop: Deno.env.get('SCALPING_AD_STOP') || '3638689534',
+  extra: Deno.env.get('SCALPING_AD_EXTRA') || '7071482751',
 };
 
 class RequestError extends Error {
@@ -63,6 +63,7 @@ async function run(request: Request, url: URL) {
   if (request.method === 'GET' && url.pathname.endsWith('/admob')) {
     const ad = await verifyAdMob(request.url, productionUnits);
     if (!ad || !uuid(ad.nonce)) throw new RequestError('invalid_ad_callback', 403);
+    if (ad.test) return {ok: true, verificationTest: true};
     const saved = await rpc('verify_ad', {p_nonce: ad.nonce, p_feature: ad.feature,
       p_transaction: ad.transaction, p_rewarded_at: ad.rewardedAt});
     if (!saved) throw new RequestError('invalid_ad_intent', 409);
