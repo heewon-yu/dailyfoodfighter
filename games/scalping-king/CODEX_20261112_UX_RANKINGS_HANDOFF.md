@@ -65,7 +65,7 @@
 # 최종 명세 v2 · 2026-11-12 (이전 지시와 충돌하면 이 절 우선)
 
 ## A. 구현 금지 및 변경 통제
-1. 운영 \`main\`과 기존 Android \`codex/scalping-king-android\` 브랜치, 현재 선반영 \`codex/scalping-king-ux-rankings-20261112\`를 비교한다. 이미 누군가 수정한 내용을 강제로 덮어쓰지 않는다. 브랜치 PR로 검증하고 운영 배포는 검증 후 진행한다.
+1. 운영 `main`과 기존 Android `codex/scalping-king-android` 브랜치, 현재 선반영 `codex/scalping-king-ux-rankings-20261112`를 비교한다. 이미 누군가 수정한 내용을 강제로 덮어쓰지 않는다. 브랜치 PR로 검증하고 운영 배포는 검증 후 진행한다.
 2. 가상 투자금 1억원, 매판 5분, 30개 종목 후보 중 10개, 시장가/지정가, 호가·뉴스·VI·가격제한폭, 수수료·계좌·담보·긴급자금대출·로스컷·반대매매·성적표 공유 동작은 유지한다. 기존 네이비·골드·화이트 및 사용자가 채택한 Play 스토어 시안 2번과 이미지 문구는 임의 변경 금지.
 3. 선반영 변경은 **미검증**이다. 이번 브랜치의 모바일 차트 190px/신용 UI/신용 우선 매도/광고 안내 숨김을 테스트하여 문제가 있으면 개선한다. Android 앱에는 아직 동기화·빌드되지 않았을 수 있다.
 4. 이번 요청은 서버와 Android 앱 기능까지 포함한다. 일부 기능만 완성한 뒤 전부 완료라고 보고하지 않는다.
@@ -83,17 +83,17 @@
 
 ## D. 사용자에게 보이는 광고 문구와 보상
 1. 사용자에게 내부 광고 잠금 정책('보상형 광고 1회', '이번 판에만 적용', '광고 없이 이용 가능')을 표시하지 않는다. 다만 실제 광고가 필요한 경우에는 사용자에게 **'광고 보고 이용하기'**와 얻는 보상을 명확하게 고지하고 동의 후 재생한다. 광고를 무단·무고지 재생하지 않는다.
-2. 웹의 \`data-test-tools="enabled"\`는 테스트 우회 경로다. 이를 실제 광고 송출의 증거로 간주하지 않는다. Android AdMob 테스트 광고 및 실제 운영 ID를 분리하고 사용자 실기기에서 검증. 웹에서는 AdMob Android SDK를 그대로 호출할 수 없으므로 웹용 보상 지원방식을 확인해서 구현; 불가능하면 실제 시청을 가장하지 않고 웹 지원 여부를 보고.
+2. 웹의 `data-test-tools="enabled"`는 테스트 우회 경로다. 이를 실제 광고 송출의 증거로 간주하지 않는다. Android AdMob 테스트 광고 및 실제 운영 ID를 분리하고 사용자 실기기에서 검증. 웹에서는 AdMob Android SDK를 그대로 호출할 수 없으므로 웹용 보상 지원방식을 확인해서 구현; 불가능하면 실제 시청을 가장하지 않고 웹 지원 여부를 보고.
 3. 보상 지급은 제공자가 **검증한 완료 이벤트**에만 의존. 닫기/취소/로딩 오류/백그라운드 전환/네트워크 실패 시 미지급. 가능한 서버측 광고 보상 검증(SSV, 서명·트랜잭션 ID)을 사용하여 중복 지급 방지. 광고 중 게임 타이머·시세 정지, 종료 시 정확히 복귀.
 4. 과거 계획에 있는 '3판 종료 후 전면형 광고'는 이번 명세의 **무료 5판 이후 보상형 광고로 추가 시작**과 충돌하므로 제거/중지. 별도 배너가 있더라도 플레이 횟수 보상과 혼동하지 않는다.
 
 ## E. 일일 5판과 다시하기 — 정확한 판수 정의
-1. 날짜는 서버가 정한 \`Asia/Seoul\` 날짜, 한국시간 00:00 자정 기준. **무료 시작권은 하루 사용자당 5판**. 첫 플레이·종료 후 다시하기·도중 다시하기·한 번 더 하기 모두 신규 게임 세션 승인 및 생성 시 1판 소비. 일시정지/재개/동일 세션 복원만으로는 소비하지 않는다. 5분 완주 여부와 관계없이 일단 시작된 판은 사용 처리.
+1. 날짜는 서버가 정한 `Asia/Seoul` 날짜, 한국시간 00:00 자정 기준. **무료 시작권은 하루 사용자당 5판**. 첫 플레이·종료 후 다시하기·도중 다시하기·한 번 더 하기 모두 신규 게임 세션 승인 및 생성 시 1판 소비. 일시정지/재개/동일 세션 복원만으로는 소비하지 않는다. 5분 완주 여부와 관계없이 일단 시작된 판은 사용 처리.
 2. 6판째부터 버튼 **'광고 보고 한 판 더'**. 완료 검증된 보상형 광고 1건 당 *추가 게임 시작권 1개* 지급. 사용 시 소모. 중복 클릭·중복 callback·재시도에도 광고 이벤트 ID당 1개만 지급. 광고를 봤으나 판 시작 전에 앱이 종료되면 서버에 미사용 보상권 보존. 서버가 판 시작을 승인한 뒤 중도 포기한 경우 환불하지 않는다.
 3. UI: '오늘 무료 플레이 0~5/5 사용', '남은 무료 플레이 N회', 미사용 보너스권 N회, 한도 소진 시 광고 버튼. 미로드 광고/취소/검증실패/서버 장애 시 지급 및 시작 차단을 정확히 알린다. '광고 완료' 모의 버튼으로 실서비스 권한 부여 금지.
 4. 같은 계정의 웹/Android·여러 기기·동시 탭에서 서버가 단일 원자적 트랜잭션과 멱등키로 quota를 보장. 기기 날짜 변경, 앱 재설치, localStorage 삭제로 하루 제한 우회되지 않도록 서버 기준 카운트. 단 로그인 없는 익명 사용자만으로는 재설치 우회를 완전히 막을 수 없으므로 이를 명시하고 공정한 제한/랭킹이 필요하면 Google 로그인 등 안정적인 계정 복원 방식 마련.
 5. 오프라인 유지가 꼭 필요하면 **랭킹 제외 별도 연습 모드**로 분리, 공인 서버 랭킹 게임을 오프라인에서 임의 시작시키지 않는다. 서비스 장애 시 무료/보상 횟수를 클라이언트가 임의 추가하지 않는다.
-6. 기존 게임의 \`restartRound()->reset()->start()\` 및 초기 \`start()\` 모든 입구를 서버 startSession 승인 단계로 통합하고 중복 세션 생성 금지. KST 자정, 5번째 무료 시작, 광고 1회 획득, 광고 취소, 앱 종료 후 복귀, 중도 다시하기를 테스트.
+6. 기존 게임의 `restartRound()->reset()->start()` 및 초기 `start()` 모든 입구를 서버 startSession 승인 단계로 통합하고 중복 세션 생성 금지. KST 자정, 5번째 무료 시작, 광고 1회 획득, 광고 취소, 앱 종료 후 복귀, 중도 다시하기를 테스트.
 
 ## F. 닉네임 및 전체 공개 일일 TOP5 두 종류
 1. 첫 공식 게임 시작 전 닉네임 등록: 2~12자, 한글/영문/숫자/밑줄 허용, 앞뒤 공백 제거, 정규화, 금칙어/중복 검사. 개인정보/디바이스 ID는 랭킹에 공개하지 않음. 닉네임 변경·삭제/신고 관리 경로 제공. 사용자당 1개 ID, 웹/Android 공통.
@@ -105,18 +105,18 @@
 ## G. 서버: 최소비용 Cloudflare Pages + Supabase + iMac M1
 1. 기존 정적 게임/Cloudflare Pages는 유지하고, Supabase(Auth/DB + 필요시 Edge Function 또는 원자적 Postgres RPC)를 신원·5판·광고 보상·검증 기록·랭킹 원본 저장소로 권장. Cloudflare Worker는 프록시/비밀키 보관/검증 등 실질 필요가 있을 때만 추가. Render 별도 상시 서버는 기본 설계에서 제외.
 2. Supabase 실제 무료 프로젝트 수와 기존 변전현장대응 프로젝트 사용 상태를 확인. 기존 앱의 데이터/권한과 분리. 별도 프로젝트 생성 가능하면 독립 프로젝트, 불가하면 별도 스키마·RLS·권한 격리와 무료 용량을 검토해 선택. 기존 데이터 변경/삭제 금지.
-3. 권장 테이블: \`profiles(user_id,nickname,created_at)\`, \`daily_quotas(user_id,kst_day,free_used,bonus_available)\`, \`game_sessions(id,user_id,kst_day,started_at,ended_at,status,game_version,server_seed)\`, \`ad_reward_events(unique_event_id,user_id,verified_at,provider)\`, \`verified_scores(session_id,user_id,kst_day,final_equity,profit,rate,verified_at,proof)\`. 서버 UTC timestamp 보관 후 KST 날짜 파생. 중복키·index 설정, RLS 기본 거부, 서버 함수 외 quota/검증점수 쓰기 차단.
-4. API: registerNickname/getQuota/startSession/verifyReward/submitSession/getDailyTop5 및 관리자 점검. 시작 승인·횟수 차감은 트랜잭션 원자 처리. \`session_id\`와 요청 멱등키로 재시도 이중 소비 방지. service-role 키는 브라우저/Android 번들/GitHub 저장소에 절대 노출 금지. 필요시 함수 비밀저장소 사용.
+3. 권장 테이블: `profiles(user_id,nickname,created_at)`, `daily_quotas(user_id,kst_day,free_used,bonus_available)`, `game_sessions(id,user_id,kst_day,started_at,ended_at,status,game_version,server_seed)`, `ad_reward_events(unique_event_id,user_id,verified_at,provider)`, `verified_scores(session_id,user_id,kst_day,final_equity,profit,rate,verified_at,proof)`. 서버 UTC timestamp 보관 후 KST 날짜 파생. 중복키·index 설정, RLS 기본 거부, 서버 함수 외 quota/검증점수 쓰기 차단.
+4. API: registerNickname/getQuota/startSession/verifyReward/submitSession/getDailyTop5 및 관리자 점검. 시작 승인·횟수 차감은 트랜잭션 원자 처리. `session_id`와 요청 멱등키로 재시도 이중 소비 방지. service-role 키는 브라우저/Android 번들/GitHub 저장소에 절대 노출 금지. 필요시 함수 비밀저장소 사용.
 5. 읽기 순위는 짧게 캐시 가능하지만 점수/횟수 갱신은 캐시로 판정 불가. 실제 무료 사용량·MAU·DB 크기·함수 실행량·egress와 Supabase 휴면 정책을 확인. 무료 목표는 가능하나 무료 유지·무중단을 보장하지 않는다.
 6. iMac M1은 Tailscale/SSH 원격 관리, 암호화된 DB 백업, 복원 테스트, 비정상 랭킹 분석 및 장애 알림을 맡는다. 운영 랭킹/API/인증의 유일한 호스트로 두지 않으며 아이맥 절전·정전에도 클라우드 핵심 기능을 제공. iMac이 잠들어도 서버 유지되는 설계. 민감한 토큰은 iMac 키체인/안전한 Secrets에만 저장.
 
 ## H. Supabase Free Keepalive / 휴면 및 장애 대응 — 반드시 구현
 1. Supabase 공식 안내상 Free 프로젝트는 **최근 7일간 DB 사용자 활동이 부족하면 일시정지될 수 있다**. 일정량의 실제 DB 요청이 도움이 될 수 있지만 정기 ping은 휴면 방지의 절대 보장이 아니다. 요금제/정책 변동 시 재확인. 긴급한 상시 가동 보장이 필요하면 유료 전환을 검토한다.
 2. 기존 변전현장대응 프로젝트에서 사용한 Keepalive가 실제 존재·작동하는지 **GitHub Actions 워크플로·실행 로그·Secrets·Supabase RPC로 직접 점검** 후 구조만 재사용. 다른 프로젝트 URL/키를 그대로 복사하지 않는다. 개인 비밀키를 로그/코드에 노출하지 않는다.
-3. **1차 실행 주체는 GitHub Actions schedule**. 예: 한국시간 매일 09:10에 대응하는 UTC cron \`10 0 * * *\` (GitHub Actions cron은 UTC 기준으로 명시). \`workflow_dispatch\` 수동 테스트 제공. scheduled run 지연/누락/비활성화될 수 있음을 고려하여 매일 최근 실행 및 성공 시각 모니터링. 사용자가 원하면 iMac M1 launchd를 **보조 확인용**으로 두되, Mac이 잠들었을 때 Keepalive가 실패하는 단일 의존 구조로 만들지 않는다.
-4. **실제 PostgreSQL 활동**을 유발하는 최소권한 RPC \`keep_alive\` 또는 전용 \`healthcheck\` 테이블에 간단한 조회·소량 upsert를 구현. 데이터베이스 액세스가 확인되는 REST RPC/실제 SELECT/UPSERT를 사용하고 HTTP 홈페이지 GET, \`/auth/v1/health\`, API 게이트웨이 200 응답만으로 성공 판정 금지. DB에 불필요한 무제한 로그 행을 쌓지 않는다(고정 행 upsert 또는 경량 읽기). 로우 레벨 DB 권한은 꼭 필요한 범위만 허용.
+3. **1차 실행 주체는 GitHub Actions schedule**. 예: 한국시간 매일 09:10에 대응하는 UTC cron `10 0 * * *` (GitHub Actions cron은 UTC 기준으로 명시). `workflow_dispatch` 수동 테스트 제공. scheduled run 지연/누락/비활성화될 수 있음을 고려하여 매일 최근 실행 및 성공 시각 모니터링. 사용자가 원하면 iMac M1 launchd를 **보조 확인용**으로 두되, Mac이 잠들었을 때 Keepalive가 실패하는 단일 의존 구조로 만들지 않는다.
+4. **실제 PostgreSQL 활동**을 유발하는 최소권한 RPC `keep_alive` 또는 전용 `healthcheck` 테이블에 간단한 조회·소량 upsert를 구현. 데이터베이스 액세스가 확인되는 REST RPC/실제 SELECT/UPSERT를 사용하고 HTTP 홈페이지 GET, `/auth/v1/health`, API 게이트웨이 200 응답만으로 성공 판정 금지. DB에 불필요한 무제한 로그 행을 쌓지 않는다(고정 행 upsert 또는 경량 읽기). 로우 레벨 DB 권한은 꼭 필요한 범위만 허용.
 5. 요청 타임아웃 10~20초, 3회 이내 지수 백오프 재시도 및 실패 시 잡 실패 처리. HTTP 200뿐 아니라 JSON 응답 또는 기록의 예상 DB 값까지 확인하여 성공 판정. 401/403 인증실패, 404 엔드포인트/테이블 누락, 429 제한, 5xx 장애, 540 paused 구분.
-6. GitHub Actions 암호화 Secrets에 프로젝트 URL 및 전용 최소권한 키 등록. 공개 env나 앱 클라이언트에 서비스 역할 키 사용 금지. 프로젝트 키 교체 시 새 키 검증 후 기존 키 폐기. 워크플로 권한은 \`contents: read\` 등 최소.
+6. GitHub Actions 암호화 Secrets에 프로젝트 URL 및 전용 최소권한 키 등록. 공개 env나 앱 클라이언트에 서비스 역할 키 사용 금지. 프로젝트 키 교체 시 새 키 검증 후 기존 키 폐기. 워크플로 권한은 `contents: read` 등 최소.
 7. 실행 로그에 시작/끝 KST 시각, 환경(운영/테스트), 결과, 응답코드(비밀 헤더 제외), DB 검증 상태, 마지막 정상 시각을 남긴다. **연속 2회 실패 또는 마지막 DB 성공 48시간 초과** 시 기존 사용자의 ntfy 등 승인된 알림 채널로 장애 통보(토픽·인증값은 Secrets). 성공 복구 시 정상화 알림, 실패를 성공으로 표시하지 않음. 기존 프로젝트와 알림 토픽 혼용 금지.
 8. 운영 초기 직접 수동 실행 → DB 접속·실제 쿼리·로그 확인 → 다음 자동 실행 확인 → 의도적 인증실패 테스트로 경보 검증 → iMac 전원/절전과 무관함 검증. Supabase에서 경고 메일을 받거나 진짜 paused 상태면 **사용자에게 즉시 상태 알림**, 콘솔의 Resume project를 수행해야 할 수 있고 ping만으로 자동 해제된다고 단정하지 않는다. 확인되지 않은 복구 성공 주장 금지.
 9. Keepalive의 목적은 소규모 서비스 운영·개발 중 휴면 가능성을 줄이는 것이며, 부하 유발이나 무료 정책 우회를 보장하는 도구가 아니다. 충분히 사용자 활동이 발생하는 경우 예약 쿼리 빈도를 재평가. 비용·무료 할당량 초과 모니터링 포함.
@@ -124,10 +124,10 @@
 
 ## I. Play 스토어/Android 이미지 일치 및 릴리스
 1. 사용자가 말한 Play Console '이미지 01'의 실제 파일·대상(스크린샷, 그래픽, 아이콘)부터 확인. 기존 채택 디자인 2번에 맞춰 **동일 문구·구도·색감**을 유지하고 임의 시안 새로 생성 금지. Play 이미지와 Android 런처 아이콘은 용도가 다르므로 원본 스타일만 일치시키고 각각 규격에 맞게 출력.
-2. \`codex/scalping-king-android\` 및 \`scalping-king-android/store-assets\`, adaptive icon/foreground/background/monochrome/mipmap/round icon/splash, 실제 Play Console 원본, 설치된 앱 versionCode 비교. 최신 웹 리소스를 Capacitor Android에 복사·동기화하고 버전코드 올려 테스트 APK/AAB 재빌드.
+2. `codex/scalping-king-android` 및 `scalping-king-android/store-assets`, adaptive icon/foreground/background/monochrome/mipmap/round icon/splash, 실제 Play Console 원본, 설치된 앱 versionCode 비교. 최신 웹 리소스를 Capacitor Android에 복사·동기화하고 버전코드 올려 테스트 APK/AAB 재빌드.
 3. 512×512 아이콘, 1024×500 배너, 1080×1920 스크린샷 5장의 문구·이미지 깨짐·정확한 크기와 실기기 표시 여부 검사. 실제 Play 등록 파일을 볼 수 없으면 단정하지 말고 확인 필요 항목으로 남긴다.
 
 ## J. 완료 검증/보고
 1. Node 기존/신규 신용 회계 테스트 통과. UI 터치 검증 320/360/390/412/430px, PC, Android 실기기. 5판→6판 제한, 보상 성공·실패·중복·취소, KST 자정·2기기 동시 요청, 닉네임 금칙어/중복, TOP5 두 분류, 가짜 점수 거부, 서버 장애/복구, Keepalive 실제 DB 접속/알림, Play 이미지 차이까지 테스트.
-2. 공개 정보와 기밀정보 분리. 사용자의 \`dailyfoodfighter\` 저장소는 현재 공개 상태이므로 **키/개인정보/토큰/관리자 비밀번호를 커밋하지 않는다**. GitHub Actions 비밀변수로 관리. 기존 변전현장대응 Supabase 데이터 절대 삭제/덮어쓰기 금지.
+2. 공개 정보와 기밀정보 분리. 사용자의 `dailyfoodfighter` 저장소는 현재 공개 상태이므로 **키/개인정보/토큰/관리자 비밀번호를 커밋하지 않는다**. GitHub Actions 비밀변수로 관리. 기존 변전현장대응 Supabase 데이터 절대 삭제/덮어쓰기 금지.
 3. GitHub 커밋·PR·테스트 로그·배포 여부·Android APK/AAB/versionCode·Supabase 프로젝트·Keepalive Action URL·실패 알림 검증·Notion 인계 업데이트를 최종 보고. **실제 배포/실기기 테스트를 하지 않았으면 완료라 하지 않는다.**
