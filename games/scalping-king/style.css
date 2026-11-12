@@ -609,10 +609,57 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .trade-buttons button { min-height: 44px; }
 }
 
-.official-panel { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; padding: 7px 10px; background: #141f2e; border: 1px solid #2d3e54; border-radius: 8px; color: #f1f5f9; font-size: 13px; }
-.official-panel > span { flex: 1 1 155px; font-weight: 700; color: #facc15; }
+/* Official Panel & Mobile Layout Optimization (2026-11-12) */
+.official-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 8px 12px;
+  background: #141f2e;
+  border: 1px solid #2d3e54;
+  border-radius: 8px;
+  color: #f1f5f9;
+  font-size: 13px;
+}
+.official-panel > span {
+  flex: 1 1 auto;
+  font-weight: 700;
+  color: #facc15;
+}
+.official-panel button.subtle {
+  background: #1e293b !important;
+  color: #f8fafc !important;
+  border: 1px solid #475569 !important;
+  font-weight: 700 !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.official-panel button.subtle:hover,
+.official-panel button.subtle:active {
+  background: #334155 !important;
+  color: #ffffff !important;
+  border-color: #94a3b8 !important;
+}
+.official-panel button.gold {
+  background: var(--gold) !important;
+  color: #0f172a !important;
+  border: 1px solid #ca8a04 !important;
+  font-weight: 800 !important;
+  font-size: 12px !important;
+  padding: 6px 12px !important;
+  border-radius: 6px !important;
+  cursor: pointer;
+  white-space: nowrap;
+}
 .official-form { display: grid; gap: 8px; margin-bottom: 10px; }
 .official-form[hidden], .official-panel[hidden] { display: none; }
+
+/* Desktop 2-column layout */
 @media (min-width: 811px) {
   .workspace > .official-panel { grid-column: 2; grid-row: 2; }
   .workspace:has(.official-panel:not([hidden])) > .metrics { grid-row: 3; }
@@ -620,3 +667,41 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .workspace:has(.official-panel:not([hidden])) > footer { grid-row: 5; }
   .shell:has(.official-panel:not([hidden])) .sidebar { grid-row: 4 / 6; }
 }
+
+/* Mobile Priority Layout: Hero -> Official -> Metrics -> Desk (Chart/Order) -> Sidebar (10 Stocks) -> Lower -> Footer */
+@media (max-width: 810px) {
+  .hero { grid-row: 1 !important; }
+  .official-panel { grid-row: 2 !important; }
+  .metrics { grid-row: 3 !important; }
+  .desk { grid-row: 4 !important; }
+  .sidebar { grid-row: 5 !important; }
+  .lower { grid-row: 6 !important; }
+  .shell footer { grid-row: 7 !important; }
+}
+
+@media (max-width: 550px) {
+  .official-panel {
+    padding: 6px 10px;
+    gap: 6px;
+    font-size: 12px;
+  }
+  .official-panel > span {
+    font-size: 12px;
+  }
+  .official-panel button.subtle, .official-panel button.gold {
+    padding: 5px 8px !important;
+    font-size: 11px !important;
+  }
+  .risk-bar {
+    padding: 4px 6px;
+    font-size: 10px;
+    gap: 3px 6px;
+  }
+  .metrics {
+    gap: 4px;
+  }
+  .metric {
+    padding: 4px 6px;
+  }
+}
+

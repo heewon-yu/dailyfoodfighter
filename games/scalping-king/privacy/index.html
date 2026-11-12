@@ -179,19 +179,14 @@
         </thead>
         <tbody>
           <tr>
-            <td><strong>계정 정보 (선택)</strong></td>
-            <td>이메일 주소, 암호화된 비밀번호</td>
-            <td>공식 일일 게임 참여 및 랭킹 등록을 위한 회원가입/로그인 (Supabase Auth 연동)</td>
-          </tr>
-          <tr>
             <td><strong>프로필 정보</strong></td>
             <td>사용자 지정 닉네임 (2~12자)</td>
-            <td>일일 수익률/수익금 TOP5 명예의 전당 랭킹 표시 (실명 불필요)</td>
+            <td>일일 수익률/수익금 TOP5 명예의 전당 랭킹 표시 (회원가입·이메일·실명 불필요)</td>
           </tr>
           <tr>
             <td><strong>게임 세션 기록</strong></td>
-            <td>세션 ID, 장 시작/종료 시각, 체결 내역, 최종 수익금 및 수익률</td>
-            <td>하루 무료 5판 한도 관리 및 점수 조작 방지용 서버 검증</td>
+            <td>장 시작/종료 시각, 체결 내역, 최종 수익금 및 수익률</td>
+            <td>하루 무료 5판 한도 관리 및 일일 랭킹 산출</td>
           </tr>
           <tr>
             <td><strong>광고 및 기기 정보</strong></td>
@@ -238,17 +233,12 @@
         <tbody>
           <tr>
             <td><strong>Google LLC (Google AdMob)</strong></td>
-            <td>모바일 보상형 광고 송출 및 시청 검증(SSV)</td>
+            <td>모바일 보상형 광고 송출 및 시청 검증</td>
             <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google 개인정보처리방침</a></td>
           </tr>
           <tr>
-            <td><strong>Supabase, Inc.</strong></td>
-            <td>인증, 데이터베이스 저장 및 점수 검증 Edge Function</td>
-            <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">Supabase Privacy Policy</a></td>
-          </tr>
-          <tr>
             <td><strong>Cloudflare, Inc.</strong></td>
-            <td>웹 정적 자산 서빙 및 CDN 보안 캐싱</td>
+            <td>웹 정적 자산 서빙, 서버리스 Functions API 및 분산 CDN 보안 캐싱</td>
             <td><a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">Cloudflare Privacy Policy</a></td>
           </tr>
         </tbody>
@@ -259,8 +249,8 @@
       <h2>5. 이용자의 권리 및 계정 삭제 방법</h2>
       <p>이용자는 언제든지 자신의 계정과 데이터를 완전히 삭제할 권리가 있습니다.</p>
       <div class="card-box">
-        <strong>원클릭 계정 즉시 삭제:</strong><br>
-        게임 화면 우측 상단의 <strong>[계정]</strong> 버튼을 누른 뒤, 하단의 <strong>[계정 삭제]</strong> 버튼을 클릭하시면 서버에 등록된 회원 정보, 닉네임 및 모든 세션 기록이 데이터베이스에서 즉시 영구 삭제됩니다.
+        <strong>닉네임 변경 및 데이터 초기화:</strong><br>
+        본 서비스는 이메일이나 비밀번호 기반 가입을 강제하지 않으며, 게임 화면 상단의 <strong>[닉네임 변경]</strong> 버튼을 통해 언제든지 닉네임을 변경할 수 있습니다. 브라우저 캐시 및 저장소 삭제 시 로컬 데이터는 즉시 초기화되며, 서버 및 랭킹 데이터 삭제를 원하실 경우 <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>으로 요청하시면 즉시 파기 처리됩니다.
       </div>
       <p>또는 개발자 연락처(이메일: <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>)로 문의해 주시면 지체 없이 처리해 드립니다.</p>
     </section>
@@ -288,10 +278,10 @@
       <h2>Privacy Policy (English Summary)</h2>
       <p><strong>Scalping King (5분 단타왕)</strong> is a 100% simulated mock-trading game using 100,000,000 KRW in virtual currency. No real money or financial transactions take place.</p>
       <ul>
-        <li><strong>Information Collected:</strong> Optional account email (via Supabase Auth), user-defined nickname, game session results (for leaderboard ranking and quota enforcement), and Google Advertising ID (via Google AdMob SDK for rewarded ads).</li>
-        <li><strong>Retention and Purging:</strong> Routine gameplay sessions, trade logs, and leaderboard records are automatically deleted after the next day at 03:00 KST (UTC 18:00). Minimal persistent records (account and nickname) are stored only while the account is active.</li>
-        <li><strong>Third-Party SDKs:</strong> Google AdMob (Advertising), Supabase (Auth/Database), Cloudflare (Hosting/CDN).</li>
-        <li><strong>Account Deletion:</strong> Users can permanently delete their account and data instantly by tapping the "계정 삭제" (Delete Account) button in the in-game Account dialog, or by emailing <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>.</li>
+        <li><strong>Information Collected:</strong> User-defined nickname (2~12 characters), game session results (daily rates and profits for leaderboard ranking and quota enforcement), and Google Advertising ID (via Google AdMob SDK for rewarded ads). No email or password is required.</li>
+        <li><strong>Retention and Purging:</strong> Routine gameplay sessions and daily leaderboard records are maintained on a daily basis and automatically purged after expiration.</li>
+        <li><strong>Third-Party SDKs / Services:</strong> Google AdMob (Advertising), Cloudflare (Hosting, Functions API & CDN).</li>
+        <li><strong>Data Deletion:</strong> Users can change their nickname anytime directly in the in-game header, or request full data removal by emailing <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>.</li>
         <li><strong>Contact:</strong> <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a></li>
       </ul>
     </section>
