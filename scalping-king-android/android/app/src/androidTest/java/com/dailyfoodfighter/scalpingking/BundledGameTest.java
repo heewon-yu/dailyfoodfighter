@@ -19,7 +19,7 @@ public class BundledGameTest {
         assertEquals("com.dailyfoodfighter.scalpingking", app.getPackageName());
 
         String[] files = {"index.html", "style.css", "game.js", "chart.js", "market.js",
-            "engine-v2.js", "ledger-v2.js", "microstructure-v2.js", "risk-v2.js", "reward-v2.js"};
+            "engine-v2.js", "ledger-v2.js", "microstructure-v2.js", "risk-v2.js", "reward-v2.js", "android-reward.js"};
         for (String file : files) {
             try (InputStream asset = app.getAssets().open("public/" + file)) {
                 assertTrue(file + " is empty", asset.read() >= 0);

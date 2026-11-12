@@ -82,7 +82,6 @@
   const orderPrice = $('limitPrice');
   const watchlist = $('watchlist');
   const orderBook = $('orderBook');
-  const testTools = document.body.dataset.testTools === 'enabled';
 
   function buildDepthRows(side) {
     return Array.from({length: 5}, (_, index) => {
@@ -364,21 +363,16 @@
     const provider = window.scalpRewardProvider;
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = testTools || account.unlocks[key];
+      const unlocked = account.unlocks[key];
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
-      button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
-    }
-    if (testTools) {
-      $('rewardHint').textContent = account.everFilledCreditBuy ? '광고 없이 이용 가능' :
-        '긴급자금대출은 신용매수 체결 후 이용 가능';
-      return;
+      button.textContent = label + (funded ? ' · 사용 완료' : unlocked || !eligible ? '' : ' · 광고');
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
       !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
-        '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
+        '광고를 준비하는 중이거나 연결할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '기능별 보상형 광고 1회 · 이번 판에만 적용' :
           '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
   }
