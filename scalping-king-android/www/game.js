@@ -1193,6 +1193,7 @@
     if (isLimit) orderPrice.scrollIntoView({block: 'nearest', inline: 'nearest'});
   });
   segment('account', value => { accountMode = value; renderAccount(); });
+  $('jumpStocks').addEventListener('click', () => document.querySelector('.sidebar').scrollIntoView({block: 'start'}));
   $('jumpChart').addEventListener('click', () => $('market').scrollIntoView({block: 'start'}));
   $('jumpTrade').addEventListener('click', () => $('orderTitle').scrollIntoView({block: 'start'}));
   $('marketJump').addEventListener('click', () => $('search').focus());

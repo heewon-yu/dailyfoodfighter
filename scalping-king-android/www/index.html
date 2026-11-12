@@ -7,7 +7,7 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261111-full-watchlist">
+  <link rel="stylesheet" href="./style.css?v=20261112-mobile-market">
   <script defer src="./risk-v2.js?v=20261111-emergency-collateral"></script>
   <script defer src="./microstructure-v2.js?v=20261111-v2"></script>
   <script defer src="./ledger-v2.js?v=20261112-credit-depth"></script>
@@ -16,7 +16,7 @@
   <script defer src="./market.js?v=20261111-v2"></script>
   <script defer src="./chart.js?v=20261110-07"></script>
   <script defer src="./android-reward.js"></script>
-  <script defer src="./game.js?v=20261112-android-share"></script>
+  <script defer src="./game.js?v=20261112-mobile-market"></script>
 </head>
 <body>
   <header class="topbar">
@@ -183,7 +183,7 @@
         </section>
       </div>
       </div>
-      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><span id="mobileTimer" aria-hidden="true">05:00</span><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button><button id="jumpPause" type="button" hidden>일시정지</button><button id="jumpRestart" type="button" hidden>다시하기</button></nav>
+      <nav class="mobile-jump" aria-label="거래 화면 바로가기"><span id="mobileTimer" aria-hidden="true">05:00</span><button id="jumpStocks" type="button">종목</button><button id="jumpChart" type="button">차트</button><button id="jumpTrade" type="button">주문</button><button id="jumpNews" type="button">뉴스 <span id="newsUnread" hidden>●</span></button><button id="jumpPause" type="button" hidden>일시정지</button><button id="jumpRestart" type="button" hidden>다시하기</button></nav>
       <footer>created by 16100901</footer>
     </div>
   </main>
@@ -237,10 +237,10 @@
   </dialog>
   <dialog id="result" class="modal result-modal">
     <div class="modal-head"><div><div class="eyebrow">FINAL SCORE</div><h2>장 마감 성적표</h2></div><form method="dialog"><button class="subtle" aria-label="성적표 닫기">✕</button></form></div>
-    <div id="score" class="score"></div>
     <div class="result-actions"><button type="button" id="shareImage" class="gold" disabled>결과 공유하기</button></div>
     <div id="shareFeedback" class="feedback" role="status"></div>
     <input id="scoreShareLink" class="score-share-link" type="url" aria-label="다른 브라우저에서 열 성적표 주소" readonly hidden>
+    <div id="score" class="score"></div>
   </dialog>
 </body>
 </html>
