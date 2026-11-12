@@ -371,14 +371,14 @@
       button.textContent = label + (funded ? ' · 사용 완료' : unlocked ? '' : ' · 잠금');
     }
     if (testTools) {
-      $('rewardHint').textContent = account.everFilledCreditBuy ? '광고 없이 이용 가능' :
+      $('rewardHint').textContent = account.everFilledCreditBuy ? '' :
         '긴급자금대출은 신용매수 체결 후 이용 가능';
       return;
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
       !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
-        account.everFilledCreditBuy ? '기능별 보상형 광고 1회 · 이번 판에만 적용' :
+        account.everFilledCreditBuy ? '' :
           '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
   }
 
