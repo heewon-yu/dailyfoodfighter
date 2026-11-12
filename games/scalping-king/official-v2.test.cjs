@@ -49,14 +49,14 @@ async function main() {
   try {
     await db.exec('create schema auth; create table auth.users (id uuid primary key); create role anon; create role authenticated; create role service_role bypassrls;');
     const migrations = join(__dirname, '../../supabase/migrations');
-    const migration = fs.readdirSync(migrations).find(file => file.endsWith('_scalping_king_official.sql'));
-    await db.exec(fs.readFileSync(join(migrations, migration), 'utf8'));
+    for (const migration of fs.readdirSync(migrations).filter(file => file.endsWith('.sql')).sort())
+      await db.exec(fs.readFileSync(join(migrations, migration), 'utf8'));
     const p = 'c1797faa-c30d-4603-ad43-59053f0429ec';
     const q = 'c1797faa-c30d-4603-ad43-59053f0429ee';
     await db.query('insert into auth.users values ($1), ($2)', [p, q]);
     const value = async (sql, args) => (await db.query(sql, args)).rows[0]?.v;
     const profile = (user, nick) => value('select public.scalping_profile($1,$2) v', [user, nick ?? null]);
-    const start = (user, id, restart) => value('select public.scalping_start($1,$2,$3,$4,$5) v', [user, id, '20261112.1', 71, restart]);
+    const start = (user, id, restart, current = null) => value('select public.scalping_start($1,$2,$3,$4,$5,$6) v', [user, id, '20261112.1', 71, restart, current]);
     const id = n => '00000000-0000-4000-8000-' + String(n).padStart(12, '0');
     assert.equal((await start(p,id(1),false)).error, 'nickname_required');
     assert.equal((await profile(p,'테스터')).free, 5);
@@ -66,7 +66,10 @@ async function main() {
     assert.equal((await start(p,id(1),true)).session_id, initial.session_id);
     assert.equal((await start(p,id(2),false)).session_id, initial.session_id);
     assert.equal((await profile(p)).free, 4);
-    for (let round = 2; round <= 5; round++) assert.ok((await start(p,id(round),true)).session_id);
+    const replacement = await start(p,id(2),true,initial.session_id);
+    assert.equal((await start(p,id(77),true,initial.session_id)).session_id, replacement.session_id);
+    assert.equal((await profile(p)).free, 3);
+    for (let round = 3; round <= 5; round++) assert.ok((await start(p,id(round),true)).session_id);
     assert.equal((await start(p,id(6),true)).error, 'quota_exhausted');
     assert.equal((await profile(p)).free, 0);
     const nonce = await value("select public.scalping_ad_intent($1,null,'extra') v",[p]);
@@ -93,7 +96,7 @@ async function main() {
     await assert.rejects(value('select public.scalping_rankings() v'),/permission denied/i);
     await assert.rejects(db.exec('update scalping_private.verified_scores set final_equity=5'),/permission denied/i);
     await db.exec('reset role');
-    await db.query("update scalping_private.game_sessions set kst_day=(now() at time zone 'Asia/Seoul')::date - 3 where session_id=$1",[initial.session_id]);
+    await db.query("update scalping_private.game_sessions set kst_day=(now() at time zone 'Asia/Seoul')::date - 3, ended_at=now() - interval '3 days' where session_id=$1",[initial.session_id]);
     const clean = await value("select public.scalping_maintenance('cleanup') v");
     assert.equal(clean.ok,true);
     assert.equal(clean.deleted,1);

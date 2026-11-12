@@ -70,6 +70,12 @@ create table scalping_private.maintenance_status (
   consecutive_failures integer not null default 0
 );
 
+create table scalping_private.maintenance_credentials (
+  singleton boolean primary key default true check (singleton),
+  token_sha256 bytea not null check (octet_length(token_sha256) = 32)
+);
+alter table scalping_private.maintenance_credentials enable row level security;
+
 alter table scalping_private.profiles enable row level security;
 alter table scalping_private.daily_quotas enable row level security;
 alter table scalping_private.game_sessions enable row level security;
@@ -78,7 +84,7 @@ alter table scalping_private.ad_transactions enable row level security;
 alter table scalping_private.verified_scores enable row level security;
 alter table scalping_private.maintenance_status enable row level security;
 grant usage on schema scalping_private to service_role;
-grant select, insert, update, delete on all tables in schema scalping_private to service_role;
+grant select, insert, update on all tables in schema scalping_private to service_role;
 
 create function public.scalping_profile(p_user uuid, p_name text default null) returns jsonb
 language plpgsql security invoker set search_path = ''
@@ -96,7 +102,7 @@ begin
 end;
 $$;
 
-create function public.scalping_start(p_user uuid, p_request uuid, p_version text, p_seed bigint, p_restart boolean)
+create function public.scalping_start(p_user uuid, p_request uuid, p_version text, p_seed bigint, p_restart boolean, p_current uuid default null)
 returns jsonb language plpgsql security invoker set search_path = ''
 as $$
 declare v_session scalping_private.game_sessions; v_quota scalping_private.daily_quotas;
@@ -108,8 +114,15 @@ begin
   select * into v_session from scalping_private.game_sessions where user_id = p_user and request_id = p_request;
   if found then return to_jsonb(v_session); end if;
   if not p_restart then
-    select * into v_session from scalping_private.game_sessions where user_id = p_user and status = 'active' and kst_day = v_day;
+    select * into v_session from scalping_private.game_sessions where user_id = p_user and status = 'active'
+      and started_at >= v_now - interval '24 hours';
     if found then return to_jsonb(v_session); end if;
+  elsif p_current is not null then
+    select * into v_session from scalping_private.game_sessions where user_id = p_user order by started_at desc limit 1;
+    if found and v_session.session_id <> p_current then
+      if v_session.status = 'active' then return to_jsonb(v_session); end if;
+      return jsonb_build_object('error', 'inactive_session');
+    end if;
   end if;
   insert into scalping_private.daily_quotas(user_id, kst_day) values (p_user, v_day) on conflict do nothing;
   select * into v_quota from scalping_private.daily_quotas where user_id = p_user and kst_day = v_day for update;
@@ -232,43 +245,31 @@ $$;
 create function public.scalping_maintenance(p_job text) returns jsonb
 language plpgsql security invoker set search_path = ''
 as $$
-declare v_now timestamptz := statement_timestamp(); v_kst timestamp := v_now at time zone 'Asia/Seoul';
-  v_cutoff date := v_kst::date - case when v_kst::time >= '03:00' then 1 else 2 end;
-  v_before bigint; v_deleted integer := 0; v_count integer; v_previous timestamptz;
+declare v_now timestamptz := statement_timestamp(); v_previous timestamptz;
 begin
-  if p_job not in ('cleanup', 'keepalive') then raise exception 'Unknown maintenance job'; end if;
+  if p_job <> 'keepalive' then raise exception 'Retention migration is required'; end if;
   select last_success into v_previous from scalping_private.maintenance_status where job = p_job;
-  if p_job = 'cleanup' then
-    select count(*) into v_before from scalping_private.game_sessions where kst_day < v_cutoff;
-    delete from scalping_private.game_sessions where session_id in (
-      select session_id from scalping_private.game_sessions where kst_day < v_cutoff
-      and (status <> 'active' or started_at < v_now - interval '24 hours') order by kst_day, session_id limit 500);
-    get diagnostics v_deleted = row_count;
-    delete from scalping_private.daily_quotas where (user_id, kst_day) in (
-      select user_id, kst_day from scalping_private.daily_quotas where kst_day < v_cutoff limit 500);
-    get diagnostics v_count = row_count; v_deleted := v_deleted + v_count;
-    delete from scalping_private.ad_intents where nonce in (
-      select nonce from scalping_private.ad_intents where kst_day < v_cutoff and created_at < v_now - interval '24 hours' limit 500);
-    get diagnostics v_count = row_count; v_deleted := v_deleted + v_count;
-    delete from scalping_private.ad_transactions where transaction_id in (
-      select transaction_id from scalping_private.ad_transactions where received_at < v_now - interval '7 days' limit 500);
-    get diagnostics v_count = row_count; v_deleted := v_deleted + v_count;
-  end if;
   insert into scalping_private.maintenance_status(job, last_success) values (p_job, v_now)
     on conflict (job) do update set last_success = excluded.last_success, consecutive_failures = 0;
   return jsonb_build_object('ok', true, 'job', p_job, 'at', v_now, 'previous', v_previous,
-    'expired_sessions_before', v_before, 'deleted', v_deleted,
-    'database_bytes', pg_database_size(current_database()));
+    'deleted', 0, 'database_bytes', pg_database_size(current_database()));
 end;
 $$;
 
-revoke all on function public.scalping_profile(uuid,text), public.scalping_start(uuid,uuid,text,bigint,boolean),
+create function public.scalping_maintenance_allowed(p_token text) returns boolean
+language sql security invoker set search_path = ''
+as $$
+  select exists (select 1 from scalping_private.maintenance_credentials
+    where token_sha256 = sha256(convert_to(p_token, 'UTF8')) and length(p_token) = 64)
+$$;
+
+revoke all on function public.scalping_profile(uuid,text), public.scalping_start(uuid,uuid,text,bigint,boolean,uuid),
   public.scalping_session(uuid,uuid), public.scalping_commit(uuid,uuid,integer,jsonb,integer,boolean,timestamptz,bigint),
   public.scalping_ad_intent(uuid,uuid,text), public.scalping_ad_status(uuid,uuid),
-  public.scalping_verify_ad(uuid,text,text,timestamptz), public.scalping_rankings(), public.scalping_maintenance(text)
+  public.scalping_verify_ad(uuid,text,text,timestamptz), public.scalping_rankings(), public.scalping_maintenance(text), public.scalping_maintenance_allowed(text)
   from public, anon, authenticated;
-grant execute on function public.scalping_profile(uuid,text), public.scalping_start(uuid,uuid,text,bigint,boolean),
+grant execute on function public.scalping_profile(uuid,text), public.scalping_start(uuid,uuid,text,bigint,boolean,uuid),
   public.scalping_session(uuid,uuid), public.scalping_commit(uuid,uuid,integer,jsonb,integer,boolean,timestamptz,bigint),
   public.scalping_ad_intent(uuid,uuid,text), public.scalping_ad_status(uuid,uuid),
-  public.scalping_verify_ad(uuid,text,text,timestamptz), public.scalping_rankings(), public.scalping_maintenance(text)
+  public.scalping_verify_ad(uuid,text,text,timestamptz), public.scalping_rankings(), public.scalping_maintenance(text), public.scalping_maintenance_allowed(text)
   to service_role;

@@ -241,6 +241,38 @@ function checkAccounting(market, account) {
   checkAccounting(market, account);
 }
 
+{
+  const {market, account, stock} = fixture();
+  clearNpc(stock);
+  const price = stock.reference;
+  const tick = stock.depth.tick;
+  npc(stock, 'sell', 30, price - tick);
+  assert.equal(game.executeOrder(stock, account, 'buy', 30).trade.qty, 30);
+  const cashCost = account.positions[0].cost;
+  account.unlocks.credit = true;
+  npc(stock, 'sell', 99999, price);
+  assert.equal(game.executeCredit(stock, account, 200).order.status, 'filled');
+  const position = account.positions[0];
+  const creditBefore = position.creditQty;
+  assert.ok(creditBefore > 50);
+  clearNpc(stock);
+  npc(stock, 'buy', 50, price);
+  const priorCreditCost = position.creditCost;
+  const firstSale = game.executeOrder(stock, account, 'sell', 50).trade;
+  assert.equal(position.creditQty, creditBefore - 50);
+  assert.equal(position.qty - position.creditQty, 30);
+  assert.equal(position.cost - position.creditCost, cashCost);
+  assert.equal(firstSale.profit, firstSale.total - (priorCreditCost - position.creditCost));
+  npc(stock, 'buy', position.qty, price);
+  const closing = game.executeOrder(stock, account, 'sell', position.qty);
+  assert.equal(closing.order.status, 'filled');
+  assert.equal(position.qty, 0);
+  assert.equal(position.creditQty, 0);
+  assert.equal(position.cost, 0);
+  assert.equal(position.creditCost, 0);
+  checkAccounting(market, account);
+}
+
 function fullRound(seed) {
   const {market, account} = fixture(seed);
   for (let i = 0; i < game.TOTAL_TICKS; i++) assert.equal(game.stepMarket(market, account), true);

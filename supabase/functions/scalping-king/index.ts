@@ -5,13 +5,13 @@ import '../../../games/scalping-king/engine-v2.js';
 import '../../../games/scalping-king/market.js';
 import {applyCommand, commandFrom, elapsedMs, eligibleForEmergency, FEATURES, finalScore, FULL_MS, GAME_VERSION, replay, tickAt} from '../../../games/scalping-king/official-engine.mjs';
 import {verifyAdMob} from './verify-admob.mjs';
-import {marketFeed, safeSecret} from './market-feed.mjs';
+import {marketFeed} from './market-feed.mjs';
 
 const base = Deno.env.get('SUPABASE_URL')!;
 const service = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
 const publicKey = Deno.env.get('SUPABASE_ANON_KEY')!;
 const origins = new Set((Deno.env.get('SCALPING_ALLOWED_ORIGINS') ||
-  'https://dailyfoodfighter.com,https://localhost').split(','));
+  'https://dailyfoodfighter.com,https://localhost,https://codex-scalping-king-integrat.dailyfoodfighter.pages.dev').split(','));
 const uuid = (value: unknown): value is string => typeof value === 'string' && /^[\da-f]{8}(?:-[\da-f]{4}){3}-[\da-f]{12}$/i.test(value);
 const productionUnits: Record<string, string> = {
   credit: Deno.env.get('SCALPING_AD_CREDIT') || '',
@@ -70,7 +70,8 @@ async function run(request: Request, url: URL) {
   }
   if (request.method === 'GET' && url.pathname.endsWith('/rankings')) return rpc('rankings');
   if (request.method === 'POST' && url.pathname.endsWith('/maintenance')) {
-    if (!safeSecret(request.headers.get('Authorization'), 'Bearer ' + (Deno.env.get('SCALPING_MAINTENANCE_TOKEN') || '')) || !Deno.env.get('SCALPING_MAINTENANCE_TOKEN'))
+    const token = request.headers.get('Authorization')?.match(/^Bearer ([0-9a-f]{64})$/)?.[1];
+    if (!token || !await rpc('maintenance_allowed', {p_token: token}))
       throw new RequestError('maintenance_unauthorized', 401);
     const job = url.searchParams.get('job');
     if (job !== 'keepalive' && job !== 'cleanup') throw new RequestError('unknown_job');
@@ -96,8 +97,9 @@ async function run(request: Request, url: URL) {
   if (input.action === 'profile') return rpc('profile', input.nickname === undefined ? args : {...args, p_name: nickname(input.nickname)});
   if (input.action === 'start') {
     if (!uuid(input.requestId) || typeof input.restart !== 'boolean' || input.version !== GAME_VERSION) throw new RequestError('invalid_start');
+    if (input.restart && !uuid(input.current)) throw new RequestError('invalid_session');
     const seed = crypto.getRandomValues(new Uint32Array(1))[0] || 1;
-    const row = await rpc('start', {...args, p_request: input.requestId, p_restart: input.restart, p_version: GAME_VERSION, p_seed: seed});
+    const row = await rpc('start', {...args, p_request: input.requestId, p_restart: input.restart, p_current: input.restart ? input.current : null, p_version: GAME_VERSION, p_seed: seed});
     if (row.error) throw new RequestError(row.error, 409);
     return clientSession(await rpc('session', {...args, p_id: row.session_id}));
   }

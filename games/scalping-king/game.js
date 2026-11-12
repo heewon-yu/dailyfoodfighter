@@ -173,7 +173,7 @@ const official = window.scalpOfficial;
     const requestId = startRequest ||= crypto.randomUUID();
     try {
       officialEngine ||= await import('./official-engine.mjs');
-      const row = await official.call({action: 'start', requestId, restart, version: officialEngine.GAME_VERSION});
+      const row = await official.call({action: 'start', requestId, restart, current: officialSession?.session_id, version: officialEngine.GAME_VERSION});
       startRequest = null;
       reset();
       applyOfficialSession(row, true);

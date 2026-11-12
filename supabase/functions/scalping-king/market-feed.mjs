@@ -1,5 +1,4 @@
-import {createHmac, timingSafeEqual} from 'node:crypto';
-import {Buffer} from 'node:buffer';
+import {createHmac} from 'node:crypto';
 
 const eventCache = new Map();
 function derive(key, purpose) {
@@ -18,11 +17,4 @@ export function marketFeed(session, through, after = 0) {
     seeds: Array.from({length: Math.max(0, through - after)}, (_, index) => derive(session.market_key, 'tick:' + (after + index + 1))),
     events: events.filter(event => event.tick > after && event.tick <= through),
   };
-}
-
-export function safeSecret(actual, expected) {
-  if (!actual || !expected) return false;
-  const left = Buffer.from(actual);
-  const right = Buffer.from(expected);
-  return left.length === right.length && timingSafeEqual(left, right);
 }

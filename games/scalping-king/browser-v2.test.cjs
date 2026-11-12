@@ -8,7 +8,7 @@ const {chromium} = require(process.env.PLAYWRIGHT_CORE || 'playwright-core');
 
 const remote = process.env.SCALPING_TEST_URL;
 const MIME = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8',
-  '.css': 'text/css; charset=utf-8'};
+  '.css': 'text/css; charset=utf-8', '.mjs': 'text/javascript; charset=utf-8'};
 
 function serve() {
   return http.createServer((req, res) => {
@@ -143,7 +143,9 @@ async function run() {
     const mobile = await browser.newPage({viewport: {width: 390, height: 844}, isMobile: true,
       hasTouch: true, deviceScaleFactor: 2});
     attach(mobile);
-    await mobile.clock.install();
+    const testTime = new Date();
+    await mobile.clock.install({time: testTime});
+    await mobile.clock.pauseAt(new Date(+testTime + 1000));
     await mobile.addInitScript(() => {
       window.scalpRewardProvider = {isAvailable: () => true, async show({onReward}) { onReward(); return 'completed'; }};
       Object.defineProperty(window, 'ScalpMarket', {configurable: true, set(api) {
@@ -235,6 +237,74 @@ async function run() {
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.locator('#creditTool').isEnabled(), true);
     assert.equal(await mobile.locator('#stopTool').isEnabled(), true);
+
+    for (const name of ['risk-v2','microstructure-v2','ledger-v2','engine-v2','market']) require('./' + name + '.js');
+    const {marketFeed} = await import('../../supabase/functions/scalping-king/market-feed.mjs');
+    const {replay, finalScore, FULL_MS} = await import('./official-engine.mjs');
+    const officialPage = await browser.newPage({viewport: {width: 390, height: 844}, isMobile: true, hasTouch: true});
+    attach(officialPage);
+    const session = {session_id: 'official-fixture', server_seed: 71, market_key: 'test-only-hidden-key', commands: [], revision: 0,
+      elapsed: 0, status: 'active', paused: false};
+    let used = 0;
+    let advanced = false;
+    function snapshot(feedAfter = 0, elapsed = session.elapsed) {
+      const tick = Math.floor(elapsed / globalThis.ScalpMarket.INTERVAL);
+      const {market_key, ...visible} = session;
+      return {...visible, elapsed, feedAfter, feed: marketFeed(session, tick, feedAfter)};
+    }
+    await officialPage.exposeFunction('testOfficialRpc', async input => {
+      if (input.action === 'profile') return {nickname: '브라우저테스트', free: 5 - used, bonus: 0};
+      if (input.action === 'start') {
+        assert.match(input.requestId, /^[a-f0-9-]{36}$/);
+        assert.equal(input.version, '20261112.1');
+        used++;
+        return snapshot();
+      }
+      if (input.action === 'feed') return snapshot(input.feedAfter, advanced && !session.paused ? FULL_MS : 0);
+      if (input.action === 'command') {
+        assert.equal(input.command.kind, 'order');
+        assert.equal(input.command.qty, 2);
+        session.commands.push({...input.command, tick: 0, requestId: input.requestId});
+      } else if (input.action === 'pause') session.paused = true;
+      else if (input.action === 'resume') session.paused = false;
+      else if (input.action === 'finish') {
+        session.status = 'completed';
+        session.elapsed = FULL_MS;
+        const {TOTAL_TICKS} = globalThis.ScalpMarket;
+        const verified = finalScore(replay(session.server_seed, session.commands, TOTAL_TICKS, marketFeed(session, TOTAL_TICKS)));
+        session.score = {final_equity: verified};
+      } else throw new Error('Unexpected official call ' + input.action);
+      session.revision++;
+      return snapshot(input.feedAfter);
+    });
+    await officialPage.addInitScript(() => {
+      window.scalpOfficial = {
+        signedIn: () => true,
+        call: input => window.testOfficialRpc(input),
+        rankings: async () => ({day: '2026-11-12',
+          rates: [{nickname: '브라우저테스트', rank: 1, value: 2}],
+          profits: [{nickname: '브라우저테스트', rank: 1, value: 2000000}]}),
+      };
+    });
+    await officialPage.goto(target);
+    await officialPage.locator('#officialStatus').getByText(/브라우저테스트/).waitFor({timeout: 5000});
+    await officialPage.locator('#officialRankings').tap();
+    await officialPage.locator('#officialProfits').getByText(/2,000,000원/).waitFor();
+    await officialPage.locator('#officialRankingDialog button[aria-label="닫기"]').tap();
+    await officialPage.locator('#start').tap();
+    await officialPage.locator('#status').getByText(/거래 진행 중/).waitFor({timeout: 5000});
+    assert.match(await officialPage.locator('#officialStatus').innerText(), /4\/5판/);
+    await officialPage.locator('#quantity').fill('2');
+    await officialPage.locator('#buy').tap();
+    await officialPage.locator('#feedback').getByText(/2주 체결/).waitFor();
+    await officialPage.locator('#jumpPause').tap();
+    await officialPage.locator('#status').getByText(/일시정지/).waitFor();
+    await officialPage.locator('#jumpPause').tap();
+    await officialPage.locator('#status').getByText(/거래 진행 중/).waitFor({timeout: 5000});
+    advanced = true;
+    await officialPage.locator('#result').waitFor({timeout: 12000});
+    assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
+    assert.equal(used, 1);
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
   } finally {
