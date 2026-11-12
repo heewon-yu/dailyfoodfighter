@@ -750,7 +750,8 @@ const official = window.scalpOfficial;
   const isTestMode = location.hostname === 'localhost' ||
                      location.hostname === '127.0.0.1' ||
                      document.body.dataset.testTools === 'enabled' ||
-                     new URLSearchParams(location.search).has('test');
+                     new URLSearchParams(location.search).has('test') ||
+                     new URLSearchParams(location.search).has('seed');
 
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
@@ -759,17 +760,16 @@ const official = window.scalpOfficial;
       const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider);
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
-      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+      button.disabled = phase !== 'live' || Boolean(result) || Boolean(adController) || funded || !eligible ||
         (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = funded ? label + ' · 사용 완료' :
-        unlocked || !eligible || !ScalpReward.ready(provider, key) ? label :
-        '광고 보고 ' + label + ' 이용하기';
+        unlocked ? label :
+        provider && ScalpReward.ready(provider, key) ? '광고 보고 ' + label :
+        label;
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
-      !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
-        '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
-        account.everFilledCreditBuy ? '' :
-          '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
+      account.everFilledCreditBuy ? '' :
+        '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
   }
 
   function showCredit() {
@@ -1197,18 +1197,20 @@ const official = window.scalpOfficial;
 
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
-    const quota = getLocalQuota();
-    if (quota.free <= 0 && quota.bonus <= 0) {
-      feedback('오늘 무료 5판을 모두 이용했어요. 광고를 시청하고 한 판 더 플레이하세요!', 'error');
-      $('officialExtra').hidden = false;
-      return;
+    if (!isTestMode) {
+      const quota = getLocalQuota();
+      if (quota.free <= 0 && quota.bonus <= 0) {
+        feedback('오늘 무료 5판을 모두 이용했어요. 광고를 시청하고 한 판 더 플레이하세요!', 'error');
+        $('officialExtra').hidden = false;
+        return;
+      }
+      if (quota.free > 0) {
+        localStorage.setItem('scalpQuotaUsed', String(quota.used + 1));
+      } else if (quota.bonus > 0) {
+        localStorage.setItem('scalpQuotaBonus', String(quota.bonus - 1));
+      }
+      refreshOfficialProfile();
     }
-    if (quota.free > 0) {
-      localStorage.setItem('scalpQuotaUsed', String(quota.used + 1));
-    } else if (quota.bonus > 0) {
-      localStorage.setItem('scalpQuotaBonus', String(quota.bonus - 1));
-    }
-    refreshOfficialProfile();
 
     if (official && typeof official.signedIn === 'function' && official.signedIn()) return startOfficial();
     startedAt = performance.now();
