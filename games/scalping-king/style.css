@@ -394,8 +394,8 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
   .stock-news-panel .card-heading,.pending-panel .card-heading{padding-inline:10px}
   #stockNews,#pending{padding-inline:10px}
   .mobile-guide-intro{display:block;margin:10px 0 0;color:var(--muted);font-size:12px;line-height:1.5}
-  .mobile-jump{grid-row:5}
-  .shell footer{grid-row:6}
+  .mobile-jump{grid-row:6}
+  .shell footer{grid-row:7}
 }
 
 @media(min-width:811px){
@@ -667,7 +667,25 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 }
 
 @media (max-width: 550px) {
-  .order-panel { align-self: start; }
+  .official-panel {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    padding: 5px 8px !important;
+    gap: 6px !important;
+  }
+  .official-panel > span {
+    font-size: 11px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .official-panel button.subtle {
+    padding: 3px 8px !important;
+    font-size: 11px !important;
+    min-height: 28px !important;
+  }
 }
 
 /* Compact mobile trading view (2026-11-12): preserve chart/order visibility. */
