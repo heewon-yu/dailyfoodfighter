@@ -7,7 +7,7 @@
   <meta name="description" content="가상 투자금 1억 원으로 호가와 뉴스를 읽고 5분 동안 수익률에 도전하는 주식 모의거래 게임">
   <meta name="theme-color" content="#0f172a">
   <title>5분 단타왕 | 모의거래 게임</title>
-  <link rel="stylesheet" href="./style.css?v=20261112-mobile-market">
+  <link rel="stylesheet" href="./style.css?v=20261112-game-sounds">
   <script defer src="./risk-v2.js?v=20261111-emergency-collateral"></script>
   <script defer src="./microstructure-v2.js?v=20261111-v2"></script>
   <script defer src="./ledger-v2.js?v=20261112-credit-depth"></script>
@@ -69,7 +69,7 @@
             <button id="gameHome" class="ghost" type="button" aria-label="게임 홈으로 돌아가기">홈</button>
           </div>
           <div class="time-track" aria-hidden="true"><div id="timerBar"></div></div>
-          <div class="session-label-bottom"><span>남은 시간</span><span id="seedLabel"></span></div>
+          <div class="session-label-bottom"><span id="clockLabel" role="status">남은 시간</span><span id="seedLabel"></span></div>
         </div>
       </section>
       <section class="metrics" aria-label="계좌 요약">
@@ -83,7 +83,7 @@
           <div><span>담보비율</span><strong id="collateralRatio">—</strong></div>
           <div><span>반대매매 위험</span><strong id="marginState">정상</strong></div>
           <div><span>긴급자금대출 채무 · 상환</span><strong id="emergencyDebt">0원 · 0원</strong></div>
-          <label><input id="warningSound" type="checkbox" checked> 경고음</label>
+          <label><input id="warningSound" type="checkbox" checked> 효과음</label>
           <div class="risk-notice" id="riskNotice" role="status" hidden></div>
         </section>
       </section>

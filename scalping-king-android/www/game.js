@@ -64,6 +64,7 @@
   let adController = null;
   let pauseReason = null;
   let audio = null;
+  let closingSoundPlayed = false;
   let latestNotice = null;
   let chartMode = '10';
   let newsMode = 'all';
@@ -197,6 +198,14 @@
     $('timer').classList.toggle('urgent', phase === 'live' && remaining <= 30);
     $('timerBar').style.width = remaining / DURATION * 100 + '%';
     $('mobileTimer').textContent = $('timer').textContent;
+    const finalSeconds = phase === 'live' && remaining > 0 && remaining <= 5;
+    $('timer').classList.toggle('final-seconds', finalSeconds);
+    $('mobileTimer').classList.toggle('final-seconds', finalSeconds);
+    $('clockLabel').textContent = finalSeconds ? '마감 임박' : '남은 시간';
+    if (finalSeconds && !closingSoundPlayed) {
+      closingSoundPlayed = true;
+      playEffect([880, 880, 1175], .13, .09);
+    }
   }
 
   function renderPhase() {
@@ -312,17 +321,31 @@
     } catch { /* Visual warnings stay available. */ }
   }
 
-  function playWarning() {
+  function playEffect(frequencies, duration = .09, volume = .06, delay = 0) {
     if (!$('warningSound').checked || audio?.state !== 'running') return;
-    const oscillator = audio.createOscillator();
-    const gain = audio.createGain();
-    const start = audio.currentTime;
-    oscillator.frequency.value = 760;
-    gain.gain.setValueAtTime(.08, start);
-    gain.gain.exponentialRampToValueAtTime(.001, start + .16);
-    oscillator.connect(gain).connect(audio.destination);
-    oscillator.start(start);
-    oscillator.stop(start + .16);
+    const start = audio.currentTime + delay;
+    frequencies.forEach((frequency, index) => {
+      const at = start + index * (duration + .04);
+      const oscillator = audio.createOscillator();
+      const gain = audio.createGain();
+      oscillator.frequency.value = frequency;
+      gain.gain.setValueAtTime(.001, at);
+      gain.gain.exponentialRampToValueAtTime(volume, at + .012);
+      gain.gain.exponentialRampToValueAtTime(.001, at + duration);
+      oscillator.connect(gain).connect(audio.destination);
+      oscillator.onended = () => { oscillator.disconnect(); gain.disconnect(); };
+      oscillator.start(at);
+      oscillator.stop(at + duration);
+    });
+  }
+
+  function playWarning() { playEffect([760], .16, .08); }
+
+  function playFillEffects(fills) {
+    const sides = [...new Set(fills.map(fill => fill.side))];
+    sides.forEach((side, index) => {
+      playEffect(side === 'buy' ? [520, 740] : [660, 420], .075, .055, index * .22);
+    });
   }
 
   function renderRisk() {
@@ -754,13 +777,15 @@
     if (phase !== 'live') return;
     const target = Math.min(TOTAL_TICKS, Math.floor((performance.now() - startedAt) / INTERVAL));
     if (market.tick < target) {
-      const last = account.trades[0];
+      const previousTrades = account.trades.length;
       while (market.tick < target) stepMarket(market, account);
+      const fills = account.trades.slice(0, account.trades.length - previousTrades);
+      playFillEffects(fills);
       if (market.tick === TOTAL_TICKS) {
         finish();
         return;
       }
-      if (account.trades[0] !== last) showFill(account.trades[0]);
+      if (fills.length) showFill(fills[0], 0, false);
       render();
     }
     renderClock();
@@ -810,7 +835,8 @@
     }
   }
 
-  function showFill(fill, remaining = 0) {
+  function showFill(fill, remaining = 0, sound = true) {
+    if (sound) playFillEffects([fill]);
     const type = {limit: '지정가 ', forced: '반대매매 ', stop: '로스컷 '}[fill.type] || '';
     const side = fill.side === 'buy' ? '매수 ' : '매도 ';
     feedback(market.stocks[fill.index].name + ' ' + type + side + num(fill.qty) + '주 체결 · 평균 ' +
@@ -935,6 +961,7 @@
     for (const id of ['creditDialog', 'stopDialog', 'amendDialog']) if ($(id).open) $(id).close();
     pauseReason = null;
     latestNotice = null;
+    closingSoundPlayed = false;
     if (/^https?:$/.test(location.protocol)) {
       const url = new URL(location.href);
       url.searchParams.delete('seed');

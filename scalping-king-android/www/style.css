@@ -553,3 +553,8 @@ footer{text-align:center;font-size:10px;font-weight:400;color:#94a3b8;line-heigh
 @media (max-width: 550px) {
   .mobile-jump button { min-width: 0; padding-inline: 3px; font-size: 11px; }
 }
+
+.timer.final-seconds, #mobileTimer.final-seconds { background: #b91c1c; color: #fff; border-radius: .35rem; box-shadow: 0 0 0 2px #fca5a5; animation: closing-clock .8s ease-in-out infinite alternate; }
+#mobileTimer.final-seconds { padding: 2px 3px; }
+@keyframes closing-clock { to { box-shadow: 0 0 0 4px #fb7185; } }
+@media (prefers-reduced-motion: reduce) { .timer.final-seconds, #mobileTimer.final-seconds { animation: none; } }
