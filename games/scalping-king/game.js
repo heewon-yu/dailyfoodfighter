@@ -759,7 +759,8 @@ const official = window.scalpOfficial;
       const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider);
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
-      button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible;
+      button.disabled = phase !== 'live' || Boolean(result) || Boolean(adController) || funded || !eligible ||
+        (!unlocked && !ScalpReward.ready(provider, key));
       button.textContent = funded ? label + ' · 사용 완료' :
         unlocked ? label :
         provider && ScalpReward.ready(provider, key) ? '광고 보고 ' + label :
