@@ -38,6 +38,17 @@ Android 브랜치에 변경을 올리면 JDK 21과 SDK 36으로 디버그 앱 �
 
 ## Google Play 준비
 
-GitHub Actions에서 서명 전 AAB를 `Scalping-King-Android-Unsigned-AAB` 산출물로 제공합니다. 출시 변형에는 디버그용 광고 SDK와 샘플 앱 ID가 포함되지 않습니다. 배포 기능을 확정한 뒤 Play 업로드 키로 AAB를 서명하고, 내부 테스트 트랙에서 설치와 업데이트를 검증합니다. 업로드 키와 암호는 저장소에 커밋하지 않습니다.
+GitHub Actions에서 서명 전 AAB를 `Scalping-King-Android-Unsigned-AAB` 산출물로 제공합니다. 광고 ID를 입력하지 않은 기본 출시 변형에는 Google 광고 SDK와 샘플 앱 ID가 포함되지 않습니다. 배포 기능을 확정한 뒤 Play 업로드 키로 AAB를 서명하고, 내부 테스트 트랙에서 설치와 업데이트를 검증합니다. 업로드 키와 암호는 저장소에 커밋하지 않습니다.
 
 스토어 등록 전에는 스크린샷, 앱 설명, 개인정보처리방침, 광고 여부, 데이터 보안, 콘텐츠 등급과 대상 연령을 배포본에 맞춥니다. Play Console이 비공개 테스트를 요구하는 계정은 해당 조건을 충족한 뒤 정식 출시 액세스를 신청합니다.
+
+## 운영 보상형 AdMob 준비
+
+AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록하고 **앱 ID**와 **보상형 광고 단위 ID**를 생성합니다. 현재 신용거래·긴급자금대출·로스컷은 보상형 단위 하나를 공유합니다. 계정의 개인정보 보호 및 메시지에서 실제 배포 지역에 적용할 동의 메시지를 설정합니다.
+
+출시 빌드에 환경변수 `SCALP_ADMOB_APP_ID`와 `SCALP_ADMOB_REWARDED_ID`를 둘 다 설정합니다. 같은 게시자에 속한 ID가 필요하며 Google 샘플 ID는 출시 빌드에서 거부합니다. ID가 없는 CI 산출물은 기본 게임 확인용입니다. 디버그는 Google 공식 테스트 ID를 사용합니다.
+
+운영 변형은 UMP 확인 후에만 광고를 요청합니다. 필요한 경우 가이드에 광고 개인정보 설정을 표시합니다. 실제 계정 ID와 메시지 설정이 적용되면 테스트 기기를 등록해 동의, 광고 취소, 시청 완료 및 게임 재개를 확인한 뒤 개인정보처리방침과 Play 데이터 보안 신고를 확정합니다.
+
+- [Google UMP 설정](https://developers.google.com/admob/android/privacy)
+- [AdMob 보상형 광고](https://developers.google.com/admob/android/rewarded)

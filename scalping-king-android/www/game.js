@@ -63,6 +63,7 @@
   let loop = 0;
   let adController = null;
   let pauseReason = null;
+  let privacyBusy = false;
   let audio = null;
   let closingSoundPlayed = false;
   let latestNotice = null;
@@ -209,7 +210,7 @@
   }
 
   function renderPhase() {
-    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: pauseReason === 'ad' ? '광고 시청 중' : '일시정지', done: '장 마감'}[phase];
+    $('status').textContent = {ready: '개장 대기', live: '거래 진행 중', paused: pauseReason === 'ad' ? '광고 시청 중' : pauseReason === 'privacy' ? '개인정보 설정 중' : '일시정지', done: '장 마감'}[phase];
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
@@ -308,7 +309,7 @@
     const disabled = phase !== 'live' || isHalted(market.stocks[selected]);
     $('buy').disabled = disabled;
     $('sell').disabled = disabled;
-    $('start').disabled = Boolean(adController);
+    $('start').disabled = Boolean(adController) || privacyBusy;
   }
 
   function setupAudio() {
@@ -469,7 +470,7 @@
   }
 
   async function unlock(key) {
-    if (adController || phase === 'done' || result) return;
+    if (adController || privacyBusy || phase === 'done' || result) return;
     if (key === 'emergency' && !risk.canUseEmergency(account)) return;
     if (account.unlocks[key]) {
       openTool(key);
@@ -535,7 +536,30 @@
   }
 
   for (const {id, key} of rewardTools) $(id).addEventListener('click', () => unlock(key));
-  window.addEventListener('scalp-reward-availability', renderRewardTools);
+  function syncPrivacyOptions() {
+    const provider = window.scalpRewardProvider;
+    const pending = provider?.privacyBusy?.() === true;
+    const button = $('adPrivacy');
+    button.hidden = provider?.privacyRequired?.() !== true;
+    button.disabled = pending || Boolean(adController);
+    if (privacyBusy === pending) return;
+    privacyBusy = pending;
+    if (pending && phase === 'live') suspend('privacy');
+    if (!pending && pauseReason === 'privacy') {
+      if (document.hidden) pauseReason = 'background';
+      else resume();
+    }
+    renderPhase();
+  }
+  window.addEventListener('scalp-reward-availability', () => {
+    syncPrivacyOptions();
+    renderRewardTools();
+  });
+  $('adPrivacy').addEventListener('click', async () => {
+    if (privacyBusy || adController) return;
+    try { await window.scalpRewardProvider?.openPrivacyOptions(); }
+    catch { feedback('광고 개인정보 설정을 열지 못했어요.', 'error'); }
+  });
   $('warningSound').addEventListener('change', setupAudio);
   $('creditRange').addEventListener('input', () => {
     $('creditPercent').value = $('creditRange').value;
@@ -792,7 +816,7 @@
   }
 
   function start() {
-    if (phase !== 'ready') return;
+    if (phase !== 'ready' || privacyBusy) return;
     startedAt = performance.now();
     setupAudio();
     phase = 'live';
@@ -815,7 +839,7 @@
   }
 
   function resume() {
-    if (phase !== 'paused' || adController || document.hidden) return;
+    if (phase !== 'paused' || adController || privacyBusy || document.hidden) return;
     startedAt += performance.now() - pausedAt;
     phase = 'live';
     pauseReason = null;
@@ -998,7 +1022,7 @@
   }
 
   function restartRound() {
-    if (adController || (phase === 'ready' && !result)) return;
+    if (adController || privacyBusy || (phase === 'ready' && !result)) return;
     reset();
     start();
   }
@@ -1151,7 +1175,7 @@
   $('pause').addEventListener('click', togglePause);
   $('jumpPause').addEventListener('click', togglePause);
   $('restart').addEventListener('click', restartRound);
-  $('gameHome').addEventListener('click', () => { if (!adController) reset(); });
+  $('gameHome').addEventListener('click', () => { if (!adController && !privacyBusy) reset(); });
   $('jumpRestart').addEventListener('click', restartRound);
   $('guideButton').addEventListener('click', () => $('guide').showModal());
   $('amendForm').addEventListener('submit', submitAmendment);
@@ -1254,6 +1278,7 @@
     else if (pauseReason === 'background') resume();
   });
 
+  syncPrivacyOptions();
   renderPhase();
   render();
   if (result) openResult();
