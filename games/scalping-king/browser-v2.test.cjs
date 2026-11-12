@@ -42,9 +42,9 @@ async function run() {
         window.sharedScore = files.map(file => ({name: file.name, type: file.type, size: file.size}));
       }});
     });
-    await desktop.goto(target + '?seed=5');
+    await desktop.goto(target + '?seed=5&test=1');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
-    assert.equal(await desktop.locator('#creditTool').isDisabled(), true);
+    assert.equal(await desktop.locator('#gameHome').count(), 0);
     assert.equal(await desktop.locator('#stopTool').isDisabled(), true);
     assert.equal(await desktop.locator('#emergencyTool').isDisabled(), true);
     const layout = () => desktop.evaluate(() => {
@@ -162,7 +162,7 @@ async function run() {
         Object.defineProperty(window, 'ScalpMarket', {value: api});
       }});
     });
-    await mobile.goto(target + '?seed=5');
+    await mobile.goto(target + '?seed=5&test=1');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth), 390);
     assert.ok(await listFits(mobile));

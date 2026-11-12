@@ -1,130 +1,53 @@
-// Cloudflare Pages Function: /api/scalping/rankings
-// 5분 단타왕 (Scalping King) 일일 랭킹 API
+import {ApiError, dayAt, dbFor, gameRequest, guardRate, originFor, playerFor, respond} from '../../_shared/scalping.js';
+const metricColumns = ['rate','profit'];
 
-function getKstDay() {
-  const now = new Date(Date.now() + 9 * 3600 * 1000);
-  return now.toISOString().slice(0, 10);
+function rankQuery(db, column, day, owner) {
+  const filter = owner ? 'WHERE s.player_id=?' : 'ORDER BY s.rank LIMIT 5';
+  const statement = db.prepare(`
+    WITH best AS (
+      SELECT player_id, ${column} AS value, finished_ms, round_id,
+             row_number() OVER(PARTITION BY player_id ORDER BY ${column} DESC, finished_ms, round_id) AS own
+      FROM verified_scores WHERE day=?
+    ), ranked AS (
+      SELECT player_id,value, row_number() OVER(ORDER BY value DESC,finished_ms,round_id) AS rank
+      FROM best WHERE own=1
+    )
+    SELECT s.rank,s.value,p.nickname FROM ranked s JOIN players p ON p.id=s.player_id ${filter}
+  `);
+  return owner ? statement.bind(day,owner).all() : statement.bind(day).all();
 }
 
-const CORS_HEADERS = {
-  'Access-Control-Allow-Origin': '*',
-  'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-  'Access-Control-Allow-Headers': 'Content-Type',
-};
-
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: {
-      'Content-Type': 'application/json; charset=utf-8',
-      'Cache-Control': 'no-cache',
-      ...CORS_HEADERS,
-    },
-  });
-}
-
-export async function onRequestOptions() {
-  return new Response(null, { headers: CORS_HEADERS });
-}
-
-// GET: 당일 TOP5 랭킹 조회
-export async function onRequestGet({ env }) {
-  const kstDay = getKstDay();
-  const db = env.DB || env.SCALPING_DB;
-
-  if (!db) {
-    // D1 바인딩 전 기본 응답
-    return json({
-      day: kstDay,
-      rates: [],
-      profits: [],
-      notice: 'D1 database binding ready',
-    });
-  }
-
+export async function onRequest({request,env,waitUntil}) {
+  let origin;
   try {
-    // 수익률 TOP 5 (닉네임당 당일 최고 기록 1건)
-    const ratesQuery = await db.prepare(
-      `SELECT nickname, MAX(rate) as value 
-       FROM daily_rankings 
-       WHERE kst_day = ? 
-       GROUP BY nickname 
-       ORDER BY value DESC 
-       LIMIT 5`
-    ).bind(kstDay).all();
-
-    // 수익금 TOP 5 (닉네임당 당일 최고 기록 1건)
-    const profitsQuery = await db.prepare(
-      `SELECT nickname, MAX(profit) as value 
-       FROM daily_rankings 
-       WHERE kst_day = ? 
-       GROUP BY nickname 
-       ORDER BY value DESC 
-       LIMIT 5`
-    ).bind(kstDay).all();
-
-    const rates = (ratesQuery.results || []).map((row, idx) => ({
-      nickname: row.nickname,
-      rank: idx + 1,
-      value: row.value,
-    }));
-
-    const profits = (profitsQuery.results || []).map((row, idx) => ({
-      nickname: row.nickname,
-      rank: idx + 1,
-      value: row.profit !== undefined ? row.profit : row.value,
-    }));
-
-    return json({ day: kstDay, rates, profits });
-  } catch (error) {
-    return json({ day: kstDay, rates: [], profits: [], error: error.message }, 500);
-  }
-}
-
-// POST: 게임 종료 시 성적 등록
-export async function onRequestPost({ request, env }) {
-  const kstDay = getKstDay();
-  const db = env.DB || env.SCALPING_DB;
-
-  let body;
-  try {
-    body = await request.json();
-  } catch {
-    return json({ error: 'invalid_json' }, 400);
-  }
-
-  const { nickname, rate, profit } = body || {};
-
-  // 닉네임 유효성 검증 (2~12자 한글/영문/숫자/밑줄)
-  if (!nickname || typeof nickname !== 'string') {
-    return json({ error: 'invalid_nickname' }, 400);
-  }
-  const cleanNick = nickname.trim().normalize('NFKC');
-  if (!/^[가-힣A-Za-z0-9_]{2,12}$/.test(cleanNick) || /관리자|운영자|admin|moderator|fuck|shit/i.test(cleanNick)) {
-    return json({ error: 'invalid_nickname' }, 400);
-  }
-
-  if (typeof rate !== 'number' || isNaN(rate) || typeof profit !== 'number' || isNaN(profit)) {
-    return json({ error: 'invalid_score' }, 400);
-  }
-
-  if (!db) {
-    return json({ ok: true, notice: 'D1 database binding ready' });
-  }
-
-  try {
-    // 성적 기록 삽입
-    await db.prepare(
-      `INSERT INTO daily_rankings (kst_day, nickname, rate, profit) VALUES (?, ?, ?, ?)`
-    ).bind(kstDay, cleanNick, Number(rate.toFixed(2)), Math.round(profit)).run();
-
-    // 2일 이상 지난 만료 데이터 백그라운드 자동 정리
-    await db.prepare(
-      `DELETE FROM daily_rankings WHERE kst_day < date('now', '-2 days')`
-    ).run().catch(() => {});
-
-    return json({ ok: true, day: kstDay });
-  } catch (error) {
-    return json({ error: 'database_error', details: error.message }, 500);
+    origin=originFor(request);
+    if(request.method==='OPTIONS') return respond(null,200,origin);
+    const db=dbFor(env), now=Date.now(), day=dayAt(now);
+    if(request.method==='POST') {
+      const size = Number(request.headers.get('Content-Length'));
+      if (size > 4096) throw new ApiError('request_too_large',413);
+      const body=await request.clone().json().catch(()=>null);
+      if(body?.action!=='finish' || 'rate' in body || 'profit' in body || 'nickname' in body)
+        throw new ApiError('verified_session_required',400);
+      return respond(await gameRequest(request,env,now),200,origin);
+    }
+    if(request.method!=='GET') throw new ApiError('method_not_allowed',405);
+    const mine=new URL(request.url).searchParams.get('mine')==='1';
+    guardRate('ranking:'+(request.headers.get('CF-Connecting-IP')||'local'),150,now);
+    const player=mine ? await playerFor(db,request) : null;
+    const cache=globalThis.caches?.default;
+    const key = new Request(new URL('/api/scalping/rankings?day='+day,request.url));
+    if(!mine && cache) {
+      const hit=await cache.match(key);
+      if(hit) return respond(await hit.json(),200,origin,'public, max-age=5');
+    }
+    const [rates,profits]=await Promise.all(metricColumns.map(column=>rankQuery(db,column,day,player?.id)));
+    const data={day,rates:rates.results||[],profits:profits.results||[],updatedAt:new Date(now).toISOString()};
+    if(!mine && cache && waitUntil) waitUntil(cache.put(key,respond(data,200,null,'public, max-age=5')));
+    return respond(data,200,origin,mine?'no-store':'public, max-age=5');
+  } catch(error) {
+    if(error instanceof ApiError) return respond({error:error.message},error.status,origin);
+    console.error('Scalping rankings request failed',error.name);
+    return respond({error:'database_unavailable'},503,origin);
   }
 }

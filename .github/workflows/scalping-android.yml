@@ -1,7 +1,7 @@
 name: Scalping King Android
 on:
   push:
-    branches: [codex/scalping-king-android, codex/scalping-king-integration-20261112, main]
+    branches: [codex/scalping-king-android, codex/scalping-king-integration-20261112, codex/scalping-king-release-v5, main]
     paths:
       - 'scalping-king-android/**'
       - 'games/scalping-king/**'
@@ -97,3 +97,39 @@ jobs:
           SCALP_ADMOB_APP_ID: ca-app-pub-1111111111111111~1111111111
           SCALP_ADMOB_REWARDED_ID: ca-app-pub-1111111111111111/2222222222
         run: ./gradlew --no-daemon :app:compileReleaseJavaWithJavac
+
+      - name: Sign production AAB with the Play upload key
+        if: github.event_name != 'pull_request'
+        working-directory: scalping-king-android/android
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+          KEY_ALIAS: ${{ secrets.KEY_ALIAS }}
+          KEY_PASSWORD: ${{ secrets.KEY_PASSWORD }}
+          STORE_PASSWORD: ${{ secrets.STORE_PASSWORD }}
+          SCALP_ADMOB_APP_ID: ca-app-pub-7921440641343288~9202520759
+          SCALP_ADMOB_REWARDED_ID: ca-app-pub-7921440641343288/6576357419
+          SCALP_ADMOB_EMERGENCY_ID: ca-app-pub-7921440641343288/5263275745
+          SCALP_ADMOB_STOP_ID: ca-app-pub-7921440641343288/3638689534
+          SCALP_ADMOB_EXTRA_ID: ca-app-pub-7921440641343288/7071482751
+        run: |
+          set -euo pipefail
+          test -n "$KEYSTORE_BASE64"
+          test -n "$KEY_ALIAS"
+          test -n "$KEY_PASSWORD"
+          test -n "$STORE_PASSWORD"
+          umask 077
+          upload_key="$RUNNER_TEMP/scalping-upload.jks"
+          trap 'rm -f "$upload_key"' EXIT
+          printf '%s' "$KEYSTORE_BASE64" | base64 --decode > "$upload_key"
+          ./gradlew --no-daemon :app:bundleRelease
+          jarsigner -keystore "$upload_key" -storepass:env STORE_PASSWORD -keypass:env KEY_PASSWORD \
+            -signedjar "$RUNNER_TEMP/scalping-king-release.aab" app/build/outputs/bundle/release/app-release.aab "$KEY_ALIAS"
+          jarsigner -verify "$RUNNER_TEMP/scalping-king-release.aab"
+          keytool -printcert -jarfile "$RUNNER_TEMP/scalping-king-release.aab" | grep -F 'SHA256:'
+      - uses: actions/upload-artifact@v4
+        if: github.event_name != 'pull_request'
+        with:
+          name: Scalping-King-Play-Signed-AAB
+          path: ${{ runner.temp }}/scalping-king-release.aab
+          if-no-files-found: error
+          retention-days: 30
