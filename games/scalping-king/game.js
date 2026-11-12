@@ -683,11 +683,16 @@ const official = window.scalpOfficial;
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
 
+  const webTest = location.hostname === 'dailyfoodfighter.com' ||
+                  location.hostname.endsWith('.pages.dev') ||
+                  document.body.dataset.testTools === 'enabled' ||
+                  new URLSearchParams(location.search).has('test');
+
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = account.unlocks[key] || !provider;
+      const unlocked = account.unlocks[key] || (webTest && !provider);
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
@@ -695,7 +700,7 @@ const official = window.scalpOfficial;
       button.textContent = funded ? label + ' · 사용 완료' : unlocked || !eligible || !ScalpReward.ready(provider, key) ? label : '광고 보고 ' + label + ' 이용하기';
     }
     $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
-      provider && !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
+      !webTest && provider && !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '' :
           '긴급자금대출은 신용매수가 실제 체결된 뒤 이용할 수 있어요.';
@@ -761,7 +766,7 @@ const official = window.scalpOfficial;
       return;
     }
     const provider = window.scalpRewardProvider;
-    if (account.unlocks[key] || !provider) {
+    if (account.unlocks[key] || (webTest && !provider)) {
       account.unlocks[key] = true;
       openTool(key);
       return;
