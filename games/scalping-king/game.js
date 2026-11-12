@@ -1196,13 +1196,6 @@ const official = window.scalpOfficial;
 
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
-    const nick = localStorage.getItem('scalpNickname');
-    if (!nick) {
-      $('officialAccountFeedback').textContent = '거래를 시작하기 전에 닉네임을 먼저 설정해 주세요.';
-      $('officialAccountDialog').showModal();
-      $('officialNickname').focus();
-      return;
-    }
     const quota = getLocalQuota();
     if (quota.free <= 0 && quota.bonus <= 0) {
       feedback('오늘 무료 5판을 모두 이용했어요. 광고를 시청하고 한 판 더 플레이하세요!', 'error');
