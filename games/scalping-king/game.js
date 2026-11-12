@@ -747,11 +747,8 @@ const official = window.scalpOfficial;
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
 
-  const isTestMode = location.hostname === 'localhost' ||
-                     location.hostname === '127.0.0.1' ||
-                     document.body.dataset.testTools === 'enabled' ||
-                     new URLSearchParams(location.search).has('test') ||
-                     new URLSearchParams(location.search).has('seed');
+  const isTestMode = document.body.dataset.testTools === 'enabled' ||
+                     new URLSearchParams(location.search).has('test');
 
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
