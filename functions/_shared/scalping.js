@@ -174,7 +174,7 @@ async function start(db, player, input, now) {
   const prior = await latestRound(db,player);
   // A new KST trading day must not inherit yesterday's unfinished session.
   const active = prior?.status === 'active' && prior.day === dayAt(now) &&
-    now-prior.started_ms < 86400000;
+    prior.version === GAME_VERSION && now-prior.started_ms < 86400000;
   if (!input.restart && active) return publicRound(prior,now);
   if (input.restart && prior?.id !== input.current) {
     if (active) return publicRound(prior,now);
@@ -274,7 +274,8 @@ export async function gameRequest(request, env, now = Date.now()) {
   if (input.action === 'profile') return profile(db,player,now);
   if (input.action === 'recover') {
     const recent = await latestRound(db,player);
-    return {round: recent?.day === dayAt(now) && recent.status !== 'abandoned' ? await publicRound(recent,now) : null};
+    return {round: recent?.day === dayAt(now) && recent.version === GAME_VERSION &&
+      recent.status !== 'abandoned' ? await publicRound(recent,now) : null};
   }
   if (input.action === 'deleteAccount') {
     if (input.confirm !== true) throw new ApiError('confirmation_required',400);
