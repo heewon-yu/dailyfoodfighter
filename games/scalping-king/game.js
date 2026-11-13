@@ -128,6 +128,7 @@ const official = window.scalpOfficial;
     if (localStorage.getItem('scalpQuotaDay') !== today) {
       localStorage.setItem('scalpQuotaDay', today);
       localStorage.setItem('scalpQuotaUsed', '0');
+      localStorage.setItem('scalpQuotaBonus', '0');
     }
     const used = Number(localStorage.getItem('scalpQuotaUsed') || '0');
     const bonus = Number(localStorage.getItem('scalpQuotaBonus') || '0');
