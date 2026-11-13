@@ -1,6 +1,6 @@
-# 5분단타왕 Android 인계
+# 5분 단타왕 Android 인계
 
-Capacitor 8.6.0 프로젝트이며 패키지명은 `com.dailyfoodfighter.scalpingking`입니다. Android 최소 API는 24이고 컴파일 및 대상 API는 36입니다. `www`에는 웹게임 커밋 `b346345b85ec9c72c9833ef341cf7374802eef08`을 기반으로 홈 버튼과 Android 보상형 광고 연결을 추가했습니다. 스토어에 올릴 512px 차트 아이콘과 1024 × 500 배너는 `store-assets/`에 있습니다.
+Capacitor 8.6.0 프로젝트이며 패키지명은 `com.dailyfoodfighter.scalpingking`입니다. Android 최소 API는 24이고 컴파일 및 대상 API는 36입니다. `npm run android:sync`가 실행될 때마다 현재 `games/scalping-king/` 파일과 개인정보처리방침·계정 삭제 페이지를 새로 패키징합니다. 이전 커밋의 정적 `www`가 공식 게임 소스로 남지 않도록 동기화합니다. 스토어에 올릴 512px 차트 아이콘과 1024 × 500 배너는 `store-assets/`에 있습니다.
 
 ## 다른 Windows PC에서 실행
 
@@ -30,7 +30,7 @@ Set-Location android
 - GitHub Actions 디버그 APK를 에뮬레이터에 설치해 오프라인 실행, 2주 매수와 홈 복귀를 확인했습니다. 실기기 검증과 업로드 키 서명은 출시 준비 단계입니다.
 - 첫 출시는 한국어입니다. Android 실기기에서 오프라인 실행, 노치·시스템 바 여백, 회전·폴더블 전환, 뒤로가기와 숫자 키보드를 확인합니다.
 - Google 공식 보상형 테스트 광고를 디버그 APK에 연결했습니다. 에뮬레이터에서 시청 보상으로 신용거래가 열리고 타이머가 이어지는 것을 확인했습니다. 배너·전면 테스트 광고와 운영 광고 설정은 후속 작업입니다.
-- 이후 스토어 스크린샷 5장, 개인정보처리방침, 데이터 보안 및 등급 양식을 준비하고, 업로드 키로 서명한 AAB를 Play Console 테스트 트랙에 등록합니다.
+- 실제 출시 전에 사용자 승인 스토어 스크린샷 5장·원본 01번 아이콘을 확인하고, 운영 개인정보처리방침과 계정 삭제 URL 공개, 데이터 보안·등급 신고를 완료합니다. 업로드 키로 서명한 AAB는 승인된 `main`의 수동 Actions 빌드로만 제작한 뒤 Play Console 내부 테스트 트랙에 등록합니다.
 
 ## GitHub Actions 빌드
 
@@ -44,7 +44,7 @@ GitHub Actions에서 서명 전 AAB를 `Scalping-King-Android-Unsigned-AAB` 산�
 
 ## 운영 보상형 AdMob 준비
 
-AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록하고 **앱 ID**와 **보상형 광고 단위 ID**를 생성합니다. 현재 신용거래·긴급자금대출·로스컷은 보상형 단위 하나를 공유합니다. 계정의 개인정보 보호 및 메시지에서 실제 배포 지역에 적용할 동의 메시지를 설정합니다.
+AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록하고 **앱 ID**와 **보상형 광고 단위 ID**를 생성합니다. 운영 빌드는 신용매수·긴급자금대출·로스컷·추가 판수마다 서로 다른 보상형 광고 단위 ID를 사용합니다. 테스트용 디버그 APK는 Google 공식 테스트 광고 단위를 공유할 수 있습니다. 계정의 개인정보 보호 및 메시지에서 실제 배포 지역에 적용할 동의 메시지를 설정합니다.
 
 출시 빌드에 환경변수 `SCALP_ADMOB_APP_ID`와 `SCALP_ADMOB_REWARDED_ID`를 둘 다 설정합니다. 같은 게시자에 속한 ID가 필요하며 Google 샘플 ID는 출시 빌드에서 거부합니다. ID가 없는 CI 산출물은 기본 게임 확인용입니다. 디버그는 Google 공식 테스트 ID를 사용합니다.
 
@@ -56,6 +56,6 @@ AdMob에서 Android 앱 패키지 `com.dailyfoodfighter.scalpingking`을 등록�
 
 ### Official rewarded placements
 
-Set SCALP_ADMOB_APP_ID and SCALP_ADMOB_REWARDED_ID for credit. Set SCALP_ADMOB_EMERGENCY_ID, SCALP_ADMOB_STOP_ID and SCALP_ADMOB_EXTRA_ID for their respective verified placements. Each production placement uses a distinct ad unit. The Android release bridge requires a server-issued nonce and the game waits for server-side confirmation. Configure each AdMob SSV URL to the deployed /scalping-king/admob route before enabling its ID. The debug APK uses Google’s official sample unit only.
+Set SCALP_ADMOB_APP_ID and SCALP_ADMOB_REWARDED_ID for credit. Set SCALP_ADMOB_EMERGENCY_ID, SCALP_ADMOB_STOP_ID and SCALP_ADMOB_EXTRA_ID for their respective verified placements. Each production placement uses a distinct ad unit. The Android release bridge requires a server-issued nonce and the game waits for server-side confirmation. Configure each AdMob SSV URL to the deployed /api/scalping/admob route before enabling its ID. The debug APK uses Google’s official sample unit only.
 
 Production AdMob app ID: ca-app-pub-7921440641343288~9202520759. The four placement suffixes are 6576357419 (credit), 5263275745 (emergency), 3638689534 (stop), and 7071482751 (extra round).
