@@ -5,14 +5,20 @@ on:
       - main
       - feature/scalping-king-v2-foundation
       - codex/scalping-king-integration-20261112
+      - codex/scalping-king-release-v5
+      - feature/scalping-king-d1-secure-integration-20261113
     paths:
       - 'games/scalping-king/**'
       - 'supabase/**'
+      - 'functions/api/scalping/**'
+      - 'functions/_shared/scalping.js'
       - '.github/workflows/scalping-v2-tests.yml'
   pull_request:
     paths:
       - 'games/scalping-king/**'
       - 'supabase/**'
+      - 'functions/api/scalping/**'
+      - 'functions/_shared/scalping.js'
       - '.github/workflows/scalping-v2-tests.yml'
 permissions:
   contents: read
@@ -35,6 +41,8 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --no-audit --no-fund playwright-core@1.65.0 @electric-sql/pglite@0.5.16
           npx playwright-core install --with-deps chromium
+      - name: D1 verified scoring, session ownership and signed rewards
+        run: node games/scalping-king/d1.test.mjs
       - name: Server result, signed callback and PostgreSQL isolation
         run: node games/scalping-king/official-v2.test.cjs
       - name: Desktop and mobile touch smoke tests
