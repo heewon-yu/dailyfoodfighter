@@ -320,6 +320,8 @@ async function run() {
     await practice.locator('#status').getByText(/거래 진행 중/).waitFor();
     assert.match(await practice.locator('#officialStatus').innerText(),/랭킹에 기록되지 않습니다/);
     assert.equal(await practice.locator('#creditTool').isDisabled(),true);
+    assert.equal(await practice.locator('#officialRankings').isDisabled(),true);
+    assert.equal(await practice.locator('#officialAccount').isDisabled(),true);
     await practice.locator('#quantity').fill('2');
     await practice.locator('#buy').tap();
     assert.match(await practice.locator('#feedback').innerText(),/체결/);
@@ -327,6 +329,7 @@ async function run() {
     await practice.locator('#practiceExit').tap();
     assert.equal(await practice.locator('#start').isVisible(),true);
     assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    assert.equal(await practice.locator('#officialRankings').isEnabled(),true);
     await practice.close();
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
