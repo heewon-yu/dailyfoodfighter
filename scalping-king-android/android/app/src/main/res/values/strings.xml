@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">5분단타왕</string>
-    <string name="title_activity_main">5분단타왕</string>
+    <string name="app_name">5분 단타왕</string>
+    <string name="title_activity_main">5분 단타왕</string>
     <string name="package_name">com.dailyfoodfighter.scalpingking</string>
     <string name="custom_url_scheme">com.dailyfoodfighter.scalpingking</string>
 </resources>
