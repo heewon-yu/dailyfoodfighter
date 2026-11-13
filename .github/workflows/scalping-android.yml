@@ -69,6 +69,7 @@ jobs:
               assert any(file.name == "index.html" for file in files)
               for file in files:
                   assert apk.read("assets/public/" + file.name) == file.read_bytes(), file
+              assert apk.read("assets/public/privacy/index.html") == Path("www/privacy/index.html").read_bytes()
           PY
       - name: Build unsigned Play release bundle
         working-directory: scalping-king-android/android
@@ -84,6 +85,7 @@ jobs:
               for file in Path("www").iterdir():
                   if file.is_file():
                       assert bundle.read("base/assets/public/" + file.name) == file.read_bytes(), file
+              assert bundle.read("base/assets/public/privacy/index.html") == Path("www/privacy/index.html").read_bytes()
           PY
       - uses: actions/upload-artifact@v4
         with:
