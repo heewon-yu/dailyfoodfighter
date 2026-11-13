@@ -11,7 +11,7 @@ export async function onRequestPost({request,env}) {
     const statuses=await db.batch([
       // Legacy pre-v5 client-submitted rankings must not remain indefinitely.
       db.prepare("DELETE FROM daily_rankings WHERE kst_day<?").bind(cutoff),
-      db.prepare("DELETE FROM rounds WHERE max(day,coalesce(end_day,day))<? AND (status<>'active' OR started_ms<?)").bind(cutoff,now-86400000),
+      db.prepare("DELETE FROM rounds WHERE day<? AND (end_day IS NULL OR end_day<?) AND (status<>'active' OR started_ms<?)").bind(cutoff,cutoff,now-86400000),
       db.prepare('DELETE FROM quotas WHERE day<?').bind(cutoff),
       db.prepare('DELETE FROM ad_intents WHERE day<? AND created_ms<?').bind(cutoff,now-86400000),
       db.prepare('DELETE FROM ad_receipts WHERE received_ms<?').bind(now-604800000),
