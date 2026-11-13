@@ -126,6 +126,18 @@ assert.equal(await verifiedCallback(signed.replace('7071482751','6576357419'),no
 // Retention must reject unauthorized maintenance calls and expire pre-v5 rows.
 sqlite.prepare('INSERT INTO daily_rankings (kst_day,nickname,rate,profit) VALUES (?,?,?,?)')
   .run('2020-01-01','오래된기록',777,777000);
+// Retention deletes by the older of actual deadlines only. A historical
+// start with a current completion date must not be purged prematurely.
+const ownerForRetention=sqlite.prepare('SELECT id FROM players WHERE token_hash=?')
+  .get(createHash('sha256').update(tokenA).digest('hex')).id;
+const insertRetentionRound=sqlite.prepare(
+  'INSERT INTO rounds(id,player_id,request_id,day,version,seed,market_key,started_ms,anchor_ms,status,end_day) VALUES (?,?,?,?,?,?,?,?,?,?,?)');
+const staleRoundId=crypto.randomUUID(), preservedRoundId=crypto.randomUUID();
+for(const [id,endDay] of [[staleRoundId,'2020-01-02'],[preservedRoundId,dayAt(Date.now())]]) {
+  insertRetentionRound.run(id,ownerForRetention,crypto.randomUUID(),'2020-01-01',
+    '20261112.1',1,'test-retention-key',Date.UTC(2020,0,1),Date.UTC(2020,0,1),
+    'completed',endDay);
+}
 const maintenanceToken='c'.repeat(64);
 const retentionRequest=token=>new Request(base+'/retention',{method:'POST',
   headers:{Authorization:'Bearer '+token}});
@@ -135,6 +147,8 @@ const cleanup=await retention({request:retentionRequest(maintenanceToken),env:{D
   SCALPING_D1_MAINTENANCE_DIGEST:createHash('sha256').update(maintenanceToken).digest('hex')}});
 assert.equal(cleanup.status,200);
 assert.equal(sqlite.prepare("SELECT count(*) AS n FROM daily_rankings WHERE kst_day='2020-01-01'").get().n,0);
+assert.equal(sqlite.prepare('SELECT count(*) AS n FROM rounds WHERE id=?').get(staleRoundId).n,0);
+assert.equal(sqlite.prepare('SELECT count(*) AS n FROM rounds WHERE id=?').get(preservedRoundId).n,1);
 console.log('Legacy D1 rankings retention and maintenance authentication tests passed');
 
 // An authenticated player can erase their profile and all linked scores/sessions.
