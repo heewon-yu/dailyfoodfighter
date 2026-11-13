@@ -71,6 +71,15 @@ await rejects(call({action:'finish',sessionId:round.session_id},tokenA,now+29999
 await rejects(call({action:'command',sessionId:round.session_id,
   requestId:crypto.randomUUID(),command:{kind:'credit',stock:0,percent:200}},
   tokenA,now+350),'not_eligible');
+await rejects(call({action:'command',sessionId:round.session_id,
+  requestId:crypto.randomUUID(),command:{kind:'stop',stock:0,percent:-3}},
+  tokenA,now+351),'not_eligible');
+await rejects(call({action:'command',sessionId:round.session_id,
+  requestId:crypto.randomUUID(),command:{kind:'emergency'}},
+  tokenA,now+352),'not_eligible');
+await rejects(call({action:'command',sessionId:round.session_id,
+  requestId:crypto.randomUUID(),command:{kind:'activate',feature:'credit',nonce:crypto.randomUUID()}},
+  tokenA,now+353),'ad_not_verified');
 const trade={action:'command',sessionId:round.session_id,requestId:crypto.randomUUID(),command:{kind:'order',stock:0,side:'buy',qty:2,price:null,tick:500}};
 const sent=await call(trade,tokenA,now+500);
 assert.equal(sent.commands[0].tick,1);
