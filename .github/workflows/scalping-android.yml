@@ -12,6 +12,12 @@ on:
       - 'games/scalping-king/**'
       - '.github/workflows/scalping-android.yml'
   workflow_dispatch:
+    inputs:
+      sign_release:
+        description: 'Build a signed production AAB from approved main (requires upload-key secrets)'
+        required: true
+        type: boolean
+        default: false
 permissions:
   contents: read
 jobs:
@@ -99,7 +105,7 @@ jobs:
         run: ./gradlew --no-daemon :app:compileReleaseJavaWithJavac
 
       - name: Sign production AAB with the Play upload key
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'workflow_dispatch' && inputs.sign_release == true && github.ref == 'refs/heads/main'
         working-directory: scalping-king-android/android
         env:
           KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
@@ -127,7 +133,7 @@ jobs:
           jarsigner -verify "$RUNNER_TEMP/scalping-king-release.aab"
           keytool -printcert -jarfile "$RUNNER_TEMP/scalping-king-release.aab" | grep -F 'SHA256:'
       - uses: actions/upload-artifact@v4
-        if: github.event_name != 'pull_request'
+        if: github.event_name == 'workflow_dispatch' && inputs.sign_release == true && github.ref == 'refs/heads/main'
         with:
           name: Scalping-King-Play-Signed-AAB
           path: ${{ runner.temp }}/scalping-king-release.aab
