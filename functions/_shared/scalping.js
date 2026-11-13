@@ -274,7 +274,7 @@ export async function gameRequest(request, env, now = Date.now()) {
   if (input.action === 'profile') return profile(db,player,now);
   if (input.action === 'recover') {
     const recent = await latestRound(db,player);
-    return recent?.day === dayAt(now) && recent.status !== 'abandoned' ? publicRound(recent,now) : null;
+    return {round: recent?.day === dayAt(now) && recent.status !== 'abandoned' ? await publicRound(recent,now) : null};
   }
   if (input.action === 'deleteAccount') {
     if (input.confirm !== true) throw new ApiError('confirmation_required',400);
