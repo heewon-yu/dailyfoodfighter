@@ -1,11 +1,12 @@
 import assert from 'node:assert/strict';
 import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
-import {createSign, generateKeyPairSync} from 'node:crypto';
+import {createSign, generateKeyPairSync, createHash} from 'node:crypto';
 import {performance} from 'node:perf_hooks';
 import {dayAt, gameRequest, storeReward} from '../../functions/_shared/scalping.js';
 import {onRequest as rankings} from '../../functions/api/scalping/rankings.js';
 import {verifiedCallback} from '../../functions/api/scalping/admob.js';
+import {onRequestPost as retention} from '../../functions/api/scalping/retention.js';
 
 const sqlite = new DatabaseSync(':memory:');
 sqlite.exec(readFileSync(new URL('../../functions/api/scalping/schema.sql',import.meta.url),'utf8'));
@@ -93,4 +94,18 @@ const signed=base+'/admob?'+sample+'&signature='+signature+'&key_id=9';
 const keys=async()=>[{keyId:9,pem:publicKey.export({type:'spki',format:'pem'})}];
 assert.equal((await verifiedCallback(signed,now,keys)).nonce,intent.nonce);
 assert.equal(await verifiedCallback(signed.replace('7071482751','6576357419'),now,keys),null);
+// Retention must reject unauthorized maintenance calls and expire pre-v5 rows.
+sqlite.prepare('INSERT INTO daily_rankings (kst_day,nickname,rate,profit) VALUES (?,?,?,?)')
+  .run('2020-01-01','오래된기록',777,777000);
+const maintenanceToken='c'.repeat(64);
+const retentionRequest=token=>new Request(base+'/retention',{method:'POST',
+  headers:{Authorization:'Bearer '+token}});
+assert.equal((await retention({request:retentionRequest('d'.repeat(64)),env:{DB,
+  SCALPING_D1_MAINTENANCE_DIGEST:createHash('sha256').update(maintenanceToken).digest('hex')}})).status,401);
+const cleanup=await retention({request:retentionRequest(maintenanceToken),env:{DB,
+  SCALPING_D1_MAINTENANCE_DIGEST:createHash('sha256').update(maintenanceToken).digest('hex')}});
+assert.equal(cleanup.status,200);
+assert.equal(sqlite.prepare("SELECT count(*) AS n FROM daily_rankings WHERE kst_day='2020-01-01'").get().n,0);
+console.log('Legacy D1 rankings retention and maintenance authentication tests passed');
+
 console.log('D1 SQLite session, verified scoring, ownership, KST, quota, SSV and idempotency tests passed');
