@@ -353,7 +353,13 @@ async function run() {
     await practice.locator('#practiceStart').tap();
     await practice.locator('#status').getByText(/거래 진행 중/).waitFor();
     assert.match(await practice.locator('#officialStatus').innerText(),/랭킹에 기록되지 않습니다/);
-    assert.equal(await practice.locator('#creditTool').isDisabled(),true);
+    assert.equal(await practice.locator('#creditTool').isEnabled(),true);
+    assert.equal(await practice.locator('#stopTool').isEnabled(),true);
+    assert.equal(await practice.locator('#emergencyTool').isDisabled(),true);
+    assert.match(await practice.locator('#rewardHint').innerText(),/무료로 사용할 수/);
+    await practice.locator('#creditTool').tap();
+    assert.equal(await practice.locator('#creditDialog').evaluate(el=>el.open),true);
+    await practice.locator('#creditDialog').evaluate(el=>el.close());
     assert.equal(await practice.locator('#officialRankings').isDisabled(),true);
     assert.equal(await practice.locator('#officialAccount').isDisabled(),true);
     await practice.locator('#quantity').fill('2');
