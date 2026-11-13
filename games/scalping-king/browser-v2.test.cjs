@@ -13,14 +13,25 @@ const MIME = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; char
 function serve() {
   return http.createServer((req, res) => {
     const url = new URL(req.url, 'http://localhost');
-    const name = path.basename(url.pathname) || 'index.html';
-    const mime = MIME[path.extname(name)];
-    if (!mime || !fs.existsSync(path.join(__dirname, name))) {
+    // Serve nested in-app pages too, while preventing traversal outside test root.
+    let filename;
+    try {
+      const decoded = decodeURIComponent(url.pathname);
+      const resolved = path.resolve(__dirname, '.' + decoded, decoded.endsWith('/') ? 'index.html' : '');
+      const relative = path.relative(__dirname, resolved);
+      if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('invalid path');
+      filename = resolved;
+    } catch {
+      res.writeHead(400).end();
+      return;
+    }
+    const mime = MIME[path.extname(filename)];
+    if (!mime || !fs.existsSync(filename) || !fs.statSync(filename).isFile()) {
       res.writeHead(404).end();
       return;
     }
-    res.writeHead(200, {'Content-Type': mime});
-    res.end(fs.readFileSync(path.join(__dirname, name)));
+    res.writeHead(200, {'Content-Type': mime, 'X-Content-Type-Options': 'nosniff'});
+    res.end(fs.readFileSync(filename));
   });
 }
 
@@ -42,6 +53,15 @@ async function run() {
         window.sharedScore = files.map(file => ({name: file.name, type: file.type, size: file.size}));
       }});
     });
+    // These URLs are required for Google Play and should work without authentication.
+    if (!remote) {
+      const privacy = await desktop.request.get(target + 'privacy/');
+      const deletion = await desktop.request.get(target + 'delete-account/');
+      assert.equal(privacy.status(), 200);
+      assert.equal(deletion.status(), 200);
+      assert.match(await privacy.text(), /개인정보처리방침/);
+      assert.match(await deletion.text(), /계정 및 데이터 삭제/);
+    }
     await desktop.goto(target + '?seed=5&test=1');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
     assert.equal(await desktop.locator('#gameHome').count(), 0);
