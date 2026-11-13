@@ -148,7 +148,7 @@ const official = window.scalpOfficial;
     $('officialExtra').hidden = !nickname || free > 0 || bonus > 0;
     $('officialNickname').value = nickname;
     if (practiceMode || isTestMode) $('officialStatus').textContent = '연습 모드 · 공식 랭킹에 기록되지 않아요.';
-    $('officialDeleteAccount').hidden = isTestMode || !official?.signedIn?.();
+    $('officialDeleteAccount').hidden = practiceMode || isTestMode || !official?.signedIn?.();
     $('officialExtra').hidden ||= practiceMode;
   }
 
@@ -560,6 +560,9 @@ const official = window.scalpOfficial;
     $('start').hidden = practiceMode || phase !== 'ready' || Boolean(result);
     $('practiceStart').hidden = practiceMode || phase !== 'ready' || Boolean(result);
     $('practiceExit').hidden = !practiceMode;
+    $('officialAccount').disabled = practiceMode;
+    $('officialRankings').disabled = practiceMode;
+    if (practiceMode) $('officialExtra').hidden = true;
     $('openScoreShare').hidden = !result;
     $('startNextRound').hidden = !result;
     for (const id of ['pause', 'jumpPause']) {
