@@ -1,0 +1,38 @@
+'use strict';
+// Source-based release invariants: complement (not replace) gameplay/browser/Android tests.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const root = path.resolve(__dirname, '../..');
+const read = p => fs.readFileSync(path.join(root,p),'utf8');
+const html = read('games/scalping-king/index.html');
+const privacy = read('games/scalping-king/privacy/index.html');
+const game = read('games/scalping-king/game.js');
+const client = read('games/scalping-king/official-client.js');
+const server = read('functions/api/scalping/rankings.js');
+const sessions = read('functions/_shared/scalping.js');
+const manifest = read('scalping-king-android/android/app/src/main/AndroidManifest.xml');
+const extraction = read('scalping-king-android/android/app/src/main/res/xml/data_extraction_rules.xml');
+const sync = read('scalping-king-android/scripts/sync-game.cjs');
+const workflow = read('.github/workflows/scalping-android.yml');
+
+assert.match(html, /SCALPING KING/);
+assert.doesNotMatch(html, /SCALPING ARENA|내기한판/);
+assert.match(html, /href="\.\/privacy\//);
+assert.match(html, /id="officialDeleteAccount"/);
+assert.match(privacy, /계정 및 기록 삭제/);
+assert.match(sync, /cpSync\(join\(source, 'privacy'\)/);
+assert.match(server, /verified_session_required/);
+assert.doesNotMatch(server, /INSERT INTO daily_rankings/);
+assert.match(sessions, /input\.action === 'deleteAccount'/);
+assert.match(client, /async deleteAccount\(/);
+assert.match(game, /'officialDeleteAccount'\)\.addEventListener/);
+assert.match(game, /isLocalTestHost/);
+assert.match(manifest, /android:allowBackup="false"/);
+assert.match(manifest, /android:dataExtractionRules="@xml\/data_extraction_rules"/);
+assert.match(extraction, /<cloud-backup>/);
+assert.match(extraction, /<device-transfer>/);
+assert.match(workflow, /inputs\.sign_release == true/);
+assert.match(workflow, /github\.ref == 'refs\/heads\/main'/);
+assert.match(workflow, /base\/assets\/public\/privacy\/index\.html/);
+console.log('Release invariants (branding, privacy, score trust, deletion, backup, signing) passed');
