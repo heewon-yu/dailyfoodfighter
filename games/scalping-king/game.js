@@ -755,9 +755,10 @@ const official = window.scalpOfficial;
 
   function renderRewardTools() {
     const provider = practiceMode ? null : window.scalpRewardProvider;
+    const freeWebPractice = practiceMode && window.Capacitor?.getPlatform?.() !== 'android';
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
-      const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider);
+      const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider) || freeWebPractice;
       const funded = key === 'emergency' && account.emergencyUsed;
       const eligible = key !== 'emergency' || risk.canUseEmergency(account);
       button.disabled = phase === 'done' || Boolean(result) || Boolean(adController) || funded || !eligible ||
@@ -766,7 +767,8 @@ const official = window.scalpOfficial;
         unlocked || !eligible || !ScalpReward.ready(provider, key) ? label :
         '광고 보고 ' + label + ' 이용하기';
     }
-    $('rewardHint').textContent = adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
+    $('rewardHint').textContent = freeWebPractice ? '웹 연습 모드에서는 추가 기능을 무료로 사용할 수 있어요. 공식 랭킹에는 기록되지 않습니다.' :
+      adController ? '광고 시청 중에는 장세와 타이머가 멈춰요.' :
       !rewardTools.some(({key}) => ScalpReward.ready(provider, key) || account.unlocks[key]) ?
         '보상형 광고를 사용할 수 없어요. 기본 거래는 계속할 수 있어요.' :
         account.everFilledCreditBuy ? '' :
@@ -837,7 +839,7 @@ const official = window.scalpOfficial;
       openTool(key);
       return;
     }
-    if (isTestMode && !provider) {
+    if ((isTestMode && !provider) || (practiceMode && window.Capacitor?.getPlatform?.() !== 'android')) {
       account.unlocks[key] = true;
       openTool(key);
       renderRewardTools();
