@@ -3,8 +3,9 @@ import {DatabaseSync} from 'node:sqlite';
 import {readFileSync} from 'node:fs';
 import {createSign, generateKeyPairSync, createHash} from 'node:crypto';
 import {performance} from 'node:perf_hooks';
-import {dayAt, gameRequest, storeReward} from '../../functions/_shared/scalping.js';
+import {dayAt, gameRequest, storeReward, originFor} from '../../functions/_shared/scalping.js';
 import {onRequest as rankings} from '../../functions/api/scalping/rankings.js';
+import {onRequest as session} from '../../functions/api/scalping/session.js';
 import {verifiedCallback} from '../../functions/api/scalping/admob.js';
 import {onRequestPost as retention} from '../../functions/api/scalping/retention.js';
 
@@ -38,6 +39,18 @@ assert.equal(dayAt(Date.UTC(2026,10,12,14,59,59)),'2026-11-12');
 assert.equal(dayAt(Date.UTC(2026,10,12,15)),'2026-11-13');
 assert.equal((await rankings({request:make(null,null,'/rankings'),env:{}})).status,503);
 assert.equal((await rankings({request:make({nickname:'위조',rate:999,profit:999999},tokenA,'/rankings'),env:{DB}})).status,400);
+// Reject untrusted browser origins and refuse oversized/untrusted session payloads.
+assert.equal(originFor(new Request(base+'/session',{headers:{Origin:'https://dailyfoodfighter.com'}})),
+  'https://dailyfoodfighter.com');
+assert.throws(()=>originFor(new Request(base+'/session',{headers:{Origin:'https://evil.example'}})),
+  error=>error.message==='origin_denied');
+assert.equal((await session({request:new Request(base+'/session',{method:'POST',headers:{
+  Origin:'https://evil.example','Content-Type':'application/json'},body:JSON.stringify({action:'register',nickname:'악성사용자'})}),env:{DB}})).status,403);
+assert.equal((await session({request:new Request(base+'/session',{method:'POST',
+  headers:{Authorization:'Bearer '+tokenA,'Content-Type':'application/json'},
+  body:JSON.stringify({action:'register',nickname:'가'.repeat(5000)})}),env:{DB}})).status,413);
+assert.equal((await rankings({request:make({action:'finish',rate:500,profit:100000000},tokenA,'/rankings'),
+  env:{DB}})).status,400);
 await rejects(call(start()),'identity_required');
 assert.equal((await call({action:'register',nickname:'동일닉네임'})).free,5);
 assert.equal((await call({action:'register',nickname:'동일닉네임'},tokenB)).free,5);
