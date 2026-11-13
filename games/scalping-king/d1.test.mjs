@@ -153,5 +153,17 @@ assert.equal((await call({action:'profile'},tokenC,afterMidnight)).free,4);
 assert.equal(sqlite.prepare('SELECT used FROM quotas WHERE player_id=(SELECT id FROM players WHERE token_hash=?) AND day=?')
  .get(createHash('sha256').update(tokenC).digest('hex'),'2026-11-12').used,1);
 console.log('KST midnight rollover correctly abandons stale active rounds');
+// A patched game engine must not replay or silently resume an incompatible round.
+const tokenD='f'.repeat(64);
+assert.equal((await call({action:'register',nickname:'버전변경'},tokenD,now)).free,5);
+const oldVersion=await call(start(),tokenD,now);
+sqlite.prepare('UPDATE rounds SET version=? WHERE id=?').run('legacy.0',oldVersion.session_id);
+assert.equal((await call({action:'recover'},tokenD,now+1000)).round,null);
+const updatedVersion=await call(start(),tokenD,now+1001);
+assert.notEqual(updatedVersion.session_id,oldVersion.session_id);
+assert.equal(sqlite.prepare('SELECT status FROM rounds WHERE id=?').get(oldVersion.session_id).status,'abandoned');
+assert.equal((await call({action:'profile'},tokenD,now+1002)).free,3);
+console.log('Incompatible game version cannot be resumed across a release');
+
 
 console.log('D1 SQLite session, verified scoring, ownership, KST, quota, SSV and idempotency tests passed');
