@@ -270,6 +270,21 @@ export async function gameRequest(request, env, now = Date.now()) {
   const player = await playerFor(db,request);
   guardRate('player:'+player.id,180,now);
   if (input.action === 'profile') return profile(db,player,now);
+  if (input.action === 'deleteAccount') {
+    if (input.confirm !== true) throw new ApiError('confirmation_required',400);
+    // Delete dependent records explicitly: works even when FK enforcement differs
+    // between test SQLite and deployed D1. Receipts contain no player identifier
+    // and expire automatically as replay-protection records.
+    await db.batch([
+      db.prepare('DELETE FROM ad_intents WHERE player_id=?').bind(player.id),
+      db.prepare('DELETE FROM verified_scores WHERE player_id=?').bind(player.id),
+      db.prepare('DELETE FROM rounds WHERE player_id=?').bind(player.id),
+      db.prepare('DELETE FROM quotas WHERE player_id=?').bind(player.id),
+      db.prepare('DELETE FROM players WHERE id=?').bind(player.id),
+    ]);
+    roundCache.clear();
+    return {deleted:true};
+  }
   if (input.action === 'start') return start(db,player,input,now);
   if (input.action === 'adStatus') {
     if (!uuid(input.nonce)) throw new ApiError('invalid_ad_intent');
