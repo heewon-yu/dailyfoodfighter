@@ -41,5 +41,6 @@ Cloudflare(D1/Pages 등) 및 Google(AdMob/UMP) 등 실제 사용 업체와 국�
 - [ ] 실제 앱 및 서버의 데이터 수집·공유·삭제/광고 SDK 검증
 - [ ] Cloudflare·Google의 처리 목적과 정책 링크 및 해외 이전 정보 확인
 - [ ] 앱 내 개인정보처리방침 링크와 Google Play URL 동일
+- [ ] Play Console 데이터 삭제용 웹페이지 `/games/scalping-king/delete-account/` 실제 게시 여부, 수신 이메일/요청 처리 절차 확인
 - [ ] Data safety 신고와 한 문장도 모순되지 않는지 확인
 - [ ] 공개 페이지는 로그인 없이 전 세계에서 HTTPS로 열리고 PDF가 아님
