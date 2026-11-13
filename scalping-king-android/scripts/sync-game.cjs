@@ -1,12 +1,14 @@
 'use strict';
 
-const {copyFileSync, cpSync, mkdirSync, readFileSync, writeFileSync} = require('node:fs');
+const {copyFileSync, cpSync, mkdirSync, rmSync, readFileSync, writeFileSync} = require('node:fs');
 const {join} = require('node:path');
 
 const root = join(__dirname, '..');
 const source = join(root, '..', 'games', 'scalping-king');
 const output = join(root, 'www');
 const files = ["index.html","style.css","game.js","chart.js","market.js","engine-v2.js","ledger-v2.js","microstructure-v2.js","risk-v2.js","reward-v2.js","official-client.js","official-engine.mjs"];
+// Rebuild from an empty output directory to avoid shipping stale scripts or pages.
+rmSync(output, {recursive: true, force: true});
 mkdirSync(output, {recursive: true});
 for (const name of files) copyFileSync(join(source, name), join(output, name));
 copyFileSync(join(root, 'src', 'android-reward.js'), join(output, 'android-reward.js'));
