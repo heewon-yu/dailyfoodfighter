@@ -32,5 +32,10 @@
     call: body => request(body.action==='finish'?'/rankings':'/session',body,identity()),
     rankings: () => request('/rankings'),
     mine: () => request('/rankings?mine=1',undefined,identity()),
+    async deleteAccount() {
+      const result = await request('/session',{action:'deleteAccount',confirm:true},identity());
+      if (result.deleted) localStorage.removeItem(storage);
+      return result;
+    },
   });
 }());
