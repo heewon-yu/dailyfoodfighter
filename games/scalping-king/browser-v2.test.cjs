@@ -45,7 +45,8 @@ async function run() {
     await desktop.goto(target + '?seed=5&test=1');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
     assert.equal(await desktop.locator('#gameHome').count(), 0);
-    assert.equal(await desktop.locator('#stopTool').isDisabled(), true);
+    // Local ?test=1 intentionally unlocks reward tools without a provider.
+    assert.equal(await desktop.locator('#stopTool').isDisabled(), false);
     assert.equal(await desktop.locator('#emergencyTool').isDisabled(), true);
     const layout = () => desktop.evaluate(() => {
       const rect = selector => document.querySelector(selector).getBoundingClientRect();
