@@ -306,6 +306,23 @@ async function run() {
     await officialPage.locator('#result').waitFor({timeout: 12000});
     assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
     assert.equal(used, 1);
+    // Offline/unranked practice must work without creating a player identity.
+    const practice = await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+    attach(practice);
+    await practice.goto(target + '?seed=7');
+    assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    await practice.locator('#practiceStart').tap();
+    await practice.locator('#status').getByText(/거래 진행 중/).waitFor();
+    assert.match(await practice.locator('#officialStatus').innerText(),/랭킹에 기록되지 않습니다/);
+    assert.equal(await practice.locator('#creditTool').isDisabled(),true);
+    await practice.locator('#quantity').fill('2');
+    await practice.locator('#buy').tap();
+    assert.match(await practice.locator('#feedback').innerText(),/체결/);
+    practice.once('dialog',dialog=>dialog.accept());
+    await practice.locator('#practiceExit').tap();
+    assert.equal(await practice.locator('#start').isVisible(),true);
+    assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    await practice.close();
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
   } finally {
