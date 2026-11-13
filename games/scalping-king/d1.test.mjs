@@ -134,4 +134,19 @@ await rejects(call({action:'profile'},tokenB,now+720002),'identity_required');
 assert.equal((await call({action:'profile'},tokenA,now+720002)).nickname,'동일닉네임');
 console.log('Self-service deletion removes sessions and scores and invalidates the identity token');
 
+// A round started yesterday must not block today's first free round.
+const tokenC='e'.repeat(64);
+const beforeMidnight=Date.UTC(2026,10,12,14,59);
+const afterMidnight=Date.UTC(2026,10,12,15,1);
+assert.equal((await call({action:'register',nickname:'날짜경계'},tokenC,beforeMidnight)).free,5);
+const yesterdayRound=await call(start(),tokenC,beforeMidnight);
+const todayRound=await call(start(),tokenC,afterMidnight);
+assert.notEqual(todayRound.session_id,yesterdayRound.session_id);
+assert.equal(todayRound.kst_day,'2026-11-13');
+assert.equal(sqlite.prepare('SELECT status FROM rounds WHERE id=?').get(yesterdayRound.session_id).status,'abandoned');
+assert.equal((await call({action:'profile'},tokenC,afterMidnight)).free,4);
+assert.equal(sqlite.prepare('SELECT used FROM quotas WHERE player_id=(SELECT id FROM players WHERE token_hash=?) AND day=?')
+ .get(createHash('sha256').update(tokenC).digest('hex'),'2026-11-12').used,1);
+console.log('KST midnight rollover correctly abandons stale active rounds');
+
 console.log('D1 SQLite session, verified scoring, ownership, KST, quota, SSV and idempotency tests passed');
