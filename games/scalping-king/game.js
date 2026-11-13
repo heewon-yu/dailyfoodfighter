@@ -187,6 +187,22 @@ const official = window.scalpOfficial;
     render();
   }
 
+  async function restoreOfficialSession() {
+    if (isTestMode || practiceMode || !official?.signedIn?.()) return;
+    try {
+      const response = await official.call({action: 'recover'});
+      if (!response?.round || officialBusy || officialSession || phase !== 'ready' || practiceMode) return;
+      officialEngine ||= await import('./official-engine.mjs');
+      applyOfficialSession(response.round, true);
+      if (response.round.status === 'active') {
+        feedback('이전에 진행하던 공식 게임을 복원했습니다.', 'ok');
+      }
+    } catch {
+      // Older live API deployments may not support recovery yet; practice and
+      // fresh starts must remain usable. Do not overwrite the profile status.
+    }
+  }
+
   async function startOfficial(restart = false) {
     if (officialBusy || privacyBusy || adController) return;
     if (!officialProfile?.nickname) {
@@ -364,7 +380,8 @@ const official = window.scalpOfficial;
       if (document.hidden) stopRankingPoll();
       else if ($('officialRankingDialog').open) refreshRankings();
     });
-    refreshOfficialProfile().catch(error => { $('officialStatus').textContent = officialMessage(error); });
+    refreshOfficialProfile().then(restoreOfficialSession)
+      .catch(error => { $('officialStatus').textContent = officialMessage(error); });
   }
 
   let rankingTimer, rankingPending = false;
