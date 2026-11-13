@@ -10,7 +10,7 @@
 - [ ] 귤 (Tangerine)
 - [ ] 포도 (Grape)
 - [x] 블루베리 (Blueberry) - 2026-11-04 한/영 발행완료
-- [ ] 딸기 (Strawberry)
+- [x] 딸기 (Strawberry) - 2026-11-14 한/영 발행완료
 - [ ] 수박 (Watermelon)
 - [ ] 참외 (Oriental Melon)
 - [ ] 복숭아 (Peach)
@@ -45,7 +45,7 @@
 - [ ] 가지 (Eggplant)
 - [ ] 호박 (Pumpkin / Zucchini)
 - [ ] 감자 (Potato)
-- [ ] 고구마 (Sweet Potato)
+- [x] 고구마 (Sweet Potato) - 2026-11-14 한/영 발행완료
 - [ ] 아스파라거스 (Asparagus)
 - [ ] 샐러리 (Celery)
 - [ ] 케일 (Kale)
@@ -70,7 +70,7 @@
 - [ ] 소고기 우둔·사태 (Beef Round)
 - [ ] 돼지고기 삼겹살 (Pork Belly)
 - [ ] 돼지고기 목살 (Pork Shoulder)
-- [ ] 돼지고기 안심 (Pork Tenderloin)
+- [x] 돼지고기 안심 (Pork Tenderloin) - 2026-11-13 한/영 발행완료
 - [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
 - [ ] 닭다리살 (Chicken Thigh)
 - [ ] 오리고기 (Duck Meat)
@@ -95,7 +95,7 @@
 - [ ] 삼치 (Spanish Mackerel)
 - [ ] 갈치 (Hairtail)
 - [ ] 명태/북어/황태 (Pollock)
-- [ ] 오징어 (Squid)
+- [x] 오징어 (Squid) - 2026-11-13 한/영 발행완료
 - [ ] 문어 (Octopus)
 - [ ] 낙지 (Small Octopus)
 - [x] 새우 (Shrimp) - 2026-11-09 한/영 발행완료
