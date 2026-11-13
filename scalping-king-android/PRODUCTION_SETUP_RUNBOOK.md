@@ -9,7 +9,7 @@ Review PR #5 checks and confirm release readiness before merging. Do not use dev
 4. Confirm `/api/scalping/rankings` returns the expected JSON. The API must reject POST bodies with client-controlled `nickname`, `rate` or `profit` (400); do not post destructive sample data to the production service.
 5. Confirm an authorized test player can register, start a round, submit commands, finish a complete timed round and appear in rankings; do this in preview/staging before live.
 6. Verify the new verified-score API has been deployed **before distributing the Android binary**. Android's official client targets `https://dailyfoodfighter.com/api/scalping`.
-7. Review account deletion, profile/token persistence, nickname duplicates, consent, breach logging and data retention on the real D1 database.
+7. Verify the self-service account deletion (nickname dialog → 계정 및 기록 삭제) removes the authenticated player, sessions, scores, quotas and ad intents; the token must no longer work. Test on staging only and confirm the privacy page reflects deployed behavior. Check profile/token persistence, nickname duplicates, consent, incident logging and retention.
 
 ## 2. Cleanup scheduler (disabled by default)
 - A GitHub Actions workflow `.github/workflows/scalping-retention.yml` runs at 01:20 KST only after enabling repository variable `SCALPING_RETENTION_ENABLED=true`.
