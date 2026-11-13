@@ -9,6 +9,8 @@ export async function onRequestPost({request,env}) {
     if(diff || env.SCALPING_D1_MAINTENANCE_DIGEST.length!==64) throw new ApiError('unauthorized',401);
     const db=dbFor(env),now=Date.now(),cutoff=dayAt(now-86400000);
     const statuses=await db.batch([
+      // Legacy pre-v5 client-submitted rankings must not remain indefinitely.
+      db.prepare("DELETE FROM daily_rankings WHERE kst_day<?").bind(cutoff),
       db.prepare("DELETE FROM rounds WHERE max(day,coalesce(end_day,day))<? AND (status<>'active' OR started_ms<?)").bind(cutoff,now-86400000),
       db.prepare('DELETE FROM quotas WHERE day<?').bind(cutoff),
       db.prepare('DELETE FROM ad_intents WHERE day<? AND created_ms<?').bind(cutoff,now-86400000),
