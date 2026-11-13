@@ -311,6 +311,11 @@ async function run() {
     attach(practice);
     await practice.goto(target + '?seed=7');
     assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    await practice.setViewportSize({width:320,height:844});
+    assert.equal(await practice.evaluate(()=>document.documentElement.scrollWidth),320);
+    const practiceButton=await practice.locator('#practiceStart').boundingBox();
+    assert.ok(practiceButton.x>=0 && practiceButton.x+practiceButton.width<=320);
+    await practice.setViewportSize({width:390,height:844});
     await practice.locator('#practiceStart').tap();
     await practice.locator('#status').getByText(/거래 진행 중/).waitFor();
     assert.match(await practice.locator('#officialStatus').innerText(),/랭킹에 기록되지 않습니다/);
