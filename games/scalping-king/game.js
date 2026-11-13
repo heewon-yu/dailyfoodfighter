@@ -147,6 +147,7 @@ const official = window.scalpOfficial;
     $('officialExtra').hidden = !nickname || free > 0 || bonus > 0;
     $('officialNickname').value = nickname;
     if (isTestMode) $('officialStatus').textContent = '연습 모드 · 공식 랭킹에 기록되지 않아요.';
+    $('officialDeleteAccount').hidden = isTestMode || !official?.signedIn?.();
   }
 
   function addOfficialFeed(row) {
@@ -320,6 +321,31 @@ const official = window.scalpOfficial;
         feedback(nick + ' 님, 닉네임 설정 완료!', 'ok');
       } catch (error) {
         $('officialAccountFeedback').textContent = officialMessage(error);
+      }
+    });
+    $('officialDeleteAccount').addEventListener('click', async () => {
+      if (!official?.signedIn?.() || officialBusy || adController) return;
+      if (!window.confirm('서버에 저장된 계정, 게임 기록과 랭킹을 삭제합니다. 복구할 수 없습니다. 계속하시겠습니까?')) return;
+      officialBusy = true;
+      const button = $('officialDeleteAccount');
+      button.disabled = true;
+      try {
+        const response = await official.deleteAccount();
+        if (!response?.deleted) throw new Error('service_unavailable');
+        for (const key of ['scalpNickname','scalpQuotaDay','scalpQuotaUsed','scalpQuotaBonus',bestKey])
+          localStorage.removeItem(key);
+        officialProfile = null;
+        best = null;
+        $('officialAccountDialog').close();
+        reset();
+        await refreshOfficialProfile();
+        feedback('계정 및 서버 게임 기록을 삭제했습니다.', 'ok');
+      } catch (error) {
+        $('officialAccountFeedback').textContent = officialMessage(error);
+      } finally {
+        officialBusy = false;
+        button.disabled = false;
+        renderPhase();
       }
     });
     $('officialExtra').addEventListener('click', () => {
