@@ -20,6 +20,9 @@ on:
       - 'functions/api/scalping/**'
       - 'functions/_shared/scalping.js'
       - '.github/workflows/scalping-v2-tests.yml'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 permissions:
   contents: read
 jobs:
