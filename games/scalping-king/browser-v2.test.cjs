@@ -284,6 +284,7 @@ async function run() {
     }
     await officialPage.exposeFunction('testOfficialRpc', async input => {
       if (input.action === 'profile') return {nickname: '브라우저테스트', free: 5 - used, bonus: 0};
+      if (input.action === 'recover') return {round: session.status === 'completed' ? snapshot() : null};
       if (input.action === 'start') {
         assert.match(input.requestId, /^[a-f0-9-]{36}$/);
         assert.equal(input.version, '20261112.1');
@@ -335,6 +336,10 @@ async function run() {
     await officialPage.locator('#result').waitFor({timeout: 12000});
     assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
     assert.equal(used, 1);
+    await officialPage.reload();
+    await officialPage.locator('#result').waitFor({timeout: 10000});
+    assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
+    assert.equal(used, 1, 'Reloaded session must not consume an extra free game');
     // Offline/unranked practice must work without creating a player identity.
     const practice = await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
     attach(practice);
