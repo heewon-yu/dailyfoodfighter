@@ -31,7 +31,7 @@ Review PR #5 checks and confirm release readiness before merging. Do not use dev
 2. Review `.github/workflows/scalping-android.yml`, its signing secret names, and CI artifacts before using them. The default AAB may be unsigned and/or not include production ads.
 3. Create/store Play upload key securely, use Play App Signing, and submit a **signed** release AAB. Verify versionCode increase, installation and update from Play internal track.
 4. Confirm launcher icon, adaptive icon, graphics and five screenshots match the approved 01 design and actual current game. Don't replace assets from synthetic artwork without the owner's approved originals.
-5. Publish an app-specific Korean privacy policy, verify SDK data flows, app data deletion process, account/age declaration, Ads/Data Safety/Financial Features declarations, then configure test track and production releases.
+5. Publish an app-specific Korean privacy policy at `https://dailyfoodfighter.com/games/scalping-king/privacy/` and a separate external account deletion request page at `https://dailyfoodfighter.com/games/scalping-king/delete-account/`. Verify both URLs are reachable without signing in, and add the deletion URL to the Google Play Data deletion field. Verify SDK data flows, account/age declaration, Ads/Data Safety/Financial Features declarations, then configure test track and production releases.
 6. Test on real Android devices: boot without network, data switch, navigation/back button, keyboard, system bars, foldable/rotation, interruptions, reward flow, 5-minute finish, verified daily leaderboard, and app updates.
 7. Account-specific closed testing requirements must be checked inside Google Play Console. Do not treat developer account approval as production approval.
 
