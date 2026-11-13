@@ -35,7 +35,9 @@ export function applyCommand(state, action) {
     case 'order':
       return limit === undefined ? executeOrder(stock, account, action.side, action.qty) :
         placeLimit(stock, account, action.side, action.qty, limit);
-    case 'credit': return executeCredit(stock, account, action.percent, limit);
+    case 'credit':
+      if (!account.unlocks.credit) return {error: 'not_eligible'};
+      return executeCredit(stock, account, action.percent, limit);
     case 'cancel': return cancelLimit(market, account, action.order);
     case 'amend': return amendLimit(market, account, action.order, action.qty, action.price);
     case 'activate':
