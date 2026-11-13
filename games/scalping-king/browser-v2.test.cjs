@@ -63,6 +63,15 @@ async function run() {
       assert.match(await deletion.text(), /계정 및 데이터 삭제/);
     }
     await desktop.goto(target + '?seed=5&test=1');
+    // Old offline quota/extra game entitlements must not carry across KST days.
+    await desktop.evaluate(() => {
+      localStorage.setItem('scalpQuotaDay', '2000-01-01');
+      localStorage.setItem('scalpQuotaUsed', '5');
+      localStorage.setItem('scalpQuotaBonus', '1');
+    });
+    await desktop.reload();
+    assert.equal(await desktop.evaluate(() => localStorage.getItem('scalpQuotaUsed')), '0');
+    assert.equal(await desktop.evaluate(() => localStorage.getItem('scalpQuotaBonus')), '0');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
     assert.equal(await desktop.locator('#gameHome').count(), 0);
     // Local ?test=1 intentionally unlocks reward tools without a provider.
