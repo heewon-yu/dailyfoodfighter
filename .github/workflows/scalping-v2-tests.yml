@@ -5,15 +5,24 @@ on:
       - main
       - feature/scalping-king-v2-foundation
       - codex/scalping-king-integration-20261112
+      - codex/scalping-king-release-v5
+      - feature/scalping-king-d1-secure-integration-20261113
     paths:
       - 'games/scalping-king/**'
       - 'supabase/**'
+      - 'functions/api/scalping/**'
+      - 'functions/_shared/scalping.js'
       - '.github/workflows/scalping-v2-tests.yml'
   pull_request:
     paths:
       - 'games/scalping-king/**'
       - 'supabase/**'
+      - 'functions/api/scalping/**'
+      - 'functions/_shared/scalping.js'
       - '.github/workflows/scalping-v2-tests.yml'
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name != 'workflow_dispatch' }}
 permissions:
   contents: read
 jobs:
@@ -25,6 +34,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Release safety and privacy invariants
+        run: node games/scalping-king/release-contract.test.cjs
       - name: Risk and accounting
         run: node games/scalping-king/risk-v2.test.cjs
       - name: Persistent order book and VI
@@ -35,6 +46,8 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --no-audit --no-fund playwright-core@1.65.0 @electric-sql/pglite@0.5.16
           npx playwright-core install --with-deps chromium
+      - name: D1 verified scoring, session ownership and signed rewards
+        run: node games/scalping-king/d1.test.mjs
       - name: Server result, signed callback and PostgreSQL isolation
         run: node games/scalping-king/official-v2.test.cjs
       - name: Desktop and mobile touch smoke tests

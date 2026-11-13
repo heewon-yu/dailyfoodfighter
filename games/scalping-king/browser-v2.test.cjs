@@ -13,14 +13,25 @@ const MIME = {'.html': 'text/html; charset=utf-8', '.js': 'text/javascript; char
 function serve() {
   return http.createServer((req, res) => {
     const url = new URL(req.url, 'http://localhost');
-    const name = path.basename(url.pathname) || 'index.html';
-    const mime = MIME[path.extname(name)];
-    if (!mime || !fs.existsSync(path.join(__dirname, name))) {
+    // Serve nested in-app pages too, while preventing traversal outside test root.
+    let filename;
+    try {
+      const decoded = decodeURIComponent(url.pathname);
+      const resolved = path.resolve(__dirname, '.' + decoded, decoded.endsWith('/') ? 'index.html' : '');
+      const relative = path.relative(__dirname, resolved);
+      if (relative.startsWith('..') || path.isAbsolute(relative)) throw new Error('invalid path');
+      filename = resolved;
+    } catch {
+      res.writeHead(400).end();
+      return;
+    }
+    const mime = MIME[path.extname(filename)];
+    if (!mime || !fs.existsSync(filename) || !fs.statSync(filename).isFile()) {
       res.writeHead(404).end();
       return;
     }
-    res.writeHead(200, {'Content-Type': mime});
-    res.end(fs.readFileSync(path.join(__dirname, name)));
+    res.writeHead(200, {'Content-Type': mime, 'X-Content-Type-Options': 'nosniff'});
+    res.end(fs.readFileSync(filename));
   });
 }
 
@@ -42,10 +53,29 @@ async function run() {
         window.sharedScore = files.map(file => ({name: file.name, type: file.type, size: file.size}));
       }});
     });
-    await desktop.goto(target + '?seed=5');
+    // These URLs are required for Google Play and should work without authentication.
+    if (!remote) {
+      const privacy = await desktop.request.get(target + 'privacy/');
+      const deletion = await desktop.request.get(target + 'delete-account/');
+      assert.equal(privacy.status(), 200);
+      assert.equal(deletion.status(), 200);
+      assert.match(await privacy.text(), /개인정보처리방침/);
+      assert.match(await deletion.text(), /계정 및 데이터 삭제/);
+    }
+    await desktop.goto(target + '?seed=5&test=1');
+    // Old offline quota/extra game entitlements must not carry across KST days.
+    await desktop.evaluate(() => {
+      localStorage.setItem('scalpQuotaDay', '2000-01-01');
+      localStorage.setItem('scalpQuotaUsed', '5');
+      localStorage.setItem('scalpQuotaBonus', '1');
+    });
+    await desktop.reload();
+    assert.equal(await desktop.evaluate(() => localStorage.getItem('scalpQuotaUsed')), '0');
+    assert.equal(await desktop.evaluate(() => localStorage.getItem('scalpQuotaBonus')), '0');
     assert.equal(await desktop.locator('#watchlist [data-stock]').count(), 10);
-    assert.equal(await desktop.locator('#creditTool').isDisabled(), true);
-    assert.equal(await desktop.locator('#stopTool').isDisabled(), true);
+    assert.equal(await desktop.locator('#gameHome').count(), 0);
+    // Local ?test=1 intentionally unlocks reward tools without a provider.
+    assert.equal(await desktop.locator('#stopTool').isDisabled(), false);
     assert.equal(await desktop.locator('#emergencyTool').isDisabled(), true);
     const layout = () => desktop.evaluate(() => {
       const rect = selector => document.querySelector(selector).getBoundingClientRect();
@@ -162,7 +192,7 @@ async function run() {
         Object.defineProperty(window, 'ScalpMarket', {value: api});
       }});
     });
-    await mobile.goto(target + '?seed=5');
+    await mobile.goto(target + '?seed=5&test=1');
     assert.equal(await mobile.locator('#emergencyTool').isDisabled(), true);
     assert.equal(await mobile.evaluate(() => document.documentElement.scrollWidth), 390);
     assert.ok(await listFits(mobile));
@@ -254,6 +284,7 @@ async function run() {
     }
     await officialPage.exposeFunction('testOfficialRpc', async input => {
       if (input.action === 'profile') return {nickname: '브라우저테스트', free: 5 - used, bonus: 0};
+      if (input.action === 'recover') return {round: session.status === 'completed' ? snapshot() : null};
       if (input.action === 'start') {
         assert.match(input.requestId, /^[a-f0-9-]{36}$/);
         assert.equal(input.version, '20261112.1');
@@ -305,6 +336,73 @@ async function run() {
     await officialPage.locator('#result').waitFor({timeout: 12000});
     assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
     assert.equal(used, 1);
+    await officialPage.reload();
+    await officialPage.locator('#result').waitFor({timeout: 10000});
+    assert.match(await officialPage.locator('#score').innerText(), /최종 순자산/);
+    assert.equal(used, 1, 'Reloaded session must not consume an extra free game');
+    // Offline/unranked practice must work without creating a player identity.
+    const practice = await browser.newPage({viewport:{width:390,height:844},isMobile:true,hasTouch:true});
+    attach(practice);
+    await practice.goto(target + '?seed=7');
+    assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    await practice.setViewportSize({width:320,height:844});
+    assert.equal(await practice.evaluate(()=>document.documentElement.scrollWidth),320);
+    const practiceButton=await practice.locator('#practiceStart').boundingBox();
+    assert.ok(practiceButton.x>=0 && practiceButton.x+practiceButton.width<=320);
+    await practice.setViewportSize({width:390,height:844});
+    await practice.locator('#practiceStart').tap();
+    await practice.locator('#status').getByText(/거래 진행 중/).waitFor();
+    assert.match(await practice.locator('#officialStatus').innerText(),/랭킹에 기록되지 않습니다/);
+    assert.equal(await practice.locator('#creditTool').isEnabled(),true);
+    assert.equal(await practice.locator('#stopTool').isEnabled(),true);
+    assert.equal(await practice.locator('#emergencyTool').isDisabled(),true);
+    assert.match(await practice.locator('#rewardHint').innerText(),/무료로 사용할 수/);
+    await practice.locator('#creditTool').tap();
+    assert.equal(await practice.locator('#creditDialog').evaluate(el=>el.open),true);
+    await practice.locator('#creditDialog').evaluate(el=>el.close());
+    assert.equal(await practice.locator('#officialRankings').isDisabled(),true);
+    assert.equal(await practice.locator('#officialAccount').isDisabled(),true);
+    await practice.locator('#quantity').fill('2');
+    await practice.locator('#buy').tap();
+    assert.match(await practice.locator('#feedback').innerText(),/체결/);
+    practice.once('dialog',dialog=>dialog.accept());
+    await practice.locator('#practiceExit').tap();
+    assert.equal(await practice.locator('#start').isVisible(),true);
+    assert.equal(await practice.locator('#practiceStart').isVisible(),true);
+    assert.equal(await practice.locator('#officialRankings').isEnabled(),true);
+    await practice.close();
+    // Exercise the real account-deletion button and local identity cleanup.
+    const deleting = await browser.newPage({viewport: {width: 390, height: 844},isMobile: true,hasTouch:true});
+    attach(deleting);
+    await deleting.addInitScript(() => {
+      localStorage.setItem('scalpNickname', '삭제대상');
+      localStorage.setItem('scalpD1Identity', 'a'.repeat(64));
+      let deleted = false;
+      window.scalpOfficial = {
+        signedIn: () => !deleted,
+        call: async input => {
+          if (input.action === 'profile') return {nickname: '삭제대상', free: 5, bonus: 0};
+          throw new Error('Unexpected account call: ' + input.action);
+        },
+        register: async () => ({nickname: '삭제대상', free: 5, bonus: 0}),
+        rankings: async () => ({day:'2026-11-13',rates:[],profits:[]}),
+        deleteAccount: async () => {
+          deleted = true;
+          localStorage.removeItem('scalpD1Identity');
+          return {deleted:true};
+        },
+      };
+      window.confirm = () => true;
+    });
+    await deleting.goto(target);
+    await deleting.locator('#officialAccount').tap();
+    assert.equal(await deleting.locator('#officialDeleteAccount').isVisible(),true);
+    await deleting.locator('#officialDeleteAccount').tap();
+    await deleting.locator('#officialAccount').getByText(/닉네임 등록/).waitFor();
+    assert.equal(await deleting.evaluate(()=>localStorage.getItem('scalpNickname')),null);
+    assert.equal(await deleting.evaluate(()=>localStorage.getItem('scalpD1Identity')),null);
+    assert.equal(await deleting.locator('#start').isVisible(),true);
+    await deleting.close();
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
   } finally {
