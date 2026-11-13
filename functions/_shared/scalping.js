@@ -272,6 +272,10 @@ export async function gameRequest(request, env, now = Date.now()) {
   const player = await playerFor(db,request);
   guardRate('player:'+player.id,180,now);
   if (input.action === 'profile') return profile(db,player,now);
+  if (input.action === 'recover') {
+    const recent = await latestRound(db,player);
+    return recent?.day === dayAt(now) && recent.status !== 'abandoned' ? publicRound(recent,now) : null;
+  }
   if (input.action === 'deleteAccount') {
     if (input.confirm !== true) throw new ApiError('confirmation_required',400);
     // Delete dependent records explicitly: works even when FK enforcement differs
