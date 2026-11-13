@@ -121,4 +121,17 @@ assert.equal(cleanup.status,200);
 assert.equal(sqlite.prepare("SELECT count(*) AS n FROM daily_rankings WHERE kst_day='2020-01-01'").get().n,0);
 console.log('Legacy D1 rankings retention and maintenance authentication tests passed');
 
+// An authenticated player can erase their profile and all linked scores/sessions.
+// The secret token cannot authorize new actions after deletion.
+await rejects(call({action:'deleteAccount',confirm:false},tokenB,now+720000),'confirmation_required');
+const bPlayer=sqlite.prepare('SELECT id FROM players WHERE token_hash=?')
+  .get(createHash('sha256').update(tokenB).digest('hex')).id;
+assert.equal((await call({action:'deleteAccount',confirm:true},tokenB,now+720001)).deleted,true);
+for(const table of ['verified_scores','rounds','quotas','ad_intents'])
+  assert.equal(sqlite.prepare('SELECT count(*) AS n FROM '+table+' WHERE player_id=?').get(bPlayer).n,0);
+assert.equal(sqlite.prepare('SELECT count(*) AS n FROM players WHERE id=?').get(bPlayer).n,0);
+await rejects(call({action:'profile'},tokenB,now+720002),'identity_required');
+assert.equal((await call({action:'profile'},tokenA,now+720002)).nickname,'동일닉네임');
+console.log('Self-service deletion removes sessions and scores and invalidates the identity token');
+
 console.log('D1 SQLite session, verified scoring, ownership, KST, quota, SSV and idempotency tests passed');
