@@ -697,8 +697,10 @@ const official = window.scalpOfficial;
     {key: 'stop', id: 'stopTool', label: '로스컷'},
   ];
 
-  const isTestMode = document.body.dataset.testTools === 'enabled' ||
-                     new URLSearchParams(location.search).has('test');
+  // Never expose ad-free test unlocks on a production hostname.
+  const isLocalTestHost = ['localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+  const isTestMode = isLocalTestHost && (document.body.dataset.testTools === 'enabled' ||
+                     new URLSearchParams(location.search).has('test'));
 
   function renderRewardTools() {
     const provider = window.scalpRewardProvider;
