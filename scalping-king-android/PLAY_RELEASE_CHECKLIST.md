@@ -1,6 +1,6 @@
 # 5분 단타왕 / Scalping King — Google Play 출시 차단점 및 검증표
 기준일: 2026-11-13. 상태 구분: [x] 저장소 파일 확인, [ ] 실제 검증 미완료. **체크 표시를 테스트 성공으로 해석하지 말 것.**
-패키지: `com.dailyfoodfighter.scalpingking` / Android Capacitor / versionCode 2 / versionName 1.1 (현재 소스 기준).
+패키지: `com.dailyfoodfighter.scalpingking` / Android Capacitor / versionCode 3 / versionName 1.2 (현재 브랜치의 Gradle 설정 기준).
 
 ## 출시 차단(P0): 코드 변경·배포 전에 해결
 - [ ] **안전한 랭킹 서버로 전환**: `main/functions/api/scalping/rankings.js`는 POST 본문 `nickname/rate/profit`을 직접 수락한다. 변조 점수 등록이 가능하므로 출시 전에 서버가 세션·주문·경과시간·최종 성적을 계산/검증하는 구조로 변경. `codex/scalping-king-release-v5`의 `functions/_shared/scalping.js`, `functions/api/scalping/{session,rankings,admob,retention}.js`, `functions/api/scalping/migrations/0002_verified_rounds.sql` 검토. **별도 브랜치 코드를 그대로 복사하거나 기존 D1 테이블에 바로 migration 실행하지 말 것.** 스키마/세션/클라이언트/테스트가 한 세트로 동작해야 한다.
@@ -38,6 +38,7 @@
 - [ ] 랭킹: KST 날짜 경계, TOP5 수익률/수익금, 닉네임 2~12자, 동점·다중 세션·조작 점수·중복 제출, 2일 보관 정책.
 - [ ] 무료 D1 운영: 별도 스케줄러의 cleanup 필요 여부 확인. 현재 main API는 POST 시에만 만료 데이터 삭제함.
 - [ ] 최신 웹 빌드와 APK 내장 www의 스크립트/아이콘/문구가 일치하는지 검사.
+- [ ] 공식 세션 중 앱 종료·재실행: 같은 날 진행 중 게임 복원, 완료 점수 복원, 과거 날짜 및 구형 엔진 버전 세션 차단. 재실행 때문에 무료 횟수가 중복 차감되지 않아야 함.
 - [ ] 모바일 QA: 320/360/390/412/430px, 실제 터치/스크롤/차트/주문창 가독성 및 TalkBack 기본 접근성.
 
 ## 단계별 배포 게이트
