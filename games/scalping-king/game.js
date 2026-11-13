@@ -58,6 +58,7 @@
   let best = readBest();
   let selected = 0;
   let phase = 'ready';
+  let practiceMode = false; // Local-only, unranked play; never submits to the official API.
   let startedAt = 0;
   let pausedAt = 0;
   let loop = 0;
@@ -136,7 +137,7 @@ const official = window.scalpOfficial;
 
   async function refreshOfficialProfile() {
     const cachedNick = localStorage.getItem('scalpNickname') || '';
-    if (isTestMode || !official) officialProfile = getLocalQuota();
+    if (practiceMode || isTestMode || !official) officialProfile = getLocalQuota();
     else if (official.signedIn()) officialProfile = await official.call({action: 'profile'});
     else if (cachedNick) officialProfile = await official.register(cachedNick);
     else officialProfile = {nickname:'',free:5,bonus:0};
@@ -146,8 +147,9 @@ const official = window.scalpOfficial;
     $('officialAccount').textContent = nickname ? '닉네임 변경' : '닉네임 등록';
     $('officialExtra').hidden = !nickname || free > 0 || bonus > 0;
     $('officialNickname').value = nickname;
-    if (isTestMode) $('officialStatus').textContent = '연습 모드 · 공식 랭킹에 기록되지 않아요.';
+    if (practiceMode || isTestMode) $('officialStatus').textContent = '연습 모드 · 공식 랭킹에 기록되지 않아요.';
     $('officialDeleteAccount').hidden = isTestMode || !official?.signedIn?.();
+    $('officialExtra').hidden ||= practiceMode;
   }
 
   function addOfficialFeed(row) {
@@ -555,7 +557,9 @@ const official = window.scalpOfficial;
     $('status').closest('.session').dataset.phase = phase;
     $('seedLabel').textContent = code(market.seed);
     const inSession = phase === 'live' || phase === 'paused';
-    $('start').hidden = phase !== 'ready' || Boolean(result);
+    $('start').hidden = practiceMode || phase !== 'ready' || Boolean(result);
+    $('practiceStart').hidden = practiceMode || phase !== 'ready' || Boolean(result);
+    $('practiceExit').hidden = !practiceMode;
     $('openScoreShare').hidden = !result;
     $('startNextRound').hidden = !result;
     for (const id of ['pause', 'jumpPause']) {
@@ -729,7 +733,7 @@ const official = window.scalpOfficial;
                      new URLSearchParams(location.search).has('test'));
 
   function renderRewardTools() {
-    const provider = window.scalpRewardProvider;
+    const provider = practiceMode ? null : window.scalpRewardProvider;
     for (const {key, id, label} of rewardTools) {
       const button = $(id);
       const unlocked = Boolean(account.unlocks[key]) || (isTestMode && !provider);
@@ -1173,7 +1177,7 @@ const official = window.scalpOfficial;
 
   function start() {
     if (phase !== 'ready' || privacyBusy) return;
-    if (official && !isTestMode) return startOfficial();
+    if (official && !isTestMode && !practiceMode) return startOfficial();
     startedAt = performance.now();
     setupAudio();
     phase = 'live';
@@ -1389,7 +1393,7 @@ const official = window.scalpOfficial;
 
   function restartRound() {
     if (adController || privacyBusy || (phase === 'ready' && !result)) return;
-    if (official && !isTestMode) return startOfficial(true);
+    if (official && !isTestMode && !practiceMode) return startOfficial(true);
     reset();
     start();
   }
@@ -1538,6 +1542,25 @@ const official = window.scalpOfficial;
   $('sort').addEventListener('change', renderWatchlist);
   $('showMA').addEventListener('change', renderChart);
   $('start').addEventListener('click', start);
+  $('practiceStart').addEventListener('click', () => {
+    if (phase !== 'ready' || result) return;
+    practiceMode = true;
+    $('officialStatus').textContent = '오프라인 연습 · 점수는 공식 랭킹에 기록되지 않습니다.';
+    $('officialExtra').hidden = true;
+    renderRewardTools();
+    start();
+  });
+  $('practiceExit').addEventListener('click', () => {
+    if (phase === 'live' || phase === 'paused') {
+      if (!window.confirm('진행 중인 연습 게임을 종료하고 공식 게임으로 돌아갈까요?')) return;
+    }
+    practiceMode = false;
+    reset();
+    refreshOfficialProfile().catch(() => {
+      $('officialStatus').textContent = '공식 게임은 서버 연결이 필요합니다. 오프라인 연습은 가능합니다.';
+    });
+  });
+
   $('openScoreShare').addEventListener('click', shareScoreImage);
   $('startNextRound').addEventListener('click', restartRound);
   $('pause').addEventListener('click', togglePause);
