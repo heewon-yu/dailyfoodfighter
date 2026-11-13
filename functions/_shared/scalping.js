@@ -172,7 +172,9 @@ async function start(db, player, input, now) {
   const same = await db.prepare('SELECT * FROM rounds WHERE player_id=? AND request_id=?').bind(player.id,input.requestId).first();
   if (same) return publicRound(same,now);
   const prior = await latestRound(db,player);
-  const active = prior?.status === 'active' && now-prior.started_ms < 86400000;
+  // A new KST trading day must not inherit yesterday's unfinished session.
+  const active = prior?.status === 'active' && prior.day === dayAt(now) &&
+    now-prior.started_ms < 86400000;
   if (!input.restart && active) return publicRound(prior,now);
   if (input.restart && prior?.id !== input.current) {
     if (active) return publicRound(prior,now);
