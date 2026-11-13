@@ -360,6 +360,38 @@ async function run() {
     assert.equal(await practice.locator('#practiceStart').isVisible(),true);
     assert.equal(await practice.locator('#officialRankings').isEnabled(),true);
     await practice.close();
+    // Exercise the real account-deletion button and local identity cleanup.
+    const deleting = await browser.newPage({viewport: {width: 390, height: 844},isMobile: true,hasTouch:true});
+    attach(deleting);
+    await deleting.addInitScript(() => {
+      localStorage.setItem('scalpNickname', '삭제대상');
+      localStorage.setItem('scalpD1Identity', 'a'.repeat(64));
+      let deleted = false;
+      window.scalpOfficial = {
+        signedIn: () => !deleted,
+        call: async input => {
+          if (input.action === 'profile') return {nickname: '삭제대상', free: 5, bonus: 0};
+          throw new Error('Unexpected account call: ' + input.action);
+        },
+        register: async () => ({nickname: '삭제대상', free: 5, bonus: 0}),
+        rankings: async () => ({day:'2026-11-13',rates:[],profits:[]}),
+        deleteAccount: async () => {
+          deleted = true;
+          localStorage.removeItem('scalpD1Identity');
+          return {deleted:true};
+        },
+      };
+      window.confirm = () => true;
+    });
+    await deleting.goto(target);
+    await deleting.locator('#officialAccount').tap();
+    assert.equal(await deleting.locator('#officialDeleteAccount').isVisible(),true);
+    await deleting.locator('#officialDeleteAccount').tap();
+    await deleting.locator('#officialAccount').getByText(/닉네임 등록/).waitFor();
+    assert.equal(await deleting.evaluate(()=>localStorage.getItem('scalpNickname')),null);
+    assert.equal(await deleting.evaluate(()=>localStorage.getItem('scalpD1Identity')),null);
+    assert.equal(await deleting.locator('#start').isVisible(),true);
+    await deleting.close();
     assert.deepEqual(errors, []);
     console.log('Chrome desktop and 320/360/390/412/430px touch browser tests passed at ' + target);
   } finally {
