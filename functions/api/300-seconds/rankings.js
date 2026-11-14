@@ -18,15 +18,16 @@ async function ensure(db){
  await db.prepare(`CREATE UNIQUE INDEX IF NOT EXISTS idx_mystery_v4_day_nick ON mystery_rankings_v4(kst_day,nickname)`).run();
  await db.prepare(`CREATE INDEX IF NOT EXISTS idx_mystery_v4_day_score ON mystery_rankings_v4(kst_day,score DESC,solved DESC)`).run();
 }
+async function purge(db){await db.prepare(`DELETE FROM mystery_rankings_v4 WHERE kst_day <> strftime('%Y-%m-%d','now','+9 hours')`).run()}
 export async function onRequestGet({request,env}){
  const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],mine:null,notice:'D1 binding unavailable'},503);
  try{
-  await ensure(db); const day=kstDay();
+  await ensure(db); await purge(db); const day=kstDay();
   const daily=await db.prepare(`SELECT nickname,score,solved,hints FROM mystery_rankings_v4 WHERE kst_day=? ORDER BY score DESC,solved DESC,hints ASC,created_at ASC LIMIT 5`).bind(day).all();
   const nick=cleanNick(new URL(request.url).searchParams.get('nickname'));
   let mine=null;
   if(nick){
-   mine=await db.prepare(`SELECT MAX(score) score, MAX(solved) solved FROM mystery_rankings_v4 WHERE nickname=?`).bind(nick).first();
+   mine=await db.prepare(`SELECT MAX(score) score, MAX(solved) solved FROM mystery_rankings_v4 WHERE kst_day=? AND nickname=?`).bind(day,nick).first();
    if(!mine||mine.score==null)mine=null;
   }
   return out({day,daily:(daily.results||[]).map((r,i)=>({...r,rank:i+1})),mine});
@@ -39,15 +40,16 @@ export async function onRequestPost({request,env}){
  if(!nickname||!Number.isInteger(score)||score<0||score>10000||!Number.isInteger(solved)||solved<0||solved>100||!Number.isInteger(hints)||hints<0||hints>3)return out({error:'invalid_score'},400);
  if(score!==solved*100)return out({error:'invalid_score'},400);
  try{
-  await ensure(db); const day=kstDay();
+  await ensure(db); await purge(db); const day=kstDay();
+  if(b?.day!==day)return out({error:"day_expired",day},409);
   await db.prepare(`INSERT INTO mystery_rankings_v4(kst_day,nickname,score,solved,hints,mode)
-   VALUES(?,?,?,?,?,?)
+   SELECT ?,?,?,?,?,? WHERE ?=strftime('%Y-%m-%d','now','+9 hours')
    ON CONFLICT(kst_day,nickname) DO UPDATE SET
    score=CASE WHEN excluded.score>score THEN excluded.score ELSE score END,
    solved=CASE WHEN excluded.score>score THEN excluded.solved ELSE solved END,
    hints=CASE WHEN excluded.score>score THEN excluded.hints ELSE hints END,
    mode=CASE WHEN excluded.score>score THEN excluded.mode ELSE mode END`)
-   .bind(day,nickname,score,solved,hints,mode).run();
+   .bind(day,nickname,score,solved,hints,mode,day).run();
   return out({ok:true,day});
  }catch(e){return out({error:'database_error',details:e.message},500)}
 }

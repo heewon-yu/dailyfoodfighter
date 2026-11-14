@@ -1,0 +1,14 @@
+name: 300 Seconds daily retention
+on:
+  schedule:
+    - cron: '0 15 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Purge expired KST records through production API
+        run: curl --fail-with-body --retry 3 --max-time 30 -H 'Cache-Control: no-cache' 'https://dailyfoodfighter.com/api/300-seconds/rankings'
