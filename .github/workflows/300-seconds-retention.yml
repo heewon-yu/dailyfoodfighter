@@ -11,4 +11,5 @@ jobs:
     timeout-minutes: 3
     steps:
       - name: Purge expired KST records through production API
-        run: curl --fail-with-body --retry 3 --max-time 30 -H 'Cache-Control: no-cache' 'https://dailyfoodfighter.com/api/300-seconds/rankings'
+        run: >-
+          curl --fail-with-body --retry 3 --max-time 30 -H 'Cache-Control: no-cache' 'https://dailyfoodfighter.com/api/300-seconds/rankings'
