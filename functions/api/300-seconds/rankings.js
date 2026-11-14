@@ -36,7 +36,7 @@ export async function onRequestPost({request,env}){
  const db=env.DB||env.SCALPING_DB;if(!db)return out({error:'D1_binding_unavailable'},503);
  let b;try{b=await request.json()}catch{return out({error:'invalid_json'},400)}
  const nickname=cleanNick(b?.nickname),score=Number(b?.score),solved=Number(b?.solved),hints=Number(b?.hints??0),mode=b?.mode==='daily'?'daily':'normal';
- if(!nickname||!Number.isInteger(score)||score<0||score>3200||!Number.isInteger(solved)||solved<0||solved>32||!Number.isInteger(hints)||hints<0||hints>96)return out({error:'invalid_score'},400);
+ if(!nickname||!Number.isInteger(score)||score<0||score>3200||!Number.isInteger(solved)||solved<0||solved>32||!Number.isInteger(hints)||hints<0||hints>3)return out({error:'invalid_score'},400);
  if(score!==solved*100)return out({error:'invalid_score'},400);
  try{
   await ensure(db); const day=kstDay();
