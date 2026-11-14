@@ -98,7 +98,7 @@ const BANK = [{"id":"C002","category":"일상 미스터리","title":"빈 우편�
 const $=id=>document.getElementById(id), duration=300000, MAX_CLUES=3;
 const DIFFICULTY_ORDER={"최상급":4,"상급":3,"중급":2,"초급":1};
 const caseImageCache=new Map();
-async function caseImageData(id){if(caseImageCache.has(id))return caseImageCache.get(id);const p=fetch("assets/hq/"+id+".b64",{cache:"force-cache"}).then(r=>{if(!r.ok)throw new Error("image");return r.text()}).then(t=>"data:image/webp;base64,"+t.trim());caseImageCache.set(id,p);return p}
+async function caseImageData(id){if(caseImageCache.has(id))return caseImageCache.get(id);const p=fetch("assets/hq/"+id+".b64?v=20261114-d456d61",{cache:"no-cache"}).then(r=>{if(!r.ok)throw new Error("image");return r.text()}).then(t=>"data:image/webp;base64,"+t.trim());caseImageCache.set(id,p);return p}
 async function showCaseImage(item){const el=$("caseImage");el.classList.add("loading");el.style.backgroundImage="";try{const src=await caseImageData(item.id);if(current?.id!==item.id)return;el.style.backgroundImage="url("+src+")";el.classList.remove("loading")}catch{el.classList.remove("loading");caseImageCache.delete(item.id)}}
 function preloadNextCase(){const next=deck[deck.length-1];if(next)caseImageData(next.id).catch(()=>{})}
 let roundSize=0,deck=[],current=null,phase="home",deadline=0,tickId=0,revealed=0,solved=0,score=0,wrong=0,hintsUsed=0,mode="normal";
