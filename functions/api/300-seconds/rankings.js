@@ -1,5 +1,5 @@
 // Cloudflare Pages Function: /api/300-seconds/rankings
-function kstDay(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
+function kstDay(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 const H={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET,POST,OPTIONS','Access-Control-Allow-Headers':'Content-Type'};
 const out=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 export const onRequestOptions=()=>new Response(null,{headers:H});
@@ -19,10 +19,10 @@ async function ensure(db){
  await db.prepare(`CREATE INDEX IF NOT EXISTS idx_mystery_day_score ON mystery_rankings(kst_day,score DESC,solved DESC)`).run();
 }
 export async function onRequestGet({request,env}){
- const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],mine:null,notice:'D1 binding unavailable'});
+ const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],mine:null,notice:'D1 binding unavailable'},503);
  try{
   await ensure(db); const day=kstDay();
-  const daily=await db.prepare(`SELECT nickname,score,solved,hints FROM mystery_rankings WHERE kst_day=? ORDER BY score DESC,solved DESC,hints ASC,created_at ASC LIMIT 10`).bind(day).all();
+  const daily=await db.prepare(`SELECT nickname,score,solved,hints FROM mystery_rankings WHERE kst_day=? ORDER BY score DESC,solved DESC,hints ASC,created_at ASC LIMIT 5`).bind(day).all();
   const nick=cleanNick(new URL(request.url).searchParams.get('nickname'));
   let mine=null;
   if(nick){
