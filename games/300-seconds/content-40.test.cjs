@@ -19,7 +19,7 @@ for(const c of bank){
  assert(unique(c.options),c.id+' unique options');
  assert.equal(c.options.filter(x=>x===c.answer).length,1,c.id+' exact answer appears once');
  assert.equal(c.hints.length,1,c.id+' exactly one clue');
- assert(['초급','중급','상급','최상급','최고급'].includes(c.difficulty),c.id+' difficulty');
+ assert(['초급','중급','상급','최상급','고급','최고급'].includes(c.difficulty),c.id+' difficulty');
  const imageFile=path.join(root,'assets','hq',c.id+'.b64');
  assert(fs.existsSync(imageFile),c.id+' illustration missing');
  const b64=fs.readFileSync(imageFile,'utf8').trim(),raw=Buffer.from(b64,'base64');
