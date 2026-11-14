@@ -9,7 +9,7 @@ const api=fs.readFileSync(path.resolve(root,'../../functions/api/300-seconds/ran
 const replaced=['C008','C016','C017','C018','C022','C023','C035','C036'];
 const added=['C040','C041','C042','C043','C044','C045','C046','C047'];
 const unique=a=>new Set(a).size===a.length;
-assert.equal(bank.length,40);
+assert.equal(bank.length,100);
 assert(unique(bank.map(x=>x.id)),'unique case IDs');
 assert(unique(bank.map(x=>x.mechanism)),'unique mechanisms');
 assert(unique(bank.map(x=>x.title)),'unique titles');
@@ -19,7 +19,7 @@ for(const c of bank){
  assert(unique(c.options),c.id+' unique options');
  assert.equal(c.options.filter(x=>x===c.answer).length,1,c.id+' exact answer appears once');
  assert.equal(c.hints.length,1,c.id+' exactly one clue');
- assert(['초급','중급','상급','최상급'].includes(c.difficulty),c.id+' difficulty');
+ assert(['초급','중급','상급','최상급','최고급'].includes(c.difficulty),c.id+' difficulty');
  const imageFile=path.join(root,'assets','hq',c.id+'.b64');
  assert(fs.existsSync(imageFile),c.id+' illustration missing');
  const b64=fs.readFileSync(imageFile,'utf8').trim(),raw=Buffer.from(b64,'base64');
@@ -29,8 +29,8 @@ assert(replaced.every(id=>bank.find(x=>x.id===id)?.source.includes('독립 창�
 assert(added.every(id=>bank.some(x=>x.id===id)));
 assert(html.includes('duration=300000, MAX_CLUES=3'));
 assert(html.includes('score=solved*100'));
-assert(html.includes('class="miniValue">40'));
-assert(api.includes('score>4000')&&api.includes('solved>40')&&api.includes('hints>3'));
+assert(html.includes('class="miniValue">100'));
+assert(api.includes('score>10000')&&api.includes('solved>100')&&api.includes('hints>3'));
 assert(api.includes('LIMIT 5'));
 assert(!bank.some(x=>x.title==='사라진 7분'),'collision-prone title retired');
 const hashes=replaced.concat(added).map(id=>crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'assets','hq',id+'.b64'))).digest('hex'));
@@ -40,4 +40,4 @@ assert.equal(get('C042').answer,['A','B','C','D'][[3,3,7,3].indexOf(7)]);
 assert.equal(get('C045').answer,'C');
 assert.equal(get('C046').options.length,4);
 assert.equal(get('C039').answer,'456');
-console.log('PASS: 40 cases, 40 images, 16 distinct new assets, unique IDs/tricks/options, clue/timer/ranking limits.');
+console.log('PASS: 100 cases, 100 images, 16 distinct new assets, unique IDs/tricks/options, clue/timer/ranking limits.');
