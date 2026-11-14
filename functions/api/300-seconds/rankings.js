@@ -5,12 +5,11 @@ const out=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 export const onRequestOptions=()=>new Response(null,{headers:H});
 const cleanNick=n=>typeof n==='string'&&/^[가-힣A-Za-z0-9_]{2,12}$/.test(n.trim().normalize('NFKC'))?n.trim().normalize('NFKC'):null;
 export async function onRequestGet({env}){
- const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],allTime:[],notice:'D1 binding unavailable'});
+ const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],notice:'D1 binding unavailable'});
  try{
   const day=kstDay();
   const daily=await db.prepare(`SELECT nickname, MAX(score) score, MAX(solved) solved FROM mystery_rankings WHERE kst_day=? GROUP BY nickname ORDER BY score DESC, solved DESC LIMIT 10`).bind(day).all();
-  const all=await db.prepare(`SELECT nickname, MAX(score) score, MAX(solved) solved FROM mystery_rankings GROUP BY nickname ORDER BY score DESC, solved DESC LIMIT 10`).all();
-  return out({day,daily:(daily.results||[]).map((r,i)=>({...r,rank:i+1})),allTime:(all.results||[]).map((r,i)=>({...r,rank:i+1}))});
+  return out({day,daily:(daily.results||[]).map((r,i)=>({...r,rank:i+1}))});
  }catch(e){return out({error:'database_error',details:e.message},500)}
 }
 export async function onRequestPost({request,env}){
