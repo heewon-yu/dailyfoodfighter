@@ -55,14 +55,14 @@ button,input,select{font-family:var(--font)}button{cursor:pointer}.app{width:min
     <div class="ruleStrip">한 판 300초 · 정답 1개당 100점 · 사건당 단서 1회 · 게임 전체 단서 3회</div>
     <div class="register"><input id="nickname" maxlength="12" autocomplete="nickname" placeholder="닉네임 2~12자"><button id="saveNick" class="btn dark">저장</button></div>
     <div class="categoryRow"><select id="categoryFilter" class="categorySelect"><option value="all">전체 카테고리 · 무작위</option></select><button id="categoryStart" class="btn dark">선택 시작</button></div>
-    <div class="dashboard"><div class="noir-frame miniCard"><div class="miniLabel">나의 최고기록</div><div id="homeBest" class="miniValue">0점</div><div id="homeBestSub" class="empty">아직 기록 없음</div></div><div class="noir-frame miniCard"><div class="miniLabel">현재 문제은행</div><div class="miniValue">40</div><div class="empty">사건</div></div></div>
+    <div class="dashboard"><div class="noir-frame miniCard"><div class="miniLabel">나의 최고기록</div><div id="homeBest" class="miniValue">0점</div><div id="homeBestSub" class="empty">아직 기록 없음</div></div><div class="noir-frame miniCard"><div class="miniLabel">현재 문제은행</div><div id="homeBankCount" class="miniValue">100</div><div class="empty">사건</div></div></div>
     <div class="footerNote">300초 · MYSTERY SURVIVAL</div>
   </section>
 
   <section id="game" class="screen">
     <div class="gameTop"><div class="brandMark">300<b>초</b></div><div></div><div id="score" class="scoreMini">0점</div></div>
     <div class="noir-frame timerPanel">
-      <div class="progressInfo"><span>사건 진행</span><b id="case">01 / 40</b></div>
+      <div class="progressInfo"><span>사건 진행</span><b id="case">01 / 100</b></div>
       <div id="timerRing" class="ring"><div class="ringInner"><div class="ringLabel">남은 시간</div><div id="timer" class="time">05:00</div><div class="ringSub">/ 05:00</div></div></div>
       <div class="scoreInfo"><span>현재 점수</span><b id="scoreMirror">0점</b><small id="solvedText">정답 0개</small></div>
     </div>
@@ -132,6 +132,6 @@ async function finish(title,reveal){if(phase==="finished")return;clearInterval(t
 $("saveNick").onclick=saveNickname;$("start").onclick=()=>start();$("daily").onclick=()=>start("daily");$("categoryStart").onclick=()=>start("normal",$("categoryFilter").value);
 $("openRanking").onclick=()=>{show("rankings");loadLeaderboard()};$("openRecord").onclick=()=>{show("records");loadLeaderboard()};$("rankingBack").onclick=home;$("recordBack").onclick=home;$("refreshRanking").onclick=loadLeaderboard;
 $("next").onclick=()=>phase==="solved"&&load();$("quit").onclick=()=>finish("수사 종료",phase==="playing");$("again").onclick=()=>start();$("back").onclick=home;
-document.addEventListener("visibilitychange",tick);home();
+document.addEventListener("visibilitychange",tick);$("homeBankCount").textContent=String(BANK.length);home();
 </script>
 </body></html>
