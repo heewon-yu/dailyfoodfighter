@@ -54,7 +54,7 @@
 - [ ] 콩나물 (Soybean Sprout)
 - [ ] 숙주나물 (Mung Bean Sprout)
 - [ ] 미나리 (Water Dropwort)
-- [ ] 비트 (Beetroot)
+- [x] 비트 (Beetroot) - 2026-11-15 한/영 발행완료
 - [ ] 연근 (Lotus Root)
 - [ ] 우엉 (Burdock Root)
 - [ ] 청경채 (Bok Choy)
@@ -80,7 +80,7 @@
 - [x] 두부 (Tofu) - 2026-11-11 한/영 발행완료
 - [ ] 콩/대두 (Soybean)
 - [ ] 병아리콩 (Chickpea)
-- [ ] 렌틸콩 (Lentil)
+- [x] 렌틸콩 (Lentil) - 2026-11-15 한/영 발행완료
 - [ ] 검은콩/서리태 (Black Soybean)
 - [ ] 쇠간 (Beef Liver)
 - [ ] 도가니/사골 (Beef Bone Broth)
