@@ -10,9 +10,31 @@ permalink: /en/
   <p>Comprehensive evidence-based nutritional analysis, optimal cooking methods, and clinical health insights for everyday ingredients.</p>
 </div>
 
+{% assign pinned_posts = site.posts | where: "lang", "en" | where: "pinned", true | sort: "pin_order" %}
+{% if pinned_posts.size > 0 %}
+<section class="pinned-section">
+  <h2 class="pinned-heading">📌 Pinned Nutrition Guides</h2>
+  <p class="pinned-sub">Protein, blood sugar, weight loss, antioxidants, heart health and fatigue recovery — six TOP 10 hubs compared per 100 g.</p>
+  <div class="pinned-grid">
+    {% for post in pinned_posts %}
+    <a href="{{ post.url | relative_url }}" class="pinned-card">
+      <span class="pinned-thumb-wrap">
+        <img class="pinned-thumb" src="{{ post.image | default: '/assets/images/dailyfoodfighter-logo.png' | relative_url }}" alt="{{ post.title }}" loading="lazy" width="72" height="72">
+      </span>
+      <span class="pinned-card-body">
+        <span class="pinned-badge">📌 TOP {{ post.pin_order }}</span>
+        <span class="pinned-card-title">{{ post.title }}</span>
+        <span class="pinned-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 82 }}</span>
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <div class="post-list">
   {% assign en_posts = site.posts | where: "lang", "en" %}
-  {% for post in en_posts %}
+  {% for post in en_posts %}{% unless post.pinned %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
@@ -22,9 +44,5 @@ permalink: /en/
     <h2 class="post-card-title">{{ post.title }}</h2>
     <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
   </a>
-  {% else %}
-  <div style="text-align: center; padding: 60px 0; color: #9ca3af;">
-    <p>Articles are being prepared. Daily evidence-based nutrition science guides are published here.</p>
-  </div>
-  {% endfor %}
+  {% endunless %}{% endfor %}
 </div>

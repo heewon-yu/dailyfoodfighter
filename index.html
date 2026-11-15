@@ -8,9 +8,31 @@ title: "홈"
   <p>매일 식탁에 오르는 친숙한 식재료들의 성분 분석, 최적의 조리법, 그리고 과학적 건강 가이드를 전해드립니다.</p>
 </div>
 
+{% assign pinned_posts = site.posts | where: "lang", "ko" | where: "pinned", true | sort: "pin_order" %}
+{% if pinned_posts.size > 0 %}
+<section class="pinned-section">
+  <h2 class="pinned-heading">📌 핵심 영양·비교 가이드</h2>
+  <p class="pinned-sub">단백질·혈당·다이어트·항산화·혈관·피로 회복 — 검색량이 높은 주제를 100g 기준 수치로 비교한 TOP 10 허브입니다.</p>
+  <div class="pinned-grid">
+    {% for post in pinned_posts %}
+    <a href="{{ post.url | relative_url }}" class="pinned-card">
+      <span class="pinned-thumb-wrap">
+        <img class="pinned-thumb" src="{{ post.image | default: '/assets/images/dailyfoodfighter-logo.png' | relative_url }}" alt="{{ post.title }}" loading="lazy" width="72" height="72">
+      </span>
+      <span class="pinned-card-body">
+        <span class="pinned-badge">📌 TOP {{ post.pin_order }}</span>
+        <span class="pinned-card-title">{{ post.title }}</span>
+        <span class="pinned-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 78 }}</span>
+      </span>
+    </a>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
 <div class="post-list">
   {% assign ko_posts = site.posts | where: "lang", "ko" %}
-  {% for post in ko_posts %}
+  {% for post in ko_posts %}{% unless post.pinned %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category | default: post.categories | first }}</span>
@@ -20,9 +42,5 @@ title: "홈"
     <h2 class="post-card-title">{{ post.title }}</h2>
     <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
   </a>
-  {% else %}
-  <div style="text-align: center; padding: 60px 0; color: #9ca3af;">
-    <p>포스팅을 준비 중입니다. 매일 새로운 식재료 영양 가이드가 발행됩니다.</p>
-  </div>
-  {% endfor %}
+  {% endunless %}{% endfor %}
 </div>
