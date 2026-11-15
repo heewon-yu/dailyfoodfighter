@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Beef Bone Broth Nutrition Facts: Collagen Peptides, Glycine, and What 12 vs. 24 Hours Really Changes"
-date: 2026-11-15 16:00:00 +0900
+date: 2026-11-15 15:45:00 +0900
 lang: en
 category: "meat"
 tags: [Bone Broth, Collagen Peptides, Glycine, Gut Health, Joint Health]

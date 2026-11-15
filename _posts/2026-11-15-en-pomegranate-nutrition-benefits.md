@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pomegranate Nutrition Facts & Urolithin A: Ellagitannins, 83 kcal per 100 g, and Juice vs. Arils"
-date: 2026-11-15 16:00:00 +0900
+date: 2026-11-15 15:45:00 +0900
 lang: en
 category: "fruit"
 tags: [Pomegranate, Urolithin A, Ellagitannins, Punicalagin, Antioxidants]
