@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "브로콜리 효능과 칼로리, 데치는 시간과 설포라판 흡수율 극대화법"
+title: "브로콜리 칼로리 34kcal와 설포라판: 데치는 시간 몇 분이 좋을까"
 date: 2026-11-05 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: ko
 category: "채소"
 tags: [브로콜리, 설포라판, 십자화과채소, 항암효능, 세포해독]
-description: "브로콜리 영양 성분 과학 분석: 칼로리, 끓는 물에 1분 이상 데치면 미로시나아제가 파괴되는 이유, 찜 요리와 겨자씨 배합으로 설포라판 흡수율 3배 높이는 법."
+description: "브로콜리 100g은 34kcal·비타민C 89.2mg·비타민K 101.6mcg·엽산 63mcg입니다. 설포라판을 살리는 데치는 시간과 미로시나아제 활성, 과다 섭취 시 갑상선 주의점을 정리했습니다."
 permalink: /posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---
 
 ![신선한 유기농 브로콜리의 초록빛 꽃송이와 단단한 줄기 단면](/assets/images/broccoli.jpg)
 *▲ 신선한 브로콜리(Brassica oleracea var. italica)는 십자화과 채소의 대표 주자로, 강력한 세포 해독 및 항염증 생리활성 물질인 설포라판(Sulforaphane)의 천연 보고입니다.*
+
+<div class="answer-first">
+<span class="answer-label">한 줄 결론</span> 브로콜리 100g은 34kcal, 비타민C 89.2mg, 비타민K 101.6mcg입니다. 설포라판은 데치는 시간이 길수록 줄어들어 3~5분 이내가 적당하고, 다진 뒤 5~10분 두었다 조리하면 활성 성분이 더 남습니다.
+</div>
 
 지중해 동북부가 원산지인 십자화과(Brassicaceae) 채소 **브로콜리(Broccoli, *Brassica oleracea* var. *italica*)**는 미국 국립암연구소(NCI)와 유수 의학계가 가장 주목해 온 천연 기능성 식품 중 하나입니다.
 
@@ -21,7 +26,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 1. 브로콜리의 핵심 영양 성분표 (생것 100g 기준)
+## 1. 브로콜리 칼로리와 영양성분은? (비타민C 89.2mg·비타민K 101.6mcg)
 
 미국 농무부(USDA FoodData Central) 공인 분석 기준, 생 브로콜리 100g당 함유된 주요 영양소와 생리활성 미량 성분 함량은 다음과 같습니다.
 
@@ -47,7 +52,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 2. 과학적으로 입증된 브로콜리의 4대 건강 효능
+## 2. 브로콜리 효능은 무엇일까? 과학으로 입증된 4대 효과
 
 ### ① Nrf2 경로 활성화를 통한 세포 항산화 및 해독 유도
 브로콜리의 설포라판은 인체 세포 내부의 2단계 해독 효소를 자극하는 가장 강력한 천연 유도체입니다. 세포 내 **Nrf2(Nuclear factor erythroid 2-related factor 2)** 전사 인자를 활성화하여 글루타치온(Glutathione), 헴옥시게나제-1(HO-1) 등 체내 자가 항산화 효소 군단을 폭발적으로 합성시킵니다.
@@ -71,7 +76,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 3. 영양소 흡수율을 극대화하는 조리 및 섭취 가이드
+## 3. 브로콜리는 몇 분 데쳐야 할까? 설포라판 흡수율 높이는 법
 
 브로콜리의 핵심 성분인 설포라판은 조리 방식에 따라 체내 생성량과 흡수율이 최대 5배 이상 차이납니다.
 
@@ -84,7 +89,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 4. 섭취 시 주의사항 및 부작용
+## 4. 브로콜리 부작용과 갑상선 주의점은?
 
 브로콜리는 세계적으로 안전한 식품이나, 특수한 신체 조건에서는 섭취 방식의 조절이 필요합니다.
 
@@ -94,7 +99,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 5. 최종 요약 및 실천 팁
+## 5. 브로콜리 하루 얼마나 먹을까? 핵심 요약
 
 브로콜리는 세포 자가 해독 능력을 활성화하고 위장 및 심혈관계를 종합적으로 지켜주는 자연 최고의 항산화 백신입니다.
 
@@ -104,7 +109,7 @@ image: "/assets/images/broccoli.jpg"
 
 ---
 
-## 6. 함께 먹으면 시너지가 폭발하는 식재료 궁합
+## 6. 브로콜리와 함께 먹으면 좋은 음식은?
 
 - **[마늘 (Garlic)]({{ site.baseurl }}/posts/garlic-nutrition-benefits/)**: 마늘에 풍부한 유기황 화합물과 셀레늄이 브로콜리의 설포라판(Sulforaphane)과 상호작용하여 간 해독 2단계 효소(글루타치온-S-전이효소)를 강력하게 유도합니다.
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 토마토의 지용성 리코펜과 브로콜리의 수용성 설포라판은 인체 내 암세포 증식 경로를 다각도로 억제하는 상호 보완적 항암 시너지를 냅니다.

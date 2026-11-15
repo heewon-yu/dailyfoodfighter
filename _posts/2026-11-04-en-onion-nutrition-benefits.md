@@ -1,11 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Onion Nutrition Facts & Calories: Raw vs. Cooked for Maximum Quercetin Absorption"
+title: "Onion Nutrition: 40 Calories, Raw vs Cooked Quercetin"
 date: 2026-11-04 00:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
-description: "Scientific analysis of onion nutrition: calories, quercetin bioavailability in raw vs. sautéed onions, heart health benefits, and proper storage methods."
+description: "Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. How cooking shifts quercetin, why soaking leaches it, and gentler options."
 permalink: /en/posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 ---
@@ -13,13 +14,17 @@ image: "/assets/images/onion.jpg"
 ![Layers visible in the cut surfaces of sliced onions](/assets/images/onion.jpg)
 *▲ Raw onions add crunch, while gentle cooking softens their pungency. Photo by Alabama Extension via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. Quercetin is heat-tolerant but water-soluble, so long cooking and soaking leach some away, and raw or briefly cooked onion keeps the most.
+</div>
+
 A raw onion can dominate a salad, while the same bulb cooked gently can become the mellow base of a stew. Even a spoonful of chopped onion can change a dish's flavour and texture.
 
 Onions also deliver quercetin, a flavonoid studied for its absorption and metabolism, and fructans, carbohydrates that intestinal bacteria can ferment. These constituents raise different questions. A blood sample can show how much quercetin reaches circulation, while a feeding study can test whether the diet changes gut bacteria or blood pressure. The type of experiment determines what its results can tell us about a serving of onions.
 
 ---
 
-## 1. Key Nutrients in Raw Onion (Per 100 g)
+## 1. How Many Calories Are in Onions? (1.7 g fiber, 7.4 mg vitamin C per 100 g)
 
 The table refers to the edible portion of raw onion. A recipe with 200 g divided among four servings supplies about half the listed amounts of each nutrient per plate before cooking. Water loss and added fat can change the values per 100 g of the finished dish.
 
@@ -41,7 +46,7 @@ The table refers to the edible portion of raw onion. A recipe with 200 g divided
 
 ---
 
-## 2. Four Nutrition Findings and the Evidence Behind Them
+## 2. What Are the Benefits of Onions? Four Evidence-Backed Effects
 
 ### ① Quercetin glycosides and absorption kinetics
 
@@ -61,7 +66,7 @@ Vitamin C supports the enzyme reactions involved in collagen production and impr
 
 ---
 
-## 3. Culinary Preparation and Nutrient Bioavailability
+## 3. Raw or Cooked Onion? How Quercetin Absorption Changes
 
 - **Raw for crunch and vitamin C.** Thinly sliced onion suits salads, sandwiches and toppings. Skipping prolonged heat helps retain heat-sensitive vitamin C. Slice just before serving if you want a crisp texture.
 - **Cooked for a milder flavour.** A short sauté over medium heat softens the onion without prolonged simmering. A five-cultivar study found that measured quercetin content differed after boiling, baking and sautéing. When boiling, you can serve the cooking liquid as part of a soup or stew to keep water-soluble compounds that enter it. [Lombard et al., comparison of home cooking methods](https://www.sciencedirect.com/science/article/pii/S0889157504000675)
@@ -69,14 +74,14 @@ Vitamin C supports the enzyme reactions involved in collagen production and impr
 
 ---
 
-## 4. Tolerance, Adverse Effects, and Medication Considerations
+## 4. Who Should Avoid Onions? Side Effects and Cautions
 
 - **IBS and FODMAPs.** Onion fructans can trigger bloating, gas or abdominal discomfort in people with irritable bowel syndrome. Fructans dissolve in water, so removing onion pieces from soup leaves fructans in the broth. During a low-FODMAP elimination phase, the green tops of spring onions can provide a similar aroma. Portion size during reintroduction depends on individual tolerance. [Monash University FODMAP cooking guide](https://www.monashfodmap.com/blog/cooking-with-onion-and-garlic-myths-and/)
 - **Concentrated products.** Keep taking prescribed blood pressure medication as directed. If you are considering an onion skin extract or a quercetin supplement, discuss the product and dose with a pharmacist or clinician who can review your medications.
 
 ---
 
-## 5. Practical Portions and Storage
+## 5. Storing and Portioning Onions
 
 - **Portion.** There is no recommended daily dose for onion. If you tolerate it, start with about 30–50 g in a meal and adjust for taste and comfort.
 - **Storage.** Keep whole dry onions in a cool, dry and ventilated place. Refrigerate cut onion in a sealed container within two hours of cutting. [USDA produce storage guidance](https://www.fna.usda.gov/fs/produce-safety/storage), [FDA guidance for cut vegetables](https://www.fda.gov/media/77279/download)
@@ -84,7 +89,7 @@ Vitamin C supports the enzyme reactions involved in collagen production and impr
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Onions
 
 - **[Beef Sirloin]({{ site.baseurl }}/en/posts/beef-sirloin-nutrition-benefits/)**: Allyl sulfides in onions conjugate with thiamine (vitamin B1) from beef to synthesize allithiamine, an active lipid-soluble molecule accelerating ATP cellular energy generation.
 - **[Apple]({{ site.baseurl }}/en/posts/apple-nutrition-benefits/)**: Pairing onions and apples consolidates premier dietary quercetin reserves, delivering potent mast cell stabilization and bronchial anti-inflammatory relief.

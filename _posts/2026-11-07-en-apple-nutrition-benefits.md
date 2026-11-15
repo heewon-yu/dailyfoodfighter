@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Apple Nutrition Facts & Calories: Morning Apple Benefits, Peels & Pectin Science"
+title: "Apple Nutrition: 52 Calories, Pectin & Peel Benefits"
 date: 2026-11-07 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
 category: "Fruits"
 tags: [Apple, Pectin, Quercetin, GutMicrobiome, CardiovascularHealth]
-description: "Evidence-based apple nutrition facts: calories per medium apple, why pectin and ursolic acid are concentrated in the peel, blood sugar control, and gut microbiome benefits."
+description: "An apple has 52 calories, 2.4 g fiber and 107 mg potassium per 100 g. What the peel adds, the morning-apple claim, and blood sugar context."
 permalink: /en/posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
 ---
 
 ![Fresh crisp whole red apple and sliced halves on dark slate](/assets/images/apple.jpg)
 *▲ Fresh whole apples (Malus domestica) provide an extraordinary density of fermentable soluble pectin and peel-concentrated quercetin flavonoids, establishing a powerful prebiotic and endothelial defense network.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> One hundred grams of apple has 52 calories, 2.4 g fiber and 107 mg potassium. Most pectin and polyphenols sit in the peel, and total daily carbohydrate matters more to blood sugar than the hour you eat it.
+</div>
 
 The timeless aphorism *"An apple a day keeps the doctor away"* has evolved from an empirical folk observation into a firmly validated biological reality within contemporary molecular nutrition.
 
@@ -23,7 +28,7 @@ Drawing upon rigorous standardized data from the **U.S. Department of Agricultur
 
 ---
 
-## 1. Standardized Nutritional Profile of Raw Apple (Per 100 g with Skin)
+## 1. How Many Calories Are in Apples? (2.4 g fiber, 107 mg potassium per 100 g)
 
 Composed of approximately 85.6% biological cellular water, the raw whole apple delivers a modest glycemic load balanced by low-density energetic substrates and structural dietary fibers.
 
@@ -51,7 +56,7 @@ Composed of approximately 85.6% biological cellular water, the raw whole apple d
 
 ---
 
-## 2. Four Clinically Validated Biological Mechanisms of Apples
+## 2. What Are the Benefits of Apples? Four Evidence-Backed Effects
 
 ### ① Prebiotic Fermentation and Colonic Epithelial Barrier Integrity
 The preeminent functional component of the apple is **pectin**, a complex D-galacturonic acid polymer that completely resists upper gastrointestinal hydrolysis by human digestive enzymes. 
@@ -75,7 +80,7 @@ This pulmonary protective action is primarily mediated by quercetin’s ability 
 
 ---
 
-## 3. Evidence-Based Optimization of Nutritional Ingestion
+## 3. Should You Eat the Apple Peel? Pectin and Washing
 
 ### Mandatory Consumption of Unpeeled Whole Fruit
 Phytochemical quantification reveals that **over 50% of an apple’s total polyphenols, and virtually all of its quercetin and ursolic acid, reside within the peel and immediate sub-epidermal strata**. Peeling an apple discards the majority of its cardioprotective and metabolic value. 
@@ -89,7 +94,7 @@ Deprived of its protective fiber architecture, the isolated liquid carbohydrate 
 
 ---
 
-## 4. Toxicological Caveats and Clinical Precautions
+## 4. Who Should Avoid Apples? Side Effects and Cautions
 
 ### Cyanogenic Glycosides in Apple Seeds (Amygdalin)
 Apple core seeds contain **amygdalin**, a cyanogenic glycoside that releases hydrogen cyanide (HCN) upon enzymatic contact with intestinal beta-glucosidases. 
@@ -101,7 +106,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
 
 ---
 
-## 5. Concluding Clinical Summary
+## 5. Apples per Day: How Much Do You Need?
 
 1. **Prebiotic SCFA Driver:** Soluble pectin acts as an indispensable substrate for colonic butyrate generation, reinforcing gut barrier integrity and suppressing systemic endotoxemia.
 2. **Endothelial & Vascular Shield:** Peel-bound quercetin upregulates nitric oxide bioavailability, attenuating arterial stiffness and lowering systemic blood pressure.
@@ -109,7 +114,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Apples
 
 - **[Salmon]({{ site.baseurl }}/en/posts/salmon-nutrition-benefits/)**: Soluble pectin and quercetin protect long-chain polyunsaturated fatty acids from oxidation and stimulate endothelial nitric oxide bioavailability.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Combining apples and onions merges dietary quercetin fractions, elevating systemic anti-inflammatory resilience and microcirculatory integrity.

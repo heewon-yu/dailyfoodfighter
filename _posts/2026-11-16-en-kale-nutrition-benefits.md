@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Kale Nutrition Facts: 389.6 mcg Vitamin K, 6,261 mcg Lutein, Raw vs Steamed, and Thyroid & Warfarin Notes"
+title: "Kale Nutrition: 35 Calories, 389.6 mcg Vitamin K, Lutein"
 date: 2026-11-16 07:55:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetables"
+category: "Vegetables"
 tags: [Kale, Vitamin K, Lutein, Cruciferous Vegetables, Eye Health]
-description: "USDA nutrient profile of raw curly kale (35 kcal, 389.6 mcg vitamin K, 93.4 mg vitamin C, 6,261 mcg lutein + zeaxanthin per 100 g), raw vs steamed absorption, why kale is low-oxalate compared to spinach, and warfarin/thyroid guidance."
+description: "Raw kale has 35 calories, 389.6 mcg vitamin K, 93.4 mg vitamin C and 254 mg calcium per 100 g, with raw juice, steaming and warfarin guidance."
 permalink: /en/posts/kale-nutrition-benefits/
 image: "/assets/images/kale.jpg"
 ---
 
 ![Fresh Curly Kale Leaves in a Ceramic Colander with Olive Oil and Lemon](/assets/images/kale.jpg)
 *▲ Raw kale delivers 389.6 mcg of vitamin K, 93.4 mg of vitamin C, and 6,261 mcg of lutein + zeaxanthin per 100 g for just 35 kcal. Massaging or cooking kale with olive oil unlocks its fat-soluble carotenoids.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw kale provides 35 calories, 389.6 mcg vitamin K and 93.4 mg vitamin C per 100 g. That vitamin K is more than four times the daily target, so warfarin users need a consistent intake rather than avoidance.
+</div>
 
 Cold weather makes **kale (*Brassica oleracea* var. *sabellica*)** sweeter—frost triggers the plant to convert stored starches into natural sugars, softening the bitter edge of its ruffled dark leaves. Among cruciferous greens, few vegetables rival kale's ratio of micronutrients to calories.
 
@@ -21,7 +26,7 @@ Drawing on USDA FoodData Central analytical profiles, below is the 100 g breakdo
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Raw Kale)
+## 1. How Many Calories Are in Kale? (389.6 mcg vitamin K, 254 mg calcium per 100 g)
 
 The figures below reflect **raw green kale leaves (*Brassica oleracea*) per 100 g**. Even a 50 g salad portion supplies well over 100% of the daily vitamin K requirement and substantial lutein.
 
@@ -57,7 +62,7 @@ Raw kale provides **254 mg of calcium per 100 g** alongside just **10–20 mg of
 
 ---
 
-## 2. Four Evidence-Based Health Benefits
+## 2. What Are the Benefits of Kale? Four Evidence-Backed Effects
 
 ### ① Macular Protection from 6,261 mcg Lutein & Zeaxanthin
 Kale ranks near the very top of common vegetables for **lutein and zeaxanthin**. These macular carotenoids filter high-energy blue light in the retina and quench photo-oxidative stress, supporting long-term visual contrast and macular health.
@@ -73,7 +78,7 @@ Experimental digestion assays show that kale fiber and protein fractions bind bi
 
 ---
 
-## 3. Preparation & Absorption Guide (Raw vs. Steamed)
+## 3. Raw Kale Juice or Steamed Kale? What Changes
 
 - **De-Stem & Massage with Olive Oil:** Strip the tough central rib from the leaves, chop, and **massage for 1–2 minutes with a teaspoon of extra-virgin olive oil, lemon juice, and a pinch of salt**. This breaks down the waxy cuticle, eliminates bitterness, and supplies the lipid needed to absorb lutein and vitamin K.
 - **Keep Heat Brief (2–3 Minutes):** Prolonged boiling leaches water-soluble vitamin C (93.4 mg) and folate into the cooking water. **Light steaming for 2–3 minutes or a quick 30–60 second sauté** softens tough fibers while keeping most micronutrients intact.
@@ -81,7 +86,7 @@ Experimental digestion assays show that kale fiber and protein fractions bind bi
 
 ---
 
-## 4. Precautions & Potential Side Effects
+## 4. Kale Cautions: Thyroid, Oxalate and Warfarin
 
 - **Warfarin (Coumadin) Consistency:** Because kale is extraordinarily rich in vitamin K (389.6 mcg/100 g), sudden spikes or drops in kale intake can alter INR stability on warfarin. Patients on vitamin K antagonists do not necessarily have to ban kale, but must **keep daily vitamin K intake consistent** under clinician guidance.
 - **Raw Kale & Thyroid Goitrogens:** Cruciferous vegetables contain glucosinolate-derived compounds that can compete with iodine uptake **if consumed raw in massive quantities daily** alongside iodine deficiency. Moderate portions—especially lightly steamed or sautéed—pose no issue for most people, though those with hypothyroidism should avoid extreme daily raw-kale juicing.
@@ -102,14 +107,15 @@ For raw salads, yes—removing the thick central rib dramatically improves textu
 
 ---
 
-## 6. Synergistic Food Pairings
+## 6. What Foods Pair Best with Kale?
 
 - **[Avocado](/en/posts/avocado-nutrition-benefits/):** Avocado's monounsaturated fats dramatically boost intestinal micelle formation and absorption of kale's 6,261 mcg lutein + zeaxanthin and vitamin K.
+- **[Spinach](/en/posts/spinach-nutrition-benefits/):** Blanching kale with spinach puts vitamin K, folate and lutein from two leafy greens on one plate.
 - **[Orange](/en/posts/orange-nutrition-benefits/):** Citrus vitamin C and citric acid enhance absorption of kale's plant-based non-heme iron (1.60 mg/100 g) while brightening its earthy flavor.
 
 ---
 
-## 7. Key Takeaways
+## 7. Kale per Day: How Much Do You Need?
 
 - Per 100 g raw, kale packs **389.6 mcg vitamin K, 93.4 mg vitamin C, 254 mg bioavailable calcium, and 6,261 mcg lutein + zeaxanthin** for just **35 kcal**.
 - Unlike spinach, kale is **low in oxalates (~10–20 mg/100 g)**, making it a safer green for calcium absorption and kidney-stone prevention.

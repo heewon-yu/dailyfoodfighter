@@ -1,11 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Tomato Nutrition Facts & Calories: Raw vs. Cooked for Maximum Lycopene Absorption"
+title: "Tomato Nutrition Facts: 18 Calories, Lycopene Raw vs Cooked"
 date: 2026-11-04 00:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 category: "Fruits"
 tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
-description: "Clinical breakdown of tomato nutrition: calories, why heating with olive oil boosts lycopene absorption by 400%, cardiovascular benefits, and prostate health."
+description: "A raw tomato has 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene absorption with fat and heat, plus reflux cautions."
 permalink: /en/posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
 ---
@@ -13,13 +14,17 @@ image: "/assets/images/tomato.jpg"
 ![Fresh red ripe tomatoes with cross section on wooden rustic background](/assets/images/tomato.jpg)
 *▲ Freshly harvested ripe red tomatoes serve as an exceptional dietary reservoir of bioactive lycopene.*
 
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> A raw tomato provides 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene is fat-soluble, so cooking with oil raises absorption, while raw tomatoes keep more heat-sensitive vitamin C.
+</div>
+
 As one of the most widely consumed functional foods across global cuisines, the **tomato (Solanum lycopersicum)** holds a prominent status in contemporary clinical nutritional science.
 
 Originating from western South America and popularized through Mediterranean dietary traditions, the tomato is far more than a versatile culinary ingredient. It serves as an exceptional dietary reservoir of **lycopene**, an acyclic carotenoid responsible for its vibrant red hue and an array of documented physiological advantages. This comprehensive analysis evaluates the biochemical profile of tomatoes, explores their scientific therapeutic mechanisms, and provides practical dietary strategies to optimize nutrient assimilation.
 
 ---
 
-## 1. Complete Nutritional Composition (Per 100g Raw Red Ripe Tomato)
+## 1. How Many Calories Are in Tomatoes? (13.7 mg vitamin C, 237 mg potassium per 100 g)
 
 Data synthesized from the United States Department of Agriculture (USDA) FoodData Central reveals the macronutrient and micronutrient density per 100-gram serving:
 
@@ -41,7 +46,7 @@ Data synthesized from the United States Department of Agriculture (USDA) FoodDat
 
 ---
 
-## 2. Four Clinically Validated Physiological Mechanisms
+## 2. What Are the Benefits of Tomatoes? Four Evidence-Backed Effects
 
 ### ① Superior Radical Scavenging & Endothelial Integrity
 Lycopene features an extended conjugated polyene system comprising 11 conjugated and 2 non-conjugated double bonds. This distinctive molecular configuration renders it one of the most potent singlet oxygen ($^1\text{O}_2$) quenchers in nature—exhibiting twice the quenching capacity of $\beta$-carotene and ten times that of $\alpha$-tocopherol (Vitamin E). By mitigating lipid peroxidation within low-density lipoprotein (LDL) fractions and preserving vascular endothelial function, regular tomato intake is strongly correlated with a reduced incidence of atherosclerosis and myocardial infarction.
@@ -57,7 +62,7 @@ Accumulation of dietary carotenoids within cutaneous tissues mitigates UV-induce
 
 ---
 
-## 3. Bioavailability Optimization: "The Power of Heat and Dietary Lipids"
+## 3. Raw or Cooked Tomatoes? Lycopene Absorption Compared
 
 A widespread assumption suggests that raw plant foods universally offer superior nutritional value. In the context of tomato carotenoids, however, **thermal processing and concurrent lipid consumption drastically amplify bioaccessibility**.
 
@@ -71,7 +76,7 @@ Because lycopene is intensely hydrophobic, efficient absorption necessitates mic
 
 ---
 
-## 4. Potential Contraindications and Clinical Considerations
+## 4. Who Should Avoid Tomatoes? Side Effects and Cautions
 
 - **Gastroesophageal Reflux Disease (GERD):** Abundant malic and citric acids stimulate gastric secretion. Individuals with erosive esophagitis or peptic ulcer disease should minimize intake on an empty stomach.
 - **Glycoalkaloid Toxicity (Solanine):** Unripe green tomatoes contain toxic glycoalkaloids, primarily tomatine and solanine, which can cause gastrointestinal distress, cephalalgia, and nausea. Always select thoroughly ripened specimens.
@@ -79,13 +84,13 @@ Because lycopene is intensely hydrophobic, efficient absorption necessitates mic
 
 ---
 
-## 5. Summary & Culinary Recommendation
+## 5. Storing and Portioning Tomatoes
 
 For optimal therapeutic and nutritional yield, prepare tomatoes lightly stewed or sautéd in cold-pressed olive oil (e.g., tomato-based sauces, soups, or Mediterranean ratatouille) accompanied by quality protein. An average intake of one to two medium cooked tomatoes daily provides sufficient bioactive carotenoids to support systemic health.
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Tomatoes
 
 - **[Beef Sirloin]({{ site.baseurl }}/en/posts/beef-sirloin-nutrition-benefits/)**: Fat-soluble lycopene requires dietary lipids for optimal bioavailability; pairing cooked tomatoes with high-quality beef fat enhances carotenoid absorption by up to fourfold while digestive acids in tomatoes aid meat proteolysis.
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Clinical research demonstrates that combining broccoli's sulforaphane with tomato's lycopene produces a synergistic anti-proliferative effect against oncogenic cellular pathways significantly exceeding individual consumption.

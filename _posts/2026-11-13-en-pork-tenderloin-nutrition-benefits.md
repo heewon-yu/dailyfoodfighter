@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Pork Tenderloin Nutrition Facts & Biochemistry: Thiamine Density, Lean Protein, and Energy Metabolism"
+title: "Pork Tenderloin Nutrition: 120 Calories, 21.8 g Protein"
 date: 2026-11-13 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Pork Tenderloin, Thiamine, Vitamin B1, Lean Protein, Muscle Protein Synthesis]
-description: "Clinical nutrition monograph on pork tenderloin: Exceptional thiamine (vitamin B1) concentration, sub-3% lipid density, mitochondrial ATP generation, and branched-chain amino acid kinetics."
+description: "Pork tenderloin has 120 calories, 21.8 g protein and 420 mg potassium per 100 g, with thiamine and energy metabolism notes plus tender cooking methods."
 permalink: /en/posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
 ---
 
 ![Fresh Sliced Raw Lean Pork Tenderloin on Wooden Cutting Board](/assets/images/pork-tenderloin.jpg)
 *▲ Anatomically situated along the central dorsal lumbar spine, pork tenderloin stands as the leanest porcine muscle cut, delivering less than 3% lipid density alongside the highest concentration of bioavailable thiamine (vitamin B1) found in land-based livestock.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Pork tenderloin provides 120 calories, 21.8 g protein and 420 mg potassium per 100 g. It matches chicken breast on calories but carries far more thiamine, the enzyme cofactor that converts carbohydrate into usable energy.
+</div>
 
 In the disciplines of clinical sports dietetics and metabolic biochemistry, **pork tenderloin (*Psoas major*)** represents an elite dietary protein source matching skinless poultry breast in lipid minimization while far surpassing it in micronutrient density.
 
@@ -23,7 +28,7 @@ Drawing upon USDA FoodData Central chemical profiling and peer-reviewed human cl
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Lean Pork Tenderloin)
+## 1. How Many Calories Are in Pork Tenderloin? (21.8 g protein, 420 mg potassium per 100 g)
 
 Pork tenderloin provides exceptional nitrogen density, minimal saturated lipids, and elevated concentrations of mitochondrial cofactors.
 
@@ -60,7 +65,7 @@ Pork tenderloin provides exceptional nitrogen density, minimal saturated lipids,
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Pork Tenderloin? Four Evidence-Backed Effects
 
 ### ① Thiamine-Mediated Aerobic Substrate Oxidation and Lactic Acid Clearance
 As the direct biological precursor to thiamine pyrophosphate (**TPP**), the thiamine loaded within pork tenderloin acts as an obligate coenzyme for the **pyruvate dehydrogenase complex (PDC)**. By efficiently shunting glycolytic end-products into the citric acid cycle rather than allowing anaerobic reduction into lactic acid, tenderloin intake prevents muscular acidosis and optimizes intracellular energetic yield (36-38 ATP per glucose molecule).
@@ -76,7 +81,7 @@ The balanced vitamin B complex (B6, B12, and niacin) found within pork tenderloi
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Thermodynamics
+## 3. How Do You Cook Pork Tenderloin So It Stays Tender?
 
 ### Allithiamine Synthesis via Allium Phytonutrient Conjugation
 Free thiamine exhibits limited passive mucosal absorption and is rapidly degraded by gastrointestinal alkaline environments. Combining tenderloin with crushed garlic, shallots, or onions introduces **allicin**, an organosulfur electrophile that reacts with thiamine to synthesize **allithiamine**. This lipid-soluble derivative traverses intestinal epithelia via unassisted diffusion, yielding circulating half-lives substantially longer than free thiamine.
@@ -86,7 +91,7 @@ Thiamine possesses marked thermal sensitivity, with degradation accelerating pas
 
 ---
 
-## 4. Potential Adverse Reactions and Considerations
+## 4. Who Should Avoid Pork Tenderloin? Side Effects and Cautions
 
 ### Dietary Phosphorus and Renal Solute Load
 Patients with established end-stage Chronic Kidney Disease (CKD stage 4-5) must account for the high organic phosphorus content (240 mg/100g) and potassium density (420 mg/100g) of lean muscle meat, adhering strictly to nephrological protein allotment guidelines.
@@ -96,7 +101,7 @@ Modern controlled agricultural biosecurity has largely eliminated *Trichinella s
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 5. Storing and Portioning Pork Tenderloin
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin reacts with porcine thiamine to generate allithiamine, multiplying cellular absorption up to tenfold and prolonging metabolic energy enhancement.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Quercetin and allyl sulfides in onions mitigate lipid peroxidation during thermal digestion and support cardiovascular vascular tone.

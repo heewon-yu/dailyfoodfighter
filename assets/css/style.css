@@ -584,3 +584,93 @@ body {
     overflow: hidden;
   }
 }
+
+/* ── E-E-A-T 검토 배지 & Answer-First 요약 (2026-11-16 SEO 개편) ── */
+.post-review {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.post-review .review-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  border: 1px solid #e2e8f0;
+  border-radius: 999px;
+  line-height: 1.4;
+}
+
+.post-content .answer-first {
+  margin: 24px 0 28px;
+  padding: 18px 20px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-left: 4px solid var(--primary);
+  border-radius: 10px;
+  font-size: 1.0rem;
+  line-height: 1.8;
+  color: #14532d;
+  letter-spacing: -0.01em;
+}
+
+.post-content .answer-first strong {
+  color: #065f46;
+}
+
+.post-content .answer-first span.answer-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: #047857;
+  margin-bottom: 6px;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.post-tags .tag {
+  display: inline-block;
+  padding: 4px 10px;
+  background: #f1f5f9;
+  color: #475569;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.post-tags .tag-archive-link {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  border: 1px solid #a7f3d0;
+  border-radius: 999px;
+}
+
+.post-tags .tag-archive-link:hover {
+  background: #ecfdf5;
+}
+
+@media (max-width: 640px) {
+  .post-content .answer-first {
+    padding: 15px 16px;
+    font-size: 0.96rem;
+  }
+
+  .post-review {
+    font-size: 0.75rem;
+  }
+}

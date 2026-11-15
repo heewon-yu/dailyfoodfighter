@@ -10,6 +10,15 @@ layout: default
       <span class="post-author">✍️ {% if page.lang == 'en' %}Nutrition Science Team{% else %}영양전문 에디터{% endif %}</span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-review">
+      {% if page.lang == 'en' %}
+      <span class="review-item">🔬 Reviewed against USDA FoodData Central &amp; PubMed literature</span>
+      {% if page.last_modified_at %}<span class="review-item">🕒 Last reviewed: {{ page.last_modified_at | date: "%B %d, %Y" }}</span>{% endif %}
+      {% else %}
+      <span class="review-item">🔬 검증 기준: USDA FoodData Central · PubMed 문헌</span>
+      {% if page.last_modified_at %}<span class="review-item">🕒 최종 검토일: {{ page.last_modified_at | date: "%Y년 %m월 %d일" }}</span>{% endif %}
+      {% endif %}
+    </div>
   </header>
 
   <div class="post-content">
@@ -21,18 +30,37 @@ layout: default
       {% for tag in page.tags %}
       <span class="tag">#{{ tag }}</span>
       {% endfor %}
+      {% if page.category %}
+        {% if page.lang == 'en' %}
+        <a class="tag-archive-link" href="{{ '/en/category/' | append: page.category | downcase | append: '/' | relative_url }}">More {{ page.category | downcase }} guides →</a>
+        {% else %}
+        <a class="tag-archive-link" href="{{ '/category/' | append: page.category | append: '/' | relative_url }}">{{ page.category }} 가이드 더 보기 →</a>
+        {% endif %}
+      {% endif %}
     </div>
 
-    <!-- 추천 아티클 (체류 시간 및 PV 증대) -->
+    <!-- 추천 아티클 (같은 카테고리 우선 → 주제 클러스터 내부 링크 강화) -->
     <div class="recommended-posts" style="margin: 2.5rem 0 1.5rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
       <h3 style="margin-top: 0; margin-bottom: 1rem; font-size: 1.15rem; color: #1e293b; font-weight: bold;">
         {% if page.lang == 'en' %}📖 Recommended Nutrition Guides{% else %}📖 함께 읽으면 유익한 영양 과학 가이드{% endif %}
       </h3>
       <ul style="list-style: none; padding-left: 0; margin: 0; display: flex; flex-direction: column; gap: 0.75rem;">
         {% assign same_lang_posts = site.posts | where: "lang", page.lang %}
+        {% assign same_category_posts = same_lang_posts | where: "category", page.category %}
         {% assign count = 0 %}
-        {% for p in same_lang_posts %}
+        {% for p in same_category_posts %}
           {% if p.url != page.url and count < 3 %}
+            <li style="display: flex; align-items: baseline; gap: 0.5rem;">
+              <span style="color: #10b981;">•</span>
+              <a href="{{ p.url | relative_url }}" style="color: #0f172a; text-decoration: none; font-weight: 500; font-size: 0.98rem; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#0f172a'">
+                {{ p.title }}
+              </a>
+            </li>
+            {% assign count = count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
+        {% for p in same_lang_posts %}
+          {% if count < 3 and p.url != page.url and p.category != page.category %}
             <li style="display: flex; align-items: baseline; gap: 0.5rem;">
               <span style="color: #10b981;">•</span>
               <a href="{{ p.url | relative_url }}" style="color: #0f172a; text-decoration: none; font-weight: 500; font-size: 0.98rem; transition: color 0.2s;" onmouseover="this.style.color='#10b981'" onmouseout="this.style.color='#0f172a'">

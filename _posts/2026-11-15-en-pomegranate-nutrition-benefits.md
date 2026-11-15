@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Pomegranate Nutrition Facts & Urolithin A: Ellagitannins, 83 kcal per 100 g, and Juice vs. Arils"
+title: "Pomegranate Nutrition: 83 Calories, Urolithin A & Juice"
 date: 2026-11-15 15:45:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "fruit"
+category: "Fruits"
 tags: [Pomegranate, Urolithin A, Ellagitannins, Punicalagin, Antioxidants]
-description: "Clinical nutrition analysis of pomegranate arils (83 kcal per 100 g): punicalagin-rich ellagitannins, gut microbiota conversion to urolithin A, juice versus whole aril comparison, and warfarin or statin interactions."
+description: "Raw arils have 83 calories, 4.0 g fiber and 10.2 mg vitamin C per 100 g, with ellagitannin to urolithin A conversion and juice versus whole fruit."
 permalink: /en/posts/pomegranate-nutrition-benefits/
 image: "/assets/images/pomegranate.jpg"
 ---
 
 ![Whole and Halved Pomegranates with Ruby Red Arils on a Rustic Wooden Table](/assets/images/pomegranate.jpg)
 *▲ At just 83 kcal and 4.0 g of dietary fiber per 100 g, pomegranate arils deliver modest calories but extraordinary polyphenol density—punicalagin and related ellagitannins exceed 1 g in the peel and inner membranes, feeding the gut bacteria that produce urolithin A.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw pomegranate arils provide 83 calories, 4.0 g fiber and 10.2 mg vitamin C per 100 g. Gut bacteria convert its ellagitannins into urolithin A, which supports mitochondrial function, and whole arils deliver about four times the fiber of juice.
+</div>
 
 **Pomegranate (*Punica granatum*)** has been cultivated across Persia and the Mediterranean for more than four millennia, and modern biochemistry has finally explained its reputation as a "fruit of life."
 
@@ -25,7 +30,7 @@ Drawing on USDA FoodData Central analytical profiles and published human trials,
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Raw Arils)
+## 1. How Many Calories Are in Pomegranate? (4.0 g fiber, 10.2 mg vitamin C per 100 g)
 
 Edible arils are roughly 78% water, essentially free of cholesterol and saturated fat, and provide a meaningful share of vitamin K and copper alongside a high polyphenol load.
 
@@ -60,7 +65,7 @@ By comparison, **100% pressed pomegranate juice** provides about 54 kcal, 12.7 g
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Pomegranate? Four Evidence-Backed Effects
 
 ### 1) Urolithin A Production and Mitochondrial Quality Control
 Colonic bacteria convert punicalagin and ellagic acid into urolithin A, which activates the PINK1/Parkin pathway and removes depolarized mitochondria through mitophagy while improving respiratory efficiency in remaining organelles.
@@ -84,7 +89,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
 
 ---
 
-## 3. Culinary Preparation for Maximum Absorption
+## 3. Juice or Arils? Which Pomegranate Form Absorbs Better
 
 - **Keep the inner membranes, discard only the outer rind:** Punicalagin concentrates in the mesocarp and the white membranes surrounding the arils—often tenfold higher than in the juicy pulp itself. Home juicing that leaves some white membrane intact preserves far more ellagitannins. Remove the tough outer skin, which concentrates bitter tannins and surface residues.
 - **Chew or crush the seeds:** Pomegranate seeds carry punicic acid, a conjugated linoleic acid isomer, plus insoluble fiber. Swallowed whole, they pass through undigested; crushing them releases both.
@@ -93,7 +98,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Pomegranate? Side Effects and Cautions
 
 - **Warfarin and vitamin K antagonists:** At 16.4 mcg of vitamin K per 100 g, a large swing in pomegranate intake can destabilize the INR. Keep intake consistent and coordinate monitoring intervals with your clinician.
 - **Statins and CYP-mediated clearance:** Pomegranate juice inhibits CYP3A4 and CYP2C9 in vitro and in small human studies, and has been reported to raise rosuvastatin exposure by roughly 1.4-fold. Clinical significance appears limited, but persistent muscle pain or elevated liver enzymes warrant disclosure of both the drug and the juice.
@@ -103,7 +108,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Pomegranate?
 
 - **[Orange (Citrus × sinensis)]({{ site.baseurl }}/en/posts/orange-nutrition-benefits/)**: High ascorbic acid regenerates oxidized polyphenol radicals, extending pomegranate's antioxidant network while brightening its astringent edge.
 - **[Spinach (Spinacia oleracea)]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Pomegranate vitamin C enhances reduction of spinach's non-heme iron, while spinach folate and vitamin K complement pomegranate polyphenols for endothelial support.

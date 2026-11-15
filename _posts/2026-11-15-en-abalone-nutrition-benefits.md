@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Abalone Nutrition Facts & Marine Biochemistry: Taurine, Glycogen, Selenium, and Hepatic Recovery"
+title: "Abalone Nutrition: 105 Calories, 17.1 g Protein, Taurine"
 date: 2026-11-15 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "seafood"
+category: "Seafood"
 tags: [Abalone, Taurine, Selenium, Marine Protein, Liver Health]
-description: "Clinical nutrition monograph on raw abalone (Haliotis spp.): 105 kcal lean marine protein, sub-1% lipid density, taurine-mediated hepatic bile conjugation, and exceptional selenium & vitamin E synergy."
+description: "Raw abalone has 105 calories, 17.1 g protein and 3.19 mg iron per 100 g, with kelp-fed taurine, glycogen and liver recovery research plus cooking."
 permalink: /en/posts/abalone-nutrition-benefits/
 image: "/assets/images/abalone.jpg"
 ---
 
 ![Fresh Whole Raw Abalone in Shells on Crushed Ice with Lemon and Sea Salt](/assets/images/abalone.jpg)
 *▲ Supplying 17.10 grams of bioavailable marine protein and under 1 gram of total fat per 100 grams, abalone (*Haliotis spp.*) concentrates free taurine, glycogen, vitamin E, and selenium to support hepatic detoxification and cellular energy recovery.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw abalone provides 105 calories, 17.1 g protein and 3.19 mg iron per 100 g. Feeding on kelp concentrates taurine, while its glycogen supplies a readily used liver fuel, the basis for its recovery-food reputation.
+</div>
 
 Revered across East Asian clinical culinary traditions as the "ginseng of the sea," **abalone (*Haliotis discus hannai* and related species)** is a herbivorous marine gastropod mollusk that feeds predominantly on kelp and brown seaweeds. That marine botanical diet shapes an extraordinary biochemical profile inside its muscular foot.
 
@@ -23,7 +28,7 @@ Drawing on USDA FoodData Central analytical profiles, this monograph examines th
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Abalone)
+## 1. How Many Calories Are in Abalone? (17.1 g protein, 3.19 mg iron per 100 g)
 
 Raw abalone delivers 105 kcal per 100 grams with negligible fat (0.76g), zero dietary sugar, and remarkable density in selenium, pantothenic acid, iron, and vitamin B12.
 
@@ -54,7 +59,7 @@ Raw abalone delivers 105 kcal per 100 grams with negligible fat (0.76g), zero di
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Abalone? Four Evidence-Backed Effects
 
 ### 1) Hepatic Detoxification and Bile Acid Conjugation
 Rich pools of free taurine, arginine, and methionine support hepatic glutathione synthesis and bile salt conjugation. By enhancing bile flow and reducing intrahepatic triglyceride accumulation, abalone serves as a restorative protein source for liver stress and fatigue recovery.
@@ -70,7 +75,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
 
 ---
 
-## 3. Culinary Preparation for Optimal Nutrient Retention
+## 3. How Do You Clean and Cook Abalone to Keep Taurine?
 
 - **Gentle Steaming or Congee Over Prolonged Boiling:** Because abalone muscle fibers tighten rapidly under high, prolonged heat, steam whole or scored abalone gently for 3 to 5 minutes, or simmer slowly in rice congee (*jeonbokjuk*) to tenderize collagen and maximize digestibility.
 - **Retain Cooking Liquids to Preserve Taurine:** Taurine and B vitamins are water-soluble. Dishes that incorporate the poaching broth—such as abalone porridge or light seafood soups—retain virtually 100% of these bioactive compounds.
@@ -78,7 +83,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Abalone? Side Effects and Cautions
 
 - **Seasonal Photosensitivity Risk from Spring Viscera:** Between March and May, abalone feeding on specific seaweeds can accumulate *pyropheophorbide a*—a chlorophyll breakdown metabolite—in their viscera. Consuming spring viscera followed by sunlight exposure can trigger phototoxic dermatitis; discard the viscera during spring months and eat only the muscular foot.
 - **Cholesterol and Purine Considerations:** While 100g of abalone contains 85 mg of cholesterol, its high taurine content promotes fecal bile excretion. Still, individuals managing gout or severe hyperlipidemia should keep portions moderate (around 100g per serving).
@@ -86,7 +91,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Abalone?
 
 - **[Garlic (Allium sativum)]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Pan-searing abalone with garlic allows allicin to form allithiamine complexes with B vitamins, amplifying metabolic energy recovery and antimicrobial protection.
 - **[Egg (Whole Egg)]({{ site.baseurl }}/en/posts/egg-nutrition-benefits/)**: Folding beaten egg into warm abalone congee supplies complementary vitamin A, vitamin D, and choline to complete the micronutrient spectrum.

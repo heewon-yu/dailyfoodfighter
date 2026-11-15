@@ -1,17 +1,22 @@
 ---
 layout: post
 lang: en
-title: "Broccoli Nutrition Facts & Calories: Steaming Time & Sulforaphane Bioavailability"
+title: "Broccoli Nutrition: 34 Calories, Steaming vs Sulforaphane"
 date: 2026-11-05 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 category: "Vegetables"
 tags: [Broccoli, Sulforaphane, Nrf2, Chemoprotection, CruciferousVegetables]
-description: "Evidence-based broccoli nutrition science: calories, why boiling destroys myrosinase, optimal steaming time, and how mustard seeds boost sulforaphane absorption."
+description: "Broccoli has 34 calories, 89.2 mg vitamin C, 101.6 mcg vitamin K and 63 mcg folate per 100 g. A steaming window that keeps sulforaphane."
 permalink: /en/posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---
 
 ![Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board](/assets/images/broccoli.jpg)
 *▲ Fresh broccoli (Brassica oleracea var. italica) represents the quintessential cruciferous superfood, functioning as the premier dietary reservoir of glucoraphanin and enzymatically derived sulforaphane.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Broccoli has 34 calories, 89.2 mg vitamin C and 101.6 mcg vitamin K per 100 g. Sulforaphane falls as cooking time rises, so steaming for about 3 to 5 minutes plus a short rest after chopping preserves the most.
+</div>
 
 Indigenous to the northeastern Mediterranean basin, the cruciferous vegetable **Broccoli (*Brassica oleracea* var. *italica*)** occupies a preeminent position within modern clinical nutrition and chemoprotective medicine.
 
@@ -21,7 +26,7 @@ This peer-reviewed nutritional monograph provides an exhaustive biochemical brea
 
 ---
 
-## 1. Complete Nutritional Composition (Per 100g Raw Portion)
+## 1. How Long Should You Steam Broccoli to Keep Sulforaphane?
 
 Synthesized from empirical spectroscopic assays cataloged in the United States Department of Agriculture (USDA) FoodData Central, the comprehensive macronutrient and micronutrient density per 100-gram raw edible portion comprises:
 
@@ -47,7 +52,7 @@ Synthesized from empirical spectroscopic assays cataloged in the United States D
 
 ---
 
-## 2. Four Clinically Validated Physiological Health Benefits
+## 2. What Are the Benefits of Broccoli? Four Evidence-Backed Effects
 
 ### 1. Robust Nrf2-ARE Upregulation and Phase-II Enzymatic Detoxification
 Sulforaphane stands recognized as the most potent naturally occurring inducer of the mammalian **Nrf2 (Nuclear factor erythroid 2-related factor 2)** cytoprotective signaling cascade. Under basal physiologic conditions, Nrf2 remains sequestered in the cytoplasm by actin-bound Keap1 protein. Upon cellular entry, sulforaphane reacts with critical cysteine residues on Keap1, facilitating Nrf2 dissociation and nuclear translocation.
@@ -71,7 +76,7 @@ In double-blind, placebo-controlled human intervention trials, patients receivin
 
 ---
 
-## 3. Culinary Preparation and Sulforaphane Bioavailability Maximization
+## 3. Storing and Portioning Broccoli
 
 The clinical efficacy and therapeutic bioassimilation of broccoli-derived phytochemicals depend profoundly upon culinary heating kinetics and food preparation matrices.
 
@@ -84,7 +89,7 @@ The clinical efficacy and therapeutic bioassimilation of broccoli-derived phytoc
 
 ---
 
-## 4. Clinical Contraindications and Potential Adverse Effects
+## 4. Who Should Avoid Broccoli? Side Effects and Cautions
 
 Although whole raw or culinary-prepared broccoli carries exceptional toxicological safety, particular clinical cohorts require tailored precautions:
 
@@ -94,7 +99,7 @@ Although whole raw or culinary-prepared broccoli carries exceptional toxicologic
 
 ---
 
-## 5. Practical Implementation and Clinical Takeaway
+## 5. Broccoli per Day: How Much Do You Need?
 
 Integrating whole culinary broccoli into a preventative nutritional regimen confers systemic metabolic, gastrointestinal, and cellular chemoprotective advantages.
 
@@ -104,7 +109,7 @@ Integrating whole culinary broccoli into a preventative nutritional regimen conf
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Broccoli
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Organosulfur complexes and selenium in garlic activate Phase II hepatic detoxification enzymes, amplifying sulforaphane-mediated chemoprotective efficacy.
 - **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Cross-pollination of tomato lycopene and broccoli isothiocyanates simultaneously inhibits neoplastic angiogenesis across divergent biochemical signaling cascades.

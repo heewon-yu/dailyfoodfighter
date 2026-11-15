@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Egg Nutrition Facts & Calories: Protein Bioavailability, Cholesterol Truth & Boiling Time Guide"
+title: "Egg Nutrition: 143 Calories, 12.6 g Protein, Boiling Times"
 date: 2026-11-09 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
-description: "Comprehensive egg nutrition guide: calories, protein bioavailability score of 100, soft vs. hard-boiled cooking chemistry, choline for brain health, and dietary cholesterol myths."
+description: "Eggs have 143 calories and 12.56 g protein per 100 g, about two large eggs. Boiling times, digestibility, cholesterol evidence, and daily limits."
 permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 ---
 
 ![Fresh and Sliced Hard Boiled Eggs on Rustic Board](/assets/images/egg.jpg)
 *▲ Regarded as nature's quintessential biological nutrient capsule, the egg (Gallus gallus domesticus) represents the gold standard of protein bioavailability (BV 100), supplying concentrated neuroprotective choline, macular carotenoids, and vital fat-soluble micronutrients.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein. Hard-boiled eggs digest slightly better than soft, and one to two eggs a day does not meaningfully raise LDL in most healthy adults.
+</div>
 
 Within clinical dietetics and metabolic biochemistry, the **whole egg** stands as the definitive nutritional benchmark for protein quality and micronutrient density.
 
@@ -23,7 +28,7 @@ Synthesizing analytical datasets from the USDA FoodData Central and landmark car
 
 ---
 
-## 1. Quantitative Nutritional Profile (Per 100g Raw Edible Mass, ~2 Large Eggs)
+## 1. How Many Calories Are in Eggs? (12.56 g protein, 47 mcg folate per 100 g)
 
 A 100-gram serving of whole raw eggs yields approximately 143 kcal (roughly 72 kcal per large 50g egg), providing an optimal equilibrium of bioavailable amino acids and unsaturated lipid fractions.
 
@@ -60,7 +65,7 @@ A 100-gram serving of whole raw eggs yields approximately 143 kcal (roughly 72 k
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Eggs? Four Evidence-Backed Effects
 
 ### 1) Optimal Anabolic Myofibrillar Signaling via BV 100 Protein
 Egg protein exhibits complete gastrointestinal assimilation and amino acid balance. Concentrated **leucine** within ovalbumin and vitellin stimulates the **mTORC1 (Mechanistic Target of Rapamycin Complex 1)** kinase signaling cascade, accelerating muscle protein synthesis (MPS) and counteracting age-associated sarcopenic wasting.
@@ -76,7 +81,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 
 ---
 
-## 3. Culinary Thermodynamics: Soft vs. Hard Boiled Bioavailability
+## 3. Soft or Hard Boiled? Protein Digestibility by Boiling Time
 
 - **Soft-Boiled Kinetics (6 to 7 minutes in simmering water):** Albumin achieves thermocoagulation while yolk vitellin retains a liquid phase. Heat-sensitive phospholipids, lutein, and choline maintain 100% molecular integrity, ensuring maximum kinetic gastric emptying and enzymatic bioavailability.
 - **Hard-Boiled Thermodynamics (10 to 12 minutes):** Complete thermal denaturation neutralizes the anti-nutritional glycoprotein **avidin**, ensuring 100% bioaccessibility of biotin (vitamin B7). Extended gastric transit provides sustained satiety exceeding 4 hours.
@@ -84,14 +89,14 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 
 ---
 
-## 4. Potential Contraindications and Clinical Considerations
+## 4. Who Should Avoid Eggs? Side Effects and Cautions
 
 - **Avidin Glycoprotein in Raw Whites:** Ingesting excessive unpasteurized raw egg whites permits avidin to bind endogenous biotin with extraordinary affinity, inducing functional biotin deficiency manifested as alopecia and dermatitis. Thorough cooking neutralizes avidin completely.
 - **Salmonella Enteritidis Risk:** Ensure adequate thermal processing (>70°C / 158°F) and adhere to cold-chain refrigeration to eliminate surface microbial contamination.
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Bioavailability
+## 5. What Foods Pair Best with Eggs?
 
 - **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Egg yolk phospholipids augment the gastrointestinal lipophilic micellar solubilization of tomato lycopene by over 400%, creating an elite anti-inflammatory pairing.
 - **[Spinach]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: The bioavailable vitamin D and choline in eggs synergize with non-heme iron and folate in spinach to enhance erythropoiesis.
@@ -145,7 +150,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 
 ---
 
-## 7. Strategic Nutritional Summary
+## 7. Eggs per Day: How Much Do You Need?
 
 - **Biochemical Density:** Biological Value of 100, 12.56g protein per 100g, 294mg neuroprotective choline, and 503mcg eye-protective lutein/zeaxanthin.
 - **Culinary Preparation:** Opt for soft-boiled (7 mins) to protect delicate yolk lipids and choline, or hard-boiled (10 mins) to fully denature avidin for maximum biotin retention.

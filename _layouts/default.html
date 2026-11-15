@@ -46,6 +46,10 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
+  {% if page.last_modified_at %}
+  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+  <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  {% endif %}
   {% if page.image %}
   <meta property="og:image" content="{{ page.image | absolute_url }}">
   <meta property="og:image:type" content="image/jpeg">
@@ -110,10 +114,20 @@
     "publisher": {
       "@type": "Organization",
       "name": "DailyFoodFighter",
-      "url": "{{ site.url }}{{ site.baseurl }}"
+      "url": "{{ site.url }}{{ site.baseurl }}",
+      "sameAs": ["https://x.com/Dailyfoodfff"]
     },
     "keywords": "{{ page.tags | join: ', ' }}"
     {% else %}
+    "alternateName": "데일리푸드파이터",
+    "inLanguage": ["ko", "en"],
+    "sameAs": ["https://x.com/Dailyfoodfff"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "DailyFoodFighter",
+      "url": "{{ site.url }}{{ site.baseurl }}",
+      "sameAs": ["https://x.com/Dailyfoodfff"]
+    },
     "potentialAction": {
       "@type": "SearchAction",
       "target": "{{ site.url }}{{ site.baseurl }}/?q={search_term_string}",

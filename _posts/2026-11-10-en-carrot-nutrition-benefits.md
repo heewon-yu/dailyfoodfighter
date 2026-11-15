@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Carrot Nutrition Facts & Calories: Beta-Carotene Bioavailability, Falcarinol & Cooking Chemistry"
+title: "Carrot Nutrition: 41 Calories, Beta-Carotene Absorption"
 date: 2026-11-10 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetable"
+category: "Vegetables"
 tags: [Carrot, Beta-Carotene, Provitamin A, Falcarinol, Bioavailability]
-description: "Comprehensive carrot nutrition guide: calories, provitamin A carotenoids, falcarinol anticarcinogenic mechanisms, thermal lipid cooking kinetics, and fresh storage science."
+description: "Carrots have 41 calories, 2.8 g fiber and 320 mg potassium per 100 g. Why fat and heat raise beta-carotene absorption, and peel notes."
 permalink: /en/posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
 ---
 
 ![Fresh Organic Carrots and Slices on Cutting Board](/assets/images/carrot.jpg)
 *▲ Revered across clinical dietetics as nature's premier provitamin A reservoir, the domesticated carrot (Daucus carota subsp. sativus) supplies therapeutic concentrations of lipophilic beta- and alpha-carotenes, gastroprotective pectins, and bioactive polyacetylenes like falcarinol.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Carrots provide 41 calories, 2.8 g fiber and 320 mg potassium per 100 g. Beta-carotene absorbs far better when cooked with fat, so a little oil or a fatty companion food matters more than eating carrots raw.
+</div>
 
 Within preventative oncology and visual physiology, the **carrot** serves as an indispensable dietary cornerstone. Characterized by its intense orange chromoplast pigmentation, this root vegetable delivers exceptional concentrations of **beta-carotene** alongside structural **alpha-carotene**.
 
@@ -23,7 +28,7 @@ Synthesizing analytical datasets from the USDA FoodData Central and landmark pee
 
 ---
 
-## 1. Quantitative Nutritional Profile (Per 100g Raw Mature Carrot Edible Mass)
+## 1. How Many Calories Are in Carrots? (2.8 g fiber, 320 mg potassium per 100 g)
 
 A standard 100-gram serving of raw mature carrots provides an exceptionally light caloric burden of 41 kcal, with an 88% aqueous volume that provides pronounced postprandial satiety.
 
@@ -54,7 +59,7 @@ A standard 100-gram serving of raw mature carrots provides an exceptionally ligh
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Carrots? Four Evidence-Backed Effects
 
 ### 1) Enzymatic BCO1 Cleavage & Retinal Rhodopsin Resynthesis
 Carrots deliver 8,285 mcg of beta-carotene per 100 grams, supplying nearly 100% of the recommended daily intake of vitamin A in its non-toxic provitamin form. In the brush border of the small intestine, BCO1 cleaves beta-carotene symmetrically into two retinal molecules. Retinal is transported to the retinal pigment epithelium to sustain the visual cycle, accelerating dark adaptation, preventing night blindness (nyctalopia), and inhibiting corneal epithelial xerosis.
@@ -70,7 +75,7 @@ Beyond beta-carotene, carrots are among the densest dietary sources of **alpha-c
 
 ---
 
-## 3. Raw vs. Lipid-Co-ingested Culinary Thermodynamics & Bioavailability
+## 3. Raw or Cooked in Oil? Beta-Carotene Absorption Compared
 
 - **The Bioavailability Paradox of Raw Carrots (<10%):**
   - In raw carrots, carotenoids reside in crystalline form entrapped within dense cellulose and pectin cell-wall matrices.
@@ -81,14 +86,14 @@ Beyond beta-carotene, carrots are among the densest dietary sources of **alpha-c
 
 ---
 
-## 4. Potential Contraindications and Clinical Considerations
+## 4. Who Should Avoid Carrots? Side Effects and Cautions
 
 - **Benign Carotenemia:** Prolonged, excessive daily consumption of carrots or concentrated carrot juice can saturate hepatic storage and enterocyte cleavage capacity. Excess circulating carotenes deposit within the lipid-rich stratum corneum, manifesting as a yellowish-orange pigmentation on the palms, soles, and nasolabial folds. This condition is physiologically benign and completely reversible upon dietary moderation, distinguishable from hepatic jaundice by the complete absence of scleral icterus.
 - **Ascorbinase Oxidation:** Mechanically crushing or grating raw carrots activates the endogenous enzyme **ascorbinase (ascorbate oxidase)**, which accelerates the oxidation of ascorbic acid (vitamin C) in mixed vegetable salads. Applying mild heat or adding acidic dressings (vinegar or lemon juice, pH < 4.0) denatures ascorbinase, preserving intrinsic vitamin C.
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Bioavailability
+## 5. What Foods Pair Best with Carrots?
 
 - **[Avocado]({{ site.baseurl }}/en/posts/avocado-nutrition-benefits/)**: The monounsaturated oleic acid matrix in avocado pulp provides the ideal non-polar vehicle to incorporate hydrophobic beta-carotene into absorbable digestive micelles.
 - **[Egg]({{ site.baseurl }}/en/posts/egg-nutrition-benefits/)**: Dietary phospholipids (lecithin) in egg yolk synergize with carrot carotenoids to optimize enterocyte uptake and support systemic ocular health.
@@ -142,7 +147,7 @@ Beyond beta-carotene, carrots are among the densest dietary sources of **alpha-c
 
 ---
 
-## 7. Key Takeaways and Practical Summary
+## 7. Carrots per Day: How Much Do You Need?
 
 - **Core Nutritional Density:** 41 kcal, 8,285mcg beta-carotene (93% DV Vitamin A), 3,477mcg alpha-carotene, and 2.8g fiber per 100g.
 - **Culinary Optimization:** Cook lightly and pair with plant lipids to elevate provitamin A bioavailability by tenfold.

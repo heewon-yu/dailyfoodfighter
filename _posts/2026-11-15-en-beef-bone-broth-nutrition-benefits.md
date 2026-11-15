@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Beef Bone Broth Nutrition Facts: Collagen Peptides, Glycine, and What 12 vs. 24 Hours Really Changes"
+title: "Beef Bone Broth Nutrition: 17 Calories, Collagen & Glycine"
 date: 2026-11-15 15:45:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Bone Broth, Collagen Peptides, Glycine, Gut Health, Joint Health]
-description: "Evidence-based analysis of beef bone broth: 17 kcal and 3.3 g protein per 100 g, collagen-derived glycine and proline, the calcium myth, extraction differences between 4, 12, and 24 hours, and gout or kidney precautions."
+description: "Unsalted beef bone broth has 17 calories, 3.3 g protein and 10 mg calcium per 100 g, with what 12 versus 24 hours changes and sodium cautions."
 permalink: /en/posts/beef-bone-broth-nutrition-benefits/
 image: "/assets/images/beef-bone-broth.jpg"
 ---
 
 ![Steaming Bowl of Milky White Beef Bone Broth with Sliced Brisket and Scallions](/assets/images/beef-bone-broth.jpg)
 *▲ Beef bone broth delivers only 17 kcal per 100 g, yet a 12-hour simmer extracts roughly 2 g of collagen-derived peptides plus glycine and proline—while its calcium content remains near 10 mg per 100 g, far below milk.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Unsalted beef bone broth provides 17 calories, 3.3 g protein and 10 mg calcium per 100 g. Longer simmering converts more collagen to gelatin and raises protein, but calcium stays modest, so past two hours the gain is mostly texture.
+</div>
 
 Long simmered from beef bones and knuckles, **beef bone broth** anchors Korean seolleongtang and gomtang and has served for centuries as a convalescent food and a warming winter staple.
 
@@ -23,7 +28,7 @@ Drawing on USDA FoodData Central records and published human trials on collagen 
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Unsalted Standard Preparation)
+## 1. 12 or 24 Hours? What Long Simmering Really Extracts
 
 Values vary widely with the bone-to-water ratio, simmering duration, and fat removal. The table below uses the median of 100 g measurements across beef bone broth products registered in USDA FoodData Central.
 
@@ -55,7 +60,7 @@ The calcium figure deserves emphasis. Even after twelve hours of simmering, calc
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Beef Bone Broth? Four Evidence-Backed Effects
 
 ### 1) Collagen-Derived Peptides and Joint or Skin Tissue
 Much of bone broth's protein is gelatinous collagen peptide. After digestion, prolyl-hydroxyproline and glycine-proline dipeptides reach the bloodstream and stimulate chondrocytes and dermal fibroblasts.
@@ -77,7 +82,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
 
 ---
 
-## 3. Simmering Time and Preparation for Maximum Extraction
+## 3. Storing and Portioning Beef Bone Broth
 
 - **Hours 1–4 (first boil):** Blood residues, coagulated protein, and free amino acids surface first. This liquid is low in protein and harsh in flavor and should be discarded. Start bones in cold water, bring to a near boil, blanch, then rinse under running water.
 - **Hours 6–12 (primary extraction):** Collagen hydrolyzes into gelatin, and most protein and glycine release completes in this window. Hold the temperature at 90–95°C; a rolling 100°C boil emulsifies fat and protein into cloudy foam and increases loss.
@@ -87,7 +92,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Beef Bone Broth? Side Effects and Cautions
 
 - **Gout and hyperuricemia:** Long-simmered beef broth is purine-rich, and values vary too much by recipe for a standard figure. Anyone with a history of gout should avoid daily concentrated gomtang, abstain during flares, and otherwise limit it to once or twice weekly.
 - **Chronic kidney disease:** Broth supplies sodium, phosphorus, and potassium together, so patients on electrolyte restriction should set intake with their nephrologist. Commercial broths can contain 230–440 mg of sodium per cup.
@@ -97,7 +102,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Beef Bone Broth?
 
 - **[Tomato (Solanum lycopersicum)]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Vitamin C is an obligatory cofactor for collagen hydroxylation, so adding tomato to bone broth supports conversion of collagen peptides into stable connective tissue while contributing lycopene.
 - **[Garlic (Allium sativum)]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin and organosulfur compounds deepen the broth's umami while supporting endothelial function and lipid metabolism, offsetting the heaviness of a fatty bone broth.

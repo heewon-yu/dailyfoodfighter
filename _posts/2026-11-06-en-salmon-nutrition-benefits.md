@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Salmon Nutrition Facts & Calories: Wild vs. Farmed Omega-3s & Astaxanthin Health Benefits"
+title: "Salmon Nutrition: 208 Calories, Omega-3, Wild vs Farmed"
 date: 2026-11-06 18:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
 category: "Seafood"
 tags: [Salmon, Omega3, Astaxanthin, VitaminD, CardiovascularHealth]
-description: "Scientific analysis of salmon nutrition: calories, EPA & DHA omega-3 content in wild vs. farmed salmon, astaxanthin anti-inflammatory power, and cooking retention."
+description: "Salmon has 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Wild versus farmed, smoked sodium, and weekly servings."
 permalink: /en/posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 ---
 
 ![Fresh raw salmon fillet with lemon slices and fresh dill on dark slate](/assets/images/salmon.jpg)
 *▲ Fresh Atlantic salmon (Salmo salar) provides an unparalleled concentration of bioavailable long-chain omega-3 fatty acids (EPA and DHA), high-potency vitamin D, and astaxanthin—nature's premier marine antioxidant.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Salmon provides 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Two 100 g servings a week cover omega-3 targets, and smoked salmon carries several times the sodium of raw fillet.
+</div>
 
 When clinical nutritionists and preventive cardiologists evaluate nutritional interventions for longevity, vascular resilience, and neuroprotection, **salmon** consistently ranks at the top of biological value hierarchies.
 
@@ -23,7 +28,7 @@ Drawing upon empirical analyses from the **U.S. Department of Agriculture (USDA 
 
 ---
 
-## 1. Core Nutrient Profile of Raw Atlantic Salmon (Per 100g)
+## 1. How Many Calories Are in Salmon? (20.4 g protein, 2,150 mg EPA and DHA per 100 g)
 
 According to standardized laboratory data from the USDA FoodData Central (FDC ID: 175167), a 100 g edible portion of raw Atlantic salmon (Salmo salar, wild/farmed composite) provides the following macro- and micronutrients:
 
@@ -52,7 +57,7 @@ According to standardized laboratory data from the USDA FoodData Central (FDC ID
 
 ---
 
-## 2. Four Clinically Validated Health Mechanisms
+## 2. What Are the Benefits of Salmon? Four Evidence-Backed Effects
 
 ### ① Resolution of Systemic Inflammation and Cardiovascular Endothelial Integrity
 The long-chain omega-3 fatty acids EPA and DHA displace pro-inflammatory arachidonic acid from cellular membranes. 
@@ -80,7 +85,7 @@ This enhanced metabolic flexibility improves insulin signaling, curbs hepatic de
 
 ---
 
-## 3. Bioavailability and Culinary Preservation Guidelines
+## 3. Raw or Cooked Salmon? Keeping Omega-3s Intact
 
 Long-chain polyunsaturated fatty acids and marine carotenoids are inherently susceptible to thermal and oxidative breakdown. Adopting targeted culinary protocols is paramount to preserving structural bioactivity.
 
@@ -90,7 +95,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 
 ---
 
-## 4. Safety Considerations and Toxicological Thresholds
+## 4. Who Should Avoid Salmon? Side Effects and Cautions
 
 - **Wild Alaskan vs. Responsibly Farmed Salmon:** While sustainably farmed salmon often provides slightly higher total lipid densities, verified wild catches (such as Sockeye or King salmon) feature superior natural astaxanthin concentrations and lower omega-6 to omega-3 ratios. Select certified organic or ASC/MSC-certified sources.
 - **Trace Metal Safety Profile (Mercury):** Due to its moderate trophic level, salmon exhibits exceptionally low mercury bioaccumulation (typically below 0.02 ppm), well beneath FDA action levels. It is designated as a "Best Choice" seafood for pregnant and lactating women.
@@ -98,7 +103,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 
 ---
 
-## 5. Summary and Practical Implementation
+## 5. Salmon per Day: How Much Do You Need?
 
 1. **Optimal Intake Frequency:** Consuming two servings (approximately 150 g to 200 g each) of fresh salmon per week fulfills international cardiovascular health guidelines, delivering over 4,000 mg of combined EPA and DHA weekly.
 2. **Quality Assessment:** Look for firm flesh with vibrant marbling, clear moisture without milky exudate, and a clean, fresh marine aroma.
@@ -106,7 +111,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Salmon
 
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Cholecalciferol (vitamin D3) in salmon maximizes intestinal absorption of dietary calcium from broccoli, while ascorbic acid recycles astaxanthin radicals.
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allium sulfur compounds protect delicate double-bond polyunsaturated fatty acids from peroxidative breakdown during cooking and circulation.

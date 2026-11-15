@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Chickpea Nutrition Facts & Biochemistry: Resistant Starch, Folate, and Postprandial Glycemic Control"
+title: "Chickpea Nutrition: 164 Calories, 7.6 g Fiber, Folate"
 date: 2026-11-15 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Chickpea, Garbanzo Beans, Resistant Starch, Plant Protein, Glycemic Control]
-description: "Clinical nutrition monograph on cooked chickpeas (Cicer arietinum): 164 kcal macronutrient balance, 7.6g dietary fiber, amylose-driven glycemic attenuation, folate density, and gut butyrate synthesis."
+description: "Boiled chickpeas have 164 calories, 7.6 g fiber and 8.86 g protein per 100 g, with resistant starch, post-meal glucose and soaking advice."
 permalink: /en/posts/chickpea-nutrition-benefits/
 image: "/assets/images/chickpea.jpg"
 ---
 
 ![Golden Cooked Chickpeas in a Rustic Ceramic Bowl with Olive Oil and Herbs](/assets/images/chickpea.jpg)
 *▲ Supplying 8.86 grams of plant-derived protein and 7.60 grams of dietary fiber per 100 grams cooked, chickpeas (garbanzo beans) combine a low glycemic index (28–36) with dense folate, iron, and resistant starch to stabilize postprandial glucose and nourish colonic microbiota.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Boiled chickpeas provide 164 calories, 7.6 g fiber and 8.86 g protein per 100 g. That fiber is about 30 percent of the daily target, and resistant starch slows post-meal glucose, making chickpeas a practical rice substitute.
+</div>
 
 Also known globally as **garbanzo beans**, **chickpeas (*Cicer arietinum*)** serve as a foundational legume across Mediterranean and Middle Eastern dietary patterns—and for compelling biochemical reasons.
 
@@ -23,7 +28,7 @@ Based on USDA FoodData Central analytical profiles and human intervention trials
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Boiled Chickpeas, Unsalted)
+## 1. How Long Should You Soak Chickpeas? Digestion Tips
 
 Cooked chickpeas contain roughly 60% water, zero cholesterol, and minimal saturated fat while packing dense protein, fermentable fiber, and trace minerals.
 
@@ -54,7 +59,7 @@ Cooked chickpeas contain roughly 60% water, zero cholesterol, and minimal satura
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Chickpeas? Four Evidence-Backed Effects
 
 ### 1) Postprandial Glycemic Attenuation and Insulin Economy
 Controlled crossover trials consistently show that substituting refined starches with whole chickpeas or chickpea-enriched meals lowers post-meal blood glucose peaks and reduces circulating insulin demand. The intact cellular matrix restricts pancreatic alpha-amylase penetration, slowing glucose entry into the portal vein.
@@ -70,7 +75,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
 
 ---
 
-## 3. Culinary Preparation for Maximum Digestibility & Absorption
+## 3. Storing and Portioning Chickpeas
 
 - **Soak for 8–12 Hours and Discard Soaking Water:** Dry chickpeas contain phytic acid (which chelates iron and zinc) and water-soluble raffinose oligosaccharides that cause flatulence. Soaking overnight and discarding the soaking liquid before boiling in fresh water markedly improves mineral bioavailability and gastrointestinal comfort.
 - **Pair with Vitamin C to Unlock Non-Heme Iron:** Because chickpea iron is non-heme, dressing chickpea salads or hummus with fresh citrus juice, bell peppers, or tomatoes converts ferric iron ($Fe^{3+}$) into the readily absorbable ferrous form ($Fe^{2+}$).
@@ -78,7 +83,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Chickpeas? Side Effects and Cautions
 
 - **FODMAP Sensitivity and Bloating:** Individuals with irritable bowel syndrome (IBS) may experience gas or distension from galacto-oligosaccharides. Start with modest portions (40–50g cooked) and rinse canned chickpeas thoroughly.
 - **Potassium and Phosphorus Load in Renal Disease:** With 291 mg potassium and 168 mg phosphorus per 100g, patients managing advanced chronic kidney disease should coordinate intake with their nephrologist.
@@ -86,7 +91,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Chickpeas?
 
 - **[Orange (Citrus × sinensis)]({{ site.baseurl }}/en/posts/orange-nutrition-benefits/)**: High ascorbic acid and citric acid in oranges significantly boost intestinal uptake of chickpea non-heme iron while brightening earthy legume flavors.
 - **[Tomato (Solanum lycopersicum)]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Simmering chickpeas with tomatoes pairs plant protein and zinc with fat-soluble lycopene and organic acids for complementary cardiometabolic protection.

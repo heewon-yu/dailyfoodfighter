@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Mackerel Nutrition Facts & Calories: Omega-3 EPA/DHA Content & Vitamin D3 Benefits"
+title: "Mackerel Nutrition: 205 Calories, 2,299 mg EPA+DHA"
 date: 2026-11-07 14:30:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "seafood"
+category: "Seafood"
 tags: [Mackerel, Omega-3, EPA, DHA, Cardiovascular Health, Brain Health]
-description: "Evidence-based mackerel nutrition guide: calories, high-potency marine omega-3 (EPA/DHA) for brain function, vitamin D3, and optimal grilling techniques to retain healthy fats."
+description: "Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. Grilling versus braising retention and weekly servings."
 permalink: /en/posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---
 
 ![Fresh and Grilled Mackerel Fillet with Lemon](/assets/images/mackerel.jpg)
 *▲ Characterized by dark undulating bands and silver ventral scales, mackerel stands as a premier pelagic superfood, supplying dense reserves of cardioprotective EPA, neuroprotective DHA, and bioavailable cholecalciferol (vitamin D3).*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. Omega-3s leach into pan juices and oil, so braising and eating the broth loses less than high-heat grilling.
+</div>
 
 In clinical lipidology and marine nutritional biochemistry, **mackerel (Scomber scombrus)** represents one of nature’s most concentrated vectors of long-chain polyunsaturated fatty acids (LCPUFAs).
 
@@ -23,7 +28,7 @@ Drawing upon USDA FoodData Central empirical standards and clinical cardiology l
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Fillet)
+## 1. How Many Calories Are in Mackerel? (18.6 g protein, 2,299 mg EPA and DHA per 100 g)
 
 Mackerel provides dense macronutrient energy supported by exceptional omega-3 profiles and fat-soluble vitamin complexes.
 
@@ -53,7 +58,7 @@ Mackerel provides dense macronutrient energy supported by exceptional omega-3 pr
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Mackerel? Four Evidence-Backed Effects
 
 ### ① EPA-Driven Thromboxane Suppression and Arterial Vasodilation
 With nearly 900 mg of **EPA** per 100g, mackerel consumption downregulates cyclooxygenase-1 (COX-1) mediated thromboxane synthesis in human platelets. Concurrently, it upregulates anti-aggregatory prostacyclin (PGI3), dramatically lowering ischemic stroke vulnerability and arterial plaque formation.
@@ -69,7 +74,7 @@ Mackerel is exceptionally rich in **selenium (80% DV)**, which binds trace marin
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Physics
+## 3. Grilled or Braised Mackerel? Keeping Omega-3s
 
 ### Baking, Gentle Poaching, or Indirect Convection Over Frying
 Deep-frying at extreme oil temperatures (>180°C) oxidizes long-chain unsaturated double bonds, generating lipid peroxides and destroying native EPA/DHA. Baking at moderate temperatures or poaching preserves up to 88% of native omega-3 fatty acids.
@@ -79,7 +84,7 @@ The signature fishy aroma in pelagic fish arises from alkaline trimethylamine. S
 
 ---
 
-## 4. Potential Adverse Reactions and Considerations
+## 4. Who Should Avoid Mackerel? Side Effects and Cautions
 
 ### Elevated Purine Density in Clinical Gout
 Mackerel contains significant cellular purine concentrations (>150 mg/100g). Patients suffering from hyperuricemia or acute gouty arthritis must limit intake to prevent monosodium urate crystal precipitation in peripheral joints.
@@ -89,7 +94,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 5. Storing and Portioning Mackerel
 
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Quercetin in onions retards lipid peroxidation of mackerel omega-3s during culinary heating while amplifying vascular anti-thrombotic defenses.
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Organosulfur compounds eliminate amine volatiles while working in tandem with EPA to optimize vascular nitric oxide production.

@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Beetroot Nutrition Facts: Dietary Nitrate, Blood Pressure, Oxalate in Raw vs Boiled Beets, and Beeturia"
+title: "Beetroot Nutrition: 43 Calories, Nitrate & Blood Pressure"
 date: 2026-11-15 15:30:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetable"
+category: "Vegetables"
 tags: [Beetroot, Dietary Nitrate, Betalains, Blood Pressure, Oxalate]
-description: "Clinical analysis of beetroot (43 kcal per 100 g): 150–250 mg dietary nitrate and the nitric oxide pathway, betalains and betaine, roughly 25% oxalate reduction from boiling, beeturia explained, and kidney stone or antihypertensive cautions."
+description: "Raw beetroot has 43 calories, 109 mcg folate and 325 mg potassium per 100 g, with the nitrate pathway, oxalate in boiled beets and beeturia."
 permalink: /en/posts/beetroot-nutrition-benefits/
 image: "/assets/images/beetroot.jpg"
 ---
 
 ![Fresh Raw Beetroot with Green Tops and Halved Cross-Sections on Dark Wood](/assets/images/beetroot.jpg)
 *▲ At just 43 kcal per 100 g, raw beetroot still carries 150–250 mg of dietary nitrate, 109 mcg of folate, and 128.7 mg of betaine. The magenta rings in the cross-section are concentric layers of betalain pigment.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw beetroot provides 43 calories, 109 mcg folate and 325 mg potassium per 100 g. Dietary nitrate converts to nitric oxide and relaxes vessels, lowering systolic pressure by a few mmHg, while boiling removes about a quarter of its oxalate.
+</div>
 
 **Beetroot (*Beta vulgaris*)** has been described as a blood-purifying vegetable for centuries. Over the past two decades, sports science and vascular medicine have replaced folklore with a precise mechanism: the **nitrate–nitrite–nitric oxide pathway**.
 
@@ -23,7 +28,7 @@ Drawing on USDA FoodData Central profiles and published human trials, this monog
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Raw)
+## 1. How Many Calories Are in Beetroot? (109 mcg folate, 325 mg potassium per 100 g)
 
 Beetroot is roughly 88% water. Its carbohydrate fraction is nearly all sugars and fiber, and fat content is negligible.
 
@@ -62,7 +67,7 @@ Cooking shifts the profile. Boiled beetroot remains about 44 kcal per 100 g, but
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Beetroot? Four Evidence-Backed Effects
 
 ### 1) Dietary Nitrate, Nitric Oxide, and Blood Pressure
 Oral bacteria reduce beetroot nitrate to nitrite, which the stomach and circulation convert to nitric oxide. NO relaxes vascular smooth muscle, widening vessels and lowering peripheral resistance—most efficiently in hypoxic conditions, which is precisely why the effect is pronounced during exercise.
@@ -86,7 +91,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
 
 ---
 
-## 3. Raw Versus Boiled: A Cooking Protocol That Cuts Oxalate by 25%
+## 3. Raw or Boiled Beets? Cutting Oxalate by 25 Percent
 
 - **Boiling or steaming removes roughly 25% of the oxalate:** Beetroot carries 50–120 mg of oxalate per 100 g—moderate to high among vegetables. Boiling leaches soluble oxalate into the water, reducing **total oxalate by about 25% and soluble oxalate by 30–50%**. Anyone with a stone history should prefer steamed or boiled beets and discard the cooking liquid.
 - **Cook whole and unpeeled:** Cutting or peeling before boiling drives betalains and folate straight into the water. Steam whole for 30–40 minutes, cool, then slip the skins off by hand—the lowest-loss method. Roasting at 200 °C for 40–60 minutes wrapped in foil limits moisture loss and concentrates sweetness.
@@ -96,7 +101,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Beetroot? Side Effects and Cautions
 
 - **Beeturia:** Unmetabolized betanin can tint urine pink to red in **roughly 10–14% of people**—more common with low stomach acid or rapid transit. It clears within one or two voids and is harmless. It can, however, be mistaken for hematuria and causes false-positive fecal occult blood tests; avoid beets for 48 hours before such testing, and seek care if discoloration persists or is accompanied by pain.
 - **Calcium oxalate stone formers:** At 50–120 mg per 100 g, oxalate can raise recurrence risk. Avoid raw beetroot and juice, limit even steamed beets to about 50 g per day, and **pair them with calcium-rich foods** so oxalate binds in the gut rather than the kidney. Adequate fluid intake remains the foundation of prevention.
@@ -107,7 +112,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Beetroot?
 
 - **[Carrots (Daucus carota)]({{ site.baseurl }}/en/posts/carrot-nutrition-benefits/)**: Beet betalains are water-soluble while carrot beta-carotene is fat-soluble, so the pair spans both antioxidant phases. A roasted beet-and-carrot salad dressed with olive oil captures the fat-soluble fraction too.
 - **[Spinach (Spinacia oleracea)]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Beet folate joins spinach folate and iron in supporting red cell production, and their combined nitrate load amplifies nitric oxide availability. Because both are oxalate sources, stone formers should blanch, discard the water, and moderate portions.

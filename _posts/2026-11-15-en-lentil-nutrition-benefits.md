@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Lentil Nutrition Facts: 24.6 g Protein per 100 g, GI 32, Soaking & Cooking Times, and Chickpea Comparison"
+title: "Lentil Nutrition: 24.6 g Protein, GI 32, Cooking Times"
 date: 2026-11-15 15:30:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "protein"
+category: "Meat"
 tags: [Lentils, Plant Protein, Phytic Acid, Glycemic Index, Fiber]
-description: "Clinical nutrition breakdown of lentils: 352 kcal and 24.6 g protein per 100 g dry, 10.7 g fiber, 479 mcg folate, GI 32, phytic acid reduction by soaking and sprouting, rice-bowl cooking times, and lentil versus chickpea."
+description: "Dry lentils have 352 calories, 24.63 g protein, 10.7 g fiber and 479 mcg folate per 100 g, with 15 to 25 minute cooking and GI 32 explained."
 permalink: /en/posts/lentil-nutrition-benefits/
 image: "/assets/images/lentil.jpg"
 ---
 
 ![Cooked Lentils in a Rustic Ceramic Bowl with Parsley and Lemon](/assets/images/lentil.jpg)
 *▲ Dry lentils deliver 24.6 g of protein and 10.7 g of fiber per 100 g. Simmered, the same weight triples in volume, so a 100 g serving of cooked lentils settles at 116 kcal and 9.0 g of protein.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Dry lentils provide 352 calories, 24.63 g protein and 10.7 g fiber per 100 g. Their thin seed coat skips long soaking and 15 to 25 minutes of simmering finishes them, while a glycemic index of 32 keeps post-meal glucose gentle.
+</div>
 
 **Lentils (*Lens culinaris*)**—the small, lens-shaped legumes behind Indian dal, Middle Eastern shorbat adas, and European lentil stews—have fed settled agriculture for roughly ten thousand years. What separates them from beans and chickpeas is speed: **15 to 25 minutes in simmering water** and they are fully cooked, no overnight soak required, no pressure cooker necessary.
 
@@ -23,7 +28,7 @@ Drawing on USDA FoodData Central analytical profiles and published human trials,
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Dry)
+## 1. How Many Calories Are in Lentils? (24.63 g protein, 10.7 g fiber per 100 g)
 
 Because the water content of dry lentils is only about 8%, the figures below describe the **raw, uncooked legume**. Simmering multiplies weight roughly 2.5-fold: 100 g of cooked lentils contains 116 kcal, 9.0 g protein, and 7.9 g fiber.
 
@@ -64,7 +69,7 @@ Translated into an actual portion, **one cup of cooked lentils (about 200 g) pro
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Lentils? Four Evidence-Backed Effects
 
 ### 1) 24.6 g of Protein and a Lysine Advantage for Muscle and Satiety
 Lentil protein is notably rich in **lysine**, the limiting amino acid in rice, wheat, and most cereals. Combining lentils with grains restores the complete amino acid profile and raises overall protein utilization—the biochemical logic behind dal-and-rice, lentils-and-barley, and mujaddara.
@@ -88,7 +93,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
 
 ---
 
-## 3. Practical Protocol: Soaking, Cooking, and Reducing Bloating
+## 3. Do Lentils Need Soaking? Cooking Time and Less Bloating
 
 - **A 2–4 hour soak is optional but useful:** Unlike beans, lentils cook without soaking. A short soak nonetheless **reduces phytic acid by 20–30%** and shortens cooking time. Because phytic acid chelates iron and zinc, anyone with anemia or mineral-absorption concerns should soak. Beyond 12 hours, keep the bowl refrigerated to prevent fermentation.
 - **Match the time to the variety:** Brown and green lentils need **20–25 minutes**, beluga (black) lentils 18–22 minutes, and split red or yellow lentils only **10–15 minutes**. A pressure cooker cuts this to 8–10 minutes, and soaked lentils finish 5–8 minutes sooner. Add ½ teaspoon of salt per cup of water so skins stay intact and seasoning penetrates.
@@ -98,7 +103,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
 
 ---
 
-## 4. Precautions and Contraindications
+## 4. Who Should Avoid Lentils? Side Effects and Cautions
 
 - **Chronic kidney disease:** The 677 mg potassium and 281 mg phosphorus per 100 g dry are significant under an electrolyte-restricted diet. Cooked lentils drop to about 369 mg potassium per 100 g, still a large share of a restricted allowance—nephrology dietitian guidance precedes any regular use, and dialysis patients face the tightest phosphorus and potassium limits.
 - **Gout and hyperuricemia:** Lentils carry a moderate purine load (roughly 50–100 mg per 100 g cooked). Contemporary evidence indicates plant purines do not raise flare risk to the degree animal purines do, but intake should be reduced during an acute flare and held to 50–80 g daily in stable disease.
@@ -109,7 +114,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
 
 ---
 
-## 5. Synergistic Food Pairings
+## 5. What Foods Pair Best with Lentils?
 
 - **[Chickpeas (Cicer arietinum)]({{ site.baseurl }}/en/posts/chickpea-nutrition-benefits/)**: With glycemic indices of roughly 32 and 28 respectively, the two pulses stack low-glycemic carbohydrate; lentils lead on protein, iron, and folate while chickpeas contribute resistant starch and a firmer bite. A 1:1 blend balances both nutrition and texture.
 - **[Tofu (Glycine max)]({{ site.baseurl }}/en/posts/tofu-nutrition-benefits/)**: Soy supplies the methionine that lentils lack, while tofu calcium and isoflavones pair with lentil folate for vascular support. Mashed lentil-and-tofu patties cut saturated fat dramatically versus beef.

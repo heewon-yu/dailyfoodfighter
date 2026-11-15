@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Sweet Potato Nutrition Facts & Biochemistry: Beta-Carotene, Resistant Starch, and Glycemic Modulation"
+title: "Sweet Potato Nutrition: 86 Calories, Beta-Carotene & GI"
 date: 2026-11-14 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetables"
+category: "Vegetables"
 tags: [Sweet Potato, Beta-Carotene, Resistant Starch, Glycemic Index, Dietary Fiber]
-description: "Clinical nutrition analysis of orange-fleshed sweet potatoes (Ipomoea batatas): Provitamin A density, cooking-dependent glycemic index shifts, retrograded resistant starch, and gut motility."
+description: "Raw sweet potato has 86 calories, 3.0 g fiber and 337 mg potassium per 100 g, with how boiling, baking and cooling shift GI and resistant starch."
 permalink: /en/posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
 ---
 
 ![Halved Roasted and Raw Orange-Fleshed Sweet Potatoes on a Wooden Board](/assets/images/sweet-potato.jpg)
 *▲ Delivering over 150% of daily vitamin A needs via beta-carotene alongside complex carbohydrates and potassium, sweet potatoes (Ipomoea batatas) exhibit markedly different glycemic profiles depending on thermal preparation and post-cooking retrogradation.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw sweet potato provides 86 calories, 3.0 g fiber and 337 mg potassium per 100 g. Cooking then cooling raises resistant starch and lowers the glycemic response, and steaming beats baking for gentler blood sugar.
+</div>
 
 In metabolic dietetics and athletic nutrition, **orange-fleshed sweet potatoes (*Ipomoea batatas*)** are prized as a nutrient-dense complex carbohydrate alternative to refined grains.
 
@@ -23,7 +28,7 @@ Using USDA FoodData Central analytical data and clinical nutrition evidence, thi
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Sweet Potato)
+## 1. How Many Calories Are in Sweet Potatoes? (3.0 g fiber, 337 mg potassium per 100 g)
 
 Sweet potatoes are virtually fat-free (0.05 g) while delivering concentrated provitamin A, potassium, vitamin B6, and manganese.
 
@@ -51,7 +56,7 @@ Sweet potatoes are virtually fat-free (0.05 g) while delivering concentrated pro
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Sweet Potatoes? Four Evidence-Backed Effects
 
 ### 1) Safe Provitamin A Delivery for Vision and Mucosal Immunity
 Beta-carotene is cleaved into active retinol by intestinal BCMO1 enzymes only according to physiological demand, eliminating hypervitaminosis A risk. Adequate vitamin A sustains retinal rhodopsin regeneration and preserves epithelial tight junctions across the respiratory and gastrointestinal tracts.
@@ -67,7 +72,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ---
 
-## 3. Cooking & Bioavailability Guidelines
+## 3. Boiled or Baked Sweet Potato? GI and Resistant Starch
 
 - **Steam and Chill to Maximize Resistant Starch:** For blood-glucose control, choose steaming over dry baking, then refrigerate cooked sweet potatoes at 4°C for at least 4–6 hours to increase resistant starch formation. Gentle reheating preserves most RS3 gains.
 - **Pair With Dietary Lipid for Beta-Carotene Uptake:** Because beta-carotene is strictly lipophilic, consuming sweet potatoes alongside olive oil, avocado, or whole eggs increases carotenoid micellarization and absorption several-fold.
@@ -75,7 +80,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ---
 
-## 4. Safety Considerations & Contraindications
+## 4. Who Should Avoid Sweet Potatoes? Side Effects and Cautions
 
 - **Chronic Kidney Disease (Potassium Restriction):** Due to high potassium density (337 mg/100g), patients with impaired renal potassium clearance should consult their clinician or leach cubed potatoes in water before cooking.
 - **Gastrointestinal Fermentation:** Raffinose-family oligosaccharides and fermentable fibers can cause mild gas or bloating if large portions (>250 g) are eaten rapidly.
@@ -83,7 +88,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ---
 
-## 5. Key Takeaways & Practical Tips
+## 5. Sweet Potatoes per Day: How Much Do You Need?
 
 1. **Method Dictates Glycemic Response:** Steamed sweet potatoes maintain a moderate GI (~45–55), whereas slow-roasted ones climb sharply due to maltose conversion.
 2. **Cook, Cool, and Pair With Fat:** Chilling boosts resistant starch, while a drizzle of olive oil or pairing with eggs unlocks beta-carotene absorption.
@@ -91,7 +96,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ---
 
-## 6. Synergistic Food Pairings
+## 6. What Foods Pair Best with Sweet Potatoes?
 
 - **[Egg]({{ site.baseurl }}/en/posts/egg-nutrition-benefits/)**: Whole eggs supply complete bioavailable protein missing in sweet potatoes while yolk lipids drive efficient beta-carotene absorption.
 - **[Chicken Breast]({{ site.baseurl }}/en/posts/chicken-breast-nutrition-benefits/)**: Combining lean poultry protein with steamed sweet potato carbohydrate supports post-exercise glycogen replenishment and muscle protein synthesis.

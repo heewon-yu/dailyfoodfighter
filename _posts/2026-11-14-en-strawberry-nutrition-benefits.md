@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Strawberry Nutrition Facts & Biochemistry: Vitamin C, Ellagic Acid, and Postprandial Glycemic Control"
+title: "Strawberry Nutrition: 32 Calories, 58.8 mg Vitamin C"
 date: 2026-11-14 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "fruits"
+category: "Fruits"
 tags: [Strawberry, Vitamin C, Anthocyanins, Ellagic Acid, Glycemic Control]
-description: "Clinical nutrition analysis of fresh strawberries (Fragaria × ananassa): 32 kcal low-glycemic profile, superior vitamin C density, pelargonidin anthocyanins, and endothelial protection."
+description: "Strawberries have 32 calories, 58.8 mg vitamin C and 2.0 g fiber per 100 g, with ellagic acid research, glucose response and a residue-cutting wash."
 permalink: /en/posts/strawberry-nutrition-benefits/
 image: "/assets/images/strawberry.jpg"
 ---
 
 ![Fresh Ripe Red Strawberries in a Ceramic Bowl](/assets/images/strawberry.jpg)
 *▲ Delivering just 32 kcal and under 5 grams of sugar per 100 grams, fresh strawberries combine high-density vitamin C with pelargonidin-based anthocyanins and ellagic acid to support endothelial nitric oxide signaling and blunted postprandial glucose excursions.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Strawberries provide 32 calories, 58.8 mg vitamin C and 2.0 g fiber per 100 g. Their low sugar load keeps post-meal glucose rises gentle, and about 10 berries cover a full day of vitamin C.
+</div>
 
 Within clinical nutrition and cardiometabolic research, **strawberries (*Fragaria × ananassa*)** occupy a distinct category among sweet fruits: they deliver intense aromatic flavor while imposing minimal glycemic load.
 
@@ -23,7 +28,7 @@ Drawing on USDA FoodData Central analytical profiles and randomized human feedin
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Strawberries)
+## 1. How Many Calories Are in Strawberries? (58.8 mg vitamin C, 2.0 g fiber per 100 g)
 
 Strawberries are composed of nearly 91% water, offering exceptional micronutrient-to-calorie efficiency with negligible lipid content.
 
@@ -51,7 +56,7 @@ Strawberries are composed of nearly 91% water, offering exceptional micronutrien
 
 ---
 
-## 2. Four Evidence-Based Physiological Benefits
+## 2. What Are the Benefits of Strawberries? Four Evidence-Backed Effects
 
 ### 1) Endothelial Nitric Oxide Support and LDL Oxidation Defense
 Controlled human crossover trials demonstrate that regular strawberry polyphenol intake reduces circulating malondialdehyde (MDA) and oxidized low-density lipoprotein (oxLDL) markers. Anthocyanins activate endothelial nitric oxide synthase (eNOS), promoting vasodilation and maintaining healthy microvascular blood flow.
@@ -67,7 +72,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 
 ---
 
-## 3. Preparation & Bioavailability Guidelines
+## 3. How Should You Wash Strawberries? Residue vs Vitamin C Loss
 
 - **Rinse With Calyx Intact:** Because vitamin C and anthocyanins are water-soluble, soaking hulled strawberries leaches micronutrients into the wash water. Rinse whole berries briefly under cool running water for 20–30 seconds and remove the green stems immediately before eating.
 - **Pair With Unsweetened Dairy or Plant Fats:** Combining strawberries with Greek yogurt, kefir, or sliced avocado buffers mild organic acids and facilitates micellar uptake of fat-soluble carotenoids.
@@ -75,7 +80,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 
 ---
 
-## 4. Safety Considerations & Contraindications
+## 4. Who Should Avoid Strawberries? Side Effects and Cautions
 
 - **Moderate Oxalate Content:** Individuals with a history of recurrent calcium oxalate nephrolithiasis should moderate large servings and maintain adequate hydration.
 - **Natural Salicylates & Oral Allergy:** Strawberries contain trace natural salicylates and birch-pollen cross-reactive proteins; sensitive individuals may experience mild oral pruritus.
@@ -83,7 +88,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 
 ---
 
-## 5. Key Takeaways & Practical Tips
+## 5. Strawberries per Day: How Much Do You Need?
 
 1. **High Nutrient-to-Sugar Ratio:** At 32 kcal and 4.89 g sugar per 100g, strawberries deliver sweet flavor without heavy glycemic impact.
 2. **Superior Vitamin C Source:** A single 150g bowl covers nearly 98% of the U.S. Daily Value for vitamin C.
@@ -91,7 +96,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 
 ---
 
-## 6. Synergistic Food Pairings
+## 6. What Foods Pair Best with Strawberries?
 
 - **[Spinach]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Strawberry ascorbic and citric acids reduce plant-based ferric iron into its absorbable ferrous form, multiplying non-heme iron uptake from leafy greens.
 - **[Blueberry]({{ site.baseurl }}/en/posts/blueberry-nutrition-benefits/)**: Pairing strawberry pelargonidin with blueberry malvidin and delphinidin creates a broader polyphenol spectrum for neurovascular and retinal antioxidant defense.

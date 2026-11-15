@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Tofu Nutrition Facts & Plant Protein Biochemistry: Isoflavones, Calcium, and Lipid Metabolism"
+title: "Tofu Nutrition: 76 Calories, 8 g Protein, 350 mg Calcium"
 date: 2026-11-11 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Tofu, Plant Protein, Isoflavones, Genistein, Cholesterol]
-description: "Clinical nutrition monograph on tofu: How soy protein glycinin upregulates hepatic LDL receptors and isoflavone phytoestrogens preserve skeletal bone mineral density."
+description: "Firm tofu has 76 calories, 8.08 g protein, 350 mg calcium and 5.36 mg iron per 100 g, plus how isoflavones affect cholesterol and bone."
 permalink: /en/posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
 ---
 
 ![Fresh Sliced Firm Tofu Cubes on Wooden Board](/assets/images/tofu.jpg)
 *▲ Produced by curdling fresh soymilk and pressing the curds, firm tofu serves as an ideal zero-cholesterol, complete plant protein containing all nine essential amino acids alongside dense calcium reserves.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Firm tofu provides 76 calories, 8.08 g protein and 350 mg calcium per 100 g. That calcium is roughly three times what 100 ml of milk supplies, and soy isoflavones reduce LDL oxidation alongside bone turnover.
+</div>
 
 In the fields of preventive cardiology and nutritional biochemistry, **tofu (bean curd)** stands as one of the most rigorously investigated plant-derived functional foods.
 
@@ -23,7 +28,7 @@ Drawing upon USDA FoodData Central reference values and contemporary randomized 
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Firm Tofu, Prepared with Calcium Sulfate)
+## 1. How Many Calories Are in Tofu? (8.08 g protein, 350 mg calcium per 100 g)
 
 Firm tofu provides balanced macronutrient partitioning with elevated bioavailable calcium and zero dietary cholesterol.
 
@@ -57,7 +62,7 @@ Firm tofu provides balanced macronutrient partitioning with elevated bioavailabl
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Tofu? Four Evidence-Backed Effects
 
 ### ① Hepatic SREBP-2 Activation and Serum LDL-C Reduction
 Soy storage globulins, particularly the **7S (beta-conglycinin) and 11S (glycinin)** fractions, disrupt intestinal micellar cholesterol solubilization, enhancing fecal neutral sterol excretion. Concurrently, these biopeptides upregulate sterol regulatory element-binding protein 2 (**SREBP-2**) in hepatocytes, increasing cell-surface **LDL-receptor (LDL-R)** transcription. This accelerates systemic clearance of circulating atherogenic apolipoprotein B-100 particles.
@@ -73,7 +78,7 @@ Tofu retains bioactive **soyasaponins**, amphiphilic triterpenoid glycosides tha
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Physics
+## 3. Does Cooking Change Tofu Nutrition? Grilling vs Simmering
 
 ### Gentle Blanching and Hydrothermal Activation
 Firm tofu achieves maximal textural tenderness and protein digestibility when simmered for 90 to 120 seconds in lightly salted water. This osmotic pre-treatment expels residual bitter coagulant brine while gently hydrating internal soy globulin networks.
@@ -83,7 +88,7 @@ Although low in saturated fats, tofu possesses an ideal polyunsaturated lipid em
 
 ---
 
-## 4. Potential Adverse Reactions and Considerations
+## 4. Who Should Avoid Tofu? Side Effects and Cautions
 
 ### Dietary Oxalate Management in Calcium-Oxalate Nephrolithiasis
 Tofu contains moderate levels of soluble and insoluble plant oxalates derived from raw soybeans. Individuals with established idiopathic hyperoxaluria or recurrent calcium-oxalate kidney stone diatheses should consume tofu alongside ample hydration (minimum 2.5 L daily) and avoid combining it with concentrated spinach purees.
@@ -93,7 +98,7 @@ In vitro research suggests that supraphysiological concentrations of unfermented
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 5. Storing and Portioning Tofu
 
 - **[Carrot]({{ site.baseurl }}/en/posts/carrot-nutrition-benefits/)**: The polyunsaturated lipid emulsion in tofu accelerates the intestinal micellization and mucosal absorption of carrot-derived beta-carotene and falcarinol.
 - **[Egg]({{ site.baseurl }}/en/posts/egg-nutrition-benefits/)**: Combining plant-based tofu with whole egg proteins creates a synergistic amino acid balance, bridging mutual limiting amino acids (methionine and lysine) to achieve a biological score of 100.

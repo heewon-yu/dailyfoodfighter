@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Shrimp Nutrition Facts & Calories: Astaxanthin, Taurine, Cholesterol Truth & Shell Benefits"
+title: "Shrimp Nutrition: 85 Calories, 20 g Protein, Creatinine"
 date: 2026-11-09 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "seafood"
+category: "Seafood"
 tags: [Shrimp, Astaxanthin, Taurine, Dietary Cholesterol, Chitin Chitosan]
-description: "Clinical nutritional analysis of shrimp: 85 calories per 100g, pure protein density, marine astaxanthin antioxidant power, taurine hepatic support, and cholesterol clarity."
+description: "Shrimp has 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. Creatinine before testing, the cholesterol myth, shells, and allergies."
 permalink: /en/posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
 ---
 
 ![Fresh Cooked King Prawns with Herbs and Lemon](/assets/images/shrimp.jpg)
 *▲ Renowned as a premier marine superfood, shrimp (Penaeus spp.) delivers an exceptional protein-to-calorie ratio with less than 1% lipid content, enriched with concentrated astaxanthin—a carotenoid with 6,000 times the antioxidant potency of vitamin C—and essential cellular taurine.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Shrimp provides 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. Its dietary cholesterol has little effect on blood lipids because saturated fat is low, but a high-protein seafood meal can raise creatinine readings briefly before a kidney test.
+</div>
 
 Within exercise physiology and clinical marine dietetics, **shrimp** represents one of the most metabolically advantageous protein vectors found in natural ecosystems.
 
@@ -23,7 +28,7 @@ Drawing upon empirical standards from USDA FoodData Central and landmark cardiov
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Raw Edible Flesh)
+## 1. How Many Calories Are in Shrimp? (20.1 g protein, 1.34 mg zinc per 100 g)
 
 Shrimp features near-zero carbohydrate presence with lipid concentrations suppressed beneath 0.6%, delivering dense bioavailable amino acid complexes.
 
@@ -59,7 +64,7 @@ Shrimp features near-zero carbohydrate presence with lipid concentrations suppre
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Shrimp? Four Evidence-Backed Effects
 
 ### 1) Astaxanthin-Mediated Transmembrane Radical Scavenging
 Unlike beta-carotene or vitamin C, **astaxanthin** features polar terminal ionone rings that anchor seamlessly into both the inner and outer layers of cell membranes. This unique transmembrane orientation eliminates mitochondrial free radicals, protects sarcoplasmic reticulum calcium channels, and blunts exercise-induced muscular inflammation.
@@ -75,21 +80,22 @@ The cuticular exoskeleton and tail segments of shrimp contain structural **chiti
 
 ---
 
-## 3. Culinary Physics and Bioavailability Guidelines
+## 3. Should You Eat Shrimp Heads and Shells? Astaxanthin and Cooking
 
 - **Gentle Steam Infusion Over High-Heat Frying:** Astaxanthin double bonds and delicate taurine residues degrade rapidly under intense boiling oil (>180°C). Steaming at 100°C for 3 to 5 minutes preserves over 92% of native bioactive carotenoid structures while tenderizing actomyosin fibers.
 - **Citrus Ascorbic Acid Co-Factor:** Squeezing fresh lemon juice over cooked shrimp introduces ascorbic acid, which acts as an electron donor to regenerate oxidized astaxanthin, doubling its biological half-life.
 
 ---
 
-## 4. Potential Contraindications and Clinical Considerations
+## 4. Shrimp, Cholesterol and Creatinine: Who Should Be Careful?
 
 - **Tropomyosin-Mediated Crustacean Anaphylaxis:** Shrimp tropomyosin represents a major pan-allergen resistant to heat digestion. Sensitive individuals must avoid consumption to avert IgE-mediated urticaria or respiratory bronchospasm.
+- **Creatinine and Kidney Testing:** Creatinine is a breakdown product of muscle creatine, and a large high-protein seafood or cooked-meat meal the day before a test can nudge serum creatinine upward temporarily. If kidney function is normal, one shrimp meal will not change an eGFR reading, but keep the day before a test close to your usual intake.
 - **Moderate Purine Density in Hyperuricemia:** Shrimp contains moderate-to-high purine fractions (~140mg/100g). Clinical gout patients experiencing acute flares should exercise restraint during hyperuricemic crises.
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 5. Storing and Portioning Shrimp
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin derivatives conjugate with shrimp's B-complex cofactors, optimizing nitrogen retention and promoting hepatic glutathione regeneration.
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Sulforaphane in broccoli joins astaxanthin to form a multi-tiered Phase II antioxidant defense network.
@@ -143,7 +149,7 @@ The cuticular exoskeleton and tail segments of shrimp contain structural **chiti
 
 ---
 
-## 7. Strategic Nutritional Summary
+## 7. Shrimp per Day: How Much Do You Need?
 
 - **Macronutrient Profile:** 85 kcal per 100g, 20.1g pure lean protein, 380mg taurine for hepatic clearance, and 1.8mg cellular astaxanthin.
 - **Culinary Preparation:** Employ gentle steaming (3-5 minutes) with fresh lemon juice to prevent astaxanthin oxidation and maximize carotenoid absorption.

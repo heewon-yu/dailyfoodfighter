@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Garlic Nutrition Facts & Health Benefits: Raw vs. Cooked Allicin & Daily Dosage"
+title: "Garlic Nutrition: 149 Calories, Allicin & Daily Dosage"
 date: 2026-11-07 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Garlic, Allicin, Organosulfur, CardiovascularHealth, ImmuneFunction]
-description: "Clinical biochemistry of garlic: calories, why crushing and resting for 10 minutes maximizes allicin formation, cardiovascular blood pressure regulation, and immune benefits."
+description: "Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g. Why crushing and resting 10 minutes raises allicin, plus doses."
 permalink: /en/posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 ---
 
 ![Fresh raw whole garlic bulb and peeled cloves on dark wooden board](/assets/images/garlic.jpg)
 *▲ Fresh garlic (Allium sativum) concentrates dormant organosulfur precursors that instantly undergo enzymatic conversion by alliinase upon mechanical crushing, synthesizing high-potency bioavailable allicin.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g. Allicin forms only after crushing activates alliinase, so chopping garlic and waiting 10 minutes before heating preserves the compound.
+</div>
 
 From sustaining the workforce of the Egyptian pyramids in 3000 BCE to anchoring modern cardiovascular pharmacotherapy, **garlic (Allium sativum)** remains one of the most thoroughly investigated natural therapeutic matrices in biomedical history.
 
@@ -23,7 +28,7 @@ Drawing upon rigorous standardized analytical assays from the **U.S. Department 
 
 ---
 
-## 1. Standardized Nutritional Profile of Raw Garlic (Per 100 g)
+## 1. How Many Calories Are in Garlic? (31.2 mg vitamin C, 401 mg potassium per 100 g)
 
 Unlike typical vegetative tissues that consist of over 90% water, raw garlic maintains a high dry-matter density (approximately 41.4% solids), characterized by dense concentrations of pyridoxine (vitamin B6), bioavailable selenium, and prebiotic fructooligosaccharides.
 
@@ -52,7 +57,7 @@ Unlike typical vegetative tissues that consist of over 90% water, raw garlic mai
 
 ---
 
-## 2. Four Clinically Validated Biological Mechanisms of Garlic
+## 2. What Are the Benefits of Garlic? Four Evidence-Backed Effects
 
 ### ① Endothelial Vasorelaxation via Hydrogen Sulfide ($H_2S$) Signaling
 Garlic is recognized as one of the most potent dietary anti-hypertensive agents. Upon systemic absorption, low-molecular-weight organosulfur compounds, particularly **diallyl trisulfide (DATS)** and **diallyl disulfide (DADS)**, interact with intracellular thiol pools and reduced glutathione in erythrocytes, rapidly releasing the gasotransmitter **hydrogen sulfide ($H_2S$)**. 
@@ -76,7 +81,7 @@ Bioactive diallyl sulfides activate the **nuclear factor erythroid 2-related fac
 
 ---
 
-## 3. Optimizing Allicin Yield: The '10-Minute Rule'
+## 3. Why Does Crushed Garlic Need 10 Minutes Before Cooking?
 
 ### Mandatory Mechanical Disruption Followed by Ambient Incubation
 Intact, whole garlic cloves contain **zero active allicin**. The precursor alliin and the enzyme alliinase reside in completely separate subcellular compartments. To initiate synthesis, the cell walls must be physically crushed, minced, or finely chopped with a flat blade.
@@ -87,7 +92,7 @@ The alliinase enzyme requires several minutes of ambient aqueous contact to cata
 
 ---
 
-## 4. Toxicological Caveats and Clinical Precautions
+## 4. Who Should Avoid Garlic? Side Effects and Cautions
 
 ### Acute Gastric Mucosal Irritation on an Empty Stomach
 Due to its concentrated electrophilic volatility, high-dose ingestion of raw, unbuffered garlic on an empty stomach can induce direct chemical burns on the gastric mucosal epithelium, precipitating acute erosive gastritis and severe epigastric cramping. Individuals with pre-existing peptic ulcer disease should consume garlic exclusively within mixed meal matrices or in cooked form.
@@ -97,7 +102,7 @@ Garlic's clinically validated platelet anti-aggregatory and fibrinolytic actions
 
 ---
 
-## 5. Concluding Clinical Summary
+## 5. Garlic per Day: How Much Do You Need?
 
 1. **Enzymatic Activation via Trauma:** Always mechanically crush or finely mince garlic to rupture mesophyll walls and initiate alliinase catalysis.
 2. **Observe the 10-Minute Incubation:** Allow minced garlic to rest at room temperature for 10 minutes before applying heat to prevent premature enzyme denaturation.
@@ -105,7 +110,7 @@ Garlic's clinically validated platelet anti-aggregatory and fibrinolytic actions
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 6. Storing and Portioning Garlic
 
 - **[Beef Sirloin]({{ site.baseurl }}/en/posts/beef-sirloin-nutrition-benefits/)**: Garlic's allicin pairs with beef thiamine to generate allithiamine, an active cofactor maximizing glycogen resynthesis and mitochondrial bioenergetics.
 - **[Salmon]({{ site.baseurl }}/en/posts/salmon-nutrition-benefits/)**: Organosulfur compounds safeguard polyunsaturated double bonds in salmon oil, suppressing vascular thromboxane synthesis.

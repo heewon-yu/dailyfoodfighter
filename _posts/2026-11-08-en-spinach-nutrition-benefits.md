@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Spinach Nutrition Facts & Calories: Raw vs. Cooked Oxalate Reduction & Eye Health"
+title: "Spinach Nutrition: 23 Calories, Sauteing & Oxalates"
 date: 2026-11-08 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetable"
+category: "Vegetables"
 tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
-description: "Scientific analysis of spinach nutrition: calories, why blanching reduces oxalates by 87% for kidney stone prevention, lutein eye protection, and dietary nitrates."
+description: "Spinach has 23 calories, 483 mcg vitamin K, 194 mcg folate and 2.71 mg iron per 100 g. Does sauteing remove oxalates? Boiling compared."
 permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 ---
 
 ![Fresh Organic Spinach Leaves in Ceramic Bowl](/assets/images/spinach.jpg)
 *▲ Regarded as the apex of green leafy vegetables, spinach (Spinacia oleracea) supplies concentrated inorganic dietary nitrates for vascular nitric oxide (NO) synthesis and exceptional reserves of phylloquinone (vitamin K1) for bone osteocalcin carboxylation.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Spinach provides 23 calories, 483 mcg vitamin K and 2.71 mg iron per 100 g. Sauteing spinach does not remove oxalates because there is no water to leach into, while boiling in plenty of water leaches them into the cooking water.
+</div>
 
 Within preventive cardiology, clinical ophthalmology, and sports nutrition, **spinach** functions as an indispensable plant matrix engineered by nature to protect vascular endothelium, bone architecture, and retinal photoreceptors from oxidative and metabolic decline.
 
@@ -25,7 +30,7 @@ Extracting validated data from the USDA FoodData Central and biochemical literat
 
 ---
 
-## 1. Quantitative Nutritional Profile (Per 100g Raw Leaves)
+## 1. How Many Calories Are in Spinach? (483 mcg vitamin K, 194 mcg folate per 100 g)
 
 Despite possessing an ultra-low caloric density (23 kcal/100g) with 91.4% water, spinach delivers peerless concentrations of fat-soluble vitamins and bioactive phytochemicals.
 
@@ -57,7 +62,7 @@ Despite possessing an ultra-low caloric density (23 kcal/100g) with 91.4% water,
 
 ---
 
-## 2. Peer-Reviewed Systemic Physiological Mechanisms
+## 2. What Are the Benefits of Spinach? Four Evidence-Backed Effects
 
 ### 1) Endothelial Nitric Oxide Pathway & Systemic Vasodilation
 Dietary inorganic nitrate (NO3-) ingested from spinach is rapidly concentrated in salivary glands and reduced to nitrite (NO2-) by commensal facultative anaerobic bacteria on the posterior tongue. 
@@ -81,23 +86,24 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 
 ---
 
-## 3. Culinary Science: Oxalate Reduction & Bioavailability Enhancement
+## 3. Boil or Saute Spinach? What Actually Removes Oxalates
 
 - **30-Second Blanching for Soluble Oxalate Clearance:**
   - Raw spinach contains significant concentrations of **oxalic acid (oxalates)**, which bind divalent cations (calcium and magnesium) to form insoluble calcium oxalate salts, impeding mineral absorption and posing nephrolithiasis (kidney stone) risks.
   - Submerging fresh spinach in vigorously boiling water for **30 to 60 seconds**, followed by immediate ice-water quenching and water expulsion, leaches over 80% of soluble oxalates into the cooking water while preserving heat-tolerant carotenoids and phylloquinone.
+- **Sauteing Alone Does Not Remove Oxalates:** Dry heat and oil drive off moisture, so oxalate per gram actually rises in a plain saute. If you prefer sauteed spinach, blanch and squeeze it first, then finish it in olive oil to combine oxalate reduction with carotenoid absorption.
 - **Lipophilic Carrier Co-Ingestion:** Lutein, beta-carotene, and phylloquinone are profoundly hydrophobic. Sautéing blanched spinach in monounsaturated lipid matrices (such as extra virgin olive oil) increases carotenoid micellarization and intestinal absorption up to fivefold.
 
 ---
 
-## 4. Contraindications and Drug Interactions
+## 4. Spinach Cautions: Kidney Stones and Blood Thinners
 
 - **Warfarin & Vitamin K Antagonist Therapy:** Patients managed on warfarin or coumarin derivatives must maintain consistent vitamin K intakes. Acute fluctuations in spinach consumption directly counteract pharmacological prothrombin time (INR) targets, precipitating thromboembolic vulnerability.
 - **History of Calcium Oxalate Urolithiasis:** Individuals with verified recurrent calcium oxalate nephrolithiasis should strictly avoid raw spinach smoothies and consume only blanched, oxalate-reduced preparations paired with adequate fluid intake.
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Bioavailability
+## 5. What Foods Pair Best with Spinach?
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Organosulfur compounds in garlic enhance non-heme iron solubility and bio-absorption from blanched spinach matrices.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: The flavonoid quercetin in onions synergizes with spinach dietary nitrates, conferring enhanced endothelial cytoprotection.
@@ -151,7 +157,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 
 ---
 
-## 7. Executive Summary & Pragmatic Takeaways
+## 7. Spinach per Day: How Much Do You Need?
 
 - **Clinical Benchmark:** 483 mcg Vitamin K1 (>400% DV for osteocalcin activation), 12,198 mcg Lutein/Zeaxanthin (retinal fovea protection), 250 mg Inorganic Nitrate (nitric oxide vasodilation).
 - **Culinary Rule:** Blanch for 30–60 seconds to purge oxalates; serve dressed in healthy lipids (olive oil) to optimize carotenoid and phylloquinone micellar absorption.

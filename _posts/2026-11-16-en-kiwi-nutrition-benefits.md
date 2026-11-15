@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Kiwi Nutrition Facts: 92.7 mg Vitamin C, Two Green Kiwis a Day for Constipation, Actinidin, and Eating the Skin"
+title: "Kiwi Nutrition: 92.7 mg Vitamin C, 61 Calories, Constipation"
 date: 2026-11-16 07:55:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "fruits"
+category: "Fruits"
 tags: [Kiwi, Vitamin C, Constipation, Actinidin, Fiber]
-description: "USDA nutrition breakdown of raw green kiwifruit (61 kcal, 92.7 mg vitamin C, 3.0 g fiber per 100 g) versus SunGold kiwi (161.3 mg vitamin C), the 2-kiwi-a-day constipation trial, actinidin digestion, eating the skin, and allergy precautions."
+description: "Raw green kiwi has 61 calories, 92.7 mg vitamin C and 3.0 g fiber per 100 g, with the two-kiwi constipation trial, actinidin and eating the skin."
 permalink: /en/posts/kiwi-nutrition-benefits/
 image: "/assets/images/kiwi.jpg"
 ---
 
 ![Fresh Green and Gold Kiwifruit Halved on a Wooden Board](/assets/images/kiwi.jpg)
 *▲ Raw green kiwifruit delivers 92.7 mg of vitamin C per 100 g (103% of the U.S. Daily Value), while gold kiwi reaches 161.3 mg. Eating the washed skin raises total fiber and polyphenol intake substantially.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw green kiwi provides 61 calories, 92.7 mg vitamin C and 3.0 g fiber per 100 g. A trial of two kiwis a day increased bowel movements, and its actinidin enzyme helps break down protein after a meat-heavy meal.
+</div>
 
 Peak harvest from November through late winter makes **kiwifruit (*Actinidia deliciosa* and *Actinidia chinensis*)** one of the highest nutrient-density fruits in the produce aisle. Gram for gram, a single green kiwi packs more vitamin C than an orange alongside **actinidin**, a natural proteolytic enzyme rarely found in common table fruits.
 
@@ -21,7 +26,7 @@ Using USDA FoodData Central analytical profiles and randomized clinical trials, 
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100 g Raw Green Kiwi)
+## 1. How Many Calories Are in Kiwi? (92.7 mg vitamin C, 3.0 g fiber per 100 g)
 
 The values below reflect **raw green kiwifruit (edible flesh, *Actinidia deliciosa*)**. For comparison, **gold kiwifruit** provides 63 kcal, 161.3 mg vitamin C (179% DV), and 1.4 g dietary fiber per 100 g.
 
@@ -58,7 +63,7 @@ The values below reflect **raw green kiwifruit (edible flesh, *Actinidia delicio
 
 ---
 
-## 2. Four Evidence-Based Health Benefits
+## 2. What Are the Benefits of Kiwi? Four Evidence-Backed Effects
 
 ### ① Chronic Constipation: Two Green Kiwis a Day Outperform Psyllium in Trials
 In an international multicenter randomized controlled trial of 184 adults with functional constipation or constipation-predominant IBS (*American Journal of Gastroenterology*, Gearry et al., 2023), eating **two peeled green kiwifruits daily for 4 weeks** increased complete spontaneous bowel movements by **1.53 to 1.73 per week**—matching or outperforming 7.5 g of psyllium husk while causing noticeably less bloating and abdominal discomfort. Kiwi cell-wall fiber swells to roughly 3–4 times its dry volume in water, softening stool naturally.
@@ -74,7 +79,7 @@ Kiwis naturally contain **serotonin precursors** and folate. A small 4-week inte
 
 ---
 
-## 3. Preparation & Absorption Guide
+## 3. Can You Eat Kiwi Skin? Actinidin and Washing
 
 - **Eating the Skin Boosts Fiber by Up to ~50%:** Gold kiwis have smooth, nearly hairless skin that can be rinsed and eaten whole. For green kiwis, **rub the fuzzy skin under cool running water with a soft produce brush or clean cloth** and slice thinly—retaining the skin adds substantial insoluble fiber and polyphenols.
 - **Ripening Tip:** Firm, unripe kiwis soften in **2–3 days at room temperature inside a paper bag with an apple or banana**, which releases natural ethylene gas. Refrigerate once they yield gently to thumb pressure.
@@ -82,7 +87,7 @@ Kiwis naturally contain **serotonin precursors** and folate. A small 4-week inte
 
 ---
 
-## 4. Precautions & Potential Side Effects
+## 4. Who Should Avoid Kiwi? Side Effects and Cautions
 
 - **Oral Allergy Syndrome (OAS) & Latex Cross-Reactivity:** Tingling, itching, or burning of the lips and tongue can stem from actinidin, calcium oxalate raphides, or true IgE allergy (Act d 1). People allergic to **natural rubber latex, bananas, or avocados** carry a higher risk of cross-reactivity.
 - **Warfarin Consistency:** Green kiwi provides **40.3 mcg of vitamin K per 100 g**. Patients taking warfarin do not need to avoid kiwi altogether, but should keep daily intake steady rather than swinging sharply.
@@ -103,14 +108,15 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
 
 ---
 
-## 6. Synergistic Food Pairings
+## 6. What Foods Pair Best with Kiwi?
 
 - **[Spinach](/en/posts/spinach-nutrition-benefits/):** Pairing kiwi's abundant vitamin C with spinach's plant-based non-heme iron noticeably improves iron bioavailability in salads and smoothies.
+- **[Strawberries](/en/posts/strawberry-nutrition-benefits/):** Slicing kiwi with strawberries doubles the vitamin C on the plate while keeping the dessert low in calories.
 - **[Avocado](/en/posts/avocado-nutrition-benefits/):** Avocado's monounsaturated fats and vitamin E complement kiwi's vitamin C and lutein, creating a balanced water- and lipid-soluble antioxidant meal.
 
 ---
 
-## 7. Key Takeaways
+## 7. Kiwi per Day: How Much Do You Need?
 
 - Pick **gold kiwi** when maximizing **vitamin C (161.3 mg/100 g)**; pick **green kiwi** for **bowel regularity (3.0 g fiber) and protein digestion (actinidin)**.
 - For constipation support, **two green kiwis a day** with adequate water for 2–4 weeks mirrors the protocol validated in clinical trials.

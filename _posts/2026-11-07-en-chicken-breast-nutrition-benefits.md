@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Chicken Breast Nutrition Facts: Calories, Protein per 100g & Muscle Synthesis Guide"
+title: "Chicken Breast Nutrition: 23 g Protein, 110 Calories"
 date: 2026-11-07 14:30:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "meat"
+category: "Meat"
 tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synthesis]
-description: "Comprehensive chicken breast nutrition guide: calories, 23g lean protein per 100g, leucine BCAA content for muscle growth, and cooking methods to prevent dryness."
+description: "Chicken breast has 110 calories, 23.1 g protein and 2.6 g fat per 100 g. A poaching method that prevents dryness, plus protein timing."
 permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---
 
 ![Fresh Sliced Cooked Chicken Breast on Cutting Board](/assets/images/chicken-breast.jpg)
 *▲ Low-fat and dense in essential amino acids, chicken breast serves as the gold standard protein source, providing leucine triggers for myofibrillar protein synthesis and anti-fatigue imidazole dipeptides.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Chicken breast delivers 110 calories and 23.1 g protein per 100 g with only 2.6 g fat. That protein-to-calorie ratio makes it a benchmark for fat loss phases, and cooking at 60 to 65 C keeps it from drying out.
+</div>
 
 In the domains of exercise physiology and clinical dietetics, **chicken breast** stands as the definitive nutritional benchmark for lean muscle hypertrophy and cellular repair.
 
@@ -23,7 +28,7 @@ Synthesizing verified empirical data from the USDA FoodData Central and sports m
 
 ---
 
-## 1. Comprehensive Nutritional Composition (Per 100g Raw Boneless, Skinless Breast)
+## 1. How Many Calories Are in Chicken Breast? (23.1 g protein, 334 mg potassium per 100 g)
 
 Chicken breast delivers ultra-dense amino acid matrices alongside vital B-complex micronutrients with near-zero carbohydrate presence.
 
@@ -55,7 +60,7 @@ Chicken breast delivers ultra-dense amino acid matrices alongside vital B-comple
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Chicken Breast? Four Evidence-Backed Effects
 
 ### ① Induction of mTORC1 and Muscle Protein Synthesis (MPS)
 Each 100-gram serving of chicken breast delivers approximately 1.87 grams of **leucine**, the primary branched-chain amino acid driving anabolic signaling. Once intracellular leucine saturates Sestrin2 nutrient sensors, it triggers **mTORC1 (Mechanistic Target of Rapamycin Complex 1)** phosphorylation, driving ribosomal biogenesis and counteracting age-associated sarcopenia.
@@ -71,7 +76,7 @@ Selenium functions as an indispensable cofactor for glutathione peroxidase enzym
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Physics
+## 3. How Do You Cook Chicken Breast Without Drying It Out?
 
 ### Precision Sous-Vide or Low-Temperature Poaching
 Myofibrillar proteins begin contracting and expelling bound water at temperatures exceeding 65°C (149°F). Cooking vacuum-sealed chicken breasts between 60°C and 64°C preserves cytoplasmic water retention, yielding tender textures while retaining 98% of native amino acid integrity.
@@ -81,7 +86,7 @@ Acidic marinades (lemon juice, citric acid) and proteolytic enzymes (bromelain f
 
 ---
 
-## 4. Potential Adverse Reactions and Considerations
+## 4. Who Should Avoid Chicken Breast? Side Effects and Cautions
 
 ### Excessive Nitrogenous Load in Pre-Existing Renal Impairment
 In individuals with compromised glomerular filtration rates, hyper-protein intake accelerates intraglomerular hypertension. Clinical hydration (minimum 2.5 liters daily) is paramount to support renal excretion of urea nitrogen.
@@ -91,7 +96,7 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
 
 ---
 
-## 5. Synergistic Food Pairings for Maximum Nutrient Absorption
+## 5. Storing and Portioning Chicken Breast
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin derivatives conjugate with chicken breast's pyridoxine cofactors, maximizing intracellular amino acid transamination and glycogen replenishment.
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Vitamin C and sulforaphane in broccoli attenuate exercise-induced lipid peroxidation while balancing post-exercise nitrogenous metabolites.

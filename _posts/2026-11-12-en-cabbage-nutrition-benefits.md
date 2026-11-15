@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Cabbage Nutrition Facts & Gastric Mucosal Biochemistry: Vitamin U (S-Methylmethionine), Sulforaphane, and Phylloquinone"
+title: "Cabbage Nutrition: 25 Calories, Vitamin U & Sulforaphane"
 date: 2026-11-12 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "vegetables"
+category: "Vegetables"
 tags: [Cabbage, Vitamin U, Sulforaphane, Vitamin K, Gastric Health]
-description: "Comprehensive clinical gastroenterology review of raw cabbage (Brassica oleracea var. capitata): Epithelial repair mechanisms of S-methylmethionine, Helicobacter pylori suppression by sulforaphane, and vascular hemostasis via phylloquinone."
+description: "Raw cabbage has 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g, with vitamin U mucosal research, cooking tips and thyroid notes."
 permalink: /en/posts/cabbage-nutrition-benefits/
 image: "/assets/images/cabbage.jpg"
 ---
 
 ![Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table](/assets/images/cabbage.jpg)
 *▲ Celebrated since Greco-Roman antiquity as a foundational digestive remedy, cabbage (Brassica oleracea var. capitata) concentrates the cytoprotective sulfonium derivative S-methylmethionine (Vitamin U) alongside the antimicrobial isothiocyanate sulforaphane.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> Raw cabbage provides 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g. The anti-ulcer factor called vitamin U is heat sensitive, so raw juice or a brief blanch preserves more, while long boiling sheds sulforaphane.
+</div>
 
 Within nutritional gastroenterology and clinical oncology, **cabbage (Brassica oleracea var. capitata)** serves as an indispensable functional botanical matrix for mucosal epithelial defense.
 
@@ -23,7 +28,7 @@ Correlating baseline analytical data from USDA FoodData Central with contemporar
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Edible Portion, Raw Green Cabbage)
+## 1. Raw Juice or Steamed Cabbage? Preserving Vitamin U
 
 Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100g) while harboring dense concentrations of phylloquinone, ascorbic acid, and organosulfur glucosinolates.
 
@@ -57,7 +62,7 @@ Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Cabbage? Four Evidence-Backed Effects
 
 ### ① S-Methylmethionine (Vitamin U) Mucosal Epithelial Cytoprotection
 The methyl sulfonium compound **S-methylmethionine (MMS / Vitamin U)** donates methyl groups for transmethylation pathways that synthesize gastric mucosal structural phospholipids and nucleoproteins. MMS upregulates endogenous mucosal prostaglandin E2 (PGE2) and **mucin** synthesis, providing an impermeable barrier against luminal hydrochloric acid and pepsin autodigestion while shortening ulcer re-epithelialization intervals.
@@ -73,7 +78,7 @@ Cabbage supplies 2.5g of complex structural celluloses and hemicelluloses alongs
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Physics
+## 3. Storing and Portioning Cabbage
 
 ### Preserving Thermolabile Sulfonium and Myrosinase via Minimal Heat
 Both S-methylmethionine (Vitamin U) and plant myrosinase are heat-labile biomolecules that degrade rapidly when exposed to temperatures exceeding 60°C (140°F). Sustained boiling strips cabbage of up to 80% of its gastroprotective efficacy. To preserve enzymatic potency, consume cabbage raw (finely shredded to mechanically trigger myrosinase action) or lightly steamed for under 3 minutes.
@@ -83,7 +88,7 @@ Phylloquinone (Vitamin K1) is a strictly hydrophobic lipid-soluble molecule requ
 
 ---
 
-## 4. Potential Contraindications and Biochemical Sensitivities
+## 4. Who Should Avoid Cabbage? Side Effects and Cautions
 
 ### Colonic Gas Distension in High-FODMAP and Irritable Bowel Cohorts
 Cabbage contains indigestible oligosaccharides (raffinose and fructans) that bypass upper gastrointestinal hydrolysis. Rapid bacterial fermentation in the cecum produces carbon dioxide and hydrogen, precipitating meteorism and visceral distension in irritable bowel syndrome (IBS) patients. Symptomatic individuals should limit single-meal portions to 80g and prefer light steam cooking.
@@ -93,7 +98,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 
 ---
 
-## 5. Clinical Summary and Nutritional Takeaways
+## 5. Cabbage per Day: How Much Do You Need?
 
 1. **Gastroprotective Vitamin U Matrix:** S-methylmethionine stimulates rapid epithelial mucosal repair and mucin defense.
 2. **Antimicrobial and Phase II Detoxification:** Sulforaphane inhibits *H. pylori* while upregulating Nrf2 cytoprotective enzymes.
@@ -101,7 +106,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Bioavailability
+## 6. What Foods Pair Best with Cabbage?
 
 - **[Apple (Apple)]({{ site.baseurl }}/en/posts/apple-nutrition-benefits/)**: Soluble pectin and organic malic acids in apples complement cabbage Vitamin U, forming a dual-action soothing protective gel across irritated gastric linings.
 - **[Tofu (Tofu)]({{ site.baseurl }}/en/posts/tofu-nutrition-benefits/)**: Hypoallergenic, easily digestible plant protein from firm tofu combines with cabbage Vitamin K to supply optimal substrates for tissue recovery post-gastritis.

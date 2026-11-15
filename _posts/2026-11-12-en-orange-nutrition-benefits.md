@@ -1,17 +1,22 @@
 ---
 layout: post
-title: "Orange Nutrition Facts & Citrus Flavonoid Biochemistry: Hesperidin, Vitamin C, and Vascular Nitric Oxide Synthesis"
+title: "Orange Nutrition: 47 Calories, 53 mg Vitamin C, Hesperidin"
 date: 2026-11-12 08:00:00 +0900
+last_modified_at: 2026-11-16 08:30:00 +0900
 lang: en
-category: "fruit"
+category: "Fruits"
 tags: [Orange, Vitamin C, Hesperidin, Citric Acid, Cardiovascular Health]
-description: "Comprehensive nutritional monograph on oranges (Citrus sinensis): Molecular mechanisms of hesperidin-mediated endothelial vasodilation, ascorbic acid leukocyte defense, and collagen triple-helix biosynthesis."
+description: "A navel orange has 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g, with hesperidin research, whole fruit versus juice, and drug cautions."
 permalink: /en/posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
 ---
 
 ![Fresh Sliced Ripe Navel Oranges on Wooden Cutting Board](/assets/images/orange.jpg)
 *▲ Sun-ripened oranges (Citrus sinensis) deliver therapeutic densities of bioactive L-ascorbic acid and the citrus flavanone hesperidin, mediating microvascular elasticity and systemic cellular antioxidant defense.*
+
+<div class="answer-first">
+<span class="answer-label">Quick answer</span> A navel orange provides 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g. One fruit covers more than half the daily vitamin C target, and eating segments instead of juice adds 2.4 g fiber.
+</div>
 
 Within clinical cardiology and nutritional biochemistry, the **sweet orange (Citrus sinensis)** represents far more than an emblematic citrus fruit; it functions as one of nature’s most sophisticated delivery systems for water-soluble antioxidants and microvascular-modulating flavanones.
 
@@ -23,7 +28,7 @@ Synthesizing empirical reference data from USDA FoodData Central and contemporar
 
 ---
 
-## 1. Quantitative Nutritional Composition (Per 100g Edible Portion, Raw Navel Orange)
+## 1. Whole Orange or Juice? Fiber and Satiety Compared
 
 Oranges exhibit high nutrient density with minimal energetic burden (47 kcal/100g), low sodium, elevated potassium, and functional dietary fiber.
 
@@ -57,7 +62,7 @@ Oranges exhibit high nutrient density with minimal energetic burden (47 kcal/100
 
 ---
 
-## 2. Four Clinically Validated Biological Benefits
+## 2. What Are the Benefits of Oranges? Four Evidence-Backed Effects
 
 ### ① Endothelial eNOS Upregulation and Microvascular Hemodynamics
 The primary citrus flavanone **hesperidin** stimulates endothelial nitric oxide synthase (**eNOS**) phosphorylation at Ser1177 via Akt signaling pathways. Elevated endothelial nitric oxide (NO) diffuses into vascular smooth muscle cells, activating soluble guanylyl cyclase (sGC) to upregulate cGMP and promote arterial vasodilation. Human randomized clinical crossover trials confirm that oral citrus flavanone supplementation significantly enhances flow-mediated dilation (FMD) of the brachial artery and reduces systolic blood pressure in pre-hypertensive cohorts.
@@ -73,7 +78,7 @@ The inner white mesocarp (albedo) of oranges contains dense concentrations of wa
 
 ---
 
-## 3. Optimizing Bioavailability and Culinary Physics
+## 3. Storing and Portioning Oranges
 
 ### Consuming the Sub-Epidermal Albedo Mesh
 A frequent culinary error involves over-stripping the white fibrous albedo mesh adhering to orange segments. Quantitative chromatography reveals that over 70% of total hesperidin and naringenin glycosides reside within this inner peel layer. Consuming segments intact rather than drinking strained clear juice ensures maximum bioflavonoid ingestion and optimizes glycemic response.
@@ -83,7 +88,7 @@ Non-heme iron (ferric Fe³⁺) from leafy crucifers and legumes displays excepti
 
 ---
 
-## 4. Potential Contraindications and Biochemical Sensitivities
+## 4. Who Should Avoid Oranges? Side Effects and Cautions
 
 ### Lower Esophageal Sphincter Irritation in Gastroesophageal Reflux (GERD)
 With a titratable acidity producing an intrinsic pH between 3.3 and 4.0, concentrated citrus ingestion can transiently decrease lower esophageal sphincter (LES) pressure and stimulate gastric parietal cell hypersecretion. Patients presenting active erosive reflux or peptic ulcers should avoid consuming citrus on an empty stomach.
@@ -93,7 +98,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 
 ---
 
-## 5. Clinical Summary and Nutritional Takeaways
+## 5. Oranges per Day: How Much Do You Need?
 
 1. **Microvascular Endothelial Protection:** Citrus hesperidin drives eNOS nitric oxide generation and microvascular dilation.
 2. **Dense Immunological Support:** Supplying 53.2 mg of natural vitamin C per 100g to prime leukocyte chemotaxis.
@@ -101,7 +106,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 
 ---
 
-## 6. Synergistic Food Pairings for Maximum Bioavailability
+## 6. What Foods Pair Best with Oranges?
 
 - **[Spinach (Spinach)]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Ascorbic acid and citric acid in oranges reduce non-heme ferric iron in spinach into bioavailable ferrous chelates, amplifying intestinal absorption fivefold.
 - **[Avocado (Avocado)]({{ site.baseurl }}/en/posts/avocado-nutrition-benefits/)**: Monounsaturated triacylglycerols in avocado dissolve lipophilic beta-cryptoxanthin from oranges, while citrus ascorbate shields avocado fatty acids from lipid peroxidation.
