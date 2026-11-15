@@ -16,7 +16,7 @@
 - [ ] 복숭아 (Peach)
 - [ ] 자두 (Plum)
 - [ ] 감 (Persimmon)
-- [ ] 키위 (Kiwi)
+- [x] 키위 (Kiwi) - 2026-11-16 한/영 발행완료
 - [ ] 레몬 (Lemon)
 - [x] 아보카도 (Avocado) - 2026-11-10 한/영 발행완료
 - [ ] 파인애플 (Pineapple)
@@ -48,7 +48,7 @@
 - [x] 고구마 (Sweet Potato) - 2026-11-14 한/영 발행완료
 - [ ] 아스파라거스 (Asparagus)
 - [ ] 샐러리 (Celery)
-- [ ] 케일 (Kale)
+- [x] 케일 (Kale) - 2026-11-16 한/영 발행완료
 - [ ] 상추 (Lettuce)
 - [ ] 깻잎 (Perilla Leaf)
 - [ ] 콩나물 (Soybean Sprout)
