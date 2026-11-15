@@ -2,7 +2,7 @@
 layout: post
 title: "고등어 칼로리 205kcal와 오메가-3 2,299mg, 구이 vs 조림"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-16 08:55:09 +0900
 lang: ko
 category: "수산물"
 tags: [고등어, 오메가3, DHA, EPA, 뇌건강, 혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---
 
-<img src="/assets/images/mackerel.jpg" alt="신선한 고등어와 노릇하게 구워진 고등어 구이 단면" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async">
+<img src="/assets/images/mackerel.jpg" alt="신선한 고등어와 노릇하게 구워진 고등어 구이 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 짙푸른 등과 은백색 복부를 지닌 고등어(Mackerel)는 혈관벽의 염증을 잠재우는 EPA와 뇌신경세포 시냅스 가소성을 유지하는 DHA, 그리고 뼈 건강의 핵심인 비타민 D가 최상급으로 농축된 천연 오메가-3의 보고입니다.*
 
 <div class="answer-first">

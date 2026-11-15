@@ -2,7 +2,7 @@
 layout: post
 title: "Chicken Breast Nutrition: 23 g Protein, 110 Calories"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-16 08:55:09 +0900
 lang: en
 category: "Meat"
 tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synthesis]
@@ -11,7 +11,7 @@ permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---
 
-<img src="/assets/images/chicken-breast.jpg" alt="Fresh Sliced Cooked Chicken Breast on Cutting Board" width="1402" height="1122" loading="eager" fetchpriority="high" decoding="async">
+<img src="/assets/images/chicken-breast.jpg" alt="Fresh Sliced Cooked Chicken Breast on Cutting Board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Low-fat and dense in essential amino acids, chicken breast serves as the gold standard protein source, providing leucine triggers for myofibrillar protein synthesis and anti-fatigue imidazole dipeptides.*
 
 <div class="answer-first">

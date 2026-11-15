@@ -2,7 +2,7 @@
 layout: post
 title: "닭가슴살 100g 단백질 23.1g과 칼로리 110kcal, 삶는 법"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-16 08:55:09 +0900
 lang: ko
 category: "육류"
 tags: [닭가슴살, 단백질, BCAA, 이미다졸디펩티드, 근합성]
@@ -11,7 +11,7 @@ permalink: /posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---
 
-<img src="/assets/images/chicken-breast.jpg" alt="신선한 닭가슴살 조리 단면" width="1402" height="1122" loading="eager" fetchpriority="high" decoding="async">
+<img src="/assets/images/chicken-breast.jpg" alt="신선한 닭가슴살 조리 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ 저지방 고단백의 대표 식재료인 닭가슴살(Chicken Breast)은 골격근 합성의 방아쇠인 류신(Leucine)을 비롯한 BCAA와 철새의 장거리 비행을 지탱하는 항피로 펩타이드인 이미다졸 디펩티드의 결정체입니다.*
 
 <div class="answer-first">
