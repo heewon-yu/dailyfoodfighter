@@ -65,7 +65,7 @@ jobs:
               page = Page()
               page.feed(html)
               assert page.canonical == [url], (lang, page.canonical)
-              assert page.alternates == urls, (lang, page.alternates)
+              assert page.alternates == {**urls, 'x-default': urls['en']}, (lang, page.alternates)
               import re
               schema = json.loads(re.search(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S).group(1))
               assert schema['@type'] == 'BlogPosting' and schema['inLanguage'] == lang
