@@ -5,7 +5,10 @@ on:
     paths:
       - '_posts/**'
       - '_config.yml'
-      - '_layouts/default.html'
+      - '_layouts/**'
+      - 'assets/css/**'
+      - 'tags.html'
+      - 'en/tags.html'
       - 'sitemap.xml'
       - 'robots.txt'
       - 'scripts/ping-indexnow.sh'
@@ -15,7 +18,10 @@ on:
     paths:
       - '_posts/**'
       - '_config.yml'
-      - '_layouts/default.html'
+      - '_layouts/**'
+      - 'assets/css/**'
+      - 'tags.html'
+      - 'en/tags.html'
       - 'sitemap.xml'
       - 'robots.txt'
       - 'scripts/ping-indexnow.sh'
@@ -69,6 +75,25 @@ jobs:
               import re
               schema = json.loads(re.search(r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S).group(1))
               assert schema['@type'] == 'BlogPosting' and schema['inLanguage'] == lang
+          # JSON-LD 구조화 데이터 전수 문법 검증 (BreadcrumbList 포함) + 태그 인덱스 확인
+          import glob
+          post_pages = sorted(
+              glob.glob('_site/posts/**/index.html', recursive=True)
+              + glob.glob('_site/en/posts/**/index.html', recursive=True)
+          )
+          assert len(post_pages) >= 76, len(post_pages)
+          for path in post_pages:
+              html = Path(path).read_text()
+              blocks = re.findall(
+                  r'<script type="application/ld\+json">\s*(.*?)\s*</script>', html, re.S
+              )
+              assert blocks, path
+              types = [json.loads(block)['@type'] for block in blocks]
+              assert types[0] == 'BlogPosting', (path, types)
+              assert 'BreadcrumbList' in types, (path, types)
+          for tags_page in ('_site/tags/index.html', '_site/en/tags/index.html'):
+              assert 'class="tag-block"' in Path(tags_page).read_text(), tags_page
+
           root = ET.parse('_site/sitemap.xml').getroot()
           locs = [loc.text for loc in root.findall('./{*}url/{*}loc')]
           assert len(locs) == len(set(locs)) and set(urls.values()) <= set(locs)
