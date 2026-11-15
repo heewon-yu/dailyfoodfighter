@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+  <title>{% if page.title %}{{ page.title }} | DailyFoodFighter{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
   
   <!-- Keywords & Tags for Search Engines -->
@@ -36,6 +36,7 @@
   {% if alternate_page %}
     <link rel="alternate" hreflang="{{ page.lang | default: 'ko' }}" href="{{ canonical_path | absolute_url }}">
     <link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ alternate_page.url | absolute_url }}">
+    <link rel="alternate" hreflang="x-default" href="{% if page.lang == 'en' %}{{ canonical_path | absolute_url }}{% else %}{{ alternate_page.url | absolute_url }}{% endif %}">
   {% endif %}
   
   <!-- Open Graph / Facebook / KakaoTalk / Twitter -->

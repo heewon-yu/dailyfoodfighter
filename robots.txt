@@ -5,6 +5,19 @@ layout: null
 User-agent: *
 Allow: /
 
+# Major Search Engine Crawlers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Yeti
+Allow: /
+
+User-agent: Daum
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
 # AI Search & Retrieval Crawlers (ChatGPT Search, Perplexity, Claude, Apple, Google AI)
 User-agent: GPTBot
 Allow: /
@@ -48,6 +61,7 @@ Allow: /
 # Sitemaps & RSS Feeds
 Sitemap: {{ '/sitemap.xml' | absolute_url }}
 Sitemap: {{ '/feed.xml' | absolute_url }}
+Sitemap: {{ '/feed-ko.xml' | absolute_url }}
 
 # Daum Webmaster Tool Verification
 DaumWebMasterTool:fdb49db672042e07370e6ba2b1b9d16e53f748b985e05667366d8b8cbca2ccde:u1KY4V8+6gddZ3NiGzwUZw==
