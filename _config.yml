@@ -4,6 +4,7 @@ description: "Daily scientific nutrition analysis, bioavailability kinetics, and
 baseurl: ""
 url: "https://dailyfoodfighter.com"
 lang: "ko"
+timezone: Asia/Seoul
 
 # Google Analytics & AdSense & SEO
 google_analytics: "G-KBV8HQ5J6Z"
