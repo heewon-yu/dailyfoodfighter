@@ -15,7 +15,7 @@ image: "/assets/images/egg.jpg"
 *▲ Regarded as nature's quintessential biological nutrient capsule, the egg (Gallus gallus domesticus) represents the gold standard of protein bioavailability (BV 100), supplying concentrated neuroprotective choline, macular carotenoids, and vital fat-soluble micronutrients.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein. Hard-boiled eggs digest slightly better than soft, and one to two eggs a day does not meaningfully raise LDL in most healthy adults.
+<span class="answer-label">Quick answer</span> <strong>One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein.</strong> Hard-boiled eggs digest slightly better than soft, and one to two eggs a day does not meaningfully raise LDL in most healthy adults.
 </div>
 
 Within clinical dietetics and metabolic biochemistry, the **whole egg** stands as the definitive nutritional benchmark for protein quality and micronutrient density.

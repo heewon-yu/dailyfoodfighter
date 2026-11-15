@@ -15,7 +15,7 @@ image: "/assets/images/pomegranate.jpg"
 *▲ At just 83 kcal and 4.0 g of dietary fiber per 100 g, pomegranate arils deliver modest calories but extraordinary polyphenol density—punicalagin and related ellagitannins exceed 1 g in the peel and inner membranes, feeding the gut bacteria that produce urolithin A.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw pomegranate arils provide 83 calories, 4.0 g fiber and 10.2 mg vitamin C per 100 g. Gut bacteria convert its ellagitannins into urolithin A, which supports mitochondrial function, and whole arils deliver about four times the fiber of juice.
+<span class="answer-label">Quick answer</span> <strong>Raw pomegranate arils provide 83 calories, 4.0 g fiber and 10.2 mg vitamin C per 100 g.</strong> Gut bacteria convert its ellagitannins into urolithin A, which supports mitochondrial function, and whole arils deliver about four times the fiber of juice.
 </div>
 
 **Pomegranate (*Punica granatum*)** has been cultivated across Persia and the Mediterranean for more than four millennia, and modern biochemistry has finally explained its reputation as a "fruit of life."

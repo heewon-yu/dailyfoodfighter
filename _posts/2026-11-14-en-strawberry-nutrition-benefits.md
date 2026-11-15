@@ -15,7 +15,7 @@ image: "/assets/images/strawberry.jpg"
 *▲ Delivering just 32 kcal and under 5 grams of sugar per 100 grams, fresh strawberries combine high-density vitamin C with pelargonidin-based anthocyanins and ellagic acid to support endothelial nitric oxide signaling and blunted postprandial glucose excursions.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Strawberries provide 32 calories, 58.8 mg vitamin C and 2.0 g fiber per 100 g. Their low sugar load keeps post-meal glucose rises gentle, and about 10 berries cover a full day of vitamin C.
+<span class="answer-label">Quick answer</span> <strong>Strawberries provide 32 calories, 58.8 mg vitamin C and 2.0 g fiber per 100 g.</strong> Their low sugar load keeps post-meal glucose rises gentle, and about 10 berries cover a full day of vitamin C.
 </div>
 
 Within clinical nutrition and cardiometabolic research, **strawberries (*Fragaria × ananassa*)** occupy a distinct category among sweet fruits: they deliver intense aromatic flavor while imposing minimal glycemic load.

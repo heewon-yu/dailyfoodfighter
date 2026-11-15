@@ -15,7 +15,7 @@ image: "/assets/images/onion.jpg"
 *▲ 양파는 생으로 썰면 아삭하고, 익히면 매운맛이 줄어듭니다. 사진은 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 양파 100g은 40kcal, 식이섬유 1.7g, 비타민C 7.4mg입니다. 퀘르세틴은 열에 비교적 강하지만 수용성이라 물에 우려지고, 오래 볶으면 일부가 손실되므로 생으로 먹거나 짧게 익히는 편이 유리합니다.
+<span class="answer-label">한 줄 결론</span> <strong>양파 100g은 40kcal, 식이섬유 1.7g, 비타민C 7.4mg입니다.</strong> 퀘르세틴은 열에 비교적 강하지만 수용성이라 물에 우려지고, 오래 볶으면 일부가 손실되므로 생으로 먹거나 짧게 익히는 편이 유리합니다.
 </div>
 
 칼을 댄 순간 눈이 따가운 양파도 팬에서 천천히 익히면 부드럽고 달게 느껴집니다. 같은 양파 한 알도 썰어서 바로 넣을 때와 천천히 익힐 때 요리의 식감과 향을 다르게 만듭니다.

@@ -15,7 +15,7 @@ image: "/assets/images/kale.jpg"
 *▲ Raw kale delivers 389.6 mcg of vitamin K, 93.4 mg of vitamin C, and 6,261 mcg of lutein + zeaxanthin per 100 g for just 35 kcal. Massaging or cooking kale with olive oil unlocks its fat-soluble carotenoids.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw kale provides 35 calories, 389.6 mcg vitamin K and 93.4 mg vitamin C per 100 g. That vitamin K is more than four times the daily target, so warfarin users need a consistent intake rather than avoidance.
+<span class="answer-label">Quick answer</span> <strong>Raw kale provides 35 calories, 389.6 mcg vitamin K and 93.4 mg vitamin C per 100 g.</strong> That vitamin K is more than four times the daily target, so warfarin users need a consistent intake rather than avoidance.
 </div>
 
 Cold weather makes **kale (*Brassica oleracea* var. *sabellica*)** sweeter—frost triggers the plant to convert stored starches into natural sugars, softening the bitter edge of its ruffled dark leaves. Among cruciferous greens, few vegetables rival kale's ratio of micronutrients to calories.

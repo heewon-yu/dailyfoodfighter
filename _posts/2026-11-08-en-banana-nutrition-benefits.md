@@ -15,7 +15,7 @@ image: "/assets/images/banana.jpg"
 *▲ As a preeminent global nutritional staple, the banana (Musa acuminata) provides essential bioavailable potassium for maintaining cellular membrane potentials alongside prebiotic resistant starch that systematically regenerates the human colonic microbiome.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> A medium banana has about 105 calories and supplies 422 mg potassium, 32 mg magnesium and 0.43 mg vitamin B6. Green bananas hold resistant starch with a glycemic index near 42, while ripe bananas are mostly free sugars.
+<span class="answer-label">Quick answer</span> <strong>A medium banana has about 105 calories and supplies 422 mg potassium, 32 mg magnesium and 0.43 mg vitamin B6.</strong> Green bananas hold resistant starch with a glycemic index near 42, while ripe bananas are mostly free sugars.
 </div>
 
 Within clinical dietetics and metabolic biochemistry, the **banana** transcends its perception as a portable carbohydrate source, functioning as an evidence-based functional food supporting arterial compliance, neurotransmitter homeostasis, and gastrointestinal mucosal integrity.

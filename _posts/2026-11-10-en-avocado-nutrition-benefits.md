@@ -15,7 +15,7 @@ image: "/assets/images/avocado.jpg"
 *▲ Regarded in nutritional science as 'nature’s butter', the Hass avocado (Persea americana) represents a unique botanical fruit characterized by high-density monounsaturated oleic acid, exceptional potassium concentrations surpassing bananas, and lipophilic carotenoid antioxidants.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Avocado has 160 calories, 6.7 g fiber and 485 mg potassium per 100 g. Most of its calories come from monounsaturated oleic acid rather than sugar, so half an avocado adds fiber and potassium with minimal glycemic load.
+<span class="answer-label">Quick answer</span> <strong>Avocado has 160 calories, 6.7 g fiber and 485 mg potassium per 100 g.</strong> Most of its calories come from monounsaturated oleic acid rather than sugar, so half an avocado adds fiber and potassium with minimal glycemic load.
 </div>
 
 Within contemporary clinical nutrition and metabolic biochemistry, the **avocado** occupies a distinguished therapeutic position. Unlike conventional botanical fruits dominated by simple mono- and disaccharides, the avocado delivers over 70% of its caloric load in the form of cardioprotective lipid fractions.

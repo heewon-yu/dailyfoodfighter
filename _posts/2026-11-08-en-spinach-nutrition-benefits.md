@@ -15,7 +15,7 @@ image: "/assets/images/spinach.jpg"
 *▲ Regarded as the apex of green leafy vegetables, spinach (Spinacia oleracea) supplies concentrated inorganic dietary nitrates for vascular nitric oxide (NO) synthesis and exceptional reserves of phylloquinone (vitamin K1) for bone osteocalcin carboxylation.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Spinach provides 23 calories, 483 mcg vitamin K and 2.71 mg iron per 100 g. Sauteing spinach does not remove oxalates because there is no water to leach into, while boiling in plenty of water leaches them into the cooking water.
+<span class="answer-label">Quick answer</span> <strong>Spinach provides 23 calories, 483 mcg vitamin K and 2.71 mg iron per 100 g.</strong> Sauteing spinach does not remove oxalates because there is no water to leach into, while boiling in plenty of water leaches them into the cooking water.
 </div>
 
 Within preventive cardiology, clinical ophthalmology, and sports nutrition, **spinach** functions as an indispensable plant matrix engineered by nature to protect vascular endothelium, bone architecture, and retinal photoreceptors from oxidative and metabolic decline.

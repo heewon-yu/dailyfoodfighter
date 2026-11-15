@@ -15,7 +15,7 @@ image: "/assets/images/salmon.jpg"
 *▲ Fresh Atlantic salmon (Salmo salar) provides an unparalleled concentration of bioavailable long-chain omega-3 fatty acids (EPA and DHA), high-potency vitamin D, and astaxanthin—nature's premier marine antioxidant.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Salmon provides 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Two 100 g servings a week cover omega-3 targets, and smoked salmon carries several times the sodium of raw fillet.
+<span class="answer-label">Quick answer</span> <strong>Salmon provides 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g.</strong> Two 100 g servings a week cover omega-3 targets, and smoked salmon carries several times the sodium of raw fillet.
 </div>
 
 When clinical nutritionists and preventive cardiologists evaluate nutritional interventions for longevity, vascular resilience, and neuroprotection, **salmon** consistently ranks at the top of biological value hierarchies.

@@ -15,7 +15,7 @@ image: "/assets/images/sweet-potato.jpg"
 *▲ Delivering over 150% of daily vitamin A needs via beta-carotene alongside complex carbohydrates and potassium, sweet potatoes (Ipomoea batatas) exhibit markedly different glycemic profiles depending on thermal preparation and post-cooking retrogradation.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw sweet potato provides 86 calories, 3.0 g fiber and 337 mg potassium per 100 g. Cooking then cooling raises resistant starch and lowers the glycemic response, and steaming beats baking for gentler blood sugar.
+<span class="answer-label">Quick answer</span> <strong>Raw sweet potato provides 86 calories, 3.0 g fiber and 337 mg potassium per 100 g.</strong> Cooking then cooling raises resistant starch and lowers the glycemic response, and steaming beats baking for gentler blood sugar.
 </div>
 
 In metabolic dietetics and athletic nutrition, **orange-fleshed sweet potatoes (*Ipomoea batatas*)** are prized as a nutrient-dense complex carbohydrate alternative to refined grains.

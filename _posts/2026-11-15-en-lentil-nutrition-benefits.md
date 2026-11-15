@@ -15,7 +15,7 @@ image: "/assets/images/lentil.jpg"
 *▲ Dry lentils deliver 24.6 g of protein and 10.7 g of fiber per 100 g. Simmered, the same weight triples in volume, so a 100 g serving of cooked lentils settles at 116 kcal and 9.0 g of protein.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Dry lentils provide 352 calories, 24.63 g protein and 10.7 g fiber per 100 g. Their thin seed coat skips long soaking and 15 to 25 minutes of simmering finishes them, while a glycemic index of 32 keeps post-meal glucose gentle.
+<span class="answer-label">Quick answer</span> <strong>Dry lentils provide 352 calories, 24.63 g protein and 10.7 g fiber per 100 g.</strong> Their thin seed coat skips long soaking and 15 to 25 minutes of simmering finishes them, while a glycemic index of 32 keeps post-meal glucose gentle.
 </div>
 
 **Lentils (*Lens culinaris*)**—the small, lens-shaped legumes behind Indian dal, Middle Eastern shorbat adas, and European lentil stews—have fed settled agriculture for roughly ten thousand years. What separates them from beans and chickpeas is speed: **15 to 25 minutes in simmering water** and they are fully cooked, no overnight soak required, no pressure cooker necessary.

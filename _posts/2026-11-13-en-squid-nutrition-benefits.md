@@ -15,7 +15,7 @@ image: "/assets/images/squid.jpg"
 *▲ Representing cephalopod marine mollusks, squid (calamari) functions as nature's premier biological reservoir of free taurine, delivering over 15 grams of bioavailable nitrogenous protein at an energetic footprint of merely 92 calories per 100 grams.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw squid provides 92 calories, 15.6 g protein and only 1.4 g fat per 100 g. Its taurine supports bile acid conjugation and hepatic lipid clearance, making it a lean protein for weight loss phases.
+<span class="answer-label">Quick answer</span> <strong>Raw squid provides 92 calories, 15.6 g protein and only 1.4 g fat per 100 g.</strong> Its taurine supports bile acid conjugation and hepatic lipid clearance, making it a lean protein for weight loss phases.
 </div>
 
 Within the disciplines of marine bioprospecting and clinical cardiovascular dietetics, **squid (*Teuthida*)** commands exceptional recognition as a nutrient-dense cephalopod delivering profound organ-protective and metabolic benefits.

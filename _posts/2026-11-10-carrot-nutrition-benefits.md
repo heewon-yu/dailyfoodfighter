@@ -15,7 +15,7 @@ image: "/assets/images/carrot.jpg"
 *▲ 주황빛 천연 파이토케미컬의 보고인 당근(Daucus carota)은 식물성 비타민 A 전구체인 베타카로틴(Beta-carotene)과 알파카로틴, 그리고 강력한 항종양 천연 폴리아세틸렌 성분인 팔카리놀(Falcarinol)을 풍부하게 함유한 대표적인 뿌리채소입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 당근 100g은 41kcal, 식이섬유 2.8g, 칼륨 320mg입니다. 베타카로틴은 지용성이라 기름과 함께 익히면 흡수율이 크게 오르고, 생으로 먹을 때는 잘게 썰어 지방이 있는 식재료와 같이 먹는 편이 좋습니다.
+<span class="answer-label">한 줄 결론</span> <strong>당근 100g은 41kcal, 식이섬유 2.8g, 칼륨 320mg입니다.</strong> 베타카로틴은 지용성이라 기름과 함께 익히면 흡수율이 크게 오르고, 생으로 먹을 때는 잘게 썰어 지방이 있는 식재료와 같이 먹는 편이 좋습니다.
 </div>
 
 현대 예방의학 및 임상영양학에서 **당근(Carrot)**은 시각 신경계의 기능 유지와 상피 세포의 점막 면역력을 재건하는 가장 강력한 천연 비타민 A(Provitamin A) 공급원으로 평가받습니다.

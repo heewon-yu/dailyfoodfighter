@@ -15,7 +15,7 @@ image: "/assets/images/chickpea.jpg"
 *▲ Supplying 8.86 grams of plant-derived protein and 7.60 grams of dietary fiber per 100 grams cooked, chickpeas (garbanzo beans) combine a low glycemic index (28–36) with dense folate, iron, and resistant starch to stabilize postprandial glucose and nourish colonic microbiota.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Boiled chickpeas provide 164 calories, 7.6 g fiber and 8.86 g protein per 100 g. That fiber is about 30 percent of the daily target, and resistant starch slows post-meal glucose, making chickpeas a practical rice substitute.
+<span class="answer-label">Quick answer</span> <strong>Boiled chickpeas provide 164 calories, 7.6 g fiber and 8.86 g protein per 100 g.</strong> That fiber is about 30 percent of the daily target, and resistant starch slows post-meal glucose, making chickpeas a practical rice substitute.
 </div>
 
 Also known globally as **garbanzo beans**, **chickpeas (*Cicer arietinum*)** serve as a foundational legume across Mediterranean and Middle Eastern dietary patterns—and for compelling biochemical reasons.

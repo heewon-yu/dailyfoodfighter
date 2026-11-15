@@ -15,7 +15,7 @@ image: "/assets/images/sweet-potato.jpg"
 *▲ 복합 탄수화물과 1일 권장량을 훌쩍 뛰어넘는 베타카로틴(비타민 A 전구체), 식이섬유를 고루 품은 고구마(Sweet Potato)는 조리 온도와 냉각 방식에 따라 혈당 반응과 저항성 전분 비율이 극적으로 달라지는 기능성 구황작물입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 생고구마 100g은 86kcal, 식이섬유 3.0g, 칼륨 337mg입니다. 익혀서 식히면 저항성 전분이 늘어 GI가 낮아지고, 같은 고구마도 굽기보다 삶기·찌기가 혈당 상승을 완만하게 만듭니다.
+<span class="answer-label">한 줄 결론</span> <strong>생고구마 100g은 86kcal, 식이섬유 3.0g, 칼륨 337mg입니다.</strong> 익혀서 식히면 저항성 전분이 늘어 GI가 낮아지고, 같은 고구마도 굽기보다 삶기·찌기가 혈당 상승을 완만하게 만듭니다.
 </div>
 
 피트니스 식단과 혈당 관리 식이요법에서 **고구마(Sweet Potato, *Ipomoea batatas*)**는 백미나 정제 밀가루를 대체하는 대표적인 복합 탄수화물 공급원입니다.

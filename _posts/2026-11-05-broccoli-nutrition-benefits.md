@@ -15,7 +15,7 @@ image: "/assets/images/broccoli.jpg"
 *▲ 신선한 브로콜리(Brassica oleracea var. italica)는 십자화과 채소의 대표 주자로, 강력한 세포 해독 및 항염증 생리활성 물질인 설포라판(Sulforaphane)의 천연 보고입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 브로콜리 100g은 34kcal, 비타민C 89.2mg, 비타민K 101.6mcg입니다. 설포라판은 데치는 시간이 길수록 줄어들어 3~5분 이내가 적당하고, 다진 뒤 5~10분 두었다 조리하면 활성 성분이 더 남습니다.
+<span class="answer-label">한 줄 결론</span> <strong>브로콜리 100g은 34kcal, 비타민C 89.2mg, 비타민K 101.6mcg입니다.</strong> 설포라판은 데치는 시간이 길수록 줄어들어 3~5분 이내가 적당하고, 다진 뒤 5~10분 두었다 조리하면 활성 성분이 더 남습니다.
 </div>
 
 지중해 동북부가 원산지인 십자화과(Brassicaceae) 채소 **브로콜리(Broccoli, *Brassica oleracea* var. *italica*)**는 미국 국립암연구소(NCI)와 유수 의학계가 가장 주목해 온 천연 기능성 식품 중 하나입니다.

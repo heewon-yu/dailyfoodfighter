@@ -15,7 +15,7 @@ image: "/assets/images/carrot.jpg"
 *▲ Revered across clinical dietetics as nature's premier provitamin A reservoir, the domesticated carrot (Daucus carota subsp. sativus) supplies therapeutic concentrations of lipophilic beta- and alpha-carotenes, gastroprotective pectins, and bioactive polyacetylenes like falcarinol.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Carrots provide 41 calories, 2.8 g fiber and 320 mg potassium per 100 g. Beta-carotene absorbs far better when cooked with fat, so a little oil or a fatty companion food matters more than eating carrots raw.
+<span class="answer-label">Quick answer</span> <strong>Carrots provide 41 calories, 2.8 g fiber and 320 mg potassium per 100 g.</strong> Beta-carotene absorbs far better when cooked with fat, so a little oil or a fatty companion food matters more than eating carrots raw.
 </div>
 
 Within preventative oncology and visual physiology, the **carrot** serves as an indispensable dietary cornerstone. Characterized by its intense orange chromoplast pigmentation, this root vegetable delivers exceptional concentrations of **beta-carotene** alongside structural **alpha-carotene**.

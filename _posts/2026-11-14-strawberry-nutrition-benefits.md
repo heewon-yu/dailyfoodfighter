@@ -15,7 +15,7 @@ image: "/assets/images/strawberry.jpg"
 *▲ 100g당 32kcal의 가벼운 열량과 낮은 당부하지수(GL)를 자랑하는 딸기(Strawberry)는 오렌지나 레몬을 능가하는 고농도 비타민 C와 붉은 껍질·과육 속 안토시아닌·엘라그산이 결합된 대표적 항산화 베리류입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 생딸기 100g은 32kcal, 비타민C 58.8mg, 식이섬유 2.0g입니다. 과일 중에서도 당부담이 낮아 식후 혈당 상승이 완만하고, 비타민C는 10개 안팎이면 하루 권장량을 채웁니다.
+<span class="answer-label">한 줄 결론</span> <strong>생딸기 100g은 32kcal, 비타민C 58.8mg, 식이섬유 2.0g입니다.</strong> 과일 중에서도 당부담이 낮아 식후 혈당 상승이 완만하고, 비타민C는 10개 안팎이면 하루 권장량을 채웁니다.
 </div>
 
 과일 중에서도 달콤한 풍미와 달리 열량과 당분 부담이 극히 적은 **딸기(Strawberry, *Fragaria × ananassa*)**는 대사 건강과 체중 관리를 병행하는 현대인에게 가장 이상적인 저당 과일입니다.

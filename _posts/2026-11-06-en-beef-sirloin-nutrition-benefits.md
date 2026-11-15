@@ -15,7 +15,7 @@ image: "/assets/images/beef-sirloin.jpg"
 *▲ Fresh beef sirloin (top loin/top sirloin) serves as an exceptionally dense reservoir of complete animal protein, high-bioavailability heme iron, and bioenergetic cofactors essential for cellular metabolism.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Beef sirloin has 201 calories, 20.3 g protein and 1.48 mg heme iron per 100 g. Heme iron absorbs far better than plant iron, and trimming visible fat before grilling cuts calories without touching protein.
+<span class="answer-label">Quick answer</span> <strong>Beef sirloin has 201 calories, 20.3 g protein and 1.48 mg heme iron per 100 g.</strong> Heme iron absorbs far better than plant iron, and trimming visible fat before grilling cuts calories without touching protein.
 </div>
 
 Within sports nutrition and clinical dietetics, **Beef Sirloin (*Bos taurus*)** occupies an indispensable therapeutic position as a premier nutrient-dense animal protein. 

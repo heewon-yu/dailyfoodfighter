@@ -15,7 +15,7 @@ image: "/assets/images/mackerel.jpg"
 *▲ Characterized by dark undulating bands and silver ventral scales, mackerel stands as a premier pelagic superfood, supplying dense reserves of cardioprotective EPA, neuroprotective DHA, and bioavailable cholecalciferol (vitamin D3).*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. Omega-3s leach into pan juices and oil, so braising and eating the broth loses less than high-heat grilling.
+<span class="answer-label">Quick answer</span> <strong>Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g.</strong> Omega-3s leach into pan juices and oil, so braising and eating the broth loses less than high-heat grilling.
 </div>
 
 In clinical lipidology and marine nutritional biochemistry, **mackerel (Scomber scombrus)** represents one of nature’s most concentrated vectors of long-chain polyunsaturated fatty acids (LCPUFAs).

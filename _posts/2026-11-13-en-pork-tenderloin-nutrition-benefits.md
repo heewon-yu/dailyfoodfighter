@@ -15,7 +15,7 @@ image: "/assets/images/pork-tenderloin.jpg"
 *▲ Anatomically situated along the central dorsal lumbar spine, pork tenderloin stands as the leanest porcine muscle cut, delivering less than 3% lipid density alongside the highest concentration of bioavailable thiamine (vitamin B1) found in land-based livestock.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Pork tenderloin provides 120 calories, 21.8 g protein and 420 mg potassium per 100 g. It matches chicken breast on calories but carries far more thiamine, the enzyme cofactor that converts carbohydrate into usable energy.
+<span class="answer-label">Quick answer</span> <strong>Pork tenderloin provides 120 calories, 21.8 g protein and 420 mg potassium per 100 g.</strong> It matches chicken breast on calories but carries far more thiamine, the enzyme cofactor that converts carbohydrate into usable energy.
 </div>
 
 In the disciplines of clinical sports dietetics and metabolic biochemistry, **pork tenderloin (*Psoas major*)** represents an elite dietary protein source matching skinless poultry breast in lipid minimization while far surpassing it in micronutrient density.

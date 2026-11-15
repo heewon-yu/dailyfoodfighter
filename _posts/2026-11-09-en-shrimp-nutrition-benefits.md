@@ -15,7 +15,7 @@ image: "/assets/images/shrimp.jpg"
 *▲ Renowned as a premier marine superfood, shrimp (Penaeus spp.) delivers an exceptional protein-to-calorie ratio with less than 1% lipid content, enriched with concentrated astaxanthin—a carotenoid with 6,000 times the antioxidant potency of vitamin C—and essential cellular taurine.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Shrimp provides 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. Its dietary cholesterol has little effect on blood lipids because saturated fat is low, but a high-protein seafood meal can raise creatinine readings briefly before a kidney test.
+<span class="answer-label">Quick answer</span> <strong>Shrimp provides 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g.</strong> Its dietary cholesterol has little effect on blood lipids because saturated fat is low, but a high-protein seafood meal can raise creatinine readings briefly before a kidney test.
 </div>
 
 Within exercise physiology and clinical marine dietetics, **shrimp** represents one of the most metabolically advantageous protein vectors found in natural ecosystems.

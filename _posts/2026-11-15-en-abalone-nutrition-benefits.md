@@ -15,7 +15,7 @@ image: "/assets/images/abalone.jpg"
 *▲ Supplying 17.10 grams of bioavailable marine protein and under 1 gram of total fat per 100 grams, abalone (*Haliotis spp.*) concentrates free taurine, glycogen, vitamin E, and selenium to support hepatic detoxification and cellular energy recovery.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw abalone provides 105 calories, 17.1 g protein and 3.19 mg iron per 100 g. Feeding on kelp concentrates taurine, while its glycogen supplies a readily used liver fuel, the basis for its recovery-food reputation.
+<span class="answer-label">Quick answer</span> <strong>Raw abalone provides 105 calories, 17.1 g protein and 3.19 mg iron per 100 g.</strong> Feeding on kelp concentrates taurine, while its glycogen supplies a readily used liver fuel, the basis for its recovery-food reputation.
 </div>
 
 Revered across East Asian clinical culinary traditions as the "ginseng of the sea," **abalone (*Haliotis discus hannai* and related species)** is a herbivorous marine gastropod mollusk that feeds predominantly on kelp and brown seaweeds. That marine botanical diet shapes an extraordinary biochemical profile inside its muscular foot.

@@ -15,7 +15,7 @@ image: "/assets/images/blueberry.jpg"
 *▲ Freshly harvested wild and cultivated blueberries (Vaccinium corymbosum) contain extraordinary concentrations of bioactive polyphenolic pigments known as anthocyanins.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw blueberries deliver 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g. Flash-frozen berries retain most anthocyanins, so frozen and fresh are close in nutrition, and roughly 100 g a day covers the polyphenol research doses.
+<span class="answer-label">Quick answer</span> <strong>Raw blueberries deliver 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g.</strong> Flash-frozen berries retain most anthocyanins, so frozen and fresh are close in nutrition, and roughly 100 g a day covers the polyphenol research doses.
 </div>
 
 Originating across temperate North American ecosystems, the **Blueberry (*Vaccinium corymbosum*)** represents one of the most thoroughly empirically investigated functional foods in modern preventive dietetics and clinical nutrition.

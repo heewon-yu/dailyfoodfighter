@@ -15,7 +15,7 @@ image: "/assets/images/cabbage.jpg"
 *▲ Celebrated since Greco-Roman antiquity as a foundational digestive remedy, cabbage (Brassica oleracea var. capitata) concentrates the cytoprotective sulfonium derivative S-methylmethionine (Vitamin U) alongside the antimicrobial isothiocyanate sulforaphane.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw cabbage provides 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g. The anti-ulcer factor called vitamin U is heat sensitive, so raw juice or a brief blanch preserves more, while long boiling sheds sulforaphane.
+<span class="answer-label">Quick answer</span> <strong>Raw cabbage provides 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g.</strong> The anti-ulcer factor called vitamin U is heat sensitive, so raw juice or a brief blanch preserves more, while long boiling sheds sulforaphane.
 </div>
 
 Within nutritional gastroenterology and clinical oncology, **cabbage (Brassica oleracea var. capitata)** serves as an indispensable functional botanical matrix for mucosal epithelial defense.

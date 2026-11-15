@@ -15,7 +15,7 @@ image: "/assets/images/oyster.jpg"
 *▲ Regarded globally as the pinnacle of marine nutrient density, raw oysters supply unmatched concentrations of bioavailable zinc, osmoregulatory taurine, and glycogen reserves for rapid cellular resuscitation.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw oysters provide 68 calories, 7.13 g protein and 16.6 mg zinc per 100 g. That zinc load is about 1.5 times the daily requirement, supporting testosterone synthesis and immune cell division alongside taurine and glycogen.
+<span class="answer-label">Quick answer</span> <strong>Raw oysters provide 68 calories, 7.13 g protein and 16.6 mg zinc per 100 g.</strong> That zinc load is about 1.5 times the daily requirement, supporting testosterone synthesis and immune cell division alongside taurine and glycogen.
 </div>
 
 Across maritime cultures and modern functional endocrinology, the **oyster (Crassostrea gigas)** stands as a culinary archetype of vigor and biological vitality.

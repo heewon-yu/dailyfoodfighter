@@ -15,7 +15,7 @@ image: "/assets/images/beetroot.jpg"
 *▲ At just 43 kcal per 100 g, raw beetroot still carries 150–250 mg of dietary nitrate, 109 mcg of folate, and 128.7 mg of betaine. The magenta rings in the cross-section are concentric layers of betalain pigment.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw beetroot provides 43 calories, 109 mcg folate and 325 mg potassium per 100 g. Dietary nitrate converts to nitric oxide and relaxes vessels, lowering systolic pressure by a few mmHg, while boiling removes about a quarter of its oxalate.
+<span class="answer-label">Quick answer</span> <strong>Raw beetroot provides 43 calories, 109 mcg folate and 325 mg potassium per 100 g.</strong> Dietary nitrate converts to nitric oxide and relaxes vessels, lowering systolic pressure by a few mmHg, while boiling removes about a quarter of its oxalate.
 </div>
 
 **Beetroot (*Beta vulgaris*)** has been described as a blood-purifying vegetable for centuries. Over the past two decades, sports science and vascular medicine have replaced folklore with a precise mechanism: the **nitrate–nitrite–nitric oxide pathway**.

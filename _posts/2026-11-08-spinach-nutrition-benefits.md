@@ -15,7 +15,7 @@ image: "/assets/images/spinach.jpg"
 *▲ 녹색 잎채소의 제왕 시금치(Spinach)는 혈관 내피세포의 산화질소(NO) 확장을 주도하는 식이 질산염(Dietary Nitrate)과 골 기질을 형성하는 초고농도 비타민 K1(필로퀴논)의 집합체입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 시금치 100g은 23kcal, 비타민K 483mcg, 엽산 194mcg, 철분 2.71mg입니다. 옥살산은 물에 녹아 빠지므로 끓는 물에 데치면 물로 용출되지만, 볶으면 수분이 날아가 오히려 농축됩니다.
+<span class="answer-label">한 줄 결론</span> <strong>시금치 100g은 23kcal, 비타민K 483mcg, 엽산 194mcg, 철분 2.71mg입니다.</strong> 옥살산은 물에 녹아 빠지므로 끓는 물에 데치면 물로 용출되지만, 볶으면 수분이 날아가 오히려 농축됩니다.
 </div>
 
 임상 영양학과 예방 의학의 역사에서 **시금치(Spinacia oleracea)**는 단순한 식탁의 나물을 넘어 혈관계, 근골격계, 안구 신경망의 노화를 동시 차단하는 가장 강력한 기능성 녹색 잎채소로 인정받고 있습니다.

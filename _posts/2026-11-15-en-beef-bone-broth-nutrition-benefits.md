@@ -15,7 +15,7 @@ image: "/assets/images/beef-bone-broth.jpg"
 *▲ Beef bone broth delivers only 17 kcal per 100 g, yet a 12-hour simmer extracts roughly 2 g of collagen-derived peptides plus glycine and proline—while its calcium content remains near 10 mg per 100 g, far below milk.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Unsalted beef bone broth provides 17 calories, 3.3 g protein and 10 mg calcium per 100 g. Longer simmering converts more collagen to gelatin and raises protein, but calcium stays modest, so past two hours the gain is mostly texture.
+<span class="answer-label">Quick answer</span> <strong>Unsalted beef bone broth provides 17 calories, 3.3 g protein and 10 mg calcium per 100 g.</strong> Longer simmering converts more collagen to gelatin and raises protein, but calcium stays modest, so past two hours the gain is mostly texture.
 </div>
 
 Long simmered from beef bones and knuckles, **beef bone broth** anchors Korean seolleongtang and gomtang and has served for centuries as a convalescent food and a warming winter staple.

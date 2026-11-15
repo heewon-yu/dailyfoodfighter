@@ -15,7 +15,7 @@ image: "/assets/images/garlic.jpg"
 *▲ Fresh garlic (Allium sativum) concentrates dormant organosulfur precursors that instantly undergo enzymatic conversion by alliinase upon mechanical crushing, synthesizing high-potency bioavailable allicin.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g. Allicin forms only after crushing activates alliinase, so chopping garlic and waiting 10 minutes before heating preserves the compound.
+<span class="answer-label">Quick answer</span> <strong>Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g.</strong> Allicin forms only after crushing activates alliinase, so chopping garlic and waiting 10 minutes before heating preserves the compound.
 </div>
 
 From sustaining the workforce of the Egyptian pyramids in 3000 BCE to anchoring modern cardiovascular pharmacotherapy, **garlic (Allium sativum)** remains one of the most thoroughly investigated natural therapeutic matrices in biomedical history.

@@ -15,7 +15,7 @@ image: "/assets/images/tofu.jpg"
 *▲ Produced by curdling fresh soymilk and pressing the curds, firm tofu serves as an ideal zero-cholesterol, complete plant protein containing all nine essential amino acids alongside dense calcium reserves.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Firm tofu provides 76 calories, 8.08 g protein and 350 mg calcium per 100 g. That calcium is roughly three times what 100 ml of milk supplies, and soy isoflavones reduce LDL oxidation alongside bone turnover.
+<span class="answer-label">Quick answer</span> <strong>Firm tofu provides 76 calories, 8.08 g protein and 350 mg calcium per 100 g.</strong> That calcium is roughly three times what 100 ml of milk supplies, and soy isoflavones reduce LDL oxidation alongside bone turnover.
 </div>
 
 In the fields of preventive cardiology and nutritional biochemistry, **tofu (bean curd)** stands as one of the most rigorously investigated plant-derived functional foods.

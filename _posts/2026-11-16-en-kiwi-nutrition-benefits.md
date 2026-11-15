@@ -15,7 +15,7 @@ image: "/assets/images/kiwi.jpg"
 *▲ Raw green kiwifruit delivers 92.7 mg of vitamin C per 100 g (103% of the U.S. Daily Value), while gold kiwi reaches 161.3 mg. Eating the washed skin raises total fiber and polyphenol intake substantially.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw green kiwi provides 61 calories, 92.7 mg vitamin C and 3.0 g fiber per 100 g. A trial of two kiwis a day increased bowel movements, and its actinidin enzyme helps break down protein after a meat-heavy meal.
+<span class="answer-label">Quick answer</span> <strong>Raw green kiwi provides 61 calories, 92.7 mg vitamin C and 3.0 g fiber per 100 g.</strong> A trial of two kiwis a day increased bowel movements, and its actinidin enzyme helps break down protein after a meat-heavy meal.
 </div>
 
 Peak harvest from November through late winter makes **kiwifruit (*Actinidia deliciosa* and *Actinidia chinensis*)** one of the highest nutrient-density fruits in the produce aisle. Gram for gram, a single green kiwi packs more vitamin C than an orange alongside **actinidin**, a natural proteolytic enzyme rarely found in common table fruits.

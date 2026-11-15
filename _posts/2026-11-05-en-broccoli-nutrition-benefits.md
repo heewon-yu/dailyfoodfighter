@@ -15,7 +15,7 @@ image: "/assets/images/broccoli.jpg"
 *▲ Fresh broccoli (Brassica oleracea var. italica) represents the quintessential cruciferous superfood, functioning as the premier dietary reservoir of glucoraphanin and enzymatically derived sulforaphane.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Broccoli has 34 calories, 89.2 mg vitamin C and 101.6 mcg vitamin K per 100 g. Sulforaphane falls as cooking time rises, so steaming for about 3 to 5 minutes plus a short rest after chopping preserves the most.
+<span class="answer-label">Quick answer</span> <strong>Broccoli has 34 calories, 89.2 mg vitamin C and 101.6 mcg vitamin K per 100 g.</strong> Sulforaphane falls as cooking time rises, so steaming for about 3 to 5 minutes plus a short rest after chopping preserves the most.
 </div>
 
 Indigenous to the northeastern Mediterranean basin, the cruciferous vegetable **Broccoli (*Brassica oleracea* var. *italica*)** occupies a preeminent position within modern clinical nutrition and chemoprotective medicine.

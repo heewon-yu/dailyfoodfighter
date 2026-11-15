@@ -15,7 +15,7 @@ image: "/assets/images/cabbage.jpg"
 *▲ 고대 로마 시대부터 '가난한 자들의 의사'로 불려온 양배추(Cabbage)는 위장 점막 재생 물질인 S-메틸메티오닌(비타민 U)과 강력한 항암·항균 파이토케미컬 설포라판이 집약된 대표적인 소화기 치유 식재료입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 생양배추 100g은 25kcal, 비타민C 36.6mg, 비타민K 76mcg입니다. 위점막 보호 성분으로 알려진 비타민 U는 열에 약해 생즙이나 짧은 데치기가 유리하고, 설포라판은 너무 오래 삶으면 줄어듭니다.
+<span class="answer-label">한 줄 결론</span> <strong>생양배추 100g은 25kcal, 비타민C 36.6mg, 비타민K 76mcg입니다.</strong> 위점막 보호 성분으로 알려진 비타민 U는 열에 약해 생즙이나 짧은 데치기가 유리하고, 설포라판은 너무 오래 삶으면 줄어듭니다.
 </div>
 
 위장 질환으로 고통받는 현대인에게 가장 먼저 권장되는 **양배추(Cabbage, Brassica oleracea var. capitata)**는 단순한 채소를 넘어 소화기 내과 및 기능성 영양학에서 천연 점막 보호제로 공인된 십자화과(Cruciferous) 슈퍼푸드입니다.

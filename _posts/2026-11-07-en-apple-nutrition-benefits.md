@@ -15,7 +15,7 @@ image: "/assets/images/apple.jpg"
 *▲ Fresh whole apples (Malus domestica) provide an extraordinary density of fermentable soluble pectin and peel-concentrated quercetin flavonoids, establishing a powerful prebiotic and endothelial defense network.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> One hundred grams of apple has 52 calories, 2.4 g fiber and 107 mg potassium. Most pectin and polyphenols sit in the peel, and total daily carbohydrate matters more to blood sugar than the hour you eat it.
+<span class="answer-label">Quick answer</span> <strong>One hundred grams of apple has 52 calories, 2.4 g fiber and 107 mg potassium.</strong> Most pectin and polyphenols sit in the peel, and total daily carbohydrate matters more to blood sugar than the hour you eat it.
 </div>
 
 The timeless aphorism *"An apple a day keeps the doctor away"* has evolved from an empirical folk observation into a firmly validated biological reality within contemporary molecular nutrition.

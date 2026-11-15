@@ -15,7 +15,7 @@ image: "/assets/images/orange.jpg"
 *▲ 햇살을 듬뿍 받고 자란 오렌지(Orange)는 고농도 천연 L-아스코르브산(비타민 C)과 감귤류 고유의 바이오플라보노이드 헤스페리딘이 농축된 대표적인 항산화 기능성 과일입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 네이블오렌지 100g은 47kcal, 비타민C 53.2mg, 엽산 30mcg입니다. 비타민C 하루 권장량의 절반 이상을 한 개로 채우고, 과육째 먹으면 주스보다 식이섬유 2.4g을 더 얻습니다.
+<span class="answer-label">한 줄 결론</span> <strong>네이블오렌지 100g은 47kcal, 비타민C 53.2mg, 엽산 30mcg입니다.</strong> 비타민C 하루 권장량의 절반 이상을 한 개로 채우고, 과육째 먹으면 주스보다 식이섬유 2.4g을 더 얻습니다.
 </div>
 
 상큼하고 달콤한 과즙으로 전 세계인의 사랑을 받는 **오렌지(Orange, Citrus sinensis)**는 단순한 기호식품을 넘어 현대 심혈관 의학과 면역학에서 가장 집중적으로 연구되는 감귤류 식물성 슈퍼푸드입니다.

@@ -15,7 +15,7 @@ image: "/assets/images/apple.jpg"
 *▲ 아삭한 과육과 붉은 껍질을 지닌 신선한 사과(Apple)는 장내 유익균의 핵심 먹이가 되는 수용성 펙틴(Pectin)과 강력한 플라보노이드 항산화제인 케르세틴(Quercetin)의 집약체입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 사과 100g은 52kcal, 식이섬유 2.4g, 칼륨 107mg입니다. 펙틴과 폴리페놀은 껍질에 더 많아 껍질째 씻어 먹을 때 식이섬유 섭취가 늘고, 아침이든 저녁이든 총 섭취량이 혈당에 더 크게 작용합니다.
+<span class="answer-label">한 줄 결론</span> <strong>사과 100g은 52kcal, 식이섬유 2.4g, 칼륨 107mg입니다.</strong> 펙틴과 폴리페놀은 껍질에 더 많아 껍질째 씻어 먹을 때 식이섬유 섭취가 늘고, 아침이든 저녁이든 총 섭취량이 혈당에 더 크게 작용합니다.
 </div>
 
 "하루 사과 한 알이면 의사를 멀리한다(An apple a day keeps the doctor away)"는 서양의 오랜 격언은 단순한 민간요법의 과장이 아닌 현대 분자생물학과 임상 영양학이 입증해 낸 생화학적 진실입니다.

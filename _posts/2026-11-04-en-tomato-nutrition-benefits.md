@@ -15,7 +15,7 @@ image: "/assets/images/tomato.jpg"
 *▲ Freshly harvested ripe red tomatoes serve as an exceptional dietary reservoir of bioactive lycopene.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> A raw tomato provides 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene is fat-soluble, so cooking with oil raises absorption, while raw tomatoes keep more heat-sensitive vitamin C.
+<span class="answer-label">Quick answer</span> <strong>A raw tomato provides 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g.</strong> Lycopene is fat-soluble, so cooking with oil raises absorption, while raw tomatoes keep more heat-sensitive vitamin C.
 </div>
 
 As one of the most widely consumed functional foods across global cuisines, the **tomato (Solanum lycopersicum)** holds a prominent status in contemporary clinical nutritional science.

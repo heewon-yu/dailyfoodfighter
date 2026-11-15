@@ -15,7 +15,7 @@ image: "/assets/images/onion.jpg"
 *▲ Raw onions add crunch, while gentle cooking softens their pungency. Photo by Alabama Extension via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. Quercetin is heat-tolerant but water-soluble, so long cooking and soaking leach some away, and raw or briefly cooked onion keeps the most.
+<span class="answer-label">Quick answer</span> <strong>Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g.</strong> Quercetin is heat-tolerant but water-soluble, so long cooking and soaking leach some away, and raw or briefly cooked onion keeps the most.
 </div>
 
 A raw onion can dominate a salad, while the same bulb cooked gently can become the mellow base of a stew. Even a spoonful of chopped onion can change a dish's flavour and texture.

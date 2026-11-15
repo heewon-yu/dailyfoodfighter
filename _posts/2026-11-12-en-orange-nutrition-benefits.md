@@ -15,7 +15,7 @@ image: "/assets/images/orange.jpg"
 *▲ Sun-ripened oranges (Citrus sinensis) deliver therapeutic densities of bioactive L-ascorbic acid and the citrus flavanone hesperidin, mediating microvascular elasticity and systemic cellular antioxidant defense.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> A navel orange provides 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g. One fruit covers more than half the daily vitamin C target, and eating segments instead of juice adds 2.4 g fiber.
+<span class="answer-label">Quick answer</span> <strong>A navel orange provides 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g.</strong> One fruit covers more than half the daily vitamin C target, and eating segments instead of juice adds 2.4 g fiber.
 </div>
 
 Within clinical cardiology and nutritional biochemistry, the **sweet orange (Citrus sinensis)** represents far more than an emblematic citrus fruit; it functions as one of nature’s most sophisticated delivery systems for water-soluble antioxidants and microvascular-modulating flavanones.

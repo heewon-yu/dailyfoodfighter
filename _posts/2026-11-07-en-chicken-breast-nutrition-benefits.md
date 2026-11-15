@@ -15,7 +15,7 @@ image: "/assets/images/chicken-breast.jpg"
 *▲ Low-fat and dense in essential amino acids, chicken breast serves as the gold standard protein source, providing leucine triggers for myofibrillar protein synthesis and anti-fatigue imidazole dipeptides.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> Chicken breast delivers 110 calories and 23.1 g protein per 100 g with only 2.6 g fat. That protein-to-calorie ratio makes it a benchmark for fat loss phases, and cooking at 60 to 65 C keeps it from drying out.
+<span class="answer-label">Quick answer</span> <strong>Chicken breast delivers 110 calories and 23.1 g protein per 100 g with only 2.6 g fat.</strong> That protein-to-calorie ratio makes it a benchmark for fat loss phases, and cooking at 60 to 65 C keeps it from drying out.
 </div>
 
 In the domains of exercise physiology and clinical dietetics, **chicken breast** stands as the definitive nutritional benchmark for lean muscle hypertrophy and cellular repair.

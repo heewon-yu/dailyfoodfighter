@@ -15,7 +15,7 @@ image: "/assets/images/kiwi.jpg"
 *▲ 생 그린키위 100g에는 비타민 C 92.7mg(성인 일일 권장량의 92.7%)이, 골드키위 100g에는 무려 161.3mg이 들어 있습니다. 껍질째 먹으면 식이섬유와 폴리페놀 섭취량이 약 50% 더 늘어납니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 생그린키위 100g은 61kcal, 비타민C 92.7mg, 식이섬유 3.0g입니다. 하루 2개를 먹은 임상시험에서 배변 횟수가 늘었고, 액티니딘이 단백질 소화를 도와 고기 요리 뒤 소화 부담을 줄입니다.
+<span class="answer-label">한 줄 결론</span> <strong>생그린키위 100g은 61kcal, 비타민C 92.7mg, 식이섬유 3.0g입니다.</strong> 하루 2개를 먹은 임상시험에서 배변 횟수가 늘었고, 액티니딘이 단백질 소화를 도와 고기 요리 뒤 소화 부담을 줄입니다.
 </div>
 
 11월부터 본격적으로 제철이 시작되는 **키위(Kiwi, *Actinidia deliciosa* / *Actinidia chinensis*)** 는 작은 달걀 크기 한 알(약 75~80g)에 오렌지나 레몬 못지않은 **고밀도 비타민 C와 천연 소화 효소 '액티니딘(Actinidin)'** 을 꽉 채운 과일입니다.

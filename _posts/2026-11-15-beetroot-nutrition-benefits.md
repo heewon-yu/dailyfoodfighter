@@ -15,7 +15,7 @@ image: "/assets/images/beetroot.jpg"
 *▲ 생비트 100g은 43kcal에 불과하지만 식이 질산염 150~250mg과 엽산 109mcg, 베타인 128.7mg이 함께 들어 있습니다. 자른 단면의 마젠타색 동심원이 베탈라인 색소의 층입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> 생비트 100g은 43kcal, 엽산 109mcg, 칼륨 325mg입니다. 질산염이 체내에서 산화질소로 전환되면 혈관이 이완되어 수축기 혈압이 몇 mmHg 낮아지고, 찌면 옥살산이 25%가량 줄어듭니다.
+<span class="answer-label">한 줄 결론</span> <strong>생비트 100g은 43kcal, 엽산 109mcg, 칼륨 325mg입니다.</strong> 질산염이 체내에서 산화질소로 전환되면 혈관이 이완되어 수축기 혈압이 몇 mmHg 낮아지고, 찌면 옥살산이 25%가량 줄어듭니다.
 </div>
 
 검붉은 뿌리와 자줏빛 잎줄기를 가진 **비트(Beetroot, *Beta vulgaris*)** 는 오랫동안 '피를 맑게 하는 채소'로 불려왔습니다. 그 경험적 평판이 21세기 들어 **식이 질산염(Nitrate) → 산화질소(Nitric Oxide, NO) 경로**라는 명확한 생화학으로 설명되면서, 2026년 현재 심혈관·혈압 관리 슈퍼푸드로 다시 주목받고 있습니다.
