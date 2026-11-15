@@ -2,7 +2,7 @@
 layout: post
 title: "딸기 칼로리 32kcal와 비타민C 58.8mg, 혈당과 세척법"
 date: 2026-11-14 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [딸기, 딸기효능, 딸기칼로리, 비타민C, 엘라그산]
@@ -11,7 +11,7 @@ permalink: /posts/strawberry-nutrition-benefits/
 image: "/assets/images/strawberry.jpg"
 ---
 
-![신선한 도자기 그릇에 담긴 물방울이 맺힌 붉은 생딸기](/assets/images/strawberry.jpg)
+<img src="/assets/images/strawberry.jpg" alt="신선한 도자기 그릇에 담긴 물방울이 맺힌 붉은 생딸기" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 100g당 32kcal의 가벼운 열량과 낮은 당부하지수(GL)를 자랑하는 딸기(Strawberry)는 오렌지나 레몬을 능가하는 고농도 비타민 C와 붉은 껍질·과육 속 안토시아닌·엘라그산이 결합된 대표적 항산화 베리류입니다.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ image: "/assets/images/strawberry.jpg"
 
 ### Q3. 당뇨 전단계인데 딸기를 매일 먹어도 혈당에 문제가 없을까요?
 **A:** 하루 6~8알(약 100~120g) 정도의 정량을 식후 간식이나 식이섬유·단백질이 포함된 식사 직후에 섭취한다면 혈당 스파이크 위험이 낮습니다. 단, 설탕이나 연유를 곁들이거나 갈아서 주스로 마시면 식이섬유 구조가 파괴되어 흡수 속도가 빨라지므로 반드시 생과육 그대로 씹어 드시는 것이 원칙입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

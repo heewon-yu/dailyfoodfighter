@@ -2,7 +2,7 @@
 layout: post
 title: "Squid Nutrition: 92 Calories, 15.6 g Protein, Taurine"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Squid, Calamari, Taurine, Marine Protein, Hepatic Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/squid-nutrition-benefits/
 image: "/assets/images/squid.jpg"
 ---
 
-![Fresh Whole Raw Squid Arranged over Crushed Ice with Lemon and Parsley](/assets/images/squid.jpg)
+<img src="/assets/images/squid.jpg" alt="Fresh Whole Raw Squid Arranged over Crushed Ice with Lemon and Parsley" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Representing cephalopod marine mollusks, squid (calamari) functions as nature's premier biological reservoir of free taurine, delivering over 15 grams of bioavailable nitrogenous protein at an energetic footprint of merely 92 calories per 100 grams.*
 
 <div class="answer-first">
@@ -120,6 +120,14 @@ While raw whole squid contains minimal sodium (~44 mg/100g), commercial dried sh
 
 ### Q3. Does retaining the pigmented outer skin of the squid offer nutritional benefits?
 **A:** Yes. The external dermal mantle contains elevated concentrations of marine collagen peptides, ommochrome biochromes, and free taurine. Cooking squid with its skin intact maximizes bioactive antioxidant ingestion.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

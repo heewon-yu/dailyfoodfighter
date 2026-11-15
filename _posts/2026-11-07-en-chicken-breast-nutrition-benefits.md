@@ -2,7 +2,7 @@
 layout: post
 title: "Chicken Breast Nutrition: 23 g Protein, 110 Calories"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synthesis]
@@ -11,7 +11,7 @@ permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---
 
-![Fresh Sliced Cooked Chicken Breast on Cutting Board](/assets/images/chicken-breast.jpg)
+<img src="/assets/images/chicken-breast.jpg" alt="Fresh Sliced Cooked Chicken Breast on Cutting Board" width="1402" height="1122" loading="eager" fetchpriority="high" decoding="async">
 *▲ Low-fat and dense in essential amino acids, chicken breast serves as the gold standard protein source, providing leucine triggers for myofibrillar protein synthesis and anti-fatigue imidazole dipeptides.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
 
 ### Q3. Is the widespread claim that humans can only absorb 30g of protein per meal true?
 **A:** It is a persistent physiological misconception. The human gut absorbs nearly all digested amino acids regardless of bolus size. However, the maximal anabolic signaling threshold for muscle protein synthesis (the leucine trigger) saturates around 25 to 35 grams per meal, making distributed feedings optimal.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

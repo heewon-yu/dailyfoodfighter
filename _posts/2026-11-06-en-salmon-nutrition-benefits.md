@@ -2,7 +2,7 @@
 layout: post
 title: "Salmon Nutrition: 208 Calories, Omega-3, Wild vs Farmed"
 date: 2026-11-06 18:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Salmon, Omega3, Astaxanthin, VitaminD, CardiovascularHealth]
@@ -11,7 +11,7 @@ permalink: /en/posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 ---
 
-![Fresh raw salmon fillet with lemon slices and fresh dill on dark slate](/assets/images/salmon.jpg)
+<img src="/assets/images/salmon.jpg" alt="Fresh raw salmon fillet with lemon slices and fresh dill on dark slate" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Fresh Atlantic salmon (Salmo salar) provides an unparalleled concentration of bioavailable long-chain omega-3 fatty acids (EPA and DHA), high-potency vitamin D, and astaxanthin—nature's premier marine antioxidant.*
 
 <div class="answer-first">
@@ -129,6 +129,14 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 
 ### Q3. Is bioaccumulated methylmercury a realistic safety concern when consuming salmon regularly?
 **A:** No. Salmon feeds relatively low on the marine trophic pyramid, exhibiting negligible methylmercury accumulation compared to apex predatory pelagic fish like swordfish or albacore tuna.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

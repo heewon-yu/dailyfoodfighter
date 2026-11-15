@@ -2,7 +2,7 @@
 layout: post
 title: "Spinach Nutrition: 23 Calories, Sauteing & Oxalates"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
@@ -11,7 +11,7 @@ permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 ---
 
-![Fresh Organic Spinach Leaves in Ceramic Bowl](/assets/images/spinach.jpg)
+<img src="/assets/images/spinach.jpg" alt="Fresh Organic Spinach Leaves in Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded as the apex of green leafy vegetables, spinach (Spinacia oleracea) supplies concentrated inorganic dietary nitrates for vascular nitric oxide (NO) synthesis and exceptional reserves of phylloquinone (vitamin K1) for bone osteocalcin carboxylation.*
 
 <div class="answer-first">
@@ -121,6 +121,14 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 
 ### Q3. Does spinach genuinely enhance muscular contractile efficiency as depicted in popular culture?
 **A:** Yes, modern exercise physiology validates this phenomenon. The inorganic nitrates in spinach enhance mitochondrial oxidative phosphorylation efficiency, reducing the oxygen cost of physical exercise and improving skeletal muscle force production.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

@@ -2,7 +2,7 @@
 layout: post
 title: "전복 효능과 칼로리 105kcal: 타우린·글리코겐 기력 회복"
 date: 2026-11-15 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [전복, 전복효능, 타우린, 글리코겐, 기력회복]
@@ -11,7 +11,7 @@ permalink: /posts/abalone-nutrition-benefits/
 image: "/assets/images/abalone.jpg"
 ---
 
-![어두운 슬레이트 돌판 위 잘게 부순 얼음과 레몬·바다소금을 곁들인 신선한 껍질째 생전복](/assets/images/abalone.jpg)
+<img src="/assets/images/abalone.jpg" alt="어두운 슬레이트 돌판 위 잘게 부순 얼음과 레몬·바다소금을 곁들인 신선한 껍질째 생전복" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 100g당 지방은 0.76g에 불과하면서 양질의 단백질 17.10g과 고농도 타우린·글리코겐을 응축한 전복(Abalone)은 예로부터 '바다의 산삼'으로 불리며 수술 후 회복식과 간 피로 해소에 쓰여 온 대표 보양 수산물입니다.*
 
 <div class="answer-first">
@@ -109,6 +109,13 @@ image: "/assets/images/abalone.jpg"
 
 ### Q3. 전복을 칫솔로 닦을 때 소금이나 식초를 써도 되나요?
 **A:** 굵은소금 소량을 묻혀 흐르는 물에 칫솔로 문지르면 살 표면과 주름 사이의 점액질·이물질을 깔끔하게 제거할 수 있습니다. 다만 식초물에 오래 담가두면 육질이 굳고 수용성 타우린이 빠져나갈 수 있으므로 흐르는 찬물에 빠르게 세척해 바로 조리하세요.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/liver-immunity-fatigue-recovery-foods/">피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

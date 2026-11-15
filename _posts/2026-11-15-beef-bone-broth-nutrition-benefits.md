@@ -2,7 +2,7 @@
 layout: post
 title: "사골·도가니 육수 칼로리 17kcal, 콜라겐과 끓이는 시간"
 date: 2026-11-15 15:45:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [사골육수, 도가니, 콜라겐펩타이드, 글리신, 곰탕]
@@ -11,7 +11,7 @@ permalink: /posts/beef-bone-broth-nutrition-benefits/
 image: "/assets/images/beef-bone-broth.jpg"
 ---
 
-![김이 피어오르는 뽀얀 사골곰탕 한 그릇, 편육과 송송 썬 대파, 옆에 담긴 김치](/assets/images/beef-bone-broth.jpg)
+<img src="/assets/images/beef-bone-broth.jpg" alt="김이 피어오르는 뽀얀 사골곰탕 한 그릇, 편육과 송송 썬 대파, 옆에 담긴 김치" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 사골·도가니 육수 100g은 17kcal에 불과하지만, 12시간 이상 우려내면 콜라겐 유래 펩타이드 약 2g과 글리신·프롤린이 용출됩니다. 다만 '칼슘 덩어리'라는 통념과 달리 실제 칼슘 함량은 100g당 10mg 안팎입니다.*
 
 <div class="answer-first">
@@ -132,6 +132,13 @@ image: "/assets/images/beef-bone-broth.jpg"
 
 ### Q3. 통풍이나 신장 질환이 있으면 사골육수를 피해야 하나요?
 **A:** 통풍 환자는 진한 사골·곰탕을 매일 먹지 말고 주 1~2회, 발작기에는 피하는 것이 안전합니다. 만성 신장 질환으로 나트륨·인·칼륨 제한을 받는 경우에는 섭취량을 반드시 신장내과 의료진과 상의해야 하며, 시판 육수를 이용할 때는 라벨의 나트륨 함량을 먼저 확인하세요.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/liver-immunity-fatigue-recovery-foods/">피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 Foods for Fatigue Recovery, Liver & Immunity"
 date: 2026-11-16 08:10:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Fatigue Recovery Foods, Immunity Foods, Zinc Foods, Vitamin C, Liver Health, Taurine]
@@ -11,9 +11,50 @@ permalink: /en/posts/liver-immunity-fatigue-recovery-foods/
 image: "/assets/images/liver-immunity-fatigue-recovery-foods.jpg"
 pinned: true
 pin_order: 6
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Oysters"
+    url: "https://dailyfoodfighter.com/en/posts/oyster-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Abalone"
+    url: "https://dailyfoodfighter.com/en/posts/abalone-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Beef sirloin"
+    url: "https://dailyfoodfighter.com/en/posts/beef-sirloin-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Kale"
+    url: "https://dailyfoodfighter.com/en/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Kiwi"
+    url: "https://dailyfoodfighter.com/en/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Broccoli"
+    url: "https://dailyfoodfighter.com/en/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Orange"
+    url: "https://dailyfoodfighter.com/en/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Garlic"
+    url: "https://dailyfoodfighter.com/en/posts/garlic-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Squid"
+    url: "https://dailyfoodfighter.com/en/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Beef bone broth"
+    url: "https://dailyfoodfighter.com/en/posts/beef-bone-broth-nutrition-benefits/"
 ---
 
-![Oysters on ice, sliced abalone, squid, garlic, kiwi, broccoli, bone broth and orange segments](/assets/images/liver-immunity-fatigue-recovery-foods.jpg)
+<img src="/assets/images/liver-immunity-fatigue-recovery-foods.jpg" alt="Oysters on ice, sliced abalone, squid, garlic, kiwi, broccoli, bone broth and orange segments" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Three nutrient groups drive fatigue recovery: zinc and selenium for immunity, vitamin C and folate for cell repair, and taurine and glycine for liver metabolism and nerve calming.*
 
 <div class="answer-first">

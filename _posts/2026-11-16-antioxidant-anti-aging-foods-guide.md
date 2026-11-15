@@ -2,7 +2,7 @@
 layout: post
 title: "항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위"
 date: 2026-11-16 08:08:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [항산화 음식, 노화 방지 음식, 폴리페놀, 안토시아닌, 라이코펜, 항산화 성분 순위]
@@ -11,9 +11,50 @@ permalink: /posts/antioxidant-anti-aging-foods-guide/
 image: "/assets/images/antioxidant-anti-aging-foods-guide.jpg"
 pinned: true
 pin_order: 4
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "블루베리"
+    url: "https://dailyfoodfighter.com/posts/blueberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "석류"
+    url: "https://dailyfoodfighter.com/posts/pomegranate-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "딸기"
+    url: "https://dailyfoodfighter.com/posts/strawberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "케일"
+    url: "https://dailyfoodfighter.com/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "시금치"
+    url: "https://dailyfoodfighter.com/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "비트"
+    url: "https://dailyfoodfighter.com/posts/beetroot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "당근"
+    url: "https://dailyfoodfighter.com/posts/carrot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "토마토"
+    url: "https://dailyfoodfighter.com/posts/tomato-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "오렌지"
+    url: "https://dailyfoodfighter.com/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "양파"
+    url: "https://dailyfoodfighter.com/posts/onion-nutrition-benefits/"
 ---
 
-![파란 블루베리, 잘린 석류, 토마토, 적양파, 비트, 케일, 당근, 오렌지를 밝은 대리석 위에 담은 모습](/assets/images/antioxidant-anti-aging-foods-guide.jpg)
+<img src="/assets/images/antioxidant-anti-aging-foods-guide.jpg" alt="파란 블루베리, 잘린 석류, 토마토, 적양파, 비트, 케일, 당근, 오렌지를 밝은 대리석 위에 담은 모습" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 항산화 성분은 색소에 들어 있습니다. 보라·빨강·주황·진녹색이 진할수록 폴리페놀과 카로티노이드가 많습니다.*
 
 <div class="answer-first">

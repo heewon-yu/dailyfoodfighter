@@ -2,7 +2,7 @@
 layout: post
 title: "양파 칼로리 40kcal와 퀘르세틴: 생양파 vs 볶은 양파 흡수 차이"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [양파, 퀘르세틴, 항산화, 영양학, 건강식단]
@@ -11,7 +11,7 @@ permalink: /posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 ---
 
-![양파를 잘랐을 때 드러나는 겹겹의 단면](/assets/images/onion.jpg)
+<img src="/assets/images/onion.jpg" alt="양파를 잘랐을 때 드러나는 겹겹의 단면" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
 *▲ 양파는 생으로 썰면 아삭하고, 익히면 매운맛이 줄어듭니다. 사진은 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
 <div class="answer-first">
@@ -107,6 +107,14 @@ image: "/assets/images/onion.jpg"
 
 ### Q3. 양파를 썰 때 눈물을 흘리지 않게 하는 과학적인 방법이 있나요?
 **A:** 양파를 썰기 15분 전 냉장고에 넣어 차갑게 식히면 최루성 물질(신-프로판티알-S-옥사이드)을 생성하는 효소 활성이 둔화됩니다. 또한 날카롭게 갈린 칼날을 물에 적셔 자르면 휘발성 가스의 분산을 최소화할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

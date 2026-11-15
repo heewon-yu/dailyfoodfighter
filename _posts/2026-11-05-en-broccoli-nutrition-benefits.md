@@ -3,7 +3,7 @@ layout: post
 lang: en
 title: "Broccoli Nutrition: 34 Calories, Steaming vs Sulforaphane"
 date: 2026-11-05 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 category: "Vegetables"
 tags: [Broccoli, Sulforaphane, Nrf2, Chemoprotection, CruciferousVegetables]
 description: "Broccoli has 34 calories, 89.2 mg vitamin C, 101.6 mcg vitamin K and 63 mcg folate per 100 g. A steaming window that keeps sulforaphane."
@@ -11,7 +11,7 @@ permalink: /en/posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---
 
-![Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board](/assets/images/broccoli.jpg)
+<img src="/assets/images/broccoli.jpg" alt="Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Fresh broccoli (Brassica oleracea var. italica) represents the quintessential cruciferous superfood, functioning as the premier dietary reservoir of glucoraphanin and enzymatically derived sulforaphane.*
 
 <div class="answer-first">
@@ -127,6 +127,14 @@ Integrating whole culinary broccoli into a preventative nutritional regimen conf
 
 ### Q3. Does broccoli consumption interfere with thyroid endocrine function in patients with goiter?
 **A:** Only massive, prolonged raw intake presents clinical relevance. Gentle thermal cooking denatures over 80% of dietary goitrogens, eliminating interference with thyroidal iodine organification.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

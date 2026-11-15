@@ -2,7 +2,7 @@
 layout: post
 title: "Avocado Nutrition: 160 Calories, 485 mg Potassium, Oleic Acid"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Avocado, Oleic Acid, Monounsaturated Fat, Potassium, Ripening Kinetics]
@@ -11,7 +11,7 @@ permalink: /en/posts/avocado-nutrition-benefits/
 image: "/assets/images/avocado.jpg"
 ---
 
-![Fresh Sliced Hass Avocado Halves on Kitchen Board](/assets/images/avocado.jpg)
+<img src="/assets/images/avocado.jpg" alt="Fresh Sliced Hass Avocado Halves on Kitchen Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded in nutritional science as 'nature’s butter', the Hass avocado (Persea americana) represents a unique botanical fruit characterized by high-density monounsaturated oleic acid, exceptional potassium concentrations surpassing bananas, and lipophilic carotenoid antioxidants.*
 
 <div class="answer-first">
@@ -111,6 +111,14 @@ Beyond intrinsic retinal-protective **lutein and zeaxanthin**, the lipid emulsio
 
 ### Q3. Are the dark stringy fibers inside an avocado safe to consume?
 **A:** Yes, they are entirely non-toxic. These dark strands represent mature vascular bundles (xylem and phloem tissue) that transported water and minerals during fruit development. While structurally tough and visually unappealing due to enzymatic oxidation, they present no pathological risk and can simply be scooped away.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

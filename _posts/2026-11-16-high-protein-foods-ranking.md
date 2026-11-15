@@ -2,7 +2,7 @@
 layout: post
 title: "단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교"
 date: 2026-11-16 08:05:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [단백질 많은 음식, 고단백 식품, 단백질 함량 순위, PDCAAS, 닭가슴살 단백질, 두부 단백질, 렌틸콩 단백질]
@@ -11,9 +11,50 @@ permalink: /posts/high-protein-foods-ranking/
 image: "/assets/images/high-protein-foods-ranking.jpg"
 pinned: true
 pin_order: 1
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "닭가슴살"
+    url: "https://dailyfoodfighter.com/posts/chicken-breast-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "연어"
+    url: "https://dailyfoodfighter.com/posts/salmon-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "소고기 등심"
+    url: "https://dailyfoodfighter.com/posts/beef-sirloin-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "고등어"
+    url: "https://dailyfoodfighter.com/posts/mackerel-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "계란"
+    url: "https://dailyfoodfighter.com/posts/egg-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "두부"
+    url: "https://dailyfoodfighter.com/posts/tofu-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "렌틸콩"
+    url: "https://dailyfoodfighter.com/posts/lentil-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "병아리콩"
+    url: "https://dailyfoodfighter.com/posts/chickpea-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "오징어"
+    url: "https://dailyfoodfighter.com/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "굴"
+    url: "https://dailyfoodfighter.com/posts/oyster-nutrition-benefits/"
 ---
 
-![어두운 슬레이트 위에 놓인 닭가슴살, 삶은 달걀, 두부, 연어, 고등어, 소고기 등심, 렌틸콩, 병아리콩, 오징어, 굴](/assets/images/high-protein-foods-ranking.jpg)
+<img src="/assets/images/high-protein-foods-ranking.jpg" alt="어두운 슬레이트 위에 놓인 닭가슴살, 삶은 달걀, 두부, 연어, 고등어, 소고기 등심, 렌틸콩, 병아리콩, 오징어, 굴" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 단백질 함량은 '무게 100g'보다 '칼로리 100kcal에 단백질이 얼마나 들어 있는가'로 보면 순위가 달라집니다. 닭가슴살은 100g당 23.1g이지만, 100kcal당으로 계산하면 21.0g입니다.*
 
 <div class="answer-first">

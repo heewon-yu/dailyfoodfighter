@@ -2,7 +2,7 @@
 layout: post
 title: "Banana Nutrition: 105 Calories, Carbs & Vitamins per Fruit"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Banana, Potassium, Vitamin B6, Resistant Starch, Gut Microbiome]
@@ -11,7 +11,7 @@ permalink: /en/posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
 ---
 
-![Fresh Ripe Bananas and Sliced Sections](/assets/images/banana.jpg)
+<img src="/assets/images/banana.jpg" alt="Fresh Ripe Bananas and Sliced Sections" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ As a preeminent global nutritional staple, the banana (Musa acuminata) provides essential bioavailable potassium for maintaining cellular membrane potentials alongside prebiotic resistant starch that systematically regenerates the human colonic microbiome.*
 
 <div class="answer-first">
@@ -119,6 +119,13 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
 
 ### Q3. Should the stringy white strands inside banana peels be discarded?
 **A:** Anatomically termed 'phloem bundles,' these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

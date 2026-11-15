@@ -2,7 +2,7 @@
 layout: post
 title: "시금치 효능과 칼로리: 데치면 옥살산 빠질까? 볶기와 비교"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [시금치, 루테인, 질산염, 비타민K, 엽산]
@@ -11,7 +11,7 @@ permalink: /posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 ---
 
-![신선한 유기농 생 시금치 잎 단면](/assets/images/spinach.jpg)
+<img src="/assets/images/spinach.jpg" alt="신선한 유기농 생 시금치 잎 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 녹색 잎채소의 제왕 시금치(Spinach)는 혈관 내피세포의 산화질소(NO) 확장을 주도하는 식이 질산염(Dietary Nitrate)과 골 기질을 형성하는 초고농도 비타민 K1(필로퀴논)의 집합체입니다.*
 
 <div class="answer-first">
@@ -121,6 +121,14 @@ image: "/assets/images/spinach.jpg"
 
 ### Q3. 뽀빠이 만화처럼 시금치를 먹으면 실제로 근육 세포 힘이 세지나요?
 **A:** 과학적 사실입니다. 과거의 철분 오표기 오해와 별개로, 시금치의 풍부한 무기 질산염은 근육 세포 내 미토콘드리아의 에너지 생산 효율을 높여 ATP 소모를 줄여주며, 엑디스테론(Ecdysterone) 성분이 근단백질 합성을 촉진한다는 최신 스포츠 영양학 연구가 지속 발표되고 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

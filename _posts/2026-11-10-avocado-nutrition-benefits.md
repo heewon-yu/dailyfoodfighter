@@ -2,7 +2,7 @@
 layout: post
 title: "아보카도 칼로리 160kcal와 칼륨 485mg, 후숙·갈변 방지법"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [아보카도, 올레산, 단일불포화지방산, 칼륨, 아보카도후숙]
@@ -11,7 +11,7 @@ permalink: /posts/avocado-nutrition-benefits/
 image: "/assets/images/avocado.jpg"
 ---
 
-![신선하게 후숙된 하스 아보카도 단면과 씨앗](/assets/images/avocado.jpg)
+<img src="/assets/images/avocado.jpg" alt="신선하게 후숙된 하스 아보카도 단면과 씨앗" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ '숲속의 버터'로 불리는 아보카도(Persea americana)는 식물계에서 보기 드문 고농도 단일불포화지방산(올레산)과 바나나보다 풍부한 칼륨, 그리고 강력한 지용성 항산화물질인 루테인·비타민 E를 품은 기능성 슈퍼푸드입니다.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ image: "/assets/images/avocado.jpg"
 
 ### Q3. 아보카도 속살에 생긴 검은 실 같은 줄은 먹어도 괜찮은가요?
 **A:** 인체에 유해한 독소는 아닙니다. 아보카도 수분과 영양분을 공급하던 관다발(Vascular Bundles) 섬유 조직이 과숙되거나 냉해를 입어 갈변된 현상입니다. 곰팡이나 시큼한 산패 취가 없다면 숟가락으로 걷어내고 드셔도 무방하나, 신선도와 식감이 떨어지므로 가급적 가열 요리나 스무디로 활용하는 것이 좋습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

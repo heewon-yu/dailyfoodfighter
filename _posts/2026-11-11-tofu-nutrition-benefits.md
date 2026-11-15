@@ -2,7 +2,7 @@
 layout: post
 title: "두부 단백질 8.1g과 칼슘 350mg, 이소플라본의 콜레스테롤 효과"
 date: 2026-11-11 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [두부, 식물성단백질, 이소플라본, 제니스테인, 콜레스테롤]
@@ -11,7 +11,7 @@ permalink: /posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
 ---
 
-![신선한 원목 도마 위에 정갈하게 놓인 두부 단면](/assets/images/tofu.jpg)
+<img src="/assets/images/tofu.jpg" alt="신선한 원목 도마 위에 정갈하게 놓인 두부 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 응고제를 통해 대두의 영양을 응축한 두부(Tofu)는 동물성 포화지방과 콜레스테롤 부담 없이 필수아미노산 9종을 완벽히 공급하는 대표적인 고단백 완전식품입니다.*
 
 <div class="answer-first">
@@ -124,6 +124,14 @@ image: "/assets/images/tofu.jpg"
 
 ### Q3. 얼린 두부(동결 두부)를 먹으면 단백질 함량이 몇 배로 늘어난다는데 사실인가요?
 **A:** 원물 자체가 마법처럼 늘어나는 것은 아니며, 수분이 빠져나가면서 단위 중량당 영양 밀도가 응축되는 원리입니다. 두부를 얼리면 내부 수분이 얼음 결정이 되며 다공성 구조를 형성하고 해동 시 수분이 빠져나가 단백질 밀도가 생두부 대비 단위 부피당 최대 5~6배까지 농축되어 다이어트 식단에 매우 훌륭합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

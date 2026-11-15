@@ -2,7 +2,7 @@
 layout: post
 title: "Beef Bone Broth Nutrition: 17 Calories, Collagen & Glycine"
 date: 2026-11-15 15:45:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Bone Broth, Collagen Peptides, Glycine, Gut Health, Joint Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/beef-bone-broth-nutrition-benefits/
 image: "/assets/images/beef-bone-broth.jpg"
 ---
 
-![Steaming Bowl of Milky White Beef Bone Broth with Sliced Brisket and Scallions](/assets/images/beef-bone-broth.jpg)
+<img src="/assets/images/beef-bone-broth.jpg" alt="Steaming Bowl of Milky White Beef Bone Broth with Sliced Brisket and Scallions" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Beef bone broth delivers only 17 kcal per 100 g, yet a 12-hour simmer extracts roughly 2 g of collagen-derived peptides plus glycine and proline—while its calcium content remains near 10 mg per 100 g, far below milk.*
 
 <div class="answer-first">
@@ -120,6 +120,13 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
 
 ### Q3. Should people with gout or kidney disease avoid beef bone broth?
 **A:** For gout, limit concentrated beef or bone broth to once or twice weekly and avoid it entirely during flares, because purine content rises with simmering time. For chronic kidney disease with sodium, phosphorus, or potassium restriction, set intake with a nephrologist and check the sodium figure on any commercial broth label first.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/liver-immunity-fatigue-recovery-foods/">Top 10 Foods for Fatigue Recovery, Liver & Immunity</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

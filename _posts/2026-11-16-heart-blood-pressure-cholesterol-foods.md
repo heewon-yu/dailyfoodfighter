@@ -2,7 +2,7 @@
 layout: post
 title: "혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리"
 date: 2026-11-16 08:09:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [혈압 낮추는 음식, 콜레스테롤 관리, 혈관 건강, 오메가3, 질산염, 칼륨 음식]
@@ -11,9 +11,50 @@ permalink: /posts/heart-blood-pressure-cholesterol-foods/
 image: "/assets/images/heart-blood-pressure-cholesterol-foods.jpg"
 pinned: true
 pin_order: 5
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "비트"
+    url: "https://dailyfoodfighter.com/posts/beetroot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "마늘"
+    url: "https://dailyfoodfighter.com/posts/garlic-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "시금치"
+    url: "https://dailyfoodfighter.com/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "고등어"
+    url: "https://dailyfoodfighter.com/posts/mackerel-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "연어"
+    url: "https://dailyfoodfighter.com/posts/salmon-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "아보카도"
+    url: "https://dailyfoodfighter.com/posts/avocado-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "바나나"
+    url: "https://dailyfoodfighter.com/posts/banana-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "오렌지"
+    url: "https://dailyfoodfighter.com/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "키위"
+    url: "https://dailyfoodfighter.com/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "두부"
+    url: "https://dailyfoodfighter.com/posts/tofu-nutrition-benefits/"
 ---
 
-![나무 도마 위의 연어, 고등어, 비트, 마늘, 아보카도, 바나나, 오렌지, 키위](/assets/images/heart-blood-pressure-cholesterol-foods.jpg)
+<img src="/assets/images/heart-blood-pressure-cholesterol-foods.jpg" alt="나무 도마 위의 연어, 고등어, 비트, 마늘, 아보카도, 바나나, 오렌지, 키위" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 혈관 건강은 한 가지 음식이 아니라 세 가지 경로로 관리됩니다. 질산염(혈관 확장), 칼륨(나트륨 배출), 오메가-3(중성지방·염증)입니다.*
 
 <div class="answer-first">

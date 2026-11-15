@@ -3,7 +3,7 @@ layout: post
 lang: en
 title: "Tomato Nutrition Facts: 18 Calories, Lycopene Raw vs Cooked"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 category: "Fruits"
 tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
 description: "A raw tomato has 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene absorption with fat and heat, plus reflux cautions."
@@ -11,7 +11,7 @@ permalink: /en/posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
 ---
 
-![Fresh red ripe tomatoes with cross section on wooden rustic background](/assets/images/tomato.jpg)
+<img src="/assets/images/tomato.jpg" alt="Fresh red ripe tomatoes with cross section on wooden rustic background" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Freshly harvested ripe red tomatoes serve as an exceptional dietary reservoir of bioactive lycopene.*
 
 <div class="answer-first">
@@ -108,6 +108,14 @@ For optimal therapeutic and nutritional yield, prepare tomatoes lightly stewed o
 
 ### Q3. Do cherry tomatoes offer nutritional advantages over regular standard tomatoes?
 **A:** Per 100 grams, cherry tomatoes exhibit higher concentrations of vitamin C, polyphenols, and dietary fiber due to their elevated skin-to-flesh ratio, delivering denser micronutrient payloads per serving.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

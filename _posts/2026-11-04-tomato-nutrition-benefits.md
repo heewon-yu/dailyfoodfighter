@@ -2,7 +2,7 @@
 layout: post
 title: "토마토 칼로리 18kcal와 라이코펜: 생토마토 vs 익힌 토마토 흡수율"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-08
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [토마토, 토마토 칼로리, 라이코펜, 생토마토, 토마토 조리법]
@@ -11,7 +11,7 @@ permalink: /posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
 ---
 
-![완숙 토마토와 잘라 놓은 단면](/assets/images/tomato.jpg)
+<img src="/assets/images/tomato.jpg" alt="완숙 토마토와 잘라 놓은 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ 완숙 토마토의 붉은색을 내는 색소 중 하나가 라이코펜입니다.*
 
 <div class="answer-first">
@@ -96,6 +96,14 @@ USDA의 붉은 완숙 생토마토 기준으로 약 18 kcal입니다. 토마토 
 ### 토마토를 먹으면 속쓰림이 생길 수 있나요?
 
 토마토는 일부 위식도 역류 환자에게 증상을 유발하는 식품으로 알려져 있습니다. 먹을 때마다 증상이 나타난다면 본인에게 맞는 섭취 방법을 의료진과 상의할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

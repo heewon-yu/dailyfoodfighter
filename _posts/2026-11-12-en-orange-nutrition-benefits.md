@@ -2,7 +2,7 @@
 layout: post
 title: "Orange Nutrition: 47 Calories, 53 mg Vitamin C, Hesperidin"
 date: 2026-11-12 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Orange, Vitamin C, Hesperidin, Citric Acid, Cardiovascular Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
 ---
 
-![Fresh Sliced Ripe Navel Oranges on Wooden Cutting Board](/assets/images/orange.jpg)
+<img src="/assets/images/orange.jpg" alt="Fresh Sliced Ripe Navel Oranges on Wooden Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Sun-ripened oranges (Citrus sinensis) deliver therapeutic densities of bioactive L-ascorbic acid and the citrus flavanone hesperidin, mediating microvascular elasticity and systemic cellular antioxidant defense.*
 
 <div class="answer-first">
@@ -124,6 +124,14 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 
 ### Q3. What is the scientifically validated protocol for removing surface wax and pesticide residues from citrus peel?
 **A:** Immerse citrus in lukewarm water containing 1% sodium bicarbonate (baking soda) for 3 to 5 minutes, scrub with a firm vegetable brush, and rinse under running water followed by a brief dilute acetic acid (vinegar) rinse to degrade lipophilic post-harvest coatings effectively.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

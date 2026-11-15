@@ -2,7 +2,7 @@
 layout: post
 title: "Lentil Nutrition: 24.6 g Protein, GI 32, Cooking Times"
 date: 2026-11-15 15:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Lentils, Plant Protein, Phytic Acid, Glycemic Index, Fiber]
@@ -11,7 +11,7 @@ permalink: /en/posts/lentil-nutrition-benefits/
 image: "/assets/images/lentil.jpg"
 ---
 
-![Cooked Lentils in a Rustic Ceramic Bowl with Parsley and Lemon](/assets/images/lentil.jpg)
+<img src="/assets/images/lentil.jpg" alt="Cooked Lentils in a Rustic Ceramic Bowl with Parsley and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Dry lentils deliver 24.6 g of protein and 10.7 g of fiber per 100 g. Simmered, the same weight triples in volume, so a 100 g serving of cooked lentils settles at 116 kcal and 9.0 g of protein.*
 
 <div class="answer-first">
@@ -132,6 +132,14 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
 
 ### Q3. Can people with kidney disease or gout still eat lentils?
 **A:** It depends on the condition. Under potassium and phosphorus restriction, 100 g of cooked lentils still carries about 369 mg of potassium, so portions must be controlled and nephrology dietitian input is essential—especially for dialysis patients. During an acute gout flare, intake should be reduced; in stable disease, plant purines appear far less provocative than animal purines, and 50–80 g daily in divided portions is a reasonable ceiling.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

@@ -2,7 +2,7 @@
 layout: post
 title: "Tofu Nutrition: 76 Calories, 8 g Protein, 350 mg Calcium"
 date: 2026-11-11 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Tofu, Plant Protein, Isoflavones, Genistein, Cholesterol]
@@ -11,7 +11,7 @@ permalink: /en/posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
 ---
 
-![Fresh Sliced Firm Tofu Cubes on Wooden Board](/assets/images/tofu.jpg)
+<img src="/assets/images/tofu.jpg" alt="Fresh Sliced Firm Tofu Cubes on Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Produced by curdling fresh soymilk and pressing the curds, firm tofu serves as an ideal zero-cholesterol, complete plant protein containing all nine essential amino acids alongside dense calcium reserves.*
 
 <div class="answer-first">
@@ -116,6 +116,14 @@ In vitro research suggests that supraphysiological concentrations of unfermented
 
 ### Q3. Does freezing tofu truly alter its nutritional density?
 **A:** Freezing does not synthesize new nutrients, but it physically transforms water into ice crystals, creating a porous sponge structure. Upon thawing and pressing, expelling this water condenses dry-matter nutrients, multiplying protein density per unit volume up to fivefold.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

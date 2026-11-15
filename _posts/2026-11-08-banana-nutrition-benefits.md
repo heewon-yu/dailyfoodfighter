@@ -2,7 +2,7 @@
 layout: post
 title: "바나나 칼로리 89kcal와 혈당: 공복 섭취, 초록 vs 노란 바나나"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [바나나, 칼륨, 비타민B6, 저항성전분, 장건강]
@@ -11,7 +11,7 @@ permalink: /posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
 ---
 
-![신선하고 잘 익은 바나나 과육 단면](/assets/images/banana.jpg)
+<img src="/assets/images/banana.jpg" alt="신선하고 잘 익은 바나나 과육 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 열대 과일의 표준이자 인류의 가장 완전한 천연 에너지원인 바나나(Banana)는 세포막 전위차를 유지하는 고농도 칼륨(Potassium)과 장내 마이크로바이옴을 복원하는 프리바이오틱 저항성 전분(Resistant Starch)의 보고입니다.*
 
 <div class="answer-first">
@@ -121,6 +121,13 @@ image: "/assets/images/banana.jpg"
 
 ### Q3. 바나나 껍질 안쪽의 하얀 실 같은 물질은 떼어내고 먹어야 하나요?
 **A:** 떼어내지 않고 함께 섭취하는 것이 좋습니다. 이 섬유질 가닥은 학술적으로 '체관부 다발(Phloem Bundles)'이라 불리며, 열매가 자라는 동안 뿌리와 잎에서 생성된 필수 영양소를 과육에 전달하던 통로입니다. 과육 자체보다 식이섬유, 칼륨, 비타민 A가 더욱 조밀하게 응축되어 있어 소화기 건강에 매우 유익합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

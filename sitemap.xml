@@ -22,6 +22,18 @@ layout: null
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/privacy/</loc>
   </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/tags/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/en/tags/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/contact/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/en/contact/</loc>
+  </url>
   {% for page in site.pages %}
   {% if page.url contains '/category/' %}
   <url>

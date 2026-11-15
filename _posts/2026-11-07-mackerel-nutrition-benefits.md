@@ -2,7 +2,7 @@
 layout: post
 title: "고등어 칼로리 205kcal와 오메가-3 2,299mg, 구이 vs 조림"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [고등어, 오메가3, DHA, EPA, 뇌건강, 혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---
 
-![신선한 고등어와 노릇하게 구워진 고등어 구이 단면](/assets/images/mackerel.jpg)
+<img src="/assets/images/mackerel.jpg" alt="신선한 고등어와 노릇하게 구워진 고등어 구이 단면" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async">
 *▲ 짙푸른 등과 은백색 복부를 지닌 고등어(Mackerel)는 혈관벽의 염증을 잠재우는 EPA와 뇌신경세포 시냅스 가소성을 유지하는 DHA, 그리고 뼈 건강의 핵심인 비타민 D가 최상급으로 농축된 천연 오메가-3의 보고입니다.*
 
 <div class="answer-first">
@@ -121,6 +121,14 @@ image: "/assets/images/mackerel.jpg"
 
 ### Q3. 통풍 증상이 있는 사람이 고등어를 먹어도 괜찮은가요?
 **A:** 통풍 환자는 주의가 필요합니다. 고등어는 100g당 퓨린 함량이 150mg을 초과하는 '고퓨린 식품'에 속합니다. 요산 수치가 잘 조절되지 않거나 급성 발작 기간에는 섭취를 피하시고, 안정기에는 주 1회 이하로 소량만 드시는 것이 바람직합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

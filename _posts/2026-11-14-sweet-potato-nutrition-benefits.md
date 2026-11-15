@@ -2,7 +2,7 @@
 layout: post
 title: "고구마 칼로리 86kcal와 GI 지수: 베타카로틴·저항성전분"
 date: 2026-11-14 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [고구마, 고구마효능, 고구마칼로리, 베타카로틴, 저항성전분]
@@ -11,7 +11,7 @@ permalink: /posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
 ---
 
-![원목 도마 위에 반으로 갈라 놓인 주황빛 고구마와 로즈마리](/assets/images/sweet-potato.jpg)
+<img src="/assets/images/sweet-potato.jpg" alt="원목 도마 위에 반으로 갈라 놓인 주황빛 고구마와 로즈마리" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 복합 탄수화물과 1일 권장량을 훌쩍 뛰어넘는 베타카로틴(비타민 A 전구체), 식이섬유를 고루 품은 고구마(Sweet Potato)는 조리 온도와 냉각 방식에 따라 혈당 반응과 저항성 전분 비율이 극적으로 달라지는 기능성 구황작물입니다.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ image: "/assets/images/sweet-potato.jpg"
 
 ### Q3. 고구마를 먹을 때 껍질에 묻은 검은 반점이나 싹이 난 부분은 먹어도 되나요?
 **A:** 고구마의 싹 자체에는 감자(솔라닌)와 같은 치명적 독소가 없지만, 싹이 트는 과정에서 주변 영양분이 소모되고 식감이 거칠어지므로 도려내고 먹는 것이 좋습니다. 단, 껍질에 검은 반점이 넓게 퍼지고 쓴맛과 곰팡이 냄새가 난다면 '검은무늬병' 곰팡이 독소(이포메아마론)일 가능성이 있으므로 해당 고구마는 통째로 폐기해야 합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

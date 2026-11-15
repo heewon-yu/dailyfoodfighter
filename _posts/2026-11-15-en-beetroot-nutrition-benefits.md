@@ -2,7 +2,7 @@
 layout: post
 title: "Beetroot Nutrition: 43 Calories, Nitrate & Blood Pressure"
 date: 2026-11-15 15:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Beetroot, Dietary Nitrate, Betalains, Blood Pressure, Oxalate]
@@ -11,7 +11,7 @@ permalink: /en/posts/beetroot-nutrition-benefits/
 image: "/assets/images/beetroot.jpg"
 ---
 
-![Fresh Raw Beetroot with Green Tops and Halved Cross-Sections on Dark Wood](/assets/images/beetroot.jpg)
+<img src="/assets/images/beetroot.jpg" alt="Fresh Raw Beetroot with Green Tops and Halved Cross-Sections on Dark Wood" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ At just 43 kcal per 100 g, raw beetroot still carries 150–250 mg of dietary nitrate, 109 mcg of folate, and 128.7 mg of betaine. The magenta rings in the cross-section are concentric layers of betalain pigment.*
 
 <div class="answer-first">
@@ -130,6 +130,14 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
 
 ### Q3. Can I eat beetroot if I have kidney stones?
 **A:** It depends on preparation. At 50–120 mg of oxalate per 100 g, beetroot is a risk for calcium oxalate stone formers, who should avoid raw beet and juice. Steaming reduces oxalate by about 25%, but even then keep intake under 50 g daily and eat beets with calcium-rich foods such as yogurt or cheese so oxalate binds in the intestine. Drinking 1–2 liters of water daily is the baseline preventive measure.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

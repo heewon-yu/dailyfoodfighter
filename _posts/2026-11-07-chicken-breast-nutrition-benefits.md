@@ -2,7 +2,7 @@
 layout: post
 title: "닭가슴살 100g 단백질 23.1g과 칼로리 110kcal, 삶는 법"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [닭가슴살, 단백질, BCAA, 이미다졸디펩티드, 근합성]
@@ -11,7 +11,7 @@ permalink: /posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 ---
 
-![신선한 닭가슴살 조리 단면](/assets/images/chicken-breast.jpg)
+<img src="/assets/images/chicken-breast.jpg" alt="신선한 닭가슴살 조리 단면" width="1402" height="1122" loading="eager" fetchpriority="high" decoding="async">
 *▲ 저지방 고단백의 대표 식재료인 닭가슴살(Chicken Breast)은 골격근 합성의 방아쇠인 류신(Leucine)을 비롯한 BCAA와 철새의 장거리 비행을 지탱하는 항피로 펩타이드인 이미다졸 디펩티드의 결정체입니다.*
 
 <div class="answer-first">
@@ -123,6 +123,14 @@ image: "/assets/images/chicken-breast.jpg"
 
 ### Q3. 한 끼 식사에서 단백질은 30g까지만 흡수된다는 말이 사실인가요?
 **A:** 의학적으로 잘못 알려진 상식입니다. 30g을 초과하여 섭취해도 소화관을 통해 90% 이상 흡수됩니다. 다만 한 번에 근단백질 합성(MPS)을 최대로 자극하는 류신의 역치가 약 2.5~3g(단백질 약 25~35g 분량)이므로, 한 번에 몰아먹기보다 3~4시간 간격으로 20~30g씩 분할 섭취하는 것이 근육 합성에 가장 효율적입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

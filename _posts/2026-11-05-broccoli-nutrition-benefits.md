@@ -2,7 +2,7 @@
 layout: post
 title: "브로콜리 칼로리 34kcal와 설포라판: 데치는 시간 몇 분이 좋을까"
 date: 2026-11-05 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [브로콜리, 설포라판, 십자화과채소, 항암효능, 세포해독]
@@ -11,7 +11,7 @@ permalink: /posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
 ---
 
-![신선한 유기농 브로콜리의 초록빛 꽃송이와 단단한 줄기 단면](/assets/images/broccoli.jpg)
+<img src="/assets/images/broccoli.jpg" alt="신선한 유기농 브로콜리의 초록빛 꽃송이와 단단한 줄기 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ 신선한 브로콜리(Brassica oleracea var. italica)는 십자화과 채소의 대표 주자로, 강력한 세포 해독 및 항염증 생리활성 물질인 설포라판(Sulforaphane)의 천연 보고입니다.*
 
 <div class="answer-first">
@@ -127,6 +127,14 @@ image: "/assets/images/broccoli.jpg"
 
 ### Q3. 갑상선 질환 환자가 브로콜리를 섭취하면 요오드 흡수가 저해되나요?
 **A:** 생으로 매일 대량(1kg 이상) 섭취하지 않는 한 일반적인 섭취량은 안전합니다. 브로콜리의 고이트로겐(Goitrogen) 성분은 가열 조리 시 80% 이상 불활성화되므로 익혀서 섭취하면 아무런 문제가 없습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

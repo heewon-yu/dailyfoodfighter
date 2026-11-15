@@ -2,7 +2,7 @@
 layout: post
 title: "Kiwi Nutrition: 92.7 mg Vitamin C, 61 Calories, Constipation"
 date: 2026-11-16 07:55:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Kiwi, Vitamin C, Constipation, Actinidin, Fiber]
@@ -11,7 +11,7 @@ permalink: /en/posts/kiwi-nutrition-benefits/
 image: "/assets/images/kiwi.jpg"
 ---
 
-![Fresh Green and Gold Kiwifruit Halved on a Wooden Board](/assets/images/kiwi.jpg)
+<img src="/assets/images/kiwi.jpg" alt="Fresh Green and Gold Kiwifruit Halved on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw green kiwifruit delivers 92.7 mg of vitamin C per 100 g (103% of the U.S. Daily Value), while gold kiwi reaches 161.3 mg. Eating the washed skin raises total fiber and polyphenol intake substantially.*
 
 <div class="answer-first">
@@ -121,6 +121,14 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
 - Pick **gold kiwi** when maximizing **vitamin C (161.3 mg/100 g)**; pick **green kiwi** for **bowel regularity (3.0 g fiber) and protein digestion (actinidin)**.
 - For constipation support, **two green kiwis a day** with adequate water for 2–4 weeks mirrors the protocol validated in clinical trials.
 - Wash and eat the skin—especially on gold kiwis—to capture extra fiber and polyphenols effortlessly.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

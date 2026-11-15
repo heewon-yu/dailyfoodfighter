@@ -2,7 +2,7 @@
 layout: post
 title: "케일 비타민K 389mcg와 효능: 생케일 vs 데친 케일 주의점"
 date: 2026-11-16 07:55:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [케일, 케일효능, 비타민K, 루테인, 십자화과채소]
@@ -11,7 +11,7 @@ permalink: /posts/kale-nutrition-benefits/
 image: "/assets/images/kale.jpg"
 ---
 
-![밝은 대리석 주방 위 세라믹 채반에 담긴 신선한 곱슬 케일과 올리브오일, 레몬](/assets/images/kale.jpg)
+<img src="/assets/images/kale.jpg" alt="밝은 대리석 주방 위 세라믹 채반에 담긴 신선한 곱슬 케일과 올리브오일, 레몬" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 생케일 100g은 단 35kcal에 불과하지만, 비타민 K 389.6mcg, 비타민 C 93.4mg, 눈 건강 색소인 루테인·제아잔틴 6,261mcg이 압축되어 있습니다. 올리브오일을 살짝 곁들이면 지용성 비타민과 루테인 흡수율이 크게 올라갑니다.*
 
 <div class="answer-first">
@@ -120,6 +120,14 @@ image: "/assets/images/kale.jpg"
 - 케일 100g은 **35kcal에 비타민 K 389.6mcg, 비타민 C 93.4mg, 루테인·제아잔틴 6,261mcg** 이 담긴 최상급 녹황색 채소입니다.
 - **저옥살산 채소**여서 칼슘 흡수율이 높고 신장결석 부담이 시금치보다 훨씬 적습니다.
 - **올리브오일이나 아보카도 같은 건강한 지방을 반드시 곁들여야** 케일의 핵심 지용성 영양소를 온전히 흡수할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

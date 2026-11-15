@@ -2,7 +2,7 @@
 layout: post
 title: "마늘 효능과 하루 권장량: 으깬 뒤 10분, 알리신 생성 원리"
 date: 2026-11-07 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [마늘, 알리신, 유기유황, 면역력, 혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 ---
 
-![신선한 통마늘과 깐마늘 정향](/assets/images/garlic.jpg)
+<img src="/assets/images/garlic.jpg" alt="신선한 통마늘과 깐마늘 정향" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 순백의 껍질 속에 강력한 유기유황 화합물을 응축한 마늘(Garlic)은 으깨지는 순간 알리나아제 효소 반응을 통해 강력한 천연 항균·혈관 확장 물질인 알리신(Allicin)을 폭발적으로 방출합니다.*
 
 <div class="answer-first">
@@ -128,6 +128,14 @@ image: "/assets/images/garlic.jpg"
 
 ### Q3. 공복에 생마늘을 섭취했을 때 속쓰림을 방지하는 안전한 섭취법은?
 **A:** 생마늘의 알리신은 위점막을 강력하게 자극하므로 공복 섭취를 피하고, 꿀에 절여 섭취하거나 기름에 살짝 볶아 드시거나 식사 중간에 다른 음식과 함께 섭취해야 위점막 손상을 막을 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+    <li><a href="/posts/liver-immunity-fatigue-recovery-foods/">피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

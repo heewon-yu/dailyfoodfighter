@@ -2,7 +2,7 @@
 layout: post
 title: "석류 칼로리 83kcal와 효능: 우롤리틴A, 즙 vs 생석류"
 date: 2026-11-15 15:45:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [석류, 석류효능, 우롤리틴A, 엘라지타닌, 석류즙]
@@ -11,7 +11,7 @@ permalink: /posts/pomegranate-nutrition-benefits/
 image: "/assets/images/pomegranate.jpg"
 ---
 
-![원목 테이블 위의 통석류와 반으로 가른 석류, 루비빛 알갱이가 담긴 도자기 그릇](/assets/images/pomegranate.jpg)
+<img src="/assets/images/pomegranate.jpg" alt="원목 테이블 위의 통석류와 반으로 가른 석류, 루비빛 알갱이가 담긴 도자기 그릇" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 생석류 100g은 83kcal·식이섬유 4.0g에 불과하지만, 껍질과 속껍질에는 푸니칼라진 등 엘라지타닌이 1g 이상 농축되어 있습니다. 이 폴리페놀이 장내세균을 거쳐 우롤리틴 A(Urolithin A)로 전환되는 것이 최근 석류 연구의 핵심입니다.*
 
 <div class="answer-first">
@@ -135,6 +135,13 @@ image: "/assets/images/pomegranate.jpg"
 
 ### Q3. 석류를 매일 먹어도 되나요? 와파린·혈압약과 함께 먹어도 안전한가요?
 **A:** 일반 성인은 알갱이 기준 하루 100~200g(중간 크기 석류 반 개~한 개)이 적당합니다. 와파린 복용자는 비타민 K 함량 때문에 석류 섭취량을 갑자기 크게 늘리거나 줄이지 말고 일정하게 유지하며 INR을 모니터링해야 합니다. 스타틴·혈압약 복용자는 약 복용과 1~2시간 간격을 두고, 어지럼증이나 근육통이 생기면 즉시 의료진에게 알리세요.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

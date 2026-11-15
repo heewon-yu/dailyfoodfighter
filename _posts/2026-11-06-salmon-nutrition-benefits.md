@@ -2,7 +2,7 @@
 layout: post
 title: "연어 칼로리 208kcal와 오메가-3 2,150mg, 생연어 vs 훈제연어"
 date: 2026-11-06 18:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [연어, 오메가3, 아스타잔틴, 비타민D, 심혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 ---
 
-![신선한 생 연어 필렛과 레몬 슬라이스](/assets/images/salmon.jpg)
+<img src="/assets/images/salmon.jpg" alt="신선한 생 연어 필렛과 레몬 슬라이스" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 선홍빛 결을 자랑하는 신선한 연어(Salmon)는 체내 흡수율이 탁월한 장쇄 오메가-3 지방산(EPA·DHA)과 비타민 D, 그리고 자연계 최강의 카로티노이드 항산화 물질인 아스타잔틴의 보고입니다.*
 
 <div class="answer-first">
@@ -125,6 +125,14 @@ image: "/assets/images/salmon.jpg"
 
 ### Q3. 대형 어류인 연어의 중금속(수은) 축적 위험은 안전한 수준인가요?
 **A:** 연어는 먹이사슬 하위 단계의 소형 플랑크톤과 어류를 주로 섭취하므로 참치나 상어 등 최상위 포식자에 비해 수은 농도가 현저히 낮아 임산부와 수유부도 주 2~3회 안심하고 섭취할 수 있는 안전 어종입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

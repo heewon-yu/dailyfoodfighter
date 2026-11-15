@@ -2,7 +2,7 @@
 layout: post
 title: "Kale Nutrition: 35 Calories, 389.6 mcg Vitamin K, Lutein"
 date: 2026-11-16 07:55:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Kale, Vitamin K, Lutein, Cruciferous Vegetables, Eye Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/kale-nutrition-benefits/
 image: "/assets/images/kale.jpg"
 ---
 
-![Fresh Curly Kale Leaves in a Ceramic Colander with Olive Oil and Lemon](/assets/images/kale.jpg)
+<img src="/assets/images/kale.jpg" alt="Fresh Curly Kale Leaves in a Ceramic Colander with Olive Oil and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw kale delivers 389.6 mcg of vitamin K, 93.4 mg of vitamin C, and 6,261 mcg of lutein + zeaxanthin per 100 g for just 35 kcal. Massaging or cooking kale with olive oil unlocks its fat-soluble carotenoids.*
 
 <div class="answer-first">
@@ -120,6 +120,14 @@ For raw salads, yes—removing the thick central rib dramatically improves textu
 - Per 100 g raw, kale packs **389.6 mcg vitamin K, 93.4 mg vitamin C, 254 mg bioavailable calcium, and 6,261 mcg lutein + zeaxanthin** for just **35 kcal**.
 - Unlike spinach, kale is **low in oxalates (~10–20 mg/100 g)**, making it a safer green for calcium absorption and kidney-stone prevention.
 - Always pair kale with a healthy fat such as **olive oil or avocado**—whether massaged raw or steamed for 2–3 minutes—to unlock its fat-soluble nutrients.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

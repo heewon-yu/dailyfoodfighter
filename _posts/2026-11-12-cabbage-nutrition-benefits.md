@@ -2,7 +2,7 @@
 layout: post
 title: "양배추 효능과 비타민 U: 위점막 보호, 데치는 법과 주의점"
 date: 2026-11-12 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [양배추, 비타민U, 설포라판, 비타민K, 위건강]
@@ -11,7 +11,7 @@ permalink: /posts/cabbage-nutrition-benefits/
 image: "/assets/images/cabbage.jpg"
 ---
 
-![도마 위에 정갈하게 채 썰린 싱싱한 녹색 양배추 단면](/assets/images/cabbage.jpg)
+<img src="/assets/images/cabbage.jpg" alt="도마 위에 정갈하게 채 썰린 싱싱한 녹색 양배추 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 고대 로마 시대부터 '가난한 자들의 의사'로 불려온 양배추(Cabbage)는 위장 점막 재생 물질인 S-메틸메티오닌(비타민 U)과 강력한 항암·항균 파이토케미컬 설포라판이 집약된 대표적인 소화기 치유 식재료입니다.*
 
 <div class="answer-first">
@@ -124,6 +124,14 @@ image: "/assets/images/cabbage.jpg"
 
 ### Q3. 역류성 식도염 환자가 양배추를 매일 먹어도 안전한가요?
 **A:** 매우 안전하며 임상적으로 강력히 권장됩니다. 양배추의 비타민 U와 비타민 K는 하부 식도 점막에 생긴 미세 궤양과 염증의 재생을 촉진하고 위산 자극을 완화합니다. 다만 찬 성질의 생양배추를 공복에 과량 섭취 시 가스 팽만을 느낄 수 있으므로 가볍게 찌거나 미온수와 함께 천천히 섭취하는 것을 권장합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

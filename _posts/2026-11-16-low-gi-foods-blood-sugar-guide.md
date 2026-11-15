@@ -2,7 +2,7 @@
 layout: post
 title: "혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표"
 date: 2026-11-16 08:06:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [혈당 낮추는 음식, 저혈당 지수, GI 지수 표, 혈당 스파이크, 당뇨 식단, GL 지수]
@@ -11,9 +11,50 @@ permalink: /posts/low-gi-foods-blood-sugar-guide/
 image: "/assets/images/low-gi-foods-blood-sugar-guide.jpg"
 pinned: true
 pin_order: 2
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "시금치"
+    url: "https://dailyfoodfighter.com/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "브로콜리"
+    url: "https://dailyfoodfighter.com/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "아보카도"
+    url: "https://dailyfoodfighter.com/posts/avocado-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "양배추"
+    url: "https://dailyfoodfighter.com/posts/cabbage-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "병아리콩"
+    url: "https://dailyfoodfighter.com/posts/chickpea-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "렌틸콩"
+    url: "https://dailyfoodfighter.com/posts/lentil-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "사과"
+    url: "https://dailyfoodfighter.com/posts/apple-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "딸기"
+    url: "https://dailyfoodfighter.com/posts/strawberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "키위"
+    url: "https://dailyfoodfighter.com/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "고구마"
+    url: "https://dailyfoodfighter.com/posts/sweet-potato-nutrition-benefits/"
 ---
 
-![밝은 나무 테이블 위의 시금치, 브로콜리, 아보카도, 양배추, 병아리콩, 렌틸콩, 사과, 딸기](/assets/images/low-gi-foods-blood-sugar-guide.jpg)
+<img src="/assets/images/low-gi-foods-blood-sugar-guide.jpg" alt="밝은 나무 테이블 위의 시금치, 브로콜리, 아보카도, 양배추, 병아리콩, 렌틸콩, 사과, 딸기" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ GI가 낮은 식재료는 대부분 식이섬유와 수분이 많고 전분이 적습니다. 같은 재료도 굽느냐 삶느냐에 따라 GI가 두 배 가까이 달라집니다.*
 
 <div class="answer-first">

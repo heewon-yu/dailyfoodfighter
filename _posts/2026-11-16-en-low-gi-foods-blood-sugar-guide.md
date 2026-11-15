@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart"
 date: 2026-11-16 08:06:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Low GI Foods, Glycemic Index Chart, Glycemic Load, Blood Sugar, Diabetes Diet]
@@ -11,9 +11,50 @@ permalink: /en/posts/low-gi-foods-blood-sugar-guide/
 image: "/assets/images/low-gi-foods-blood-sugar-guide.jpg"
 pinned: true
 pin_order: 2
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Spinach"
+    url: "https://dailyfoodfighter.com/en/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Broccoli"
+    url: "https://dailyfoodfighter.com/en/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Avocado"
+    url: "https://dailyfoodfighter.com/en/posts/avocado-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Cabbage"
+    url: "https://dailyfoodfighter.com/en/posts/cabbage-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Chickpeas"
+    url: "https://dailyfoodfighter.com/en/posts/chickpea-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Lentils"
+    url: "https://dailyfoodfighter.com/en/posts/lentil-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Apple"
+    url: "https://dailyfoodfighter.com/en/posts/apple-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Strawberry"
+    url: "https://dailyfoodfighter.com/en/posts/strawberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Kiwi"
+    url: "https://dailyfoodfighter.com/en/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Sweet potato"
+    url: "https://dailyfoodfighter.com/en/posts/sweet-potato-nutrition-benefits/"
 ---
 
-![Spinach, broccoli, avocado, cabbage, chickpeas, lentils, apples and strawberries on a light wooden table](/assets/images/low-gi-foods-blood-sugar-guide.jpg)
+<img src="/assets/images/low-gi-foods-blood-sugar-guide.jpg" alt="Spinach, broccoli, avocado, cabbage, chickpeas, lentils, apples and strawberries on a light wooden table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Low-GI ingredients are mostly high in fiber and water with little starch. The same food can double its GI depending on whether it is baked or boiled.*
 
 <div class="answer-first">

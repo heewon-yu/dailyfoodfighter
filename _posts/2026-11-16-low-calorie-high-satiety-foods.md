@@ -2,7 +2,7 @@
 layout: post
 title: "저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교"
 date: 2026-11-16 08:07:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [저칼로리 음식, 포만감 음식, 다이어트 식단, 칼로리 낮은 음식, 포만감 지수, 고단백 다이어트]
@@ -11,9 +11,50 @@ permalink: /posts/low-calorie-high-satiety-foods/
 image: "/assets/images/low-calorie-high-satiety-foods.jpg"
 pinned: true
 pin_order: 3
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "시금치"
+    url: "https://dailyfoodfighter.com/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "양배추"
+    url: "https://dailyfoodfighter.com/posts/cabbage-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "브로콜리"
+    url: "https://dailyfoodfighter.com/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "케일"
+    url: "https://dailyfoodfighter.com/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "키위"
+    url: "https://dailyfoodfighter.com/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "두부"
+    url: "https://dailyfoodfighter.com/posts/tofu-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "고구마"
+    url: "https://dailyfoodfighter.com/posts/sweet-potato-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "오징어"
+    url: "https://dailyfoodfighter.com/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "닭가슴살"
+    url: "https://dailyfoodfighter.com/posts/chicken-breast-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "달걀"
+    url: "https://dailyfoodfighter.com/posts/egg-nutrition-benefits/"
 ---
 
-![양배추 채, 케일, 삶은 달걀, 닭가슴살, 두부, 오징어, 키위, 고구마를 담은 밝은 조리대](/assets/images/low-calorie-high-satiety-foods.jpg)
+<img src="/assets/images/low-calorie-high-satiety-foods.jpg" alt="양배추 채, 케일, 삶은 달걀, 닭가슴살, 두부, 오징어, 키위, 고구마를 담은 밝은 조리대" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 포만감은 열량이 아니라 부피·수분·식이섬유·단백질에서 나옵니다. 100kcal에 가까운 양을 얼마나 많이 먹을 수 있는지가 다이어트의 실제 변수입니다.*
 
 <div class="answer-first">

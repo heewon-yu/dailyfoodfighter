@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 High-Protein Foods: Grams per 100g and 100 kcal"
 date: 2026-11-16 08:05:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [High Protein Foods, Protein Ranking, PDCAAS, Chicken Breast, Tofu Protein, Lentil Protein, Protein Density]
@@ -11,9 +11,50 @@ permalink: /en/posts/high-protein-foods-ranking/
 image: "/assets/images/high-protein-foods-ranking.jpg"
 pinned: true
 pin_order: 1
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Chicken breast"
+    url: "https://dailyfoodfighter.com/en/posts/chicken-breast-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Salmon"
+    url: "https://dailyfoodfighter.com/en/posts/salmon-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Beef sirloin"
+    url: "https://dailyfoodfighter.com/en/posts/beef-sirloin-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Mackerel"
+    url: "https://dailyfoodfighter.com/en/posts/mackerel-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Egg"
+    url: "https://dailyfoodfighter.com/en/posts/egg-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Tofu"
+    url: "https://dailyfoodfighter.com/en/posts/tofu-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Lentils"
+    url: "https://dailyfoodfighter.com/en/posts/lentil-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Chickpeas"
+    url: "https://dailyfoodfighter.com/en/posts/chickpea-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Squid"
+    url: "https://dailyfoodfighter.com/en/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Oysters"
+    url: "https://dailyfoodfighter.com/en/posts/oyster-nutrition-benefits/"
 ---
 
-![Chicken breast, boiled eggs, tofu, salmon, mackerel, sirloin, lentils, chickpeas, squid and oysters on a dark slate table](/assets/images/high-protein-foods-ranking.jpg)
+<img src="/assets/images/high-protein-foods-ranking.jpg" alt="Chicken breast, boiled eggs, tofu, salmon, mackerel, sirloin, lentils, chickpeas, squid and oysters on a dark slate table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Protein content looks different depending on whether you measure per 100 g of food or per 100 kcal. Chicken breast delivers 23.1 g per 100 g, or 21.0 g per 100 kcal.*
 
 <div class="answer-first">

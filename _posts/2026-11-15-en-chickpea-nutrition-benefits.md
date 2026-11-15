@@ -2,7 +2,7 @@
 layout: post
 title: "Chickpea Nutrition: 164 Calories, 7.6 g Fiber, Folate"
 date: 2026-11-15 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Chickpea, Garbanzo Beans, Resistant Starch, Plant Protein, Glycemic Control]
@@ -11,7 +11,7 @@ permalink: /en/posts/chickpea-nutrition-benefits/
 image: "/assets/images/chickpea.jpg"
 ---
 
-![Golden Cooked Chickpeas in a Rustic Ceramic Bowl with Olive Oil and Herbs](/assets/images/chickpea.jpg)
+<img src="/assets/images/chickpea.jpg" alt="Golden Cooked Chickpeas in a Rustic Ceramic Bowl with Olive Oil and Herbs" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Supplying 8.86 grams of plant-derived protein and 7.60 grams of dietary fiber per 100 grams cooked, chickpeas (garbanzo beans) combine a low glycemic index (28–36) with dense folate, iron, and resistant starch to stabilize postprandial glucose and nourish colonic microbiota.*
 
 <div class="answer-first">
@@ -109,6 +109,14 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
 
 ### Q3. What is the best way to prevent gas and bloating when eating chickpeas?
 **A:** Soak dried chickpeas for 8–12 hours, discard the soaking water completely, cook them until very tender (adding a strip of kombu seaweed or bay leaf helps), and introduce them gradually into your diet so colonic bacteria adapt smoothly.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

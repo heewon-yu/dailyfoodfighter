@@ -2,7 +2,7 @@
 layout: post
 title: "오징어 칼로리 92kcal와 타우린: 저지방 고단백 간 해독"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [오징어, 타우린, 고단백수산물, 피로회복, 콜레스테롤개선]
@@ -11,7 +11,7 @@ permalink: /posts/squid-nutrition-benefits/
 image: "/assets/images/squid.jpg"
 ---
 
-![얼음 위에 신선한 레몬과 파슬리와 함께 놓인 신선한 통오징어 단면](/assets/images/squid.jpg)
+<img src="/assets/images/squid.jpg" alt="얼음 위에 신선한 레몬과 파슬리와 함께 놓인 신선한 통오징어 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 연체동물 두족류를 대표하는 오징어(Squid)는 100g당 92kcal의 극저열량 대비 15g 이상의 순수 고품질 단백질과 육류의 수십 배에 달하는 천연 타우린(Taurine)을 공급하는 최고의 해양 보약입니다.*
 
 <div class="answer-first">
@@ -128,6 +128,14 @@ image: "/assets/images/squid.jpg"
 
 ### Q3. 오징어를 껍질째 먹는 것이 영양학적으로 더 좋은가요?
 **A:** 그렇습니다. 오징어 껍질에는 천연 펩타이드와 타우린, 항산화 색소인 오모크롬이 고농도로 집적되어 있습니다. 질기지 않다면 껍질을 벗기지 않고 그대로 조리하는 것이 생리활성 성분을 온전히 섭취하는 최고의 방법입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

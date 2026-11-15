@@ -3,7 +3,7 @@ layout: post
 lang: en
 title: "Onion Nutrition: 40 Calories, Raw vs Cooked Quercetin"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
 description: "Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. How cooking shifts quercetin, why soaking leaches it, and gentler options."
@@ -11,7 +11,7 @@ permalink: /en/posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 ---
 
-![Layers visible in the cut surfaces of sliced onions](/assets/images/onion.jpg)
+<img src="/assets/images/onion.jpg" alt="Layers visible in the cut surfaces of sliced onions" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw onions add crunch, while gentle cooking softens their pungency. Photo by Alabama Extension via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
 <div class="answer-first">
@@ -107,6 +107,14 @@ Vitamin C supports the enzyme reactions involved in collagen production and impr
 
 ### Q3. What biochemical technique effectively minimizes crying when slicing onions?
 **A:** Chilling onions for 15 to 30 minutes before cutting depresses lachrymatory factor synthase enzyme kinetics. Utilizing a razor-sharp, moist blade minimizes mechanical cell rupture and subsequent airborne aerosolization.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

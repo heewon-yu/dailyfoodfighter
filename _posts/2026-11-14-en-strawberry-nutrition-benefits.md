@@ -2,7 +2,7 @@
 layout: post
 title: "Strawberry Nutrition: 32 Calories, 58.8 mg Vitamin C"
 date: 2026-11-14 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Strawberry, Vitamin C, Anthocyanins, Ellagic Acid, Glycemic Control]
@@ -11,7 +11,7 @@ permalink: /en/posts/strawberry-nutrition-benefits/
 image: "/assets/images/strawberry.jpg"
 ---
 
-![Fresh Ripe Red Strawberries in a Ceramic Bowl](/assets/images/strawberry.jpg)
+<img src="/assets/images/strawberry.jpg" alt="Fresh Ripe Red Strawberries in a Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Delivering just 32 kcal and under 5 grams of sugar per 100 grams, fresh strawberries combine high-density vitamin C with pelargonidin-based anthocyanins and ellagic acid to support endothelial nitric oxide signaling and blunted postprandial glucose excursions.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 
 ### Q3. Can individuals with prediabetes eat strawberries daily?
 **A:** In controlled whole-fruit portions (100–150 g per serving), strawberries have a low glycemic index (~40) and minimal glycemic load. Eating them intact after a balanced meal—without added sugar, syrup, or juicing—fits well within blood-glucose management plans.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

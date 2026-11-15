@@ -2,7 +2,7 @@
 layout: post
 title: "병아리콩 칼로리 164kcal, 식이섬유 7.6g과 혈당 안정"
 date: 2026-11-15 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [병아리콩, 병아리콩효능, 식물성단백질, 저항성전분, 혈당관리]
@@ -11,7 +11,7 @@ permalink: /posts/chickpea-nutrition-benefits/
 image: "/assets/images/chickpea.jpg"
 ---
 
-![따뜻한 원목 테이블 위 도자기 그릇에 올리브오일과 허브를 곁들인 황금빛 삶은 병아리콩](/assets/images/chickpea.jpg)
+<img src="/assets/images/chickpea.jpg" alt="따뜻한 원목 테이블 위 도자기 그릇에 올리브오일과 허브를 곁들인 황금빛 삶은 병아리콩" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 100g당 8.86g의 식물성 단백질과 7.60g의 풍부한 식이섬유를 동시에 공급하는 병아리콩(Chickpea)은 낮은 혈당지수(GI 28~36)와 높은 저항성 전분 비율 덕분에 포만감을 오래 유지하고 대사 건강을 지키는 핵심 콩류입니다.*
 
 <div class="answer-first">
@@ -109,6 +109,14 @@ image: "/assets/images/chickpea.jpg"
 
 ### Q3. 병아리콩의 하루 적정 섭취량은 어느 정도인가요?
 **A:** 성인 기준 삶은 병아리콩으로 하루 **100~150g(종이컵 약 2/3~1컵 분량)** 내외가 적당합니다. 단백질과 식이섬유가 풍부해 한 끼 식사의 탄수화물 공급원을 대체하기 좋지만, 과다 섭취 시 총열량과 가스 생성이 늘어날 수 있으므로 정량을 지키는 것이 좋습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

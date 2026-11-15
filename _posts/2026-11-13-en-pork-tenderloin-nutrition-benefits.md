@@ -2,7 +2,7 @@
 layout: post
 title: "Pork Tenderloin Nutrition: 120 Calories, 21.8 g Protein"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Pork Tenderloin, Thiamine, Vitamin B1, Lean Protein, Muscle Protein Synthesis]
@@ -11,7 +11,7 @@ permalink: /en/posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
 ---
 
-![Fresh Sliced Raw Lean Pork Tenderloin on Wooden Cutting Board](/assets/images/pork-tenderloin.jpg)
+<img src="/assets/images/pork-tenderloin.jpg" alt="Fresh Sliced Raw Lean Pork Tenderloin on Wooden Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Anatomically situated along the central dorsal lumbar spine, pork tenderloin stands as the leanest porcine muscle cut, delivering less than 3% lipid density alongside the highest concentration of bioavailable thiamine (vitamin B1) found in land-based livestock.*
 
 <div class="answer-first">
@@ -119,6 +119,13 @@ Modern controlled agricultural biosecurity has largely eliminated *Trichinella s
 
 ### Q3. Why does pork tenderloin become dry and tough when braised or simmered in stews?
 **A:** Because tenderloin consists almost entirely of delicate muscle fibers without protective connective collagen or intermuscular fat, prolonged moist heat causes myofibrillar proteins to contract tightly and expel water. Dry-heat roasting, grilling, or sous-vide cooking yields optimal tenderness.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

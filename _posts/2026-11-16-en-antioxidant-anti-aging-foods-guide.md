@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List"
 date: 2026-11-16 08:08:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Antioxidant Foods, Anti-Aging Foods, Polyphenols, Anthocyanin, Lycopene, Lutein]
@@ -11,9 +11,50 @@ permalink: /en/posts/antioxidant-anti-aging-foods-guide/
 image: "/assets/images/antioxidant-anti-aging-foods-guide.jpg"
 pinned: true
 pin_order: 4
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Blueberry"
+    url: "https://dailyfoodfighter.com/en/posts/blueberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Pomegranate"
+    url: "https://dailyfoodfighter.com/en/posts/pomegranate-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Strawberry"
+    url: "https://dailyfoodfighter.com/en/posts/strawberry-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Kale"
+    url: "https://dailyfoodfighter.com/en/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Spinach"
+    url: "https://dailyfoodfighter.com/en/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Beetroot"
+    url: "https://dailyfoodfighter.com/en/posts/beetroot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Carrot"
+    url: "https://dailyfoodfighter.com/en/posts/carrot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Tomato"
+    url: "https://dailyfoodfighter.com/en/posts/tomato-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Orange"
+    url: "https://dailyfoodfighter.com/en/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Onion"
+    url: "https://dailyfoodfighter.com/en/posts/onion-nutrition-benefits/"
 ---
 
-![Blueberries, cut pomegranate, tomatoes, red onion, beetroot, kale, carrots and oranges on a light marble surface](/assets/images/antioxidant-anti-aging-foods-guide.jpg)
+<img src="/assets/images/antioxidant-anti-aging-foods-guide.jpg" alt="Blueberries, cut pomegranate, tomatoes, red onion, beetroot, kale, carrots and oranges on a light marble surface" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Antioxidants live in pigments. The deeper the purple, red, orange or dark green, the more polyphenols and carotenoids the food carries.*
 
 <div class="answer-first">

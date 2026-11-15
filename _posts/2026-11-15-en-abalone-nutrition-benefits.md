@@ -2,7 +2,7 @@
 layout: post
 title: "Abalone Nutrition: 105 Calories, 17.1 g Protein, Taurine"
 date: 2026-11-15 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Abalone, Taurine, Selenium, Marine Protein, Liver Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/abalone-nutrition-benefits/
 image: "/assets/images/abalone.jpg"
 ---
 
-![Fresh Whole Raw Abalone in Shells on Crushed Ice with Lemon and Sea Salt](/assets/images/abalone.jpg)
+<img src="/assets/images/abalone.jpg" alt="Fresh Whole Raw Abalone in Shells on Crushed Ice with Lemon and Sea Salt" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Supplying 17.10 grams of bioavailable marine protein and under 1 gram of total fat per 100 grams, abalone (*Haliotis spp.*) concentrates free taurine, glycogen, vitamin E, and selenium to support hepatic detoxification and cellular energy recovery.*
 
 <div class="answer-first">
@@ -109,6 +109,13 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
 
 ### Q3. How should fresh abalone be cleaned before cooking?
 **A:** Scrub the dark outer foot and shell rim under cold running water using a clean brush and a pinch of coarse sea salt to remove surface mucin, then shuck the meat and remove the small hard beak (mouth) before slicing or steaming.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/liver-immunity-fatigue-recovery-foods/">Top 10 Foods for Fatigue Recovery, Liver & Immunity</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

@@ -2,7 +2,7 @@
 layout: post
 title: "Egg Nutrition: 143 Calories, 12.6 g Protein, Boiling Times"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Meat"
 tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
@@ -11,7 +11,7 @@ permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 ---
 
-![Fresh and Sliced Hard Boiled Eggs on Rustic Board](/assets/images/egg.jpg)
+<img src="/assets/images/egg.jpg" alt="Fresh and Sliced Hard Boiled Eggs on Rustic Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded as nature's quintessential biological nutrient capsule, the egg (Gallus gallus domesticus) represents the gold standard of protein bioavailability (BV 100), supplying concentrated neuroprotective choline, macular carotenoids, and vital fat-soluble micronutrients.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 
 ### Q3. Do raw eggs provide superior protein bioavailability compared to cooked eggs?
 **A:** No, clinical research indicates the exact opposite. Digestion studies demonstrate that cooked egg protein yields approximately 91% gastrointestinal bioavailability, whereas raw egg protein is only 51% bioavailable due to unrelaxed peptide structures.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

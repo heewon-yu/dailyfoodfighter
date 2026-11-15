@@ -2,7 +2,7 @@
 layout: post
 title: "키위 칼로리 61kcal와 비타민C: 그린 vs 골드, 변비 효과"
 date: 2026-11-16 07:55:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [키위, 키위효능, 골드키위비타민C, 액티니딘, 변비과일]
@@ -11,7 +11,7 @@ permalink: /posts/kiwi-nutrition-benefits/
 image: "/assets/images/kiwi.jpg"
 ---
 
-![원목 도마 위에 반으로 자른 싱그러운 그린키위와 골드키위](/assets/images/kiwi.jpg)
+<img src="/assets/images/kiwi.jpg" alt="원목 도마 위에 반으로 자른 싱그러운 그린키위와 골드키위" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 생 그린키위 100g에는 비타민 C 92.7mg(성인 일일 권장량의 92.7%)이, 골드키위 100g에는 무려 161.3mg이 들어 있습니다. 껍질째 먹으면 식이섬유와 폴리페놀 섭취량이 약 50% 더 늘어납니다.*
 
 <div class="answer-first">
@@ -121,6 +121,14 @@ image: "/assets/images/kiwi.jpg"
 - **비타민 C가 목표면 골드키위(161.3mg), 변비·소화가 목표면 그린키위(식이섬유 3.0g + 액티니딘)** 를 선택하세요.
 - 변비 개선을 노린다면 **매일 그린키위 2개**를 충분한 물과 함께 2~4주 꾸준히 드시는 것이 임상 근거에 가장 가깝습니다.
 - 고기 요리 후 디저트로 그린키위 1개를 먹으면 **식후 더부룩함을 줄이는 천연 소화제** 역할을 톡톡히 해냅니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

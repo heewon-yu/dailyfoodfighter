@@ -2,7 +2,7 @@
 layout: post
 title: "Mackerel Nutrition: 205 Calories, 2,299 mg EPA+DHA"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Mackerel, Omega-3, EPA, DHA, Cardiovascular Health, Brain Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 ---
 
-![Fresh and Grilled Mackerel Fillet with Lemon](/assets/images/mackerel.jpg)
+<img src="/assets/images/mackerel.jpg" alt="Fresh and Grilled Mackerel Fillet with Lemon" width="1536" height="1024" loading="eager" fetchpriority="high" decoding="async">
 *▲ Characterized by dark undulating bands and silver ventral scales, mackerel stands as a premier pelagic superfood, supplying dense reserves of cardioprotective EPA, neuroprotective DHA, and bioavailable cholecalciferol (vitamin D3).*
 
 <div class="answer-first">
@@ -112,6 +112,14 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
 
 ### Q3. Is mackerel safe for individuals managing gout or hyperuricemia?
 **A:** Caution is warranted. Mackerel is classified as a high-purine food (>150mg purines per 100g). While beneficial for heart disease, individuals with active clinical gout flares should avoid consumption until serum uric acid normalizes.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

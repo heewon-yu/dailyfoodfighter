@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 Foods for Blood Pressure, Cholesterol & Heart"
 date: 2026-11-16 08:09:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Blood Pressure Foods, Lower Cholesterol, Heart Health, Omega-3, Dietary Nitrate, Potassium]
@@ -11,9 +11,50 @@ permalink: /en/posts/heart-blood-pressure-cholesterol-foods/
 image: "/assets/images/heart-blood-pressure-cholesterol-foods.jpg"
 pinned: true
 pin_order: 5
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Beetroot"
+    url: "https://dailyfoodfighter.com/en/posts/beetroot-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Garlic"
+    url: "https://dailyfoodfighter.com/en/posts/garlic-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Spinach"
+    url: "https://dailyfoodfighter.com/en/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Mackerel"
+    url: "https://dailyfoodfighter.com/en/posts/mackerel-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Salmon"
+    url: "https://dailyfoodfighter.com/en/posts/salmon-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Avocado"
+    url: "https://dailyfoodfighter.com/en/posts/avocado-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Banana"
+    url: "https://dailyfoodfighter.com/en/posts/banana-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Orange"
+    url: "https://dailyfoodfighter.com/en/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Kiwi"
+    url: "https://dailyfoodfighter.com/en/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Tofu"
+    url: "https://dailyfoodfighter.com/en/posts/tofu-nutrition-benefits/"
 ---
 
-![Salmon, mackerel, beetroot, garlic, avocado, banana, orange and kiwi on a wooden board](/assets/images/heart-blood-pressure-cholesterol-foods.jpg)
+<img src="/assets/images/heart-blood-pressure-cholesterol-foods.jpg" alt="Salmon, mackerel, beetroot, garlic, avocado, banana, orange and kiwi on a wooden board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Heart health is managed through three routes rather than one food: nitrate for vessel dilation, potassium to excrete sodium, and omega-3 for triglycerides and inflammation.*
 
 <div class="answer-first">

@@ -2,7 +2,7 @@
 layout: post
 title: "사과 칼로리 52kcal와 펙틴 효능: 껍질째 먹어야 하는 이유"
 date: 2026-11-07 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [사과, 펙틴, 케르세틴, 장건강, 혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
 ---
 
-![신선한 붉은 사과와 단면](/assets/images/apple.jpg)
+<img src="/assets/images/apple.jpg" alt="신선한 붉은 사과와 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 아삭한 과육과 붉은 껍질을 지닌 신선한 사과(Apple)는 장내 유익균의 핵심 먹이가 되는 수용성 펙틴(Pectin)과 강력한 플라보노이드 항산화제인 케르세틴(Quercetin)의 집약체입니다.*
 
 <div class="answer-first">
@@ -128,6 +128,13 @@ image: "/assets/images/apple.jpg"
 
 ### Q3. 갈변된 사과를 먹어도 건강에 해롭지 않나요?
 **A:** 사과의 폴리페놀이 산화되어 갈색으로 변한 것으로 유해한 독소는 아닙니다. 다만 폴리페놀의 항산화 활성이 다소 감소하므로 깎은 즉시 드시거나 묽은 소금물, 레몬수에 담가두면 갈변을 방지할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

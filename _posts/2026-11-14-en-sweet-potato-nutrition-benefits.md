@@ -2,7 +2,7 @@
 layout: post
 title: "Sweet Potato Nutrition: 86 Calories, Beta-Carotene & GI"
 date: 2026-11-14 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Sweet Potato, Beta-Carotene, Resistant Starch, Glycemic Index, Dietary Fiber]
@@ -11,7 +11,7 @@ permalink: /en/posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
 ---
 
-![Halved Roasted and Raw Orange-Fleshed Sweet Potatoes on a Wooden Board](/assets/images/sweet-potato.jpg)
+<img src="/assets/images/sweet-potato.jpg" alt="Halved Roasted and Raw Orange-Fleshed Sweet Potatoes on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Delivering over 150% of daily vitamin A needs via beta-carotene alongside complex carbohydrates and potassium, sweet potatoes (Ipomoea batatas) exhibit markedly different glycemic profiles depending on thermal preparation and post-cooking retrogradation.*
 
 <div class="answer-first">
@@ -114,6 +114,14 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ### Q3. Are sprouted sweet potatoes toxic like sprouted white potatoes?
 **A:** No. Unlike white potatoes (*Solanum tuberosum*), sweet potatoes do not produce solanine alkaloids in their sprouts, so trimming small sprouts is safe. However, discard any sweet potato showing dark black rot spots with a bitter odor, which may contain fungal ipomeamarone toxins.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

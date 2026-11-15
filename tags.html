@@ -1,0 +1,42 @@
+---
+layout: default
+title: "태그별 영양 가이드 전체 목록"
+description: "데일리푸드파이터의 모든 영양 가이드를 태그로 모아 봤습니다. 단백질·혈당·항산화·혈관 건강 등 주제 태그를 누르면 해당 글을 한 번에 확인할 수 있습니다."
+permalink: /tags/
+lang: ko
+---
+{% assign ko_posts = site.posts | where: "lang", "ko" %}
+{% assign tag_pairs = "" | split: "" %}
+{% for p in ko_posts %}
+  {% for t in p.tags %}
+    {% assign tag_pairs = tag_pairs | push: t %}
+  {% endfor %}
+{% endfor %}
+{% assign all_tags = tag_pairs | uniq | sort %}
+
+<section class="tags-index">
+  <h1 class="tags-title">태그별 영양 가이드</h1>
+  <p class="tags-intro">총 {{ ko_posts.size }}편의 영양 가이드를 주제 태그 {{ all_tags.size }}개로 묶었습니다. 태그를 누르면 해당 주제의 글 목록으로 바로 이동합니다.</p>
+
+  <nav class="tag-cloud" aria-label="태그 목록">
+    {% for tag in all_tags %}
+    <a class="tag-cloud-item" href="#{{ tag | slugify }}">#{{ tag }}</a>
+    {% endfor %}
+  </nav>
+
+  <div class="tag-sections">
+    {% for tag in all_tags %}
+    {% assign tagged = ko_posts | where_exp: "p", "p.tags contains tag" %}
+    <section class="tag-block" id="{{ tag | slugify }}">
+      <h2 class="tag-block-title">#{{ tag }} <span class="tag-block-count">{{ tagged.size }}편</span></h2>
+      <ul class="tag-block-list">
+        {% for p in tagged %}
+        <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+
+  <p class="tags-back"><a href="{{ '/' | relative_url }}">← 전체 글 목록으로</a></p>
+</section>

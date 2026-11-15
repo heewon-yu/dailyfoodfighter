@@ -2,7 +2,7 @@
 layout: post
 title: "돼지고기 안심 칼로리 120kcal, 단백질 21.8g과 티아민"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [돼지고기안심, 비타민B1, 티아민, 저지방단백질, 피로회복]
@@ -11,7 +11,7 @@ permalink: /posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
 ---
 
-![신선한 원목 도마 위에 로즈마리와 마늘과 함께 놓인 돼지고기 안심 단면](/assets/images/pork-tenderloin.jpg)
+<img src="/assets/images/pork-tenderloin.jpg" alt="신선한 원목 도마 위에 로즈마리와 마늘과 함께 놓인 돼지고기 안심 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 돼지고기 부위 중 지방 함량이 3% 미만으로 가장 낮고 순수 단백질 밀도가 가장 높은 안심(Pork Tenderloin)은 소고기나 닭고기의 최대 10배에 달하는 고농도 비타민 B1(티아민)을 공급하는 최고의 에너지 대사 촉진 단백질원입니다.*
 
 <div class="answer-first">
@@ -129,6 +129,13 @@ image: "/assets/images/pork-tenderloin.jpg"
 
 ### Q3. 안심 부위는 장조림이나 카레에 넣으면 왜 퍽퍽해질까요?
 **A:** 안심은 결합조직(콜라겐)이나 지방이 거의 없는 순수 근섬유 덩어리이기 때문입니다. 장시간 보글보글 끓이는 습열 조리를 적용하면 근섬유 사이의 수분이 외부로 완전히 빠져나가 조직이 수축하면서 퍽퍽해집니다. 안심은 짧은 시간 동안 굽거나 튀기거나 저온 수비드로 익히는 조리법이 가장 이상적입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

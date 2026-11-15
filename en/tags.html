@@ -1,0 +1,42 @@
+---
+layout: default
+title: "All Nutrition Guides by Tag"
+description: "Every DailyFoodFighter nutrition guide collected by topic tag. Browse protein, blood sugar, antioxidant and heart health tags to reach all related ingredient guides at once."
+permalink: /en/tags/
+lang: en
+---
+{% assign en_posts = site.posts | where: "lang", "en" %}
+{% assign tag_pairs = "" | split: "" %}
+{% for p in en_posts %}
+  {% for t in p.tags %}
+    {% assign tag_pairs = tag_pairs | push: t %}
+  {% endfor %}
+{% endfor %}
+{% assign all_tags = tag_pairs | uniq | sort %}
+
+<section class="tags-index">
+  <h1 class="tags-title">Nutrition Guides by Tag</h1>
+  <p class="tags-intro">All {{ en_posts.size }} nutrition guides collected into {{ all_tags.size }} topic tags. Pick a tag to jump straight to every related ingredient guide.</p>
+
+  <nav class="tag-cloud" aria-label="Tag list">
+    {% for tag in all_tags %}
+    <a class="tag-cloud-item" href="#{{ tag | slugify }}">#{{ tag }}</a>
+    {% endfor %}
+  </nav>
+
+  <div class="tag-sections">
+    {% for tag in all_tags %}
+    {% assign tagged = en_posts | where_exp: "p", "p.tags contains tag" %}
+    <section class="tag-block" id="{{ tag | slugify }}">
+      <h2 class="tag-block-title">#{{ tag }} <span class="tag-block-count">{{ tagged.size }} {% if tagged.size == 1 %}guide{% else %}guides{% endif %}</span></h2>
+      <ul class="tag-block-list">
+        {% for p in tagged %}
+        <li><a href="{{ p.url | relative_url }}">{{ p.title }}</a></li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endfor %}
+  </div>
+
+  <p class="tags-back"><a href="{{ '/en/' | relative_url }}">← Back to all posts</a></p>
+</section>

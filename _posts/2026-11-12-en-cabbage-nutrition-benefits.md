@@ -2,7 +2,7 @@
 layout: post
 title: "Cabbage Nutrition: 25 Calories, Vitamin U & Sulforaphane"
 date: 2026-11-12 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Cabbage, Vitamin U, Sulforaphane, Vitamin K, Gastric Health]
@@ -11,7 +11,7 @@ permalink: /en/posts/cabbage-nutrition-benefits/
 image: "/assets/images/cabbage.jpg"
 ---
 
-![Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table](/assets/images/cabbage.jpg)
+<img src="/assets/images/cabbage.jpg" alt="Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Celebrated since Greco-Roman antiquity as a foundational digestive remedy, cabbage (Brassica oleracea var. capitata) concentrates the cytoprotective sulfonium derivative S-methylmethionine (Vitamin U) alongside the antimicrobial isothiocyanate sulforaphane.*
 
 <div class="answer-first">
@@ -124,6 +124,14 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 
 ### Q3. Is daily cabbage intake clinically advisable for patients presenting acid reflux (GERD)?
 **A:** Yes, cabbage is strongly recommended. Its mucosal cytoprotective sulfonium compounds and neutral-to-alkaline post-digestive impact accelerate esophageal re-epithelialization. To avoid abdominal distension from fermentable fibers, steam cabbage lightly for 2 to 3 minutes prior to consumption.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

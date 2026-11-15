@@ -3,7 +3,7 @@ layout: post
 lang: en
 title: "Blueberry Nutrition: 57 Calories, Fresh vs Frozen Anthocyanin"
 date: 2026-11-04 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 category: "Fruits"
 tags: [Blueberries, Anthocyanins, Neuroprotection, VascularHealth, EvidenceBased]
 description: "Raw blueberries have 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g. Freezing effects, daily amounts, and kidney and warfarin cautions."
@@ -11,7 +11,7 @@ permalink: /en/posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
 ---
 
-![Fresh organic blueberries with natural protective bloom in a rustic ceramic bowl](/assets/images/blueberry.jpg)
+<img src="/assets/images/blueberry.jpg" alt="Fresh organic blueberries with natural protective bloom in a rustic ceramic bowl" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Freshly harvested wild and cultivated blueberries (Vaccinium corymbosum) contain extraordinary concentrations of bioactive polyphenolic pigments known as anthocyanins.*
 
 <div class="answer-first">
@@ -116,6 +116,14 @@ Incorporating whole blueberries into a daily evidence-based functional dietary p
 
 ### Q3. What is the clinically validated optimal daily intake of blueberries for adults?
 **A:** Intervention trials report optimal vascular and cognitive improvements with approximately 100 to 130 grams (one standard cup, roughly 50 to 70 berries) consumed daily.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+    <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

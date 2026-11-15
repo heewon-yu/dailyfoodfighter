@@ -2,7 +2,7 @@
 layout: post
 title: "당근 칼로리 41kcal와 베타카로틴: 흡수율 10배 높이는 조리법"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [당근, 베타카로틴, 비타민A, 팔카리놀, 당근보관법]
@@ -11,7 +11,7 @@ permalink: /posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
 ---
 
-![신선한 유기농 당근과 슬라이스 단면](/assets/images/carrot.jpg)
+<img src="/assets/images/carrot.jpg" alt="신선한 유기농 당근과 슬라이스 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 주황빛 천연 파이토케미컬의 보고인 당근(Daucus carota)은 식물성 비타민 A 전구체인 베타카로틴(Beta-carotene)과 알파카로틴, 그리고 강력한 항종양 천연 폴리아세틸렌 성분인 팔카리놀(Falcarinol)을 풍부하게 함유한 대표적인 뿌리채소입니다.*
 
 <div class="answer-first">
@@ -112,6 +112,13 @@ image: "/assets/images/carrot.jpg"
 
 ### Q3. 당근을 냉장고에 보관하면 왜 금방 검게 변하거나 물러지나요?
 **A:** 당근은 수분 증발에 매우 취약한 뿌리채소입니다. 씻지 않은 상태에서 신문지나 키친타월로 한 개씩 감싸 수분을 차단한 뒤 지퍼백에 밀봉하여 냉장고 신선실에 '뿌리가 아래로 향하도록 세워서' 보관하면 2~3주 이상 아삭한 수분감과 영양소를 완벽히 유지할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

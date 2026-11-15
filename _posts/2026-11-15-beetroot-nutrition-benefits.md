@@ -2,7 +2,7 @@
 layout: post
 title: "비트 칼로리 43kcal와 혈압: 생비트 vs 찐 비트 옥살산"
 date: 2026-11-15 15:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "채소"
 tags: [비트, 비트효능, 식이질산염, 베타레인, 베투리아]
@@ -11,7 +11,7 @@ permalink: /posts/beetroot-nutrition-benefits/
 image: "/assets/images/beetroot.jpg"
 ---
 
-![나무 테이블 위의 붉은 비트와 반으로 자른 단면, 초록 잎줄기](/assets/images/beetroot.jpg)
+<img src="/assets/images/beetroot.jpg" alt="나무 테이블 위의 붉은 비트와 반으로 자른 단면, 초록 잎줄기" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 생비트 100g은 43kcal에 불과하지만 식이 질산염 150~250mg과 엽산 109mcg, 베타인 128.7mg이 함께 들어 있습니다. 자른 단면의 마젠타색 동심원이 베탈라인 색소의 층입니다.*
 
 <div class="answer-first">
@@ -141,6 +141,14 @@ image: "/assets/images/beetroot.jpg"
 
 ### Q3. 신장결석이 있는데 비트를 먹어도 되나요?
 **A:** 조리법에 따라 다릅니다. 비트는 옥살산이 100g당 50~120mg으로 적지 않아 옥살산칼슘 결석 병력자는 생비트와 비트 주스를 피하는 것이 안전합니다. 찐 비트는 옥살산이 약 25% 줄어들지만 그래도 하루 50g 이내로 제한하고, 요거트·치즈처럼 칼슘이 많은 음식과 함께 먹어 옥살산이 장에서 흡수되지 않도록 하세요. 물을 1~2L 이상 충분히 마시는 것이 결석 예방의 기본입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

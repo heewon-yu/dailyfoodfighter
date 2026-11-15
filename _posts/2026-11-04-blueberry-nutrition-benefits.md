@@ -2,7 +2,7 @@
 layout: post
 title: "블루베리 칼로리 57kcal와 효능: 생블루베리 vs 냉동 안토시아닌 차이"
 date: 2026-11-04 08:00:00 +0900
-last_modified_at: 2026-11-08
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [블루베리, 블루베리 칼로리, 냉동 블루베리, 안토시아닌, 블루베리 먹는 법]
@@ -11,7 +11,7 @@ permalink: /posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
 ---
 
-![블루베리 표면의 하얀 과분과 보라색 껍질](/assets/images/blueberry.jpg)
+<img src="/assets/images/blueberry.jpg" alt="블루베리 표면의 하얀 과분과 보라색 껍질" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ 블루베리 껍질의 보라색에는 안토시아닌이 관여합니다.*
 
 <div class="answer-first">
@@ -99,6 +99,14 @@ USDA 생블루베리 기준으로 100g당 57 kcal, 당류 약 10g입니다. 가�
 ### 블루베리를 하루에 얼마나 먹으면 되나요?
 
 이 글의 100g은 영양 성분을 비교하는 기준입니다. 실제 섭취량은 다른 과일을 얼마나 먹는지와 개인 식단에 맞추면 됩니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

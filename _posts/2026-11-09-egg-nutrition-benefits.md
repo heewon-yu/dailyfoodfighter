@@ -2,7 +2,7 @@
 layout: post
 title: "달걀 칼로리 143kcal와 단백질 12.6g, 반숙·완숙 삶는 시간"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [달걀, 계란단백질, 콜린, 루테인, 반숙란칼로리]
@@ -11,7 +11,7 @@ permalink: /posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 ---
 
-![신선한 달걀과 반숙 완숙 계란 단면](/assets/images/egg.jpg)
+<img src="/assets/images/egg.jpg" alt="신선한 달걀과 반숙 완숙 계란 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 자연이 설계한 가장 완벽한 단일 영양 캡슐인 달걀(Gallus gallus domesticus)은 생체이용률 표준치(BV 100)를 자랑하는 고순도 단백질과 신경계를 지탱하는 필수 인지질 콜린(Choline), 그리고 황반을 보호하는 루테인의 보고입니다.*
 
 <div class="answer-first">
@@ -117,6 +117,14 @@ image: "/assets/images/egg.jpg"
 
 ### Q3. 날달걀을 생으로 마시는 것이 삶아 먹는 것보다 단백질 흡수에 더 좋은가요?
 **A:** 정반대입니다. 임상 영양학 연구에 따르면 가열 조리된 달걀 단백질의 체내 흡수율은 약 91%에 달하지만, 날달걀의 단백질 흡수율은 51%에 불과합니다. 열에 의해 단백질 구조가 적절히 풀려야 소화 효소(펩신, 트립신)가 쉽게 작용할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-calorie-high-satiety-foods/">저칼로리 포만감 다이어트 음식 TOP 10: 100g 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

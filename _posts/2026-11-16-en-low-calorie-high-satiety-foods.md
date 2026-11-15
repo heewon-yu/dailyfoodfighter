@@ -2,7 +2,7 @@
 layout: post
 title: "Top 10 Low-Calorie High-Satiety Foods: 100g Calories"
 date: 2026-11-16 08:07:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Low Calorie Foods, High Satiety Foods, Weight Loss Diet, Satiety Index, High Protein Diet]
@@ -11,9 +11,50 @@ permalink: /en/posts/low-calorie-high-satiety-foods/
 image: "/assets/images/low-calorie-high-satiety-foods.jpg"
 pinned: true
 pin_order: 3
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "Spinach"
+    url: "https://dailyfoodfighter.com/en/posts/spinach-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "Cabbage"
+    url: "https://dailyfoodfighter.com/en/posts/cabbage-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "Broccoli"
+    url: "https://dailyfoodfighter.com/en/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "Kale"
+    url: "https://dailyfoodfighter.com/en/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "Kiwi"
+    url: "https://dailyfoodfighter.com/en/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "Tofu"
+    url: "https://dailyfoodfighter.com/en/posts/tofu-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "Sweet potato"
+    url: "https://dailyfoodfighter.com/en/posts/sweet-potato-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "Squid"
+    url: "https://dailyfoodfighter.com/en/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "Chicken breast"
+    url: "https://dailyfoodfighter.com/en/posts/chicken-breast-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "Egg"
+    url: "https://dailyfoodfighter.com/en/posts/egg-nutrition-benefits/"
 ---
 
-![Shredded cabbage, kale, boiled eggs, chicken breast, tofu, squid, kiwi and sweet potato on a light counter](/assets/images/low-calorie-high-satiety-foods.jpg)
+<img src="/assets/images/low-calorie-high-satiety-foods.jpg" alt="Shredded cabbage, kale, boiled eggs, chicken breast, tofu, squid, kiwi and sweet potato on a light counter" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Satiety comes from volume, water, fiber and protein, not from calories. How much food you can eat per 100 kcal is the real variable in a diet.*
 
 <div class="answer-first">

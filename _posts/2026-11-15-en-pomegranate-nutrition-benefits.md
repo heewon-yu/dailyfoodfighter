@@ -2,7 +2,7 @@
 layout: post
 title: "Pomegranate Nutrition: 83 Calories, Urolithin A & Juice"
 date: 2026-11-15 15:45:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Fruits"
 tags: [Pomegranate, Urolithin A, Ellagitannins, Punicalagin, Antioxidants]
@@ -11,7 +11,7 @@ permalink: /en/posts/pomegranate-nutrition-benefits/
 image: "/assets/images/pomegranate.jpg"
 ---
 
-![Whole and Halved Pomegranates with Ruby Red Arils on a Rustic Wooden Table](/assets/images/pomegranate.jpg)
+<img src="/assets/images/pomegranate.jpg" alt="Whole and Halved Pomegranates with Ruby Red Arils on a Rustic Wooden Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ At just 83 kcal and 4.0 g of dietary fiber per 100 g, pomegranate arils deliver modest calories but extraordinary polyphenol density—punicalagin and related ellagitannins exceed 1 g in the peel and inner membranes, feeding the gut bacteria that produce urolithin A.*
 
 <div class="answer-first">
@@ -126,6 +126,13 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
 
 ### Q3. How much pomegranate is safe daily, and does it interact with warfarin or blood pressure medication?
 **A:** Most adults can enjoy 100–200 g of arils (about half to one medium fruit) daily. Anyone taking warfarin should keep pomegranate intake steady rather than varying widely, because 16.4 mcg of vitamin K per 100 g can shift the INR. People on statins or antihypertensives should separate juice from medication by 1–2 hours and report dizziness or muscle pain promptly.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

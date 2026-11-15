@@ -2,7 +2,7 @@
 layout: post
 title: "Garlic Nutrition: 149 Calories, Allicin & Daily Dosage"
 date: 2026-11-07 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Garlic, Allicin, Organosulfur, CardiovascularHealth, ImmuneFunction]
@@ -11,7 +11,7 @@ permalink: /en/posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 ---
 
-![Fresh raw whole garlic bulb and peeled cloves on dark wooden board](/assets/images/garlic.jpg)
+<img src="/assets/images/garlic.jpg" alt="Fresh raw whole garlic bulb and peeled cloves on dark wooden board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Fresh garlic (Allium sativum) concentrates dormant organosulfur precursors that instantly undergo enzymatic conversion by alliinase upon mechanical crushing, synthesizing high-potency bioavailable allicin.*
 
 <div class="answer-first">
@@ -128,6 +128,14 @@ Garlic's clinically validated platelet anti-aggregatory and fibrinolytic actions
 
 ### Q3. How can one avoid gastric mucosal irritation when consuming raw garlic?
 **A:** Never ingest raw crushed garlic on an empty stomach. Emulsify minced garlic with healthy cold-pressed oils, blend with meals, or lightly roast to mitigate direct epithelial contact irritation.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+    <li><a href="/en/posts/liver-immunity-fatigue-recovery-foods/">Top 10 Foods for Fatigue Recovery, Liver & Immunity</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

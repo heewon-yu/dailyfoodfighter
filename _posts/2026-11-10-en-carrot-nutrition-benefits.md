@@ -2,7 +2,7 @@
 layout: post
 title: "Carrot Nutrition: 41 Calories, Beta-Carotene Absorption"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Carrot, Beta-Carotene, Provitamin A, Falcarinol, Bioavailability]
@@ -11,7 +11,7 @@ permalink: /en/posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
 ---
 
-![Fresh Organic Carrots and Slices on Cutting Board](/assets/images/carrot.jpg)
+<img src="/assets/images/carrot.jpg" alt="Fresh Organic Carrots and Slices on Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Revered across clinical dietetics as nature's premier provitamin A reservoir, the domesticated carrot (Daucus carota subsp. sativus) supplies therapeutic concentrations of lipophilic beta- and alpha-carotenes, gastroprotective pectins, and bioactive polyacetylenes like falcarinol.*
 
 <div class="answer-first">
@@ -111,6 +111,13 @@ Beyond beta-carotene, carrots are among the densest dietary sources of **alpha-c
 
 ### Q3. Why do carrots turn slimy or black during domestic refrigerator storage?
 **A:** Carrots are highly susceptible to moisture-induced rot and postharvest transpiration. Storing unwashed carrots individually wrapped in absorbent paper towels inside an airtight container prevents ambient condensation. Placing them vertically mimics their natural root orientation, maintaining cellular turgor and crispness for over three weeks.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/antioxidant-anti-aging-foods-guide/">Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

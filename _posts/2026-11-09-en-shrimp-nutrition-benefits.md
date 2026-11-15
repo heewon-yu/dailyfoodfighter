@@ -2,7 +2,7 @@
 layout: post
 title: "Shrimp Nutrition: 85 Calories, 20 g Protein, Creatinine"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Seafood"
 tags: [Shrimp, Astaxanthin, Taurine, Dietary Cholesterol, Chitin Chitosan]
@@ -11,7 +11,7 @@ permalink: /en/posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
 ---
 
-![Fresh Cooked King Prawns with Herbs and Lemon](/assets/images/shrimp.jpg)
+<img src="/assets/images/shrimp.jpg" alt="Fresh Cooked King Prawns with Herbs and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Renowned as a premier marine superfood, shrimp (Penaeus spp.) delivers an exceptional protein-to-calorie ratio with less than 1% lipid content, enriched with concentrated astaxanthin—a carotenoid with 6,000 times the antioxidant potency of vitamin C—and essential cellular taurine.*
 
 <div class="answer-first">
@@ -113,6 +113,13 @@ The cuticular exoskeleton and tail segments of shrimp contain structural **chiti
 
 ### Q3. Should the dark dorsal vein (alimentary tract) be removed prior to cooking?
 **A:** Removing the dorsal vein is primarily for culinary texture and aesthetic clarity. While harmless if cooked, the digestive tract may contain fine mineral silt that imparts a gritty mouthfeel.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 Related ranking guide</p>
+  <ul>
+    <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

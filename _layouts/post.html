@@ -3,6 +3,19 @@ layout: default
 ---
 
 <article class="post-article">
+  <nav class="breadcrumb-nav" aria-label="{% if page.lang == 'en' %}Breadcrumb{% else %}현재 위치{% endif %}">
+    <ol>
+      <li><a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% if page.lang == 'en' %}Home{% else %}홈{% endif %}</a></li>
+      {% if page.category %}
+        {% if page.lang == 'en' %}
+      <li><a href="{{ '/en/category/' | append: page.category | downcase | append: '/' | relative_url }}">{{ page.category }}</a></li>
+        {% else %}
+      <li><a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}">{{ page.category }}</a></li>
+        {% endif %}
+      {% endif %}
+      <li class="breadcrumb-current" aria-current="page">{{ page.title }}</li>
+    </ol>
+  </nav>
   <header class="post-header">
     <div class="post-meta">
       <span class="post-category">🏷️ {{ page.category | default: page.categories | first }}</span>
@@ -28,7 +41,7 @@ layout: default
   <footer class="post-footer">
     <div class="post-tags">
       {% for tag in page.tags %}
-      <span class="tag">#{{ tag }}</span>
+      <a class="tag" href="{% if page.lang == 'en' %}{{ '/en/tags/' | relative_url }}{% else %}{{ '/tags/' | relative_url }}{% endif %}#{{ tag | slugify }}">#{{ tag }}</a>
       {% endfor %}
       {% if page.category %}
         {% if page.lang == 'en' %}

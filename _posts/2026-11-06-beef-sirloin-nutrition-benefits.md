@@ -2,7 +2,7 @@
 layout: post
 title: "소고기 등심 100g 칼로리 201kcal와 단백질 20.3g, 헴철 흡수율"
 date: 2026-11-06 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [소고기등심, 헴철, 크레아틴, L카르니틴, 단백질근합성]
@@ -11,7 +11,7 @@ permalink: /posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
 ---
 
-![신선한 마블링의 생 소고기 등심 스테이크와 로즈마리](/assets/images/beef-sirloin.jpg)
+<img src="/assets/images/beef-sirloin.jpg" alt="신선한 마블링의 생 소고기 등심 스테이크와 로즈마리" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 신선한 소고기 등심(Beef Sirloin)은 완벽한 아미노산 스코어를 자랑하는 양질의 동물성 단백질이자, 고생체이용률 헴철과 세포 에너지 대사 촉진 물질의 천연 보고입니다.*
 
 <div class="answer-first">
@@ -133,6 +133,14 @@ image: "/assets/images/beef-sirloin.jpg"
 
 ### Q3. 소고기를 레어나 미디엄으로 덜 익혀 먹을 때의 영양학적 이점은?
 **A:** 단백질 변성률이 낮아 아미노산 손실이 적고 비타민 B군과 헴철의 열 손상이 최소화됩니다. 신선도가 보장된 소고기는 중심부 온도 55~60℃ 수준에서 조리할 때 소화 흡수율과 영양 밀도가 가장 우수합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/liver-immunity-fatigue-recovery-foods/">피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

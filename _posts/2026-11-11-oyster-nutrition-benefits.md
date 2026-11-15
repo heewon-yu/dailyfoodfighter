@@ -2,7 +2,7 @@
 layout: post
 title: "굴 효능과 영양: 아연 16.6mg, 타우린·글리코겐의 간 회복"
 date: 2026-11-11 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [굴, 아연, 타우린, 글리코겐, 간기능, 테스토스테론]
@@ -11,7 +11,7 @@ permalink: /posts/oyster-nutrition-benefits/
 image: "/assets/images/oyster.jpg"
 ---
 
-![얼음 위에 신선한 레몬과 함께 세팅된 석화 생굴](/assets/images/oyster.jpg)
+<img src="/assets/images/oyster.jpg" alt="얼음 위에 신선한 레몬과 함께 세팅된 석화 생굴" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ '바다의 완전식품'이자 '바다의 우유'로 불리는 굴(Oyster)은 전 식품군 중 압도적인 아연(Zinc) 함량과 고농도 타우린, 간에 즉각 활력을 불어넣는 글리코겐이 응축된 해양 생화학의 정점입니다.*
 
 <div class="answer-first">
@@ -123,6 +123,14 @@ image: "/assets/images/oyster.jpg"
 
 ### Q3. 여름철에는 왜 "R자가 들어가지 않은 달에는 굴을 먹지 말라"고 하나요?
 **A:** 영어 철자에 'R'이 들어가지 않는 5월(May)부터 8월(August)은 굴의 산란기입니다. 산란기의 굴은 영양분이 알을 낳는 데 집중되어 살이 마르고 글리코겐이 급감하여 맛이 떨어지며, 체내에 독소(베네루핀 등)를 생성하거나 수온 상승으로 비브리오균 패혈증 위험이 급증하기 때문입니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/liver-immunity-fatigue-recovery-foods/">피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

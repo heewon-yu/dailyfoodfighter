@@ -2,7 +2,7 @@
 layout: post
 title: "오렌지 비타민C 53.2mg와 효능: 헤스페리딘·혈관 건강·주스 차이"
 date: 2026-11-12 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "과일"
 tags: [오렌지, 비타민C, 헤스페리딘, 구연산, 혈관건강]
@@ -11,7 +11,7 @@ permalink: /posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
 ---
 
-![신선한 원목 도마 위에 탐스럽게 슬라이스된 오렌지 단면](/assets/images/orange.jpg)
+<img src="/assets/images/orange.jpg" alt="신선한 원목 도마 위에 탐스럽게 슬라이스된 오렌지 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 햇살을 듬뿍 받고 자란 오렌지(Orange)는 고농도 천연 L-아스코르브산(비타민 C)과 감귤류 고유의 바이오플라보노이드 헤스페리딘이 농축된 대표적인 항산화 기능성 과일입니다.*
 
 <div class="answer-first">
@@ -124,6 +124,14 @@ image: "/assets/images/orange.jpg"
 
 ### Q3. 오렌지 껍질의 잔류 농약이 걱정되는데 어떻게 세척해야 안전한가요?
 **A:** 수입 오렌지 표면의 보존제와 왁스는 물 세척만으로는 쉽게 제거되지 않습니다. 베이킹소다를 푼 미온수에 오렌지를 3~5분간 담가둔 후 표면을 부드러운 솔로 문지르고, 흐르는 물에 헹군 뒤 식초를 희석한 물에 1분간 담가 2차 살균하면 잔류 물질을 99% 이상 안전하게 제거할 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/antioxidant-anti-aging-foods-guide/">항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위</a></li>
+    <li><a href="/posts/heart-blood-pressure-cholesterol-foods/">혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

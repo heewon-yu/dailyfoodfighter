@@ -2,7 +2,7 @@
 layout: post
 title: "새우 칼로리 85kcal와 단백질 20.1g, 콜레스테롤·크레아티닌"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [새우, 아스타잔틴, 타우린, 키토산, 새우콜레스테롤]
@@ -11,7 +11,7 @@ permalink: /posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
 ---
 
-![신선한 왕새우 조리 플레이팅 단면](/assets/images/shrimp.jpg)
+<img src="/assets/images/shrimp.jpg" alt="신선한 왕새우 조리 플레이팅 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 바다의 붉은 보석이라 불리는 새우(Penaeus spp.)는 단위 열량당 단백질 순도가 90%에 달하는 초저지방 단백질 급원이자, 비타민 C의 6,000배에 달하는 항산화 방어력을 지닌 카로티노이드 아스타잔틴(Astaxanthin)과 타우린의 보고입니다.*
 
 <div class="answer-first">
@@ -114,6 +114,13 @@ image: "/assets/images/shrimp.jpg"
 
 ### Q3. 새우 등의 검은 줄(내장)은 반드시 떼어내고 먹어야 하나요?
 **A:** 등의 검은 줄은 새우의 소화관(내장)으로 모래나 뻘이 섞여 있을 수 있어 식감이 서걱거릴 수 있습니다. 이쑤시개 등으로 가볍게 제거하면 훨씬 깔끔하고 고급스러운 맛을 즐길 수 있습니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

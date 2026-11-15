@@ -2,7 +2,7 @@
 layout: post
 title: "렌틸콩 단백질 24.6g·GI 32, 삶는 시간과 병아리콩 차이"
 date: 2026-11-15 15:30:00 +0900
-last_modified_at: 2026-11-16 08:30:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "육류"
 tags: [렌틸콩, 렌틸콩효능, 렌틸콩삶는시간, 식물성단백질, 저GI]
@@ -11,7 +11,7 @@ permalink: /posts/lentil-nutrition-benefits/
 image: "/assets/images/lentil.jpg"
 ---
 
-![원목 테이블 위 도자기 그릇에 담긴 삶은 렌틸콩과 파슬리, 레몬 슬라이스](/assets/images/lentil.jpg)
+<img src="/assets/images/lentil.jpg" alt="원목 테이블 위 도자기 그릇에 담긴 삶은 렌틸콩과 파슬리, 레몬 슬라이스" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 건조 렌틸콩 100g에는 단백질 24.6g과 식이섬유 10.7g이 들어 있습니다. 물에 불려 삶으면 무게가 약 2.5배로 늘어나, 실제로 한 끼에 먹는 삶은 렌틸콩 100g은 116kcal·단백질 9.0g 수준입니다.*
 
 <div class="answer-first">
@@ -143,6 +143,14 @@ image: "/assets/images/lentil.jpg"
 
 ### Q3. 신장질환이나 통풍이 있어도 렌틸콩을 먹어도 되나요?
 **A:** 상태에 따라 다릅니다. 만성 신장 질환으로 칼륨·인 제한을 받는 경우 삶은 렌틸콩 100g에 칼륨 369mg이 들어 있어 양을 반드시 조절해야 하고, 투석 환자는 신장내과 영양 상담이 필수입니다. 통풍은 급성 발작기에는 섭취를 줄이고, 식물성 퓨린은 동물성과 달리 발작 위험을 크게 높이지 않는다는 연구가 우세하므로 안정기에는 하루 50~80g 범위에서 나눠 먹는 것이 무난합니다.
+
+<div class="related-hub-box">
+  <p class="related-hub-label">📌 관련 순위 가이드</p>
+  <ul>
+    <li><a href="/posts/high-protein-foods-ranking/">단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교</a></li>
+    <li><a href="/posts/low-gi-foods-blood-sugar-guide/">혈당 낮추는 음식 TOP 10: 저혈당 지수(GI) 순위표</a></li>
+  </ul>
+</div>
 
 <script type="application/ld+json">
 {

@@ -3,8 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }} | DailyFoodFighter{% else %}{{ site.title }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title }}{% if page.layout == 'post' %} | DFF{% else %} | DailyFoodFighter{% endif %}{% else %}{{ site.title }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  {% if page.layout == 'post' and page.image %}
+  <link rel="preload" as="image" href="{{ page.image | relative_url }}" fetchpriority="high">
+  {% endif %}
   
   <!-- Keywords & Tags for Search Engines -->
   {% if page.tags %}
@@ -136,6 +139,66 @@
     {% endif %}
   }
   </script>
+
+  {% if page.layout == 'post' %}
+  <!-- BreadcrumbList: 검색 결과 경로 표시 + 크롤러 계층 구조 인식 -->
+  {% if page.lang == 'en' %}
+    {% assign crumb_home_name = 'Home' %}
+    {% assign crumb_home_path = '/en/' %}
+  {% else %}
+    {% assign crumb_home_name = '홈' %}
+    {% assign crumb_home_path = '/' %}
+  {% endif %}
+  {% if page.category %}
+    {% if page.lang == 'en' %}
+      {% assign crumb_cat_path = '/en/category/' | append: page.category | downcase | append: '/' %}
+    {% else %}
+      {% assign crumb_cat_path = '/category/' | append: page.category | append: '/' %}
+    {% endif %}
+  {% endif %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": {{ crumb_home_name | jsonify }},
+        "item": {{ crumb_home_path | absolute_url | jsonify }}
+      }{% if page.category %},
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": {{ page.category | jsonify }},
+        "item": {{ crumb_cat_path | absolute_url | uri_escape | jsonify }}
+      }{% endif %},
+      {
+        "@type": "ListItem",
+        "position": {% if page.category %}3{% else %}2{% endif %},
+        "name": {{ page.title | jsonify }},
+        "item": {{ page.url | absolute_url | jsonify }}
+      }
+    ]
+  }
+  </script>
+
+  {% if page.itemlist %}
+  <!-- ItemList: TOP 10 허브 글의 리스트 스니펫 노출 지원 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": {{ page.title | jsonify }},
+    "description": {{ page.description | default: site.description | jsonify }},
+    "url": {{ page.url | absolute_url | jsonify }},
+    "numberOfItems": {{ page.itemlist | size }},
+    "itemListOrder": "https://schema.org/ItemListOrderAscending",
+    "itemListElement": {{ page.itemlist | jsonify }}
+  }
+  </script>
+  {% endif %}
+  {% endif %}
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
@@ -173,6 +236,7 @@
         <a href="{{ '/en/category/vegetables/' | relative_url }}">Vegetables</a>
         <a href="{{ '/en/category/meat/' | relative_url }}">Meat & Protein</a>
         <a href="{{ '/en/category/seafood/' | relative_url }}">Seafood</a>
+        <a href="{{ '/en/tags/' | relative_url }}">Tags</a>
         <a href="{{ '/en/about/' | relative_url }}">About</a>
         <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 @Dailyfoodfff</a>
         {% else %}
@@ -181,6 +245,7 @@
         <a href="{{ '/category/채소/' | relative_url }}">채소·야채</a>
         <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
         <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
+        <a href="{{ '/tags/' | relative_url }}">태그</a>
         <a href="{{ '/about/' | relative_url }}">소개</a>
         <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 공식계정</a>
         {% endif %}

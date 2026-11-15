@@ -2,7 +2,7 @@
 layout: post
 title: "피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위"
 date: 2026-11-16 08:10:00 +0900
-last_modified_at: 2026-11-16 08:35:00 +0900
+last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko
 category: "수산물"
 tags: [피로 회복 음식, 면역력 음식, 아연 음식, 비타민C 순위, 간 건강, 기력 회복]
@@ -11,9 +11,50 @@ permalink: /posts/liver-immunity-fatigue-recovery-foods/
 image: "/assets/images/liver-immunity-fatigue-recovery-foods.jpg"
 pinned: true
 pin_order: 6
+itemlist:
+  - "@type": "ListItem"
+    position: 1
+    name: "굴"
+    url: "https://dailyfoodfighter.com/posts/oyster-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 2
+    name: "전복"
+    url: "https://dailyfoodfighter.com/posts/abalone-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 3
+    name: "소고기 등심"
+    url: "https://dailyfoodfighter.com/posts/beef-sirloin-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 4
+    name: "케일"
+    url: "https://dailyfoodfighter.com/posts/kale-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 5
+    name: "키위"
+    url: "https://dailyfoodfighter.com/posts/kiwi-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 6
+    name: "브로콜리"
+    url: "https://dailyfoodfighter.com/posts/broccoli-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 7
+    name: "오렌지"
+    url: "https://dailyfoodfighter.com/posts/orange-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 8
+    name: "마늘"
+    url: "https://dailyfoodfighter.com/posts/garlic-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 9
+    name: "오징어"
+    url: "https://dailyfoodfighter.com/posts/squid-nutrition-benefits/"
+  - "@type": "ListItem"
+    position: 10
+    name: "사골·도가니 육수"
+    url: "https://dailyfoodfighter.com/posts/beef-bone-broth-nutrition-benefits/"
 ---
 
-![얼음 위의 굴, 전복, 오징어, 마늘, 키위, 브로콜리, 사골육수, 오렌지](/assets/images/liver-immunity-fatigue-recovery-foods.jpg)
+<img src="/assets/images/liver-immunity-fatigue-recovery-foods.jpg" alt="얼음 위의 굴, 전복, 오징어, 마늘, 키위, 브로콜리, 사골육수, 오렌지" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 피로 회복에 쓰이는 영양소는 세 갈래입니다. 아연·셀레늄(면역), 비타민C·엽산(세포 회복), 타우린·글리신(간 대사와 신경 안정)입니다.*
 
 <div class="answer-first">
