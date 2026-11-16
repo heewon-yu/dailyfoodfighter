@@ -63,6 +63,10 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비, 비타민·무기질 %는 한국인 영양소 섭취기준 성인 권장량 대비입니다. ¹수분·프룩탄·글루타치온·아스파라긴산은 1일 기준치가 없어 절대량만 적었습니다. **비타민K 41.6µg은 녹색 채소 중 중간 수준**으로 시금치(482µg)의 10분의 1이지만, 항응고제 복용자는 섭취량을 일정하게 유지해야 합니다. 프룩탄은 품종·수확 시기에 따라 1~4g 범위로 변동합니다.
 
+<div class="source-note">
+<strong>출처:</strong> 식품의약품안전처·농촌진흥청 국가표준식품성분표(K-FIND) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed 문헌</a>
+</div>
+
 ### 실생활 환산: 아스파라거스 5줄기·한 묶음은 몇 kcal인가?
 
 | 섭취 기준 | 중량 | 열량과 핵심 수치 |

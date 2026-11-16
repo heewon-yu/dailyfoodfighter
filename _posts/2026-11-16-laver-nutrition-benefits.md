@@ -61,6 +61,10 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비, 비타민·무기질 %는 한국인 영양소 섭취기준 성인 권장량 대비입니다. ¹수분·요오드는 1일 기준치가 없어 절대량만 적었습니다. **요오드는 100g당 1,000~3,000µg으로, 성인 1일 상한섭취량(2,400µg)을 100g만으로 넘길 수 있습니다.** 그러나 1장은 2g이므로 실제로는 20~60µg에 불과합니다. 식이섬유 182%는 '100g을 먹었을 때'의 이론값이며, 5장(10g)으로는 4.5g입니다.
 
+<div class="source-note">
+<strong>출처:</strong> 식품의약품안전처·농촌진흥청 국가표준식품성분표(K-FIND) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed 문헌</a>
+</div>
+
 ### 실생활 환산: 김 1장·5장·한 봉지는 몇 kcal인가?
 
 | 섭취 기준 | 중량 | 열량과 핵심 수치 |

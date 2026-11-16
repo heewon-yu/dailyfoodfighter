@@ -61,6 +61,10 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비, 비타민·무기질 %는 한국인 영양소 섭취기준 성인 권장량 대비입니다. ¹수분·안토시아닌·멜라토닌·트립토판은 1일 기준치가 없어 절대량만 적었습니다. **멜라토닌 0.1µg은 수면 보충제 1정(0.5~5mg)의 5만분의 1 수준**이라는 점을 기억하면 아래 수면 효과 설명이 이해됩니다. 안토시아닌은 품종(빙체리·레인ier 등)과 숙성도에 따라 3배 이상 차이가 납니다.
 
+<div class="source-note">
+<strong>출처:</strong> 식품의약품안전처·농촌진흥청 국가표준식품성분표(K-FIND) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed 문헌</a>
+</div>
+
 ### 체리 1알·1컵·농축액은 몇 kcal인가?
 
 | 섭취 기준 | 중량 | 열량과 핵심 수치 |

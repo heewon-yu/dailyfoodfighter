@@ -61,6 +61,10 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비, 비타민·무기질 %는 한국인 영양소 섭취기준 성인 권장량 대비입니다. ¹수분·MK-7은 1일 기준치가 없어 절대량만 적었습니다. 비타민K2는 100g당 939µg(일본 분석 연구)에서 1,103µg(식약처 DB)까지 보고되며, **MK-7 1µg은 비타민K1 1µg보다 혈중 반감기가 약 3일로 길어** 하루 한 팩으로도 혈중 농도가 안정적으로 유지됩니다. 나토키나아제 활성(FU)은 제품·발효 기간에 따라 5~10배 차이가 납니다.
 
+<div class="source-note">
+<strong>출처:</strong> 식품의약품안전처·농촌진흥청 국가표준식품성분표(K-FIND) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed 문헌</a>
+</div>
+
 ---
 
 ## 2. 과학적으로 입증된 4대 건강 효능

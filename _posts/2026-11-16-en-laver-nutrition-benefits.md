@@ -59,6 +59,10 @@ Values below describe **dried laver (gim for gimbap), edible portion**. Because 
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages use U.S. Daily Values for a 2,000 kcal diet; vitamins and minerals use adult RDAs or AIs. ¹Water and iodine have no Daily Value, so absolute amounts are shown. **Iodine is the number to watch:** 100 g of laver can exceed the 1,100 µg tolerable upper intake level for U.S. adults several times over, but a 2 g sheet carries only 20–60 µg against a 150 µg daily requirement.
 
+<div class="source-note">
+<strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
+</div>
+
 ### Real-world portions
 
 | Portion | Weight | Calories and key nutrients |

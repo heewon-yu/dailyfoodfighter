@@ -58,6 +58,10 @@ Values below are for **raw Japanese persimmon, edible portion**. Cultivar change
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages use U.S. Daily Values for a 2,000 kcal diet. Vitamin A, vitamin C, potassium, manganese, copper and folate percentages use adult RDAs or AIs. ¹Water, total sugars and beta-carotene have no established Daily Value, so absolute amounts are shown. Manganese at 15% DV is notable for a fruit: it supports bone matrix formation and superoxide dismutase, an internal antioxidant enzyme.
 
+<div class="source-note">
+<strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
+</div>
+
 ### Fresh, soft-ripe and dried persimmon compared
 
 | Form | Calories per 100 g | Sugars | Fiber | Vitamin C | Typical serving |

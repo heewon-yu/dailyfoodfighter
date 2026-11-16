@@ -59,6 +59,10 @@ Values are for **raw sweet cherries, weighed with pits**. Roughly 15% of the wei
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages follow U.S. Daily Values for a 2,000 kcal diet; vitamins and minerals use adult RDAs or AIs. ¹Water, total sugars, anthocyanins, melatonin and tryptophan have no Daily Value, so absolute amounts are shown. Keep the melatonin figure in perspective: 0.13 µg is roughly one-fiftieth-thousandth of a 0.5–5 mg sleep supplement. Anthocyanin content varies more than threefold by cultivar, with deep red Bing and Lapins types at the high end.
 
+<div class="source-note">
+<strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
+</div>
+
 ### Real-world portions
 
 | Portion | Weight | Calories and key nutrients |
