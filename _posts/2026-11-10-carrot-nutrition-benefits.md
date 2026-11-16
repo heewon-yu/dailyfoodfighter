@@ -9,6 +9,14 @@ tags: [당근, 베타카로틴, 비타민A, 팔카리놀, 당근보관법]
 description: "당근 100g은 41kcal·식이섬유 2.8g·칼륨 320mg이며 베타카로틴이 풍부합니다. 기름과 함께 익혀 흡수율을 높이는 방법, 껍질 효능, 과다 섭취 시 피부 변색을 정리했습니다."
 permalink: /posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "41 kcal"
+  proteinContent: "0.93 g"
+  fatContent: "0.24 g"
+  carbohydrateContent: "9.58 g"
+  fiberContent: "2.80 g"
+  sugarContent: "4.74 g"
 ---
 
 <img src="/assets/images/carrot.jpg" alt="신선한 유기농 당근과 슬라이스 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

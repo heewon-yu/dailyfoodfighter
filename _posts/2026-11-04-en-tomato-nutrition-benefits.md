@@ -9,6 +9,13 @@ tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
 description: "A raw tomato has 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene absorption with fat and heat, plus reflux cautions."
 permalink: /en/posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "18 kcal (75 kJ)"
+  proteinContent: "0.9 g"
+  fatContent: "0.2 g"
+  carbohydrateContent: "3.9 g"
+  fiberContent: "1.2 g"
 ---
 
 <img src="/assets/images/tomato.jpg" alt="Fresh red ripe tomatoes with cross section on wooden rustic background" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

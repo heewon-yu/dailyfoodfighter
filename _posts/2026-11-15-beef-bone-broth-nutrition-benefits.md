@@ -9,6 +9,15 @@ tags: [사골육수, 도가니, 콜라겐펩타이드, 글리신, 곰탕]
 description: "무염 사골 육수 100g은 17kcal·단백질 3.3g·칼슘 10mg입니다. 12시간과 24시간 끓일 때 달라지는 콜라겐 펩타이드와 글리신, 나트륨·퓨린 주의점과 맑게 우리는 법을 정리했습니다."
 permalink: /posts/beef-bone-broth-nutrition-benefits/
 image: "/assets/images/beef-bone-broth.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "17 kcal"
+  proteinContent: "3.30 g"
+  fatContent: "0.20 g"
+  carbohydrateContent: "0.40 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.30 g"
+  sodiumContent: "122.00 mg"
 ---
 
 <img src="/assets/images/beef-bone-broth.jpg" alt="김이 피어오르는 뽀얀 사골곰탕 한 그릇, 편육과 송송 썬 대파, 옆에 담긴 김치" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,15 @@ tags: [Kale, Vitamin K, Lutein, Cruciferous Vegetables, Eye Health]
 description: "Raw kale has 35 calories, 389.6 mcg vitamin K, 93.4 mg vitamin C and 254 mg calcium per 100 g, with raw juice, steaming and warfarin guidance."
 permalink: /en/posts/kale-nutrition-benefits/
 image: "/assets/images/kale.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "35 kcal"
+  proteinContent: "2.92 g"
+  fatContent: "1.49 g"
+  carbohydrateContent: "4.42 g"
+  fiberContent: "4.10 g"
+  sugarContent: "0.99 g"
+  sodiumContent: "53.00 mg"
 ---
 
 <img src="/assets/images/kale.jpg" alt="Fresh Curly Kale Leaves in a Ceramic Colander with Olive Oil and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

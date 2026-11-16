@@ -9,6 +9,14 @@ tags: [Blueberries, Anthocyanins, Neuroprotection, VascularHealth, EvidenceBased
 description: "Raw blueberries have 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g. Freezing effects, daily amounts, and kidney and warfarin cautions."
 permalink: /en/posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "57.0 kcal (238 kJ)"
+  proteinContent: "0.74 g"
+  fatContent: "0.33 g"
+  carbohydrateContent: "14.49 g"
+  fiberContent: "2.40 g"
+  sugarContent: "9.96 g"
 ---
 
 <img src="/assets/images/blueberry.jpg" alt="Fresh organic blueberries with natural protective bloom in a rustic ceramic bowl" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

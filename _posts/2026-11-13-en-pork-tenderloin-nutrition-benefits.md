@@ -9,6 +9,14 @@ tags: [Pork Tenderloin, Thiamine, Vitamin B1, Lean Protein, Muscle Protein Synth
 description: "Pork tenderloin has 120 calories, 21.8 g protein and 420 mg potassium per 100 g, with thiamine and energy metabolism notes plus tender cooking methods."
 permalink: /en/posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "120 kcal"
+  proteinContent: "21.80 g"
+  fatContent: "2.80 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/pork-tenderloin.jpg" alt="Fresh Sliced Raw Lean Pork Tenderloin on Wooden Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,14 @@ tags: [Avocado, Oleic Acid, Monounsaturated Fat, Potassium, Ripening Kinetics]
 description: "Avocado has 160 calories, 6.7 g fiber and 485 mg potassium per 100 g, mostly from oleic acid. Ripeness test, storage, and serving size."
 permalink: /en/posts/avocado-nutrition-benefits/
 image: "/assets/images/avocado.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "160 kcal"
+  proteinContent: "2.00 g"
+  fatContent: "14.66 g"
+  carbohydrateContent: "8.53 g"
+  fiberContent: "6.70 g"
+  sugarContent: "0.66 g"
 ---
 
 <img src="/assets/images/avocado.jpg" alt="Fresh Sliced Hass Avocado Halves on Kitchen Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

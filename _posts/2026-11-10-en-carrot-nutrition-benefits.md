@@ -9,6 +9,14 @@ tags: [Carrot, Beta-Carotene, Provitamin A, Falcarinol, Bioavailability]
 description: "Carrots have 41 calories, 2.8 g fiber and 320 mg potassium per 100 g. Why fat and heat raise beta-carotene absorption, and peel notes."
 permalink: /en/posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "41 kcal"
+  proteinContent: "0.93 g"
+  fatContent: "0.24 g"
+  carbohydrateContent: "9.58 g"
+  fiberContent: "2.80 g"
+  sugarContent: "4.74 g"
 ---
 
 <img src="/assets/images/carrot.jpg" alt="Fresh Organic Carrots and Slices on Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

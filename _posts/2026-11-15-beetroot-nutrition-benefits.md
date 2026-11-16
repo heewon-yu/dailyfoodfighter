@@ -9,6 +9,15 @@ tags: [비트, 비트효능, 식이질산염, 베타레인, 베투리아]
 description: "생비트 100g은 43kcal·엽산 109mcg·칼륨 325mg·식이섬유 2.8g입니다. 식이 질산염이 산화질소로 바뀌어 혈압을 낮추는 경로, 찌면 옥살산이 줄어드는 이유와 베투리아를 정리했습니다."
 permalink: /posts/beetroot-nutrition-benefits/
 image: "/assets/images/beetroot.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "43 kcal"
+  proteinContent: "1.61 g"
+  fatContent: "0.17 g"
+  carbohydrateContent: "9.56 g"
+  fiberContent: "2.80 g"
+  sugarContent: "6.76 g"
+  sodiumContent: "78.00 mg"
 ---
 
 <img src="/assets/images/beetroot.jpg" alt="나무 테이블 위의 붉은 비트와 반으로 자른 단면, 초록 잎줄기" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

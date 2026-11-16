@@ -9,6 +9,14 @@ tags: [Garlic, Allicin, Organosulfur, CardiovascularHealth, ImmuneFunction]
 description: "Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g. Why crushing and resting 10 minutes raises allicin, plus doses."
 permalink: /en/posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "149 kcal"
+  proteinContent: "6.36 g"
+  fatContent: "0.50 g"
+  carbohydrateContent: "33.06 g"
+  fiberContent: "2.10 g"
+  sugarContent: "1.00 g"
 ---
 
 <img src="/assets/images/garlic.jpg" alt="Fresh raw whole garlic bulb and peeled cloves on dark wooden board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

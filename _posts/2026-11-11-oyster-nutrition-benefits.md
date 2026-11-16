@@ -9,6 +9,13 @@ tags: [굴, 아연, 타우린, 글리코겐, 간기능, 테스토스테론]
 description: "생굴 100g은 68kcal·단백질 7.1g·아연 16.6mg(권장량의 151%)·철분 5.1mg입니다. 테스토스테론 합성과 간 회복 연구, 노로바이러스 예방법을 정리했습니다."
 permalink: /posts/oyster-nutrition-benefits/
 image: "/assets/images/oyster.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "68 kcal"
+  proteinContent: "7.13 g"
+  fatContent: "2.47 g"
+  carbohydrateContent: "3.91 g"
+  sugarContent: "0.85 g"
 ---
 
 <img src="/assets/images/oyster.jpg" alt="얼음 위에 신선한 레몬과 함께 세팅된 석화 생굴" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

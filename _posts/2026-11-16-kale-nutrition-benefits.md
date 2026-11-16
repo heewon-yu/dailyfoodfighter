@@ -9,6 +9,15 @@ tags: [케일, 케일효능, 비타민K, 루테인, 십자화과채소]
 description: "생케일 100g은 35kcal·비타민K 389.6mcg·비타민C 93.4mg·칼슘 254mg입니다. 생주스와 데치기의 영양 차이, 갑상선·와파린 환자 섭취 기준을 정리했습니다."
 permalink: /posts/kale-nutrition-benefits/
 image: "/assets/images/kale.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "35 kcal"
+  proteinContent: "2.92 g"
+  fatContent: "1.49 g"
+  carbohydrateContent: "4.42 g"
+  fiberContent: "4.10 g"
+  sugarContent: "0.99 g"
+  sodiumContent: "53.00 mg"
 ---
 
 <img src="/assets/images/kale.jpg" alt="밝은 대리석 주방 위 세라믹 채반에 담긴 신선한 곱슬 케일과 올리브오일, 레몬" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

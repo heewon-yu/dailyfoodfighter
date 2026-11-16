@@ -9,6 +9,14 @@ tags: [Chickpea, Garbanzo Beans, Resistant Starch, Plant Protein, Glycemic Contr
 description: "Boiled chickpeas have 164 calories, 7.6 g fiber and 8.86 g protein per 100 g, with resistant starch, post-meal glucose and soaking advice."
 permalink: /en/posts/chickpea-nutrition-benefits/
 image: "/assets/images/chickpea.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "164 kcal"
+  proteinContent: "8.86 g"
+  fatContent: "2.59 g"
+  carbohydrateContent: "27.42 g"
+  fiberContent: "7.60 g"
+  sugarContent: "4.80 g"
 ---
 
 <img src="/assets/images/chickpea.jpg" alt="Golden Cooked Chickpeas in a Rustic Ceramic Bowl with Olive Oil and Herbs" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -96,6 +104,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
 - **[Orange (Citrus × sinensis)]({{ site.baseurl }}/en/posts/orange-nutrition-benefits/)**: High ascorbic acid and citric acid in oranges significantly boost intestinal uptake of chickpea non-heme iron while brightening earthy legume flavors.
 - **[Tomato (Solanum lycopersicum)]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Simmering chickpeas with tomatoes pairs plant protein and zinc with fat-soluble lycopene and organic acids for complementary cardiometabolic protection.
 - **[Spinach (Spinacia oleracea)]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Combining chickpeas and spinach layers complementary folate, magnesium, and plant amino acids to support vascular nitric oxide and cellular energy metabolism.
+- **[Natto](/en/posts/natto-nutrition-benefits/):** chickpea fiber and natto's spore-forming probiotics support gut health from two directions.
 
 ---
 

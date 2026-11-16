@@ -9,6 +9,14 @@ tags: [Banana, Potassium, Vitamin B6, Resistant Starch, Gut Microbiome]
 description: "A medium banana has about 105 calories, 422 mg potassium and 0.43 mg vitamin B6. Carbs by ripeness, fasting safety, and glycemic guidance."
 permalink: /en/posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "89 kcal"
+  proteinContent: "1.09 g"
+  fatContent: "0.33 g"
+  carbohydrateContent: "22.84 g"
+  fiberContent: "2.60 g"
+  sugarContent: "12.23 g"
 ---
 
 <img src="/assets/images/banana.jpg" alt="Fresh Ripe Bananas and Sliced Sections" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,14 @@ tags: [오징어, 타우린, 고단백수산물, 피로회복, 콜레스테롤�
 description: "생오징어 100g은 92kcal·단백질 15.6g·아연 1.5mg·칼륨 246mg입니다. 타우린이 담즙산 합성과 간 지질 배출을 돕는 경로, 콜레스테롤 오해와 조리 시 영양 손실을 정리했습니다."
 permalink: /posts/squid-nutrition-benefits/
 image: "/assets/images/squid.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "92 kcal"
+  proteinContent: "15.60 g"
+  fatContent: "1.40 g"
+  carbohydrateContent: "3.10 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/squid.jpg" alt="얼음 위에 신선한 레몬과 파슬리와 함께 놓인 신선한 통오징어 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

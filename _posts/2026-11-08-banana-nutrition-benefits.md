@@ -9,6 +9,14 @@ tags: [바나나, 칼륨, 비타민B6, 저항성전분, 장건강]
 description: "바나나 100g은 89kcal·칼륨 358mg·비타민B6 0.37mg·식이섬유 2.6g입니다. 공복에 먹어도 되는지, 초록 바나나와 노란 바나나의 저항성전분·GI 차이, 당뇨 섭취법을 정리했습니다."
 permalink: /posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "89 kcal"
+  proteinContent: "1.09 g"
+  fatContent: "0.33 g"
+  carbohydrateContent: "22.84 g"
+  fiberContent: "2.60 g"
+  sugarContent: "12.23 g"
 ---
 
 <img src="/assets/images/banana.jpg" alt="신선하고 잘 익은 바나나 과육 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

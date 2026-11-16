@@ -9,6 +9,14 @@ tags: [Salmon, Omega3, Astaxanthin, VitaminD, CardiovascularHealth]
 description: "Salmon has 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Wild versus farmed, smoked sodium, and weekly servings."
 permalink: /en/posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "208 kcal"
+  proteinContent: "20.4 g"
+  fatContent: "13.4 g"
+  carbohydrateContent: "0 g"
+  fiberContent: "0 g"
+  sugarContent: "0 g"
 ---
 
 <img src="/assets/images/salmon.jpg" alt="Fresh raw salmon fillet with lemon slices and fresh dill on dark slate" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

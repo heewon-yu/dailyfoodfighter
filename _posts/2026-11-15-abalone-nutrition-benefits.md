@@ -9,6 +9,14 @@ tags: [전복, 전복효능, 타우린, 글리코겐, 기력회복]
 description: "생전복 100g은 105kcal·단백질 17.1g·철분 3.19mg·아연 0.82mg입니다. 타우린과 글리코겐이 간 해독과 기력 회복에 작용하는 원리, 손질법과 익혀 먹는 기준을 정리했습니다."
 permalink: /posts/abalone-nutrition-benefits/
 image: "/assets/images/abalone.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "105 kcal"
+  proteinContent: "17.10 g"
+  fatContent: "0.76 g"
+  carbohydrateContent: "6.01 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/abalone.jpg" alt="어두운 슬레이트 돌판 위 잘게 부순 얼음과 레몬·바다소금을 곁들인 신선한 껍질째 생전복" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

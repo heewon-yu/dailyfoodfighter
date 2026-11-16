@@ -9,6 +9,14 @@ tags: [오렌지, 비타민C, 헤스페리딘, 구연산, 혈관건강]
 description: "네이블오렌지 100g은 47kcal·비타민C 53.2mg·엽산 30mcg·칼륨 181mg입니다. 헤스페리딘이 혈관 내피 기능에 작용하는 방식, 생과와 주스의 차이, 약물 상호작용을 정리했습니다."
 permalink: /posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "47 kcal"
+  proteinContent: "0.94 g"
+  fatContent: "0.12 g"
+  carbohydrateContent: "11.75 g"
+  fiberContent: "2.40 g"
+  sugarContent: "9.35 g"
 ---
 
 <img src="/assets/images/orange.jpg" alt="신선한 원목 도마 위에 탐스럽게 슬라이스된 오렌지 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -111,6 +119,7 @@ image: "/assets/images/orange.jpg"
 - **[시금치 (Spinach)]({{ site.baseurl }}/posts/spinach-nutrition-benefits/)**: 시금치에 풍부한 식물성 비헴철이 오렌지의 비타민 C·구연산과 만나 킬레이트 복합체를 형성해 빈혈 예방과 철분 흡수율이 최대 5배 폭발합니다.
 - **[아보카도 (Avocado)]({{ site.baseurl }}/posts/avocado-nutrition-benefits/)**: 아보카도의 건강한 단일불포화지방산이 오렌지의 지용성 카로티노이드(베타-크립토잔틴) 흡수를 돕고, 오렌지의 비타민 C가 아보카도의 지질 산화를 원천 차단합니다.
 - **[닭가슴살 (Chicken Breast)]({{ site.baseurl }}/posts/chicken-breast-nutrition-benefits/)**: 고단백 닭가슴살의 단백질 대사 과정에 오렌지의 비타민 C가 결합하여 근육 손상 후 콜라겐 합성 속도를 가속화합니다.
+- **[귤 (Tangerine)](/posts/tangerine-nutrition-benefits/):** 겨울에는 오렌지 대신 귤 2~3개로 비타민C와 헤스페리딘을 이어서 챙길 수 있습니다.
 
 ---
 

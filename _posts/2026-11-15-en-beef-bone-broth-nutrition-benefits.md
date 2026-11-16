@@ -9,6 +9,15 @@ tags: [Bone Broth, Collagen Peptides, Glycine, Gut Health, Joint Health]
 description: "Unsalted beef bone broth has 17 calories, 3.3 g protein and 10 mg calcium per 100 g, with what 12 versus 24 hours changes and sodium cautions."
 permalink: /en/posts/beef-bone-broth-nutrition-benefits/
 image: "/assets/images/beef-bone-broth.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "17 kcal"
+  proteinContent: "3.30 g"
+  fatContent: "0.20 g"
+  carbohydrateContent: "0.40 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.30 g"
+  sodiumContent: "122.00 mg"
 ---
 
 <img src="/assets/images/beef-bone-broth.jpg" alt="Steaming Bowl of Milky White Beef Bone Broth with Sliced Brisket and Scallions" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

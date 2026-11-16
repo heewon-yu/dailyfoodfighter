@@ -9,6 +9,14 @@ tags: [소고기등심, 헴철, 크레아틴, L카르니틴, 단백질근합성]
 description: "소고기 등심 100g은 201kcal·단백질 20.3g·헴철 1.48mg·아연 3.55mg입니다. 부위별 지방 차이와 헴철 흡수율, 다이어트 중 섭취량과 고기 굽는 온도 주의점을 정리했습니다."
 permalink: /posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "201 kcal"
+  proteinContent: "20.3 g"
+  fatContent: "12.7 g"
+  carbohydrateContent: "0 g"
+  fiberContent: "0 g"
+  sugarContent: "0 g"
 ---
 
 <img src="/assets/images/beef-sirloin.jpg" alt="신선한 마블링의 생 소고기 등심 스테이크와 로즈마리" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

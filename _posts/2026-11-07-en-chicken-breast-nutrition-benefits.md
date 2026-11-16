@@ -9,6 +9,14 @@ tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synth
 description: "Chicken breast has 110 calories, 23.1 g protein and 2.6 g fat per 100 g. A poaching method that prevents dryness, plus protein timing."
 permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "110 kcal"
+  proteinContent: "23.10 g"
+  fatContent: "1.24 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/chicken-breast.jpg" alt="Fresh Sliced Cooked Chicken Breast on Cutting Board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

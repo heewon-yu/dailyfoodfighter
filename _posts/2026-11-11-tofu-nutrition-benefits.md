@@ -9,6 +9,14 @@ tags: [두부, 식물성단백질, 이소플라본, 제니스테인, 콜레스�
 description: "부침용 두부 100g은 76kcal·단백질 8.08g·칼슘 350mg·철분 5.36mg입니다. 이소플라본이 콜레스테롤과 골밀도에 작용하는 방식, 두부 종류별 영양 차이와 요리법을 정리했습니다."
 permalink: /posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "76 kcal"
+  proteinContent: "8.08 g"
+  fatContent: "4.78 g"
+  carbohydrateContent: "1.87 g"
+  fiberContent: "0.30 g"
+  sugarContent: "0.50 g"
 ---
 
 <img src="/assets/images/tofu.jpg" alt="신선한 원목 도마 위에 정갈하게 놓인 두부 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -111,6 +119,7 @@ image: "/assets/images/tofu.jpg"
 - **[당근 (Carrot)]({{ site.baseurl }}/posts/carrot-nutrition-benefits/)**: 당근의 지용성 베타카로틴이 두부의 건강한 불포화지방산과 만나 흡수율이 10배 폭발하며, 두부의 칼슘과 당근의 항산화 성분이 점막 세포를 강화합니다.
 - **[달걀 (Egg)]({{ site.baseurl }}/posts/egg-nutrition-benefits/)**: 식물성 단백질의 두부와 동물성 단백질의 달걀이 만나면 상호 제한 아미노산(메티오닌-라이신)을 완벽히 보완하는 아미노산 스코어 100의 황금 밸런스를 달성합니다.
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 토마토의 지용성 항암 물질 라이코펜이 두부의 지질 성분에 녹아 흡수율이 극대화되며, 상큼한 유기산이 담백한 두부의 풍미를 높여줍니다.
+- **[낫토 (Natto)](/posts/natto-nutrition-benefits/):** 같은 콩 단백질이지만 발효로 비타민K2와 나토키나아제가 더해진 식품입니다.
 
 ---
 

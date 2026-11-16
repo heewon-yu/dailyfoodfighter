@@ -128,6 +128,9 @@ GL은 "GI × 100g당 탄수화물 ÷ 100"으로 계산했습니다. GL 10 이하
 - **[딸기](/posts/strawberry-nutrition-benefits/)** — GI 40, 100g당 당류가 4.9g으로 낮습니다.
 - **[키위](/posts/kiwi-nutrition-benefits/)** — 그린키위 GI 39~47, 식이섬유 3.0g입니다.
 - **[고구마](/posts/sweet-potato-nutrition-benefits/)** — 삶으면 GI 45~55, 구우면 80~90으로 올라갑니다.
+- **[귤 (Tangerine)](/posts/tangerine-nutrition-benefits/):** GI 42·GL 3.4로 낮아 당뇨 식단의 디저트로 안전한 과일입니다.
+- **[체리 (Cherry)](/posts/cherry-nutrition-benefits/):** GI 22로 이 순위표에서도 손꼽히게 낮은 과일입니다.
+- **[감 (Persimmon)](/posts/persimmon-nutrition-benefits/):** 단감은 곶감(당류 29.8g/100g)보다 혈당 부담이 훨씬 낮으니 생과로 드세요.
 
 ## 7. 자주 묻는 질문 (FAQ)
 

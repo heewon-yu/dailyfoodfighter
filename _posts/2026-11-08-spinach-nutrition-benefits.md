@@ -9,6 +9,14 @@ tags: [시금치, 루테인, 질산염, 비타민K, 엽산]
 description: "시금치 100g은 23kcal·비타민K 483mcg·엽산 194mcg·철분 2.71mg입니다. 데치기와 볶기에서 옥살산이 얼마나 줄어드는지, 결석 위험과 와파린 환자의 섭취 기준을 정리했습니다."
 permalink: /posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "23 kcal"
+  proteinContent: "2.86 g"
+  fatContent: "0.39 g"
+  carbohydrateContent: "3.63 g"
+  fiberContent: "2.20 g"
+  sugarContent: "0.42 g"
 ---
 
 <img src="/assets/images/spinach.jpg" alt="신선한 유기농 생 시금치 잎 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -108,6 +116,7 @@ image: "/assets/images/spinach.jpg"
 - **[마늘 (Garlic)]({{ site.baseurl }}/posts/garlic-nutrition-benefits/)**: 마늘의 유황 화합물인 알리신이 시금치에 들어 있는 식물성 비헴철(Non-heme iron)의 생체 이용률을 3배 이상 증폭시킵니다.
 - **[양파 (Onion)]({{ site.baseurl }}/posts/onion-nutrition-benefits/)**: 양파의 플라보노이드 퀘르세틴이 시금치의 무기 질산염과 결합하여 혈관 내벽의 염증을 청소하고 혈압 강화 효과를 극대화합니다.
 - **[연어 (Salmon)]({{ site.baseurl }}/posts/salmon-nutrition-benefits/)**: 연어의 풍부한 오메가-3 불포화지방산(EPA/DHA)이 시금치의 지용성 루테인과 비타민 K의 장점막 통과를 완벽히 보조합니다.
+- **[아스파라거스 (Asparagus)](/posts/asparagus-nutrition-benefits/):** 엽산 52µg과 글루타치온을 함께 담아 시금치와 다른 해독 경로를 보완합니다.
 
 ---
 

@@ -9,6 +9,14 @@ tags: [블루베리, 블루베리 칼로리, 냉동 블루베리, 안토시아�
 description: "생블루베리 100g은 57kcal·식이섬유 2.4g·비타민C 9.7mg입니다. 냉동 블루베리의 안토시아닌 손실 여부와 하루 섭취량, 신장 질환·와파린 주의사항까지 USDA 기준으로 정리했습니다."
 permalink: /posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "57 kcal"
+  proteinContent: "0.74 g"
+  fatContent: "0.33 g"
+  carbohydrateContent: "14.5 g"
+  fiberContent: "2.4 g"
+  sugarContent: "9.96 g"
 ---
 
 <img src="/assets/images/blueberry.jpg" alt="블루베리 표면의 하얀 과분과 보라색 껍질" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

@@ -138,6 +138,8 @@ PDCAAS는 식품 단독 기준입니다. 콩류와 곡물(쌀·보리)을 한 �
 - **[병아리콩](/posts/chickpea-nutrition-benefits/)** — 삶은 100g 단백질 8.9g, 식이섬유 7.6g입니다.
 - **[오징어](/posts/squid-nutrition-benefits/)** — 92kcal에 단백질 15.6g, 100kcal당 밀도 17.0g입니다.
 - **[굴](/posts/oyster-nutrition-benefits/)** — 단백질 7.1g과 아연 16.6mg을 동시에 채웁니다.
+- **[낫토 (Natto)](/posts/natto-nutrition-benefits/):** 100g당 단백질 17.72g, 1팩(50g) 8.9g으로 이 순위표 상위권에 해당합니다.
+- **[김 (Laver)](/posts/laver-nutrition-benefits/):** 마른김 100g의 단백질은 38.5g으로 무게당 단백질 밀도가 가장 높은 식품군입니다.
 
 ## 7. 자주 묻는 질문 (FAQ)
 

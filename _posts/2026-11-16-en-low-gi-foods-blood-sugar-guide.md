@@ -128,6 +128,9 @@ This sequence follows small studies in which the same meal produced a lower post
 - **[Strawberry](/en/posts/strawberry-nutrition-benefits/)** — GI 40 with only 4.9 g of sugar per 100 g.
 - **[Kiwi](/en/posts/kiwi-nutrition-benefits/)** — green kiwi GI 39–47, with 3.0 g fiber.
 - **[Sweet potato](/en/posts/sweet-potato-nutrition-benefits/)** — GI 45–55 boiled, 80–90 roasted.
+- **[Tangerine](/en/posts/tangerine-nutrition-benefits/):** glycemic index 42 and a load near 5 make it a safe dessert fruit for diabetes.
+- **[Cherry](/en/posts/cherry-nutrition-benefits/):** a glycemic index of 22 puts cherries among the lowest-impact fruits on this list.
+- **[Persimmon](/en/posts/persimmon-nutrition-benefits/):** fresh fruit is far gentler than dried persimmon, which concentrates 30 g of sugar per 100 g.
 
 ## 7. Frequently asked questions
 

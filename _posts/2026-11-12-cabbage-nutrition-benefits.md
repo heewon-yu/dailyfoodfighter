@@ -9,6 +9,14 @@ tags: [양배추, 비타민U, 설포라판, 비타민K, 위건강]
 description: "생양배추 100g은 25kcal·비타민C 36.6mg·비타민K 76mcg입니다. 비타민 U의 위점막 재생 연구, 설포라판을 살리는 조리법과 갑상선 주의점을 정리했습니다."
 permalink: /posts/cabbage-nutrition-benefits/
 image: "/assets/images/cabbage.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "25 kcal"
+  proteinContent: "1.28 g"
+  fatContent: "0.10 g"
+  carbohydrateContent: "5.80 g"
+  fiberContent: "2.50 g"
+  sugarContent: "3.20 g"
 ---
 
 <img src="/assets/images/cabbage.jpg" alt="도마 위에 정갈하게 채 썰린 싱싱한 녹색 양배추 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

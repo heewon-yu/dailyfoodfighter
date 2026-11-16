@@ -133,6 +133,7 @@ itemlist:
 - **[오징어](/posts/squid-nutrition-benefits/)** — 92kcal에 단백질 15.6g, 지방 1.4g.
 - **[닭가슴살](/posts/chicken-breast-nutrition-benefits/)** — 110kcal에 단백질 23.1g, 지방 1.5g 미만.
 - **[달걀](/posts/egg-nutrition-benefits/)** — 143kcal에 단백질 12.6g, 포만감 지수 150.
+- **[아스파라거스 (Asparagus)](/posts/asparagus-nutrition-benefits/):** 100g 20kcal·수분 93%로 이 순위표 최저 열량군에 속합니다.
 
 ## 7. 자주 묻는 질문 (FAQ)
 

@@ -9,6 +9,14 @@ tags: [Tofu, Plant Protein, Isoflavones, Genistein, Cholesterol]
 description: "Firm tofu has 76 calories, 8.08 g protein, 350 mg calcium and 5.36 mg iron per 100 g, plus how isoflavones affect cholesterol and bone."
 permalink: /en/posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "76 kcal"
+  proteinContent: "8.08 g"
+  fatContent: "4.78 g"
+  carbohydrateContent: "1.87 g"
+  fiberContent: "0.30 g"
+  sugarContent: "0.50 g"
 ---
 
 <img src="/assets/images/tofu.jpg" alt="Fresh Sliced Firm Tofu Cubes on Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -122,6 +130,7 @@ In vitro research suggests that supraphysiological concentrations of unfermented
   <ul>
     <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
     <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
+    <li><a href="/en/posts/natto-nutrition-benefits/">Natto Nutrition: 212 Calories, Vitamin K2 MK-7, Nattokinase</a></li>
   </ul>
 </div>
 

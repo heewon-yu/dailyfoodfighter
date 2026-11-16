@@ -9,6 +9,14 @@ tags: [달걀, 계란단백질, 콜린, 루테인, 반숙란칼로리]
 description: "달걀 100g은 143kcal·단백질 12.56g·콜린과 루테인을 함께 담고 있습니다. 반숙과 완숙의 단백질 소화율 차이, 노른자 콜레스테롤 논란의 결론, 하루 몇 개가 적당한지 정리했습니다."
 permalink: /posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "143 kcal"
+  proteinContent: "12.56 g"
+  fatContent: "9.51 g"
+  carbohydrateContent: "0.72 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.37 g"
 ---
 
 <img src="/assets/images/egg.jpg" alt="신선한 달걀과 반숙 완숙 계란 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -104,6 +112,7 @@ image: "/assets/images/egg.jpg"
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 달걀에 전혀 없는 비타민 C와 식이섬유를 토마토가 보완하고, 달걀 노른자의 지질이 토마토의 지용성 라이코펜 흡수율을 400% 이상 끌어올리는 전 세계 최고의 영양 앙상블입니다.
 - **[시금치 (Spinach)]({{ site.baseurl }}/posts/spinach-nutrition-benefits/)**: 시금치의 풍부한 비타민 K와 엽산이 달걀 노른자의 콜린·비타민 D와 만나 조혈 작용과 골기질 형성을 극대화합니다.
 - **[양파 (Onion)]({{ site.baseurl }}/posts/onion-nutrition-benefits/)**: 양파의 퀘르세틴과 유기황 화합물이 달걀의 단백질 대사 부산물을 완충하고 활성산소를 억제하여 혈관 내피 탄력을 지켜줍니다.
+- **[김 (Laver)](/posts/laver-nutrition-benefits/):** 김 5장(10g)의 단백질 3.9g이 달걀 1개의 절반을 넘습니다.
 
 ---
 

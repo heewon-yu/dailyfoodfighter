@@ -9,6 +9,14 @@ tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
 description: "Spinach has 23 calories, 483 mcg vitamin K, 194 mcg folate and 2.71 mg iron per 100 g. Does sauteing remove oxalates? Boiling compared."
 permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "23 kcal"
+  proteinContent: "2.86 g"
+  fatContent: "0.39 g"
+  carbohydrateContent: "3.63 g"
+  fiberContent: "2.20 g"
+  sugarContent: "0.42 g"
 ---
 
 <img src="/assets/images/spinach.jpg" alt="Fresh Organic Spinach Leaves in Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -108,6 +116,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Organosulfur compounds in garlic enhance non-heme iron solubility and bio-absorption from blanched spinach matrices.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: The flavonoid quercetin in onions synergizes with spinach dietary nitrates, conferring enhanced endothelial cytoprotection.
 - **[Salmon]({{ site.baseurl }}/en/posts/salmon-nutrition-benefits/)**: Marine omega-3 polyunsaturated fatty acids (EPA/DHA) in salmon optimize the intestinal micellar transport of lipophilic lutein and vitamin K1.
+- **[Asparagus](/en/posts/asparagus-nutrition-benefits/):** asparagus adds folate and glutathione that complement spinach detoxification pathways.
 
 ---
 

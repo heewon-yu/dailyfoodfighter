@@ -9,6 +9,14 @@ tags: [새우, 아스타잔틴, 타우린, 키토산, 새우콜레스테롤]
 description: "새우 100g은 85kcal·단백질 20.1g·아연 1.34mg입니다. 새우 콜레스테롤 수치의 실제 영향과 크레아티닌 검사 전 섭취, 머리·껍질의 키토산, 알레르기 주의점을 정리했습니다."
 permalink: /posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "85 kcal"
+  proteinContent: "20.10 g"
+  fatContent: "0.51 g"
+  carbohydrateContent: "0.20 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/shrimp.jpg" alt="신선한 왕새우 조리 플레이팅 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

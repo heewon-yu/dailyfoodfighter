@@ -9,6 +9,14 @@ tags: [아보카도, 올레산, 단일불포화지방산, 칼륨, 아보카도�
 description: "아보카도 100g은 160kcal·식이섬유 6.7g·칼륨 485mg·올레산이 풍부합니다. 후숙 판별법과 갈변을 막는 보관법, 하루 반 개 권장량, 칼륨 제한 환자의 주의점을 정리했습니다."
 permalink: /posts/avocado-nutrition-benefits/
 image: "/assets/images/avocado.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "160 kcal"
+  proteinContent: "2.00 g"
+  fatContent: "14.66 g"
+  carbohydrateContent: "8.53 g"
+  fiberContent: "6.70 g"
+  sugarContent: "0.66 g"
 ---
 
 <img src="/assets/images/avocado.jpg" alt="신선하게 후숙된 하스 아보카도 단면과 씨앗" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,14 @@ tags: [마늘, 알리신, 유기유황, 면역력, 혈관건강]
 description: "생마늘 100g은 149kcal·비타민C 31.2mg·칼륨 401mg입니다. 으깬 뒤 10분 두면 알리신이 늘어나는 효소 반응, 하루 1~2쪽 권장량, 공복 섭취와 항응고제 주의점을 정리했습니다."
 permalink: /posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "149 kcal"
+  proteinContent: "6.36 g"
+  fatContent: "0.50 g"
+  carbohydrateContent: "33.06 g"
+  fiberContent: "2.10 g"
+  sugarContent: "1.00 g"
 ---
 
 <img src="/assets/images/garlic.jpg" alt="신선한 통마늘과 깐마늘 정향" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

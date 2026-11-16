@@ -9,6 +9,14 @@ tags: [돼지고기안심, 비타민B1, 티아민, 저지방단백질, 피로회
 description: "돼지고기 안심 100g은 120kcal·단백질 21.8g·칼륨 420mg입니다. 티아민이 탄수화물 대사와 피로 회복에 작용하는 원리, 닭가슴살 대체 섭취법을 정리했습니다."
 permalink: /posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "120 kcal"
+  proteinContent: "21.80 g"
+  fatContent: "2.80 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/pork-tenderloin.jpg" alt="신선한 원목 도마 위에 로즈마리와 마늘과 함께 놓인 돼지고기 안심 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

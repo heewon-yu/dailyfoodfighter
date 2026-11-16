@@ -9,6 +9,14 @@ tags: [Sweet Potato, Beta-Carotene, Resistant Starch, Glycemic Index, Dietary Fi
 description: "Raw sweet potato has 86 calories, 3.0 g fiber and 337 mg potassium per 100 g, with how boiling, baking and cooling shift GI and resistant starch."
 permalink: /en/posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "86 kcal"
+  proteinContent: "1.57 g"
+  fatContent: "0.05 g"
+  carbohydrateContent: "20.12 g"
+  fiberContent: "3.00 g"
+  sugarContent: "4.18 g"
 ---
 
 <img src="/assets/images/sweet-potato.jpg" alt="Halved Roasted and Raw Orange-Fleshed Sweet Potatoes on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -101,6 +109,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 - **[Egg]({{ site.baseurl }}/en/posts/egg-nutrition-benefits/)**: Whole eggs supply complete bioavailable protein missing in sweet potatoes while yolk lipids drive efficient beta-carotene absorption.
 - **[Chicken Breast]({{ site.baseurl }}/en/posts/chicken-breast-nutrition-benefits/)**: Combining lean poultry protein with steamed sweet potato carbohydrate supports post-exercise glycogen replenishment and muscle protein synthesis.
 - **[Avocado]({{ site.baseurl }}/en/posts/avocado-nutrition-benefits/)**: Monounsaturated fats in avocado further blunt postprandial glucose excursion and maximize provitamin A bioavailability.
+- **[Persimmon](/en/posts/persimmon-nutrition-benefits/):** persimmon vitamin C and beta-carotene pair well with sweet potato carotenoids in an autumn snack.
 
 ---
 

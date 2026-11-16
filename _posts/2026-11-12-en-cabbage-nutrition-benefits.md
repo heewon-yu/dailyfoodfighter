@@ -9,6 +9,14 @@ tags: [Cabbage, Vitamin U, Sulforaphane, Vitamin K, Gastric Health]
 description: "Raw cabbage has 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g, with vitamin U mucosal research, cooking tips and thyroid notes."
 permalink: /en/posts/cabbage-nutrition-benefits/
 image: "/assets/images/cabbage.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "25 kcal"
+  proteinContent: "1.28 g"
+  fatContent: "0.10 g"
+  carbohydrateContent: "5.80 g"
+  fiberContent: "2.50 g"
+  sugarContent: "3.20 g"
 ---
 
 <img src="/assets/images/cabbage.jpg" alt="Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

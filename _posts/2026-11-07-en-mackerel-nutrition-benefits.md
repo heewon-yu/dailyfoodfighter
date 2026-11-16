@@ -9,6 +9,14 @@ tags: [Mackerel, Omega-3, EPA, DHA, Cardiovascular Health, Brain Health]
 description: "Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. Grilling versus braising retention and weekly servings."
 permalink: /en/posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "205 kcal"
+  proteinContent: "18.60 g"
+  fatContent: "13.89 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/mackerel.jpg" alt="Fresh and Grilled Mackerel Fillet with Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -118,6 +126,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
   <ul>
     <li><a href="/en/posts/high-protein-foods-ranking/">Top 10 High-Protein Foods: Grams per 100g and 100 kcal</a></li>
     <li><a href="/en/posts/heart-blood-pressure-cholesterol-foods/">Top 10 Foods for Blood Pressure, Cholesterol & Heart</a></li>
+    <li><a href="/en/posts/laver-nutrition-benefits/">Laver (Nori) Nutrition: 202 Calories, Iodine, Iron, Vitamin C</a></li>
   </ul>
 </div>
 

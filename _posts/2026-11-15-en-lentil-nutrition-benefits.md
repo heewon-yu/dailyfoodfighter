@@ -9,6 +9,15 @@ tags: [Lentils, Plant Protein, Phytic Acid, Glycemic Index, Fiber]
 description: "Dry lentils have 352 calories, 24.63 g protein, 10.7 g fiber and 479 mcg folate per 100 g, with 15 to 25 minute cooking and GI 32 explained."
 permalink: /en/posts/lentil-nutrition-benefits/
 image: "/assets/images/lentil.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "352 kcal"
+  proteinContent: "24.63 g"
+  fatContent: "1.06 g"
+  carbohydrateContent: "63.35 g"
+  fiberContent: "10.70 g"
+  sugarContent: "2.03 g"
+  sodiumContent: "6.00 mg"
 ---
 
 <img src="/assets/images/lentil.jpg" alt="Cooked Lentils in a Rustic Ceramic Bowl with Parsley and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

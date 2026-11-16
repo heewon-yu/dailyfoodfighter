@@ -9,6 +9,13 @@ tags: [Oyster, Zinc, Taurine, Glycogen, Liver Function, Testosterone]
 description: "Raw oysters have 68 calories, 7.1 g protein, 16.6 mg zinc and 5.1 mg iron per 100 g, with testosterone research, norovirus risk and cooking advice."
 permalink: /en/posts/oyster-nutrition-benefits/
 image: "/assets/images/oyster.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "68 kcal"
+  proteinContent: "7.13 g"
+  fatContent: "2.47 g"
+  carbohydrateContent: "3.91 g"
+  sugarContent: "0.85 g"
 ---
 
 <img src="/assets/images/oyster.jpg" alt="Fresh Raw Oysters on the Half Shell with Ice and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

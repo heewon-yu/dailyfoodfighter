@@ -9,6 +9,14 @@ tags: [닭가슴살, 단백질, BCAA, 이미다졸디펩티드, 근합성]
 description: "닭가슴살 100g은 110kcal·단백질 23.1g·칼륨 334mg입니다. 퍽퍽해지지 않게 삶는 온도와 시간, BCAA 근합성 원리, 하루 단백질 배분과 잔류 항생제 오해를 정리했습니다."
 permalink: /posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "110 kcal"
+  proteinContent: "23.10 g"
+  fatContent: "1.24 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/chicken-breast.jpg" alt="신선한 닭가슴살 조리 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

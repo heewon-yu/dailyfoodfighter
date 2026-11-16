@@ -9,6 +9,14 @@ tags: [사과, 펙틴, 케르세틴, 장건강, 혈관건강]
 description: "사과 100g은 52kcal·식이섬유 2.4g·칼륨 107mg입니다. 껍질에 몰린 펙틴과 폴리페놀, 아침 사과가 좋다는 속설의 근거, 공복 섭취와 혈당 주의점을 정리했습니다."
 permalink: /posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "52 kcal"
+  proteinContent: "0.26 g"
+  fatContent: "0.17 g"
+  carbohydrateContent: "13.81 g"
+  fiberContent: "2.40 g"
+  sugarContent: "10.39 g"
 ---
 
 <img src="/assets/images/apple.jpg" alt="신선한 붉은 사과와 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

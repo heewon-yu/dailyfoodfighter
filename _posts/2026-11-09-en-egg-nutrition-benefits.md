@@ -9,6 +9,14 @@ tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
 description: "Eggs have 143 calories and 12.56 g protein per 100 g, about two large eggs. Boiling times, digestibility, cholesterol evidence, and daily limits."
 permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "143 kcal"
+  proteinContent: "12.56 g"
+  fatContent: "9.51 g"
+  carbohydrateContent: "0.72 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.37 g"
 ---
 
 <img src="/assets/images/egg.jpg" alt="Fresh and Sliced Hard Boiled Eggs on Rustic Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -101,6 +109,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 - **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Egg yolk phospholipids augment the gastrointestinal lipophilic micellar solubilization of tomato lycopene by over 400%, creating an elite anti-inflammatory pairing.
 - **[Spinach]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: The bioavailable vitamin D and choline in eggs synergize with non-heme iron and folate in spinach to enhance erythropoiesis.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Quercetin in onions scavenges oxidative metabolites and protects vascular endothelial function during dense protein metabolism.
+- **[Laver](/en/posts/laver-nutrition-benefits/):** five sheets of laver carry 3.9 g protein, more than half an egg.
 
 ---
 

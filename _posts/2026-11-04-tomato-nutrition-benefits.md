@@ -9,6 +9,13 @@ tags: [토마토, 토마토 칼로리, 라이코펜, 생토마토, 토마토 조
 description: "생토마토 100g은 18kcal·비타민C 13.7mg·칼륨 237mg입니다. 라이코펜은 기름과 열을 더할 때 흡수가 늘어나는 이유, 생과와 토마토소스의 차이, 역류성 식도염 주의점을 정리했습니다."
 permalink: /posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "18 kcal"
+  proteinContent: "0.9 g"
+  fatContent: "0.2 g"
+  carbohydrateContent: "3.9 g"
+  fiberContent: "1.2 g"
 ---
 
 <img src="/assets/images/tomato.jpg" alt="완숙 토마토와 잘라 놓은 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">

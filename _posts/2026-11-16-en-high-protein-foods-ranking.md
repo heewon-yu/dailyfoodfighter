@@ -138,6 +138,8 @@ A typical adult target is 20–30 g per meal. These figures assume the dish is e
 - **[Chickpeas](/en/posts/chickpea-nutrition-benefits/)** — 8.9 g protein and 7.6 g fiber per 100 g boiled.
 - **[Squid](/en/posts/squid-nutrition-benefits/)** — 15.6 g protein at 92 kcal, 17.0 g per 100 kcal.
 - **[Oysters](/en/posts/oyster-nutrition-benefits/)** — 7.1 g protein with 16.6 mg zinc.
+- **[Natto](/en/posts/natto-nutrition-benefits/):** 17.72 g of protein per 100 g, or 8.9 g in a 50 g pack, ranks among the top plant proteins.
+- **[Laver](/en/posts/laver-nutrition-benefits/):** dried laver delivers 38.5 g protein per 100 g, the highest density by weight on this list.
 
 ## 7. Frequently asked questions
 

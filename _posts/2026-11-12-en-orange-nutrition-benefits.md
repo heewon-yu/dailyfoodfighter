@@ -9,6 +9,14 @@ tags: [Orange, Vitamin C, Hesperidin, Citric Acid, Cardiovascular Health]
 description: "A navel orange has 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g, with hesperidin research, whole fruit versus juice, and drug cautions."
 permalink: /en/posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "47 kcal"
+  proteinContent: "0.94 g"
+  fatContent: "0.12 g"
+  carbohydrateContent: "11.75 g"
+  fiberContent: "2.40 g"
+  sugarContent: "9.35 g"
 ---
 
 <img src="/assets/images/orange.jpg" alt="Fresh Sliced Ripe Navel Oranges on Wooden Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -111,6 +119,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 - **[Spinach (Spinach)]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Ascorbic acid and citric acid in oranges reduce non-heme ferric iron in spinach into bioavailable ferrous chelates, amplifying intestinal absorption fivefold.
 - **[Avocado (Avocado)]({{ site.baseurl }}/en/posts/avocado-nutrition-benefits/)**: Monounsaturated triacylglycerols in avocado dissolve lipophilic beta-cryptoxanthin from oranges, while citrus ascorbate shields avocado fatty acids from lipid peroxidation.
 - **[Chicken Breast (Chicken Breast)]({{ site.baseurl }}/en/posts/chicken-breast-nutrition-benefits/)**: Complete essential amino acids from lean poultry combine with citrus ascorbic acid to accelerate post-exercise fibroblast prolyl hydroxylation and muscular collagen repair.
+- **[Tangerine](/en/posts/tangerine-nutrition-benefits/):** two to three winter tangerines deliver vitamin C and hesperidin at roughly half the calories of an orange.
 
 ---
 

@@ -9,6 +9,15 @@ tags: [Kiwi, Vitamin C, Constipation, Actinidin, Fiber]
 description: "Raw green kiwi has 61 calories, 92.7 mg vitamin C and 3.0 g fiber per 100 g, with the two-kiwi constipation trial, actinidin and eating the skin."
 permalink: /en/posts/kiwi-nutrition-benefits/
 image: "/assets/images/kiwi.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "61 kcal"
+  proteinContent: "1.14 g"
+  fatContent: "0.52 g"
+  carbohydrateContent: "14.66 g"
+  fiberContent: "3.00 g"
+  sugarContent: "8.99 g"
+  sodiumContent: "3.00 mg"
 ---
 
 <img src="/assets/images/kiwi.jpg" alt="Fresh Green and Gold Kiwifruit Halved on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -113,6 +122,8 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
 - **[Spinach](/en/posts/spinach-nutrition-benefits/):** Pairing kiwi's abundant vitamin C with spinach's plant-based non-heme iron noticeably improves iron bioavailability in salads and smoothies.
 - **[Strawberries](/en/posts/strawberry-nutrition-benefits/):** Slicing kiwi with strawberries doubles the vitamin C on the plate while keeping the dessert low in calories.
 - **[Avocado](/en/posts/avocado-nutrition-benefits/):** Avocado's monounsaturated fats and vitamin E complement kiwi's vitamin C and lutein, creating a balanced water- and lipid-soluble antioxidant meal.
+- **[Persimmon](/en/posts/persimmon-nutrition-benefits/):** kiwi has the stronger evidence for regularity, while persimmon leads on vitamin A and soluble fiber.
+- **[Cherry](/en/posts/cherry-nutrition-benefits/):** one kiwi plus ten cherries makes a pre-bed snack under 100 calories.
 
 ---
 

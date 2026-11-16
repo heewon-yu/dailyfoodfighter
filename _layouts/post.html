@@ -25,10 +25,10 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-review">
       {% if page.lang == 'en' %}
-      <span class="review-item">🔬 Reviewed against USDA FoodData Central &amp; PubMed literature</span>
+      <span class="review-item">🔬 Reviewed against <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">Korean MFDS food composition table</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed</a> literature</span>
       {% if page.last_modified_at %}<span class="review-item">🕒 Last reviewed: {{ page.last_modified_at | date: "%B %d, %Y" }}</span>{% endif %}
       {% else %}
-      <span class="review-item">🔬 검증 기준: USDA FoodData Central · PubMed 문헌</span>
+      <span class="review-item">🔬 검증 기준: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">식약처 국가표준식품성분표</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed 문헌</a></span>
       {% if page.last_modified_at %}<span class="review-item">🕒 최종 검토일: {{ page.last_modified_at | date: "%Y년 %m월 %d일" }}</span>{% endif %}
       {% endif %}
     </div>

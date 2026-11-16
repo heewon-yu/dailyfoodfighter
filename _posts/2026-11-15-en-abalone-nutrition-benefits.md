@@ -9,6 +9,14 @@ tags: [Abalone, Taurine, Selenium, Marine Protein, Liver Health]
 description: "Raw abalone has 105 calories, 17.1 g protein and 3.19 mg iron per 100 g, with kelp-fed taurine, glycogen and liver recovery research plus cooking."
 permalink: /en/posts/abalone-nutrition-benefits/
 image: "/assets/images/abalone.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "105 kcal"
+  proteinContent: "17.10 g"
+  fatContent: "0.76 g"
+  carbohydrateContent: "6.01 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/abalone.jpg" alt="Fresh Whole Raw Abalone in Shells on Crushed Ice with Lemon and Sea Salt" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

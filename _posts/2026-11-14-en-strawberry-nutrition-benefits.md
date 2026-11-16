@@ -9,6 +9,14 @@ tags: [Strawberry, Vitamin C, Anthocyanins, Ellagic Acid, Glycemic Control]
 description: "Strawberries have 32 calories, 58.8 mg vitamin C and 2.0 g fiber per 100 g, with ellagic acid research, glucose response and a residue-cutting wash."
 permalink: /en/posts/strawberry-nutrition-benefits/
 image: "/assets/images/strawberry.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "32 kcal"
+  proteinContent: "0.67 g"
+  fatContent: "0.30 g"
+  carbohydrateContent: "7.68 g"
+  fiberContent: "2.00 g"
+  sugarContent: "4.89 g"
 ---
 
 <img src="/assets/images/strawberry.jpg" alt="Fresh Ripe Red Strawberries in a Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -101,6 +109,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
 - **[Spinach]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: Strawberry ascorbic and citric acids reduce plant-based ferric iron into its absorbable ferrous form, multiplying non-heme iron uptake from leafy greens.
 - **[Blueberry]({{ site.baseurl }}/en/posts/blueberry-nutrition-benefits/)**: Pairing strawberry pelargonidin with blueberry malvidin and delphinidin creates a broader polyphenol spectrum for neurovascular and retinal antioxidant defense.
 - **[Avocado]({{ site.baseurl }}/en/posts/avocado-nutrition-benefits/)**: Monounsaturated oleic acid in avocado enhances intestinal absorption of fat-soluble micronutrients and slows gastric emptying further.
+- **[Tangerine](/en/posts/tangerine-nutrition-benefits/):** in winter, two or three tangerines cover the vitamin C and citrus flavonoids strawberries provide in summer.
 
 ---
 

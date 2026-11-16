@@ -9,6 +9,14 @@ tags: [Broccoli, Sulforaphane, Nrf2, Chemoprotection, CruciferousVegetables]
 description: "Broccoli has 34 calories, 89.2 mg vitamin C, 101.6 mcg vitamin K and 63 mcg folate per 100 g. A steaming window that keeps sulforaphane."
 permalink: /en/posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "34.0 kcal (142 kJ)"
+  proteinContent: "2.82 g"
+  fatContent: "0.37 g"
+  carbohydrateContent: "6.64 g"
+  fiberContent: "2.60 g"
+  sugarContent: "1.70 g"
 ---
 
 <img src="/assets/images/broccoli.jpg" alt="Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
@@ -133,6 +141,7 @@ Integrating whole culinary broccoli into a preventative nutritional regimen conf
   <ul>
     <li><a href="/en/posts/low-calorie-high-satiety-foods/">Top 10 Low-Calorie High-Satiety Foods: 100g Calories</a></li>
     <li><a href="/en/posts/low-gi-foods-blood-sugar-guide/">Top 10 Low-GI Foods to Lower Blood Sugar: GI and GL Chart</a></li>
+    <li><a href="/en/posts/asparagus-nutrition-benefits/">Asparagus Nutrition: 20 Calories, Folate, Inulin, Glutathione</a></li>
   </ul>
 </div>
 

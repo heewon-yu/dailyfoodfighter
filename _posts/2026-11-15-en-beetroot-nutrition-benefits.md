@@ -9,6 +9,15 @@ tags: [Beetroot, Dietary Nitrate, Betalains, Blood Pressure, Oxalate]
 description: "Raw beetroot has 43 calories, 109 mcg folate and 325 mg potassium per 100 g, with the nitrate pathway, oxalate in boiled beets and beeturia."
 permalink: /en/posts/beetroot-nutrition-benefits/
 image: "/assets/images/beetroot.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "43 kcal"
+  proteinContent: "1.61 g"
+  fatContent: "0.17 g"
+  carbohydrateContent: "9.56 g"
+  fiberContent: "2.80 g"
+  sugarContent: "6.76 g"
+  sodiumContent: "78.00 mg"
 ---
 
 <img src="/assets/images/beetroot.jpg" alt="Fresh Raw Beetroot with Green Tops and Halved Cross-Sections on Dark Wood" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

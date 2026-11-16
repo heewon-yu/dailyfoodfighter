@@ -9,6 +9,14 @@ tags: [딸기, 딸기효능, 딸기칼로리, 비타민C, 엘라그산]
 description: "생딸기 100g은 32kcal·비타민C 58.8mg·식이섬유 2.0g·엽산 24mcg입니다. 엘라그산의 항산화 연구와 식후 혈당 반응, 농약을 줄이는 세척 순서와 보관법을 정리했습니다."
 permalink: /posts/strawberry-nutrition-benefits/
 image: "/assets/images/strawberry.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "32 kcal"
+  proteinContent: "0.67 g"
+  fatContent: "0.30 g"
+  carbohydrateContent: "7.68 g"
+  fiberContent: "2.00 g"
+  sugarContent: "4.89 g"
 ---
 
 <img src="/assets/images/strawberry.jpg" alt="신선한 도자기 그릇에 담긴 물방울이 맺힌 붉은 생딸기" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -101,6 +109,7 @@ image: "/assets/images/strawberry.jpg"
 - **[시금치 (Spinach)]({{ site.baseurl }}/posts/spinach-nutrition-benefits/)**: 시금치에 풍부한 식물성 비헴철(Non-heme Iron)은 단독 흡수율이 낮지만, 딸기의 고농도 비타민 C와 구연산이 장내에서 철분을 환원시켜 체내 흡수율을 수 배 이상 끌어올립니다.
 - **[블루베리 (Blueberry)]({{ site.baseurl }}/posts/blueberry-nutrition-benefits/)**: 딸기의 펠라고니딘 계열 안토시아닌과 블루베리의 말비딘·델피니딘 계열 안토시아닌이 결합하면 다중 스펙트럼 항산화 방어망이 구축되어 뇌 신경 및 망막 모세혈관 보호 시너지가 극대화됩니다.
 - **[아보카도 (Avocado)]({{ site.baseurl }}/posts/avocado-nutrition-benefits/)**: 아보카도의 단일불포화지방산(올레산)이 딸기 속 카로티노이드·지용성 파이토케미컬의 장내 미셀(Micelle) 형성을 도와 생체이용률을 높여 줍니다.
+- **[귤 (Tangerine)](/posts/tangerine-nutrition-benefits/):** 딸기가 없는 겨울철에는 귤 2~3개로 비타민C와 헤스페리딘을 보충할 수 있습니다.
 
 ---
 

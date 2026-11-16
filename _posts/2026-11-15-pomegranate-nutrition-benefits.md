@@ -9,6 +9,14 @@ tags: [석류, 석류효능, 우롤리틴A, 엘라지타닌, 석류즙]
 description: "생석류 과육 100g은 83kcal·식이섬유 4.0g·비타민C 10.2mg입니다. 엘라지타닌이 장내 미생물을 거쳐 우롤리틴 A로 바뀌는 경로, 석류즙과 생과의 차이를 정리했습니다."
 permalink: /posts/pomegranate-nutrition-benefits/
 image: "/assets/images/pomegranate.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "83 kcal"
+  proteinContent: "1.67 g"
+  fatContent: "1.17 g"
+  carbohydrateContent: "18.70 g"
+  fiberContent: "4.00 g"
+  sugarContent: "13.67 g"
 ---
 
 <img src="/assets/images/pomegranate.jpg" alt="원목 테이블 위의 통석류와 반으로 가른 석류, 루비빛 알갱이가 담긴 도자기 그릇" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

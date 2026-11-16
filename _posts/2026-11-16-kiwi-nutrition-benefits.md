@@ -9,6 +9,15 @@ tags: [키위, 키위효능, 골드키위비타민C, 액티니딘, 변비과일]
 description: "생그린키위 100g은 61kcal·비타민C 92.7mg·식이섬유 3.0g이며 골드키위는 비타민C 161.3mg입니다. 하루 2개 변비 개선 임상시험, 액티니딘과 껍질째 먹는 법을 정리했습니다."
 permalink: /posts/kiwi-nutrition-benefits/
 image: "/assets/images/kiwi.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "61 kcal"
+  proteinContent: "1.14 g"
+  fatContent: "0.52 g"
+  carbohydrateContent: "14.66 g"
+  fiberContent: "3.00 g"
+  sugarContent: "8.99 g"
+  sodiumContent: "3.00 mg"
 ---
 
 <img src="/assets/images/kiwi.jpg" alt="원목 도마 위에 반으로 자른 싱그러운 그린키위와 골드키위" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -113,6 +122,8 @@ image: "/assets/images/kiwi.jpg"
 - **[시금치 (Spinach)](/posts/spinach-nutrition-benefits/):** 시금치의 풍부한 식물성 철분(2.71mg/100g)을 키위의 비타민 C가 환원시켜 체내 철분 흡수율을 극대화합니다.
 - **[딸기 (Strawberry)](/posts/strawberry-nutrition-benefits/):** 키위와 딸기를 함께 담으면 비타민C를 두 배로 챙기면서 열량은 낮게 유지할 수 있습니다.
 - **[아보카도 (Avocado)](/posts/avocado-nutrition-benefits/):** 키위의 비타민 C와 아보카도의 단일불포화지방·비타민 E가 결합해 지용성·수용성 항산화 방어망을 동시에 채워 줍니다.
+- **[감 (Persimmon)](/posts/persimmon-nutrition-benefits/):** 변비에는 키위가 근거가 확실하고, 비타민A와 식이섬유는 감이 강점입니다.
+- **[체리 (Cherry)](/posts/cherry-nutrition-benefits/):** 키위 1개와 체리 10알이면 100kcal 이하의 취침 전 간식이 됩니다.
 
 ---
 

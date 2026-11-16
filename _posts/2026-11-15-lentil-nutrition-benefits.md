@@ -9,6 +9,15 @@ tags: [렌틸콩, 렌틸콩효능, 렌틸콩삶는시간, 식물성단백질, �
 description: "건조 렌틸콩 100g은 352kcal·단백질 24.6g·식이섬유 10.7g입니다. 불리지 않고 15~25분이면 익는 이유, GI 32의 혈당 특성과 병아리콩 비교를 정리했습니다."
 permalink: /posts/lentil-nutrition-benefits/
 image: "/assets/images/lentil.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "352 kcal"
+  proteinContent: "24.63 g"
+  fatContent: "1.06 g"
+  carbohydrateContent: "63.35 g"
+  fiberContent: "10.70 g"
+  sugarContent: "2.03 g"
+  sodiumContent: "6.00 mg"
 ---
 
 <img src="/assets/images/lentil.jpg" alt="원목 테이블 위 도자기 그릇에 담긴 삶은 렌틸콩과 파슬리, 레몬 슬라이스" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

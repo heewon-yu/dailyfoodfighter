@@ -9,6 +9,14 @@ tags: [고구마, 고구마효능, 고구마칼로리, 베타카로틴, 저항�
 description: "생고구마 100g은 86kcal·식이섬유 3.0g·칼륨 337mg이며 베타카로틴이 풍부합니다. 삶기·굽기·식히기에 따라 달라지는 GI와 저항성 전분, 혈당 관리용 섭취법을 정리했습니다."
 permalink: /posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "86 kcal"
+  proteinContent: "1.57 g"
+  fatContent: "0.05 g"
+  carbohydrateContent: "20.12 g"
+  fiberContent: "3.00 g"
+  sugarContent: "4.18 g"
 ---
 
 <img src="/assets/images/sweet-potato.jpg" alt="원목 도마 위에 반으로 갈라 놓인 주황빛 고구마와 로즈마리" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -101,6 +109,7 @@ image: "/assets/images/sweet-potato.jpg"
 - **[달걀 (Egg)]({{ site.baseurl }}/posts/egg-nutrition-benefits/)**: 고구마에 부족한 양질의 단백질(필수아미노산)을 달걀이 완벽히 보완하며, 달걀 노른자의 지질이 고구마 속 지용성 베타카로틴의 장내 흡수를 촉진합니다.
 - **[닭가슴살 (Chicken Breast)]({{ site.baseurl }}/posts/chicken-breast-nutrition-benefits/)**: 고구마의 복합 탄수화물과 닭가슴살의 고순도 단백질 조합은 운동 전후 근글리코겐 보충과 근단백질 합성을 동시에 달성하는 피트니스 표준 조합입니다.
 - **[아보카도 (Avocado)]({{ site.baseurl }}/posts/avocado-nutrition-benefits/)**: 아보카도의 불포화지방산이 고구마의 혈당 상승 속도를 한층 더 늦추고 베타카로틴 생체이용률을 극대화합니다.
+- **[감 (Persimmon)](/posts/persimmon-nutrition-benefits/):** 단감의 비타민C와 베타카로틴이 고구마의 카로티노이드 흡수를 돕는 가을 조합입니다.
 
 ---
 

@@ -130,6 +130,7 @@ itemlist:
 - **[토마토](/posts/tomato-nutrition-benefits/)** — 18kcal, 라이코펜과 비타민C 13.7mg.
 - **[오렌지](/posts/orange-nutrition-benefits/)** — 47kcal, 헤스페리딘 28.5mg.
 - **[양파](/posts/onion-nutrition-benefits/)** — 40kcal, 퀘르세틴과 프럭탄.
+- **[체리 (Cherry)](/posts/cherry-nutrition-benefits/):** 안토시아닌 20~60mg/100g으로 색소 항산화 성분이 가장 진한 과일군입니다.
 
 ## 7. 자주 묻는 질문 (FAQ)
 

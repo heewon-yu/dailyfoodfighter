@@ -9,6 +9,14 @@ tags: [Apple, Pectin, Quercetin, GutMicrobiome, CardiovascularHealth]
 description: "An apple has 52 calories, 2.4 g fiber and 107 mg potassium per 100 g. What the peel adds, the morning-apple claim, and blood sugar context."
 permalink: /en/posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "52 kcal"
+  proteinContent: "0.26 g"
+  fatContent: "0.17 g"
+  carbohydrateContent: "13.81 g"
+  fiberContent: "2.40 g"
+  sugarContent: "10.39 g"
 ---
 
 <img src="/assets/images/apple.jpg" alt="Fresh crisp whole red apple and sliced halves on dark slate" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

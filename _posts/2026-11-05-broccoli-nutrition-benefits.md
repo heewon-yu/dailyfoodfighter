@@ -9,6 +9,14 @@ tags: [브로콜리, 설포라판, 십자화과채소, 항암효능, 세포해�
 description: "브로콜리 100g은 34kcal·비타민C 89.2mg·비타민K 101.6mcg·엽산 63mcg입니다. 설포라판을 살리는 데치는 시간과 미로시나아제 활성, 과다 섭취 시 갑상선 주의점을 정리했습니다."
 permalink: /posts/broccoli-nutrition-benefits/
 image: "/assets/images/broccoli.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "34 kcal"
+  proteinContent: "2.82 g"
+  fatContent: "0.37 g"
+  carbohydrateContent: "6.64 g"
+  fiberContent: "2.6 g"
+  sugarContent: "1.7 g"
 ---
 
 <img src="/assets/images/broccoli.jpg" alt="신선한 유기농 브로콜리의 초록빛 꽃송이와 단단한 줄기 단면" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
@@ -114,6 +122,7 @@ image: "/assets/images/broccoli.jpg"
 - **[마늘 (Garlic)]({{ site.baseurl }}/posts/garlic-nutrition-benefits/)**: 마늘에 풍부한 유기황 화합물과 셀레늄이 브로콜리의 설포라판(Sulforaphane)과 상호작용하여 간 해독 2단계 효소(글루타치온-S-전이효소)를 강력하게 유도합니다.
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 토마토의 지용성 리코펜과 브로콜리의 수용성 설포라판은 인체 내 암세포 증식 경로를 다각도로 억제하는 상호 보완적 항암 시너지를 냅니다.
 - **[연어 (Salmon)]({{ site.baseurl }}/posts/salmon-nutrition-benefits/)**: 브로콜리의 풍부한 칼슘과 비타민 K가 연어의 비타민 D와 결합하여 조골세포의 골기질 형성을 촉진하고 골다공증을 예방합니다.
+- **[아스파라거스 (Asparagus)](/posts/asparagus-nutrition-benefits/):** 브로콜리의 설포라판과 아스파라거스의 글루타치온으로 2상 해독 경로를 함께 활성화할 수 있습니다.
 
 ---
 

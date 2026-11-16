@@ -9,6 +9,14 @@ tags: [양파, 퀘르세틴, 항산화, 영양학, 건강식단]
 description: "양파 100g은 40kcal·식이섬유 1.7g·비타민C 7.4mg입니다. 퀘르세틴은 생으로 먹을 때 더 많이 남는 이유와, 볶으면 달라지는 영양, 위장이 약한 사람의 섭취법을 정리했습니다."
 permalink: /posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "40 kcal"
+  proteinContent: "1.1 g"
+  fatContent: "0.10 g"
+  carbohydrateContent: "9.34 g"
+  fiberContent: "1.7 g"
+  sugarContent: "4.24 g"
 ---
 
 <img src="/assets/images/onion.jpg" alt="양파를 잘랐을 때 드러나는 겹겹의 단면" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,14 @@ tags: [Shrimp, Astaxanthin, Taurine, Dietary Cholesterol, Chitin Chitosan]
 description: "Shrimp has 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. Creatinine before testing, the cholesterol myth, shells, and allergies."
 permalink: /en/posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "85 kcal"
+  proteinContent: "20.10 g"
+  fatContent: "0.51 g"
+  carbohydrateContent: "0.20 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/shrimp.jpg" alt="Fresh Cooked King Prawns with Herbs and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

@@ -9,6 +9,14 @@ tags: [고등어, 오메가3, DHA, EPA, 뇌건강, 혈관건강]
 description: "고등어 100g은 205kcal·단백질 18.6g·EPA 898mg·DHA 1,401mg입니다. 구이와 조림에서 오메가-3가 얼마나 남는지, 등푸른생선 섭취량과 등 푸른 부위 주의점을 정리했습니다."
 permalink: /posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "205 kcal"
+  proteinContent: "18.60 g"
+  fatContent: "13.89 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/mackerel.jpg" alt="신선한 고등어와 노릇하게 구워진 고등어 구이 단면" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -108,6 +116,7 @@ image: "/assets/images/mackerel.jpg"
 - **[양파 (Onion)]({{ site.baseurl }}/posts/onion-nutrition-benefits/)**: 양파의 퀘르세틴 성분이 고등어 기름의 산패를 막아주고 모세혈관 탄력을 높여 심혈관 보호 시너지를 극대화합니다.
 - **[마늘 (Garlic)]({{ site.baseurl }}/posts/garlic-nutrition-benefits/)**: 마늘의 유기황 화합물이 고등어의 비린내를 잡고, 혈소판 응집 억제 효과를 배가하여 혈액 순환을 최적화합니다.
 - **[사과 (Apple)]({{ site.baseurl }}/posts/apple-nutrition-benefits/)**: 사과의 펙틴과 비타민 C가 고등어의 기름진 풍미를 중화하고 지용성 비타민의 장내 흡수를 촉진합니다.
+- **[김 (Laver)](/posts/laver-nutrition-benefits/):** 고등어의 오메가3와 김의 철분·요오드를 함께 챙기되, 갑상선 질환이 있으면 김은 하루 2~3장으로 제한하세요.
 
 ---
 

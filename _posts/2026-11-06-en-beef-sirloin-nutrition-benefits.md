@@ -9,6 +9,14 @@ tags: [BeefSirloin, HemeIron, Creatine, LCarnitine, MuscleProteinSynthesis]
 description: "Beef sirloin has 201 calories, 20.3 g protein, 1.48 mg heme iron and 3.55 mg zinc per 100 g. Absorption, leaner cuts, and grilling safety."
 permalink: /en/posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "201.0 kcal (841 kJ)"
+  proteinContent: "20.30 g"
+  fatContent: "12.70 g"
+  carbohydrateContent: "0.00 g"
+  fiberContent: "0.00 g"
+  sugarContent: "0.00 g"
 ---
 
 <img src="/assets/images/beef-sirloin.jpg" alt="Fresh raw beef sirloin steak with beautiful marbling and fresh rosemary on a rustic stone surface" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

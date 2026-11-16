@@ -130,6 +130,7 @@ Food first is the better answer.
 - **[Tomato](/en/posts/tomato-nutrition-benefits/)** — 18 kcal, lycopene and 13.7 mg vitamin C.
 - **[Orange](/en/posts/orange-nutrition-benefits/)** — 47 kcal with 28.5 mg hesperidin.
 - **[Onion](/en/posts/onion-nutrition-benefits/)** — 40 kcal with quercetin and fructans.
+- **[Cherry](/en/posts/cherry-nutrition-benefits/):** 20-60 mg of anthocyanins per 100 g makes it one of the most pigment-dense fruits.
 
 ## 7. Frequently asked questions
 

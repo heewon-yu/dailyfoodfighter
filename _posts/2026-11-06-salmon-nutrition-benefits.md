@@ -9,6 +9,14 @@ tags: [연어, 오메가3, 아스타잔틴, 비타민D, 심혈관건강]
 description: "연어 100g은 208kcal·단백질 20.4g·EPA+DHA 2,150mg입니다. 생연어와 훈제연어의 나트륨·영양 차이, 일주일 섭취량, 기생충과 수은 주의점을 USDA 기준으로 정리했습니다."
 permalink: /posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "208 kcal"
+  proteinContent: "20.4 g"
+  fatContent: "13.4 g"
+  carbohydrateContent: "0 g"
+  fiberContent: "0 g"
+  sugarContent: "0 g"
 ---
 
 <img src="/assets/images/salmon.jpg" alt="신선한 생 연어 필렛과 레몬 슬라이스" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

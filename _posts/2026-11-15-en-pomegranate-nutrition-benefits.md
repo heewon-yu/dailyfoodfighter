@@ -9,6 +9,14 @@ tags: [Pomegranate, Urolithin A, Ellagitannins, Punicalagin, Antioxidants]
 description: "Raw arils have 83 calories, 4.0 g fiber and 10.2 mg vitamin C per 100 g, with ellagitannin to urolithin A conversion and juice versus whole fruit."
 permalink: /en/posts/pomegranate-nutrition-benefits/
 image: "/assets/images/pomegranate.jpg"
+nutrition:
+  servingSize: "100 g (raw, edible portion)"
+  calories: "83 kcal"
+  proteinContent: "1.67 g"
+  fatContent: "1.17 g"
+  carbohydrateContent: "18.70 g"
+  fiberContent: "4.00 g"
+  sugarContent: "13.67 g"
 ---
 
 <img src="/assets/images/pomegranate.jpg" alt="Whole and Halved Pomegranates with Ruby Red Arils on a Rustic Wooden Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">

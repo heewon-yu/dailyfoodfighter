@@ -9,6 +9,14 @@ tags: [병아리콩, 병아리콩효능, 식물성단백질, 저항성전분, �
 description: "삶은 병아리콩 100g은 164kcal·식이섬유 7.6g·단백질 8.86g·엽산 172mcg입니다. 저항성 전분이 식후 혈당을 완만하게 만드는 원리, 불리는 시간과 소화 팁을 정리했습니다."
 permalink: /posts/chickpea-nutrition-benefits/
 image: "/assets/images/chickpea.jpg"
+nutrition:
+  servingSize: "100 g (가식부, 생것 기준)"
+  calories: "164 kcal"
+  proteinContent: "8.86 g"
+  fatContent: "2.59 g"
+  carbohydrateContent: "27.42 g"
+  fiberContent: "7.60 g"
+  sugarContent: "4.80 g"
 ---
 
 <img src="/assets/images/chickpea.jpg" alt="따뜻한 원목 테이블 위 도자기 그릇에 올리브오일과 허브를 곁들인 황금빛 삶은 병아리콩" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
@@ -96,6 +104,7 @@ image: "/assets/images/chickpea.jpg"
 - **[오렌지 (Orange)]({{ site.baseurl }}/posts/orange-nutrition-benefits/)**: 병아리콩 샐러드에 오렌지 과육이나 즙을 곁들이면 오렌지의 고농도 비타민 C와 구연산이 병아리콩 속 식물성 비헴철을 환원시켜 철분 흡수율을 극대화합니다.
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 병아리콩의 식물성 단백질·아연과 토마토의 리코펜·유기산이 어우러진 스튜나 카레는 항산화 방어와 포만감을 동시에 챙길 수 있는 완벽한 지중해식 조합입니다.
 - **[시금치 (Spinach)]({{ site.baseurl }}/posts/spinach-nutrition-benefits/)**: 두 식재료 모두 엽산과 마그네슘이 풍부하며, 병아리콩의 아미노산과 시금치의 질산염·루테인이 결합해 혈관 탄력과 에너지 대사를 든든하게 뒷받침합니다.
+- **[낫토 (Natto)](/posts/natto-nutrition-benefits/):** 병아리콩의 식이섬유와 낫토의 프로바이오틱스로 장 건강을 함께 챙길 수 있습니다.
 
 ---
 

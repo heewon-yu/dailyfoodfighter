@@ -133,6 +133,7 @@ These plates are side dishes without rice. Adding half a bowl of rice (about 150
 - **[Squid](/en/posts/squid-nutrition-benefits/)** — 92 kcal with 15.6 g protein and 1.4 g fat.
 - **[Chicken breast](/en/posts/chicken-breast-nutrition-benefits/)** — 110 kcal with 23.1 g protein and under 1.5 g fat.
 - **[Egg](/en/posts/egg-nutrition-benefits/)** — 143 kcal with 12.6 g protein and a Satiety Index of 150.
+- **[Asparagus](/en/posts/asparagus-nutrition-benefits/):** 20 kcal per 100 g with 93% water puts it at the bottom of this ranking.
 
 ## 7. Frequently asked questions
 
