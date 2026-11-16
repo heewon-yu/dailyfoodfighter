@@ -36,7 +36,7 @@
 - [x] 당근 (Carrot) - 2026-11-10 한/영 발행완료
 - [x] 시금치 (Spinach) - 2026-11-08 한/영 발행완료
 - [x] 양배추 (Cabbage) - 2026-11-12 한/영 발행완료
-- [ ] 배추 (Napa Cabbage)
+- [x] 배추 (Napa Cabbage) - 2026-11-17 한/영 발행완료
 - [ ] 무 (Radish)
 - [ ] 파프리카 (Bell Pepper)
 - [ ] 대파 (Green Onion)
@@ -103,7 +103,7 @@
 - [ ] 전복 (Abalone)
 - [x] 굴 (Oyster) - 2026-11-11 한/영 발행완료
 - [ ] 바지락 (Manila Clam)
-- [ ] 홍합 (Mussel)
+- [x] 홍합 (Mussel) - 2026-11-17 한/영 발행완료
 - [ ] 미역 (Seaweed / Wakame)
 - [ ] 다시마 (Kelp)
 - [ ] 김 (Laver / Nori)
