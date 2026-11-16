@@ -91,7 +91,7 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": {% if page.layout == 'post' %}["BlogPosting", "Article"]{% else %}"WebSite"{% endif %},
+    "@type": {% if page.layout == 'post' %}"BlogPosting"{% else %}"WebSite"{% endif %},
     "name": {{ page.title | default: site.title | jsonify }},
     "headline": {{ page.title | default: site.title | jsonify }},
     "description": {{ page.description | default: site.description | jsonify }},
@@ -111,19 +111,11 @@
     {% if page.nutrition %}
     "about": {
       "@type": "NutritionInformation",
+      "@id": "{{ page.url | absolute_url }}#nutrition",
       {% for n in page.nutrition %}"{{ n[0] }}": {{ n[1] | jsonify }}{% unless forloop.last %},{% endunless %}
       {% endfor %}
     },
     {% endif %}
-    "citation": [
-      {"@type": "CreativeWork", "name": "USDA FoodData Central", "url": "https://fdc.nal.usda.gov/"},
-      {"@type": "CreativeWork", "name": "식품의약품안전처 국가표준식품성분표 (K-FIND)", "url": "https://various.foodsafetykorea.go.kr/"},
-      {"@type": "CreativeWork", "name": "PubMed (NCBI) 중재·관찰 연구 문헌", "url": "https://pubmed.ncbi.nlm.nih.gov/"}
-    ],
-    "reviewedBy": {
-      "@type": "Organization",
-      "name": "DailyFoodFighter Nutrition Science Team"
-    },
     "genre": "Nutrition Science & Food Chemistry",
     "author": {
       "@type": "Organization",
@@ -157,6 +149,44 @@
   </script>
 
   {% if page.layout == 'post' %}
+  <!-- Article: 포스트 대표 문서 노드 (BlogPosting의 상위 타입) + 영양정보·출처·검토자 연결, YMYL 신뢰도 보강 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": "{{ page.url | absolute_url }}#article",
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" },
+    "headline": {{ page.title | jsonify }},
+    "description": {{ page.description | default: site.description | jsonify }},
+    "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
+    "datePublished": "{{ page.date | date_to_xmlschema }}",
+    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
+    "isAccessibleForFree": true,
+    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
+    {% if page.nutrition %}"about": { "@id": "{{ page.url | absolute_url }}#nutrition" },{% endif %}
+    "author": {
+      "@type": "Organization",
+      "name": "DailyFoodFighter",
+      "url": "{{ site.url }}{{ site.baseurl }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "DailyFoodFighter",
+      "url": "{{ site.url }}{{ site.baseurl }}",
+      "sameAs": ["https://x.com/Dailyfoodfff"]
+    },
+    "citation": [
+      {"@type": "CreativeWork", "name": "USDA FoodData Central", "url": "https://fdc.nal.usda.gov/"},
+      {"@type": "CreativeWork", "name": "식품의약품안전처 국가표준식품성분표 (K-FIND)", "url": "https://various.foodsafetykorea.go.kr/"},
+      {"@type": "CreativeWork", "name": "PubMed (NCBI) 중재·관찰 연구 문헌", "url": "https://pubmed.ncbi.nlm.nih.gov/"}
+    ],
+    "reviewedBy": {
+      "@type": "Organization",
+      "name": "DailyFoodFighter Nutrition Science Team"
+    }
+  }
+  </script>
+
   <!-- BreadcrumbList: 검색 결과 경로 표시 + 크롤러 계층 구조 인식 -->
   {% if page.lang == 'en' %}
     {% assign crumb_home_name = 'Home' %}
