@@ -1,2 +1,1 @@
-# Google AdSense ads.txt for dailyfoodfighter
-# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
+google.com, pub-7921440641343288, DIRECT, f08c47fec0942fa0
