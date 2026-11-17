@@ -129,6 +129,7 @@ A typical adult target is 20–30 g per meal. These figures assume the dish is e
 ## 6. Related ingredient guides
 
 - **[Chicken breast](/en/posts/chicken-breast-nutrition-benefits/)** — 23.1 g protein per 100 g with under 1.5 g fat.
+- **[Chicken thigh](/en/posts/chicken-thigh-nutrition-benefits/)** — 119 kcal and 19.7 g protein skinless, with 2.5 times the iron of breast.
 - **[Salmon](/en/posts/salmon-nutrition-benefits/)** — 20.4 g protein plus 2,150 mg omega-3 per 100 g.
 - **[Beef sirloin](/en/posts/beef-sirloin-nutrition-benefits/)** — 1.48 mg heme iron and 3.55 mg zinc.
 - **[Mackerel](/en/posts/mackerel-nutrition-benefits/)** — 898 mg EPA and 1,401 mg DHA per 100 g.

@@ -125,6 +125,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
 ## 6. Storing and Portioning Apples
 
 - **[Salmon]({{ site.baseurl }}/en/posts/salmon-nutrition-benefits/)**: Soluble pectin and quercetin protect long-chain polyunsaturated fatty acids from oxidation and stimulate endothelial nitric oxide bioavailability.
+- **[Asian Pear]({{ site.baseurl }}/en/posts/asian-pear-nutrition-benefits/)**: At 42 kcal and 7 g sugar per 100 g, Asian pear is the lighter autumn fruit, and its sorbitol softens stool. Split half a pear and half an apple across the day rather than eating both at once.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Combining apples and onions merges dietary quercetin fractions, elevating systemic anti-inflammatory resilience and microcirculatory integrity.
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Cross-synergy between apple flavonoids and cruciferous sulforaphane activates intracellular Nrf2-ARE antioxidant response elements.
 

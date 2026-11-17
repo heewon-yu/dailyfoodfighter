@@ -107,6 +107,7 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
 ## 5. Storing and Portioning Chicken Breast
 
 - **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin derivatives conjugate with chicken breast's pyridoxine cofactors, maximizing intracellular amino acid transamination and glycogen replenishment.
+- **[Chicken Thigh]({{ site.baseurl }}/en/posts/chicken-thigh-nutrition-benefits/)**: Skinless thigh matches breast at 119 kcal and 19.7 g protein per 100 g while carrying 2.5 times the iron and 2.4 times the zinc — use both cuts across a week.
 - **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Vitamin C and sulforaphane in broccoli attenuate exercise-induced lipid peroxidation while balancing post-exercise nitrogenous metabolites.
 - **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Natural malic and citric acids accelerate gastric acid secretion, optimizing hydrochloric breakdown of dense poultry actomyosin fibers.
 

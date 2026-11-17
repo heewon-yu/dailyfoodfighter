@@ -129,6 +129,7 @@ PDCAAS는 식품 단독 기준입니다. 콩류와 곡물(쌀·보리)을 한 �
 ## 6. 함께 읽으면 좋은 식재료 가이드
 
 - **[닭가슴살](/posts/chicken-breast-nutrition-benefits/)** — 100g당 단백질 23.1g, 지방 1.5g 미만의 기준 식품입니다.
+- **[닭다리살](/posts/chicken-thigh-nutrition-benefits/)** — 껍질 제거 시 119kcal·단백질 19.7g, 닭가슴살보다 철분 2.5배·아연 2.4배입니다.
 - **[연어](/posts/salmon-nutrition-benefits/)** — 단백질 20.4g과 오메가-3 2,150mg을 함께 담은 생선입니다.
 - **[소고기 등심](/posts/beef-sirloin-nutrition-benefits/)** — 헴철 1.48mg과 아연 3.55mg이 강점입니다.
 - **[고등어](/posts/mackerel-nutrition-benefits/)** — EPA 898mg·DHA 1,401mg의 등푸른생선입니다.

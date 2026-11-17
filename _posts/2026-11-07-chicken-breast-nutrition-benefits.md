@@ -116,6 +116,7 @@ nutrition:
 ## 6. 닭가슴살과 함께 먹으면 좋은 음식은?
 
 - **[마늘 (Garlic)]({{ site.baseurl }}/posts/garlic-nutrition-benefits/)**: 마늘의 알리신 성분이 닭가슴살의 풍부한 비타민 B6와 결합하여 아미노산 대사 효율을 극대화하고 단백질의 체내 축적을 돕습니다.
+- **[닭다리살 (Chicken Thigh)]({{ site.baseurl }}/posts/chicken-thigh-nutrition-benefits/)**: 껍질을 벗긴 닭다리살은 119kcal·단백질 19.7g으로 닭가슴살과 열량이 같고, 철분·아연·비타민B12가 더 많습니다. 단백질 효율은 가슴살, 미네랄은 다리살로 번갈아 쓰면 좋습니다.
 - **[브로콜리 (Broccoli)]({{ site.baseurl }}/posts/broccoli-nutrition-benefits/)**: 브로콜리의 풍부한 비타민 C와 칼륨이 닭가슴살 단백질 섭취 후 발생하는 유해 활성산소를 억제하고 나트륨-칼륨 펌프 균형을 맞춥니다.
 - **[토마토 (Tomato)]({{ site.baseurl }}/posts/tomato-nutrition-benefits/)**: 토마토의 유기산(구연산, 사과산)이 위산 분비를 촉진해 고단백 닭가슴살의 소화 흡수를 가속하고 닭고기 특유의 잡내를 완벽히 잡아냅니다.
 

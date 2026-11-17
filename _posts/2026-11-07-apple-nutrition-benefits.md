@@ -121,6 +121,7 @@ nutrition:
 ## 6. 사과와 함께 먹으면 좋은 음식은?
 
 - **[연어 (Salmon)]({{ site.baseurl }}/posts/salmon-nutrition-benefits/)**: 사과의 수용성 펙틴과 케르세틴이 연어의 불포화지방산 산화를 억제하고 혈관 내피세포의 산화질소(NO) 합성을 촉진합니다.
+- **[배 (Asian Pear)]({{ site.baseurl }}/posts/asian-pear-nutrition-benefits/)**: 배는 45kcal·당류 7g으로 사과보다 열량이 낮고 소르비톨이 들어 있습니다. 배 1/2쪽과 사과 1/2쪽으로 하루 과일 양을 나누면 당 섭취가 한쪽으로 몰리지 않습니다.
 - **[양파 (Onion)]({{ site.baseurl }}/posts/onion-nutrition-benefits/)**: 양파와 사과는 식물계 최고의 케르세틴 복합체로, 기관지 평활근 이완과 항염증·항알레르기 방어선을 강화합니다.
 - **[브로콜리 (Broccoli)]({{ site.baseurl }}/posts/broccoli-nutrition-benefits/)**: 브로콜리의 설포라판과 사과의 파이토케미컬이 결합하여 간 해독 경로를 활성화하고 유해 활성산소를 소거합니다.
 

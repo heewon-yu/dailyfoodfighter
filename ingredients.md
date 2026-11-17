@@ -4,7 +4,7 @@
 ## 🍎 과일 (Fruits) - 26종
 - [x] 토마토 (Tomato) - 2026-11-04 한/영 발행완료
 - [x] 사과 (Apple) - 2026-11-07 한/영 발행완료
-- [ ] 배 (Asian Pear)
+- [x] 배 (Asian Pear) - 2026-11-18 한/영 발행완료
 - [x] 바나나 (Banana) - 2026-11-08 한/영 발행완료
 - [x] 오렌지 (Orange) - 2026-11-12 한/영 발행완료
 - [ ] 귤 (Tangerine)
@@ -72,7 +72,7 @@
 - [ ] 돼지고기 목살 (Pork Shoulder)
 - [x] 돼지고기 안심 (Pork Tenderloin) - 2026-11-13 한/영 발행완료
 - [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
-- [ ] 닭다리살 (Chicken Thigh)
+- [x] 닭다리살 (Chicken Thigh) - 2026-11-18 한/영 발행완료
 - [ ] 오리고기 (Duck Meat)
 - [x] 달걀 (Egg) - 2026-11-09 한/영 발행완료
 - [ ] 메추리알 (Quail Egg)
