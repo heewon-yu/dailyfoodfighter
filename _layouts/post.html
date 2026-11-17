@@ -41,14 +41,14 @@ layout: default
   {% assign ad_top_repl = '</div>' | append: ad_top %}
   {% assign content_1 = content | replace_first: '</div>', ad_top_repl %}
 
-  {%- comment -%} ② 본문 중단: 1장(첫 H2 섹션)과 2장 사이 구분선 위 — 영양표와 해설이 끊기지 않는 섹션 경계 {%- endcomment -%}
-  {% assign chunks = content_1 | split: '<hr' %}
-  {% if chunks.size > 2 %}
-    {% assign ad_head = chunks | slice: 0, 2 | join: '<hr' %}
-    {% assign ad_tail = chunks | slice: 2, 99 | join: '<hr' %}
-    {% capture content_2 %}{{ ad_head }}{{ ad_inarticle }}<hr{{ ad_tail }}{% endcapture %}
+  {%- comment -%} ② 본문 중단: 1장과 2장 사이 — 영양표와 '표 읽는 법' 해설이 끊기지 않는 섹션 경계(두 번째 H2 앞) {%- endcomment -%}
+  {% assign h2_chunks = content_1 | split: '<h2' %}
+  {% if h2_chunks.size > 2 %}
+    {% assign ad_head = h2_chunks | slice: 0, 2 | join: '<h2' %}
+    {% assign ad_tail = h2_chunks | slice: 2, 99 | join: '<h2' %}
+    {% capture content_2 %}{{ ad_head }}{{ ad_inarticle }}<h2{{ ad_tail }}{% endcapture %}
   {% else %}
-    {%- comment -%} 구분선이 하나뿐인 TOP 10 허브 글은 첫 표 직후에 삽입 {%- endcomment -%}
+    {%- comment -%} H2가 하나뿐인 예외 글은 첫 표 직후에 삽입 {%- endcomment -%}
     {% assign ad_mid_repl = '</table>' | append: ad_inarticle %}
     {% assign content_2 = content_1 | replace_first: '</table>', ad_mid_repl %}
   {% endif %}
