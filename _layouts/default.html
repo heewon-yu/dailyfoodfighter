@@ -18,6 +18,14 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="author" content="DailyFoodFighter (데일리푸드파이터)">
 
+  <!-- RSS/Atom autodiscovery: feed readers and portal crawlers (Naver, Daum) find the feed from the page itself -->
+  {% if page.lang == 'en' %}
+  <link rel="alternate" type="application/rss+xml" title="DailyFoodFighter RSS" href="{{ '/feed.xml' | absolute_url }}">
+  {% else %}
+  <link rel="alternate" type="application/rss+xml" title="데일리푸드파이터 RSS" href="{{ '/feed-ko.xml' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="DailyFoodFighter RSS" href="{{ '/feed.xml' | absolute_url }}">
+  {% endif %}
+
   {% assign canonical_path = page.url | remove: 'index.html' %}
   <link rel="canonical" href="{{ canonical_path | absolute_url }}">
   {% assign alternate_page = nil %}
@@ -49,20 +57,24 @@
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
-  {% if page.last_modified_at %}
-  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
+  {% if page.layout == 'post' %}
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
+  <meta property="article:modified_time" content="{{ page.last_modified_at | default: page.date | date_to_xmlschema }}">
+  {% if page.category %}<meta property="article:section" content="{{ page.category }}">{% endif %}
+  {% for tag in page.tags limit:6 %}<meta property="article:tag" content="{{ tag }}">{% endfor %}
   {% endif %}
   {% if page.image %}
   <meta property="og:image" content="{{ page.image | absolute_url }}">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="800">
+  <meta property="og:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
   {% else %}
   <meta property="og:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="512">
   <meta property="og:image:height" content="512">
+  <meta property="og:image:alt" content="DailyFoodFighter (데일리푸드파이터) 로고">
   {% endif %}
 
   <!-- Twitter Card (Compact Summary Card) -->
