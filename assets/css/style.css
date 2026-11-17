@@ -1108,3 +1108,68 @@ body {
     font-size: 1.5rem;
   }
 }
+
+/* ==========================================================================
+   Google AdSense 광고 슬롯 (CLS 예약 영역 + '광고' 라벨)
+   - 승인 전(adsense_ready: false): 영역을 접어 두어 빈 박스가 보이지 않음
+   - 승인 후(adsense_ready: true): <html class="adsense-live"> 가 붙고
+     최소 높이를 CSS에서 먼저 예약해 레이아웃 시프트(CLS)를 막음
+   ========================================================================== */
+.ad-slot {
+  display: none;
+  width: 100%;
+  margin: 2rem auto;
+  text-align: center;
+  overflow: hidden;
+}
+
+.adsense-live .ad-slot {
+  display: block;
+}
+
+.ad-slot__label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+.ad-slot ins.adsbygoogle {
+  display: block;
+  width: 100%;
+}
+
+/* 예약 높이 — 실제 광고가 뜨기 전에 자리를 잡아 두어 본문이 튀지 않게 한다 */
+.adsense-live .ad-slot--top {
+  min-height: 250px;
+}
+
+.adsense-live .ad-slot--inarticle {
+  min-height: 300px;
+}
+
+.adsense-live .ad-slot--multiplex {
+  min-height: 340px;
+}
+
+@media (max-width: 640px) {
+  .ad-slot {
+    margin: 1.6rem auto;
+  }
+
+  .adsense-live .ad-slot--top {
+    min-height: 280px;
+  }
+
+  .adsense-live .ad-slot--inarticle {
+    min-height: 330px;
+  }
+
+  .adsense-live .ad-slot--multiplex {
+    min-height: 360px;
+  }
+}

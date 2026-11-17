@@ -34,8 +34,19 @@ layout: default
     </div>
   </header>
 
+  {% capture ad_top %}{% include ad-slot.html id="4267233745" variant="top" %}{% endcapture %}
+  {% capture ad_inarticle %}{% include ad-slot.html id="2918813859" variant="inarticle" %}{% endcapture %}
+
+  {%- comment -%} ① 상단: '한 줄 결론'(.answer-first) 박스 직후 — 모바일에서 첫 화면을 지나 처음 만나는 지점 {%- endcomment -%}
+  {% assign ad_top_repl = '</div>' | append: ad_top %}
+  {% assign content_1 = content | replace_first: '</div>', ad_top_repl %}
+
+  {%- comment -%} ② 본문 중단: 영양 성분표 직후 — 정보 소비를 마친 자연스러운 휴지점 {%- endcomment -%}
+  {% assign ad_mid_repl = '</table>' | append: ad_inarticle %}
+  {% assign content_2 = content_1 | replace_first: '</table>', ad_mid_repl %}
+
   <div class="post-content">
-    {{ content }}
+    {{ content_2 }}
   </div>
 
   <footer class="post-footer">
@@ -51,6 +62,9 @@ layout: default
         {% endif %}
       {% endif %}
     </div>
+
+    {%- comment -%} ③ 본문 하단: 추천 아티클 위 — 글을 다 읽은 사용자의 이탈 직전 지점 {%- endcomment -%}
+    {% include ad-slot.html id="2040846455" variant="multiplex" %}
 
     <!-- 추천 아티클 (같은 카테고리 우선 → 주제 클러스터 내부 링크 강화) -->
     <div class="recommended-posts" style="margin: 2.5rem 0 1.5rem 0; padding: 1.5rem; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{% if page.lang %}{{ page.lang }}{% else %}{{ site.lang | default: 'ko' }}{% endif %}">
+<html lang="{% if page.lang %}{{ page.lang }}{% else %}{{ site.lang | default: 'ko' }}{% endif %}"{% if site.adsense_ready %} class="adsense-live"{% endif %}>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

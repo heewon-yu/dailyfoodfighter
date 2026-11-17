@@ -12,6 +12,9 @@ google_site_verification: "6yCtc2PFnJY8OHTOXxSchWsOM0L6kQAqDqyXYTaLisM"
 naver_site_verification: "1c2118c3fd26040e60b2680b40860e6862f5b5bb"
 indexnow_key: "c7438e83b8a14ec1a1961efce1d2f782"
 adsense_client: "ca-pub-7921440641343288"
+# 애드센스 승인(사이트 상태 '준비됨') 후 true로 바꾸면
+# 포스트의 광고 영역(상단·본문중단·하단)이 예약 높이와 함께 즉시 게재된다.
+adsense_ready: false
 
 markdown: kramdown
 permalink: /posts/:title/

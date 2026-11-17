@@ -1,0 +1,18 @@
+{% comment %}
+  AdSense 광고 슬롯 (공통 include)
+  사용법: {% include ad-slot.html id="4267233745" variant="top" %}
+  variant: top(반응형 디스플레이) | inarticle(콘텐츠 내 자동 삽입) | multiplex(멀티플렉스)
+  승인 전에는 _config.yml의 adsense_ready: false 로 영역을 접어 두고,
+  승인 후 true 로 바꾸면 예약된 최소 높이와 함께 즉시 게재됩니다.
+{% endcomment %}
+<div class="ad-slot ad-slot--{{ include.variant }}" aria-label="{% if page.lang == 'en' %}Advertisement{% else %}광고{% endif %}">
+  <span class="ad-slot__label">{% if page.lang == 'en' %}Advertisement{% else %}광고{% endif %}</span>
+  <ins class="adsbygoogle"
+       style="display:block"
+       {%- if include.variant == 'inarticle' %} data-ad-layout="in-article" data-ad-format="fluid"
+       {%- elsif include.variant == 'multiplex' %} data-ad-format="autorelaxed"
+       {%- else %} data-ad-format="auto" data-full-width-responsive="true"{% endif %}
+       data-ad-client="{{ site.adsense_client }}"
+       data-ad-slot="{{ include.id }}"></ins>
+  {% if site.adsense_ready %}<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>{% endif %}
+</div>
