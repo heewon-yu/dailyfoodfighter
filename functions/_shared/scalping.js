@@ -47,8 +47,9 @@ export function guardRate(key, limit, now = Date.now()) {
 }
 
 export function dbFor(env) {
-  if (!env.DB) throw new ApiError('database_unavailable',503);
-  return env.DB;
+  const db = env.SCALPING_KING_DB ?? env.DB;
+  if (!db) throw new ApiError('database_unavailable',503);
+  return db;
 }
 
 export async function playerFor(db, request, required = true) {
