@@ -47,7 +47,9 @@ export function guardRate(key, limit, now = Date.now()) {
 }
 
 export function dbFor(env) {
-  const db = env.SCALPING_KING_DB ?? env.DB;
+  // Fail closed: the Pages site also hosts 300 Seconds, which can use DB.
+  // Never fall back to a different game's D1 binding on production or preview.
+  const db = env.SCALPING_KING_DB;
   if (!db) throw new ApiError('database_unavailable',503);
   return db;
 }
