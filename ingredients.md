@@ -37,7 +37,7 @@
 - [x] 시금치 (Spinach) - 2026-11-08 한/영 발행완료
 - [x] 양배추 (Cabbage) - 2026-11-12 한/영 발행완료
 - [x] 배추 (Napa Cabbage) - 2026-11-17 한/영 발행완료
-- [ ] 무 (Radish)
+- [x] 무 (Radish) - 2026-11-19 한/영 발행완료
 - [ ] 파프리카 (Bell Pepper)
 - [ ] 대파 (Green Onion)
 - [ ] 부추 (Garlic Chives)
@@ -107,4 +107,4 @@
 - [ ] 미역 (Seaweed / Wakame)
 - [ ] 다시마 (Kelp)
 - [ ] 김 (Laver / Nori)
-- [ ] 멸치 (Anchovy)
+- [x] 멸치 (Anchovy) - 2026-11-19 한/영 발행완료
