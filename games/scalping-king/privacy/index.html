@@ -155,13 +155,13 @@
 <body>
   <div class="container">
     <header>
-      <div class="badge">Google Play & Web 공식 준수</div>
+      <div class="badge">게임 개인정보 안내</div>
       <h1>5분 단타왕 개인정보처리방침</h1>
       <div class="meta">시행일자: 2026년 11월 12일 · 최종 수정일: 2026년 11월 18일</div>
     </header>
 
     <div class="intro">
-      <strong>5분 단타왕 (Scalping King)</strong>은 이용자의 개인정보를 중요시하며, 이용자 정보를 최소한으로 처리하기 위해 노력합니다. 본 방침은 모바일 앱 및 웹 환경에서 수집되는 정보의 항목, 이용 목적, 보존 기간 및 파기 절차를 투명하게 안내합니다.
+      <strong>5분 단타왕 (Scalping King)</strong>은 이용자의 개인정보를 중요시하며, 개인정보의 처리 내역과 적용되는 보호 기준을 안내합니다. 본 방침은 모바일 앱 및 웹 환경에서 수집되는 정보의 항목, 이용 목적, 보존 기간 및 파기 절차를 투명하게 안내합니다.
       <br><br>
       ※ 5분 단타왕은 가상 투자금 1억 원으로 진행되는 <strong>100% 모의투자 시뮬레이션 게임</strong>이며, 실제 금융거래나 금전의 입출금은 전혀 발생하지 않습니다.
     </div>
@@ -180,7 +180,7 @@
         <tbody>
           <tr>
             <td><strong>프로필 정보</strong></td>
-            <td>사용자 지정 닉네임 (2~12자)</td>
+            <td>사용자 지정 닉네임(2~12자), 기기에서 생성한 인증 토큰의 서버 해시</td>
             <td>일일 수익률/수익금 TOP5 명예의 전당 랭킹 표시 (회원가입·이메일·실명 불필요)</td>
           </tr>
           <tr>
@@ -190,8 +190,8 @@
           </tr>
           <tr>
             <td><strong>광고 및 기기 정보</strong></td>
-            <td>구글 광고 ID (GAID), 앱 설치 식별자, OS 버전</td>
-            <td>Google AdMob 보상형 광고 시청 확인 및 기능 활성화 (신용매수, 긴급자금, 추가 판수)</td>
+            <td>Google 광고 SDK가 처리하는 IP 주소, 앱 상호작용, 진단 정보, 광고 ID 등 기기·계정 식별자. 게임 서버는 보상 요청 식별자와 광고 거래 ID를 처리합니다.</td>
+            <td>광고 송출, 분석, 부정 이용 방지 및 보상 확인 (신용매수, 긴급자금, 손절, 추가 판수)</td>
           </tr>
         </tbody>
       </table>
@@ -202,8 +202,8 @@
       <ul>
         <li><strong>모의투자 게임 운영:</strong> KST 기준 매일 무료 5판 제공, 게임 세션 진행 및 일시정지/재개 동기화</li>
         <li><strong>공용 랭킹 집계:</strong> 당일 정상 완료된 게임 중 서버 검증을 통과한 닉네임별 최고 기록 집계 (일일 수익률 TOP5, 일일 수익금 TOP5)</li>
-        <li><strong>광고 기능 활성화:</strong> 자발적 보상형 광고 시청 완료 시 해당 판의 신용매수/긴급자금대출 권한 활성화 및 5판 소진 후 추가 1판 시작권 부여</li>
-        <li><strong>부정행위 방지:</strong> 클라이언트 조작, 비정상적 점수 변조, 다중 계정 우회 방지</li>
+        <li><strong>광고 기능 활성화:</strong> 자발적 보상형 광고 시청 완료 시 해당 판의 신용매수/긴급자금대출/손절 권한 활성화 및 5판 소진 후 추가 1판 시작권 부여</li>
+        <li><strong>부정행위 방지:</strong> 서버에서 결과를 계산해 점수 변조를 방지하며, 접속 IP로 단시간 요청 횟수를 제한합니다. 게임 DB에 접속 IP를 저장하지 않습니다.</li>
       </ul>
     </section>
 
@@ -212,9 +212,9 @@
       <p>5분 단타왕은 이용자의 프라이버시 보호와 최소 데이터 보관 원칙을 철저히 준수합니다.</p>
       <div class="card-box">
         <ul>
-          <li><strong>일반 게임 세션, 체결 데이터, 일일 랭킹 기록:</strong> <strong>당일 + 익일까지만 보관</strong>하며, 만료된 기록은 서버 정리 작업으로 삭제하도록 설계되어 있습니다. 예약 작업 지연 및 호스팅 백업·보안 로그의 별도 보존 가능성이 있으며, 모든 복제본의 즉시 삭제를 보장하지 않습니다.</li>
-          <li><strong>계정 식별자 및 닉네임:</strong> 회원가입 없이 이용하며, 랭킹·이용 제한에 필요한 최소한의 식별 정보는 서버 운영 정책에 따라 처리합니다. 본인 데이터 삭제는 아래 연락처로 요청할 수 있습니다.</li>
-          <li><strong>광고 중복 검증 식별키:</strong> 보상 중복 수령 방지에 필요한 범위에서 처리할 수 있으며, 실제 저장 여부와 보관 기간은 출시 앱 및 서버 구성에 따라 검증해야 합니다.</li>
+          <li><strong>일반 게임 세션, 체결 데이터, 일일 랭킹 기록:</strong> 한국시간 기준 당일 및 익일까지 보관하는 것을 목표로 설계했습니다. 자동 정리 기능을 실제 운영 환경에 활성화한 경우 매일 오전 1시 20분(KST) 무렵 만료 기록을 삭제하도록 설정합니다. 활성화 전에는 정해진 시각의 삭제를 보장하지 않으며, 실제 운영 보존 기간은 배포 설정을 확인해 갱신합니다.</li>
+          <li><strong>계정 식별자 및 닉네임:</strong> 사용자가 회원 탈퇴(계정 삭제)를 요청할 때까지 보관됩니다.</li>
+          <li><strong>광고 거래 식별자:</strong> 중복 지급 방지에 사용합니다. 운영 자동 정리가 활성화되면 7일이 지난 거래 식별자를 다음 정리 실행 시 삭제합니다.</li>
         </ul>
       </div>
     </section>
@@ -247,12 +247,13 @@
 
     <section>
       <h2>5. 이용자의 권리 및 계정 삭제 방법</h2>
+      <p><a href="../delete-account/">앱에서 삭제하는 방법과 앱 외부 삭제 요청 절차 보기</a></p>
       <p>이용자는 언제든지 자신의 계정과 데이터를 완전히 삭제할 권리가 있습니다.</p>
       <div class="card-box">
         <strong>닉네임 변경 및 데이터 초기화:</strong><br>
-        본 서비스는 이메일이나 비밀번호 기반 가입을 강제하지 않으며, 게임 화면 상단의 <strong>[닉네임 변경]</strong> 버튼을 통해 언제든지 닉네임을 변경할 수 있습니다. 앱 데이터 또는 브라우저 사이트 데이터 삭제로 기기 내 정보를 초기화할 수 있습니다. 서버 및 랭킹 데이터 삭제를 원하실 경우 <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>으로 요청해 주세요. 본인 확인 및 법령상 보존 의무 여부를 검토하여 처리합니다.
+        본 서비스는 이메일이나 비밀번호 기반 가입을 강제하지 않습니다. 게임의 <strong>[닉네임 변경]</strong> 화면에서 닉네임을 변경하거나 <strong>[계정 및 기록 삭제]</strong>를 선택해 본인의 서버 프로필·게임 세션·랭킹 점수를 삭제할 수 있습니다. 삭제 후 같은 기기에서 새로운 프로필을 만들 수 있으며 이전 점수는 복구할 수 없습니다. 앱을 삭제하거나 브라우저 저장소만 지우는 경우 서버 데이터는 자동으로 삭제되지 않으므로, 계정을 삭제하기 전에 앱 내 삭제 기능을 이용해 주세요. 앱 접근이 어려운 경우 <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>으로 삭제를 요청해 주세요. 광고 중복 지급 방지를 위한 연결되지 않은 거래 영수증은 자동 정리가 활성화되면 생성 후 7일이 지난 뒤 다음 정리 실행 시 삭제됩니다.
       </div>
-      <p>또는 개발자 연락처(이메일: <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>)로 문의해 주시면 요청 내용과 본인 확인을 거쳐 관련 법령에 따라 처리합니다.</p>
+      <p>또는 개발자 연락처(이메일: <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>)로 문의해 주시면 지체 없이 처리해 드립니다.</p>
     </section>
 
     <section>
@@ -264,9 +265,9 @@
       <h2>7. 개인정보 보호책임자 및 개발자 연락처</h2>
       <p>서비스 이용 중 발생하는 개인정보 관련 문의사항이나 불만 사항은 아래로 문의해 주시기 바랍니다.</p>
       <div class="card-box">
-        - <strong>서비스 운영자:</strong> DailyFoodFighter<br>
+        - <strong>서비스 개발/운영자:</strong> 유희원 (DailyFoodFighter)<br>
         - <strong>이메일:</strong> <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a><br>
-        - <strong>공식 사이트:</strong> <a href="https://dailyfoodfighter.com/">https://dailyfoodfighter.com/</a>
+        - <strong>공식 웹사이트:</strong> <a href="https://dailyfoodfighter.com/games/scalping-king/">https://dailyfoodfighter.com/games/scalping-king/</a>
       </div>
     </section>
 
@@ -278,10 +279,10 @@
       <h2>Privacy Policy (English Summary)</h2>
       <p><strong>Scalping King (5분 단타왕)</strong> is a 100% simulated mock-trading game using 100,000,000 KRW in virtual currency. No real money or financial transactions take place.</p>
       <ul>
-        <li><strong>Information Collected:</strong> User-defined nickname (2~12 characters), game session results (daily rates and profits for leaderboard ranking and quota enforcement), and Google Advertising ID (via Google AdMob SDK for rewarded ads). No email or password is required.</li>
-        <li><strong>Retention and Purging:</strong> Routine gameplay sessions and daily leaderboard records are maintained on a daily basis and subject to configured expiry and cleanup procedures; backup and security-log retention may differ.</li>
+        <li><strong>Information Collected:</strong> Nickname, hashed device-generated authentication token, gameplay and quota records, reward request and ad transaction IDs. Google Mobile Ads SDK may process IP addresses, app interactions, diagnostics, and device or account identifiers for advertising, analytics, and fraud prevention.</li>
+        <li><strong>Retention and Purging:</strong> Routine gameplay sessions and leaderboard scores are intended to be retained through the next KST day. Automatic removal depends on the production cleanup scheduler being enabled and functioning; the published retention must be verified after deployment.</li>
         <li><strong>Third-Party SDKs / Services:</strong> Google AdMob (Advertising), Cloudflare (Hosting, Functions API & CDN).</li>
-        <li><strong>Data Deletion:</strong> Users can change their nickname anytime directly in the in-game header, or request full data removal by emailing <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>.</li>
+        <li><strong>Data Deletion:</strong> Users can change their nickname or delete their in-game account and linked leaderboard scores from the nickname dialog, or request deletion help by emailing <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a>.</li>
         <li><strong>Contact:</strong> <a href="mailto:leemovie89@gmail.com">leemovie89@gmail.com</a></li>
       </ul>
     </section>
