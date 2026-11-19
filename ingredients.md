@@ -8,7 +8,7 @@
 - [x] 바나나 (Banana) - 2026-11-08 한/영 발행완료
 - [x] 오렌지 (Orange) - 2026-11-12 한/영 발행완료
 - [ ] 귤 (Tangerine)
-- [ ] 포도 (Grape)
+- [x] 포도 (Grape) - 2026-11-20 한/영 발행완료
 - [x] 블루베리 (Blueberry) - 2026-11-04 한/영 발행완료
 - [x] 딸기 (Strawberry) - 2026-11-14 한/영 발행완료
 - [ ] 수박 (Watermelon)
@@ -68,7 +68,7 @@
 ## 🥩 육류·달걀·단백질 (Meat & Protein) - 20종
 - [x] 소고기 등심 (Beef Sirloin) - 2026-11-06 한/영 발행완료
 - [ ] 소고기 우둔·사태 (Beef Round)
-- [ ] 돼지고기 삼겹살 (Pork Belly)
+- [x] 돼지고기 삼겹살 (Pork Belly) - 2026-11-20 한/영 발행완료
 - [ ] 돼지고기 목살 (Pork Shoulder)
 - [x] 돼지고기 안심 (Pork Tenderloin) - 2026-11-13 한/영 발행완료
 - [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
