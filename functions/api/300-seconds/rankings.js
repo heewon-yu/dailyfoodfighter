@@ -1,11 +1,12 @@
 // Cloudflare Pages Function: /api/300-seconds/rankings
+// 바인딩 계약: production·preview 모두 DB -> D1 scalping-db (같은 폴더 README.md 참고)
 function kstDay(){return new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Seoul',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date())}
 const H={'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':'GET,POST,OPTIONS','Access-Control-Allow-Headers':'Content-Type'};
 const out=(v,s=200)=>new Response(JSON.stringify(v),{status:s,headers:H});
 export const onRequestOptions=()=>new Response(null,{headers:H});
 const cleanNick=n=>typeof n==='string'&&/^[가-힣A-Za-z0-9_]{2,12}$/.test(n.trim().normalize('NFKC'))?n.trim().normalize('NFKC'):null;
-async function ensure(db){
- await db.prepare(`CREATE TABLE IF NOT EXISTS mystery_rankings_v4(
+const SCHEMA=[
+ `CREATE TABLE IF NOT EXISTS mystery_rankings_v4(
  id INTEGER PRIMARY KEY AUTOINCREMENT,
  kst_day TEXT NOT NULL,
  nickname TEXT NOT NULL,
@@ -14,16 +15,24 @@ async function ensure(db){
  hints INTEGER NOT NULL DEFAULT 0,
  mode TEXT NOT NULL DEFAULT 'normal',
  created_at TEXT NOT NULL DEFAULT (datetime('now'))
- )`).run();
- await db.prepare(`CREATE UNIQUE INDEX IF NOT EXISTS idx_mystery_v4_day_nick ON mystery_rankings_v4(kst_day,nickname)`).run();
- await db.prepare(`CREATE INDEX IF NOT EXISTS idx_mystery_v4_day_score ON mystery_rankings_v4(kst_day,score DESC,solved DESC)`).run();
-}
-async function purge(db){await db.prepare(`DELETE FROM mystery_rankings_v4 WHERE kst_day <> strftime('%Y-%m-%d','now','+9 hours')`).run()}
+ )`,
+ `CREATE UNIQUE INDEX IF NOT EXISTS idx_mystery_v4_day_nick ON mystery_rankings_v4(kst_day,nickname)`,
+ `CREATE INDEX IF NOT EXISTS idx_mystery_v4_day_score ON mystery_rankings_v4(kst_day,score DESC,solved DESC)`
+];
+const PURGE=`DELETE FROM mystery_rankings_v4 WHERE kst_day <> strftime('%Y-%m-%d','now','+9 hours')`;
+// 스키마 보장은 batch 한 번(왕복 1회)으로 끝낸다. 전부 IF NOT EXISTS라 매 요청 실행해도 안전하고,
+// DB를 새로 만들어도 다음 요청이 스스로 복구한다.
+async function ensure(db){await db.batch(SCHEMA.map(sql=>db.prepare(sql)))}
+async function purge(db){await db.prepare(PURGE).run()}
 export async function onRequestGet({request,env}){
  const db=env.DB||env.SCALPING_DB;if(!db)return out({day:kstDay(),daily:[],mine:null,notice:'D1 binding unavailable'},503);
  try{
-  await ensure(db); await purge(db); const day=kstDay();
-  const daily=await db.prepare(`SELECT nickname,score,solved,hints FROM mystery_rankings_v4 WHERE kst_day=? ORDER BY score DESC,solved DESC,hints ASC,created_at ASC LIMIT 5`).bind(day).all();
+  await ensure(db); const day=kstDay();
+  // 일일 purge와 순위 조회는 한 트랜잭션(batch)으로 묶어 왕복을 줄인다.
+  const [,daily]=await db.batch([
+   db.prepare(PURGE),
+   db.prepare(`SELECT nickname,score,solved,hints FROM mystery_rankings_v4 WHERE kst_day=? ORDER BY score DESC,solved DESC,hints ASC,created_at ASC LIMIT 5`).bind(day)
+  ]);
   const nick=cleanNick(new URL(request.url).searchParams.get('nickname'));
   let mine=null;
   if(nick){
