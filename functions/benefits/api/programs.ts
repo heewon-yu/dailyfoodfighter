@@ -11,7 +11,9 @@ const noStore = { 'Content-Type': 'application/json; charset=utf-8',
   'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' };
 
 export async function onRequestGet(context: Context): Promise<Response> {
-  const raw = context.env.BENEFITS_WORKER_ORIGIN?.trim();
+  // Public Worker origin is not a secret. The deployment-specific env var
+  // may override this address when migrating infrastructure.
+  const raw = context.env.BENEFITS_WORKER_ORIGIN?.trim() || "https://policy-benefit-api.leemovie89.workers.dev/";
   if (!raw) {
     return new Response(JSON.stringify({error:'benefit service not yet connected'}),
       {status:503,headers:noStore});
