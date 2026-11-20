@@ -30,7 +30,7 @@ export async function onRequestGet(context: Context): Promise<Response> {
   }
   const source=new URL(context.request.url);
   const target=new URL('/api/programs',origin);
-  for(const key of ['category','region','q','topic','limit','offset','availability','subtopic']){
+  for(const key of ['category','region','q','topic','limit','offset','availability','subtopic','collection']){
     const value=source.searchParams.get(key);
     if(value!==null)target.searchParams.set(key,value.slice(0,120));
   }
