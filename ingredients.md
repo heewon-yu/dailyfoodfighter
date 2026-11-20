@@ -55,7 +55,7 @@
 - [ ] 숙주나물 (Mung Bean Sprout)
 - [ ] 미나리 (Water Dropwort)
 - [x] 비트 (Beetroot) - 2026-11-15 한/영 발행완료
-- [ ] 연근 (Lotus Root)
+- [x] 연근 (Lotus Root) - 2026-11-21 한/영 발행완료
 - [ ] 우엉 (Burdock Root)
 - [ ] 청경채 (Bok Choy)
 - [ ] 피망 (Pimento)
@@ -92,7 +92,7 @@
 - [x] 고등어 (Mackerel) - 2026-11-07 한/영 발행완료
 - [ ] 넙치/광어 (Halibut)
 - [ ] 조기/굴비 (Yellow Croaker)
-- [ ] 삼치 (Spanish Mackerel)
+- [x] 삼치 (Spanish Mackerel) - 2026-11-21 한/영 발행완료
 - [ ] 갈치 (Hairtail)
 - [ ] 명태/북어/황태 (Pollock)
 - [x] 오징어 (Squid) - 2026-11-13 한/영 발행완료
