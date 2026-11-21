@@ -26,7 +26,7 @@
 - [ ] 체리 (Cherry)
 - [ ] 매실 (Green Plum)
 - [ ] 모과 (Chinese Quince)
-- [ ] 유자 (Yuzu)
+- [x] 유자 (Yuzu) - 2026-11-22 한/영 발행완료
 - [ ] 살구 (Apricot)
 
 ## 🥦 채소·야채 (Vegetables) - 34종
@@ -73,7 +73,7 @@
 - [x] 돼지고기 안심 (Pork Tenderloin) - 2026-11-13 한/영 발행완료
 - [x] 닭가슴살 (Chicken Breast) - 2026-11-07 한/영 발행완료
 - [x] 닭다리살 (Chicken Thigh) - 2026-11-18 한/영 발행완료
-- [ ] 오리고기 (Duck Meat)
+- [x] 오리고기 (Duck Meat) - 2026-11-22 한/영 발행완료
 - [x] 달걀 (Egg) - 2026-11-09 한/영 발행완료
 - [ ] 메추리알 (Quail Egg)
 - [ ] 양고기 (Lamb)
