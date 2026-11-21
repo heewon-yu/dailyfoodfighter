@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>한입지도 | 영상 속 맛집 찾기</title><meta name="description" content="유튜브에 소개된 맛집을 찾고, 영상 속 등장 장면과 구글 지도를 확인하세요.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="한입지도">
+<meta property="og:url" content="https://dailyfoodfighter.com/map/">
+<meta property="og:title" content="한입지도 | 영상 속 맛집 찾기">
+<meta property="og:description" content="유튜브에 소개된 맛집을 찾고, 영상 속 등장 장면과 구글 지도를 확인하세요.">
+<meta property="og:image" content="https://dailyfoodfighter.com/map/og-image.png">
+<meta property="og:image:secure_url" content="https://dailyfoodfighter.com/map/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="한입지도 — 영상 속 맛집을 찾아 지도에서 확인하세요">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="한입지도 | 영상 속 맛집 찾기">
+<meta name="twitter:description" content="유튜브에 소개된 맛집을 찾고, 영상 속 등장 장면과 구글 지도를 확인하세요.">
+<meta name="twitter:image" content="https://dailyfoodfighter.com/map/og-image.png">
+<style>
+:root{--ink:#332323;--muted:#765b57;--coral:#b73832;--accent:#ff806d;--soft:#ffe7df;--paper:#fff8f5;--line:#efdcd6}*{box-sizing:border-box}body{margin:0;font:16px/1.55 "Noto Sans KR","Malgun Gothic",system-ui,sans-serif;background:var(--paper);color:var(--ink)}button,input,select{font:inherit}a{color:inherit;text-decoration:none}button,select{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--coral);outline-offset:3px}header{border-bottom:1px solid var(--line);background:white}.top,main{max-width:1200px;margin:auto;padding:0 28px}.top{height:74px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:1.35rem;font-weight:900;letter-spacing:-.06em;display:flex;align-items:center;gap:10px}.brand b{background:var(--coral);color:white;border-radius:12px;padding:4px 10px}.tab,.chip,.secondary{background:white;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-weight:700}.tab[aria-pressed=true],.chip[aria-pressed=true]{background:var(--soft);color:#8a2721;border-color:#f2b7aa}
+.hero{margin:32px 0 30px;padding:44px 46px;border-radius:24px;background:linear-gradient(115deg,#8d2c30,#b83f37 63%,#d05245);color:white;position:relative;isolation:isolate;overflow:hidden}.hero:after{content:"";position:absolute;z-index:-1;right:-30px;top:-100px;width:390px;height:390px;border:45px solid #ffffff19;border-radius:50%;box-shadow:0 0 0 34px #ffffff0d}.hero small{color:#ffe3d9;font-weight:800;font-size:.9rem}.hero h1{font-size:clamp(2rem,4.8vw,3.7rem);line-height:1.13;margin:8px 0 12px;letter-spacing:-.075em}.hero p{margin:0 0 24px;color:#fff4ee}.search{display:flex;gap:8px;max-width:645px;background:white;padding:6px;border-radius:14px}.search input{border:0;min-width:0;flex:1;padding:9px 12px;color:var(--ink);border-radius:8px}.primary{background:#a9312c;color:white;border:0;border-radius:8px;padding:10px 16px;font-weight:800}.search .primary{background:#ffd1c4;color:#6f211e}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.chips{display:flex;gap:8px;flex-wrap:wrap}select{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:white;color:var(--ink)}.section-title{display:flex;align-items:baseline;gap:10px;margin:22px 0 12px}.section-title h2{font-size:1.4rem;margin:0;letter-spacing:-.04em}.count,.meta,.hint{color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:17px;overflow:hidden;background:white;box-shadow:0 4px 12px #60271b0b;display:flex;flex-direction:column}.thumb{height:160px;display:grid;place-items:center;position:relative;background:linear-gradient(130deg,#64302f,#af443b);color:white;overflow:hidden}.thumb img{position:absolute;width:100%;height:100%;object-fit:cover}.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#231514a3)}.play{z-index:1;display:grid;place-items:center;background:#752923dd;border:1px solid #fff9;border-radius:50%;width:43px;height:43px}.time{z-index:1;position:absolute;right:11px;bottom:10px;background:#321916e8;border-radius:6px;padding:2px 7px;font-size:.82rem}.details{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}.info{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.meta{margin:0;color:#943b32;font-weight:750}.details h3{margin:4px 0 6px;font-size:1.17rem;letter-spacing:-.045em}.save{border:1px solid var(--line);background:white;color:#8a2721;border-radius:10px;padding:4px 10px;font-size:1.25rem}.save[aria-pressed=true]{background:var(--soft)}.source{font-size:.87rem;color:var(--muted);margin:0 0 13px}.actions{display:flex;gap:8px;margin-top:auto}.actions a{flex:1;text-align:center;font-size:.86rem;padding:8px 5px;border-radius:8px;font-weight:750}.map{background:#fff1eb;color:#8a2721;border:1px solid #f1c7bc}.video{background:#a9312c;color:white;border:1px solid #a9312c}.empty{grid-column:1/-1;text-align:center;padding:43px;border:1px dashed #d7a79a;border-radius:15px}.foot{text-align:center;color:#826b64;font-size:10px;margin:42px 0 20px}.hint{margin:16px 0} @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:530px){.top,main{padding-inline:16px}.top{height:62px}.hero{margin:18px 0;padding:25px 20px}.grid{grid-template-columns:1fr}.thumb{height:175px}.tab,.chip{padding:7px 10px}}
+dialog{width:min(680px,calc(100% - 30px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:20px;padding:22px;background:white;color:var(--ink)}dialog::backdrop{background:#2d1718a8}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.dialog-head h2{margin:0 0 4px}.player{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#351f20;margin:14px 0}.detail-button{border:0;background:none;padding:0;text-align:left;color:inherit;font:inherit;font-weight:inherit}.detail-button:hover{text-decoration:underline}
+.map-section{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin:0 0 25px}.map-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.map-heading h2{margin:0;letter-spacing:-.04em;font-size:1.45rem}.map-heading a{font-size:.87rem}.map-section .chips{margin-bottom:14px}.map-section .chip{font-size:.88rem;padding:6px 11px}.map-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}.google-map{display:block;border:0;width:100%;height:335px;background:var(--soft)}.map-sidebar{min-width:0;padding:13px;background:#fffbf9;max-height:335px;overflow:auto}.map-sidebar h3{margin:0 0 8px;font-size:1rem}.map-place{display:block;width:100%;padding:8px 9px;text-align:left;background:white;border:1px solid var(--line);border-radius:8px;color:var(--ink);margin-bottom:5px;font-weight:700;font-size:.89rem}.map-place small{display:block;color:var(--muted);font-weight:400}.map-place[aria-pressed=true]{background:var(--soft);border-color:#f2b7aa}.map-empty{color:var(--muted);margin:8px 0;font-size:.9rem}.result-shortcut{display:inline-block;color:var(--coral);text-decoration:underline;font-weight:700;font-size:.88rem;margin-bottom:10px}@media(max-width:640px){.map-layout{grid-template-columns:1fr}.google-map{height:260px}.map-sidebar{max-height:205px}.map-section{padding:14px}}
+</style></head>
+<body><header><div class="top"><a class="brand" href="./"><b aria-hidden="true">●</b> 한입지도</a><button id="saved" class="tab" aria-pressed="false">☆ 저장한 장소</button></div></header>
+<main><section class="hero"><small>유튜브 맛집 지도</small><h1>영상 속 그 맛집,<br>어디였지?</h1><p>가게 이름이나 지역으로 찾아보고, 소개 장면과 위치를 확인하세요.</p><form class="search" role="search"><input id="query" type="search" aria-label="가게, 지역 또는 메뉴 검색" placeholder="예: 제주, 국밥, 이재모피자"><button class="primary">검색</button></form></section>
+<section class="map-section" aria-labelledby="map-title"><div class="map-heading"><h2 id="map-title">전국 맛집 지도</h2><a id="open-map" class="secondary" target="_blank" rel="noopener noreferrer">구글 지도에서 열기</a></div>
+<div class="chips" id="regions" role="group" aria-label="전국 17개 시·도 필터"></div>
+<div class="map-layout"><iframe id="google-map" class="google-map" title="대한민국 구글 지도" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<div class="map-sidebar"><h3 id="map-region" aria-live="polite"></h3><a class="result-shortcut" href="#results-title">장소 카드 보기</a><div id="map-places"></div></div></div></section>
+<section aria-labelledby="results-title"><div class="toolbar"><div class="selects"><select id="channel" aria-label="소개 채널"><option value="">모든 채널</option></select> <select id="kind" aria-label="음식 종류"><option value="">모든 음식</option></select></div></div><div class="section-title"><h2 id="results-title">장소 둘러보기</h2><span class="count" id="count" aria-live="polite"></span></div><div class="grid" id="grid"></div><p class="hint">구독자 10만 명 이상 채널의 방문 영상을 수록합니다. 같은 지점에 여러 영상이 있으면 확인 시점에 구독자 수가 가장 많은 채널의 영상을 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.</p></section></main><footer class="foot">created by 16100901</footer>
+<dialog id="place-dialog" aria-labelledby="place-title"></dialog>
+<script>
+const regions = ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'];
+// Rounded public subscriber counts collected for this release.
+const subscribers = {
+  "성시경 · 먹을텐데": 2360000,
+  "쯔양": 13500000,
+  "풍자 · 또간집": 1260000,
+  "김사원세끼": 434000,
+  "떡볶퀸": 657000,
+  "홍석천이원일": 413000,
+  "백종원 · 님아 그 시장을 가오": 5810000,
+  "정육왕": 830000,
+  "전현무계획 · MBN": 2960000,
+  "맛있겠다 Yummy": 511000,
+  "회사랑": 278000,
+  "육식맨": 1440000,
+  "더들리": 1260000,
+  "섬마을훈태": 549000,
+  "윤호찌": 418000,
+  "하이갱스": 457000,
+  "히밥": 1730000,
+  "광마니": 817000,
+  "곽튜브": 2150000,
+  "맛상무": 638000,
+  "상해기": 1570000,
+  "김숙티비": 762000,
+  "츄릅켠": 255000,
+  "최자로드 · tvN D ENT": 5370000,
+  "이영자 TV": 496000,
+  "잡식맨": 221000,
+  "입짧은햇님 · tvN Joy": 4530000,
+  "비밀이야": 618000,
+  "면부장": 117000,
+  "주당 김자케": 113000
+};
+const listings = [["하이콴","서울","서울 서초구 논현역","쌀국수","곱창쌀국수","pY1kORvBEYs","성시경 · 먹을텐데",null],
+  ["제일식당","서울","서울 은평구 수색동","고기","삼겹살","u4bhSCvA36A","성시경 · 먹을텐데",null],
+  ["포항집","부산","부산 중구 자갈치시장","국밥","선지국밥","BCRTR0jiTjs","쯔양",null],
+  ["오두리할매셋째딸연탄쭈꾸미","부산","부산 사하구 대티역","해산물","연탄주꾸미","kX4ZBtthf4g","성시경 · 먹을텐데",null],
+  ["천성삼거리장어구이","부산","부산 강서구 가덕도","해산물","장어탕","1HExH6cy5BQ","풍자 · 또간집",null],
+  ["갓포이찌","울산","울산 남구","일식","모둠 사시미","Ppt-Dr0QT_o","풍자 · 또간집",null],
+  ["산장가든","세종","세종 연서면","고기","숯불갈비","BE1CT-3362Y","풍자 · 또간집",1756],
+  ["충남순대국밥","세종","세종 금남면","국밥","순댓국","BE1CT-3362Y","풍자 · 또간집",null],
+  ["천서리막국수 본점","경기","경기 여주시 천서리","면요리","막국수","xONMxhv5514","쯔양",null],
+  ["정선한마당","강원","강원 정선군 정선아리랑시장","면요리","콧등치기","hCctC02b808","쯔양",null],
+  ["마차갈비","강원","강원 영월군","고기","갈비","nxukV1yfvCA","풍자 · 또간집",null],
+  ["새가덕순대","충북","충북 청주시 육거리종합시장","국밥","순대국밥","IUfQCYRP6b0","쯔양",null],
+  ["진토랑","충남","충남 공주시","한식","돌솥비빔밥","-vsNkVIRvt0","풍자 · 또간집",967],
+  ["북경탕수육","충남","충남 공주시","중식","김피탕","-vsNkVIRvt0","풍자 · 또간집",null],
+  ["청면옥","전북","전북 정읍시","고기","오리주물럭","jSiLx_Ahh_s","풍자 · 또간집",null],
+  ["한우통큰소곱창","전북","전북 정읍시 수성동","고기","한우 모둠구이","jSiLx_Ahh_s","풍자 · 또간집",1185],
+  ["진양호짬뽕","경남","경남 진주시","중식","고기짬뽕","Uf8V4EvPKWk","풍자 · 또간집",null],
+  ["동복리 해녀촌","제주","제주 제주시 구좌읍","면요리","회국수","glQ2P0B-EwE","성시경 · 먹을텐데",null],
+  ["돌다메","제주","제주 제주시 외도동","고기","흑돼지 가브리살","glQ2P0B-EwE","성시경 · 먹을텐데",null],
+  ["광화문더덕순대","서울","서울 종로구 광화문","국밥","모둠순대","2RdQucwAl-M","김사원세끼",null],
+  ["농가순대국","서울","서울 중구 을지로","국밥","얼큰 순댓국","2RdQucwAl-M","김사원세끼",null],
+  ["강남식당","인천","인천 서구 강남시장","한식","시장 맛집","pvieKrnke7Q","떡볶퀸",44],
+  ["춘자네 부대찌개","경기","경기 광명시 광명시장","찌개","부대찌개","pvieKrnke7Q","떡볶퀸",574],
+  ["얼큰이칼국수","대구","대구 중구 서문시장 2지구","면요리","칼국수","pvieKrnke7Q","떡볶퀸",996],
+  ["유원","부산","부산 중구 중앙동","한식","부산 중구 맛집","pvieKrnke7Q","떡볶퀸",1508],
+  ["마루막창","대구","대구 수성구 수성못","고기","막창","OkjHUqQIvhQ","홍석천이원일",null],
+  ["시장닭집","대구","대구 군위군 군위시장","고기","연탄 닭구이","EZX-WO2QkiM","백종원 · 님아 그 시장을 가오",null],
+  ["땡구땡구","대전","대전 서구 관저동","고기","고기구이","Kdlpk_By76k","정육왕",null],
+  ["강선생","인천","인천 서구 청라","분식","손만두","PTtXdHlgops","전현무계획 · MBN",null],
+  ["거부곱창","인천","인천 미추홀구","고기","생곱창","PTtXdHlgops","전현무계획 · MBN",null],
+  ["원조화심두부","전북","전북 완주군 소양면","한식","순두부","8qBH-gQuyPc","전현무계획 · MBN",null],
+  ["나주곰탕원조집60년 남평할매집","전남","전남 나주시 금계동","국밥","나주곰탕","JD_ngLVnLRg","맛있겠다 Yummy",null],
+  ["인천식당","경북","경북 포항시","한식","두루치기","nuv0AypvKxM","풍자 · 또간집",null],
+  ["광주보쌈","광주","광주 동구 서석로 29-5","한식","보쌈","VSbsK1r-siA","맛있겠다 Yummy",null],
+  ["막내회집 광교점","서울","서울 종로구 우정국로 4-1","해산물","회정식","YbqP7Q_gCnM","회사랑",null],
+  ["화성식당","제주","제주 제주시 삼양동","국밥","접짝뼈국","5kBntOa0GUE","육식맨",null],
+  ["스와니예","서울","서울 서초구 반포동","파인다이닝","코스 요리","QOVAWygPD00","더들리",null],
+  ["싱싱회수산","광주","광주 북구 군왕로 24","해산물","하모회","jWHItY5Ab_8","섬마을훈태",null],
+  ["브런디17","경기","경기 부천시 상동","뷔페","브런치 뷔페","BgoQascZBkc","윤호찌",null],
+  ["충남순대국밥","세종","세종 금남면","국밥","순댓국","-R2pRC5G-KQ","하이갱스",36],
+  ["당미소","세종","세종 아름동","한식","한식","-R2pRC5G-KQ","하이갱스",null],
+  ["오목골 즉석메밀우동","인천","인천 미추홀구 석정로 142","면요리","메밀우동","0BXpQ80VYH8","히밥",null],
+  ["짬뽕일상","경기","경기 화성시 향남읍 행정리","중식","매운 짬뽕","5s66B62gruY","광마니",null],
+  ["바다원횟집","부산","부산 강서구 가덕해안로 748","해산물","전어회","wH_HRIf2Pfk","곽튜브",null],
+  ["안동돼지국밥","부산","부산 사상구 백양대로 712","국밥","돼지국밥","wH_HRIf2Pfk","곽튜브",null],
+  ["시골손칼국수","대전","대전 대덕구 송촌동 290-20","면요리","손칼국수","ZtW5uX8WtSM","맛상무",null],
+  ["86카츠","충북","충북 청주시 청주대학교 앞","일식","돈가스","dJVTGQvtoQo","상해기",null],
+  ["네거리식당","제주","제주 서귀포시 서문로29번길 20","해산물","갈치구이","--3CUm5lrp0","김숙티비",null],
+  ["세화갈비","제주","제주 제주시 구좌읍 세화리","고기","소왕갈비찜","--3CUm5lrp0","김숙티비",null],
+  ["어징오횟집","부산","부산 부산진구 부전동","해산물","오징어회","Et6C_cfpmSU","츄릅켠",41],
+  ["줘마양다리구이 본점","서울","서울 영등포구 대림동","중식","양다리구이","xCuB84g8cIM","최자로드 · tvN D ENT",null],
+  ["평원집","경기","경기 용인시 처인구 용인중앙시장","국밥","순대국밥","44Qfp9sp_U8","이영자 TV",null],
+  ["띵하우","서울","서울 마포구 연남동","중식","어향가지","4PMeulsiZ1I","잡식맨",null],
+  ["광장시장 찹쌀꽈배기","서울","서울 종로구 광장시장","분식","찹쌀꽈배기","Qr9MqMjf0WU","입짧은햇님 · tvN Joy",null],
+  ["산동만두","서울","서울 마포구 도화동","중식","만두","1AZSAZBBNIA","비밀이야",null],
+  ["밀밭칼국수","부산","부산 서구 토성역 인근","면요리","라면수제비","rmWiecLPFjQ","면부장",null],
+  ["신흥관","부산","부산 해운대구 중동","중식","마늘짜장","FBDp9XosL54","주당 김자케",null],
+  ["삼삼아구찜","부산","부산 해운대구","해산물","생아귀수육","FBDp9XosL54","주당 김자케",null]];
+function representativePlaces(entries) {
+  const byBranch = new Map();
+  for (const [name,region,area,kind,menu,id,label,start] of entries) {
+    const size = subscribers[label];
+    if (!Number.isFinite(size) || size < 100000) continue;
+    const key = [name,region,area].map(value=>value.normalize('NFKC').toLowerCase().replace(/\s+/g,'')).join('|');
+    const existing = byBranch.get(key);
+    if (!existing || size > existing.source.subscribers ||
+        (size === existing.source.subscribers && existing.start === null && start !== null)) {
+      byBranch.set(key,{name,region,area,kind,menu,source:{id,label,subscribers:size},start});
+    }
+  }
+  return [...byBranch.values()];
+}
+const places = representativePlaces(listings);
+
+const $ = id => document.getElementById(id);
+const state = {region:'',savedOnly:false,mapPlace:null};
+const storageKey = 'hanip-guide:saved:v1';
+function readSaved() {
+  try {
+    const data = JSON.parse(localStorage.getItem(storageKey) || '[]');
+    return new Set(Array.isArray(data) ? data.filter(item => typeof item === 'string') : []);
+  } catch { return new Set(); }
+}
+let saved = readSaved();
+function make(tag, className, content) {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (content) element.textContent = content;
+  return element;
+}
+function link(className, label, href) {
+  const element = make('a', className, label);
+  element.href = href;
+  element.target = '_blank';
+  element.rel = 'noopener noreferrer';
+  return element;
+}
+function showPlace(place, source, watch, map) {
+  const dialog = $('place-dialog');
+  const head = make('div','dialog-head');
+  const title = make('div');
+  const heading = make('h2','',place.name);
+  heading.id = 'place-title';
+  title.append(heading,make('p','meta',place.area + ' · ' + place.menu));
+  const close = make('button','secondary','닫기');
+  close.onclick = () => dialog.close();
+  head.append(title,close);
+  const embed = new URL('https://www.youtube-nocookie.com/embed/' + source.id);
+  if (place.start !== null) embed.searchParams.set('start',place.start);
+  const frame = make('iframe','player');
+  frame.src = embed;
+  frame.title = place.name + ' 소개 YouTube 영상';
+  frame.allowFullscreen = true;
+  const actions = make('div','actions');
+  actions.append(link('map','구글 지도에서 위치 보기',map),link('video','YouTube에서 열기',watch));
+  dialog.replaceChildren(head,frame,make('p','source',source.label),actions);
+  dialog.showModal();
+}
+$('place-dialog').addEventListener('close',()=> $('place-dialog').replaceChildren());
+function card(place) {
+  const source = place.source;
+  const watch = new URL('https://www.youtube.com/watch');
+  watch.searchParams.set('v', source.id);
+  if (place.start !== null) watch.searchParams.set('t', place.start + 's');
+  const map = new URL('https://www.google.com/maps/search/');
+  map.searchParams.set('api','1');
+  map.searchParams.set('query',place.name + ' ' + place.area);
+  const article = make('article','card');
+  const thumb = link('thumb','',watch);
+  thumb.setAttribute('aria-label', place.name + ' 소개 영상 열기');
+  const image = make('img');
+  image.src = 'https://i.ytimg.com/vi/' + source.id + '/hqdefault.jpg';
+  image.loading = 'lazy';
+  image.alt = '';
+  image.addEventListener('error',()=>image.remove());
+  const play = make('span','play','▶');
+  play.setAttribute('aria-hidden','true');
+  thumb.append(image,play);
+  if (place.start !== null) {
+    const stamp = Math.floor(place.start/60) + ':' + String(place.start%60).padStart(2,'0');
+    thumb.append(make('span','time',stamp + '부터'));
+  }
+  const details = make('div','details');
+  const info = make('div','info');
+  const heading = make('div');
+  const name = make('h3');
+  const detail = make('button','detail-button',place.name);
+  detail.setAttribute('aria-haspopup','dialog');
+  detail.onclick = () => showPlace(place,source,watch,map);
+  name.append(detail);
+  heading.append(make('p','meta',place.area + ' · ' + place.kind),name);
+  const save = make('button','save');
+  function updateSave() {
+    const selected = saved.has(place.name);
+    save.textContent = selected ? '★' : '☆';
+    save.setAttribute('aria-pressed', String(selected));
+    save.setAttribute('aria-label',place.name + (selected ? ' 저장 취소' : ' 저장'));
+    $('saved').textContent = (state.savedOnly ? '★' : '☆') + ' 저장한 장소' + (saved.size ? ' ' + saved.size : '');
+  }
+  updateSave();
+  save.onclick = () => {
+    if (saved.has(place.name)) saved.delete(place.name);
+    else saved.add(place.name);
+    try { localStorage.setItem(storageKey, JSON.stringify([...saved])); } catch {}
+    updateSave();
+    if (state.savedOnly) { render(); ($('grid').querySelector('.save') || $('saved')).focus(); }
+  };
+  info.append(heading,save);
+  const actions = make('div','actions');
+  actions.append(link('map','구글 지도',map),link('video',place.start === null ? '소개 영상' : '등장 장면',watch));
+  details.append(info,make('p','source',place.menu + ' · ' + source.label),actions);
+  article.append(thumb,details);
+  return article;
+}
+function normalize(value) { return value.normalize('NFKC').toLowerCase().trim(); }
+const regionNames = {서울:'서울특별시',부산:'부산광역시',대구:'대구광역시',인천:'인천광역시',광주:'광주광역시',대전:'대전광역시',울산:'울산광역시',세종:'세종특별자치시',경기:'경기도',강원:'강원특별자치도',충북:'충청북도',충남:'충청남도',전북:'전북특별자치도',전남:'전라남도',경북:'경상북도',경남:'경상남도',제주:'제주특별자치도'};
+function setMap(place) {
+  const target = place ? place.name + ' ' + place.area : regionNames[state.region] || '대한민국';
+  const frame = $('google-map');
+  const embed = new URL('https://maps.google.com/maps');
+  embed.searchParams.set('q',target);
+  embed.searchParams.set('z',place ? '16' : state.region ? '9' : '7');
+  embed.searchParams.set('hl','ko');
+  embed.searchParams.set('output','embed');
+  if (frame.getAttribute('src') !== embed.href) frame.src = embed.href;
+  frame.title = target + ' 구글 지도';
+  const open = new URL('https://www.google.com/maps/search/');
+  open.searchParams.set('api','1');
+  open.searchParams.set('query',target);
+  $('open-map').href = open.href;
+}
+function renderMap(filtered) {
+  const current = filtered.find(place => place.name === state.mapPlace);
+  if (!current) state.mapPlace = null;
+  setMap(current);
+  $('map-region').textContent = (state.region || '전국') + ' · ' + filtered.length + '곳';
+  const list = $('map-places');
+  list.replaceChildren();
+  if (!filtered.length) {
+    const missingRegion = state.region && !places.some(place=>place.region === state.region);
+    list.append(make('p','map-empty',missingRegion ? '이 지역은 조건에 맞는 영상이 확인되면 추가합니다.' : '현재 조건에 맞는 장소가 없어요.'));
+    return;
+  }
+  for (const place of filtered) {
+    const button = make('button','map-place',place.name);
+    button.setAttribute('aria-pressed',String(place === current));
+    button.append(make('small','',place.area + ' · ' + place.source.label));
+    button.onclick = () => {
+      state.mapPlace = place.name;
+      setMap(place);
+      for (const item of list.children) item.setAttribute('aria-pressed',String(item === button));
+    };
+    list.append(button);
+  }
+}
+function render() {
+  const terms = normalize($('query').value).split(/\s+/).filter(Boolean);
+  const filtered = places.filter(p => {
+    const searchable = normalize([p.name,p.region,p.area,p.kind,p.menu,p.source.label].join(' '));
+    return (!state.region || p.region === state.region) &&
+      (!$('kind').value || $('kind').value === p.kind) &&
+      (!$('channel').value || $('channel').value === p.source.label) &&
+      (!state.savedOnly || saved.has(p.name)) && terms.every(term => searchable.includes(term));
+  });
+  $('saved').textContent = (state.savedOnly ? '★' : '☆') + ' 저장한 장소' + (saved.size ? ' ' + saved.size : '');
+  $('saved').setAttribute('aria-pressed',String(state.savedOnly));
+  $('results-title').textContent = state.savedOnly ? '저장한 장소' : '장소 둘러보기';
+  $('count').textContent = filtered.length + '곳';
+  renderMap(filtered);
+  for (const chip of $('regions').children) chip.setAttribute('aria-pressed',String(chip.dataset.region === state.region));
+  $('grid').replaceChildren(...filtered.map(card));
+  if (!filtered.length) {
+    const empty = make('div','empty');
+    if (!state.savedOnly && state.region && !places.some(place => place.region === state.region)) {
+      empty.append(make('p','',state.region + '에 등록된 영상이 아직 없어요.'),make('p','hint','선정 기준을 충족하는 소개 영상을 확인한 뒤 추가합니다.'));
+      $('grid').append(empty);
+      return;
+    }
+    empty.append(make('p','',state.savedOnly && !saved.size ? '별 버튼을 눌러 관심 있는 장소를 저장하세요.' : '조건에 맞는 장소가 없어요.'));
+    const reset = make('button','secondary',state.savedOnly && !saved.size ? '장소 둘러보기' : '필터 초기화');
+    reset.onclick = () => {
+      $('query').value = ''; $('kind').value = ''; $('channel').value = ''; state.region = '';
+      if (!saved.size) state.savedOnly = false;
+      render(); $('query').focus();
+    };
+    empty.append(reset); $('grid').append(empty);
+  }
+}
+for (const region of ['',...regions]) {
+  const chip = make('button','chip',region || '전체 지역');
+  chip.dataset.region = region;
+  chip.onclick = () => { state.region = region; state.mapPlace = null; render(); };
+  $('regions').append(chip);
+}
+for (const label of new Set(places.map(p=>p.source.label))) $('channel').add(new Option(label,label));
+$('channel').addEventListener('change',render);
+for (const kind of new Set(places.map(p=>p.kind))) $('kind').add(new Option(kind,kind));
+$('query').addEventListener('input',render);
+$('kind').addEventListener('change',render);
+document.querySelector('form').addEventListener('submit',event=>{event.preventDefault();render();});
+$('saved').onclick = () => { state.savedOnly = !state.savedOnly; $('query').value=''; $('kind').value=''; $('channel').value=''; state.region=''; render(); };
+window.addEventListener('storage',event=>{if(event.key===storageKey || event.key===null){saved=readSaved();render();}});
+render();
+</script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5dfcc0a0a605012',t:'MTc5NTI2NTE4NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5dfcc0a0a605012',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
