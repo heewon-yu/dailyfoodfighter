@@ -119,6 +119,22 @@
   color: #1d4ed8;
 }
 
+[data-map-view=abroad] .toolbar .types .chip {
+  background: #ffffff;
+  color: #16305c;
+  border-color: #b9d2f6;
+}
+
+[data-map-view=abroad] .toolbar .types .chip[aria-pressed=true] {
+  background: #1d4ed8;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+[data-map-view=abroad] .toolbar .types .chip:hover {
+  border-color: #1d4ed8;
+}
+
 [data-map-view=abroad] dialog::backdrop {
   background: #0b1f42a8;
 }
