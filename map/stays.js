@@ -36,7 +36,7 @@ window.hanbamCatalogue = {
     "위대한해리씨TheGreatHarry": 318,
     "하와이 조조": 1030,
     "돈이의 지구여행 DONI GoGo": 4850,
-    "Yeoniverse": 114000,
+    "여니버스 Yeoniverse": 114000,
     "눈요기하는불불이": 615,
     "퇴사말고강사": 9380,
     "투어클랜tv": 3610,
@@ -1107,7 +1107,7 @@ window.hanbamCatalogue = {
     },
     {
       name:"노보텔 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
-      review:"일반 노보텔 디럭스 객실 투숙기", channel:"Yeoniverse", id:"kq3BZtrmw-U", start:null,
+      review:"일반 노보텔 디럭스 객실 투숙기", channel:"여니버스 Yeoniverse", id:"kq3BZtrmw-U", start:null,
       official:"https://www.ambatel.com/novotel/yongsan/ko/main.do"
     },
     {
