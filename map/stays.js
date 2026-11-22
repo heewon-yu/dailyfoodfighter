@@ -12,7 +12,10 @@ window.hanbamCatalogue = {
     '더들리': 1270000,
     '차박차박 Chabak': 236000,
     '유리소리TV': 163000,
-    '여행가 제이': 832000
+    '여행가 제이': 832000,
+    '손놈 : 셀카없는 항공 호텔리뷰': 159000,
+    '초마드 CHOMAD': 756000,
+    '여행에미치다': 375000
   },
   stays: [
     {
@@ -40,7 +43,7 @@ window.hanbamCatalogue = {
     },
     {
       name:'어라운드폴리', region:'제주', area:'제주 서귀포시 성산읍 서성일로 433', kind:'글램핑·카라반',
-      review:'롯지와 에어스트림 소개', channel:'여락이들_', id:'aPeQQKck5_0', start:null,
+      review:'복층 롯지와 에어스트림 내부', channel:'여락이들_', id:'aPeQQKck5_0', start:200,
       official:'https://www.aroundfollie.com/'
     },
     {
@@ -107,7 +110,7 @@ window.hanbamCatalogue = {
     },
     {
       name:'활엽수 게스트하우스', region:'제주', area:'제주 서귀포시 대정읍 상모대서로20번길 44', kind:'게스트하우스',
-      review:'제주 돌집 숙소 소개', channel:'여락이들_', id:'aPeQQKck5_0', start:null,
+      review:'제주 돌집 게스트하우스 방문기', channel:'여락이들_', id:'aPeQQKck5_0', start:561,
       official:'https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020088'
     },
     {
@@ -201,7 +204,7 @@ window.hanbamCatalogue = {
     },
     {
       name:"쏠비치 삼척", region:"강원", area:"강원 삼척시 수로부인길 453", kind:"리조트",
-      review:"리조트 투숙과 오션플레이", channel:"돈캣 PL․EX", id:"6iYjHZGhaA0", start:null,
+      review:"객실과 오션플레이", channel:"돈캣 PL․EX", id:"6iYjHZGhaA0", start:288,
       official:"https://access.visitkorea.or.kr/acm/detail.do?cotId=da98725d-18c5-4a69-94de-55fdfc711b0b"
     },
     {
@@ -264,10 +267,10 @@ window.hanbamCatalogue = {
     },
     {
       name:"인스파이어 엔터테인먼트 리조트", region:"인천", area:"인천 영종구 공항문화로 127", kind:"리조트",
-      review:"영종도 복합 리조트 방문 리뷰", channel:"호텔사장 기먼성", id:"dWE2DrhRrYw", start:null,
+      review:"영종도 리조트 객실 방문 리뷰", channel:"호텔사장 기먼성", id:"dWE2DrhRrYw", start:180,
       official:"https://www.inspireresorts.com/",
       reviews: [
-        {review:"객실과 복합 리조트 시설", channel:"돈캣 PL․EX", id:"Hgo4b8ymRfo", start:null}
+        {review:"선타워 디럭스 객실과 리조트 시설", channel:"돈캣 PL․EX", id:"Hgo4b8ymRfo", start:336}
       ]
     },
     {
@@ -278,7 +281,10 @@ window.hanbamCatalogue = {
     {
       name:"시그니엘 서울", region:"서울", area:"서울 송파구 올림픽로 300", kind:"호텔",
       review:"롯데월드타워 호텔 리뷰", channel:"호텔사장 기먼성", id:"SkTnKEU1zUg", start:null,
-      official:"https://app.lottehotel.com/seoul-signiel/ko/about/location"
+      official:"https://app.lottehotel.com/seoul-signiel/ko/about/location",
+      reviews: [
+        {review:"99층 한강 전망 프리미어 더블룸 후기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"wIx6SYb6bFs", start:null}
+      ]
     },
     {
       name:"조선 팰리스 서울 강남", region:"서울", area:"서울 강남구 테헤란로 231", kind:"호텔",
@@ -289,13 +295,13 @@ window.hanbamCatalogue = {
       ]
     },
     {
-      name:"포레스트 리솜", region:"충북", area:"충북 제천시 백운면 금봉로 365", kind:"리조트",
-      review:"제천 숲속 리조트와 온천", channel:"돈캣 PL․EX", id:"zbfUACBdVMc", start:null,
-      official:"https://www.resom.co.kr/forest/resort/resort_map.asp"
+      name:"레스트리 리솜", region:"충북", area:"충북 제천시 백운면 금봉로 365", kind:"리조트",
+      review:"레스트리 호텔동 S25 객실과 온천", channel:"돈캣 PL․EX", id:"zbfUACBdVMc", start:134,
+      official:"https://resom.co.kr/restree/room/room_detail.asp?page=4&rmid=s25"
     },
     {
       name:"아일랜드 리솜", region:"충남", area:"충남 태안군 안면읍 꽃지해안로 204", kind:"리조트",
-      review:"안면도 리조트와 워터파크", channel:"돈캣 PL․EX", id:"9VnNpQtUl-o", start:null,
+      review:"안면도 오션뷰 객실과 워터파크", channel:"돈캣 PL․EX", id:"9VnNpQtUl-o", start:108,
       official:"https://www.resom.co.kr/island/resort/resort_map.asp"
     },
     {
@@ -402,10 +408,7 @@ window.hanbamCatalogue = {
     {
       name:"파라다이스시티", region:"인천", area:"인천 영종구 영종해안남로321번길 186", kind:"리조트",
       review:"객실과 씨메르·원더박스 리뷰", channel:"돈캣 PL․EX", id:"9FIhqJQuKFk", start:null,
-      official:"https://www.p-city.com/front/contents/pcity/location",
-      reviews: [
-        {review:"객실과 패키지 리뷰 · 유료광고 포함", channel:"더들리", id:"p44vipzieJA", start:null}
-      ]
+      official:"https://www.p-city.com/front/contents/pcity/location"
     },
     {
       name:"풀만 앰배서더 서울 이스트폴", region:"서울", area:"서울 광진구 아차산로 410", kind:"호텔",
@@ -440,7 +443,7 @@ window.hanbamCatalogue = {
     },
     {
       name:"코랄로 바이 조선", region:"강원", area:"강원 양양군 현남면 인구중앙길 10", kind:"호텔",
-      review:"양양 부티크 호텔과 시설", channel:"Travel with Nanajane", id:"0yrZtcWddsM", start:null,
+      review:"디럭스·펫룸·스위트 등 객실 비교", channel:"Travel with Nanajane", id:"0yrZtcWddsM", start:128,
       official:"https://www.stayfolio.com/journal/picks/corallo-by-josun"
     },
     {
@@ -548,11 +551,6 @@ window.hanbamCatalogue = {
       official:"https://www.discoverasr.com/ko/somerset-serviced-residence/korea-south/somerset-jeju-shinhwa-world"
     },
     {
-      name:"여수 호텔 헤이븐", region:"전남", area:"전남 여수시 돌산읍 진두해안길 131", kind:"호텔",
-      review:"여수 밤바다 전망 숙소 소개", channel:"일상이여행 Everyday travel", id:"qm89-iSZrEg", start:null,
-      official:"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=97cf01bd-43b9-4174-884f-cee6d40c6731"
-    },
-    {
       name:"파크오브드림", region:"충남", area:"충남 공주시 반포면 동학사1로 46", kind:"글램핑·카라반",
       review:"계룡산 글램핑 시설 소개 · 광고", channel:"일상이여행 Everyday travel", id:"Dqu4Cr9TmKg", start:null,
       official:"https://tour.chungnam.go.kr/prog/trsrcn/kor/sub02_01_01/view.do?trsrcnNo=237"
@@ -580,7 +578,138 @@ window.hanbamCatalogue = {
     {
       name:"노보텔 스위트 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
       review:"용산 스위트 객실 및 주방 소개", channel:"일상이여행 Everyday travel", id:"C9Vb1Z95OjI", start:null,
-      official:"https://www.ambatel.com/novotelsuites/yongsan/ko/main.do"
+      official:"https://www.ambatel.com/novotelsuites/yongsan/ko/main.do",
+      reviews: [
+        {review:"용산 스위트 객실 4인 가족 투숙기", channel:"돈캣 PL․EX", id:"_-FDiMteOl8", start:null}
+      ]
+    },
+    {
+      name:"가평 JH풀빌라", region:"경기", area:"경기 가평군 가평읍 북한강변로 326-420", kind:"독채·풀빌라",
+      review:"북한강 전망과 객실 전용 수영장", channel:"숙소왕", id:"MBaQXti0v8Q", start:9,
+      official:"https://www.jhpoolvilla.co.kr/traffic.html"
+    },
+    {
+      name:"낮잠펜션", region:"경기", area:"경기 가평군 북면 막골길 18-124", kind:"독채·풀빌라",
+      review:"가평 독채 내부와 노천탕", channel:"숙소왕", id:"MBaQXti0v8Q", start:39,
+      official:"https://kmh.purpleo.co.kr/article/8943"
+    },
+    {
+      name:"서락나인", region:"경기", area:"경기 가평군 설악면 전위골길 61-5", kind:"독채·풀빌라",
+      review:"프라이빗 노천탕과 숙소 내부", channel:"숙소왕", id:"MBaQXti0v8Q", start:80,
+      official:"https://114.it.kr/biz/MA010120220809819649"
+    },
+    {
+      name:"볕아래", region:"경기", area:"경기 가평군 북면 카이저길 58-14", kind:"독채·풀빌라",
+      review:"가평 독채 거실과 침실 소개", channel:"숙소왕", id:"MBaQXti0v8Q", start:174,
+      official:"https://flg.purpleo.co.kr/view/12038"
+    },
+    {
+      name:"메종14", region:"전북", area:"전북 전주시 완산구 경기전길 184-5", kind:"독채·풀빌라",
+      review:"객실 인테리어와 실내 자쿠지", channel:"숙소왕", id:"QS4tQVcb2eI", start:null,
+      official:"https://www.maison14.kr/new/rsp_n_hotel.php?SID=608887"
+    },
+    {
+      name:"컬렉터6449 별관", region:"강원", area:"강원 양양군 강현면 주청1길 64-49", kind:"독채·풀빌라",
+      review:"양양 별관 실내와 테라스", channel:"숙소왕", id:"ksGEs9iaiNY", start:null,
+      official:"https://www.artyangyang.com/facilties/collector6449"
+    },
+    {
+      name:"딜라이트107 풀빌라", region:"경북", area:"경북 영덕군 강구면 영덕대게로 509-9", kind:"독채·풀빌라",
+      review:"하저해변 전망 객실과 전용 풀", channel:"숙소왕", id:"5o-P_7ImJHA", start:null,
+      official:"https://www.instagram.com/delight107_poolvilla/"
+    },
+    {
+      name:"지족리해", region:"경남", area:"경남 남해군 창선면 서부로 177-3", kind:"독채·풀빌라",
+      review:"오션뷰 침실과 실내 자쿠지", channel:"숙소왕", id:"QO0q0Aivca4", start:null,
+      official:"https://www.instagram.com/jijokli_sea/"
+    },
+    {
+      name:"오롯이바다", region:"경남", area:"경남 남해군 삼동면 양화금로 329-31", kind:"독채·풀빌라",
+      review:"오션뷰 객실과 루프탑 전용 풀", channel:"숙소왕", id:"oxlPMjb4iyg", start:null,
+      official:"https://www.instagram.com/olosibada_namhae/"
+    },
+    {
+      name:"소원스테이", region:"강원", area:"강원 춘천시 사북면 춘화로 362-3", kind:"독채·풀빌라",
+      review:"독채 침실과 잔디마당·수영장", channel:"숙소왕", id:"buN_Kws2t3I", start:null,
+      official:"https://www.instagram.com/stay_sowon/"
+    },
+    {
+      name:"감포 트라제", region:"경북", area:"경북 경주시 감포읍 연동길 32-21", kind:"독채·풀빌라",
+      review:"경주 오션뷰 객실과 키즈룸", channel:"숙소왕", id:"UjOjyr1xdrc", start:null,
+      official:"https://booking.kakao.com/detail/accommodation/44486"
+    },
+    {
+      name:"페어몬트 앰배서더 서울", region:"서울", area:"서울 영등포구 여의대로 108", kind:"호텔",
+      review:"여의도 디럭스룸과 전망", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"duYE2D_w3bI", start:132,
+      official:"https://www.fairmont.com/en/hotels/seoul/fairmont-ambassador-seoul.html"
+    },
+    {
+      name:"르메르디앙 서울 명동", region:"서울", area:"서울 중구 명동8나길 38", kind:"호텔",
+      review:"디럭스 킹 객실과 호텔 투숙기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"hmrf-i1Hi88", start:395,
+      official:"https://www.marriott.com/ko/hotels/selmm-le-meridien-seoul-myeongdong/overview/"
+    },
+    {
+      name:"비스타 워커힐 서울", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
+      review:"리버뷰 스파 디럭스룸 투숙기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"1LjKALQRIig", start:123,
+      official:"https://www.walkerhill.com/vistawalkerhillseoul/welcome/Map"
+    },
+    {
+      name:"다락휴 인천공항 제2여객터미널", region:"인천", area:"인천 영종구 제2터미널대로 446 제2교통센터 지하 1층", kind:"호텔",
+      review:"인천공항 제2터미널 캡슐 객실 숙박기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"eynkMAyq_dI", start:null,
+      official:"https://www.walkerhill.com/darakhyu/t2/kr/about/Map.jsp"
+    },
+    {
+      name:"그랜드 인터컨티넨탈 서울 파르나스", region:"서울", area:"서울 강남구 테헤란로 521", kind:"호텔",
+      review:"리뉴얼 주니어 스위트 객실 후기", channel:"또 떠나는 남자", id:"67zi201pUGc", start:97,
+      official:"https://www.theparnas.com/",
+      reviews: [
+        {review:"출국 전 삼성역 호텔 투숙기 · 객실 제공", channel:"초마드 CHOMAD", id:"VHRta7bI0pQ", start:null}
+      ]
+    },
+    {
+      name:"위크엔더스", region:"강원", area:"강원 강릉시 율곡로2868번길 1", kind:"게스트하우스",
+      review:"강릉역 근처 게스트하우스에서 머문 후기 · 제작 지원", channel:"초마드 CHOMAD", id:"M1Mf0XsQr6c", start:null,
+      official:"https://www.thewavecompany.co.kr/service"
+    },
+    {
+      name:"웜댄콜드맨션", region:"강원", area:"강원 강릉시 교동광장로100번길 19", kind:"독채·풀빌라",
+      review:"체크인 장면과 숙소 내부 체험", channel:"여행에미치다", id:"GZ_nY_GeqQ4", start:830,
+      official:"https://www.stayfolio.com/findstay/warm-than-cold-mansion"
+    },
+    {
+      name:"롤링힐스 호텔", region:"경기", area:"경기 화성시 남양읍 시청로 290", kind:"호텔",
+      review:"키즈룸과 가족 여행 시설 투숙기", channel:"돈캣 PL․EX", id:"DKzI5TZCp78", start:null,
+      official:"https://www.haevichi.com/rollinghills/ko/location"
+    },
+    {
+      name:"곤지암리조트", region:"경기", area:"경기 광주시 도척면 도척윗로 278", kind:"리조트",
+      review:"객실 투숙 및 모바일 체크인 경험", channel:"돈캣 PL․EX", id:"90ajVezBwqs", start:null,
+      official:"https://reservation.konjiamresort.co.kr/"
+    },
+    {
+      name:"마이다스 호텔 앤 리조트", region:"경기", area:"경기 가평군 청평면 북한강로 2245", kind:"리조트",
+      review:"청평 객실과 가족 시설 소개", channel:"돈캣 PL․EX", id:"fbABQtPy19Q", start:null,
+      official:"https://www.midashotel.co.kr/"
+    },
+    {
+      name:"앰배서더 서울 풀만 호텔", region:"서울", area:"서울 중구 동호로 287", kind:"호텔",
+      review:"객실 투숙과 라운지 후기", channel:"돈캣 PL․EX", id:"U49Uuoa2cfw", start:null,
+      official:"https://www.ambatel.com/ambassador/seoul/ko/main.do"
+    },
+    {
+      name:"이비스 스타일 앰배서더 인천 에어포트", region:"인천", area:"인천 영종구 제2터미널대로 340", kind:"호텔",
+      review:"공항 앞 객실과 을왕리 투숙 여행", channel:"돈캣 PL․EX", id:"sOP5UNsQ8x8", start:null,
+      official:"https://all.accor.com/hotel/B7P1/index.ko.shtml"
+    },
+    {
+      name:"양평 더벙커", region:"경기", area:"경기 양평군 강하면 성덕리 283-31", kind:"독채·풀빌라",
+      review:"독채 침실과 야외 노천탕", channel:"숙소왕", id:"MBaQXti0v8Q", start:244,
+      official:"https://www.yeogi.com/domestic-accommodations/89925"
+    },
+    {
+      name:"마들렌호텔 거제점", region:"경남", area:"경남 거제시 사등면 거제대로 5454", kind:"호텔",
+      review:"가족 여행에서 이용한 오션뷰 객실", channel:"초마드 CHOMAD", id:"nXo6TemgLPU", start:null,
+      official:"https://naver.me/xKtcQb0a"
     }
   ]
 };

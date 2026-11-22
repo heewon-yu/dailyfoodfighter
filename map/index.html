@@ -1166,7 +1166,7 @@ function setView(next) {
   const kinds = [...new Set(view.places.map(place=>place.kind))];
   $('kind').replaceChildren(new Option(view.filterDefault,''),...kinds.map(kind=>new Option(kind,kind)));
   const listingNote = next === 'stay'
-    ? '원본 리뷰에서 숙소가 확인되고 주소를 대조한 국내 숙소만 수록합니다.'
+    ? '원본에서 객실이나 숙박 경험을 직접 소개하고 지점과 주소가 확인된 곳을 수록합니다.'
     : '같은 가게는 구독자 수가 가장 많은 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
   $('hint').textContent = '구독자 10만 명 이상 채널 ' + channels.length + '개의 영상에서 확인한 ' +
     view.type + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
