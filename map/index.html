@@ -1080,7 +1080,7 @@ const listings = [
   ["뉴러우멘관즈", "부산", "부산 수영구 수영로388번길 25-4", "중식", "우육면", "AdOVMVMS2Hs", "제멋대로may", null, "빕구르망"],
   ["사피드", "서울", "서울 용산구 이태원로 27길 34-1", "양식", "프렌치 컨템퍼러리", "H2xfhlWVkmM", "아이윌 I WILL", null, "미슐랭 선정"],
   ["고움", "서울", "서울 강남구 도곡로 23길 33", "한식", "코스 요리", "bnEA1ye-NRs", "승빠", null, "미슐랭 선정"],
-  ["유진옥", "부산", "부산진구 서전로 57번길 7", "면요리", "냉면", "2pmIbU6jToE", "mo•on", null, "미슐랭 선정"],
+  ["유진옥", "부산", "부산 부산진구 서전로 57번길 7", "면요리", "냉면", "2pmIbU6jToE", "mo•on", null, "미슐랭 선정"],
   ["옥돌현옥", "서울", "서울 송파구 법원로 55 송파아이파크 D존", "면요리", "냉면", "A8tLNjmvPcw", "근돼왕", null, "미슐랭 선정"],
   ["숙수도가", "서울", "서울 성북구 동소문로 17길 28", "고기", "코스 요리", "4VdrDqLD0pw", "아삭플레이스asacplace", null, "미슐랭 선정"],
   ["본 앤 브레드", "서울", "서울 성동구 마장로 42길 1", "고기", "코스 요리", "6UE466hPDJ4", "조선일보", null, "미슐랭 선정"],
@@ -1512,7 +1512,9 @@ function render() {
     const reviews = (place.reviews ?? [place]).filter(entry => !channel || entry.source.label === channel);
     if (!reviews.length) return [];
     const searchable = normalize([
-      place.name,place.region,place.area,place.kind,place.grade || '',...reviews.flatMap(entry => [entry.menu,entry.source.label])
+      place.name,place.region,place.area,place.kind,place.grade || '',
+      place.grade ? '미슐랭 미쉐린' : '',
+      ...reviews.flatMap(entry => [entry.menu,entry.source.label])
     ].join(' '));
     return terms.every(term => searchable.includes(term)) ? [place.reviews ? {...place,...reviews[0]} : place] : [];
   });
