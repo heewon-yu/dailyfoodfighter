@@ -1,0 +1,108 @@
+.map-switch {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+}
+
+.map-switch .tab {
+  border-color: transparent;
+  background: transparent;
+  white-space: nowrap;
+}
+
+.map-switch #food-view[aria-pressed=true] {
+  background: #ffe7df;
+  color: #8a2721;
+}
+
+.map-switch #stay-view[aria-pressed=true] {
+  background: #23674c;
+  color: white;
+}
+
+:root[data-map-view=stay] {
+  color-scheme: light;
+  --ink: #172e23;
+  --muted: #496557;
+  --coral: #23674c;
+  --soft: #deefe2;
+  --paper: #f4faf5;
+  --line: #cfe2d2;
+}
+
+[data-map-view=stay] .hero {
+  background: linear-gradient(115deg, #143c2d, #205b42 66%, #306d50);
+}
+
+[data-map-view=stay] .hero small,
+[data-map-view=stay] .hero p {
+  color: #e8f6eb;
+}
+
+[data-map-view=stay] .search .primary,
+[data-map-view=stay] :is(.map, .save, .tab[aria-pressed=true], .chip[aria-pressed=true]) {
+  background: var(--soft);
+  color: #144531;
+  border-color: #b3d3be;
+}
+
+[data-map-view=stay] .meta,
+[data-map-view=stay] .foot {
+  color: var(--muted);
+}
+
+[data-map-view=stay] .thumb {
+  background: linear-gradient(130deg, #193b2d, #3e785c);
+}
+
+[data-map-view=stay] .thumb::after {
+  background: linear-gradient(transparent 45%, #112c21a3);
+}
+
+[data-map-view=stay] :is(.play, .time, .player) {
+  background: #143c2d;
+}
+
+[data-map-view=stay] .video {
+  background: #23674c;
+  border-color: #23674c;
+}
+
+[data-map-view=stay] .map-sidebar {
+  background: #f6fbf7;
+}
+
+[data-map-view=stay] :is(.map-toggle[aria-expanded=true], .map-place[aria-pressed=true], .empty) {
+  border-color: #a4c9b0;
+}
+
+[data-map-view=stay] dialog::backdrop {
+  background: #112d21a8;
+}
+
+#results-title {
+  scroll-margin-top: 16px;
+}
+
+@media (max-width: 620px) {
+  .top {
+    height: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 10px;
+    padding-block: 12px;
+  }
+
+  .map-switch {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .map-switch .tab {
+    flex: 1;
+    min-height: 42px;
+  }
+}
