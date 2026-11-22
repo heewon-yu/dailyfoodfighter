@@ -38,7 +38,7 @@
 - [x] 양배추 (Cabbage) - 2026-11-12 한/영 발행완료
 - [x] 배추 (Napa Cabbage) - 2026-11-17 한/영 발행완료
 - [x] 무 (Radish) - 2026-11-19 한/영 발행완료
-- [ ] 파프리카 (Bell Pepper)
+- [x] 파프리카 (Bell Pepper) - 2026-11-23 한/영 발행완료
 - [ ] 대파 (Green Onion)
 - [ ] 부추 (Garlic Chives)
 - [ ] 오이 (Cucumber)
@@ -99,7 +99,7 @@
 - [ ] 문어 (Octopus)
 - [ ] 낙지 (Small Octopus)
 - [x] 새우 (Shrimp) - 2026-11-09 한/영 발행완료
-- [ ] 꽃게 (Blue Crab)
+- [x] 꽃게 (Blue Crab) - 2026-11-23 한/영 발행완료
 - [ ] 전복 (Abalone)
 - [x] 굴 (Oyster) - 2026-11-11 한/영 발행완료
 - [ ] 바지락 (Manila Clam)
