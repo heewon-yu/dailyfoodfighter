@@ -914,7 +914,7 @@ const stayPlaces = stayCatalogue.stays.map(({name,region,area,kind,official,id,c
   return {name,region,area,kind,official,reviews:entries,...entries[0]};
 }).filter(place => place.reviews.length);
 const abroadCatalogue = window.abroadCatalogue ?? {places:[],channels:{}};
-const ABROAD_MIN_SUBS = 30000;
+const ABROAD_MIN_SUBS = 0;
 const abroadPlaces = abroadCatalogue.places.map(({name,region,area,kind,official,id,channel,review,start,reviews = []}) => {
   const entries = [{id,channel,review,start},...reviews]
     .filter(({channel}) => (abroadCatalogue.channels[channel] || 0) >= ABROAD_MIN_SUBS)
@@ -993,11 +993,16 @@ function updateAvailabilityHint() {
       ? '같은 호텔은 구독자 수가 가장 많은 채널의 리뷰 하나를 카드로 보여주고, 다른 채널 리뷰는 상세 화면에서 함께 엽니다. 요금과 운영 시간은 구글 지도·브랜드 공식 사이트에서 확인하세요.'
       : '같은 가게는 구독자 수가 가장 많은 공개 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
   const channelNote = activeView === 'stay' ? '채널 '
-    : activeView === 'abroad' ? '구독자 3만 명 이상 채널 ' : '구독자 10만 명 이상 채널 ';
+    : activeView === 'abroad' ? '주요 여행·호텔 채널 ' : '구독자 10만 명 이상 채널 ';
   const usedChannels = new Set(view.places.flatMap(place =>
     place.reviews ? place.reviews.map(entry => entry.source.label) : [place.source.label]));
+  if (activeView === 'abroad') {
+    $('hint').textContent = '주요 여행·호텔 채널과 하이엔드 숙소 리뷰 ' + usedChannels.size +
+      '개 채널의 영상에서 확인한 해외 호텔 ' + view.places.length + '곳을 수록합니다. ' + listingNote;
+    return;
+  }
   $('hint').textContent = channelNote + usedChannels.size + '개의 영상에서 확인한 ' +
-    (activeView === 'abroad' ? '해외 호텔' : view.type) + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
+    view.type + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
 }
 function refreshAvailabilityFilters() {
   const selectedChannel = $('channel').value;
