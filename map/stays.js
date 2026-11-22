@@ -25,7 +25,9 @@ window.hanbamCatalogue = {
     "우아블(우아한 테이블)": 38900,
     "긍정맨": 194000,
     "캣블링 catveling": 6810,
-    "김작가의 숙소탐구": 17000
+    "김작가의 숙소탐구": 17000,
+    "재호캉스": 441000,
+    "아일랜드 트래블러": 303000
   },
   stays: [
     {
@@ -56,11 +58,6 @@ window.hanbamCatalogue = {
       name:'어라운드폴리', region:'제주', area:'제주 서귀포시 성산읍 서성일로 433', kind:'글램핑·카라반',
       review:'복층 롯지와 에어스트림 내부', channel:'여락이들_', id:'aPeQQKck5_0', start:200,
       official:'https://www.aroundfollie.com/'
-    },
-    {
-      name:'농암종택', region:'경북', area:'경북 안동시 도산면 가송길 162-133', kind:'한옥·고택',
-      review:'낙동강변 고택 투숙기', channel:'또 떠나는 남자', id:'GTFiAApEJOs', start:23,
-      official:'https://www.tourandong.com/map/resource.cshtml?seq=160'
     },
     {
       name:'저스트글램핑', region:'전북', area:'전북 임실군 강진면 이윤길 76', kind:'글램핑·카라반',
@@ -121,11 +118,6 @@ window.hanbamCatalogue = {
       name:'그랜드 머큐어 임피리얼 팰리스 서울 강남', region:'서울', area:'서울 강남구 언주로 640', kind:'호텔',
       review:'호텔과 레지던스 객실 비교', channel:'또 떠나는 남자', id:'hRcUd7XrnWg', start:150,
       official:'https://www.grandmercureimperialpalace.com/location/'
-    },
-    {
-      name:'활엽수 게스트하우스', region:'제주', area:'제주 서귀포시 대정읍 상모대서로20번길 44', kind:'게스트하우스',
-      review:'제주 돌집 게스트하우스 방문기', channel:'여락이들_', id:'aPeQQKck5_0', start:561,
-      official:'https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000020088'
     },
     {
       name:"해비치 호텔 제주", region:"제주", area:"제주 서귀포시 표선면 민속해안로 537", kind:"호텔",
@@ -521,7 +513,8 @@ window.hanbamCatalogue = {
       review:"객실과 조식 및 중문 여행", channel:"꾸준 kkujun", id:"aI7EUZB3LQU", start:null,
       official:"https://hoteltheborn.com/location/",
       reviews: [
-        {review:"호텔 조식과 시설 리뷰", channel:"돈캣 PL․EX", id:"6gDvoRmqHrM", start:null}
+        {review:"호텔 조식과 시설 리뷰", channel:"돈캣 PL․EX", id:"6gDvoRmqHrM", start:null},
+        {review:"중문 객실과 조식 투숙 후기", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:34}
       ]
     },
     {
@@ -600,7 +593,10 @@ window.hanbamCatalogue = {
     {
       name:"엠버퓨어힐 호텔 앤 리조트 제주", region:"제주", area:"제주 제주시 1100로 2671-30", kind:"리조트",
       review:"한라산 자락 리조트 소개", channel:"일상이여행 Everyday travel", id:"neHIpPKd7Qw", start:null,
-      official:"https://www.amberpurehill.com/inquiry"
+      official:"https://www.amberpurehill.com/inquiry",
+      reviews: [
+        {review:"객실과 프라이빗 온수탕 투어 · 패키지 프로모션", channel:"아일랜드 트래블러", id:"SDEAX54F3BI", start:140}
+      ]
     },
     {
       name:"프라이빗강릉 감성 풀빌라", region:"강원", area:"강원 강릉시 사천면 방동길 238", kind:"독채·풀빌라",
@@ -703,11 +699,6 @@ window.hanbamCatalogue = {
       reviews: [
         {review:"출국 전 삼성역 호텔 투숙기 · 객실 제공", channel:"초마드 CHOMAD", id:"VHRta7bI0pQ", start:null}
       ]
-    },
-    {
-      name:"위크엔더스", region:"강원", area:"강원 강릉시 율곡로2868번길 1", kind:"게스트하우스",
-      review:"강릉역 근처 게스트하우스에서 머문 후기 · 제작 지원", channel:"초마드 CHOMAD", id:"M1Mf0XsQr6c", start:null,
-      official:"https://www.thewavecompany.co.kr/service"
     },
     {
       name:"웜댄콜드맨션", region:"강원", area:"강원 강릉시 교동광장로100번길 19", kind:"독채·풀빌라",
@@ -921,6 +912,106 @@ window.hanbamCatalogue = {
       name:"칠갑산 NH호텔", region:"충남", area:"충남 청양군 비봉면 록평용당로 775-3", kind:"호텔",
       review:"농협 운영 호텔 객실 투숙기", channel:"긍정맨", id:"AjjM8ohbFEs", start:920,
       official:"https://www.cheongyang.go.kr/prog/hotelData/tour/sub05_05_01/H1/view.do?cntNo=73&pageIndex=1"
+    },
+    {
+      name:"위플스테이호텔", region:"제주", area:"제주 제주시 도령로 102", kind:"호텔",
+      review:"연동 호텔 체크인과 객실 이용", channel:"재호캉스", id:"f6ybUSuXZmI", start:1570,
+      official:"https://flg.purpleo.co.kr/view/30800"
+    },
+    {
+      name:"메종 글래드 제주", region:"제주", area:"제주 제주시 노연로 80", kind:"호텔",
+      review:"연동 호텔 객실과 투숙 후기", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:23,
+      official:"https://www.glad-hotels.com/maisongladjeju/hotel/location.do"
+    },
+    {
+      name:"신라스테이 제주", region:"제주", area:"제주 제주시 노연로 100", kind:"호텔",
+      review:"연동 객실과 시내 전망", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:104,
+      official:"https://www.shillahotels.com/ko/shillastay/jeju/introduction/about.do"
+    },
+    {
+      name:"호텔 휘슬락", region:"제주", area:"제주 제주시 서부두2길 26", kind:"호텔",
+      review:"제주항 인근 객실 투숙 후기", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:176,
+      official:"https://www.whistlelark.co.kr/mobile/index.php?lang=ko"
+    },
+    {
+      name:"그라벨호텔 제주", region:"제주", area:"제주 제주시 일주서로 7316", kind:"호텔",
+      review:"외도 바닷가 객실 투숙 후기", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:241,
+      official:"https://grabelhotel.com/"
+    },
+    {
+      name:"롯데시티호텔 제주", region:"제주", area:"제주 제주시 도령로 83", kind:"호텔",
+      review:"연동 호텔 객실과 조식 후기", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:303,
+      official:"https://app.lottehotel.com/jeju-city/ko/about/location"
+    },
+    {
+      name:"라마다 바이 윈덤 제주 함덕", region:"제주", area:"제주 제주시 조천읍 신북로 470", kind:"호텔",
+      review:"함덕 호텔 객실 투숙 후기", channel:"아일랜드 트래블러", id:"f_Ldl8QcIaU", start:478,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CONT_000000000501038"
+    },
+    {
+      name:"헤이 서귀포", region:"제주", area:"제주 서귀포시 태평로 363", kind:"호텔",
+      review:"서귀포항 인근 객실 투숙 후기", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:139,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_200000000013512"
+    },
+    {
+      name:"서귀포KAL호텔", region:"제주", area:"제주 서귀포시 칠십리로 242", kind:"호텔",
+      review:"서귀포 호텔 투숙과 해안 전망", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:227,
+      official:"https://access.visitkorea.or.kr/acm/detail.do?cotId=96c52f03-d46e-416f-8aec-705b4181ecae"
+    },
+    {
+      name:"호텔 브릿지 서귀포", region:"제주", area:"제주 서귀포시 태평로 436", kind:"호텔",
+      review:"객실 투숙기 · 촬영 당시 아트스테이 서귀포 하버", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:314,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_300000000014141"
+    },
+    {
+      name:"제주신화월드 랜딩관", region:"제주", area:"제주 서귀포시 안덕면 신화역사로304번길 38", kind:"리조트",
+      review:"랜딩관 디럭스 객실 투숙 후기", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:371,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000022770"
+    },
+    {
+      name:"호텔 서귀피안", region:"제주", area:"제주 서귀포시 보목로64번길 178", kind:"호텔",
+      review:"보목동 오션뷰 객실 투숙 후기", channel:"아일랜드 트래블러", id:"vY1Zb0mDOR8", start:505,
+      official:"https://hotelseogwipean.com/"
+    },
+    {
+      name:"폴개우영", region:"제주", area:"제주 서귀포시 남원읍 태위로894번길 13", kind:"독채·풀빌라",
+      review:"귤밭 돌집 독채 투숙기", channel:"아일랜드 트래블러", id:"tyxTNfshKDQ", start:null,
+      official:"https://ohou.se/advices/8219"
+    },
+    {
+      name:"웃더럭민박", region:"제주", area:"제주 제주시 애월읍 상가북8길 20", kind:"독채·풀빌라",
+      review:"리모델링한 애월 독채 투숙기", channel:"아일랜드 트래블러", id:"yBftx1wrcqA", start:null,
+      official:"https://sheda.kr/html/sub6_reser.html"
+    },
+    {
+      name:"보름우스테이", region:"제주", area:"제주 서귀포시 효돈순환로 262", kind:"독채·풀빌라",
+      review:"하효동 2인 독채 투숙기", channel:"아일랜드 트래블러", id:"NQSDAOjQiWU", start:null,
+      official:"https://www.borumoostay.com/"
+    },
+    {
+      name:"송당일상", region:"제주", area:"제주 제주시 구좌읍 비자림로 1818-3", kind:"독채·풀빌라",
+      review:"송당리 돌집 독채 투숙기", channel:"아일랜드 트래블러", id:"tdkafjp5T4U", start:null,
+      official:"https://pension.publicworkjob.com/제주-제주시-구좌읍-송당일상-펜션당일예약"
+    },
+    {
+      name:"스타빌", region:"제주", area:"제주 서귀포시 안덕면 광평로 34-154", kind:"글램핑·카라반",
+      review:"글램핑 객실 투숙기 · 제작 지원", channel:"아일랜드 트래블러", id:"cxPi_ko3t4I", start:null,
+      official:"https://starville.ninebridges.co.kr/main/main"
+    },
+    {
+      name:"더스테어 평대", region:"제주", area:"제주 제주시 구좌읍 평대7길 16-1", kind:"독채·풀빌라",
+      review:"평대리 벽돌집 독채 투숙기", channel:"아일랜드 트래블러", id:"P6kMx6CIYxE", start:null,
+      official:"https://sites.google.com/view/the-stair/"
+    },
+    {
+      name:"스테이서하온", region:"제주", area:"제주 제주시 한경면 판포2길 6-16", kind:"독채·풀빌라",
+      review:"판포리 구옥 독채 투숙기", channel:"아일랜드 트래블러", id:"-NUhAZ5IJVw", start:null,
+      official:"https://travel.ayo.pe.kr/ruralstay/50e9159838d2370165247583ed7d517b"
+    },
+    {
+      name:"부티크아우라펜션", region:"경북", area:"경북 울릉군 울릉읍 봉래길 6-8", kind:"펜션",
+      review:"저동항 전망 객실 투숙 후기", channel:"아일랜드 트래블러", id:"FZTBkwquZ3o", start:613,
+      official:"https://www.ulcruise.co.kr/www/ulleungdo/tourism/accommodation?idx=118&mode=view"
     }
   ]
 };
