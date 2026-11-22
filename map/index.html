@@ -1106,14 +1106,16 @@ function representativePlaces(entries) {
     const entry = {name,region,area,kind,menu,source:{id,label,subscribers:size},start,grade:grade || ''};
     const existing = byBranch.get(key);
     if (!existing) {
-      byBranch.set(key,{...entry,reviews:[]});
+      byBranch.set(key,{...entry});
       continue;
     }
     if (size > existing.source.subscribers ||
         (size === existing.source.subscribers && existing.start === null && start !== null)) {
+      existing.reviews = existing.reviews ?? [];
       existing.reviews.unshift({menu:existing.menu,source:existing.source,start:existing.start});
       Object.assign(existing,entry);
     } else {
+      existing.reviews = existing.reviews ?? [];
       existing.reviews.push({menu:entry.menu,source:entry.source,start:entry.start});
     }
     if (!existing.grade && grade) existing.grade = grade;
