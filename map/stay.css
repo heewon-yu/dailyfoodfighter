@@ -23,6 +23,110 @@
   color: white;
 }
 
+.map-switch #abroad-view[aria-pressed=true] {
+  background: #1d4ed8;
+  color: white;
+}
+
+:root[data-map-view=abroad] {
+  color-scheme: light;
+  --ink: #0f2544;
+  --muted: #476187;
+  --coral: #1d4ed8;
+  --soft: #dbeafe;
+  --paper: #f4f8ff;
+  --line: #c7dbf7;
+}
+
+[data-map-view=abroad] .hero {
+  background: linear-gradient(115deg, #102a5c, #1d4ed8 66%, #2563eb);
+}
+
+[data-map-view=abroad] .hero small,
+[data-map-view=abroad] .hero p {
+  color: #e0ecff;
+}
+
+[data-map-view=abroad] .search .primary,
+[data-map-view=abroad] :is(.map, .save, .tab[aria-pressed=true], .chip[aria-pressed=true]) {
+  background: var(--soft);
+  color: #16305c;
+  border-color: #a9c8f5;
+}
+
+[data-map-view=abroad] .search .primary {
+  background: #cfe0ff;
+  color: #102a5c;
+}
+
+[data-map-view=abroad] .brand b {
+  background: #1d4ed8;
+}
+
+[data-map-view=abroad] .meta,
+[data-map-view=abroad] .meta.meta,
+[data-map-view=abroad] .foot {
+  color: var(--muted);
+}
+
+[data-map-view=abroad] .card .meta {
+  color: #2b4f8f;
+}
+
+[data-map-view=abroad] .thumb {
+  background: linear-gradient(130deg, #102a5c, #2f6bd8);
+}
+
+[data-map-view=abroad] .thumb::after {
+  background: linear-gradient(transparent 45%, #0b1f42a3);
+}
+
+[data-map-view=abroad] :is(.play, .time, .player) {
+  background: #102a5c;
+}
+
+[data-map-view=abroad] .video {
+  background: #1d4ed8;
+  border-color: #1d4ed8;
+  color: white;
+}
+
+[data-map-view=abroad] .map {
+  background: #eaf2ff;
+  color: #16305c;
+  border-color: #b9d2f6;
+}
+
+[data-map-view=abroad] .map-sidebar {
+  background: #f7fbff;
+}
+
+[data-map-view=abroad] .map-section,
+[data-map-view=abroad] select,
+[data-map-view=abroad] .tab,
+[data-map-view=abroad] .chip,
+[data-map-view=abroad] .secondary,
+[data-map-view=abroad] .save,
+[data-map-view=abroad] .card {
+  border-color: var(--line);
+}
+
+[data-map-view=abroad] :is(.map-toggle[aria-expanded=true], .map-place[aria-pressed=true], .empty) {
+  border-color: #93b8ee;
+}
+
+[data-map-view=abroad] .result-shortcut {
+  color: #1d4ed8;
+}
+
+[data-map-view=abroad] dialog::backdrop {
+  background: #0b1f42a8;
+}
+
+[data-map-view=abroad] :is(button, a, input, select):focus-visible {
+  outline-color: #1d4ed8;
+}
+
 :root[data-map-view=stay] {
   color-scheme: light;
   --ink: #172e23;

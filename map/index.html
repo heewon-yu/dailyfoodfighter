@@ -24,7 +24,7 @@
 dialog{width:min(680px,calc(100% - 30px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:20px;padding:22px;background:white;color:var(--ink)}dialog::backdrop{background:#2d1718a8}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.dialog-head h2{margin:0 0 4px}.player{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#351f20;margin:14px 0}.detail-button{border:0;background:none;padding:0;text-align:left;color:inherit;font:inherit;font-weight:inherit}.detail-button:hover{text-decoration:underline}
 .map-section{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin:0 0 25px}.map-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.map-heading h2{margin:0;letter-spacing:-.04em;font-size:1.45rem}.map-section .chips{margin-bottom:14px}.map-section .chip{font-size:.88rem;padding:6px 11px}.map-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}.google-map{display:block;border:0;width:100%;height:335px;background:var(--soft)}.map-sidebar{min-width:0;padding:13px;background:#fffbf9;max-height:335px;overflow:auto}.map-sidebar h3{margin:0 0 8px;font-size:1rem}.map-place{display:block;width:100%;padding:8px 9px;text-align:left;background:white;border:1px solid var(--line);border-radius:8px;color:var(--ink);margin-bottom:5px;font-weight:700;font-size:.89rem}.map-place small{display:block;color:var(--muted);font-weight:400}.map-place[aria-pressed=true]{background:var(--soft);border-color:#f2b7aa}.map-empty{color:var(--muted);margin:8px 0;font-size:.9rem}.result-shortcut{display:inline-block;color:var(--coral);text-decoration:underline;font-weight:700;font-size:.88rem;margin-bottom:10px}.map-heading-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.map-body[hidden]{display:none}.map-toggle[aria-expanded=true]{background:var(--soft);border-color:#f2b7aa}.map-collapsed-note{margin:0;color:var(--muted);font-size:.9rem}@media(max-width:640px){.map-layout{grid-template-columns:1fr}.google-map{height:260px}.map-sidebar{max-height:205px}.map-section{padding:14px}}
 </style><link rel="stylesheet" href="./stay.css"></head>
-<body><header><div class="top"><a class="brand" href="./"><b aria-hidden="true">●</b> <span id="brand-name">한입지도</span></a><nav class="map-switch" aria-label="지도 선택"><button class="tab" id="food-view" type="button" aria-pressed="true">한입지도</button><button class="tab" id="stay-view" type="button" aria-pressed="false">한밤지도</button></nav><button id="saved" class="tab" aria-pressed="false">☆ 저장한 장소</button></div></header>
+<body><header><div class="top"><a class="brand" href="./"><b aria-hidden="true">●</b> <span id="brand-name">한입지도</span></a><nav class="map-switch" aria-label="지도 선택"><button class="tab" id="food-view" type="button" aria-pressed="true">한입지도</button><button class="tab" id="stay-view" type="button" aria-pressed="false">한밤지도</button><button class="tab" id="abroad-view" type="button" aria-pressed="false">해외지도</button></nav><button id="saved" class="tab" aria-pressed="false">☆ 저장한 장소</button></div></header>
 <main><section class="hero"><small id="hero-type">유튜브 맛집 지도</small><h1><span id="hero-heading">영상 속 그 맛집,</span><br><span id="hero-heading-end">어디였지?</span></h1><p id="hero-description">가게 이름이나 지역으로 찾아보고, 맛집 리뷰와 위치를 확인하세요.</p><form class="search" role="search"><input id="query" type="search" aria-label="가게, 지역 또는 메뉴 검색" placeholder="예: 제주, 국밥, 이재모피자"><button class="primary">검색</button></form></section>
 <section class="map-section" aria-labelledby="map-title" id="map-section"><div class="map-heading"><h2 id="map-title">전국 맛집 지도</h2><div class="map-heading-actions"><button id="map-toggle" class="secondary map-toggle" type="button" aria-expanded="false" aria-controls="map-body">지도로 펼치기</button></div></div>
 <div id="map-body" class="map-body" hidden>
@@ -34,6 +34,7 @@ dialog{width:min(680px,calc(100% - 30px));max-height:90vh;overflow:auto;border:1
 <section aria-labelledby="results-title"><div class="toolbar"><div class="selects"><select id="channel" aria-label="소개 채널"><option value="">모든 채널</option></select> <select id="kind" aria-label="음식 종류"><option value="">모든 음식</option></select></div></div><div class="section-title"><h2 id="results-title">장소 둘러보기</h2><span class="count" id="count" aria-live="polite"></span></div><div class="grid" id="grid"></div><p class="hint" id="hint">구독자 10만 명 이상 채널의 방문 영상을 수록합니다. 같은 가게는 구독자 수가 가장 많은 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.</p></section></main><footer class="foot">created by 16100901</footer>
 <dialog id="place-dialog" aria-labelledby="place-title"></dialog>
 <script src="./stays.js"></script>
+<script src="./abroads.js"></script>
 <script>
 const regions = ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'];
 // Rounded public subscriber counts collected for this release.
@@ -912,13 +913,23 @@ const stayPlaces = stayCatalogue.stays.map(({name,region,area,kind,official,id,c
     }));
   return {name,region,area,kind,official,reviews:entries,...entries[0]};
 }).filter(place => place.reviews.length);
+const abroadCatalogue = window.abroadCatalogue ?? {places:[],channels:{}};
+const ABROAD_MIN_SUBS = 30000;
+const abroadPlaces = abroadCatalogue.places.map(({name,region,area,kind,official,id,channel,review,start,reviews = []}) => {
+  const entries = [{id,channel,review,start},...reviews]
+    .filter(({channel}) => (abroadCatalogue.channels[channel] || 0) >= ABROAD_MIN_SUBS)
+    .map(({id,channel,review,start}) => ({
+      menu:review,start,source:{id,label:channel,subscribers:abroadCatalogue.channels[channel]}
+    }));
+  return {name,region,area,kind,official,officialLabel:'브랜드 공식',reviews:entries,...entries[0]};
+}).filter(place => place.reviews.length);
 const views = {
   food: {
     name:'한입지도', type:'맛집', title:'영상 속 그 맛집,', end:'어디였지?',
     description:'가게 이름이나 지역으로 찾아보고, 맛집 리뷰와 위치를 확인하세요.',
     placeholder:'예: 제주, 국밥, 이재모피자', searchLabel:'가게, 지역 또는 메뉴 검색',
     filterLabel:'음식 종류', filterDefault:'모든 음식', listTitle:'장소 둘러보기', reviewLabel:'맛집 리뷰',
-    places, channels:subscribers, storage:'hanip-guide:saved:v1'
+    places, channels:subscribers, storage:'hanip-guide:saved:v1', regions
   },
   stay: {
     name:'한밤지도', type:'숙소', title:'영상 속 그 숙소,', end:'어디였지?',
@@ -926,7 +937,18 @@ const views = {
     placeholder:'예: 제주, 글램핑, 아트빌라스', searchLabel:'숙소, 지역 또는 숙소 특징 검색',
     filterLabel:'숙소 종류', filterDefault:'모든 숙소 유형', listTitle:'숙소 둘러보기', reviewLabel:'숙소 리뷰',
     places:stayPlaces,
-    channels:stayCatalogue.channels, storage:'hanbam-guide:saved:v1'
+    channels:stayCatalogue.channels, storage:'hanbam-guide:saved:v1', regions
+  },
+  abroad: {
+    name:'해외지도', type:'해외', title:'영상 속 그 장소,', end:'어디였지?',
+    description:'해외 호텔과 여행지, 맛집을 찾아보고 소개 장면과 위치를 확인하세요.',
+    placeholder:'예: 도쿄, 방콕, 아만', searchLabel:'호텔, 도시 또는 브랜드 검색',
+    filterLabel:'체인 · 브랜드', filterDefault:'모든 체인', listTitle:'호텔 둘러보기', reviewLabel:'호텔 리뷰',
+    tabTitle:'해외지도 | 영상 속 해외 호텔 찾기', places:abroadPlaces,
+    channels:abroadCatalogue.channels, storage:'abroad-guide:saved:v1',
+    regions:['일본','동남아','미주','유럽','중화권','오세아니아','중동·기타'],
+    regionAll:'전체 권역', allLabel:'전체 권역', regionLabel:'해외 여행 권역 필터',
+    mapTitle:'해외 호텔 지도', mapDefault:'World', mapZoom:'2', regionZoom:'5'
   }
 };
 // Private or deleted YouTube videos are hidden from BOTH maps without deleting the source data.
@@ -953,6 +975,10 @@ function rebuildPublicPlaces() {
     const reviews = place.reviews.filter(entry => !unavailable(entry.source.id));
     return reviews.length ? [{...place,reviews,...reviews[0]}] : [];
   });
+  views.abroad.places = abroadPlaces.flatMap(place => {
+    const reviews = place.reviews.filter(entry => !unavailable(entry.source.id));
+    return reviews.length ? [{...place,reviews,...reviews[0]}] : [];
+  });
 }
 function saveVideoStatusCache() {
   try { localStorage.setItem(VIDEO_STATUS_STORAGE, JSON.stringify(Object.fromEntries(videoStatusCache))); }
@@ -961,12 +987,15 @@ function saveVideoStatusCache() {
 function updateAvailabilityHint() {
   const listingNote = activeView === 'stay'
     ? '원본에서 객실이나 숙박 경험을 직접 소개하고 지점과 주소가 확인된 곳을 수록합니다.'
-    : '같은 가게는 구독자 수가 가장 많은 공개 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
-  const channelNote = activeView === 'stay' ? '채널 ' : '구독자 10만 명 이상 채널 ';
+    : activeView === 'abroad'
+      ? '같은 호텔은 구독자 수가 가장 많은 채널의 리뷰 하나를 카드로 보여주고, 다른 채널 리뷰는 상세 화면에서 함께 엽니다. 요금과 운영 시간은 구글 지도·브랜드 공식 사이트에서 확인하세요.'
+      : '같은 가게는 구독자 수가 가장 많은 공개 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
+  const channelNote = activeView === 'stay' ? '채널 '
+    : activeView === 'abroad' ? '구독자 3만 명 이상 채널 ' : '구독자 10만 명 이상 채널 ';
   const usedChannels = new Set(view.places.flatMap(place =>
     place.reviews ? place.reviews.map(entry => entry.source.label) : [place.source.label]));
   $('hint').textContent = channelNote + usedChannels.size + '개의 영상에서 확인한 ' +
-    view.type + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
+    (activeView === 'abroad' ? '해외 호텔' : view.type) + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
 }
 function refreshAvailabilityFilters() {
   const selectedChannel = $('channel').value;
@@ -1023,6 +1052,7 @@ async function verifyVideoAvailability() {
   }
   const allIds = [...prioritized,
     ...listings.map(row => row[5]),
+    ...abroadPlaces.flatMap(place => place.reviews.map(entry => entry.source.id)),
     ...stayPlaces.flatMap(place => place.reviews.map(entry => entry.source.id))];
   const pending = [...new Set(allIds)].filter(id => !videoStatusCache.has(id));
   const batches = [];
@@ -1084,7 +1114,7 @@ function showPlace(place, source, watch, map) {
   frame.allowFullscreen = true;
   const actions = make('div','actions');
   actions.append(link('map','구글 지도에서 위치 보기',map),link('video','YouTube에서 열기',watch));
-  if (place.official) actions.append(link('map','숙소 정보',place.official));
+  if (place.official) actions.append(link('map',place.officialLabel || '숙소 정보',place.official));
   for (const {source:other,start} of place.reviews ?? []) {
     if (other.id === source.id && start === place.start) continue;
     actions.append(link('video',other.label + ' 리뷰',reviewUrl(other.id,start)));
@@ -1149,11 +1179,12 @@ function card(place) {
 function normalize(value) { return value.normalize('NFKC').toLowerCase().trim(); }
 const regionNames = {서울:'서울특별시',부산:'부산광역시',대구:'대구광역시',인천:'인천광역시',광주:'광주광역시',대전:'대전광역시',울산:'울산광역시',세종:'세종특별자치시',경기:'경기도',강원:'강원특별자치도',충북:'충청북도',충남:'충청남도',전북:'전북특별자치도',전남:'전라남도',경북:'경상북도',경남:'경상남도',제주:'제주특별자치도'};
 function setMap(place) {
-  const target = place ? place.name + ' ' + place.area : regionNames[state.region] || '대한민국';
+  const target = place ? place.name + ' ' + place.area
+    : (regionNames[state.region] || state.region || view.mapDefault || '대한민국');
   const frame = $('google-map');
   const embed = new URL('https://maps.google.com/maps');
   embed.searchParams.set('q',target);
-  embed.searchParams.set('z',place ? '16' : state.region ? '9' : '7');
+  embed.searchParams.set('z',place ? '16' : state.region ? (view.regionZoom || '9') : (view.mapZoom || '7'));
   embed.searchParams.set('hl','ko');
   embed.searchParams.set('output','embed');
   if (mapExpanded && frame.getAttribute('src') !== embed.href) frame.src = embed.href;
@@ -1163,7 +1194,7 @@ function renderMap(filtered) {
   const current = filtered.find(place => place.name === state.mapPlace);
   if (!current) state.mapPlace = null;
   setMap(current);
-  $('map-region').textContent = (state.region || '전국') + ' · ' + filtered.length + '곳';
+  $('map-region').textContent = (state.region || view.allLabel || '전국') + ' · ' + filtered.length + '곳';
   const list = $('map-places');
   list.replaceChildren();
   if (!filtered.length) {
@@ -1224,11 +1255,15 @@ function render() {
     empty.append(reset); $('grid').append(empty);
   }
 }
-for (const region of ['',...regions]) {
-  const chip = make('button','chip',region || '전체 지역');
-  chip.dataset.region = region;
-  chip.onclick = () => { state.region = region; state.mapPlace = null; if (!mapExpanded) setMapOpen(true); render(); };
-  $('regions').append(chip);
+function buildRegions() {
+  const list = ['',...(view.regions || regions)];
+  $('regions').setAttribute('aria-label', view.regionLabel || '전국 17개 시·도 필터');
+  $('regions').replaceChildren(...list.map(region => {
+    const chip = make('button','chip',region || view.regionAll || '전체 지역');
+    chip.dataset.region = region;
+    chip.onclick = () => { state.region = region; state.mapPlace = null; if (!mapExpanded) setMapOpen(true); render(); };
+    return chip;
+  }));
 }
 $('channel').addEventListener('change',render);
 $('query').addEventListener('input',render);
@@ -1261,12 +1296,15 @@ function setView(next) {
   document.documentElement.dataset.mapView = next;
   $('food-view').setAttribute('aria-pressed',String(next === 'food'));
   $('stay-view').setAttribute('aria-pressed',String(next === 'stay'));
+  $('abroad-view').setAttribute('aria-pressed',String(next === 'abroad'));
+  document.title = view.tabTitle;
   $('brand-name').textContent = view.name;
   $('hero-type').textContent = '유튜브 ' + view.type + ' 지도';
   $('hero-heading').textContent = view.title;
   $('hero-heading-end').textContent = view.end;
   $('hero-description').textContent = view.description;
-  $('map-title').textContent = '전국 ' + view.type + ' 지도';
+  $('map-title').textContent = view.mapTitle || ('전국 ' + view.type + ' 지도');
+  buildRegions();
   $('query').setAttribute('aria-label',view.searchLabel);
   $('query').placeholder = view.placeholder;
   $('query').value = '';
@@ -1286,7 +1324,9 @@ function changeView(next) {
 }
 $('food-view').onclick = () => changeView('food');
 $('stay-view').onclick = () => changeView('stay');
-window.addEventListener('popstate',event=>setView(event.state?.mapView === 'stay' ? 'stay' : 'food'));
-setView(history.state?.mapView === 'stay' ? 'stay' : 'food');
+$('abroad-view').onclick = () => changeView('abroad');
+const viewName = value => (value === 'stay' || value === 'abroad') ? value : 'food';
+window.addEventListener('popstate',event=>setView(viewName(event.state?.mapView)));
+setView(viewName(history.state?.mapView));
 verifyVideoAvailability();
 </script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5dfcc0a0a605012',t:'MTc5NTI2NTE4NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5dfcc0a0a605012',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
