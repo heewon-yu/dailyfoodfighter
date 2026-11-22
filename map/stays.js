@@ -44,7 +44,8 @@ window.hanbamCatalogue = {
     "Rest & Tour": 2720,
     "제주에디 Jeju Eddy": 152000,
     "쑈쀼 Show Couple": 54,
-    "ST Life | Korea & Asia Local Travel": 4450
+    "ST Life | Korea & Asia Local Travel": 4450,
+    "파파트래블": 382000
   },
   stays: [
     {
@@ -571,7 +572,10 @@ window.hanbamCatalogue = {
     {
       name:"마들렌호텔 사천점", region:"경남", area:"경남 사천시 축동면 서삼로 1317-14", kind:"호텔",
       review:"호텔 객실과 1박 3식 체험", channel:"일상이여행 Everyday travel", id:"xRRFmWwYqfw", start:170,
-      official:"https://flg.purpleo.co.kr/view/25098"
+      official:"https://flg.purpleo.co.kr/view/25098",
+      reviews: [
+        {review:"사천 마들렌 객실과 1박 3식", channel:"파파트래블", id:"C4EZQVACWfk", start:90}
+      ]
     },
     {
       name:"마들렌호텔 하동점", region:"경남", area:"경남 하동군 금성면 산업로 823", kind:"호텔",
@@ -581,7 +585,10 @@ window.hanbamCatalogue = {
     {
       name:"길조호텔", region:"경기", area:"경기 양평군 강상면 독배길 32-25", kind:"호텔",
       review:"양평 1박 2일 코스의 숙소 소개", channel:"유리소리TV", id:"9BpaHOpwRio", start:272,
-      official:"https://www.giljo.co.kr/"
+      official:"https://www.giljo.co.kr/",
+      reviews: [
+        {review:"국내 료칸 비교의 양평 길조호텔 구간", channel:"파파트래블", id:"tyc9dJtt_44", start:143}
+      ]
     },
     {
       name:"백담향기펜션", region:"강원", area:"강원 인제군 북면 용대리 1012-1", kind:"독채·풀빌라",
@@ -1270,6 +1277,61 @@ window.hanbamCatalogue = {
       name:"마티에 부산하버시티", region:"부산", area:"부산 동구 충장대로 190", kind:"호텔",
       review:"북항 고층 객실과 수영장 투숙 후기", channel:"돈캣 PL․EX", id:"Q-yRFx_oimY", start:130,
       official:"https://www.matiebusan.com/"
+    },
+    {
+      name:"밀브릿지", region:"강원", area:"강원 평창군 진부면 방아다리로 1011-26", kind:"독채·풀빌라",
+      review:"전나무 숲 독립동 2인실 객실", channel:"파파트래블", id:"KvSiHOxeOzw", start:244,
+      official:"https://tour.pc.go.kr/Home/H20000/H20200/placeDetail?place_no=89"
+    },
+    {
+      name:"마을호텔 18번가", region:"강원", area:"강원 정선군 고한읍 고한2길 36", kind:"호텔",
+      review:"고한 마을호텔 객실 둘러보기", channel:"파파트래블", id:"27QV7AvsEFo", start:81,
+      official:"https://www.hotel18.co.kr/객실안내"
+    },
+    {
+      name:"북한산생태탐방원", region:"서울", area:"서울 도봉구 도봉산길 86", kind:"공공 숙소",
+      review:"북한산생태탐방원 A타입 4인실", channel:"파파트래블", id:"ZQ8Y5Wp_WPk", start:138,
+      official:"https://reservation.knps.or.kr/contents/PWD/serviceGuide.do?parkId=B971"
+    },
+    {
+      name:"옥천전통문화체험관 한옥숙박동", region:"충북", area:"충북 옥천군 옥천읍 향수길 100", kind:"한옥·고택",
+      review:"한옥숙박동 4인실과 8인실 객실", channel:"파파트래블", id:"7ETDQd7f6h8", start:166,
+      official:"https://www.oc.go.kr/tour/contents.do?key=3875"
+    },
+    {
+      name:"사천 케이블카 자연휴양림", region:"경남", area:"경남 사천시 실안길 242-45", kind:"공공 숙소",
+      review:"편백숲 자연휴양림 객실 둘러보기", channel:"파파트래블", id:"8K6YukrPZLM", start:55,
+      official:"https://www.foresttrip.go.kr/indvz/main.do?hmpgId=ID02030112"
+    },
+    {
+      name:"헤이핀란드 펜션", region:"경기", area:"경기 가평군 조종면 운악청계로490번길 29-27", kind:"펜션",
+      review:"가평 펜션 객실과 핀란드식 사우나", channel:"파파트래블", id:"X14t9Nk_UbI", start:51,
+      official:"https://www.yeogi.com/domestic-accommodations/74461"
+    },
+    {
+      name:"홀리데이 인 리조트 알펜시아 평창", region:"강원", area:"강원 평창군 대관령면 솔봉로 325", kind:"리조트",
+      review:"홀리데이 인 리조트 트윈 객실 투숙기", channel:"파파트래블", id:"-pD4uClRPWg", start:null,
+      official:"https://www.alpensia.com/accomm/hir/use-info.do"
+    },
+    {
+      name:"인제스피디움 호텔", region:"강원", area:"강원 인제군 기린면 상하답로 130", kind:"호텔",
+      review:"인제 레이싱 서킷 전망 호텔 투숙기", channel:"파파트래블", id:"tuMlRRiqq2s", start:null,
+      official:"https://www.speedium.co.kr/"
+    },
+    {
+      name:"라페루즈 리조트", region:"경북", area:"경북 울릉군 울릉읍 중령길 129-128", kind:"리조트",
+      review:"울릉도 라페루즈 숙소 구간", channel:"파파트래블", id:"7SwctrycLsA", start:70,
+      official:"https://www.ulcruise.co.kr/www/ulleungdo/tourism/food?idx=17&mode=view"
+    },
+    {
+      name:"거금도1박3식펜션", region:"전남", area:"전남 고흥군 금산면 거금일주로 2978-26", kind:"펜션",
+      review:"거금도 펜션 객실과 1박 3식", channel:"파파트래블", id:"kCW0j_-10to", start:191,
+      official:"https://travel.ayo.pe.kr/hotel/4ae44fec026d68bd0283f90a0067cb16"
+    },
+    {
+      name:"명암산채건강마을", region:"충북", area:"충북 제천시 봉양읍 명암로 574", kind:"펜션",
+      review:"농촌휴양마을 4인실부터 20인실까지", channel:"파파트래블", id:"thFbBHzFluA", start:82,
+      official:"https://tour.jecheon.go.kr/tour/base/tour/contents/view?clturCntntsNo=265&menuLevel=3&menuNo=60"
     }
   ]
 };
