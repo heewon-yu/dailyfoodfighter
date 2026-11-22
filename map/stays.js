@@ -45,9 +45,163 @@ window.hanbamCatalogue = {
     "제주에디 Jeju Eddy": 152000,
     "쑈쀼 Show Couple": 54,
     "ST Life | Korea & Asia Local Travel": 4450,
-    "파파트래블": 382000
+    "파파트래블": 382000,
+    '조승연의 탐구생활': 1950000,
+    '나나제인, 똑똑한 여행': 160000,
+    '하나투어 PiCK​': 137000,
+    '도로시와DOROSIWA': 133000,
+    '동네형들 Area bro': 118000,
+    '월화수목붑토북': 89000,
+    '프레스티지고릴라': 66000,
+    '시나쓰 유튜브SHINASU': 64000,
+    '심지이즈백 simzi': 43000,
+    '지훈앤수정': 41000,
+    '리뷰남 창수 Review Man': 30000,
+    '왓츠인마이트립': 29000,
+    '필드민': 19000,
+    'Thought During Travel': 12000,
+    '에스티 라이프': 4000,
+    '별언니 피부상담소': 4000,
+    '유어2.1%_세심한외식가': 3000,
+    'travel blahblah': 3000,
+    '고미리레 여행&호텔 리뷰 전문 채널': 3000,
+    '연시 Yunse': 3000,
+    '준철 JunCheol': 2000,
+    '이앉 Next Travel Project': 1000,
+    '시영웨이 | 솔직한 가족 브이로그': 1000,
+    '디우니Diuny': 1000,
+    '비오는맑은날': 1000,
+    'MAYU': 1000,
+    '루시씨': 1000,
+    '햄쵸이‘s hamchoice': 1000,
+    'HotelKDM 한국어': 1000,
+    '꼼지락다혜': 1000,
+    '77쀼': 1000,
+    '종정뱅이TV': 1000,
+    'Weekly Seoul': 1000,
+    'K-MELLOWTRIP': 1000,
+    '홍캉스 HONGKANGS': 1000,
+    '유레카 부동산 tv': 1000,
+    '쏘심플': 1000,
+    '리뷰도리 - 호텔, 항공, 맛집 리뷰': 1000,
+    '페이쉘': 1000,
+    '돌곰이와돌잔치': 1000,
+    '곶남GN': 1000,
+    '비하인드의무해로그': 1000,
+    '냉바': 1000,
+    'OZUBOO TV 오주부': 1000
   },
   stays: [
+    {
+      name:'레스케이프 호텔', region:'서울', area:'서울 중구 퇴계로 67', kind:'호텔',
+      review:'🇫🇷나폴레옹 취향저격? ✨프랑스 역사 간접체험 [레스케이프 호텔] 리뷰ㅣ스위트룸, 조식 리뷰ㅣ조승연 작가', channel:'조승연의 탐구생활', id:'p8RaalqeVkE', start:null,
+      official:'https://all.accor.com/korea/index.ko.shtml',
+      reviews: [
+        {review:"프랑스 느낌 가득한 서울 호캉스 호텔! 명동 레스케이프 호텔 코너 스위트 올스티비 3분 리뷰✨명동에서 프랑스를 느낄 수 있다?! 없다?!", channel:"왓츠인마이트립", id:"K9QSIpXoAKc", start:null},
+        {review:"[⚜️ 레스케이프 호텔 스위트룸 리뷰 ⚜️] 반값으로 스위트룸 즐기기 꿀팁! ( feat. 근로자휴가지원사업 )", channel:"꼼지락다혜", id:"Fav25ZCpSQQ", start:null},
+      ]
+    },
+    {
+      name:'코트야드 메리어트 서울 남대문', region:'서울', area:'서울 중구 남대문로 9', kind:'호텔',
+      review:'코트야드 메리어트 서울 남대문 후기 (이그제큐티브룸, 헬스장 등)', channel:'Weekly Seoul', id:'9tN7-XuWiyg', start:null,
+      official:'https://www.marriott.com/ko/',
+      reviews: [
+        {review:"코트야드 메리어트 서울 남대문 호캉스 후기(이그제큐티브 라운지)", channel:"77쀼", id:"bQ6R-cLUQzI", start:null},
+        {review:"종정뱅이 호캉스 in 코트야드 메리어트 서울 남대문 | 이그제큐티브 라운지 이용 후기 | 술과 커피만이 존재하는 호캉스 | 모던샤브하우스, 스태픽스", channel:"종정뱅이TV", id:"8aMVb_NEO_k", start:null},
+      ]
+    },
+    {
+      name:'코트야드 메리어트 세종', region:'세종', area:'세종특별자치시 다솜3로 6', kind:'호텔',
+      review:'초 신상 호텔 호캉스✨ 코트야드 메리어트 세종 룸투어, 호텔 디너 & 조식 뷔페까지!', channel:'필드민', id:'I3kOF8kw2hw', start:null,
+      official:'https://www.marriott.com/ko/',
+      reviews: [
+        {review:"코트야드 메리어트 세종키친 평일 디너뷔페 서울호텔 3분의1가격 가성비 굿", channel:"K-MELLOWTRIP", id:"V3mPcyDoiYU", start:null},
+      ]
+    },
+    {
+      name:'코트야드 메리어트 판교', region:'경기', area:'경기 성남시 분당구 판교역로192번길 12', kind:'호텔',
+      review:'코트야드 메리어트 판교, 1베드룸 주니어 스위트! 라운지와 조식!', channel:'travel blahblah', id:'F78tS9vqPww', start:null,
+      official:'https://www.marriott.com/ko/',
+      reviews: [
+        {review:"판교 맛집 완벽 풀코스 - 코트야드 메리어트 판교 Courtyard by Marriott Seoul Pangyo", channel:"돈캣 PL․EX", id:"GcPWKQUfof0", start:null},
+        {review:"역시 가성비 호캉스는 여기✨ 코트야드 메리어트 판교 호텔 객실부터 모모카페 조식, 24시간 스테이 패키지", channel:"홍캉스 HONGKANGS", id:"Pd19M456pIY", start:null},
+      ]
+    },
+    {
+      name:'목시 서울 인사동', region:'서울', area:'서울 종로구 돈화문로11길 37', kind:'호텔',
+      review:'목시 인사동 메리어트 호텔 객실후기', channel:'유레카 부동산 tv', id:'Hz2MiKgleAY', start:null,
+      official:'https://all.accor.com/korea/index.ko.shtml',
+      reviews: [
+        {review:"트렌디하고 세련되며 편리함 | 목시 서울 인사동 호텔 리뷰", channel:"Thought During Travel", id:"WV2WJuN8DoM", start:null},
+        {review:"(호텔미텔미) 플레이풀하고 힙함을 즐겨보세요! 목시 서울 인사동", channel:"travel blahblah", id:"_Tpm13cEMT4", start:null},
+      ]
+    },
+    {
+      name:'힐튼 부산', region:'부산', area:'부산 기장군 기장읍 기장해안로 268-32', kind:'호텔',
+      review:'1%부족한 99% 완성형 호텔🏨 아난티 힐튼 부산에 다녀왔습니다 | 호텔 리뷰', channel:'호텔사장 기먼성', id:'s_EhsaEywHw', start:null,
+      official:'https://www.hilton.com/ko/',
+      reviews: [
+        {review:"[아난티힐튼 부산] 기장 힐튼호텔 리뷰 : 프리미엄룸 오션뷰", channel:"쏘심플", id:"k9pCJhCRlM4", start:null},
+        {review:"힐튼 부산 오션뷰 호캉스 호텔리뷰 Hilton Busan", channel:"리뷰도리 - 호텔, 항공, 맛집 리뷰", id:"-O04RilvrHQ", start:null},
+      ]
+    },
+    {
+      name:'힐튼 남해', region:'경남', area:'경남 남해군 남면 남서대로1179번길 40-109', kind:'리조트',
+      review:'[내나라여행] 힐튼 남해 리조트 / Hilton Namhea Golf And Spa Resot / 하나투어 스티커', channel:'하나투어 PiCK​', id:'fJKa2dMfrPs', start:null,
+      official:'https://www.hilton.com/ko/',
+    },
+    {
+      name:'인터컨티넨탈 서울 코엑스', region:'서울', area:'서울 강남구 봉은사로 524', kind:'호텔',
+      review:'호텔 사장이 직접하는 인터컨티넨탈 코엑스 솔직 리뷰', channel:'호텔사장 기먼성', id:'rd46H7tfFhE', start:null,
+      official:'https://www.ihg.com/',
+      reviews: [
+        {review:"이것이 리얼 호캉스✨ 인터컨티넨탈 서울 코엑스 호텔 객실 후기/리뷰 | InterContinental Seoul COEX", channel:"월화수목붑토북", id:"ezZGp4vsR1w", start:null},
+        {review:"인터컨티넨탈 코엑스 호텔ㅣ클럽 수피리어룸 후기(내 돈 내고 사먹은 후기)", channel:"페이쉘", id:"DOQpEMk_TFE", start:null},
+      ]
+    },
+    {
+      name:'노보텔 앰배서더 수원', region:'경기', area:'경기 수원시 팔달구 덕영대로 902', kind:'호텔',
+      review:'노보텔 앰배서더 수원 더 스퀘어ㅣ호텔뷔페리뷰', channel:'곶남GN', id:'JF0csd6eSXo', start:null,
+      official:'https://all.accor.com/korea/index.ko.shtml',
+      reviews: [
+        {review:"수원여행) 생일엔 호캉스가 국룰?! 노보텔 앰배서더 수원 리뷰", channel:"심지이즈백 simzi", id:"HiWt-FQCERI", start:null},
+        {review:"수원 팔달구 돌잔치 호텔 노보텔 앰배서더 수원 후기 🐻", channel:"돌곰이와돌잔치", id:"mLD0SpOBdmM", start:null},
+      ]
+    },
+    {
+      name:'머큐어 앰배서더 서울 홍대', region:'서울', area:'서울 마포구 양화로 144', kind:'호텔',
+      review:'4성급 홍대호텔 머큐어 앰배서더 서울 홍대 그저, 대충', channel:'동네형들 Area bro', id:'J-j7ohjyrCc', start:null,
+      official:'https://all.accor.com/korea/index.ko.shtml',
+      reviews: [
+        {review:"호캉스 브이로그 _ 머큐어 앰배서더 서울 홍대 호텔(Mercure Ambassador Seoul Hongdae 2020.8월 오픈) / 조식 / 홍대", channel:"비하인드의무해로그", id:"w5Ys3dXgXtc", start:null},
+        {review:"핫플레이스 홍대에서 커플 호캉스하기 좋은 홍대 호텔 best3 : 머큐어 앰배서더 서울 홍대, 라이즈 오토 그래프 컬렉션, 아만티 호텔 서울 홍대", channel:"왓츠인마이트립", id:"aDSq3YQU19k", start:null},
+      ]
+    },
+    {
+      name:'머큐어 앰배서더 제주', region:'제주', area:'제주 서귀포시 안덕면 한창로 365', kind:'호텔',
+      review:'제주도 신상호텔ㅣ한겨울 수영가능한 인피니티 온수풀(머큐어앰배서더 제주)리뷰+귀염뽀짝 브이로그', channel:'지훈앤수정', id:'ubKeGiAtzY0', start:null,
+      official:'https://all.accor.com/korea/index.ko.shtml',
+      reviews: [
+        {review:"제주도 숙소 추천 머큐어 앰배서더 제주 호텔 인피티니풀 수영장", channel:"고미리레 여행&호텔 리뷰 전문 채널", id:"dKDFWQSWqbQ", start:null},
+        {review:"제주도에서도 아코르플래티넘 | 머큐어제주 룸업그레이드 & 조식메뉴 & 야외수영장", channel:"냉바", id:"X76FcUeaDNQ", start:null},
+      ]
+    },
+    {
+      name:'아난티 남해', region:'경남', area:'경남 남해군 남면 남서대로1179번길 40-109', kind:'리조트',
+      review:'남해 아난티 | 아난티 남해 총정리! 펜트하우스, 조식, 야외수영장, 레스토랑, 액티비티 싹-다 즐기고 온 리뷰!', channel:'나나제인, 똑똑한 여행', id:'PQ9xRvqc_mA', start:null,
+      reviews: [
+        {review:"아난티 남해 VLOG | 45평 펜트하우스 리조트, 근처 맛집, 조식 뷔페, 산책로 +) 가성비 골프장 사우스링스 영암 후기", channel:"연시 Yunse", id:"HoSgFq0aZ88", start:null},
+        {review:"남해의 보석 같은 리조트 | 아난티 남해 솔직 리뷰", channel:"또 떠나는 남자", id:"f75MxTb1VOI", start:null},
+      ]
+    },
+    {
+      name:'소노펠리체 비발디파크', region:'강원', area:'강원 홍천군 서면 한치골길 262', kind:'리조트',
+      review:'소노펠리체 빌리지 비발디파크 골드그랜드룸 H동 리뷰 대명리조트', channel:'리뷰도리 - 호텔, 항공, 맛집 리뷰', id:'Tvf4llVLUwk', start:null,
+      reviews: [
+        {review:"오션월드 신상 호텔부터 리조트까지 완벽정리 - 소노캄? 소노벨? 소노펠리체? 어디가야 돼?", channel:"돈캣 PL․EX", id:"g7ZE3vi4URY", start:null},
+        {review:"비발디파크 소노펠리체 프레지덴셜 파크뷰 복층 객실 룸투어 + 조식포함 솔직 후기✨", channel:"OZUBOO TV 오주부", id:"aYKi2EckkJQ", start:null},
+      ]
+    },
     {
       name:'아트빌라스 제주', region:'제주', area:'제주 서귀포시 색달중앙로252번길 124', kind:'독채·풀빌라',
       review:'켄고 쿠마 빌라 투숙기', channel:'또 떠나는 남자', id:'B1ZrFeDbHiM', start:null,
@@ -258,11 +412,19 @@ window.hanbamCatalogue = {
       name:"파라다이스호텔 부산", region:"부산", area:"부산 해운대구 해운대해변로 296", kind:"호텔",
       review:"해운대 호텔 투숙과 여행", channel:"돈캣 PL․EX", id:"BmInU9dd7bM", start:null,
       official:"https://www.busanparadisehotel.co.kr/"
+    ,
+      reviews: [
+        {review:"\"40년짬에서 나오는 바이브?\" 파라다이스호텔 부산 솔직 후기 (디럭스 오션 객실ㅣ이그제큐티브 라운지ㅣ야외수영장ㅣ조식)", channel:"여니버스 Yeoniverse", id:"CruSYfI3QC4", start:null}
+      ]
     },
     {
       name:"그랜드 조선 부산", region:"부산", area:"부산 해운대구 해운대해변로 292", kind:"호텔",
       review:"호텔 투숙과 해운대 여행", channel:"돈캣 PL․EX", id:"pv5s1nPomXA", start:null,
       official:"https://gjb.josunhotel.com/about/aboutUs.do"
+    ,
+      reviews: [
+        {review:"부산 호캉스 강력추천!! 그랜드 조선 부산 리뷰", channel:"호텔사장 기먼성", id:"YRtQbAcXMbg", start:null}
+      ]
     },
     {
       name:"호텔 나루 서울 엠갤러리", region:"서울", area:"서울 마포구 마포대로 8", kind:"호텔",
@@ -287,7 +449,7 @@ window.hanbamCatalogue = {
       official:"https://www.fourseasons.com/kr/seoul/",
       reviews: [
         {review:"경복궁 전망과 호텔 시설", channel:"또 떠나는 남자", id:"VSTi8R-lmno", start:null}
-      ]
+      , {review:"20만원 호텔식당 이용권이 포함 된 포시즌스서울 호캉스 - 경복궁이 보이는 객실, 조식, 수영장", channel:"더들리", id:"vuJDN5izjxE", start:null}]
     },
     {
       name:"그랜드 하얏트 제주", region:"제주", area:"제주 제주시 노연로 12", kind:"호텔",
@@ -295,7 +457,7 @@ window.hanbamCatalogue = {
       official:"https://www.hyatt.com/grand-hyatt/ko-KR/cjugh-grand-hyatt-jeju/hotel-info",
       reviews: [
         {review:"드림타워 호텔 방문 리뷰", channel:"호텔사장 기먼성", id:"YJXoU_mNSIQ", start:null}
-      ]
+      , {review:"[제주도 호텔 추천] 그랜드하얏트 제주 3박 4일 자세한 후기 (킹룸 오션뷰 19층 / 수영장 / 룸서비스 조식 / 포차 / 피트니스 / 오락실)", channel:"리뷰남 창수 Review Man", id:"BfslldqKSd8", start:null}]
     },
     {
       name:"인스파이어 엔터테인먼트 리조트", region:"인천", area:"인천 영종구 공항문화로 127", kind:"리조트",
@@ -310,6 +472,10 @@ window.hanbamCatalogue = {
       name:"서울신라호텔", region:"서울", area:"서울 중구 동호로 249", kind:"호텔",
       review:"서울신라호텔 방문 리뷰", channel:"호텔사장 기먼성", id:"E1GOH-NytmA", start:null,
       official:"https://www.shillahotels.com/ko/theshilla/seoul/index.do"
+    ,
+      reviews: [
+        {review:"객실 예약하면 밥을 네 번 준다고 해서 갔더니... 서울 신라호텔 솔직 후기", channel:"또 떠나는 남자", id:"afjqm87ySL8", start:null}
+      ]
     },
     {
       name:"시그니엘 서울", region:"서울", area:"서울 송파구 올림픽로 300", kind:"호텔",
@@ -325,7 +491,7 @@ window.hanbamCatalogue = {
       official:"https://jpg.josunhotel.com/about/location.do",
       reviews: [
         {review:"시티뷰 객실과 수영장 투숙기", channel:"더들리", id:"XqWc8NXEgX8", start:null}
-      ]
+      , {review:"조선 팰리스 서울 강남 호텔 리뷰, 럭셔리 5성급 서울 호텔을 찾는다면 여기! 😎", channel:"이앉 Next Travel Project", id:"4e7XqclG30o", start:null}]
     },
     {
       name:"레스트리 리솜", region:"충북", area:"충북 제천시 백운면 금봉로 365", kind:"리조트",
@@ -364,12 +530,16 @@ window.hanbamCatalogue = {
       official:"https://english.visitkorea.or.kr/svc/whereToGo/locIntrdn/rgnContentsView.do?vcontsId=98963",
       reviews: [
         {review:"힐튼 경주 투숙과 경주 여행", channel:"돈캣 PL․EX", id:"YseTRhCg9Nc", start:null}
-      ]
+      , {review:"경주 최고의 럭셔리 호텔, 힐튼 경주(Hilton Gyeongju) 솔직 리뷰", channel:"프레스티지고릴라", id:"Uq5yIGpIzvE", start:null}]
     },
     {
       name:"라한셀렉트 경주", region:"경북", area:"경북 경주시 보문로 338", kind:"호텔",
       review:"객실과 수영장, 조식 비교", channel:"또 떠나는 남자", id:"CMjPjJv_rDA", start:580,
       official:"https://www.lahanhotels.com/gyeongju/ko/main.do"
+    ,
+      reviews: [
+        {review:"경주 럭셔리호텔 중에서 T.O.P🌸 라한셀렉트경주 스위트룸 솔직 리뷰!", channel:"프레스티지고릴라", id:"0mRjkZyNPvE", start:null}
+      ]
     },
     {
       name:"소노캄 경주", region:"경북", area:"경북 경주시 보문로 402-12", kind:"호텔",
@@ -449,11 +619,19 @@ window.hanbamCatalogue = {
       name:"파라다이스시티", region:"인천", area:"인천 영종구 영종해안남로321번길 186", kind:"리조트",
       review:"객실과 씨메르·원더박스 리뷰", channel:"돈캣 PL․EX", id:"9FIhqJQuKFk", start:null,
       official:"https://www.p-city.com/front/contents/pcity/location"
+    ,
+      reviews: [
+        {review:"인천 일등 호텔 | 파라다이스시티 인천 리뷰", channel:"호텔사장 기먼성", id:"nJ5wm8GPg3Y", start:null}
+      ]
     },
     {
       name:"풀만 앰배서더 서울 이스트폴", region:"서울", area:"서울 광진구 아차산로 410", kind:"호텔",
       review:"객실과 한강 전망 수영장", channel:"숙소왕", id:"vZCocF6G8Ig", start:null,
       official:"https://www.pullmanseouleastpole.com/location/"
+    ,
+      reviews: [
+        {review:"풀만 앰배서더 서울 이스트폴 솔직 후기 - 예약 전 알고 가세요", channel:"돈캣 PL․EX", id:"cPHFI2K1hCs", start:null}
+      ]
     },
     {
       name:"세인트 더 스위트 양양", region:"강원", area:"강원 양양군 강현면 일출로 31-20", kind:"호텔",
@@ -507,7 +685,7 @@ window.hanbamCatalogue = {
       official:"https://mondrianhotels.com/seoul-itaewon/",
       reviews: [
         {review:"몬드리안 이태원 방문 리뷰", channel:"호텔사장 기먼성", id:"8gMULOZB3QU", start:null}
-      ]
+      , {review:"이런 호텔 만들어줘서 진짜 감사합니다 엉엉...😭/ 몬드리안 서울 이태원 솔직 리뷰!", channel:"프레스티지고릴라", id:"1z2xqtt7RFw", start:null}]
     },
     {
       name:"안다즈 서울 강남", region:"서울", area:"서울 강남구 논현로 854", kind:"호텔",
@@ -515,7 +693,7 @@ window.hanbamCatalogue = {
       official:"https://www.hyatt.com/andaz/ko-KR/selaz-andaz-seoul-gangnam",
       reviews: [
         {review:"안다즈 서울 강남 방문 리뷰", channel:"호텔사장 기먼성", id:"iIlAg7T78hE", start:null}
-      ]
+      , {review:"압구정 유일의 5성급 호텔 | 안다즈 서울 강남 (호캉스, 수영장, 룸서비스, 조식 뷔페 후기", channel:"시나쓰 유튜브SHINASU", id:"-Mda1DFM7Jc", start:null}]
     },
     {
       name:"콘래드 서울", region:"서울", area:"서울 영등포구 국제금융로 10", kind:"호텔",
@@ -697,12 +875,16 @@ window.hanbamCatalogue = {
       official:"https://www.fairmont.com/en/hotels/seoul/fairmont-ambassador-seoul.html",
       reviews: [
         {review:"더현대 전망 객실과 투숙 후기", channel:"돈캣 PL․EX", id:"2yo_agp3Z9Y", start:null}
-      ]
+      , {review:"호텔 사장이 직접 하는 여의도 페어몬트 앰배서더 서울 솔직 리뷰", channel:"호텔사장 기먼성", id:"TTbYu6T3wYI", start:null}]
     },
     {
       name:"르메르디앙 서울 명동", region:"서울", area:"서울 중구 명동8나길 38", kind:"호텔",
       review:"디럭스 킹 객실과 호텔 투숙기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"hmrf-i1Hi88", start:395,
       official:"https://www.marriott.com/ko/hotels/selmm-le-meridien-seoul-myeongdong/overview/"
+    ,
+      reviews: [
+        {review:"르메르디앙 서울 호텔 클래식룸 객실 리뷰 / Le Meridien Seoul Hotel classic room review", channel:"비오는맑은날", id:"Swm9fR3uEng", start:null}
+      ]
     },
     {
       name:"비스타 워커힐 서울", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
@@ -723,7 +905,7 @@ window.hanbamCatalogue = {
       official:"https://www.theparnas.com/",
       reviews: [
         {review:"출국 전 삼성역 호텔 투숙기 · 객실 제공", channel:"초마드 CHOMAD", id:"VHRta7bI0pQ", start:null}
-      ]
+      , {review:"인터컨티넨탈 파르나스 리뷰, 클럽라운지가 괜찮다면서요?! 삼성동과 역사를 함께한 인터컨티넨탈 파르나스 호텔, 애프터눈티와 해피아워,, 그랜드키친 조식뷔페까지 먹", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"fU0t8yvOtlo", start:null}]
     },
     {
       name:"웜댄콜드맨션", region:"강원", area:"강원 강릉시 교동광장로100번길 19", kind:"독채·풀빌라",
@@ -819,6 +1001,10 @@ window.hanbamCatalogue = {
       name:"그랜드 하얏트 인천", region:"인천", area:"인천 영종구 영종해안남로321번길 208", kind:"호텔",
       review:"이스트타워 가족 투숙기", channel:"ST Life | Korea & Asia Local Travel", id:"SKHxNcFR__M", start:null,
       official:"https://www.hyatt.com/grand-hyatt/ko-KR/inche-grand-hyatt-incheon"
+    ,
+      reviews: [
+        {review:"인천공항 호텔 삼시세끼 호캉스 - 그랜드하얏트 인천", channel:"돈캣 PL․EX", id:"RYL8FGwFxZw", start:null}
+      ]
     },
     {
       name:"신라스테이 삼성", region:"서울", area:"서울 강남구 영동대로 506", kind:"호텔",
@@ -844,6 +1030,10 @@ window.hanbamCatalogue = {
       name:"코트야드 메리어트 서울 보타닉 파크", region:"서울", area:"서울 강서구 마곡중앙12로 10", kind:"호텔",
       review:"마곡 서울식물원 옆 호텔 투숙기", channel:"돈캣 PL․EX", id:"Cftxeni__Sg", start:null,
       official:"https://www.marriott.com/ko/hotels/selcs-courtyard-seoul-botanic-park/overview/"
+    ,
+      reviews: [
+        {review:"Vlog | 코트야드 메리어트 서울 보타닉 파크 호텔 200배 즐기는 방법💙 / 커넥팅룸 / 조식후기", channel:"디우니Diuny", id:"J7FylCaoxyU", start:null}
+      ]
     },
     {
       name:"쉐라톤 그랜드 인천 호텔", region:"인천", area:"인천 연수구 컨벤시아대로 153", kind:"호텔",
@@ -864,11 +1054,19 @@ window.hanbamCatalogue = {
       name:"시그니엘 부산", region:"부산", area:"부산 해운대구 달맞이길 30", kind:"호텔",
       review:"해운대 호텔 1박과 조식", channel:"돈캣 PL․EX", id:"DmnXmVewQQU", start:null,
       official:"https://app.lottehotel.com/busan-signiel/ko/about/location"
+    ,
+      reviews: [
+        {review:"[호텔리뷰] [Hotel Review] 시그니엘 부산 | SIGNIEL BUSAN | 5성급 호텔 | 호캉스 | 솔직후기", channel:"유어2.1%_세심한외식가", id:"Jo2ymhovExs", start:null}
+      ]
     },
     {
       name:"그랜드 하얏트 서울", region:"서울", area:"서울 용산구 소월로 322", kind:"호텔",
       review:"남산 그랜드 하얏트 호텔 객실 리뷰", channel:"호텔사장 기먼성", id:"13icVpzbMG4", start:null,
       official:"https://www.hyatt.com/grand-hyatt/ko-KR/selrs-grand-hyatt-seoul/hotel-info"
+    ,
+      reviews: [
+        {review:"한강뷰라더니🙄..?ㅣ그랜드 하얏트 서울 호캉스 솔직 후기💖ㅣ조식 룸서비스, 수영장 리뷰, 호텔 이용 꿀팁!!", channel:"도로시와DOROSIWA", id:"VvV57HKT9F0", start:null}
+      ]
     },
     {
       name:"워커힐 더글라스 하우스", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
@@ -886,17 +1084,25 @@ window.hanbamCatalogue = {
       official:"https://www.hilton.com/ko/hotels/selsedi-doubletree-seoul-pangyo/",
       reviews: [
         {review:"판교 호텔 투숙 후기 · 쇼츠", channel:"세하우스", id:"9d9qWWXrfWA", start:null}
-      ]
+      , {review:"5성급 호텔이 20만원 초반?! 더블트리 판교 솔직후기 ✨🙊 | 서울 호캉스 | 호캉스 호텔추천 | 여행유튜버", channel:"세하우스", id:"9BIm29JmEbU", start:null}]
     },
     {
       name:"네스트 호텔 인천", region:"인천", area:"인천 중구 영종해안남로 19-5", kind:"호텔",
       review:"디럭스 트윈 투숙 후기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:271,
       official:"https://www.nesthotel.co.kr/"
+    ,
+      reviews: [
+        {review:"HotelKDM | 네스트 호텔 인천(Nest Hotel Incheon) 리뷰", channel:"HotelKDM 한국어", id:"31kzRTnPs4I", start:null}
+      ]
     },
     {
       name:"아난티 앳 강남", region:"서울", area:"서울 강남구 논현로 734", kind:"호텔",
       review:"복층 객실 투숙 후기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:448,
       official:"https://ananti.kr/ko/ganm/journey/location"
+    ,
+      reviews: [
+        {review:"아난티 앳 강남 다녀왔어요~ | 호텔 리뷰 (ft. 복층, 수영장)", channel:"별언니 피부상담소", id:"jPrQZzrlZvI", start:null}
+      ]
     },
     {
       name:"오크우드 프리미어 인천", region:"인천", area:"인천 연수구 컨벤시아대로 165", kind:"레지던스",
@@ -927,6 +1133,10 @@ window.hanbamCatalogue = {
       name:"반얀트리 클럽 앤 스파 서울", region:"서울", area:"서울 중구 장충단로 60", kind:"호텔",
       review:"남산 전망 객실과 객실 내 풀 · 비교 쇼츠", channel:"캣블링 catveling", id:"swViN6BmIhQ", start:1,
       official:"https://www.banyantreeclub.com/mobile/introduce/location.asp"
+    ,
+      reviews: [
+        {review:"반얀트리 남산 프리미어룸 릴렉세이션 객실 4인 가족이 이용하기 좋을까? 반얀트리 클럽 앤 스파 서울 호텔 리뷰!", channel:"에스티 라이프", id:"xu-vtaqfhFg", start:null}
+      ]
     },
     {
       name:"황토스테이179", region:"강원", area:"강원 강릉시 성산면 대송길 180", kind:"독채·풀빌라",
@@ -1042,6 +1252,10 @@ window.hanbamCatalogue = {
       name:"파크 하얏트 서울", region:"서울", area:"서울 강남구 테헤란로 606", kind:"호텔",
       review:"도심 전망 디럭스 객실 투숙기", channel:"또 떠나는 남자", id:"iOubyR07h2Y", start:150,
       official:"https://www.hyatt.com/park-hyatt/ko-KR/selph-park-hyatt-seoul"
+    ,
+      reviews: [
+        {review:"호텔 사장이 직접하는 '파크 하얏트 서울' 솔직 리뷰", channel:"호텔사장 기먼성", id:"yRIt-Y-LkH0", start:null}
+      ]
     },
     {
       name:"바랑재", region:"강원", area:"강원 평창군 대관령면 올림픽로 1169", kind:"한옥·고택",
@@ -1062,11 +1276,19 @@ window.hanbamCatalogue = {
       name:"노보텔 앰배서더 서울 강남", region:"서울", area:"서울 강남구 봉은사로 130", kind:"호텔",
       review:"강남 이그제큐티브 객실과 투숙 후기", channel:"소지니", id:"aUMBD_JSKIk", start:null,
       official:"https://www.ambatel.com/novotel/gangnam/ko/main.do"
+    ,
+      reviews: [
+        {review:"노보텔 강남 이그제큐티브룸 호캉스 후기", channel:"MAYU", id:"wJOQoun-SGw", start:null}
+      ]
     },
     {
       name:"웨스틴 조선 서울", region:"서울", area:"서울 중구 소공로 106", kind:"호텔",
       review:"이그제큐티브 스위트 객실 투숙기", channel:"또 떠나는 남자", id:"4oag5k0bnkc", start:132,
       official:"https://josunhotel.com/hotel/westinSeoul.do"
+    ,
+      reviews: [
+        {review:"5성급 호텔 웨스틴 조선 서울에 다녀왔습니다 | 호텔 리뷰", channel:"호텔사장 기먼성", id:"dv1_dbFpSRo", start:null}
+      ]
     },
     {
       name:"켄싱턴호텔 평창", region:"강원", area:"강원 평창군 진부면 진고개로 231", kind:"호텔",
@@ -1082,16 +1304,28 @@ window.hanbamCatalogue = {
       name:"JW 메리어트 동대문 스퀘어 서울", region:"서울", area:"서울 종로구 청계천로 279", kind:"호텔",
       review:"흥인지문 전망 객실 투어", channel:"또 떠나는 남자", id:"nA5DE3rpYL4", start:90,
       official:"https://www.marriott.com/ko/hotels/seldp-jw-marriott-dongdaemun-square-seoul/overview/"
+    ,
+      reviews: [
+        {review:"수영장과 흥인지문의 콜라보 JW메리어트 동대문 후기", channel:"준철 JunCheol", id:"4C5sJNiMtPs", start:null}
+      ]
     },
     {
       name:"아난티 앳 부산 코브", region:"부산", area:"부산 기장군 기장읍 기장해안로 268-32", kind:"호텔",
       review:"부산 코브 호텔 객실 선택과 투숙 후기", channel:"돈캣 PL․EX", id:"cVaUPwIIO1g", start:null,
       official:"https://ananti.kr/ko/busan/BS0112"
+    ,
+      reviews: [
+        {review:"아난티코브 가족여행🌊 | 부산 오션뷰 호텔에서 1박 2일, 수영장과 객실리뷰에 르블랑조식까지!", channel:"루시씨", id:"09ycA_MCtdc", start:null}
+      ]
     },
     {
       name:"롯데호텔 부산", region:"부산", area:"부산 부산진구 가야대로 772", kind:"호텔",
       review:"서면 롯데호텔 클럽룸 투숙 후기", channel:"창창한 다솔이네", id:"3UpeG1w-Hrs", start:null,
       official:"https://app.lottehotel.com/busan-hotel/ko"
+    ,
+      reviews: [
+        {review:"🏨부산 도심 호캉스 제대로 즐기기 | 클럽라운지, 수영장, 칵테일아워까지(롯데호텔부산)", channel:"햄쵸이‘s hamchoice", id:"bLz65cUZ--8", start:null}
+      ]
     },
     {
       name:"그랜드 머큐어 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
@@ -1137,11 +1371,19 @@ window.hanbamCatalogue = {
       name:"웨스틴 조선 부산", region:"부산", area:"부산 해운대구 동백로 67", kind:"호텔",
       review:"리노베이션 객실과 해운대 전망", channel:"또 떠나는 남자", id:"4SH7szV2QjU", start:129,
       official:"https://josunhotel.com/hotel/westinBusan.do"
+    ,
+      reviews: [
+        {review:"뷰 하나로 끝났다 | 웨스틴조선 부산 솔직 후기", channel:"시영웨이 | 솔직한 가족 브이로그", id:"keV7HSW0CgU", start:null}
+      ]
     },
     {
       name:"파크 하얏트 부산", region:"부산", area:"부산 해운대구 마린시티1로 51", kind:"호텔",
       review:"스탠다드부터 스위트까지 객실 비교", channel:"또 떠나는 남자", id:"dw4di07KQwg", start:30,
       official:"https://www.hyatt.com/park-hyatt/ko-KR/busph-park-hyatt-busan"
+    ,
+      reviews: [
+        {review:"미친 전망! 근데 1박에 70만원? 파크하얏트부산 파크 이그제큐티브 마리나 스위트 리뷰", channel:"여니버스 Yeoniverse", id:"b1R4gtRY2DY", start:null}
+      ]
     },
     {
       name:"하이원 그랜드호텔 메인타워", region:"강원", area:"강원 정선군 사북읍 하이원길 265", kind:"호텔",
@@ -1197,11 +1439,19 @@ window.hanbamCatalogue = {
       name:"롯데호텔 제주", region:"제주", area:"제주 서귀포시 중문관광로72번길 35", kind:"호텔",
       review:"중문 디럭스 마운틴뷰 객실 투숙기", channel:"또 떠나는 남자", id:"YSwdvDlYugU", start:212,
       official:"https://app.lottehotel.com/jeju-hotel/ko"
+    ,
+      reviews: [
+        {review:"방은 낡았지만 음식은 최고네요 | 롯데호텔 제주 솔직리뷰", channel:"제주에디 Jeju Eddy", id:"bihp5wA8yiY", start:null}
+      ]
     },
     {
       name:"제주신라호텔", region:"제주", area:"제주 서귀포시 중문관광로72번길 75", kind:"호텔",
       review:"오션뷰 디럭스와 프리미어 객실 후기", channel:"또 떠나는 남자", id:"ECXYOwaXIBg", start:114,
       official:"https://www.shillahotels.com/ko/theshilla/jeju/index.do"
+    ,
+      reviews: [
+        {review:"제주도 1등 호텔이었는데... 요즘 말 많은 제주 신라호텔 후기", channel:"제주에디 Jeju Eddy", id:"GhxrjQ-RT_8", start:null}
+      ]
     },
     {
       name:"WE호텔 제주", region:"제주", area:"제주 서귀포시 1100로 453-95", kind:"호텔",

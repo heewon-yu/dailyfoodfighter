@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>한입.한밤지도</title><meta name="description" content="유튜브에 소개된 국내 맛집·숙소와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
+<title>한입.한밤지도</title><meta name="description" content="유튜브에 소개된 국내 맛집·숙소(미쉐린 가이드 서울·부산 등재 식당 포함)와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="한입.한밤지도">
 <meta property="og:url" content="https://dailyfoodfighter.com/map/">
 <meta property="og:title" content="한입.한밤지도">
-<meta property="og:description" content="유튜브에 소개된 국내 맛집·숙소와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
+<meta property="og:description" content="유튜브에 소개된 국내 맛집·숙소(미쉐린 가이드 서울·부산 등재 식당 포함)와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
 <meta property="og:image" content="https://dailyfoodfighter.com/map/og-hanip-hanbam-illustrated.jpg">
 <meta property="og:image:secure_url" content="https://dailyfoodfighter.com/map/og-hanip-hanbam-illustrated.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -15,7 +15,7 @@
 <meta property="og:image:alt" content="한입.한밤지도. 빨간 배경의 접이식 지도에 비빔밥과 호텔 모형이 놓인 일러스트">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="한입.한밤지도">
-<meta name="twitter:description" content="유튜브에 소개된 국내 맛집·숙소와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
+<meta name="twitter:description" content="유튜브에 소개된 국내 맛집·숙소(미쉐린 가이드 서울·부산 등재 식당 포함)와 해외 호텔·미쉐린 레스토랑을 한곳에서 찾고, 원본 영상과 지도에서 확인하세요.">
 <meta name="twitter:image" content="https://dailyfoodfighter.com/map/og-hanip-hanbam-illustrated.jpg">
 <style>
 :root{--ink:#332323;--muted:#765b57;--coral:#b73832;--accent:#ff806d;--soft:#ffe7df;--paper:#fff8f5;--line:#efdcd6}*{box-sizing:border-box}body{margin:0;font:16px/1.55 "Noto Sans KR","Malgun Gothic",system-ui,sans-serif;background:var(--paper);color:var(--ink)}button,input,select{font:inherit}a{color:inherit;text-decoration:none}button,select{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--coral);outline-offset:3px}header{border-bottom:1px solid var(--line);background:white}.top,main{max-width:1200px;margin:auto;padding:0 28px}.top{height:74px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:1.35rem;font-weight:900;letter-spacing:-.06em;display:flex;align-items:center;gap:10px}.brand b{background:var(--coral);color:white;border-radius:12px;padding:4px 10px}.tab,.chip,.secondary{background:white;color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:9px 14px;font-weight:700}.tab[aria-pressed=true],.chip[aria-pressed=true]{background:var(--soft);color:#8a2721;border-color:#f2b7aa}
@@ -23,7 +23,7 @@
 .toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}.chips{display:flex;gap:8px;flex-wrap:wrap}select{border:1px solid var(--line);border-radius:10px;padding:8px 12px;background:white;color:var(--ink)}.section-title{display:flex;align-items:baseline;gap:10px;margin:22px 0 12px}.section-title h2{font-size:1.4rem;margin:0;letter-spacing:-.04em}.count,.meta,.hint{color:var(--muted);font-size:.9rem}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.card{border:1px solid var(--line);border-radius:17px;overflow:hidden;background:white;box-shadow:0 4px 12px #60271b0b;display:flex;flex-direction:column}.thumb{height:160px;display:grid;place-items:center;position:relative;background:linear-gradient(130deg,#64302f,#af443b);color:white;overflow:hidden}.thumb img{position:absolute;width:100%;height:100%;object-fit:cover}.thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 45%,#231514a3)}.play{z-index:1;display:grid;place-items:center;background:#752923dd;border:1px solid #fff9;border-radius:50%;width:43px;height:43px}.time{z-index:1;position:absolute;right:11px;bottom:10px;background:#321916e8;border-radius:6px;padding:2px 7px;font-size:.82rem}.details{padding:15px 16px 16px;display:flex;flex-direction:column;flex:1}.info{display:flex;align-items:flex-start;justify-content:space-between;gap:8px}.meta{margin:0;color:#943b32;font-weight:750}.details h3{margin:4px 0 6px;font-size:1.17rem;letter-spacing:-.045em}.save{border:1px solid var(--line);background:white;color:#8a2721;border-radius:10px;padding:4px 10px;font-size:1.25rem}.save[aria-pressed=true]{background:var(--soft)}.source{font-size:.87rem;color:var(--muted);margin:0 0 13px}.actions{display:flex;gap:8px;margin-top:auto}.actions a{flex:1;text-align:center;font-size:.86rem;padding:8px 5px;border-radius:8px;font-weight:750}.map{background:#fff1eb;color:#8a2721;border:1px solid #f1c7bc}.video{background:#a9312c;color:white;border:1px solid #a9312c}.empty{grid-column:1/-1;text-align:center;padding:43px;border:1px dashed #d7a79a;border-radius:15px}.foot{text-align:center;color:#826b64;font-size:10px;margin:42px 0 20px}.hint{margin:16px 0} @media(max-width:850px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:530px){.top,main{padding-inline:16px}.top{height:62px}.hero{margin:18px 0;padding:25px 20px}.grid{grid-template-columns:1fr}.thumb{height:175px}.tab,.chip{padding:7px 10px}}
 dialog{width:min(680px,calc(100% - 30px));max-height:90vh;overflow:auto;border:1px solid var(--line);border-radius:20px;padding:22px;background:white;color:var(--ink)}dialog::backdrop{background:#2d1718a8}.dialog-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}.dialog-head h2{margin:0 0 4px}.player{display:block;width:100%;aspect-ratio:16/9;border:0;border-radius:12px;background:#351f20;margin:14px 0}.detail-button{border:0;background:none;padding:0;text-align:left;color:inherit;font:inherit;font-weight:inherit}.detail-button:hover{text-decoration:underline}
 .map-section{background:white;border:1px solid var(--line);border-radius:20px;padding:20px;margin:0 0 25px}.map-heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px;flex-wrap:wrap}.map-heading h2{margin:0;letter-spacing:-.04em;font-size:1.45rem}.map-section .chips{margin-bottom:14px}.map-section .chip{font-size:.88rem;padding:6px 11px}.map-layout{display:grid;grid-template-columns:minmax(0,1.65fr) minmax(0,1fr);border:1px solid var(--line);border-radius:14px;overflow:hidden}.google-map{display:block;border:0;width:100%;height:335px;background:var(--soft)}.map-sidebar{min-width:0;padding:13px;background:#fffbf9;max-height:335px;overflow:auto}.map-sidebar h3{margin:0 0 8px;font-size:1rem}.map-place{display:block;width:100%;padding:8px 9px;text-align:left;background:white;border:1px solid var(--line);border-radius:8px;color:var(--ink);margin-bottom:5px;font-weight:700;font-size:.89rem}.map-place small{display:block;color:var(--muted);font-weight:400}.map-place[aria-pressed=true]{background:var(--soft);border-color:#f2b7aa}.map-empty{color:var(--muted);margin:8px 0;font-size:.9rem}.result-shortcut{display:inline-block;color:var(--coral);text-decoration:underline;font-weight:700;font-size:.88rem;margin-bottom:10px}.map-heading-actions{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.map-body[hidden]{display:none}.map-toggle[aria-expanded=true]{background:var(--soft);border-color:#f2b7aa}.map-collapsed-note{margin:0;color:var(--muted);font-size:.9rem}.toolbar .types{margin-right:auto}.toolbar .types .chip{font-weight:800;min-height:38px}.toolbar .types[hidden]{display:none}@media(max-width:640px){.map-layout{grid-template-columns:1fr}.google-map{height:260px}.map-sidebar{max-height:205px}.map-section{padding:14px}}
-</style><link rel="stylesheet" href="./stay.css?v=20261122d"></head>
+</style><link rel="stylesheet" href="./stay.css?v=20261122e"></head>
 <body><header><div class="top"><a class="brand" href="./"><b aria-hidden="true">●</b> <span id="brand-name">한입지도</span></a><nav class="map-switch" aria-label="지도 선택"><button class="tab" id="food-view" type="button" aria-pressed="true">한입지도</button><button class="tab" id="stay-view" type="button" aria-pressed="false">한밤지도</button><button class="tab" id="abroad-view" type="button" aria-pressed="false">해외지도</button></nav><button id="saved" class="tab" aria-pressed="false">☆ 저장한 장소</button></div></header>
 <main><section class="hero"><small id="hero-type">유튜브 맛집 지도</small><h1><span id="hero-heading">영상 속 그 맛집,</span><br><span id="hero-heading-end">어디였지?</span></h1><p id="hero-description">가게 이름이나 지역으로 찾아보고, 맛집 리뷰와 위치를 확인하세요.</p><form class="search" role="search"><input id="query" type="search" aria-label="가게, 지역 또는 메뉴 검색" placeholder="예: 제주, 국밥, 이재모피자"><button class="primary">검색</button></form></section>
 <section class="map-section" aria-labelledby="map-title" id="map-section"><div class="map-heading"><h2 id="map-title">전국 맛집 지도</h2><div class="map-heading-actions"><button id="map-toggle" class="secondary map-toggle" type="button" aria-expanded="false" aria-controls="map-body">지도로 펼치기</button></div></div>
@@ -33,8 +33,8 @@ dialog{width:min(680px,calc(100% - 30px));max-height:90vh;overflow:auto;border:1
 <div class="map-sidebar"><h3 id="map-region" aria-live="polite"></h3><a class="result-shortcut" id="results-jump" href="#results-title">장소 카드 보기</a><div id="map-places"></div></div></div></div></section>
 <section aria-labelledby="results-title"><div class="toolbar"><div class="chips types" id="types" role="group" aria-label="장소 유형" hidden></div><div class="selects"><select id="channel" aria-label="소개 채널"><option value="">모든 채널</option></select> <select id="kind" aria-label="음식 종류"><option value="">모든 음식</option></select></div></div><div class="section-title"><h2 id="results-title">장소 둘러보기</h2><span class="count" id="count" aria-live="polite"></span></div><div class="grid" id="grid"></div><p class="hint" id="hint">구독자 10만 명 이상 채널의 방문 영상을 수록합니다. 같은 가게는 구독자 수가 가장 많은 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.</p></section></main><footer class="foot">created by 16100901</footer>
 <dialog id="place-dialog" aria-labelledby="place-title"></dialog>
-<script src="./stays.js"></script>
-<script src="./abroads.js?v=20261122d"></script>
+<script src="./stays.js?v=20261122e"></script>
+<script src="./abroads.js?v=20261122e"></script>
 <script>
 const regions = ['서울','부산','대구','인천','광주','대전','울산','세종','경기','강원','충북','충남','전북','전남','경북','경남','제주'];
 // Rounded public subscriber counts collected for this release.
@@ -142,6 +142,93 @@ const subscribers = {
   "재슐랭가이드": 336000,
   "유리소리TV": 163000,
   "일상이여행 Everyday travel": 315000,
+  "KBS 다큐": 2820000,
+  "CooCook": 2400000,
+  "조선일보": 1760000,
+  "덜들리": 1270000,
+  "문정훈 교수의 푸비랩": 830000,
+  "세바시 강연 Sebasi Talk": 718000,
+  "뉴민상": 532000,
+  "닥신TV": 495000,
+  "Turbo832 TV": 421000,
+  "공격수셰프 Striker chef": 397000,
+  "오로지,현우 Only Hyunwoo": 212000,
+  "승빠": 178000,
+  "HITEJINRO": 133000,
+  "카라미": 130000,
+  "이륜차 타는 한의사": 74000,
+  "셰프 장호준 (호주이햄)": 58000,
+  "와인이야기": 45000,
+  "B tv 뉴스": 45000,
+  "셀론 작가감독 The Cellon AUTHOR.DIRECTOR": 42000,
+  "로쇼 Losho": 41000,
+  "용티의 푸드트립": 40000,
+  "뚜벅뚜벅 서부남": 39000,
+  "올디너림 All Dinner Lim": 28000,
+  "올리비아맘세": 25000,
+  "의사 김준현TV - Dr.JoonhyunKimTV": 22000,
+  "소셜케이 SocialK": 17000,
+  "드렁큰곰돌의 미식탐구생활": 16000,
+  "아삭플레이스asacplace": 16000,
+  "먹낙 muknak": 14000,
+  "미식도우미 샹키": 13000,
+  "SSUN TV 썬부부세계여행": 12000,
+  "살롱드데지레 /salon_de_desiree": 12000,
+  "고품격 맛집지도 TV": 12000,
+  "천과장": 10000,
+  "지나가던 스노브": 8000,
+  "직방탈플러스": 8000,
+  "88차밍지 - CHARMINGJI": 6000,
+  "빵내": 6000,
+  "맛난집": 4000,
+  "자유의사, Freedom doctor": 3000,
+  "앤쮸 ANNE ZUE": 3000,
+  "멸치138": 3000,
+  "히데오": 3000,
+  "최스콘": 2000,
+  "평범한 셰프": 2000,
+  "멤슐랭 Memchelin": 2000,
+  "오늘도 날리 | 미국 일상 브이로그": 2000,
+  "박살 맛집! 진구의 불장난": 2000,
+  "mo•on": 2000,
+  "지원스홈": 1000,
+  "두두란두 dudurandu": 1000,
+  "밈효닝 Hyoning": 1000,
+  "총키 𝘾𝙝𝙤𝙣𝙜𝙠𝙞": 1000,
+  "헬로앙팡 Hello, Angpang": 1000,
+  "골드리버 캘리포니아 이야기": 1000,
+  "여행이 좋아 Korea Travel ": 1000,
+  "서우 seowoo": 1000,
+  "[한식명인] 명인의 레시피": 1000,
+  "봉주르아 bonjourah": 1000,
+  "한국대학사회봉사협의회": 1000,
+  "낙원맨 nakwonman | 충무로맛집 낙원의소바": 1000,
+  "맛집 famous food": 1000,
+  "미나의한끼": 1000,
+  "sOh@": 1000,
+  "김달달 Kim_Daldal": 1000,
+  "Killa_킬라TV": 1000,
+  "대충사는 하울 Howl": 1000,
+  "소보루 soboru": 1000,
+  "아이윌 I WILL": 1000,
+  "DYTOUR 도연투어": 1000,
+  "직장인 이씨의 한끼식사": 1000,
+  "구르미구르메": 1000,
+  "민앤광": 1000,
+  "생활냉면 lifeColdNoodle": 1000,
+  "나몽아": 1000,
+  "미트북 MeatBook": 1000,
+  "식사하시오": 1000,
+  "진짜루": 1000,
+  "앙도레, 맛있는 기록": 1000,
+  "밍슐랭가이드": 1000,
+  "한끼쥬": 1000,
+  "제멋대로may": 1000,
+  "근돼왕": 1000,
+  "준혁이네": 1000,
+  "리뷰러뷰": 1000,
+  "gourmet KZ": 1000,
+  "동권": 1000,
 };
 const listings = [
   ["하이콴", "서울", "서울 서초구 논현역", "쌀국수", "곱창쌀국수", "pY1kORvBEYs", "성시경 · 먹을텐데", null],
@@ -883,19 +970,153 @@ const listings = [
   ["카페인어", "제주", "제주 제주시 한림읍 한림해안로 584 1층", "카페", "아이스 아메리카노", "UphIhvHEa7c", "일상이여행 Everyday travel", null],
   ["커피림", "제주", "제주 제주시 수목원길 27 커피림", "카페", "아메리카노", "vcMO1Ucpj4k", "푸디랜드 FoodieLand", null],
   ["한성오메기떡", "제주", "제주 제주시 동문로4길 9-2", "카페", "10개", "S7yElk_SUCU", "야식이", null]
+  ["밍글스", "서울", "서울 강남구 도산대로 67길 19", "한식", "런치·디너 코스", "1zx7ndUJEMc", "입질의추억TV jiminTV", null, "미슐랭 3스타"],
+  ["권숙수", "서울", "서울 강남구 압구정로 80길 37", "한식", "런치·디너 코스", "BZ_cphwIz4M", "Turbo832 TV", null, "미슐랭 2스타"],
+  ["라연", "서울", "서울 중구 동호로 249 신라호텔", "한식", "런치·디너 코스", "t5LMUhUDjzE", "SSUN TV 썬부부세계여행", null, "미슐랭 2스타"],
+  ["레스토랑 알렌", "서울", "서울 강남구 테헤란로 231 센터필드 East E205호", "양식", "런치·디너 코스", "AuodiOPAXQs", "HITEJINRO", null, "미슐랭 2스타"],
+  ["모수", "서울", "서울 용산구 회나무로 41길 4", "양식", "런치·디너 코스", "0N5nc-7cLIk", "더들리", null, "미슐랭 2스타"],
+  ["미토우", "서울", "서울 강남구 도산대로 70길 24", "일식", "런치·디너 코스", "6Xtb-jaw-No", "승빠", null, "미슐랭 2스타"],
+  ["스와니예", "서울", "서울 강남구 강남대로 652 신사스퀘어 201호", "양식", "런치·디너 코스", "AjA8Wix_AlY", "승빠", null, "미슐랭 2스타"],
+  ["소수헌", "서울", "서울 중구 만리재로 21길 8", "일식", "스시 코스", "bxwJuY5bjTE", "드렁큰곰돌의 미식탐구생활", null, "미슐랭 2스타"],
+  ["알라 프리마", "서울", "서울 강남구 학동로 17길 13", "양식", "런치·디너 코스", "6TQ_7xQVHfo", "지원스홈", null, "미슐랭 2스타"],
+  ["에빗", "서울", "서울 강남구 도산대로 45길 10-5", "양식", "런치·디너 코스", "Qp2WDyHunBo", "텐 Ten", null, "미슐랭 2스타"],
+  ["정식당", "서울", "서울 강남구 선릉로 158길 11", "양식", "런치·디너 코스", "XDCKmtEAjNo", "더들리", null, "미슐랭 2스타"],
+  ["꼴라쥬", "서울", "서울 강남구 논현로 136길 11 아난티 앳 강남", "양식", "런치·디너 코스", "Ut8AkE9xy-8", "지나가던 스노브", null, "미슐랭 1스타"],
+  ["기와강", "서울", "서울 강남구 논현로 152길 9", "양식", "런치·디너 코스", "Doe8l7G_KsQ", "승빠", null, "미슐랭 1스타"],
+  ["레스토랑 산", "서울", "서울 강남구 언주로 168길 6", "양식", "런치·디너 코스", "yKUfnVToOSU", "흑백리뷰", null, "미슐랭 1스타"],
+  ["스시 카네사카", "서울", "서울 강남구 테헤란로 521 그랜드 인터컨티넨탈 서울 파르나스", "일식", "스시 오마카세", "SwgvYr6e4HY", "비밀이야", null, "미슐랭 1스타"],
+  ["가겐 바이 최준호", "서울", "서울 강남구 압구정로 80길 19-1", "일식", "디너 코스", "_moYk6f6jQw", "비밀이야", null, "미슐랭 1스타"],
+  ["레스토랑 주은", "서울", "서울 종로구 경희궁길 36 경희당", "한식", "런치·디너 코스", "m6uDmQhg5tk", "승빠", null, "미슐랭 1스타"],
+  ["하쿠시", "서울", "서울 강남구 언주로 157길 8-4", "일식", "디너 코스", "sq0zr1-yF5U", "셀론 작가감독 The Cellon AUTHOR.DIRECTOR", null, "미슐랭 1스타"],
+  ["강민철 레스토랑", "서울", "서울 강남구 도산대로 63길 18", "양식", "런치·디너 코스", "rbdYFXE2j9U", "두두란두 dudurandu", null, "미슐랭 1스타"],
+  ["고료리 켄", "서울", "서울 강남구 언주로 152길 15-3", "양식", "런치·디너 코스", "hR9gbQKE5Nc", "최스콘", null, "미슐랭 1스타"],
+  ["기가스", "서울", "서울 중구 퇴계로 6가길 30", "양식", "런치·디너 코스", "b2Y3332UeL4", "자유의사, Freedom doctor", null, "미슐랭 1스타"],
+  ["뛰뚜아멍", "서울", "서울 성동구 광나루로 11길 20", "양식", "런치·디너 코스", "sc1rBcgZPtc", "평범한 셰프", null, "미슐랭 1스타"],
+  ["라망 시크레", "서울", "서울 중구 퇴계로 67 레스케이프 호텔", "양식", "런치·디너 코스", "yE0lrNiiwsU", "더들리", null, "미슐랭 1스타"],
+  ["라미띠에", "서울", "서울 강남구 도산대로 67길 30", "양식", "런치·디너 코스", "_uJHYGGVd1U", "EBS Documentary", null, "미슐랭 1스타"],
+  ["레귬", "서울", "서울 강남구 강남대로 652 신사 스퀘어 207호", "양식", "런치·디너 코스", "oa7Q1msc1pc", "의사 김준현TV - Dr.JoonhyunKimTV", null, "미슐랭 1스타"],
+  ["무니", "서울", "서울 강남구 도산대로 70길 26 지하", "일식", "런치·디너 코스", "EQdonXfgbyU", "먹낙 muknak", null, "미슐랭 1스타"],
+  ["무오키", "서울", "서울 강남구 학동로 55길 12-12", "양식", "런치·디너 코스", "xPg2hfmhPOI", "Turbo832 TV", null, "미슐랭 1스타"],
+  ["비채나", "서울", "서울 송파구 올림픽로 300 롯데월드 타워", "한식", "런치·디너 코스", "8uVNP6wA2Lk", "맛상무", null, "미슐랭 1스타"],
+  ["빈호", "서울", "서울 강남구 학동로 43길 38 논현웰스톤 162호", "양식", "런치·디너 코스", "eiGvffxHzmw", "HITEJINRO", null, "미슐랭 1스타"],
+  ["세븐스도어", "서울", "서울 강남구 학동로 97길 41", "양식", "런치·디너 코스", "a2g7UPH2opU", "비밀이야", null, "미슐랭 1스타"],
+  ["소설한남", "서울", "서울 용산구 한남대로20길 21", "한식", "런치·디너 코스", "tsDH38l0XVk", "멤슐랭 Memchelin", null, "미슐랭 1스타"],
+  ["소울", "서울", "서울 용산구 신흥로 26길 35 지하", "양식", "런치·디너 코스", "C3XccZgNJbs", "승빠", null, "미슐랭 1스타"],
+  ["솔밤", "서울", "서울 강남구 학동로 231", "양식", "런치·디너 코스", "v7E3tn7LITI", "지원스홈", null, "미슐랭 1스타"],
+  ["스시 마츠모토", "서울", "서울 강남구 도산대로 75길 24", "일식", "스시 오마카세", "pQ2hauZNGWM", "밈효닝 Hyoning", null, "미슐랭 1스타"],
+  ["에스콘디도", "서울", "서울 용산구 한남대로 20길 61-7 지하", "양식", "런치·디너 코스", "FI5nJtKG_WY", "문정훈 교수의 푸비랩", null, "미슐랭 1스타"],
+  ["온지음", "서울", "서울 종로구 효자로 49", "한식", "런치·디너 코스", "4jPG9baGrfU", "승빠", null, "미슐랭 1스타"],
+  ["유 유안", "서울", "서울 종로구 새문안로 97 포시즌스 호텔", "중식", "런치·디너 코스", "vuf_uQsWy-4", "더들리", null, "미슐랭 1스타"],
+  ["윤서울", "서울", "서울 강남구 선릉로 805", "한식", "런치·디너 코스", "sky7MJvlLg0", "비밀이야", null, "미슐랭 1스타"],
+  ["이스트", "서울", "서울 강남구 언주로 170길 26-6", "양식", "런치·디너 코스", "uA0NhOfpDuw", "공격수셰프 Striker chef", null, "미슐랭 1스타"],
+  ["이타닉 가든", "서울", "서울 강남구 테헤란로 231 조선팰리스 호텔", "양식", "런치·디너 코스", "slWR41BYGAw", "카라미", null, "미슐랭 1스타"],
+  ["익스퀴진", "서울", "서울 강남구 삼성로 140길 6", "양식", "런치·디너 코스", "tEB9udWOMrE", "더들리", null, "미슐랭 1스타"],
+  ["제로 콤플렉스", "서울", "서울 용산구 서빙고로 59길 11-8", "양식", "런치·디너 코스", "oKKUarDy48k", "살롱드데지레 /salon_de_desiree", null, "미슐랭 1스타"],
+  ["모리", "부산", "부산 해운대구 구남로 21 경동리인뷰 2차 상가 311호", "일식", "런치·디너 코스", "fufgnWU0vSY", "의사 김준현TV - Dr.JoonhyunKimTV", null, "미슐랭 1스타"],
+  ["팔레트", "부산", "부산 해운대구 달맞이길 65번길 154", "양식", "런치·디너 코스", "ErCBf8x_3jA", "용티의 푸드트립", null, "미슐랭 1스타"],
+  ["피오또", "부산", "부산 해운대구 달맞이길 117번가길 219", "양식", "런치·디너 코스", "8HCktjjeTLc", "세바시 강연 Sebasi Talk", null, "미슐랭 1스타"],
+  ["르도헤", "부산", "부산 해운대구 마린시티 3로 37 213호 214호", "양식", "런치·디너 코스", "_rpGz2ZIV6A", "총키 𝘾𝙝𝙤𝙣𝙜𝙠𝙞", null, "미슐랭 1스타"],
+  ["정짓간", "부산", "부산 사하구 비봉로 6", "국밥", "돼지국밥", "DXa2E3fgVQA", "미식도우미 샹키", null, "빕구르망"],
+  ["뫼밀집", "부산", "부산 해운대구 마린시티3로 23", "면요리", "메밀국수", "lW3Ldg-xYRQ", "헬로앙팡 Hello, Angpang", null, "빕구르망"],
+  ["정면", "서울", "서울 광진구 능동로 13길 88", "면요리", "국수", "SfQ974SgQQI", "덜들리", null, "빕구르망"],
+  ["능동미나리", "서울", "서울 용산구 한강대로 40길 28", "국밥", "곰탕", "QDxNSfK3L8o", "골드리버 캘리포니아 이야기", null, "빕구르망"],
+  ["백일평냉", "부산", "부산 수영구 남천바다로10번길 29", "면요리", "평양냉면", "7Tj32Zw6fLo", "면부장", null, "빕구르망"],
+  ["한월관", "부산", "부산 수영구 광안로62번길 10", "국밥", "곰탕", "bvdr9ckD-CI", "여행이 좋아 Korea Travel ", null, "빕구르망"],
+  ["게방식당", "서울", "서울 강남구 선릉로 131길 17", "해산물", "게장", "ZSwQ5wvzYpA", "서우 seowoo", null, "빕구르망"],
+  ["코르 파스타바", "부산", "부산 부산진구 동성로25번길 13", "양식", "파스타", "aaoj29GvQ-U", "[한식명인] 명인의 레시피", null, "빕구르망"],
+  ["해목", "부산", "부산 해운대구 구남로24번길 8", "일식", "해산물 요리", "Nua9NFsSXto", "닥신TV", null, "빕구르망"],
+  ["나가하마 만게츠", "부산", "부산 해운대구 우동1로 57", "일식", "라멘", "96uSp30amDQ", "올디너림 All Dinner Lim", null, "빕구르망"],
+  ["슌사이 쿠보", "부산", "부산 북구 양달로4번길 17", "일식", "장어 요리", "5I4960Gko1s", "로쇼 Losho", null, "빕구르망"],
+  ["황금콩밭", "서울", "서울 마포구 마포대로 16길 9", "한식", "두부 요리", "bn9CwzS777I", "맛난집", null, "빕구르망"],
+  ["아르프", "부산", "부산 영도구 태종로99번길 35", "양식", "계절 요리", "XlgxcPmLehk", "봉주르아 bonjourah", null, "빕구르망"],
+  ["알트에이", "서울", "서울 용산구 보광로 109", "양식", "비건 요리", "TEx0AG8rJG8", "한국대학사회봉사협의회", null, "빕구르망"],
+  ["소바키리 스즈", "서울", "서울 중구 동호로 12길 98", "일식", "소바", "8qVgwgUJ1So", "승빠", null, "빕구르망"],
+  ["서령", "서울", "서울 중구 소월로 10", "면요리", "메밀국수", "G3P9XKjKI_I", "낙원맨 nakwonman | 충무로맛집 낙원의소바", null, "빕구르망"],
+  ["송헌집", "부산", "부산 수영구 민락로19번길 18", "한식", "한정식", "z7NwTdZwKrA", "88차밍지 - CHARMINGJI", null, "빕구르망"],
+  ["곰탕랩", "서울", "서울 강남구 테헤란로 517 현대백화점", "국밥", "곰탕", "bAr7u8WYW6g", "와인이야기", null, "빕구르망"],
+  ["니시무라멘", "서울", "서울 마포구 동교로 265", "일식", "라멘", "WFGgsZ1bWRs", "맛집 famous food", null, "빕구르망"],
+  ["미진", "서울", "서울 종로구 종로 19 르메이에르 종로타운 116-2호", "면요리", "메밀국수", "J1Z9EczLxms", "미나의한끼", null, "빕구르망"],
+  ["유림면", "서울", "서울 중구 서소문로 139-1", "면요리", "메밀국수", "13fNPgOb1oM", "소셜케이 SocialK", null, "빕구르망"],
+  ["안덕", "서울", "서울 종로구 자하문로 17길 18", "한식", "물냉면·만둣국", "9uJRvKN3O0w", "sOh@", null, "빕구르망"],
+  ["안암", "서울", "서울 종로구 북촌로 5길 10", "국밥", "돼지국밥", "89yZttjLH7w", "김달달 Kim_Daldal", null, "빕구르망"],
+  ["용금옥", "서울", "서울 종로구 자하문로 41-2", "국밥", "추어탕", "MahxTpJ0Vww", "이륜차 타는 한의사", null, "빕구르망"],
+  ["필동면옥", "서울", "서울 중구 서애로 26", "면요리", "평양냉면", "oZTTTOp86gM", "아삭플레이스asacplace", null, "빕구르망"],
+  ["황생가 칼국수", "서울", "서울 종로구 북촌로 5길 78", "면요리", "칼국수", "VoMgpw68iB0", "Killa_킬라TV", null, "빕구르망"],
+  ["대성집", "서울", "서울 종로구 사직로 5", "국밥", "도가니탕", "Mt1T0LhlVe4", "대충사는 하울 Howl", null, "빕구르망"],
+  ["할매집", "서울", "서울 종로구 사직로 12길 1-5", "한식", "감자탕", "NJ8ncxB9GFI", "맛있겠다 Yummy", null, "빕구르망"],
+  ["개성만두 궁", "서울", "서울 종로구 인사동 10길 11-3", "분식", "만두", "w3RyviIYdE4", "소보루 soboru", null, "빕구르망"],
+  ["호라파", "서울", "서울 종로구 자하문로 37-1", "양식", "타이 요리", "kQyn66gGB8c", "오늘도 날리 | 미국 일상 브이로그", null, "빕구르망"],
+  ["우래옥", "서울", "서울 중구 창경궁로 62-29", "면요리", "평양냉면·불고기", "V7-YFZ-klK0", "아이윌 I WILL", null, "빕구르망"],
+  ["베이스 이즈 나이스", "서울", "서울 마포구 도화 2길 20", "양식", "채식 요리", "M7JBZRDsijE", "DYTOUR 도연투어", null, "빕구르망"],
+  ["오일제", "서울", "서울 용산구 한강대로 62다길 29", "한식", "들깨 미역국", "1HrqUu4THsc", "뉴민상", null, "빕구르망"],
+  ["고사리 익스프레스", "서울", "서울 중구 퇴계로 85길 12-10", "양식", "고사리 비빔면", "6w1nyfEDwrk", "앤쮸 ANNE ZUE", null, "빕구르망"],
+  ["역전회관", "서울", "서울 마포구 토정로 37길 47", "고기", "불고기", "SbRKRPosWQM", "직장인 이씨의 한끼식사", null, "빕구르망"],
+  ["금돼지식당", "서울", "서울 중구 다산로 149", "고기", "삼겹살", "b0ewHyh5CfA", "HITEJINRO", null, "빕구르망"],
+  ["자하 손만두", "서울", "서울 종로구 백석동길 12", "분식", "손만두", "K0lFJrNSaUI", "구르미구르메", null, "빕구르망"],
+  ["마포옥", "서울", "서울 마포구 토정로 312", "국밥", "설렁탕", "A1XA6wgf4wY", "민앤광", null, "빕구르망"],
+  ["사루카메", "서울", "서울 마포구 연남로 15", "일식", "라멘", "WJKXk1fIsuI", "박살 맛집! 진구의 불장난", null, "빕구르망"],
+  ["서교난면방", "서울", "서울 마포구 동교로 12길 16", "면요리", "국수", "OBKSds5Zmfc", "생활냉면 lifeColdNoodle", null, "빕구르망"],
+  ["옥동식", "서울", "서울 마포구 양화로 7길 44-10", "국밥", "돼지국밥", "oWswPK4JHE8", "뚜벅뚜벅 서부남", null, "빕구르망"],
+  ["진진", "서울", "서울 마포구 월드컵북로 1길 60", "중식", "중식 요리", "WYDhM-oq4NY", "더들리", null, "빕구르망"],
+  ["담택", "서울", "서울 마포구 동교로12안길 51", "일식", "라멘", "zBd13vuxhvU", "나몽아", null, "빕구르망"],
+  ["오레노 라멘", "서울", "서울 마포구 독막로 8길 16", "일식", "라멘", "1mAQrM0PUJo", "승빠", null, "빕구르망"],
+  ["합정옥", "서울", "서울 마포구 양화로 1길 21", "국밥", "곰탕", "eNKqEV_qYRw", "이륜차 타는 한의사", null, "빕구르망"],
+  ["정인면옥", "서울", "서울 영등포구 국회대로76길 10", "면요리", "평양냉면", "37-Vw6Ry4Bw", "멸치138", null, "빕구르망"],
+  ["면서울", "서울", "서울 강남구 선릉로 805", "면요리", "국수", "nUd29156opw", "셰프 장호준 (호주이햄)", null, "빕구르망"],
+  ["꿉당", "서울", "서울 서초구 강남대로 615", "고기", "삼겹살", "3sgeDOJ9d34", "미트북 MeatBook", null, "빕구르망"],
+  ["교다이야", "서울", "서울 마포구 성지길 39", "일식", "우동", "f5MKWOfEogI", "오로지,현우 Only Hyunwoo", null, "빕구르망"],
+  ["삼청동 수제비", "서울", "서울 종로구 삼청로 101-1", "면요리", "수제비", "hevmiKt99GQ", "식사하시오", null, "빕구르망"],
+  ["만두집", "서울", "서울 강남구 압구정로 338", "분식", "만두", "-B1vtVMANbg", "진짜루", null, "빕구르망"],
+  ["맷돌", "서울", "서울 성동구 성덕정길 63", "양식", "멕시칸 요리", "oUqqj-FW5EA", "앙도레, 맛있는 기록", null, "빕구르망"],
+  ["화해당", "서울", "서울 영등포구 국회대로62길 15", "해산물", "게장", "TMC6--tVxYA", "빵내", null, "빕구르망"],
+  ["계월", "서울", "서울 성동구 성덕정 3길 8", "국밥", "곰탕", "z8pq8VDNBvk", "밍슐랭가이드", null, "빕구르망"],
+  ["스바루", "서울", "서울 서초구 방배중앙로 21길 7", "일식", "소바", "fURFqH3G_kQ", "한끼쥬", null, "빕구르망"],
+  ["3대 삼계장인", "서울", "서울 서초구 반포대로 28길 56-3", "분식", "삼계탕", "k2RihdI_ExY", "B tv 뉴스", null, "빕구르망"],
+  ["합천국밥집", "부산", "부산 남구 용호로 235", "국밥", "돼지국밥", "N81mMMWYxaQ", "고품격 맛집지도 TV", null, "빕구르망"],
+  ["바오하우스", "부산", "부산 부산진구 서전로38번길 62-9", "중식", "루러우판", "f-MNg9h_Myo", "총키 𝘾𝙝𝙤𝙣𝙜𝙠𝙞", null, "빕구르망"],
+  ["평양집", "부산", "부산 북구 금곡대로20번길 21", "면요리", "평양냉면", "AorpUHzCZkw", "히데오", null, "빕구르망"],
+  ["양양 메밀 막국수", "서울", "서울 서초구 동광로15길 10", "면요리", "막국수", "UQbLujMHj7A", "뚜벅뚜벅 서부남", null, "빕구르망"],
+  ["임병주 산동 칼국수", "서울", "서울 서초구 강남대로 37길 65", "면요리", "칼국수", "xO1zP3VScBc", "직방탈플러스", null, "빕구르망"],
+  ["뉴러우멘관즈", "부산", "부산 수영구 수영로388번길 25-4", "중식", "우육면", "AdOVMVMS2Hs", "제멋대로may", null, "빕구르망"],
+  ["사피드", "서울", "서울 용산구 이태원로 27길 34-1", "양식", "프렌치 컨템퍼러리", "H2xfhlWVkmM", "아이윌 I WILL", null, "미슐랭 선정"],
+  ["고움", "서울", "서울 강남구 도곡로 23길 33", "한식", "코스 요리", "bnEA1ye-NRs", "승빠", null, "미슐랭 선정"],
+  ["유진옥", "부산", "부산진구 서전로 57번길 7", "면요리", "냉면", "2pmIbU6jToE", "mo•on", null, "미슐랭 선정"],
+  ["옥돌현옥", "서울", "서울 송파구 법원로 55 송파아이파크 D존", "면요리", "냉면", "A8tLNjmvPcw", "근돼왕", null, "미슐랭 선정"],
+  ["숙수도가", "서울", "서울 성북구 동소문로 17길 28", "고기", "코스 요리", "4VdrDqLD0pw", "아삭플레이스asacplace", null, "미슐랭 선정"],
+  ["본 앤 브레드", "서울", "서울 성동구 마장로 42길 1", "고기", "코스 요리", "6UE466hPDJ4", "조선일보", null, "미슐랭 선정"],
+  ["주052", "서울", "서울 성동구 고산자로 14길 26", "한식", "코스 요리", "OWvCGjwD6k4", "준혁이네", null, "미슐랭 선정"],
+  ["묵정", "서울", "서울 중구 퇴계로48길 17", "한식", "코스 요리", "orgcZnhVp48", "천과장", null, "미슐랭 선정"],
+  ["레스토랑 오와이", "서울", "서울 강남구 선릉로 148길 48-12 지하", "양식", "프렌치, 컨템퍼러리", "BjKEf2BLwiE", "아삭플레이스asacplace", null, "미슐랭 선정"],
+  ["피에르 가니에르", "서울", "서울 중구 을지로 30 롯데호텔", "양식", "코스 요리", "oKBEBSZEdi8", "KBS 다큐", null, "미슐랭 선정"],
+  ["나인스 게이트", "서울", "서울 중구 소공로 106 웨스틴 조선 호텔", "양식", "코스 요리", "pcFuyvQoDrg", "올리비아맘세", null, "미슐랭 선정"],
+  ["무궁화", "서울", "서울 중구 을지로 30 롯데호텔", "한식", "한식", "qB2h1EDmS00", "CooCook", null, "미슐랭 선정"],
+  ["엘픽", "서울", "서울 강남구 도산대로 78길 25", "고기", "코스 요리", "nXxHQ9WHd1s", "리뷰러뷰", null, "미슐랭 선정"],
+  ["보름쇠", "서울", "서울 강남구 테헤란로 81길 36", "고기", "코스 요리", "WYRbM1QJaYI", "gourmet KZ", null, "미슐랭 선정"],
+  ["삼원가든", "서울", "서울 강남구 언주로 835", "고기", "코스 요리", "1DU-1dJXieE", "동권", null, "미슐랭 선정"],
+  ["하동관", "서울", "서울 중구 명동 9길 12", "국밥", "곰탕", "qTtQ1OmV4oE", "하이갱스", null, "미슐랭 선정"],
 
 ];
 function representativePlaces(entries) {
   const byBranch = new Map();
-  for (const [name,region,area,kind,menu,id,label,start] of entries) {
+  for (const [name,region,area,kind,menu,id,label,start,grade] of entries) {
     const size = subscribers[label];
-    if (!Number.isFinite(size) || size < 100000) continue;
+    // Michelin-guide entries are curated by the guide itself, so a small channel review is kept too.
+    if (!Number.isFinite(size) || (size < 100000 && !grade)) continue;
     const key = [name,region].map(value=>value.normalize('NFKC').toLowerCase().replace(/\s+/g,'')).join('|');
+    const entry = {name,region,area,kind,menu,source:{id,label,subscribers:size},start,grade:grade || ''};
     const existing = byBranch.get(key);
-    if (!existing || size > existing.source.subscribers ||
-        (size === existing.source.subscribers && existing.start === null && start !== null)) {
-      byBranch.set(key,{name,region,area,kind,menu,source:{id,label,subscribers:size},start});
+    if (!existing) {
+      byBranch.set(key,{...entry,reviews:[]});
+      continue;
     }
+    if (size > existing.source.subscribers ||
+        (size === existing.source.subscribers && existing.start === null && start !== null)) {
+      existing.reviews.unshift({menu:existing.menu,source:existing.source,start:existing.start});
+      Object.assign(existing,entry);
+    } else {
+      existing.reviews.push({menu:entry.menu,source:entry.source,start:entry.start});
+    }
+    if (!existing.grade && grade) existing.grade = grade;
   }
   return [...byBranch.values()];
 }
@@ -993,12 +1214,12 @@ function saveVideoStatusCache() {
 }
 function updateAvailabilityHint() {
   const listingNote = activeView === 'stay'
-    ? '원본에서 객실이나 숙박 경험을 직접 소개하고 지점과 주소가 확인된 곳을 수록합니다.'
+    ? '원본에서 객실이나 숙박 경험을 직접 소개하고 지점과 주소가 확인된 곳을 수록합니다. 국내 5대 체인(메리어트·힐튼·하얏트·IHG·아코르)과 하이엔드 호텔은 새 리뷰를 reviews에 이어 붙였습니다.'
     : activeView === 'abroad'
       ? '같은 호텔·식당은 구독자 수가 가장 많은 채널의 리뷰 하나를 카드로 보여주고, 다른 채널 리뷰는 상세 화면에서 함께 엽니다. 요금·예약·영업시간은 구글 지도와 공식 안내에서 확인하세요.'
-      : '같은 가게는 구독자 수가 가장 많은 공개 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
+      : '같은 가게는 구독자 수가 가장 많은 공개 채널의 영상을 대표로 보여주고, 다른 채널 리뷰는 상세 화면에서 함께 엽니다. 미슐랭 등급 식당은 채널 규모와 관계없이 수록합니다. 영업시간과 지점은 구글 지도에서 확인하세요.';
   const channelNote = activeView === 'stay' ? '채널 '
-    : activeView === 'abroad' ? '주요 여행·미식 채널 ' : '구독자 10만 명 이상 채널 ';
+    : activeView === 'abroad' ? '주요 여행·미식 채널 ' : '국내 맛집·미식 채널 ';
   const usedChannels = new Set(view.places.flatMap(place =>
     place.reviews ? place.reviews.map(entry => entry.source.label) : [place.source.label]));
   if (activeView === 'abroad') {
@@ -1008,8 +1229,12 @@ function updateAvailabilityHint() {
       '개의 영상에서 확인한 해외 호텔 ' + hotels + '곳과 미쉐린 레스토랑 ' + michelin + '곳을 수록합니다. ' + listingNote;
     return;
   }
+  const michelinCount = activeView === 'food'
+    ? view.places.filter(place => place.grade).length : 0;
   $('hint').textContent = channelNote + usedChannels.size + '개의 영상에서 확인한 ' +
-    view.type + ' ' + view.places.length + '곳을 수록합니다. ' + listingNote;
+    view.type + ' ' + view.places.length + '곳' +
+    (michelinCount ? ' (이 중 국내 미슐랭 가이드 등재 ' + michelinCount + '곳)' : '') +
+    '을 수록합니다. ' + listingNote;
 }
 function typeScopePlaces() {
   if (!view.typeFilters) return view.places;
@@ -1285,7 +1510,7 @@ function render() {
     const reviews = (place.reviews ?? [place]).filter(entry => !channel || entry.source.label === channel);
     if (!reviews.length) return [];
     const searchable = normalize([
-      place.name,place.region,place.area,place.kind,...reviews.flatMap(entry => [entry.menu,entry.source.label])
+      place.name,place.region,place.area,place.kind,place.grade || '',...reviews.flatMap(entry => [entry.menu,entry.source.label])
     ].join(' '));
     return terms.every(term => searchable.includes(term)) ? [place.reviews ? {...place,...reviews[0]} : place] : [];
   });
