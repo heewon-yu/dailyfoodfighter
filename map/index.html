@@ -461,10 +461,14 @@ const $ = id => document.getElementById(id);
 const state = {region:'',savedOnly:false,mapPlace:null};
 let mapExpanded = false;
 const stayCatalogue = window.hanbamCatalogue ?? {stays:[],channels:{}};
-const stayPlaces = stayCatalogue.stays.map(({name,region,area,kind,review,channel,id,start,official}) => ({
-  name,region,area,kind,menu:review,start,official,
-  source:{id,label:channel,subscribers:stayCatalogue.channels[channel]}
-}));
+const stayPlaces = stayCatalogue.stays.map(({name,region,area,kind,official,id,channel,review,start,reviews = []}) => {
+  const entries = [{id,channel,review,start},...reviews]
+    .filter(({channel}) => stayCatalogue.channels[channel] >= 100000)
+    .map(({id,channel,review,start}) => ({
+      menu:review,start,source:{id,label:channel,subscribers:stayCatalogue.channels[channel]}
+    }));
+  return {name,region,area,kind,official,reviews:entries,...entries[0]};
+}).filter(place => place.reviews.length);
 const views = {
   food: {
     name:'한입지도', type:'맛집', title:'영상 속 그 맛집,', end:'어디였지?',
@@ -504,6 +508,12 @@ function link(className, label, href) {
   element.rel = 'noopener noreferrer';
   return element;
 }
+function reviewUrl(id, start) {
+  const watch = new URL('https://www.youtube.com/watch');
+  watch.searchParams.set('v',id);
+  if (start !== null) watch.searchParams.set('t',start + 's');
+  return watch;
+}
 function showPlace(place, source, watch, map) {
   const dialog = $('place-dialog');
   const head = make('div','dialog-head');
@@ -522,16 +532,18 @@ function showPlace(place, source, watch, map) {
   frame.allowFullscreen = true;
   const actions = make('div','actions');
   actions.append(link('map','구글 지도에서 위치 보기',map),link('video','YouTube에서 열기',watch));
-  if (place.official) actions.append(link('map','숙소 공식 정보',place.official));
+  if (place.official) actions.append(link('map','숙소 정보',place.official));
+  for (const {source:other,start} of place.reviews ?? []) {
+    if (other.id === source.id && start === place.start) continue;
+    actions.append(link('video',other.label + ' 리뷰',reviewUrl(other.id,start)));
+  }
   dialog.replaceChildren(head,frame,make('p','source',source.label),actions);
   dialog.showModal();
 }
 $('place-dialog').addEventListener('close',()=> $('place-dialog').replaceChildren());
 function card(place) {
   const source = place.source;
-  const watch = new URL('https://www.youtube.com/watch');
-  watch.searchParams.set('v', source.id);
-  if (place.start !== null) watch.searchParams.set('t', place.start + 's');
+  const watch = reviewUrl(source.id,place.start);
   const map = new URL('https://www.google.com/maps/search/');
   map.searchParams.set('api','1');
   map.searchParams.set('query',place.name + ' ' + place.area);
@@ -622,12 +634,17 @@ function renderMap(filtered) {
 }
 function render() {
   const terms = normalize($('query').value).split(/\s+/).filter(Boolean);
-  const filtered = view.places.filter(p => {
-    const searchable = normalize([p.name,p.region,p.area,p.kind,p.menu,p.source.label].join(' '));
-    return (!state.region || p.region === state.region) &&
-      (!$('kind').value || $('kind').value === p.kind) &&
-      (!$('channel').value || $('channel').value === p.source.label) &&
-      (!state.savedOnly || saved.has(p.name)) && terms.every(term => searchable.includes(term));
+  const channel = $('channel').value;
+  const filtered = view.places.flatMap(place => {
+    if ((state.region && place.region !== state.region) ||
+        ($('kind').value && $('kind').value !== place.kind) ||
+        (state.savedOnly && !saved.has(place.name))) return [];
+    const reviews = (place.reviews ?? [place]).filter(entry => !channel || entry.source.label === channel);
+    if (!reviews.length) return [];
+    const searchable = normalize([
+      place.name,place.region,place.area,place.kind,...reviews.flatMap(entry => [entry.menu,entry.source.label])
+    ].join(' '));
+    return terms.every(term => searchable.includes(term)) ? [place.reviews ? {...place,...reviews[0]} : place] : [];
   });
   $('saved').textContent = (state.savedOnly ? '★' : '☆') + ' 저장한 장소' + (saved.size ? ' ' + saved.size : '');
   $('saved').setAttribute('aria-pressed',String(state.savedOnly));
