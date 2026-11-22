@@ -1270,11 +1270,8 @@ function setView(next) {
   $('query').setAttribute('aria-label',view.searchLabel);
   $('query').placeholder = view.placeholder;
   $('query').value = '';
-  const channels = Object.entries(view.channels).sort((a,b)=>b[1]-a[1]);
-  $('channel').replaceChildren(new Option('모든 채널',''),...channels.map(([label])=>new Option(label,label)));
   $('kind').setAttribute('aria-label',view.filterLabel);
-  const kinds = [...new Set(view.places.map(place=>place.kind))];
-  $('kind').replaceChildren(new Option(view.filterDefault,''),...kinds.map(kind=>new Option(kind,kind)));
+  refreshAvailabilityFilters();
   updateAvailabilityHint();
   state.region = ''; state.savedOnly = false; state.mapPlace = null;
   saved = readSaved();
