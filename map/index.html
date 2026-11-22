@@ -1005,7 +1005,7 @@ function updateAvailabilityHint() {
     const hotels = abroadPlaces.filter(place => place.category === 'hotel').length;
     const michelin = abroadPlaces.filter(place => place.category === 'michelin').length;
     $('hint').textContent = channelNote + usedChannels.size +
-      '개 채널의 영상에서 확인한 해외 호텔 ' + hotels + '곳과 미쉐린 레스토랑 ' + michelin + '곳을 수록합니다. ' + listingNote;
+      '개의 영상에서 확인한 해외 호텔 ' + hotels + '곳과 미쉐린 레스토랑 ' + michelin + '곳을 수록합니다. ' + listingNote;
     return;
   }
   $('hint').textContent = channelNote + usedChannels.size + '개의 영상에서 확인한 ' +
