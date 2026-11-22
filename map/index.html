@@ -915,16 +915,16 @@ const stayPlaces = stayCatalogue.stays.map(({name,region,area,kind,official,id,c
 const views = {
   food: {
     name:'한입지도', type:'맛집', title:'영상 속 그 맛집,', end:'어디였지?',
-    description:'가게 이름이나 지역으로 찾아보고, 소개 장면과 위치를 확인하세요.',
+    description:'가게 이름이나 지역으로 찾아보고, 맛집 리뷰와 위치를 확인하세요.',
     placeholder:'예: 제주, 국밥, 이재모피자', searchLabel:'가게, 지역 또는 메뉴 검색',
-    filterLabel:'음식 종류', filterDefault:'모든 음식', listTitle:'장소 둘러보기',
+    filterLabel:'음식 종류', filterDefault:'모든 음식', listTitle:'장소 둘러보기', reviewLabel:'맛집 리뷰',
     places, channels:subscribers, storage:'hanip-guide:saved:v1'
   },
   stay: {
     name:'한밤지도', type:'숙소', title:'영상 속 그 숙소,', end:'어디였지?',
     description:'여행·숙소 리뷰 영상에서 확인한 국내 숙소를 찾아보세요.',
     placeholder:'예: 제주, 글램핑, 아트빌라스', searchLabel:'숙소, 지역 또는 숙소 특징 검색',
-    filterLabel:'숙소 종류', filterDefault:'모든 숙소 유형', listTitle:'숙소 둘러보기',
+    filterLabel:'숙소 종류', filterDefault:'모든 숙소 유형', listTitle:'숙소 둘러보기', reviewLabel:'숙소 리뷰',
     places:stayPlaces,
     channels:stayCatalogue.channels, storage:'hanbam-guide:saved:v1'
   }
@@ -971,7 +971,7 @@ function showPlace(place, source, watch, map) {
   if (place.start !== null) embed.searchParams.set('start',place.start);
   const frame = make('iframe','player');
   frame.src = embed;
-  frame.title = place.name + ' 소개 YouTube 영상';
+  frame.title = place.name + ' ' + view.reviewLabel;
   frame.allowFullscreen = true;
   const actions = make('div','actions');
   actions.append(link('map','구글 지도에서 위치 보기',map),link('video','YouTube에서 열기',watch));
@@ -992,7 +992,7 @@ function card(place) {
   map.searchParams.set('query',place.name + ' ' + place.area);
   const article = make('article','card');
   const thumb = link('thumb','',watch);
-  thumb.setAttribute('aria-label', place.name + ' 소개 영상 열기');
+  thumb.setAttribute('aria-label', place.name + ' ' + view.reviewLabel + ' 열기');
   const image = make('img');
   image.src = 'https://i.ytimg.com/vi/' + source.id + '/hqdefault.jpg';
   image.loading = 'lazy';
@@ -1032,8 +1032,7 @@ function card(place) {
   };
   info.append(heading,save);
   const actions = make('div','actions');
-  const videoLabel = place.start === null ? (activeView === 'stay' ? '숙소 리뷰' : '소개 영상') : '등장 장면';
-  actions.append(link('map','구글 지도',map),link('video',videoLabel,watch));
+  actions.append(link('map','구글 지도',map),link('video',view.reviewLabel,watch));
   details.append(info,make('p','source',place.menu + ' · ' + source.label),actions);
   article.append(thumb,details);
   return article;
