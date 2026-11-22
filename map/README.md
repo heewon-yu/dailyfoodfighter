@@ -1,6 +1,6 @@
-# 한입지도 (`/map/`) — 영상 속 맛집 찾기
+# 한입.한밤지도 (`/map/`) — 영상 속 맛집과 숙소 찾기
 
-유튜브에 소개된 맛집을 **지도 · 영상 · 가게 정보**로 함께 확인하는 정적 페이지입니다.
+유튜브에 소개된 국내 맛집과 숙소를 지도에서 찾고 원본 영상을 확인할 수 있는 페이지입니다.
 상단에서 **한입지도**와 **한밤지도**를 전환할 수 있습니다. 두 화면은 `/map/` 주소를 공유합니다.
 외부 프레임워크 없이 동작하며, `main` 브랜치에 푸시하면 Cloudflare Pages가 자동 배포합니다.
 
@@ -26,7 +26,7 @@
 | `map/index.html` | 페이지 전체(HTML·CSS·JS·데이터). 데이터는 파일 안의 `subscribers` / `listings` 상수 |
 | `map/stays.js` | 한밤지도 숙소, 원본 영상과 등장 시점, 채널, 주소 출처 |
 | `map/stay.css` | 지도 전환 버튼과 한밤지도 초록색 테마 |
-| `map/og-image.png` | 1200×630 대표이미지 (카카오톡·X 등 링크 미리보기) |
+| `map/og-hanip-hanbam.jpg` | 1200×630 대표이미지 (카카오톡·X 등 링크 미리보기) |
 | `map/README.md` | 이 문서 |
 
 - **배포**: `main` 브랜치에 커밋을 푸시하면 Cloudflare Pages가 자동 빌드·배포합니다. 별도 빌드 스텝은 없습니다(정적 파일 그대로 서빙).
@@ -34,18 +34,18 @@
 
 ---
 
-## 3. OG 메타 태그 · 대표이미지 규격
+## 3. 공유 제목과 미리보기 이미지
 
 `<head>`에 다음 메타가 들어 있습니다. **수정 시 아래 태그를 지우거나 순서를 바꾸지 마세요.**
 
-- `og:type=website`, `og:locale=ko_KR`, `og:site_name=한입지도`
+- `og:type=website`, `og:locale=ko_KR`, `og:site_name=한입.한밤지도`
 - `og:url=https://dailyfoodfighter.com/map/`
-- `og:title`, `og:description`
-- `og:image`, `og:image:secure_url` = `https://dailyfoodfighter.com/map/og-image.png`
-- `og:image:type=image/png`, `og:image:width=1200`, `og:image:height=630`, `og:image:alt`
+- `og:title=한입.한밤지도`, `og:description`에 국내 맛집과 숙소를 함께 안내
+- `og:image`, `og:image:secure_url` = `https://dailyfoodfighter.com/map/og-hanip-hanbam.jpg`
+- `og:image:type=image/jpeg`, `og:image:width=1200`, `og:image:height=630`, `og:image:alt`
 - `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`
 
-대표이미지는 **1200×630 PNG**(가로:세로 ≈ 1.91:1)로 유지합니다. 이미지를 교체할 때도 같은 규격을 쓰고, 파일명을 바꾸면 `og:image` 계열 5곳을 함께 바꿔야 합니다.
+대표이미지는 **1200×630 JPEG**(가로:세로 ≈ 1.91:1)로 유지합니다. 이미지 파일명이 바뀌면 `og:image`, `og:image:secure_url`, `twitter:image` 주소를 함께 갱신합니다.
 
 ---
 
@@ -122,7 +122,7 @@ const key = [name, region].map(v => v.normalize('NFKC').toLowerCase().replace(/\
 
 ## 6. 수정 시 주의사항
 
-1. **상대경로 `./` 유지**: 이 페이지는 `/map/` 하위에서 서빙됩니다. 내부 링크·이미지는 `./`, `og-image.png`처럼 상대경로로 두세요. `/map` 없는 절대경로(`/og-image.png`)를 쓰면 깨집니다.
+1. **상대경로 `./` 유지**: 이 페이지는 `/map/` 하위에서 서빙됩니다. 내부 링크·이미지는 `./`, `og-hanip-hanbam.jpg`처럼 상대경로로 두세요. `/map` 없는 절대경로(`/og-hanip-hanbam.jpg`)를 쓰면 깨집니다.
 2. **`<head>` OG 메타 보존**: 위 3절의 태그를 삭제·변경하지 마세요. 카카오톡 공유 미리보기가 깨집니다.
 3. **`channel` 값은 `subscribers` 키와 문자열까지 일치**해야 카드가 렌더됩니다(불일치 항목은 조용히 제외됨).
 4. **`youtubeId`는 11자리**여야 합니다. `start`는 초 단위 정수 또는 `null`.
