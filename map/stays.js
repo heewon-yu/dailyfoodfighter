@@ -18,7 +18,14 @@ window.hanbamCatalogue = {
     '여행에미치다': 375000,
     '조조캠핑 JOJOCAMPING': 806000,
     '캡틴따거 Captain Brother': 763000,
-    'Minayo チャンネル': 116000
+    'Minayo チャンネル': 116000,
+    "탤스테이 호텔&여행": 35000,
+    "세하우스": 14600,
+    "유디 UDUD": 1110,
+    "우아블(우아한 테이블)": 38900,
+    "긍정맨": 194000,
+    "캣블링 catveling": 6810,
+    "김작가의 숙소탐구": 17000
   },
   stays: [
     {
@@ -87,7 +94,8 @@ window.hanbamCatalogue = {
       reviews: [
         {review:"오페라 스위트와 조식 리뷰", channel:"호텔사장 기먼성", id:"zq2eqaMQGUA", start:null},
         {review:"호텔과 레지던스 방문 리뷰", channel:"숙소왕", id:"F7eWr3DFtDA", start:null},
-        {review:"객실, 수영장과 조식 투숙기", channel:"더들리", id:"abyP2T7mEGc", start:350}
+        {review:"객실, 수영장과 조식 투숙기", channel:"더들리", id:"abyP2T7mEGc", start:350},
+        {review:"잠실 소피텔 객실 투어", channel:"탤스테이 호텔&여행", id:"O51ahyserSw", start:198}
       ]
     },
     {
@@ -96,7 +104,8 @@ window.hanbamCatalogue = {
       official:'https://app.lottehotel.com/seoul-hotel/ko',
       reviews: [
         {review:"롯데호텔 서울 호캉스 리뷰", channel:"돈캣 PL․EX", id:"ezjBl-gmaHg", start:null},
-        {review:"이그제큐티브 타워 객실 투어 · 일본어", channel:"Minayo チャンネル", id:"B886vmKEf_A", start:null}
+        {review:"이그제큐티브 타워 객실 투어 · 일본어", channel:"Minayo チャンネル", id:"B886vmKEf_A", start:null},
+        {review:"이그제큐티브 타워 투숙기", channel:"탤스테이 호텔&여행", id:"gg1isz9gLWo", start:null}
       ]
     },
     {
@@ -200,7 +209,10 @@ window.hanbamCatalogue = {
     {
       name:"라한호텔 전주", region:"전북", area:"전북 전주시 완산구 기린대로 85", kind:"호텔",
       review:"한옥마을 여행과 호텔 리뷰", channel:"돈캣 PL․EX", id:"0NC4KXBReHw", start:null,
-      official:"https://www.lahanhotels.com/jeonju/ko/hotel/hotelLocation.do"
+      official:"https://www.lahanhotels.com/jeonju/ko/hotel/hotelLocation.do",
+      reviews: [
+        {review:"전주 한옥마을 호텔 객실 소개", channel:"탤스테이 호텔&여행", id:"vLy_RSdPOCg", start:34}
+      ]
     },
     {
       name:"씨마크 호텔", region:"강원", area:"강원 강릉시 해안로406번길 2", kind:"호텔",
@@ -246,7 +258,8 @@ window.hanbamCatalogue = {
       review:"한강 전망 객실 리뷰", channel:"또 떠나는 남자", id:"J-80XPTT0zY", start:null,
       official:"https://www.hotelnaruseoul.com/en/contact-us/",
       reviews: [
-        {review:"수영장과 조식 후기", channel:"돈캣 PL․EX", id:"fk5D2_1ghx8", start:null}
+        {review:"수영장과 조식 후기", channel:"돈캣 PL․EX", id:"fk5D2_1ghx8", start:null},
+        {review:"한강 전망 호텔 투숙기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:64}
       ]
     },
     {
@@ -278,7 +291,8 @@ window.hanbamCatalogue = {
       review:"영종도 리조트 객실 방문 리뷰", channel:"호텔사장 기먼성", id:"dWE2DrhRrYw", start:180,
       official:"https://www.inspireresorts.com/",
       reviews: [
-        {review:"선타워 디럭스 객실과 리조트 시설", channel:"돈캣 PL․EX", id:"Hgo4b8ymRfo", start:336}
+        {review:"선타워 디럭스 객실과 리조트 시설", channel:"돈캣 PL․EX", id:"Hgo4b8ymRfo", start:336},
+        {review:"객실과 리뉴얼 후기 · 쇼츠", channel:"세하우스", id:"P540RgUNokM", start:16}
       ]
     },
     {
@@ -305,7 +319,10 @@ window.hanbamCatalogue = {
     {
       name:"레스트리 리솜", region:"충북", area:"충북 제천시 백운면 금봉로 365", kind:"리조트",
       review:"레스트리 호텔동 S25 객실과 온천", channel:"돈캣 PL․EX", id:"zbfUACBdVMc", start:134,
-      official:"https://resom.co.kr/restree/room/room_detail.asp?page=4&rmid=s25"
+      official:"https://resom.co.kr/restree/room/room_detail.asp?page=4&rmid=s25",
+      reviews: [
+        {review:"제천 레스트리 객실 투어", channel:"탤스테이 호텔&여행", id:"GI7EWhG0xsY", start:54}
+      ]
     },
     {
       name:"아일랜드 리솜", region:"충남", area:"충남 태안군 안면읍 꽃지해안로 204", kind:"리조트",
@@ -413,7 +430,8 @@ window.hanbamCatalogue = {
       reviews: [
         {review:"북한산 리조트 방문 리뷰 · 촬영 당시 파라스파라 서울", channel:"호텔사장 기먼성", id:"VQSUDD4-svY", start:null},
         {review:"도심 속 리조트 후기 · 촬영 당시 파라스파라 서울", channel:"Travel with Nanajane", id:"l-wmXu5M6Yw", start:null},
-        {review:"스파 리조트 리뷰 · 촬영 당시 파라스파라 서울", channel:"돈캣 PL․EX", id:"8wItQCIe4wg", start:null}
+        {review:"스파 리조트 리뷰 · 촬영 당시 파라스파라 서울", channel:"돈캣 PL․EX", id:"8wItQCIe4wg", start:null},
+        {review:"북한산 리조트 투숙기 · 촬영 당시 파라스파라 서울", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:908}
       ]
     },
     {
@@ -494,7 +512,8 @@ window.hanbamCatalogue = {
       official:"https://www.conradseoul.co.kr/hub/ko/cstmr/contact.do",
       reviews: [
         {review:"콘래드 서울 방문 리뷰", channel:"호텔사장 기먼성", id:"JLUJdisUYso", start:null},
-        {review:"객실과 부대시설 리뷰", channel:"돈캣 PL․EX", id:"i1rJXu8id8U", start:null}
+        {review:"객실과 부대시설 리뷰", channel:"돈캣 PL․EX", id:"i1rJXu8id8U", start:null},
+        {review:"객실 투어와 조식 후기", channel:"세하우스", id:"actIwuZ9xsI", start:35}
       ]
     },
     {
@@ -510,7 +529,8 @@ window.hanbamCatalogue = {
       review:"강릉 오션뷰 호텔 투숙기", channel:"차박차박 Chabak", id:"Omp2QcNbtVM", start:null,
       official:"https://new.stjohns.co.kr/introduce/way",
       reviews: [
-        {review:"세인트존스 호텔 리뷰 · 당시 운영자 제작", channel:"호텔사장 기먼성", id:"muiUTVx1TbY", start:null}
+        {review:"세인트존스 호텔 리뷰 · 당시 운영자 제작", channel:"호텔사장 기먼성", id:"muiUTVx1TbY", start:null},
+        {review:"강릉 호텔 객실 투어", channel:"탤스테이 호텔&여행", id:"HjRGYOcpP44", start:116}
       ]
     },
     {
@@ -518,7 +538,8 @@ window.hanbamCatalogue = {
       review:"레고 테마 객실 투숙기", channel:"차박차박 Chabak", id:"6G0ostKQDVc", start:null,
       official:"https://www.legoland.kr/en/plan-your-day/plan-your-visit/parking-directions/",
       reviews: [
-        {review:"춘천 레고랜드 호텔 투숙 리뷰", channel:"돈캣 PL․EX", id:"39opvV3mVkw", start:null}
+        {review:"춘천 레고랜드 호텔 투숙 리뷰", channel:"돈캣 PL․EX", id:"39opvV3mVkw", start:null},
+        {review:"테마 객실과 호텔 투숙기", channel:"긍정맨", id:"IcrEKxwlj7w", start:540}
       ]
     },
     {
@@ -665,7 +686,10 @@ window.hanbamCatalogue = {
     {
       name:"비스타 워커힐 서울", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
       review:"리버뷰 스파 디럭스룸 투숙기", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"1LjKALQRIig", start:123,
-      official:"https://www.walkerhill.com/vistawalkerhillseoul/welcome/Map"
+      official:"https://www.walkerhill.com/vistawalkerhillseoul/welcome/Map",
+      reviews: [
+        {review:"객실과 호텔 투숙 후기", channel:"세하우스", id:"89bC2jh9kWg", start:null}
+      ]
     },
     {
       name:"다락휴 인천공항 제2여객터미널", region:"인천", area:"인천 영종구 제2터미널대로 446 제2교통센터 지하 1층", kind:"호텔",
@@ -829,6 +853,74 @@ window.hanbamCatalogue = {
       name:"그랜드 하얏트 서울", region:"서울", area:"서울 용산구 소월로 322", kind:"호텔",
       review:"남산 그랜드 하얏트 호텔 객실 리뷰", channel:"호텔사장 기먼성", id:"13icVpzbMG4", start:null,
       official:"https://www.hyatt.com/grand-hyatt/ko-KR/selrs-grand-hyatt-seoul/hotel-info"
+    },
+    {
+      name:"워커힐 더글라스 하우스", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
+      review:"숲 전망 객실 투숙기", channel:"탤스테이 호텔&여행", id:"vJgmaEFFvC8", start:156,
+      official:"https://app.walkerhill.com/grandwalkerhillseoul/douglas/Location"
+    },
+    {
+      name:"에덴파라다이스 호텔", region:"경기", area:"경기 이천시 마장면 서이천로 449-79", kind:"호텔",
+      review:"레지덴셜 스위트 객실 투어 · 협찬", channel:"세하우스", id:"O7GAi2vIsfk", start:210,
+      official:"https://booking.kakao.com/detail/accommodation/210762"
+    },
+    {
+      name:"더블트리 바이 힐튼 서울 판교", region:"경기", area:"경기 성남시 분당구 백현로 26", kind:"호텔",
+      review:"반려견 동반 3박 4일과 객실 후기", channel:"유디 UDUD", id:"R8CYI0JsM1g", start:null,
+      official:"https://www.hilton.com/ko/hotels/selsedi-doubletree-seoul-pangyo/",
+      reviews: [
+        {review:"판교 호텔 투숙 후기 · 쇼츠", channel:"세하우스", id:"9d9qWWXrfWA", start:null}
+      ]
+    },
+    {
+      name:"네스트 호텔 인천", region:"인천", area:"인천 중구 영종해안남로 19-5", kind:"호텔",
+      review:"디럭스 트윈 투숙 후기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:271,
+      official:"https://www.nesthotel.co.kr/"
+    },
+    {
+      name:"아난티 앳 강남", region:"서울", area:"서울 강남구 논현로 734", kind:"호텔",
+      review:"복층 객실 투숙 후기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:448,
+      official:"https://ananti.kr/ko/ganm/journey/location"
+    },
+    {
+      name:"오크우드 프리미어 인천", region:"인천", area:"인천 연수구 컨벤시아대로 165", kind:"레지던스",
+      review:"송도 레지던스 객실 투숙기", channel:"우아블(우아한 테이블)", id:"pNpVHCv846w", start:714,
+      official:"https://booking.oakwoodpremier.co.kr/?hotelCode=opi&lang=ko"
+    },
+    {
+      name:"호텔농심", region:"부산", area:"부산 동래구 금강공원로20번길 23", kind:"호텔",
+      review:"동래온천 호텔 객실과 허심청 방문기", channel:"긍정맨", id:"-PPtotTAuDo", start:360,
+      official:"https://new.hotelnongshim.com/"
+    },
+    {
+      name:"덕구온천호텔", region:"경북", area:"경북 울진군 북면 덕구온천로 924", kind:"호텔",
+      review:"울진 덕구온천 호텔 투숙기", channel:"긍정맨", id:"biAAyeIlr6Q", start:270,
+      official:"https://www.dukgu.com/dg/about/contact_map"
+    },
+    {
+      name:"스카이 스위트 한강브릿지 서울", region:"서울", area:"서울 용산구 양녕로 495 한강대교 북단", kind:"호텔",
+      review:"한강대교 전망 숙소 투숙기", channel:"긍정맨", id:"ve2F7m1PjWA", start:520,
+      official:"https://hangang.seoul.go.kr/www/facility/map.tab?srchCd=9112"
+    },
+    {
+      name:"히든 클리프 호텔 & 네이쳐", region:"제주", area:"제주 서귀포시 예래해안로 542", kind:"호텔",
+      review:"디럭스 클리프뷰 객실 전망과 투숙 후기 · 쇼츠", channel:"캣블링 catveling", id:"FgNA9HGMa64", start:19,
+      official:"https://www.hiddencliff.kr/about/contact.html"
+    },
+    {
+      name:"반얀트리 클럽 앤 스파 서울", region:"서울", area:"서울 중구 장충단로 60", kind:"호텔",
+      review:"남산 전망 객실과 객실 내 풀 · 비교 쇼츠", channel:"캣블링 catveling", id:"swViN6BmIhQ", start:1,
+      official:"https://www.banyantreeclub.com/mobile/introduce/location.asp"
+    },
+    {
+      name:"황토스테이179", region:"강원", area:"강원 강릉시 성산면 대송길 180", kind:"독채·풀빌라",
+      review:"통나무 독채 침실과 주방 답사", channel:"김작가의 숙소탐구", id:"5qMRe42cjSI", start:380,
+      official:"https://m.booking.naver.com/booking/3/bizes/1060581/"
+    },
+    {
+      name:"칠갑산 NH호텔", region:"충남", area:"충남 청양군 비봉면 록평용당로 775-3", kind:"호텔",
+      review:"농협 운영 호텔 객실 투숙기", channel:"긍정맨", id:"AjjM8ohbFEs", start:920,
+      official:"https://www.cheongyang.go.kr/prog/hotelData/tour/sub05_05_01/H1/view.do?cntNo=73&pageIndex=1"
     }
   ]
 };
