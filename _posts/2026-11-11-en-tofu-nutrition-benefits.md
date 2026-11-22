@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Tofu Nutrition: 76 Calories, 8 g Protein, 350 mg Calcium"
+title: "Tofu Protein per 100 g: 8.1 g, 76 Calories, 350 mg Calcium"
 date: 2026-11-11 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Meat"
 tags: [Tofu, Plant Protein, Isoflavones, Genistein, Cholesterol]
-description: "Firm tofu has 76 calories, 8.08 g protein, 350 mg calcium and 5.36 mg iron per 100 g, plus how isoflavones affect cholesterol and bone."
+description: "Firm tofu has 8.08 g protein, 76 calories, 350 mg calcium and 5.4 mg iron per 100 g. How much protein tofu really gives, plus isoflavone and bone effects."
 permalink: /en/posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
 nutrition:

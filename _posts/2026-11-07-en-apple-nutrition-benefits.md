@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Apple Nutrition: 52 Calories, Pectin & Peel Benefits"
+title: "Apple Nutrition: 52 Calories, 2.4 g Fiber per 100 g"
 date: 2026-11-07 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Fruits"
 tags: [Apple, Pectin, Quercetin, GutMicrobiome, CardiovascularHealth]
-description: "An apple has 52 calories, 2.4 g fiber and 107 mg potassium per 100 g. What the peel adds, the morning-apple claim, and blood sugar context."
+description: "An apple has 52 calories, 2.4 g fiber, 107 mg potassium and pectin per 100 g. What the peel adds, whether a morning apple matters, and blood sugar context."
 permalink: /en/posts/apple-nutrition-benefits/
 image: "/assets/images/apple.jpg"
 nutrition:

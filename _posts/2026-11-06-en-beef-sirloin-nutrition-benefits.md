@@ -1,12 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Beef Sirloin Nutrition: 201 Calories, 20 g Protein, Iron"
+title: "Beef Sirloin Nutrition: 201 Calories, 20.3 g Protein"
 date: 2026-11-06 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Meat"
 tags: [BeefSirloin, HemeIron, Creatine, LCarnitine, MuscleProteinSynthesis]
-description: "Beef sirloin has 201 calories, 20.3 g protein, 1.48 mg heme iron and 3.55 mg zinc per 100 g. Absorption, leaner cuts, and grilling safety."
+description: "Beef sirloin has 201 calories, 20.3 g protein, 1.48 mg heme iron and 3.55 mg zinc per 100 g. How heme iron absorbs, leaner cuts, and grilling safety."
 permalink: /en/posts/beef-sirloin-nutrition-benefits/
 image: "/assets/images/beef-sirloin.jpg"
 nutrition:

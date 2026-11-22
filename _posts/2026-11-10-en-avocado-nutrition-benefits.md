@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Avocado Nutrition: 160 Calories, 485 mg Potassium, Oleic Acid"
+title: "Avocado Nutrition: 160 Calories, 485 mg Potassium"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Fruits"
 tags: [Avocado, Oleic Acid, Monounsaturated Fat, Potassium, Ripening Kinetics]
-description: "Avocado has 160 calories, 6.7 g fiber and 485 mg potassium per 100 g, mostly from oleic acid. Ripeness test, storage, and serving size."
+description: "Avocado has 160 calories, 6.7 g fiber, 485 mg potassium and 14.7 g fat per 100 g, mostly oleic acid. Ripeness test, browning, and how much to eat a day."
 permalink: /en/posts/avocado-nutrition-benefits/
 image: "/assets/images/avocado.jpg"
 nutrition:

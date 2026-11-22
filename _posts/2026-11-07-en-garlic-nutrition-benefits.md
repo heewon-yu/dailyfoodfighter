@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Garlic Nutrition: 149 Calories, Allicin & Daily Dosage"
+title: "Garlic Nutrition: 149 Calories, Allicin & 31 mg Vitamin C"
 date: 2026-11-07 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Garlic, Allicin, Organosulfur, CardiovascularHealth, ImmuneFunction]
-description: "Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g. Why crushing and resting 10 minutes raises allicin, plus doses."
+description: "Raw garlic has 149 calories, 31.2 mg vitamin C and 6.4 g protein per 100 g. How crushing and resting 10 minutes raises allicin, and how much to eat a day."
 permalink: /en/posts/garlic-nutrition-benefits/
 image: "/assets/images/garlic.jpg"
 nutrition:

@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Squid Nutrition: 92 Calories, 15.6 g Protein, Taurine"
+title: "Squid Nutrition: 15.6 g Protein, 92 Calories, Taurine"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Seafood"
 tags: [Squid, Calamari, Taurine, Marine Protein, Hepatic Health]
-description: "Raw squid has 92 calories, 15.6 g protein and 1.4 g fat per 100 g, with taurine's role in bile acids and liver lipid clearance, plus cooking losses."
+description: "Raw squid has 92 calories, 15.6 g protein and 1.4 g fat per 100 g, rich in taurine. What taurine does for bile acids and liver lipids, plus cooking losses."
 permalink: /en/posts/squid-nutrition-benefits/
 image: "/assets/images/squid.jpg"
 nutrition:

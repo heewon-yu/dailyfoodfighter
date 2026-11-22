@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Spinach Nutrition: 23 Calories, Sauteing & Oxalates"
+title: "Spinach Nutrition per 100 g: 23 Calories, 483 mcg Vitamin K"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
-description: "Spinach has 23 calories, 483 mcg vitamin K, 194 mcg folate and 2.71 mg iron per 100 g. Does sauteing remove oxalates? Boiling compared."
+description: "Raw spinach has 23 calories, 2.2 g fiber and 483 mcg vitamin K per 100 g. Does sauteing cut oxalates? Boiling vs sauteing compared, plus iron and pH notes."
 permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 nutrition:

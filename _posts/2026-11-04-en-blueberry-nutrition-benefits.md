@@ -1,12 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Blueberry Nutrition: 57 Calories, Fresh vs Frozen Anthocyanin"
+title: "Blueberry Nutrition: 57 Calories, Anthocyanins per 100 g"
 date: 2026-11-04 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Fruits"
 tags: [Blueberries, Anthocyanins, Neuroprotection, VascularHealth, EvidenceBased]
-description: "Raw blueberries have 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g. Freezing effects, daily amounts, and kidney and warfarin cautions."
+description: "Blueberries have 57 calories, 2.4 g fiber and 9.7 mg vitamin C per 100 g. Fresh vs frozen anthocyanins, how much a day, and kidney or warfarin cautions."
 permalink: /en/posts/blueberry-nutrition-benefits/
 image: "/assets/images/blueberry.jpg"
 nutrition:

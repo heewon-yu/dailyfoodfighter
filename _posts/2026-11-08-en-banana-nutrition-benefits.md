@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Banana Nutrition: 105 Calories, Carbs & Vitamins per Fruit"
+title: "Banana Nutrition per 100 g: 89 Calories, 358 mg Potassium"
 date: 2026-11-08 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Fruits"
 tags: [Banana, Potassium, Vitamin B6, Resistant Starch, Gut Microbiome]
-description: "A medium banana has about 105 calories, 422 mg potassium and 0.43 mg vitamin B6. Carbs by ripeness, fasting safety, and glycemic guidance."
+description: "A 100 g banana has 89 calories, 22.8 g carbs, 2.6 g fiber and 358 mg potassium (a medium fruit: 105 calories, 422 mg). Carbs, sugar and ripeness answered."
 permalink: /en/posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
 nutrition:

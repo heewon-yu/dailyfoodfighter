@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Chicken Breast Nutrition: 23 g Protein, 110 Calories"
+title: "Chicken Breast Protein: 23.1 g per 100 g, 110 Calories"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:55:09 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Meat"
 tags: [Chicken Breast, Protein, BCAA, Imidazole Dipeptides, Muscle Protein Synthesis]
-description: "Chicken breast has 110 calories, 23.1 g protein and 2.6 g fat per 100 g. A poaching method that prevents dryness, plus protein timing."
+description: "Chicken breast has 23.1 g protein, 110 calories and 1.2 g fat per 100 g, a complete amino acid profile. Poaching that keeps it moist, plus protein timing."
 permalink: /en/posts/chicken-breast-nutrition-benefits/
 image: "/assets/images/chicken-breast.jpg"
 nutrition:

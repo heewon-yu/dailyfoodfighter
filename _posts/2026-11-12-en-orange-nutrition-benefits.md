@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Orange Nutrition: 47 Calories, 53 mg Vitamin C, Hesperidin"
+title: "Orange Nutrition: 47 Calories, 53.2 mg Vitamin C"
 date: 2026-11-12 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Fruits"
 tags: [Orange, Vitamin C, Hesperidin, Citric Acid, Cardiovascular Health]
-description: "A navel orange has 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g, with hesperidin research, whole fruit versus juice, and drug cautions."
+description: "An orange has 47 calories, 53.2 mg vitamin C and 30 mcg folate per 100 g. Hesperidin research, whole fruit versus juice, and drug interaction cautions."
 permalink: /en/posts/orange-nutrition-benefits/
 image: "/assets/images/orange.jpg"
 nutrition:

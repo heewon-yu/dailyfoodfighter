@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Salmon Nutrition: 208 Calories, Omega-3, Wild vs Farmed"
+title: "Salmon Nutrition: 208 Calories, 2,150 mg Omega-3"
 date: 2026-11-06 18:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Seafood"
 tags: [Salmon, Omega3, Astaxanthin, VitaminD, CardiovascularHealth]
-description: "Salmon has 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Wild versus farmed, smoked sodium, and weekly servings."
+description: "Salmon has 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g. Wild versus farmed, smoked sodium, and how many servings a week to aim for."
 permalink: /en/posts/salmon-nutrition-benefits/
 image: "/assets/images/salmon.jpg"
 nutrition:

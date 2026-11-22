@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Egg Nutrition: 143 Calories, 12.6 g Protein, Boiling Times"
+title: "Egg Protein per 100 g: 12.6 g, 143 Calories, 6.3 g per Egg"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Meat"
 tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
-description: "Eggs have 143 calories and 12.56 g protein per 100 g, about two large eggs. Boiling times, digestibility, cholesterol evidence, and daily limits."
+description: "One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein, or 6.3 g each. Boiling times, digestibility and cholesterol answered."
 permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 nutrition:

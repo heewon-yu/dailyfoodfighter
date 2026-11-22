@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Carrot Nutrition: 41 Calories, Beta-Carotene Absorption"
+title: "Carrot Nutrition per 100 g: 41 Calories, 835 mcg Vitamin A"
 date: 2026-11-10 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Carrot, Beta-Carotene, Provitamin A, Falcarinol, Bioavailability]
-description: "Carrots have 41 calories, 2.8 g fiber and 320 mg potassium per 100 g. Why fat and heat raise beta-carotene absorption, and peel notes."
+description: "Carrots have 41 calories, 835 mcg vitamin A (8,285 mcg beta-carotene) and 2.8 g fiber per 100 g. Which vitamins they hold, and why fat raises absorption."
 permalink: /en/posts/carrot-nutrition-benefits/
 image: "/assets/images/carrot.jpg"
 nutrition:

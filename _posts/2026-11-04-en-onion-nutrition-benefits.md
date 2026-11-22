@@ -1,12 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Onion Nutrition: 40 Calories, Raw vs Cooked Quercetin"
+title: "Onion Nutrition: 40 Calories, 1.7 g Fiber, Quercetin"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Vegetables"
 tags: [Onion, Quercetin, Antioxidants, NutritionScience, EvidenceBased]
-description: "Raw onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. How cooking shifts quercetin, why soaking leaches it, and gentler options."
+description: "Onion has 40 calories, 1.7 g fiber and 7.4 mg vitamin C per 100 g. How cooking shifts quercetin, why soaking leaches it, and gentler ways to cut the bite."
 permalink: /en/posts/onion-nutrition-benefits/
 image: "/assets/images/onion.jpg"
 nutrition:

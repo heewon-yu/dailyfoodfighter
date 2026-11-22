@@ -2,11 +2,11 @@
 layout: post
 title: "Pork Tenderloin Nutrition: 120 Calories, 21.8 g Protein"
 date: 2026-11-13 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Meat"
 tags: [Pork Tenderloin, Thiamine, Vitamin B1, Lean Protein, Muscle Protein Synthesis]
-description: "Pork tenderloin has 120 calories, 21.8 g protein and 420 mg potassium per 100 g, with thiamine and energy metabolism notes plus tender cooking methods."
+description: "Pork tenderloin has 120 calories, 21.8 g protein and 2.8 g fat per 100 g, plus 420 mg potassium. Thiamine for energy metabolism and tender cooking methods."
 permalink: /en/posts/pork-tenderloin-nutrition-benefits/
 image: "/assets/images/pork-tenderloin.jpg"
 nutrition:

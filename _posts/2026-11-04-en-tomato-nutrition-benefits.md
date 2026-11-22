@@ -1,12 +1,12 @@
 ---
 layout: post
 lang: en
-title: "Tomato Nutrition Facts: 18 Calories, Lycopene Raw vs Cooked"
+title: "Tomato Nutrition: 18 Calories, 13.7 mg Vitamin C, Lycopene"
 date: 2026-11-04 00:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Fruits"
 tags: [Tomato, Lycopene, Antioxidants, NutritionScience, CardiovascularHealth]
-description: "A raw tomato has 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Lycopene absorption with fat and heat, plus reflux cautions."
+description: "A raw tomato has 18 calories, 13.7 mg vitamin C and 237 mg potassium per 100 g. Why cooking it with fat raises lycopene absorption, and reflux cautions."
 permalink: /en/posts/tomato-nutrition-benefits/
 image: "/assets/images/tomato.jpg"
 nutrition:

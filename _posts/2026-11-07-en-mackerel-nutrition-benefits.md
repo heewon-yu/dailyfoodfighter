@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Mackerel Nutrition: 205 Calories, 2,299 mg EPA+DHA"
+title: "Mackerel Nutrition per 100 g: 2,299 mg Omega-3, 205 kcal"
 date: 2026-11-07 14:30:00 +0900
-last_modified_at: 2026-11-16 08:55:09 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Seafood"
 tags: [Mackerel, Omega-3, EPA, DHA, Cardiovascular Health, Brain Health]
-description: "Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. Grilling versus braising retention and weekly servings."
+description: "Mackerel has 205 calories, 18.6 g protein and 2,299 mg EPA plus DHA per 100 g. How much omega-3 one serving gives, and grilling versus braising retention."
 permalink: /en/posts/mackerel-nutrition-benefits/
 image: "/assets/images/mackerel.jpg"
 nutrition:

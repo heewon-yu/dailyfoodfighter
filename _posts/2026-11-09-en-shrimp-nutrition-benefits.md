@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Shrimp Nutrition: 85 Calories, 20 g Protein, Creatinine"
+title: "Shrimp Nutrition: 20.1 g Protein, 85 Calories, Creatinine"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-16 08:48:19 +0900
+last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Seafood"
 tags: [Shrimp, Astaxanthin, Taurine, Dietary Cholesterol, Chitin Chitosan]
-description: "Shrimp has 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. Creatinine before testing, the cholesterol myth, shells, and allergies."
+description: "Shrimp has 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g. How shrimp affects a creatinine test, the cholesterol myth, shells and allergy cautions."
 permalink: /en/posts/shrimp-nutrition-benefits/
 image: "/assets/images/shrimp.jpg"
 nutrition:
