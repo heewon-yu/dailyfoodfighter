@@ -117,6 +117,7 @@ window.hanbamCatalogue = {
       review:'메인 타워와 이그제큐티브 타워 비교', channel:'또 떠나는 남자', id:'pq3vSuc_1dY', start:null,
       official:'https://app.lottehotel.com/seoul-hotel/ko',
       reviews: [
+        {review:"더그랜드롯데 서울 리뉴얼 객실과 두 타워 비교", channel:"돈캣 PL․EX", id:"pj9pBIlAuog", start:125},
         {review:"롯데호텔 서울 호캉스 리뷰", channel:"돈캣 PL․EX", id:"ezjBl-gmaHg", start:null},
         {review:"이그제큐티브 타워 객실 투어 · 일본어", channel:"Minayo チャンネル", id:"B886vmKEf_A", start:null},
         {review:"이그제큐티브 타워 투숙기", channel:"탤스테이 호텔&여행", id:"gg1isz9gLWo", start:null}
@@ -1219,6 +1220,56 @@ window.hanbamCatalogue = {
       name:"더 시에나 프리모", region:"제주", area:"제주 서귀포시 용흥로66번길 158-7", kind:"호텔",
       review:"리뉴얼한 키즈 객실과 가족 투숙기", channel:"또 떠나는 남자", id:"W2OQPkaRz8s", start:321,
       official:"https://scm-siena.thesiena.co.kr/content/primo"
+    },
+    {
+      name:"아늑 시그니처 호텔 서울 구로", region:"서울", area:"서울 관악구 남부순환로 1458", kind:"호텔",
+      review:"객실 내 수영장과 사우나·야식 투숙기", channel:"돈캣 PL․EX", id:"Md-8Fr3W6-s", start:165,
+      official:"https://www.marriott.com/ko/hotels/selsg-anook-signature-seoul-guro-series/overview/"
+    },
+    {
+      name:"달밭 리트릿", region:"강원", area:"강원 평창군 용평면 의풍포길 137", kind:"독채·풀빌라",
+      review:"숲속 스테이 객실과 노천탕·사우나 투숙기", channel:"돈캣 PL․EX", id:"I9oRQ_qQsKQ", start:130,
+      official:"https://dalbotretreat.com/space"
+    },
+    {
+      name:"클리프비치 리조트 & 풀빌라", region:"강원", area:"강원 양양군 손양면 선사유적로 359", kind:"리조트",
+      review:"양양 오션뷰 객실과 가족 투숙 후기", channel:"돈캣 PL․EX", id:"lhqaDgdRxgI", start:90,
+      official:"https://www.cliffbeach.co.kr/"
+    },
+    {
+      name:"한우산 별천지", region:"경남", area:"경남 의령군 궁류면 한우산길 688", kind:"공공 숙소",
+      review:"별 관측 숙소 객실과 밤하늘 투숙 후기", channel:"돈캣 PL․EX", id:"imMoJ-7-uo0", start:100,
+      official:"https://www.uiryeong.go.kr/board/view.uiryeong?boardId=BBS_0000080&dataSid=1114220&menuCd=DOM_000000203001005000"
+    },
+    {
+      name:"락고재 북촌 빈관", region:"서울", area:"서울 종로구 북촌로11가길 10", kind:"한옥·고택",
+      review:"북촌 빈관 한옥 객실 투숙기", channel:"돈캣 PL․EX", id:"txVlkzEdyQA", start:130,
+      official:"https://www.rakkojae.com/seoul/bukchon-binkwan"
+    },
+    {
+      name:"고창 웰파크호텔", region:"전북", area:"전북 고창군 고창읍 석정2로 179", kind:"호텔",
+      review:"웰파크 객실과 석정온천 휴스파 투숙기", channel:"돈캣 PL․EX", id:"iv__L-1g1B8", start:100,
+      official:"https://www.gochang.go.kr/tour/board/view.gochang?boardId=BBS_0000400&dataSid=773087&menuCd=DOM_000000403002001000"
+    },
+    {
+      name:"쉐라톤 제주 호텔", region:"제주", area:"제주 제주시 탑동로 66", kind:"호텔",
+      review:"탑동 쉐라톤 객실과 오션뷰 수영장 투숙기", channel:"돈캣 PL․EX", id:"vtkVqtRbt4s", start:130,
+      official:"https://www.marriott.com/ko/hotels/cjusi-sheraton-jeju-hotel/overview/"
+    },
+    {
+      name:"더스테이 힐링파크", region:"경기", area:"경기 가평군 설악면 한서로268번길 157", kind:"리조트",
+      review:"가평 객실과 가든·포레스트 전망 비교", channel:"돈캣 PL․EX", id:"4kW_IXj01qo", start:230,
+      official:"https://www.thestayhealingpark.com/info/location"
+    },
+    {
+      name:"스토너리 호텔 앤 리조트", region:"인천", area:"인천 강화군 내가면 강화서로 91", kind:"리조트",
+      review:"강화 객실과 야외 수영장 가족 투숙기", channel:"돈캣 PL․EX", id:"pwwj76IH2gY", start:100,
+      official:"https://stonery.kr/main"
+    },
+    {
+      name:"마티에 부산하버시티", region:"부산", area:"부산 동구 충장대로 190", kind:"호텔",
+      review:"북항 고층 객실과 수영장 투숙 후기", channel:"돈캣 PL․EX", id:"Q-yRFx_oimY", start:130,
+      official:"https://www.matiebusan.com/"
     }
   ]
 };
