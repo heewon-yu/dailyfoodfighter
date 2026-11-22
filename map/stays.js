@@ -15,7 +15,10 @@ window.hanbamCatalogue = {
     '여행가 제이': 832000,
     '손놈 : 셀카없는 항공 호텔리뷰': 159000,
     '초마드 CHOMAD': 756000,
-    '여행에미치다': 375000
+    '여행에미치다': 375000,
+    '조조캠핑 JOJOCAMPING': 806000,
+    '캡틴따거 Captain Brother': 763000,
+    'Minayo チャンネル': 116000
   },
   stays: [
     {
@@ -23,7 +26,8 @@ window.hanbamCatalogue = {
       review:'켄고 쿠마 빌라 투숙기', channel:'또 떠나는 남자', id:'B1ZrFeDbHiM', start:null,
       official:'https://app.lottehotel.com/resort-artvillas/ko',
       reviews: [
-        {review:"대가족 빌라 투숙 후기", channel:"돈캣 PL․EX", id:"TfQYSmKfYXw", start:null}
+        {review:"대가족 빌라 투숙 후기", channel:"돈캣 PL․EX", id:"TfQYSmKfYXw", start:null},
+        {review:"아트빌라스 가족 투숙기 · 숙박 제공", channel:"캡틴따거 Captain Brother", id:"85VxIsBxyI4", start:null}
       ]
     },
     {
@@ -91,7 +95,8 @@ window.hanbamCatalogue = {
       review:'메인 타워와 이그제큐티브 타워 비교', channel:'또 떠나는 남자', id:'pq3vSuc_1dY', start:null,
       official:'https://app.lottehotel.com/seoul-hotel/ko',
       reviews: [
-        {review:"롯데호텔 서울 호캉스 리뷰", channel:"돈캣 PL․EX", id:"ezjBl-gmaHg", start:null}
+        {review:"롯데호텔 서울 호캉스 리뷰", channel:"돈캣 PL․EX", id:"ezjBl-gmaHg", start:null},
+        {review:"이그제큐티브 타워 객실 투어 · 일본어", channel:"Minayo チャンネル", id:"B886vmKEf_A", start:null}
       ]
     },
     {
@@ -200,7 +205,10 @@ window.hanbamCatalogue = {
     {
       name:"씨마크 호텔", region:"강원", area:"강원 강릉시 해안로406번길 2", kind:"호텔",
       review:"객실과 호텔 시설 리뷰", channel:"돈캣 PL․EX", id:"GtpKtl9tppc", start:null,
-      official:"https://www.seamarqhotel.com/"
+      official:"https://www.seamarqhotel.com/",
+      reviews: [
+        {review:"경포 오션뷰 객실과 라운지 · 유료광고 포함", channel:"Travel with Nanajane", id:"OI7bHhBGXxo", start:106}
+      ]
     },
     {
       name:"쏠비치 삼척", region:"강원", area:"강원 삼척시 수로부인길 453", kind:"리조트",
@@ -338,7 +346,10 @@ window.hanbamCatalogue = {
     {
       name:"소노캄 경주", region:"경북", area:"경북 경주시 보문로 402-12", kind:"호텔",
       review:"온천과 리뉴얼 객실 리뷰", channel:"또 떠나는 남자", id:"CMjPjJv_rDA", start:37,
-      official:"https://www.ggcl.or.kr/facility/main"
+      official:"https://www.ggcl.or.kr/facility/main",
+      reviews: [
+        {review:"리뉴얼된 소노캄 경주 객실과 온천", channel:"돈캣 PL․EX", id:"VFtwfEhN5L8", start:null}
+      ]
     },
     {
       name:"버들맨션", region:"경북", area:"경북 성주군 성주읍 성밖숲길 91", kind:"호텔",
@@ -641,7 +652,10 @@ window.hanbamCatalogue = {
     {
       name:"페어몬트 앰배서더 서울", region:"서울", area:"서울 영등포구 여의대로 108", kind:"호텔",
       review:"여의도 디럭스룸과 전망", channel:"손놈 : 셀카없는 항공 호텔리뷰", id:"duYE2D_w3bI", start:132,
-      official:"https://www.fairmont.com/en/hotels/seoul/fairmont-ambassador-seoul.html"
+      official:"https://www.fairmont.com/en/hotels/seoul/fairmont-ambassador-seoul.html",
+      reviews: [
+        {review:"더현대 전망 객실과 투숙 후기", channel:"돈캣 PL․EX", id:"2yo_agp3Z9Y", start:null}
+      ]
     },
     {
       name:"르메르디앙 서울 명동", region:"서울", area:"서울 중구 명동8나길 38", kind:"호텔",
@@ -710,6 +724,111 @@ window.hanbamCatalogue = {
       name:"마들렌호텔 거제점", region:"경남", area:"경남 거제시 사등면 거제대로 5454", kind:"호텔",
       review:"가족 여행에서 이용한 오션뷰 객실", channel:"초마드 CHOMAD", id:"nXo6TemgLPU", start:null,
       official:"https://naver.me/xKtcQb0a"
+    },
+    {
+      name:"G7펜션", region:"강원", area:"강원 강릉시 주문진읍 해안로 1939-8", kind:"펜션",
+      review:"주문진 바닷가 펜션 소개", channel:"숙소왕", id:"UajC62fSz8A", start:21,
+      official:"https://www.g7pension.co.kr/html/sub5_map.html"
+    },
+    {
+      name:"어달을담다", region:"강원", area:"강원 동해시 일출로 305", kind:"펜션",
+      review:"동해 어달해변 숙소 소개", channel:"숙소왕", id:"UajC62fSz8A", start:73,
+      official:"https://open.114.ai.kr/s/7bhngje3m4bh"
+    },
+    {
+      name:"영진을담다", region:"강원", area:"강원 강릉시 연곡면 영진리 68-1", kind:"펜션",
+      review:"영진해변 앞 오션뷰 숙소 소개", channel:"숙소왕", id:"UajC62fSz8A", start:114,
+      official:"https://www.yeogi.com/domestic-accommodations/71834"
+    },
+    {
+      name:"더뷰스파펜션", region:"강원", area:"강원 강릉시 주문진읍 해안로 1999", kind:"펜션",
+      review:"소돌해변 근처 스파 숙소 소개", channel:"숙소왕", id:"UajC62fSz8A", start:162,
+      official:"https://www.yeogi.com/domestic-accommodations/73495"
+    },
+    {
+      name:"지브스파펜션", region:"강원", area:"강원 강릉시 주문진읍 해안로 1935", kind:"펜션",
+      review:"주문진 지브 펜션 숙소 소개", channel:"숙소왕", id:"UajC62fSz8A", start:207,
+      official:"https://booking.kakao.com/detail/accommodation/202067"
+    },
+    {
+      name:"언제나소돌", region:"강원", area:"강원 강릉시 주문진읍 해안로 2011", kind:"펜션",
+      review:"소돌해변 오션뷰 펜션 소개", channel:"숙소왕", id:"UajC62fSz8A", start:250,
+      official:"https://www.yeogi.com/domestic-accommodations/64485"
+    },
+    {
+      name:"안목을높이다", region:"강원", area:"강원 강릉시 창해로 27", kind:"펜션",
+      review:"안목해변 앞 숙소 소개", channel:"숙소왕", id:"UajC62fSz8A", start:292,
+      official:"https://nol.yanolja.com/stay/domestic/1000108781"
+    },
+    {
+      name:"코뿔소글램핑", region:"강원", area:"강원 평창군 방림면 삼형제길 279-61", kind:"글램핑·카라반",
+      review:"평창 글램핑 숙박 체험 · 장소 제공", channel:"조조캠핑 JOJOCAMPING", id:"5fuwboGjba8", start:null,
+      official:"https://www.gocamping.or.kr/bsite/camp/info/read.do?c_no=8001"
+    },
+    {
+      name:"더 플라자 서울", region:"서울", area:"서울 중구 소공로 119", kind:"호텔",
+      review:"서울시청 앞 호텔 체크인 및 숙박 후기", channel:"돈캣 PL․EX", id:"TEvuq7UfBXI", start:null,
+      official:"https://www.hoteltheplaza.com/"
+    },
+    {
+      name:"스위트호텔 경주", region:"경북", area:"경북 경주시 보문로 280-12", kind:"호텔",
+      review:"보문단지 호텔 객실과 체크인 후기", channel:"돈캣 PL․EX", id:"TQdAQPbmad4", start:null,
+      official:"https://www.suites.co.kr/Gyeongju/"
+    },
+    {
+      name:"그랜드 하얏트 인천", region:"인천", area:"인천 영종구 영종해안남로321번길 208", kind:"호텔",
+      review:"인천공항 옆 호텔 호캉스", channel:"돈캣 PL․EX", id:"RYL8FGwFxZw", start:null,
+      official:"https://www.yeongjong.go.kr/tour/accmdtion_tour/view.do?acmd_plc_sn=38"
+    },
+    {
+      name:"신라스테이 삼성", region:"서울", area:"서울 강남구 영동대로 506", kind:"호텔",
+      review:"삼성역 호텔 투숙 및 조식 후기", channel:"돈캣 PL․EX", id:"0KspjRoFank", start:null,
+      official:"https://www.shillahotels.com/ko/shillastay/samsung/introduction/location.do"
+    },
+    {
+      name:"마티에 오시리아", region:"부산", area:"부산 기장군 기장읍 동부산관광7로 17 105동", kind:"호텔",
+      review:"오시리아 호텔 객실과 조식 후기", channel:"돈캣 PL․EX", id:"OzYhp4L8GJ4", start:null,
+      official:"https://m2.hanwharesort.co.kr/resort/resort_place/view.do?locCd=2601"
+    },
+    {
+      name:"라테라스 리조트", region:"전남", area:"전남 여수시 돌산읍 진모1길 29-12", kind:"리조트",
+      review:"여수 라테라스 리뉴얼 객실과 수영장", channel:"돈캣 PL․EX", id:"SKRpylM6dPE", start:null,
+      official:"https://booking.kakao.com/detail/accommodation/295821"
+    },
+    {
+      name:"애월 팀버하우스", region:"제주", area:"제주 제주시 애월읍 곽지7길 11", kind:"펜션",
+      review:"애월 장기 숙소 비교 · 제작비 지원", channel:"Travel with Nanajane", id:"15XdxtjxM0Y", start:404,
+      official:"https://www.yeogi.com/domestic-accommodations/69505"
+    },
+    {
+      name:"코트야드 메리어트 서울 보타닉 파크", region:"서울", area:"서울 강서구 마곡중앙12로 10", kind:"호텔",
+      review:"마곡 서울식물원 옆 호텔 투숙기", channel:"돈캣 PL․EX", id:"Cftxeni__Sg", start:null,
+      official:"https://www.marriott.com/ko/hotels/selcs-courtyard-seoul-botanic-park/overview/"
+    },
+    {
+      name:"쉐라톤 그랜드 인천 호텔", region:"인천", area:"인천 연수구 컨벤시아대로 153", kind:"호텔",
+      review:"송도 호텔 객실 타입과 가족 숙박 후기", channel:"돈캣 PL․EX", id:"OpZbtjfusXI", start:null,
+      official:"https://www.marriott.com/ko/hotels/selgi-sheraton-grand-incheon-hotel/overview/"
+    },
+    {
+      name:"페어필드 바이 메리어트 부산 송도 비치", region:"부산", area:"부산 서구 송도해변로 113", kind:"호텔",
+      review:"부산 송도 비치 호텔 투숙기", channel:"돈캣 PL․EX", id:"I7DPQNDDRV8", start:null,
+      official:"https://www.marriott.com/ko/hotels/pusfb-fairfield-busan-songdo-beach/overview/"
+    },
+    {
+      name:"그랜드 조선 제주 본관", region:"제주", area:"제주 서귀포시 중문관광로72번길 60", kind:"호텔",
+      review:"본관 객실과 루프탑 수영장 후기", channel:"Travel with Nanajane", id:"RuTcMkCeG4E", start:null,
+      official:"https://gjj.josunhotel.com/about/aboutUs.do"
+    },
+    {
+      name:"시그니엘 부산", region:"부산", area:"부산 해운대구 달맞이길 30", kind:"호텔",
+      review:"해운대 호텔 1박과 조식", channel:"돈캣 PL․EX", id:"DmnXmVewQQU", start:null,
+      official:"https://app.lottehotel.com/busan-signiel/ko/about/location"
+    },
+    {
+      name:"그랜드 하얏트 서울", region:"서울", area:"서울 용산구 소월로 322", kind:"호텔",
+      review:"남산 그랜드 하얏트 호텔 객실 리뷰", channel:"호텔사장 기먼성", id:"13icVpzbMG4", start:null,
+      official:"https://www.hyatt.com/grand-hyatt/ko-KR/selrs-grand-hyatt-seoul/hotel-info"
     }
   ]
 };
