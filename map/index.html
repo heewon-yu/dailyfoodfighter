@@ -998,7 +998,7 @@ async function checkVideoBatch(ids) {
       const status = data.statuses[id];
       if (status !== 'public' && status !== 'unavailable') continue;
       const old = videoStatusCache.get(id);
-      if (!old || old.status !== status) changed = true;
+      if ((old?.status === 'unavailable') !== (status === 'unavailable')) changed = true;
       videoStatusCache.set(id, {status,time:now});
       updated = true;
     }
