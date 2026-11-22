@@ -10,7 +10,9 @@ window.hanbamCatalogue = {
     'Travel with Nanajane': 159000,
     '일상이여행 Everyday travel': 315000,
     '더들리': 1270000,
-    '차박차박 Chabak': 236000
+    '차박차박 Chabak': 236000,
+    '유리소리TV': 163000,
+    '여행가 제이': 832000
   },
   stays: [
     {
@@ -400,7 +402,7 @@ window.hanbamCatalogue = {
     {
       name:"파라다이스시티", region:"인천", area:"인천 영종구 영종해안남로321번길 186", kind:"리조트",
       review:"객실과 씨메르·원더박스 리뷰", channel:"돈캣 PL․EX", id:"9FIhqJQuKFk", start:null,
-      official:"https://www.p-city.com/",
+      official:"https://www.p-city.com/front/contents/pcity/location",
       reviews: [
         {review:"객실과 패키지 리뷰 · 유료광고 포함", channel:"더들리", id:"p44vipzieJA", start:null}
       ]
@@ -492,7 +494,7 @@ window.hanbamCatalogue = {
     {
       name:"세인트존스호텔", region:"강원", area:"강원 강릉시 창해로 307", kind:"호텔",
       review:"강릉 오션뷰 호텔 투숙기", channel:"차박차박 Chabak", id:"Omp2QcNbtVM", start:null,
-      official:"https://stjohns.co.kr/",
+      official:"https://new.stjohns.co.kr/introduce/way",
       reviews: [
         {review:"세인트존스 호텔 리뷰 · 당시 운영자 제작", channel:"호텔사장 기먼성", id:"muiUTVx1TbY", start:null}
       ]
@@ -500,10 +502,85 @@ window.hanbamCatalogue = {
     {
       name:"레고랜드 코리아 호텔", region:"강원", area:"강원 춘천시 하중도길 128", kind:"호텔",
       review:"레고 테마 객실 투숙기", channel:"차박차박 Chabak", id:"6G0ostKQDVc", start:null,
-      official:"https://www.legoland.kr/legoland-hotel/",
+      official:"https://www.legoland.kr/en/plan-your-day/plan-your-visit/parking-directions/",
       reviews: [
         {review:"춘천 레고랜드 호텔 투숙 리뷰", channel:"돈캣 PL․EX", id:"39opvV3mVkw", start:null}
       ]
+    },
+    {
+      name:"빌라 쏘메", region:"경북", area:"경북 울릉군 북면 추산길 116-12", kind:"호텔",
+      review:"울릉도 빌라 쏘메 투숙 리뷰", channel:"또 떠나는 남자", id:"TT85dJVc3QA", start:null,
+      official:"https://www.thekosmos.co.kr/stay/sommet/villa"
+    },
+    {
+      name:"하얏트 플레이스 부산 연산", region:"부산", area:"부산 연제구 중앙대로 1121", kind:"호텔",
+      review:"연산 신상 호텔과 사직야구장 여행", channel:"돈캣 PL․EX", id:"qIHpfjVg3T4", start:null,
+      official:"https://www.hyatt.com/hyatt-place/ko-KR/buszy-hyatt-place-busan-yeonsan/hotel-info"
+    },
+    {
+      name:"하이원 마운틴콘도", region:"강원", area:"강원 정선군 고한읍 하이원길 265-1", kind:"리조트",
+      review:"35평 객실에서 7박 8일 후기", channel:"일상이여행 Everyday travel", id:"kh0QWVkayvM", start:120,
+      official:"https://kangwonland.high1.com/common/fullmap.html"
+    },
+    {
+      name:"마들렌호텔 사천점", region:"경남", area:"경남 사천시 축동면 서삼로 1317-14", kind:"호텔",
+      review:"호텔 객실과 1박 3식 체험", channel:"일상이여행 Everyday travel", id:"xRRFmWwYqfw", start:170,
+      official:"https://flg.purpleo.co.kr/view/25098"
+    },
+    {
+      name:"마들렌호텔 하동점", region:"경남", area:"경남 하동군 금성면 산업로 823", kind:"호텔",
+      review:"하동점 객실과 패키지 후기 · 제작 지원", channel:"유리소리TV", id:"9iCwfXooq9U", start:621,
+      official:"https://travel.ayo.pe.kr/hotel/49234371d4e1f6125fe058c2953bf10e"
+    },
+    {
+      name:"길조호텔", region:"경기", area:"경기 양평군 강상면 독배길 32-25", kind:"호텔",
+      review:"양평 1박 2일 코스의 숙소 소개", channel:"유리소리TV", id:"9BpaHOpwRio", start:272,
+      official:"https://www.giljo.co.kr/"
+    },
+    {
+      name:"백담향기펜션", region:"강원", area:"강원 인제군 북면 용대리 1012-1", kind:"독채·풀빌라",
+      review:"인제 복층 객실 투숙기", channel:"여행가 제이", id:"y8YRLm7q-f4", start:null,
+      official:"https://kmh.purpleo.co.kr/article/1693"
+    },
+    {
+      name:"서머셋 제주신화월드", region:"제주", area:"제주 서귀포시 안덕면 신화역사로304번길 89", kind:"레지던스",
+      review:"펫프렌들리 객실 3박 4일 후기 · 제작 지원", channel:"일상이여행 Everyday travel", id:"qPGXFcXePKE", start:null,
+      official:"https://www.discoverasr.com/ko/somerset-serviced-residence/korea-south/somerset-jeju-shinhwa-world"
+    },
+    {
+      name:"여수 호텔 헤이븐", region:"전남", area:"전남 여수시 돌산읍 진두해안길 131", kind:"호텔",
+      review:"여수 밤바다 전망 숙소 소개", channel:"일상이여행 Everyday travel", id:"qm89-iSZrEg", start:null,
+      official:"https://korean.visitkorea.or.kr/detail/ms_detail.do?cotid=97cf01bd-43b9-4174-884f-cee6d40c6731"
+    },
+    {
+      name:"파크오브드림", region:"충남", area:"충남 공주시 반포면 동학사1로 46", kind:"글램핑·카라반",
+      review:"계룡산 글램핑 시설 소개 · 광고", channel:"일상이여행 Everyday travel", id:"Dqu4Cr9TmKg", start:null,
+      official:"https://tour.chungnam.go.kr/prog/trsrcn/kor/sub02_01_01/view.do?trsrcnNo=237"
+    },
+    {
+      name:"광이멀스테이 풀빌라 글램핑", region:"제주", area:"제주 제주시 한림읍 월각로 151-2", kind:"독채·풀빌라",
+      review:"가족·커플 숙소 재방문 리뷰 · 제작 지원", channel:"일상이여행 Everyday travel", id:"K92mJRVjUeU", start:null,
+      official:"https://gimjeju.co.kr/"
+    },
+    {
+      name:"야크마을", region:"제주", area:"제주 서귀포시 색달중앙로 162", kind:"리조트",
+      review:"중문 리조트와 풀빌라 소개", channel:"일상이여행 Everyday travel", id:"wl1UpEa6NFo", start:null,
+      official:"https://www.yakmaeul.com/maeul/contact"
+    },
+    {
+      name:"엠버퓨어힐 호텔 앤 리조트 제주", region:"제주", area:"제주 제주시 1100로 2671-30", kind:"리조트",
+      review:"한라산 자락 리조트 소개", channel:"일상이여행 Everyday travel", id:"neHIpPKd7Qw", start:null,
+      official:"https://www.amberpurehill.com/inquiry"
+    },
+    {
+      name:"프라이빗강릉 감성 풀빌라", region:"강원", area:"강원 강릉시 사천면 방동길 238", kind:"독채·풀빌라",
+      review:"강릉 풀빌라와 전망 소개", channel:"일상이여행 Everyday travel", id:"3sX4so8d-rU", start:null,
+      official:"https://booking.kakao.com/detail/accommodation/341598"
+    },
+    {
+      name:"노보텔 스위트 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
+      review:"용산 스위트 객실 및 주방 소개", channel:"일상이여행 Everyday travel", id:"C9Vb1Z95OjI", start:null,
+      official:"https://www.ambatel.com/novotelsuites/yongsan/ko/main.do"
     }
   ]
 };
