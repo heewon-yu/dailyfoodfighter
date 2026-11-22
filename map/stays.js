@@ -27,7 +27,24 @@ window.hanbamCatalogue = {
     "캣블링 catveling": 6810,
     "김작가의 숙소탐구": 17000,
     "재호캉스": 441000,
-    "아일랜드 트래블러": 303000
+    "아일랜드 트래블러": 303000,
+    "김새봄": 157,
+    "소지니": 113,
+    "JALJALTRIP": 2280,
+    "마이구미 다이어리": 193,
+    "창창한 다솔이네": 81,
+    "위대한해리씨TheGreatHarry": 318,
+    "하와이 조조": 1030,
+    "돈이의 지구여행 DONI GoGo": 4850,
+    "Yeoniverse": 114000,
+    "눈요기하는불불이": 615,
+    "퇴사말고강사": 9380,
+    "투어클랜tv": 3610,
+    "Weekly Hotel & Travel": 19600,
+    "Rest & Tour": 2720,
+    "제주에디 Jeju Eddy": 152000,
+    "쑈쀼 Show Couple": 54,
+    "ST Life | Korea & Asia Local Travel": 4450
   },
   stays: [
     {
@@ -792,8 +809,8 @@ window.hanbamCatalogue = {
     },
     {
       name:"그랜드 하얏트 인천", region:"인천", area:"인천 영종구 영종해안남로321번길 208", kind:"호텔",
-      review:"인천공항 옆 호텔 호캉스", channel:"돈캣 PL․EX", id:"RYL8FGwFxZw", start:null,
-      official:"https://www.yeongjong.go.kr/tour/accmdtion_tour/view.do?acmd_plc_sn=38"
+      review:"이스트타워 가족 투숙기", channel:"ST Life | Korea & Asia Local Travel", id:"SKHxNcFR__M", start:null,
+      official:"https://www.hyatt.com/grand-hyatt/ko-KR/inche-grand-hyatt-incheon"
     },
     {
       name:"신라스테이 삼성", region:"서울", area:"서울 강남구 영동대로 506", kind:"호텔",
@@ -1012,6 +1029,196 @@ window.hanbamCatalogue = {
       name:"부티크아우라펜션", region:"경북", area:"경북 울릉군 울릉읍 봉래길 6-8", kind:"펜션",
       review:"저동항 전망 객실 투숙 후기", channel:"아일랜드 트래블러", id:"FZTBkwquZ3o", start:613,
       official:"https://www.ulcruise.co.kr/www/ulleungdo/tourism/accommodation?idx=118&mode=view"
+    },
+    {
+      name:"파크 하얏트 서울", region:"서울", area:"서울 강남구 테헤란로 606", kind:"호텔",
+      review:"도심 전망 디럭스 객실 투숙기", channel:"또 떠나는 남자", id:"iOubyR07h2Y", start:150,
+      official:"https://www.hyatt.com/park-hyatt/ko-KR/selph-park-hyatt-seoul"
+    },
+    {
+      name:"바랑재", region:"강원", area:"강원 평창군 대관령면 올림픽로 1169", kind:"한옥·고택",
+      review:"평창 전통 한옥 객실 둘러보기 · 쇼츠", channel:"김새봄", id:"9trIMs1xe38", start:null,
+      official:"https://www.barangjae.com/page/space_1"
+    },
+    {
+      name:"더블트리 바이 힐튼 서울 판교 레지던스", region:"경기", area:"경기 성남시 분당구 백현로 26", kind:"레지던스",
+      review:"레지던스 킹 프리미엄 투 베드룸 객실", channel:"소지니", id:"rlzAh15_BTQ", start:null,
+      official:"https://www.hilton.com/ko/hotels/selsedi-doubletree-seoul-pangyo/residences/"
+    },
+    {
+      name:"인터컨티넨탈 알펜시아 평창 리조트", region:"강원", area:"강원 평창군 대관령면 솔봉로 325", kind:"리조트",
+      review:"인터컨티넨탈 객실과 리조트 시설 후기", channel:"Travel with Nanajane", id:"gRoYsh2-WVI", start:93,
+      official:"https://www.alpensia.com/accomm/ic/hotel-info.do"
+    },
+    {
+      name:"노보텔 앰배서더 서울 강남", region:"서울", area:"서울 강남구 봉은사로 130", kind:"호텔",
+      review:"강남 이그제큐티브 객실과 투숙 후기", channel:"소지니", id:"aUMBD_JSKIk", start:null,
+      official:"https://www.ambatel.com/novotel/gangnam/ko/main.do"
+    },
+    {
+      name:"웨스틴 조선 서울", region:"서울", area:"서울 중구 소공로 106", kind:"호텔",
+      review:"이그제큐티브 스위트 객실 투숙기", channel:"또 떠나는 남자", id:"4oag5k0bnkc", start:132,
+      official:"https://josunhotel.com/hotel/westinSeoul.do"
+    },
+    {
+      name:"켄싱턴호텔 평창", region:"강원", area:"강원 평창군 진부면 진고개로 231", kind:"호텔",
+      review:"평창 객실 비교와 가족 투숙 후기", channel:"JALJALTRIP", id:"cyu23S5RXtA", start:null,
+      official:"http://www.kensington.co.kr/hpc"
+    },
+    {
+      name:"호텔 인터불고 엑스코", region:"대구", area:"대구 북구 유통단지로 80", kind:"호텔",
+      review:"엑스코 지점 더블 디럭스 투숙기", channel:"마이구미 다이어리", id:"6UgcORNe_EU", start:52,
+      official:"http://ibhotel.com"
+    },
+    {
+      name:"JW 메리어트 동대문 스퀘어 서울", region:"서울", area:"서울 종로구 청계천로 279", kind:"호텔",
+      review:"흥인지문 전망 객실 투어", channel:"또 떠나는 남자", id:"nA5DE3rpYL4", start:90,
+      official:"https://www.marriott.com/ko/hotels/seldp-jw-marriott-dongdaemun-square-seoul/overview/"
+    },
+    {
+      name:"아난티 앳 부산 코브", region:"부산", area:"부산 기장군 기장읍 기장해안로 268-32", kind:"호텔",
+      review:"부산 코브 호텔 객실 선택과 투숙 후기", channel:"돈캣 PL․EX", id:"cVaUPwIIO1g", start:null,
+      official:"https://ananti.kr/ko/busan/BS0112"
+    },
+    {
+      name:"롯데호텔 부산", region:"부산", area:"부산 부산진구 가야대로 772", kind:"호텔",
+      review:"서면 롯데호텔 클럽룸 투숙 후기", channel:"창창한 다솔이네", id:"3UpeG1w-Hrs", start:null,
+      official:"https://app.lottehotel.com/busan-hotel/ko"
+    },
+    {
+      name:"그랜드 머큐어 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
+      review:"용산 그랜드 머큐어 주니어 스위트 투어", channel:"위대한해리씨TheGreatHarry", id:"pFehrtdCf5I", start:133,
+      official:"https://www.ambatel.com/grandmercure/yongsan/ko/main.do"
+    },
+    {
+      name:"오크우드 프리미어 코엑스 센터", region:"서울", area:"서울 강남구 테헤란로87길 46", kind:"레지던스",
+      review:"코엑스 센터 원베드 수페리어 객실", channel:"하와이 조조", id:"CtUjyAkvRTg", start:null,
+      official:"https://www.homehmc.com/ko/oakwood-seoul-coex/"
+    },
+    {
+      name:"호텔 인터불고 대구", region:"대구", area:"대구 수성구 팔현길 212", kind:"호텔",
+      review:"수성구 만촌동 지점 호캉스 후기", channel:"돈이의 지구여행 DONI GoGo", id:"f97wMKljcyU", start:null,
+      official:"https://www.hotel-interburgo-daegu.com/"
+    },
+    {
+      name:"그랜드 워커힐 서울", region:"서울", area:"서울 광진구 워커힐로 177", kind:"호텔",
+      review:"그랜드 워커힐 객실 비교 구간", channel:"또 떠나는 남자", id:"OyJ7gQ7gEvk", start:416,
+      official:"https://app.walkerhill.com/grandwalkerhillseoul"
+    },
+    {
+      name:"노보텔 앰배서더 서울 용산", region:"서울", area:"서울 용산구 청파로20길 95", kind:"호텔",
+      review:"일반 노보텔 디럭스 객실 투숙기", channel:"Yeoniverse", id:"kq3BZtrmw-U", start:null,
+      official:"https://www.ambatel.com/novotel/yongsan/ko/main.do"
+    },
+    {
+      name:"소노캄 여수", region:"전남", area:"전남 여수시 오동도로 111", kind:"호텔",
+      review:"스탠다드 객실과 여수 바다 전망", channel:"Travel with Nanajane", id:"FVeKiuKXC6Y", start:10,
+      official:"https://www.sonohotelsresorts.com/yeosu"
+    },
+    {
+      name:"메이필드호텔 서울", region:"서울", area:"서울 강서구 방화대로 94", kind:"호텔",
+      review:"리뉴얼 객실과 가족 투숙 후기", channel:"또 떠나는 남자", id:"ISWxyypu28Y", start:250,
+      official:"https://www.mayfield.co.kr"
+    },
+    {
+      name:"노보텔 앰배서더 서울 동대문 호텔", region:"서울", area:"서울 중구 을지로 238", kind:"호텔",
+      review:"호텔동 슈페리어 트윈 객실 투숙기", channel:"눈요기하는불불이", id:"zR-FEd8cF8Y", start:90,
+      official:"https://www.ambatel.com/novotel/dongdaemun/ko/main.do"
+    },
+    {
+      name:"웨스틴 조선 부산", region:"부산", area:"부산 해운대구 동백로 67", kind:"호텔",
+      review:"리노베이션 객실과 해운대 전망", channel:"또 떠나는 남자", id:"4SH7szV2QjU", start:129,
+      official:"https://josunhotel.com/hotel/westinBusan.do"
+    },
+    {
+      name:"파크 하얏트 부산", region:"부산", area:"부산 해운대구 마린시티1로 51", kind:"호텔",
+      review:"스탠다드부터 스위트까지 객실 비교", channel:"또 떠나는 남자", id:"dw4di07KQwg", start:30,
+      official:"https://www.hyatt.com/park-hyatt/ko-KR/busph-park-hyatt-busan"
+    },
+    {
+      name:"하이원 그랜드호텔 메인타워", region:"강원", area:"강원 정선군 사북읍 하이원길 265", kind:"호텔",
+      review:"메인타워 전망 코너룸과 일반룸 비교", channel:"Travel with Nanajane", id:"96y3drnODE4", start:56,
+      official:"https://www.high1.com/"
+    },
+    {
+      name:"웨스틴 서울 파르나스", region:"서울", area:"서울 강남구 봉은사로 524", kind:"호텔",
+      review:"재개장 후 객실 및 호텔 투숙 후기", channel:"돈캣 PL․EX", id:"4kANhPjGzog", start:null,
+      official:"https://www.thewestinseoulparnas.com/kor/brand/westin-seoul-parnas"
+    },
+    {
+      name:"쏠비치 남해", region:"경남", area:"경남 남해군 미조면 쏠비치길 21", kind:"리조트",
+      review:"오션뷰 디럭스와 타입별 객실 투숙기", channel:"또 떠나는 남자", id:"4kV3u80kX3g", start:200,
+      official:"https://www.sonohotelsresorts.com/solbeach_nh"
+    },
+    {
+      name:"메리어트 이그제큐티브 아파트먼트 서울", region:"서울", area:"서울 영등포구 여의대로 8", kind:"레지던스",
+      review:"여의도 레지던스 객실 투숙기", channel:"퇴사말고강사", id:"Ybo4TSRZye0", start:null,
+      official:"https://www.marriott.com/ko/hotels/seler-yeouido-park-centre-seoul-marriott-executive-apartments/overview/"
+    },
+    {
+      name:"경원재 바이 워커힐", region:"인천", area:"인천 연수구 테크노파크로 200", kind:"한옥·고택",
+      review:"한옥 디럭스 스위트 · 촬영 당시 경원재 앰배서더", channel:"또 떠나는 남자", id:"YPOnlMZuxxg", start:168,
+      official:"https://www.gwjbywalkerhill.com/"
+    },
+    {
+      name:"하얏트 리젠시 인천 파라다이스시티", region:"인천", area:"인천 영종구 영종해안남로321번길 190", kind:"호텔",
+      review:"구 웨스트타워 재개장 후 객실과 투숙 후기", channel:"돈캣 PL․EX", id:"10eqFSmCp1Q", start:null,
+      official:"https://www.hyatt.com/hyatt-regency/ko-KR/kraaa-hyatt-regency-incheon-paradise-city"
+    },
+    {
+      name:"소노캄 고양", region:"경기", area:"경기 고양시 일산동구 태극로 20", kind:"호텔",
+      review:"이스트타워 슈페리어 객실 투숙기", channel:"돈캣 PL․EX", id:"Xu-mtzqUMl8", start:160,
+      official:"https://www.sonohotelsresorts.com/calm_gy"
+    },
+    {
+      name:"롯데호텔 울산", region:"울산", area:"울산 남구 삼산로 282", kind:"호텔",
+      review:"울산 삼산동 호텔 투숙 후기", channel:"투어클랜tv", id:"sPw40uyTQhQ", start:null,
+      official:"https://app.lottehotel.com/ulsan-hotel/ko"
+    },
+    {
+      name:"스위트호텔 제주", region:"제주", area:"제주 서귀포시 중문관광로72번길 67", kind:"호텔",
+      review:"패밀리 벙크 테라스룸 투숙기", channel:"Weekly Hotel & Travel", id:"vMYl6UTjIac", start:null,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000018142"
+    },
+    {
+      name:"제주 부영호텔", region:"제주", area:"제주 서귀포시 중문관광로 222", kind:"호텔",
+      review:"중문 부영호텔 객실 둘러보기", channel:"Rest & Tour", id:"djBCsVSf5IE", start:75,
+      official:"https://www.booyoungjejuhotel.com/"
+    },
+    {
+      name:"롯데호텔 제주", region:"제주", area:"제주 서귀포시 중문관광로72번길 35", kind:"호텔",
+      review:"중문 디럭스 마운틴뷰 객실 투숙기", channel:"또 떠나는 남자", id:"YSwdvDlYugU", start:212,
+      official:"https://app.lottehotel.com/jeju-hotel/ko"
+    },
+    {
+      name:"제주신라호텔", region:"제주", area:"제주 서귀포시 중문관광로72번길 75", kind:"호텔",
+      review:"오션뷰 디럭스와 프리미어 객실 후기", channel:"또 떠나는 남자", id:"ECXYOwaXIBg", start:114,
+      official:"https://www.shillahotels.com/ko/theshilla/jeju/index.do"
+    },
+    {
+      name:"WE호텔 제주", region:"제주", area:"제주 서귀포시 1100로 453-95", kind:"호텔",
+      review:"웰니스 호텔 객실 투숙기 · 숙박 지원", channel:"제주에디 Jeju Eddy", id:"fJZZZyX5gT4", start:null,
+      official:"https://wehotel.co.kr/"
+    },
+    {
+      name:"파르나스 호텔 제주", region:"제주", area:"제주 서귀포시 중문관광로72번길 100", kind:"호텔",
+      review:"일반 객실과 스위트 투숙 후기", channel:"또 떠나는 남자", id:"qcHAmQ4fQA4", start:251,
+      official:"https://www.parnashoteljeju.com/"
+    },
+    {
+      name:"제주썬호텔", region:"제주", area:"제주 제주시 삼무로 67", kind:"호텔",
+      review:"연동 제주썬호텔 객실 투숙기", channel:"쑈쀼 Show Couple", id:"xH_wtxK6oTA", start:100,
+      official:"https://www.visitjeju.net/kr/detail/view?contentsid=CNTS_000000000018144"
+    },
+    {
+      name:"씨에스 호텔 앤 리조트", region:"제주", area:"제주 서귀포시 중문관광로 198", kind:"한옥·고택",
+      review:"전통호텔 로맨틱 캐노피 스위트 투숙기", channel:"또 떠나는 남자", id:"TWagA84gNA4", start:180,
+      official:"https://www.seaes.co.kr/"
+    },
+    {
+      name:"더 시에나 프리모", region:"제주", area:"제주 서귀포시 용흥로66번길 158-7", kind:"호텔",
+      review:"리뉴얼한 키즈 객실과 가족 투숙기", channel:"또 떠나는 남자", id:"W2OQPkaRz8s", start:321,
+      official:"https://scm-siena.thesiena.co.kr/content/primo"
     }
   ]
 };
