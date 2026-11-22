@@ -93,15 +93,6 @@ window.hanbamCatalogue = {
   },
   stays: [
     {
-      name:'레스케이프 호텔', region:'서울', area:'서울 중구 퇴계로 67', kind:'호텔',
-      review:'🇫🇷나폴레옹 취향저격? ✨프랑스 역사 간접체험 [레스케이프 호텔] 리뷰ㅣ스위트룸, 조식 리뷰ㅣ조승연 작가', channel:'조승연의 탐구생활', id:'p8RaalqeVkE', start:null,
-      official:'https://all.accor.com/korea/index.ko.shtml',
-      reviews: [
-        {review:"프랑스 느낌 가득한 서울 호캉스 호텔! 명동 레스케이프 호텔 코너 스위트 올스티비 3분 리뷰✨명동에서 프랑스를 느낄 수 있다?! 없다?!", channel:"왓츠인마이트립", id:"K9QSIpXoAKc", start:null},
-        {review:"[⚜️ 레스케이프 호텔 스위트룸 리뷰 ⚜️] 반값으로 스위트룸 즐기기 꿀팁! ( feat. 근로자휴가지원사업 )", channel:"꼼지락다혜", id:"Fav25ZCpSQQ", start:null},
-      ]
-    },
-    {
       name:'코트야드 메리어트 서울 남대문', region:'서울', area:'서울 중구 남대문로 9', kind:'호텔',
       review:'코트야드 메리어트 서울 남대문 후기 (이그제큐티브룸, 헬스장 등)', channel:'Weekly Seoul', id:'9tN7-XuWiyg', start:null,
       official:'https://www.marriott.com/ko/',
@@ -440,6 +431,10 @@ window.hanbamCatalogue = {
       review:"레스케이프 호텔 투숙기", channel:"또 떠나는 남자", id:"-2p-7NelQFA", start:null,
       official:"https://les.josunhotel.com/about/location.do?lang=ko",
       reviews: [
+        {review:"프랑스 역사 간접체험 [레스케이프 호텔] 리뷰 · 조승연의 탐구생활", channel:"조승연의 탐구생활", id:"p8RaalqeVkE", start:null},
+        {review:"프랑스 느낌 가득한 서울 호캉스 호텔! 명동 레스케이프 호텔 코너 스위트 올스티비 3분 리뷰✨명동에서 프랑스를 느낄 수 있다?! 없다?!", channel:"왓츠인마이트립", id:"K9QSIpXoAKc", start:null},
+        {review:"[⚜️ 레스케이프 호텔 스위트룸 리뷰 ⚜️] 반값으로 스위트룸 즐기기 꿀팁! ( feat. 근로자휴가지원사업 )", channel:"꼼지락다혜", id:"Fav25ZCpSQQ", start:null},
+
         {review:"시크레 룸 투숙 후기", channel:"숙소왕", id:"46mDfh_STac", start:null}
       ]
     },
