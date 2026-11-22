@@ -948,7 +948,9 @@ const views = {
     channels:abroadCatalogue.channels, storage:'abroad-guide:saved:v1',
     regions:['일본','동남아','미주','유럽','중화권','오세아니아','중동·기타'],
     regionAll:'전체 권역', allLabel:'전체 권역', regionLabel:'해외 여행 권역 필터',
-    mapTitle:'해외 호텔 지도', mapDefault:'World', mapZoom:'2', regionZoom:'5'
+    mapTitle:'해외 호텔 지도', mapDefault:'아시아', mapZoom:'3', regionZoom:'5',
+    regionQueries:{'일본':'Japan','동남아':'Southeast Asia','미주':'United States','유럽':'Europe',
+      '중화권':'China','오세아니아':'Australia','중동·기타':'Middle East'}
   }
 };
 // Private or deleted YouTube videos are hidden from BOTH maps without deleting the source data.
@@ -1180,7 +1182,7 @@ function normalize(value) { return value.normalize('NFKC').toLowerCase().trim();
 const regionNames = {서울:'서울특별시',부산:'부산광역시',대구:'대구광역시',인천:'인천광역시',광주:'광주광역시',대전:'대전광역시',울산:'울산광역시',세종:'세종특별자치시',경기:'경기도',강원:'강원특별자치도',충북:'충청북도',충남:'충청남도',전북:'전북특별자치도',전남:'전라남도',경북:'경상북도',경남:'경상남도',제주:'제주특별자치도'};
 function setMap(place) {
   const target = place ? place.name + ' ' + place.area
-    : (regionNames[state.region] || state.region || view.mapDefault || '대한민국');
+    : ((view.regionQueries && view.regionQueries[state.region]) || regionNames[state.region] || state.region || view.mapDefault || '대한민국');
   const frame = $('google-map');
   const embed = new URL('https://maps.google.com/maps');
   embed.searchParams.set('q',target);
