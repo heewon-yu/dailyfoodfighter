@@ -1297,7 +1297,7 @@ function setView(next) {
   $('food-view').setAttribute('aria-pressed',String(next === 'food'));
   $('stay-view').setAttribute('aria-pressed',String(next === 'stay'));
   $('abroad-view').setAttribute('aria-pressed',String(next === 'abroad'));
-  document.title = view.tabTitle;
+  document.title = view.tabTitle || '한입.한밤지도';
   $('brand-name').textContent = view.name;
   $('hero-type').textContent = '유튜브 ' + view.type + ' 지도';
   $('hero-heading').textContent = view.title;
