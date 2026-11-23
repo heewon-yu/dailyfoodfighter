@@ -40,9 +40,9 @@
 
 `<head>`에 다음 메타가 들어 있습니다. **수정 시 아래 태그를 지우거나 순서를 바꾸지 마세요.**
 
-- `og:type=website`, `og:locale=ko_KR`, `og:site_name=한입.한밤지도`
+- `og:type=website`, `og:locale=ko_KR`, `og:site_name=한입지도 · 한밤지도 · 해외지도`
 - `og:url=https://dailyfoodfighter.com/map/`
-- `og:title=한입.한밤지도`, `og:description`에 국내 맛집과 숙소를 함께 안내
+- `og:title=한입지도 · 한밤지도 · 해외지도`, `og:description`에 국내 맛집·숙소와 해외 호텔을 함께 안내
 - `og:image`, `og:image:secure_url` = `https://dailyfoodfighter.com/map/og-hanip-hanbam-illustrated.jpg`
 - `og:image:type=image/jpeg`, `og:image:width=1200`, `og:image:height=630`, `og:image:alt`
 - `twitter:card=summary_large_image`, `twitter:title`, `twitter:description`, `twitter:image`
