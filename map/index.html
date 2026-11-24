@@ -34,7 +34,7 @@ dialog{max-height:90dvh}#place-dialog{overscroll-behavior:contain}.dialog-head{m
 <div class="chips" id="regions" role="group" aria-label="전국 17개 시·도 필터"></div>
 <div class="map-layout"><iframe id="google-map" class="google-map" title="대한민국 구글 지도" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 <div class="map-sidebar"><h3 id="map-region" aria-live="polite"></h3><a class="result-shortcut" id="results-jump" href="#results-title">장소 카드 보기</a><div id="map-places"></div></div></div></div></section>
-<section aria-labelledby="results-title"><div class="toolbar"><div class="chips types" id="types" role="group" aria-label="장소 유형" hidden></div><div class="selects"><select id="channel" aria-label="소개 채널"><option value="">모든 채널</option></select> <select id="kind" aria-label="음식 종류"><option value="">모든 음식</option></select></div></div><div class="section-title"><h2 id="results-title">장소 둘러보기</h2><span class="count" id="count" aria-live="polite"></span></div><div class="grid" id="grid"></div><p class="hint" id="hint">구독자 10만 명 이상 채널의 방문 영상을 수록합니다. 같은 가게는 구독자 수가 가장 많은 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.</p></section></main><footer class="foot">created by 16100901</footer>
+<section aria-labelledby="results-title"><div class="toolbar"><div class="chips types" id="types" role="group" aria-label="장소 유형" hidden></div><div class="selects"><select id="channel" aria-label="소개 채널"><option value="">모든 채널</option></select> <select id="kind" aria-label="음식 종류"><option value="">모든 음식</option></select></div></div><div class="section-title"><h2 id="results-title">장소 둘러보기</h2><span class="count" id="count" aria-live="polite"></span></div><div class="grid" id="grid"></div><p class="hint" id="hint">구독자 10만 명 이상 채널의 방문 영상을 수록합니다. 같은 가게는 구독자 수가 가장 많은 채널의 영상 하나만 표시합니다. 영업시간과 지점은 구글 지도에서 확인하세요.</p></section></main><footer class="foot"><div id="map-visitor-counts" aria-live="polite" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:6px;font-size:.86rem"><span>오늘 방문 <strong id="map-today-visits">—</strong></span><span>누적 방문 <strong id="map-total-visits">—</strong></span></div>created by 16100901</footer>
 <dialog id="place-dialog" aria-labelledby="place-title"></dialog>
 <script src="./stays.js?v=20261123a"></script>
 <script src="./abroads.js?v=20261123a"></script>
@@ -1641,4 +1641,32 @@ const viewName = value => (value === 'stay' || value === 'abroad') ? value : 'fo
 window.addEventListener('popstate',event=>setView(viewName(event.state?.mapView)));
 setView(viewName(history.state?.mapView));
 verifyVideoAvailability();
+// One public counter shared by the Hanip, Hanbam, and Abroad tabs.
+async function showMapVisitorCounts() {
+  const today = document.getElementById('map-today-visits');
+  const total = document.getElementById('map-total-visits');
+  try {
+    let visitorId = localStorage.getItem('dailyfoodfighter:map-visitor-id');
+    if (!visitorId || !/^[a-f0-9-]{36}$/.test(visitorId)) {
+      visitorId = crypto.randomUUID();
+      localStorage.setItem('dailyfoodfighter:map-visitor-id', visitorId);
+    }
+    const response = await fetch('/api/map/visitors', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({visitorId}),
+      cache:'no-store'
+    });
+    if (!response.ok) throw new Error('Visitor stats unavailable');
+    const data = await response.json();
+    today.textContent = Number(data.today).toLocaleString('ko-KR');
+    total.textContent = Number(data.total).toLocaleString('ko-KR');
+  } catch {
+    // Do not invent visitor numbers or impact the maps if D1/API is not configured.
+    today.textContent = '—';
+    total.textContent = '—';
+  }
+}
+showMapVisitorCounts();
+
 </script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5dfcc0a0a605012',t:'MTc5NTI2NTE4NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5dfcc0a0a605012',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
