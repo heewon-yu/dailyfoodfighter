@@ -60,7 +60,7 @@
 - [ ] 청경채 (Bok Choy)
 - [ ] 피망 (Pimento)
 - [ ] 양상추 (Iceberg Lettuce)
-- [ ] 콜리플라워 (Cauliflower)
+- [x] 콜리플라워 (Cauliflower) - 2026-11-25 한/영 발행완료
 - [ ] 죽순 (Bamboo Shoot)
 - [ ] 고사리 (Bracken)
 - [ ] 도라지 (Bellflower Root)
@@ -105,6 +105,6 @@
 - [ ] 바지락 (Manila Clam)
 - [x] 홍합 (Mussel) - 2026-11-17 한/영 발행완료
 - [ ] 미역 (Seaweed / Wakame)
-- [ ] 다시마 (Kelp)
+- [x] 다시마 (Kelp) - 2026-11-25 한/영 발행완료
 - [ ] 김 (Laver / Nori)
 - [x] 멸치 (Anchovy) - 2026-11-19 한/영 발행완료
