@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Egg Protein per 100 g: 12.6 g, 143 Calories, 6.3 g per Egg"
+title: "Egg Calories and Protein: 1 Egg, 2 Eggs & 100 g"
 date: 2026-11-09 08:00:00 +0900
-last_modified_at: 2026-11-23 09:10:00 +0900
+last_modified_at: 2026-11-25 09:50:00 +0900
 lang: en
 category: "Meat"
 tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
-description: "One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein, or 6.3 g each. Boiling times, digestibility and cholesterol answered."
+description: "A 50 g edible portion of raw whole egg has about 72 kcal and 6.3 g protein; two have about 143 kcal and 12.6 g. See weight-based estimates and source."
 permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 nutrition:
@@ -23,8 +23,20 @@ nutrition:
 *▲ Regarded as nature's quintessential biological nutrient capsule, the egg (Gallus gallus domesticus) represents the gold standard of protein bioavailability (BV 100), supplying concentrated neuroprotective choline, macular carotenoids, and vital fat-soluble micronutrients.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>One hundred grams of egg, about two large eggs, has 143 calories and 12.56 g protein.</strong> Hard-boiled eggs digest slightly better than soft, and one to two eggs a day does not meaningfully raise LDL in most healthy adults.
+<span class="answer-label">Quick answer</span> <strong>A large raw whole egg (50 g edible weight) has about 72 kcal and 6.3 g protein; two have about 143 kcal and 12.6 g.</strong> Egg size, cooking and added oil affect actual values.
 </div>
+
+## Calories and protein by egg size
+
+| Edible weight | Calories (approx.) | Protein |
+| --- | ---: | ---: |
+| 44 g (medium) | 63 kcal | 5.5 g |
+| 50 g (large) | 72 kcal | 6.3 g |
+| 100 g (two 50 g eggs) | 143 kcal | 12.6 g |
+| 150 g (three 50 g eggs) | 215 kcal | 18.8 g |
+
+These are calculated from raw whole egg, not a separately measured boiled or fried egg. Shell weight and added fat are excluded. [USDA FoodData Central, FDC 171287](https://fdc.nal.usda.gov/food-details/171287/nutrients).
+
 
 Within clinical dietetics and metabolic biochemistry, the **whole egg** stands as the definitive nutritional benchmark for protein quality and micronutrient density.
 

@@ -1,0 +1,34 @@
+<section class="dff-find" aria-label="{% if page.lang == 'en' %}Find a food guide{% else %}식재료 가이드 검색{% endif %}" hidden>
+  <label for="dff-query" style="display:block;font-weight:700;margin-bottom:.4rem">{% if page.lang == 'en' %}Find an ingredient or nutrition topic{% else %}식재료·영양정보 검색{% endif %}</label>
+  <input id="dff-query" type="search" autocomplete="off" placeholder="{% if page.lang == 'en' %}e.g. egg, protein, tofu{% else %}예: 계란, 두부, 단백질{% endif %}" style="box-sizing:border-box;width:100%;max-width:42rem;padding:.8rem;border:1px solid #a5b4ac;border-radius:8px;font:inherit">
+  <p id="dff-result-count" role="status" aria-live="polite"></p>
+  <p id="dff-no-results" hidden>{% if page.lang == 'en' %}No matching guides. Try another food or topic.{% else %}일치하는 글이 없습니다. 다른 식재료 이름을 입력해 보세요.{% endif %}</p>
+</section>
+<script>
+(function(){
+  function setup(){
+    var root=document.querySelector('.dff-find'), input=document.getElementById('dff-query');
+    if(!root||!input)return;
+    var cards=Array.from(document.querySelectorAll('.post-list .post-card, .pinned-grid .pinned-card'));
+    if(!cards.length)return;
+    var en=document.documentElement.lang==='en';
+    function norm(s){return s.normalize('NFKC').toLocaleLowerCase().trim();}
+    var texts=cards.map(function(c){return norm(c.textContent+' '+(c.getAttribute('data-search')||''));});
+    var aliases={'계란':'달걀','계란후라이':'달걀','무우':'무','김':'김','검은콩':'서리태','양배추':'양배추'};
+    function filter(){
+      var q=norm(input.value), terms=q.split(/\s+/).filter(Boolean);
+      var count=0;
+      cards.forEach(function(card,i){
+        var visible=terms.every(function(term){return texts[i].indexOf(term)>=0 || (aliases[term] && texts[i].indexOf(aliases[term])>=0);});
+        card.hidden=!visible;
+        card.style.display=visible?'':'none';
+        if(visible)count++;
+      });
+      document.getElementById('dff-result-count').textContent=en?count+' matching guides':count+'개 가이드';
+      document.getElementById('dff-no-results').hidden=count!==0;
+    }
+    input.addEventListener('input',filter);root.hidden=false;filter();
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',setup);else setup();
+})();
+</script>

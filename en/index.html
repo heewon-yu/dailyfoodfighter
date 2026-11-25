@@ -11,6 +11,8 @@ permalink: /en/
   <p>Comprehensive evidence-based nutritional analysis, optimal cooking methods, and clinical health insights for everyday ingredients.</p>
 </div>
 
+{% include ingredient-search.html %}
+
 {% assign pinned_posts = site.posts | where: "lang", "en" | where: "pinned", true | sort: "pin_order" %}
 {% if pinned_posts.size > 0 %}
 <section class="pinned-section">
@@ -18,7 +20,7 @@ permalink: /en/
   <p class="pinned-sub">Protein, blood sugar, weight loss, antioxidants, heart health and fatigue recovery — six TOP 10 hubs compared per 100 g.</p>
   <div class="pinned-grid">
     {% for post in pinned_posts %}
-    <a href="{{ post.url | relative_url }}" class="pinned-card">
+    <a href="{{ post.url | relative_url }}" class="pinned-card" data-search="{{ post.tags | join: ' ' | escape }}">
       <span class="pinned-thumb-wrap">
         <img class="pinned-thumb" src="{{ post.image | default: '/assets/images/dailyfoodfighter-logo.png' | relative_url }}" alt="{{ post.title }}" loading="lazy" width="72" height="72">
       </span>
@@ -36,7 +38,7 @@ permalink: /en/
 <div class="post-list">
   {% assign en_posts = site.posts | where: "lang", "en" %}
   {% for post in en_posts %}{% unless post.pinned %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
+  <a href="{{ post.url | relative_url }}" class="post-card" data-search="{{ post.tags | join: ' ' | escape }}">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
       <span>·</span>

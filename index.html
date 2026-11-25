@@ -11,6 +11,8 @@ permalink: /
   <p>매일 식탁에 오르는 친숙한 식재료들의 성분 분석, 최적의 조리법, 그리고 과학적 건강 가이드를 전해드립니다.</p>
 </div>
 
+{% include ingredient-search.html %}
+
 {% assign pinned_posts = site.posts | where: "lang", "ko" | where: "pinned", true | sort: "pin_order" %}
 {% if pinned_posts.size > 0 %}
 <section class="pinned-section">
@@ -18,7 +20,7 @@ permalink: /
   <p class="pinned-sub">단백질·혈당·다이어트·항산화·혈관·피로 회복 — 자주 궁금해하는 영양 주제를 100g 기준 수치로 비교한 TOP 10 허브입니다.</p>
   <div class="pinned-grid">
     {% for post in pinned_posts %}
-    <a href="{{ post.url | relative_url }}" class="pinned-card">
+    <a href="{{ post.url | relative_url }}" class="pinned-card" data-search="{{ post.tags | join: ' ' | escape }}">
       <span class="pinned-thumb-wrap">
         <img class="pinned-thumb" src="{{ post.image | default: '/assets/images/dailyfoodfighter-logo.png' | relative_url }}" alt="{{ post.title }}" loading="lazy" width="72" height="72">
       </span>
@@ -36,7 +38,7 @@ permalink: /
 <div class="post-list">
   {% assign ko_posts = site.posts | where: "lang", "ko" %}
   {% for post in ko_posts %}{% unless post.pinned %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
+  <a href="{{ post.url | relative_url }}" class="post-card" data-search="{{ post.tags | join: ' ' | escape }}">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category | escape }}</span>
       <span>·</span>

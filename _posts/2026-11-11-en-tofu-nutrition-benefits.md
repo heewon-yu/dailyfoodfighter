@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Tofu Protein per 100 g: 8.1 g, 76 Calories, 350 mg Calcium"
+title: "Tofu Calories and Protein: 100 g, 150 g & 300 g"
 date: 2026-11-11 08:00:00 +0900
-last_modified_at: 2026-11-23 09:10:00 +0900
+last_modified_at: 2026-11-25 09:50:00 +0900
 lang: en
 category: "Meat"
 tags: [Tofu, Plant Protein, Isoflavones, Genistein, Cholesterol]
-description: "Firm tofu has 8.08 g protein, 76 calories, 350 mg calcium and 5.4 mg iron per 100 g. How much protein tofu really gives, plus isoflavone and bone effects."
+description: "USDA regular calcium-sulfate tofu has 76 kcal and 8.08 g protein per 100 g. See 150 g and 300 g estimates; products differ in water and coagulant."
 permalink: /en/posts/tofu-nutrition-benefits/
 image: "/assets/images/tofu.jpg"
 nutrition:
-  servingSize: "100 g (raw, edible portion)"
+  servingSize: "100 g (regular tofu, raw, calcium sulfate)"
   calories: "76 kcal"
   proteinContent: "8.08 g"
   fatContent: "4.78 g"
@@ -23,8 +23,20 @@ nutrition:
 *▲ Produced by curdling fresh soymilk and pressing the curds, firm tofu serves as an ideal zero-cholesterol, complete plant protein containing all nine essential amino acids alongside dense calcium reserves.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>Firm tofu provides 76 calories, 8.08 g protein and 350 mg calcium per 100 g.</strong> That calcium is roughly three times what 100 ml of milk supplies, and soy isoflavones reduce LDL oxidation alongside bone turnover.
+<span class="answer-label">Quick answer</span> <strong>Regular calcium-sulfate tofu has 76 kcal and 8.08 g protein per 100 g; 300 g gives an estimated 228 kcal and 24.2 g protein.</strong> This is one USDA reference food, not all firm tofu or brands.
 </div>
+
+## Tofu calories and protein by portion weight
+
+| Weight | Calories (approx.) | Protein |
+| --- | ---: | ---: |
+| 100 g | 76 kcal | 8.1 g |
+| 150 g | 114 kcal | 12.1 g |
+| 200 g | 152 kcal | 16.2 g |
+| 300 g | 228 kcal | 24.2 g |
+
+Based on [USDA regular tofu prepared with calcium sulfate, FDC 172476](https://fdc.nal.usda.gov/food-details/172476/nutrients). Firm tofu, silken tofu and brands may differ; use the actual package weight and label.
+
 
 In the fields of preventive cardiology and nutritional biochemistry, **tofu (bean curd)** stands as one of the most rigorously investigated plant-derived functional foods.
 
@@ -32,13 +44,13 @@ Derived through the mineral coagulation of aqueous soybean extracts, tofu bypass
 
 Beyond delivering complete essential amino acids, tofu functions as nature’s densest nutritional vector of **soy isoflavones (genistein and daidzein)**. These diphenolic compounds display selective estrogen receptor modulator (SERM) properties, attenuating osteoclastic bone resorption in estrogen-deficient postmenopausal states while protecting arterial endothelial architecture. Furthermore, the storage globulins **glycinin and beta-conglycinin** stimulate hepatic low-density lipoprotein (LDL) clearance through transcription factor modulation.
 
-Drawing upon USDA FoodData Central reference values and contemporary randomized clinical trials, this monograph examines the quantitative molecular profile, metabolic benefits, and culinary physics of firm tofu.
+The nutrition table uses USDA's regular calcium-sulfate tofu entry; other varieties differ.
 
 ---
 
 ## 1. How Many Calories Are in Tofu? (8.08 g protein, 350 mg calcium per 100 g)
 
-Firm tofu provides balanced macronutrient partitioning with elevated bioavailable calcium and zero dietary cholesterol.
+The following table describes regular calcium-sulfate tofu, not a universal firm-tofu value.
 
 | Nutrient | Amount (per 100g) | Daily Value (% DV) |
 | :--- | :--- | :--- |
@@ -64,7 +76,7 @@ Firm tofu provides balanced macronutrient partitioning with elevated bioavailabl
 | **Total Isoflavones (Aglycone equivalents)** | 23.50 mg | Daily value not established |
 | **Soyasaponins** | ~65.00 mg | Daily value not established |
 
-*※ Source: USDA FoodData Central Standard Reference (Firm Tofu prepared with calcium sulfate).*  
+*Source: [USDA FoodData Central, regular tofu prepared with calcium sulfate, FDC 172476](https://fdc.nal.usda.gov/food-details/172476/nutrients).*
 *¹ Water constitutes the biological hydration matrix rather than a regulated dietary intake value.*  
 *※ 'Daily value not established' applies to functional bioactive lipids, amino acids, and polyphenols devoid of formal statutory DRI percentage baselines.*
 
@@ -79,7 +91,7 @@ Soy storage globulins, particularly the **7S (beta-conglycinin) and 11S (glycini
 The primary soy isoflavone **genistein** exhibits high-affinity binding to **Estrogen Receptor beta (ER-β)**. In postmenopausal physiology characterized by ovarian hypoestrogenism, genistein downregulates receptor activator of nuclear factor-kappa B ligand (**RANKL**), suppressing excessive osteoclastic bone demineralization while stimulating osteoblastic alkaline phosphatase synthesis.
 
 ### ③ Non-Dairy Calcium Bioavailability and Skeletal Mineralization
-When coagulated using food-grade calcium sulfate, 100 grams of firm tofu supplies up to **350 mg of elemental calcium**. Clinical isotopic tracer evaluations confirm that the fractional absorption rate of calcium from tofu (~31%) matches pasteurized bovine milk (~32%), providing an optimal non-dairy prophylactic intervention against osteopenia in lactose-intolerant cohorts.
+This USDA reference food contains 350 mg calcium per 100 g. Calcium content varies by coagulant and manufacturing; eating tofu does not establish prevention or treatment of bone disease.
 
 ### ④ Cytoprotective Saponins and Endothelial Nitric Oxide Synthesis
 Tofu retains bioactive **soyasaponins**, amphiphilic triterpenoid glycosides that scavenge lipoperoxyl radicals within cellular membranes. Simultaneously, tofu’s high arginine-to-lysine ratio fuels the endothelial nitric oxide synthase (**eNOS**) enzymatic pathway, elevating vascular nitric oxide (NO) generation and reducing peripheral arterial resistance.
