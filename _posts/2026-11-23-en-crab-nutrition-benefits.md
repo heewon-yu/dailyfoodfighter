@@ -71,6 +71,8 @@ The values below describe **blue crab, cooked by moist heat, edible portion only
 
 ² Total sugars have no Daily Value. The FDA reference is 50 g of added sugars per day, and crab contains none.
 
+*※ Source: [USDA FoodData Central FDC 171966](https://fdc.nal.usda.gov/food-details/171966/nutrients) — Crustaceans, crab, blue, canned (SR Legacy). The 83 kcal and 17.88 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ### How to read the table: 100 g is meat, not crab
 
 This is the point most crab nutrition pages get wrong. A whole medium blue crab weighs 150–250 g, but **only 60–100 g of that is edible meat**. So the 100 g column above represents roughly **one whole medium crab, picked clean** — not one crab split with someone else.

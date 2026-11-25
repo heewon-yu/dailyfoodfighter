@@ -54,6 +54,20 @@ Synthesized from empirical spectroscopic data published in the United States Dep
 
 *Data Source: USDA FoodData Central & Journal of Agricultural and Food Chemistry.*
 
+*※ Source: [USDA FoodData Central FDC 171711](https://fdc.nal.usda.gov/food-details/171711/nutrients) — Blueberries, raw (SR Legacy). The 57 kcal and 0.74 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What a handful or a cup of blueberries delivers
+
+USDA portion weights (50 berries = 68 g, 1 cup = 148 g) plus a typical handful, scaled to the 57 kcal per 100 g above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 50 berries | 68 g | 39 kcal | 0.50 g |
+| 1 handful (about 40 berries) | 55 g | 31 kcal | 0.41 g |
+| 1 cup | 148 g | 84 kcal | 1.10 g |
+
+*Note: a cup of blueberries is 84 kcal — a genuine low-calorie snack, but the polyphenol trials used concentrated extracts, not a cup of fruit.*
+
 ---
 
 ## 2. What Are the Benefits of Blueberries? Four Evidence-Backed Effects

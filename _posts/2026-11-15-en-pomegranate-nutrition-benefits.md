@@ -68,6 +68,8 @@ Edible arils are roughly 78% water, essentially free of cholesterol and saturate
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Water and total sugars, which have no absolute daily requirement, are marked 'See note¹', while non-essential bioactive polyphenols carry 'No DV' (Daily Value not established).*
 
+*※ Source: [USDA FoodData Central FDC 169134](https://fdc.nal.usda.gov/food-details/169134/nutrients) — Pomegranates, raw (SR Legacy). The 83 kcal and 1.67 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 By comparison, **100% pressed pomegranate juice** provides about 54 kcal, 12.7 g of sugars, and only 0.1 g of fiber per 100 ml. Pressing strips away the fiber that moderates glycemic response while concentrating sugar—a critical distinction for anyone monitoring glucose.
 
 ---

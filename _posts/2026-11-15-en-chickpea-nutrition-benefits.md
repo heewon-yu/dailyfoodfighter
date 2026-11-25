@@ -64,6 +64,8 @@ Cooked chickpeas contain roughly 60% water, zero cholesterol, and minimal satura
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Hydration and total sugars without an absolute daily requirement are marked 'See note¹', while non-essential bioactive compounds carry 'No DV' (Daily Value not established).*
 
+*※ Source: [USDA FoodData Central FDC 173757](https://fdc.nal.usda.gov/food-details/173757/nutrients) — Chickpeas, mature seeds, cooked, boiled, without salt (SR Legacy). The 164 kcal and 8.86 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Chickpeas? Four Evidence-Backed Effects

@@ -65,6 +65,18 @@ Oysters display a distinctive marine macronutrient profile characterized by low 
 *¹ Water constitutes the biological fluid matrix rather than a regulated dietary reference value.*  
 *※ 'Daily value not established' applies to functional bioactive fatty acids, glycogen, and sulfonic amino acids lacking formal statutory DRI percentages.*
 
+### What six oysters or one plate actually delivers
+
+Oysters are counted, not weighed. The weights come from USDA portion data (six medium oysters = 84 g, one cup = 248 g); energy and protein are this article's per-100 g values scaled to those weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 6 medium | 84 g | 57.1 kcal | 5.99 g |
+| 1 plate (100 g) | 100 g | 68 kcal | 7.13 g |
+| 1 cup (248 g) | 248 g | 168.6 kcal | 17.68 g |
+
+*Note: six oysters (84 g) are 57 kcal and 6.0 g of protein — less protein than the same weight of chicken, but far more iron, zinc and vitamin B12. If you eat them raw, check freshness and cold-chain handling first.*
+
 ---
 
 ## 2. What Are the Benefits of Oysters? Four Evidence-Backed Effects

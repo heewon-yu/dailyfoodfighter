@@ -68,6 +68,8 @@ The table below describes **raw figs, edible portion**, from USDA FoodData Centr
 
 ¹ Total sugars and water have no Daily Value. The FDA reference for added sugars is 50 g a day, and a fig contains none added — its sugar is intrinsic.
 
+*※ Source: [USDA FoodData Central FDC 173021](https://fdc.nal.usda.gov/food-details/173021/nutrients) — Figs, raw (SR Legacy). The 74 kcal and 0.75 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ### How to read the table: 100 g is two medium figs
 
 A fresh fig weighs 40–80 g, so **100 g is roughly two medium figs**. A single fig on a cheese board is therefore about half the column: 37 kcal, 8 g of sugar, 1.5 g of fiber.

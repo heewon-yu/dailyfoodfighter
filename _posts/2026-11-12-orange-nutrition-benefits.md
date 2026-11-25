@@ -67,6 +67,8 @@ nutrition:
 *¹ 수분은 인체 세포 항상성 유지와 수용성 비타민 전달을 위한 천연 매개 용매입니다.*  
 *※ '기준치 없음' 표기는 기능성 플라보노이드 및 카로티노이드 성분으로 DRI상 일일 권장 백분율(%DV)이 법적으로 규정되지 않은 항목입니다.*
 
+*※ 출처: [USDA FoodData Central FDC 169097](https://fdc.nal.usda.gov/food-details/169097/nutrients) — Oranges, raw, all commercial varieties (SR Legacy). 표의 100g당 열량 47 kcal과 단백질 0.94 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ---
 
 ## 2. 오렌지의 영양학적 포인트 4가지

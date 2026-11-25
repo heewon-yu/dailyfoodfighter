@@ -4,27 +4,432 @@
 <p>{% if is_en %}Choose up to two foods and enter their edible weights. Results use the reference data below, without added oil or other ingredients.{% else %}식재료 2개를 선택하고 껍질·뼈 등을 제외한 가식부 무게를 입력하세요. 아래 기준값에 따른 환산이며 추가 기름이나 양념은 포함하지 않습니다.{% endif %}</p>
 <div id="calc-controls" hidden>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
-<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 1{% else %}식재료 1{% endif %}</legend><label for="food-0">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-0" style="display:block;width:100%;padding:.5rem;font:inherit"><option value="0" selected>{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</option><option value="1">{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</option><option value="2">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</option><option value="3">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</option><option value="4">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</option></select><label for="grams-0">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-0" type="number" min="0" max="5000" step="0.1" value="50" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-0" aria-live="polite"></p></fieldset>
-<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 2{% else %}식재료 2{% endif %}</legend><label for="food-1">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-1" style="display:block;width:100%;padding:.5rem;font:inherit"><option value="0">{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</option><option value="1" selected>{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</option><option value="2">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</option><option value="3">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</option><option value="4">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</option></select><label for="grams-1">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-1" type="number" min="0" max="5000" step="0.1" value="100" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-1" aria-live="polite"></p></fieldset>
+
+<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 1{% else %}식재료 1{% endif %}</legend><label for="food-0">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-0" style="display:block;width:100%;padding:.5rem;font:inherit">{% if is_en %}<optgroup label="Vegetables & roots">
+<option value="0">Onion — raw</option>
+<option value="1">Garlic — raw</option>
+<option value="2">Broccoli — raw</option>
+<option value="3">Carrot — raw</option>
+<option value="4">Spinach — raw</option>
+<option value="5">Cabbage — raw</option>
+<option value="6">Napa cabbage — raw</option>
+<option value="7">Daikon radish — raw</option>
+<option value="8">Red bell pepper — raw</option>
+<option value="9">Tomato — raw</option>
+<option value="10">Cauliflower — raw</option>
+<option value="11">Asparagus — raw</option>
+<option value="12">Kale — raw</option>
+<option value="13">Beetroot — raw</option>
+<option value="14">Lotus root — raw</option>
+<option value="15">Sweet potato (USDA) — raw</option>
+<option value="16">Sweet potato (Korean table) — raw</option>
+</optgroup>
+<optgroup label="Fruits">
+<option value="17">Apple — raw, with skin</option>
+<option value="18">Asian pear — raw</option>
+<option value="19">Banana (USDA) — raw</option>
+<option value="20">Banana (Korean table) — raw</option>
+<option value="21">Orange — raw</option>
+<option value="22">Tangerine — raw</option>
+<option value="23">Grape — raw</option>
+<option value="24">Blueberry — raw</option>
+<option value="25">Strawberry — raw</option>
+<option value="26">Kiwi — raw</option>
+<option value="27">Avocado — raw</option>
+<option value="28">Fig — raw</option>
+<option value="29">Cherry — raw</option>
+<option value="30">Persimmon — raw</option>
+<option value="31">Pomegranate — raw</option>
+<option value="32">Quince — raw</option>
+</optgroup>
+<optgroup label="Meat, eggs & legumes">
+<option value="33">Beef top sirloin — raw</option>
+<option value="34">Beef liver — raw</option>
+<option value="35">Pork belly — raw</option>
+<option value="36">Pork tenderloin — raw, lean and fat</option>
+<option value="37">Chicken breast (USDA) — raw, skinless</option>
+<option value="38">Chicken breast (Korean table) — raw</option>
+<option value="39">Chicken thigh — raw, meat only</option>
+<option value="40">Duck, meat only — raw</option>
+<option value="41" selected>Whole egg — raw</option>
+<option value="42">Tofu — raw, calcium sulfate</option>
+<option value="43">Chickpea — boiled</option>
+<option value="44">Lentil — dry</option>
+<option value="45">Black beans — dry</option>
+<option value="46">Natto — as sold</option>
+</optgroup>
+<optgroup label="Seafood & seaweed">
+<option value="47">Atlantic salmon, farmed — raw</option>
+<option value="48">Atlantic mackerel — raw</option>
+<option value="49">Spanish mackerel — raw</option>
+<option value="50">Anchovy — raw</option>
+<option value="51">Squid — raw</option>
+<option value="52">Shrimp — raw</option>
+<option value="53">Blue crab — canned</option>
+<option value="54">Eastern oyster — raw, wild</option>
+<option value="55">Blue mussel — raw</option>
+<option value="56">Abalone — raw</option>
+<option value="57">Kelp — raw</option>
+</optgroup>{% else %}<optgroup label="채소·뿌리">
+<option value="0">양파 — 생것</option>
+<option value="1">마늘 — 생것</option>
+<option value="2">브로콜리 — 생것</option>
+<option value="3">당근 — 생것</option>
+<option value="4">시금치 — 생것</option>
+<option value="5">양배추 — 생것</option>
+<option value="6">배추 — 생것</option>
+<option value="7">무(조선무) — 생것</option>
+<option value="8">파프리카(붉은 것) — 생것</option>
+<option value="9">토마토 — 생것</option>
+<option value="10">콜리플라워 — 생것</option>
+<option value="11">아스파라거스 — 생것</option>
+<option value="12">케일 — 생것</option>
+<option value="13">비트 — 생것</option>
+<option value="14">연근 — 생것</option>
+<option value="15">고구마 (미국 USDA) — 생것</option>
+<option value="16">고구마 (국내 국가표준) — 생것</option>
+</optgroup>
+<optgroup label="과일">
+<option value="17">사과 — 생것(껍질 포함)</option>
+<option value="18">배 — 생것</option>
+<option value="19">바나나 (미국 USDA) — 생것(가식부)</option>
+<option value="20">바나나 (국내 국가표준) — 생것(가식부)</option>
+<option value="21">오렌지 — 생것</option>
+<option value="22">귤 — 생것</option>
+<option value="23">포도 — 생것</option>
+<option value="24">블루베리 — 생것</option>
+<option value="25">딸기 — 생것</option>
+<option value="26">키위 — 생것</option>
+<option value="27">아보카도 — 생것</option>
+<option value="28">무화과 — 생것</option>
+<option value="29">체리 — 생것</option>
+<option value="30">감 — 생것</option>
+<option value="31">석류 — 생것</option>
+<option value="32">모과 — 생것</option>
+</optgroup>
+<optgroup label="육류·달걀·콩">
+<option value="33">소고기 등심 — 생것</option>
+<option value="34">소간 — 생것</option>
+<option value="35">삼겹살 — 생것</option>
+<option value="36">돼지 안심 — 생것(지방 포함)</option>
+<option value="37">닭가슴살 (미국 USDA) — 생것(껍질·뼈 제거)</option>
+<option value="38">닭가슴살 (국내 국가표준) — 생것</option>
+<option value="39">닭다리살 — 생것(껍질 제거)</option>
+<option value="40">오리 살코기 — 생것</option>
+<option value="41" selected>달걀 — 생것(가식부)</option>
+<option value="42">두부 — 생것(황산칼슘 응고)</option>
+<option value="43">병아리콩 — 삶은 것</option>
+<option value="44">렌틸콩 — 마른 것(조리 전)</option>
+<option value="45">검은콩 — 마른 것(조리 전)</option>
+<option value="46">낫토 — 생것(시판)</option>
+</optgroup>
+<optgroup label="수산물·해조류">
+<option value="47">연어(대서양 양식) — 생것</option>
+<option value="48">고등어(대서양) — 생것</option>
+<option value="49">삼치 — 생것</option>
+<option value="50">멸치 — 생것</option>
+<option value="51">오징어 — 생것</option>
+<option value="52">새우 — 생것</option>
+<option value="53">꽃게류(블루크랩) — 캔(조리 전)</option>
+<option value="54">굴(참굴) — 생것</option>
+<option value="55">홍합 — 생것</option>
+<option value="56">전복 — 생것</option>
+<option value="57">다시마 — 생것</option>
+</optgroup>{% endif %}</select><label for="grams-0">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-0" type="number" min="0" max="5000" step="0.1" value="50" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-0" aria-live="polite"></p></fieldset>
+<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 2{% else %}식재료 2{% endif %}</legend><label for="food-1">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-1" style="display:block;width:100%;padding:.5rem;font:inherit">{% if is_en %}<optgroup label="Vegetables & roots">
+<option value="0">Onion — raw</option>
+<option value="1">Garlic — raw</option>
+<option value="2">Broccoli — raw</option>
+<option value="3">Carrot — raw</option>
+<option value="4">Spinach — raw</option>
+<option value="5">Cabbage — raw</option>
+<option value="6">Napa cabbage — raw</option>
+<option value="7">Daikon radish — raw</option>
+<option value="8">Red bell pepper — raw</option>
+<option value="9">Tomato — raw</option>
+<option value="10">Cauliflower — raw</option>
+<option value="11">Asparagus — raw</option>
+<option value="12">Kale — raw</option>
+<option value="13">Beetroot — raw</option>
+<option value="14">Lotus root — raw</option>
+<option value="15">Sweet potato (USDA) — raw</option>
+<option value="16">Sweet potato (Korean table) — raw</option>
+</optgroup>
+<optgroup label="Fruits">
+<option value="17">Apple — raw, with skin</option>
+<option value="18">Asian pear — raw</option>
+<option value="19">Banana (USDA) — raw</option>
+<option value="20">Banana (Korean table) — raw</option>
+<option value="21">Orange — raw</option>
+<option value="22">Tangerine — raw</option>
+<option value="23">Grape — raw</option>
+<option value="24">Blueberry — raw</option>
+<option value="25">Strawberry — raw</option>
+<option value="26">Kiwi — raw</option>
+<option value="27">Avocado — raw</option>
+<option value="28">Fig — raw</option>
+<option value="29">Cherry — raw</option>
+<option value="30">Persimmon — raw</option>
+<option value="31">Pomegranate — raw</option>
+<option value="32">Quince — raw</option>
+</optgroup>
+<optgroup label="Meat, eggs & legumes">
+<option value="33">Beef top sirloin — raw</option>
+<option value="34">Beef liver — raw</option>
+<option value="35">Pork belly — raw</option>
+<option value="36">Pork tenderloin — raw, lean and fat</option>
+<option value="37">Chicken breast (USDA) — raw, skinless</option>
+<option value="38">Chicken breast (Korean table) — raw</option>
+<option value="39">Chicken thigh — raw, meat only</option>
+<option value="40">Duck, meat only — raw</option>
+<option value="41">Whole egg — raw</option>
+<option value="42" selected>Tofu — raw, calcium sulfate</option>
+<option value="43">Chickpea — boiled</option>
+<option value="44">Lentil — dry</option>
+<option value="45">Black beans — dry</option>
+<option value="46">Natto — as sold</option>
+</optgroup>
+<optgroup label="Seafood & seaweed">
+<option value="47">Atlantic salmon, farmed — raw</option>
+<option value="48">Atlantic mackerel — raw</option>
+<option value="49">Spanish mackerel — raw</option>
+<option value="50">Anchovy — raw</option>
+<option value="51">Squid — raw</option>
+<option value="52">Shrimp — raw</option>
+<option value="53">Blue crab — canned</option>
+<option value="54">Eastern oyster — raw, wild</option>
+<option value="55">Blue mussel — raw</option>
+<option value="56">Abalone — raw</option>
+<option value="57">Kelp — raw</option>
+</optgroup>{% else %}<optgroup label="채소·뿌리">
+<option value="0">양파 — 생것</option>
+<option value="1">마늘 — 생것</option>
+<option value="2">브로콜리 — 생것</option>
+<option value="3">당근 — 생것</option>
+<option value="4">시금치 — 생것</option>
+<option value="5">양배추 — 생것</option>
+<option value="6">배추 — 생것</option>
+<option value="7">무(조선무) — 생것</option>
+<option value="8">파프리카(붉은 것) — 생것</option>
+<option value="9">토마토 — 생것</option>
+<option value="10">콜리플라워 — 생것</option>
+<option value="11">아스파라거스 — 생것</option>
+<option value="12">케일 — 생것</option>
+<option value="13">비트 — 생것</option>
+<option value="14">연근 — 생것</option>
+<option value="15">고구마 (미국 USDA) — 생것</option>
+<option value="16">고구마 (국내 국가표준) — 생것</option>
+</optgroup>
+<optgroup label="과일">
+<option value="17">사과 — 생것(껍질 포함)</option>
+<option value="18">배 — 생것</option>
+<option value="19">바나나 (미국 USDA) — 생것(가식부)</option>
+<option value="20">바나나 (국내 국가표준) — 생것(가식부)</option>
+<option value="21">오렌지 — 생것</option>
+<option value="22">귤 — 생것</option>
+<option value="23">포도 — 생것</option>
+<option value="24">블루베리 — 생것</option>
+<option value="25">딸기 — 생것</option>
+<option value="26">키위 — 생것</option>
+<option value="27">아보카도 — 생것</option>
+<option value="28">무화과 — 생것</option>
+<option value="29">체리 — 생것</option>
+<option value="30">감 — 생것</option>
+<option value="31">석류 — 생것</option>
+<option value="32">모과 — 생것</option>
+</optgroup>
+<optgroup label="육류·달걀·콩">
+<option value="33">소고기 등심 — 생것</option>
+<option value="34">소간 — 생것</option>
+<option value="35">삼겹살 — 생것</option>
+<option value="36">돼지 안심 — 생것(지방 포함)</option>
+<option value="37">닭가슴살 (미국 USDA) — 생것(껍질·뼈 제거)</option>
+<option value="38">닭가슴살 (국내 국가표준) — 생것</option>
+<option value="39">닭다리살 — 생것(껍질 제거)</option>
+<option value="40">오리 살코기 — 생것</option>
+<option value="41">달걀 — 생것(가식부)</option>
+<option value="42" selected>두부 — 생것(황산칼슘 응고)</option>
+<option value="43">병아리콩 — 삶은 것</option>
+<option value="44">렌틸콩 — 마른 것(조리 전)</option>
+<option value="45">검은콩 — 마른 것(조리 전)</option>
+<option value="46">낫토 — 생것(시판)</option>
+</optgroup>
+<optgroup label="수산물·해조류">
+<option value="47">연어(대서양 양식) — 생것</option>
+<option value="48">고등어(대서양) — 생것</option>
+<option value="49">삼치 — 생것</option>
+<option value="50">멸치 — 생것</option>
+<option value="51">오징어 — 생것</option>
+<option value="52">새우 — 생것</option>
+<option value="53">꽃게류(블루크랩) — 캔(조리 전)</option>
+<option value="54">굴(참굴) — 생것</option>
+<option value="55">홍합 — 생것</option>
+<option value="56">전복 — 생것</option>
+<option value="57">다시마 — 생것</option>
+</optgroup>{% endif %}</select><label for="grams-1">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-1" type="number" min="0" max="5000" step="0.1" value="100" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-1" aria-live="polite"></p></fieldset>
+
 </div>
 <p id="calc-total" aria-live="polite" style="font-weight:700;padding:1rem;background:#eef5f0;border-radius:8px;color:#172b20"></p>
 <p id="calc-error" role="alert"></p>
 </div>
 <noscript><p>{% if is_en %}Enable JavaScript for interactive calculation; the reference table remains available.{% else %}계산 기능을 사용하려면 자바스크립트를 활성화하세요. 아래 기준표는 그대로 이용할 수 있습니다.{% endif %}</p></noscript>
-<h2>{% if is_en %}Reference nutrition per 100 g{% else %}식재료별 100g 영양성분 기준표{% endif %}</h2>
-<div style="overflow-x:auto"><table><thead><tr><th scope="col">{% if is_en %}Food{% else %}식재료{% endif %}</th><th scope="col">kcal</th><th scope="col">{% if is_en %}Protein (g){% else %}단백질(g){% endif %}</th><th scope="col">{% if is_en %}Source{% else %}출처{% endif %}</th></tr></thead><tbody>
-<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/egg-nutrition-benefits/">{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</a></th><td>143</td><td>12.56</td><td><a href="https://fdc.nal.usda.gov/food-details/171287/nutrients">FDC 171287</a></td></tr>
-<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/tofu-nutrition-benefits/">{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</a></th><td>76</td><td>8.08</td><td><a href="https://fdc.nal.usda.gov/food-details/172476/nutrients">FDC 172476</a></td></tr>
-<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/chicken-breast-nutrition-benefits/">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</a></th><td>120</td><td>22.5</td><td><a href="https://fdc.nal.usda.gov/food-details/171077/nutrients">FDC 171077</a></td></tr>
-<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/apple-nutrition-benefits/">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</a></th><td>52</td><td>0.26</td><td><a href="https://fdc.nal.usda.gov/food-details/171688/nutrients">FDC 171688</a></td></tr>
-<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/banana-nutrition-benefits/">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</a></th><td>89</td><td>1.09</td><td><a href="https://fdc.nal.usda.gov/food-details/173944/nutrients">FDC 173944</a></td></tr>
+<h2>{% if is_en %}Reference nutrition per 100 g: 55 foods, 58 rows{% else %}식재료별 100g 영양성분 기준표 (55종·58행){% endif %}</h2>
+<p>{% if is_en %}Every row is USDA FoodData Central SR Legacy except the three Korean national-table rows, which are marked <strong>K-FIND</strong>. The <strong>Basis</strong> column states whether the values describe the food raw, cooked, dried or canned — the states are not interchangeable.{% else %}아래 값은 원칙적으로 USDA FoodData Central(SR Legacy) 항목이고, 국내 국가표준식품성분표 값 3행만 <strong>K-FIND</strong>로 표시했습니다. <strong>기준</strong> 열의 생것·익힌 것·마른 것·캔은 서로 바꾸어 쓸 수 없습니다.{% endif %}</p>
+<p style="font-size:.95rem;color:#475569">{% if is_en %}<strong>※</strong> These foods' guides present a Korean national-table value or a different form (dried, canned, a different variety): red bell pepper, tangerine, grape, persimmon, quince, pork belly, black bean, anchovy, blue crab, oyster. Check the linked article before using the row here. Foods without a checked source ID — dried laver, yuzu, bone broth — are not included.{% else %}<strong>※</strong> 해당 가이드가 국내 성분표 값이나 다른 상태(마른 것·캔·다른 품종)로 값을 제시한 식재료입니다: 파프리카, 귤, 포도, 감, 모과, 삼겹살, 검은콩, 멸치, 꽃게, 굴. 이 표의 값을 쓰기 전에 링크한 글의 기준을 확인하십시오. 출처 ID를 확인하지 못한 마른김·유자·사골육수는 표에 넣지 않았습니다.{% endif %}</p>
+
+<div style="border-left:4px solid #4b7f5e;background:#f3f8f5;padding:.8rem 1rem;margin:1rem 0;font-size:.95rem">
+<p style="margin:.2rem 0"><strong>{% if is_en %}Same food, two tables: why banana, sweet potato and chicken breast appear twice{% else %}같은 식재료인데 값이 두 개인 이유{% endif %}</strong></p>
+<p style="margin:.4rem 0">{% if is_en %}USDA and the Korean national table analyse different samples, so the figures differ for some foods. Banana is 89 kcal (USDA) versus 77 kcal (K-FIND); sweet potato 86 versus 147, because the Korean sample holds almost twice the dry matter; chicken breast 120 versus 106, almost entirely a difference in attached fat. The three guides below show both rows side by side. For other foods, the Korean table can also differ from USDA — for example dried laver, dried anchovy and Korean pork belly are higher than the USDA entries, so use each guide's own table when you cook from Korean products.{% else %}USDA와 국내 국가표준식품성분표는 분석 시료가 달라 일부 식재료에서 값이 갈립니다. 바나나는 89kcal(USDA)와 77kcal(K-FIND), 고구마는 86kcal와 147kcal(국내 시료의 고형분이 거의 두 배), 닭가슴살은 120kcal와 106kcal(붙은 지방의 차이)입니다. 이 3종은 아래 글에서 두 값을 나란히 볼 수 있습니다. 그 밖에도 마른김·마른멸치·국산 삼겹살처럼 국내 성분표가 USDA보다 높은 식재료가 있으므로, 국내 제품으로 조리할 때는 각 글의 표를 우선하십시오.{% endif %}</p>
+</div>
+
+{% if is_en %}
+<h3>Vegetables & roots</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">Food</th><th scope="col">Basis</th><th scope="col">kcal</th><th scope="col">Protein (g)</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/en/posts/onion-nutrition-benefits/">Onion</a></th><td>raw</td><td>40</td><td>1.10</td><td><a href="https://fdc.nal.usda.gov/food-details/170000/nutrients">FDC 170000</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/garlic-nutrition-benefits/">Garlic</a></th><td>raw</td><td>149</td><td>6.36</td><td><a href="https://fdc.nal.usda.gov/food-details/169230/nutrients">FDC 169230</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/broccoli-nutrition-benefits/">Broccoli</a></th><td>raw</td><td>34</td><td>2.82</td><td><a href="https://fdc.nal.usda.gov/food-details/170379/nutrients">FDC 170379</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/carrot-nutrition-benefits/">Carrot</a></th><td>raw</td><td>41</td><td>0.93</td><td><a href="https://fdc.nal.usda.gov/food-details/170393/nutrients">FDC 170393</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/spinach-nutrition-benefits/">Spinach</a></th><td>raw</td><td>23</td><td>2.86</td><td><a href="https://fdc.nal.usda.gov/food-details/168462/nutrients">FDC 168462</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/cabbage-nutrition-benefits/">Cabbage</a></th><td>raw</td><td>25</td><td>1.28</td><td><a href="https://fdc.nal.usda.gov/food-details/169975/nutrients">FDC 169975</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/napa-cabbage-nutrition-benefits/">Napa cabbage</a></th><td>raw</td><td>16</td><td>1.20</td><td><a href="https://fdc.nal.usda.gov/food-details/169979/nutrients">FDC 169979</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/radish-nutrition-benefits/">Daikon radish</a></th><td>raw</td><td>18</td><td>0.60</td><td><a href="https://fdc.nal.usda.gov/food-details/168451/nutrients">FDC 168451</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/bell-pepper-nutrition-benefits/">Red bell pepper</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>26</td><td>0.99</td><td><a href="https://fdc.nal.usda.gov/food-details/170108/nutrients">FDC 170108</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/tomato-nutrition-benefits/">Tomato</a></th><td>raw</td><td>18</td><td>0.88</td><td><a href="https://fdc.nal.usda.gov/food-details/170457/nutrients">FDC 170457</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/cauliflower-nutrition-benefits/">Cauliflower</a></th><td>raw</td><td>25</td><td>1.92</td><td><a href="https://fdc.nal.usda.gov/food-details/169986/nutrients">FDC 169986</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/asparagus-nutrition-benefits/">Asparagus</a></th><td>raw</td><td>20</td><td>2.20</td><td><a href="https://fdc.nal.usda.gov/food-details/168389/nutrients">FDC 168389</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/kale-nutrition-benefits/">Kale</a></th><td>raw</td><td>35</td><td>2.92</td><td><a href="https://fdc.nal.usda.gov/food-details/168421/nutrients">FDC 168421</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/beetroot-nutrition-benefits/">Beetroot</a></th><td>raw</td><td>43</td><td>1.61</td><td><a href="https://fdc.nal.usda.gov/food-details/169145/nutrients">FDC 169145</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/lotus-root-nutrition-benefits/">Lotus root</a></th><td>raw</td><td>74</td><td>2.60</td><td><a href="https://fdc.nal.usda.gov/food-details/169250/nutrients">FDC 169250</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/sweet-potato-nutrition-benefits/">Sweet potato (USDA)</a></th><td>raw</td><td>86</td><td>1.57</td><td><a href="https://fdc.nal.usda.gov/food-details/168482/nutrients">FDC 168482</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/sweet-potato-nutrition-benefits/">Sweet potato (Korean table)</a></th><td>raw</td><td>147</td><td>1.09</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=B0060000000a&amp;reformNo=-1">K-FIND B0060000000a</a></td></tr>
 </tbody></table></div>
-<p style="font-size:.95rem;color:#475569">{% if is_en %}Note on chicken breast: this table uses USDA FoodData Central 171077 (raw, skinless, boneless) at 120 kcal, 22.5 g protein and 2.62 g fat per 100 g. The <a href="/en/posts/chicken-breast-nutrition-benefits/">chicken breast guide</a> now uses the same entry, so the two pages agree. The Korean national table entry (106 kcal, 22.97 g protein) comes from a differently trimmed sample; check the source before comparing figures.{% else %}닭가슴살 기준 안내: 이 표는 USDA FoodData Central 171077(생것·피부·뼈 제거) 기준으로 100g당 120kcal·단백질 22.5g·지방 2.62g입니다. <a href="/posts/chicken-breast-nutrition-benefits/">닭가슴살 가이드</a> 본문도 같은 항목(FDC 171077)을 쓰므로 두 문서의 수치가 일치합니다. 국내 국가표준식품성분표의 '닭고기, 가슴, 생것'은 106kcal·단백질 22.97g으로 시료가 달라, 출처가 다른 값과 비교할 때는 기준을 먼저 확인하십시오.{% endif %}</p>
-<p>{% if is_en %}Calculation: reference amount × edible grams ÷ 100. Data: USDA FoodData Central SR Legacy reference foods. Actual products, cultivars and cooking methods differ. Raw and cooked weights are not interchangeable. This is not a personalized dietary recommendation.{% else %}계산식: 100g 기준 영양성분 × 가식부 중량 ÷ 100. 자료: USDA FoodData Central SR Legacy 식품 데이터. 제품·품종·조리 상태에 따라 실제 수치가 달라질 수 있으며 생것과 익힌 무게를 동일하게 환산할 수 없습니다. 개인별 섭취 권고량이 아닙니다.{% endif %}</p>
+<h3>Fruits</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">Food</th><th scope="col">Basis</th><th scope="col">kcal</th><th scope="col">Protein (g)</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/en/posts/apple-nutrition-benefits/">Apple</a></th><td>raw, with skin</td><td>52</td><td>0.26</td><td><a href="https://fdc.nal.usda.gov/food-details/171688/nutrients">FDC 171688</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/asian-pear-nutrition-benefits/">Asian pear</a></th><td>raw</td><td>42</td><td>0.50</td><td><a href="https://fdc.nal.usda.gov/food-details/168177/nutrients">FDC 168177</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/banana-nutrition-benefits/">Banana (USDA)</a></th><td>raw</td><td>89</td><td>1.09</td><td><a href="https://fdc.nal.usda.gov/food-details/173944/nutrients">FDC 173944</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/banana-nutrition-benefits/">Banana (Korean table)</a></th><td>raw</td><td>77</td><td>1.11</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=H0370000000a&amp;reformNo=-1">K-FIND H0370000000a</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/orange-nutrition-benefits/">Orange</a></th><td>raw</td><td>47</td><td>0.94</td><td><a href="https://fdc.nal.usda.gov/food-details/169097/nutrients">FDC 169097</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/tangerine-nutrition-benefits/">Tangerine</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>53</td><td>0.81</td><td><a href="https://fdc.nal.usda.gov/food-details/169105/nutrients">FDC 169105</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/grape-nutrition-benefits/">Grape</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>69</td><td>0.72</td><td><a href="https://fdc.nal.usda.gov/food-details/174683/nutrients">FDC 174683</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/blueberry-nutrition-benefits/">Blueberry</a></th><td>raw</td><td>57</td><td>0.74</td><td><a href="https://fdc.nal.usda.gov/food-details/171711/nutrients">FDC 171711</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/strawberry-nutrition-benefits/">Strawberry</a></th><td>raw</td><td>32</td><td>0.67</td><td><a href="https://fdc.nal.usda.gov/food-details/167762/nutrients">FDC 167762</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/kiwi-nutrition-benefits/">Kiwi</a></th><td>raw</td><td>61</td><td>1.14</td><td><a href="https://fdc.nal.usda.gov/food-details/168153/nutrients">FDC 168153</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/avocado-nutrition-benefits/">Avocado</a></th><td>raw</td><td>160</td><td>2.00</td><td><a href="https://fdc.nal.usda.gov/food-details/171705/nutrients">FDC 171705</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/fig-nutrition-benefits/">Fig</a></th><td>raw</td><td>74</td><td>0.75</td><td><a href="https://fdc.nal.usda.gov/food-details/173021/nutrients">FDC 173021</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/cherry-nutrition-benefits/">Cherry</a></th><td>raw</td><td>63</td><td>1.06</td><td><a href="https://fdc.nal.usda.gov/food-details/171719/nutrients">FDC 171719</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/persimmon-nutrition-benefits/">Persimmon</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>70</td><td>0.58</td><td><a href="https://fdc.nal.usda.gov/food-details/169941/nutrients">FDC 169941</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/pomegranate-nutrition-benefits/">Pomegranate</a></th><td>raw</td><td>83</td><td>1.67</td><td><a href="https://fdc.nal.usda.gov/food-details/169134/nutrients">FDC 169134</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/quince-nutrition-benefits/">Quince</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>57</td><td>0.40</td><td><a href="https://fdc.nal.usda.gov/food-details/168163/nutrients">FDC 168163</a></td></tr>
+</tbody></table></div>
+<h3>Meat, eggs & legumes</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">Food</th><th scope="col">Basis</th><th scope="col">kcal</th><th scope="col">Protein (g)</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/en/posts/beef-sirloin-nutrition-benefits/">Beef top sirloin</a></th><td>raw</td><td>201</td><td>20.30</td><td><a href="https://fdc.nal.usda.gov/food-details/168726/nutrients">FDC 168726</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/beef-liver-nutrition-benefits/">Beef liver</a></th><td>raw</td><td>135</td><td>20.36</td><td><a href="https://fdc.nal.usda.gov/food-details/169451/nutrients">FDC 169451</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/pork-belly-nutrition-benefits/">Pork belly</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>518</td><td>9.34</td><td><a href="https://fdc.nal.usda.gov/food-details/167812/nutrients">FDC 167812</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/pork-tenderloin-nutrition-benefits/">Pork tenderloin</a></th><td>raw, lean and fat</td><td>120</td><td>20.65</td><td><a href="https://fdc.nal.usda.gov/food-details/168312/nutrients">FDC 168312</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/chicken-breast-nutrition-benefits/">Chicken breast (USDA)</a></th><td>raw, skinless</td><td>120</td><td>22.50</td><td><a href="https://fdc.nal.usda.gov/food-details/171077/nutrients">FDC 171077</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/chicken-breast-nutrition-benefits/">Chicken breast (Korean table)</a></th><td>raw</td><td>106</td><td>22.97</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=I008000D020a&amp;reformNo=-1">K-FIND I008000D020a</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/chicken-thigh-nutrition-benefits/">Chicken thigh</a></th><td>raw, meat only</td><td>121</td><td>19.66</td><td><a href="https://fdc.nal.usda.gov/food-details/173627/nutrients">FDC 173627</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/duck-meat-nutrition-benefits/">Duck, meat only</a></th><td>raw</td><td>135</td><td>18.28</td><td><a href="https://fdc.nal.usda.gov/food-details/172410/nutrients">FDC 172410</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/egg-nutrition-benefits/">Whole egg</a></th><td>raw</td><td>143</td><td>12.56</td><td><a href="https://fdc.nal.usda.gov/food-details/171287/nutrients">FDC 171287</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/tofu-nutrition-benefits/">Tofu</a></th><td>raw, calcium sulfate</td><td>76</td><td>8.08</td><td><a href="https://fdc.nal.usda.gov/food-details/172476/nutrients">FDC 172476</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/chickpea-nutrition-benefits/">Chickpea</a></th><td>boiled</td><td>164</td><td>8.86</td><td><a href="https://fdc.nal.usda.gov/food-details/173757/nutrients">FDC 173757</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/lentil-nutrition-benefits/">Lentil</a></th><td>dry</td><td>352</td><td>24.63</td><td><a href="https://fdc.nal.usda.gov/food-details/172420/nutrients">FDC 172420</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/black-soybean-nutrition-benefits/">Black beans</a><sup title="guide uses a different basis">※</sup></th><td>dry</td><td>341</td><td>21.60</td><td><a href="https://fdc.nal.usda.gov/food-details/173734/nutrients">FDC 173734</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/natto-nutrition-benefits/">Natto</a></th><td>as sold</td><td>211</td><td>19.40</td><td><a href="https://fdc.nal.usda.gov/food-details/172443/nutrients">FDC 172443</a></td></tr>
+</tbody></table></div>
+<h3>Seafood & seaweed</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">Food</th><th scope="col">Basis</th><th scope="col">kcal</th><th scope="col">Protein (g)</th><th scope="col">Source</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/en/posts/salmon-nutrition-benefits/">Atlantic salmon, farmed</a></th><td>raw</td><td>208</td><td>20.42</td><td><a href="https://fdc.nal.usda.gov/food-details/175167/nutrients">FDC 175167</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/mackerel-nutrition-benefits/">Atlantic mackerel</a></th><td>raw</td><td>205</td><td>18.60</td><td><a href="https://fdc.nal.usda.gov/food-details/175119/nutrients">FDC 175119</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/spanish-mackerel-nutrition-benefits/">Spanish mackerel</a></th><td>raw</td><td>139</td><td>19.29</td><td><a href="https://fdc.nal.usda.gov/food-details/173673/nutrients">FDC 173673</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/anchovy-nutrition-benefits/">Anchovy</a><sup title="guide uses a different basis">※</sup></th><td>raw</td><td>131</td><td>20.35</td><td><a href="https://fdc.nal.usda.gov/food-details/174182/nutrients">FDC 174182</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/squid-nutrition-benefits/">Squid</a></th><td>raw</td><td>92</td><td>15.58</td><td><a href="https://fdc.nal.usda.gov/food-details/174223/nutrients">FDC 174223</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/shrimp-nutrition-benefits/">Shrimp</a></th><td>raw</td><td>85</td><td>20.10</td><td><a href="https://fdc.nal.usda.gov/food-details/175179/nutrients">FDC 175179</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/crab-nutrition-benefits/">Blue crab</a><sup title="guide uses a different basis">※</sup></th><td>canned</td><td>83</td><td>17.88</td><td><a href="https://fdc.nal.usda.gov/food-details/171966/nutrients">FDC 171966</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/oyster-nutrition-benefits/">Eastern oyster</a><sup title="guide uses a different basis">※</sup></th><td>raw, wild</td><td>51</td><td>5.71</td><td><a href="https://fdc.nal.usda.gov/food-details/171978/nutrients">FDC 171978</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/mussel-nutrition-benefits/">Blue mussel</a></th><td>raw</td><td>86</td><td>11.90</td><td><a href="https://fdc.nal.usda.gov/food-details/174216/nutrients">FDC 174216</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/abalone-nutrition-benefits/">Abalone</a></th><td>raw</td><td>105</td><td>17.10</td><td><a href="https://fdc.nal.usda.gov/food-details/174212/nutrients">FDC 174212</a></td></tr>
+<tr><th scope="row"><a href="/en/posts/kelp-nutrition-benefits/">Kelp</a></th><td>raw</td><td>43</td><td>1.68</td><td><a href="https://fdc.nal.usda.gov/food-details/168457/nutrients">FDC 168457</a></td></tr>
+</tbody></table></div>
+{% else %}
+<h3>채소·뿌리</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">식재료</th><th scope="col">기준</th><th scope="col">kcal</th><th scope="col">단백질(g)</th><th scope="col">출처</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/posts/onion-nutrition-benefits/">양파</a></th><td>생것</td><td>40</td><td>1.10</td><td><a href="https://fdc.nal.usda.gov/food-details/170000/nutrients">FDC 170000</a></td></tr>
+<tr><th scope="row"><a href="/posts/garlic-nutrition-benefits/">마늘</a></th><td>생것</td><td>149</td><td>6.36</td><td><a href="https://fdc.nal.usda.gov/food-details/169230/nutrients">FDC 169230</a></td></tr>
+<tr><th scope="row"><a href="/posts/broccoli-nutrition-benefits/">브로콜리</a></th><td>생것</td><td>34</td><td>2.82</td><td><a href="https://fdc.nal.usda.gov/food-details/170379/nutrients">FDC 170379</a></td></tr>
+<tr><th scope="row"><a href="/posts/carrot-nutrition-benefits/">당근</a></th><td>생것</td><td>41</td><td>0.93</td><td><a href="https://fdc.nal.usda.gov/food-details/170393/nutrients">FDC 170393</a></td></tr>
+<tr><th scope="row"><a href="/posts/spinach-nutrition-benefits/">시금치</a></th><td>생것</td><td>23</td><td>2.86</td><td><a href="https://fdc.nal.usda.gov/food-details/168462/nutrients">FDC 168462</a></td></tr>
+<tr><th scope="row"><a href="/posts/cabbage-nutrition-benefits/">양배추</a></th><td>생것</td><td>25</td><td>1.28</td><td><a href="https://fdc.nal.usda.gov/food-details/169975/nutrients">FDC 169975</a></td></tr>
+<tr><th scope="row"><a href="/posts/napa-cabbage-nutrition-benefits/">배추</a></th><td>생것</td><td>16</td><td>1.20</td><td><a href="https://fdc.nal.usda.gov/food-details/169979/nutrients">FDC 169979</a></td></tr>
+<tr><th scope="row"><a href="/posts/radish-nutrition-benefits/">무(조선무)</a></th><td>생것</td><td>18</td><td>0.60</td><td><a href="https://fdc.nal.usda.gov/food-details/168451/nutrients">FDC 168451</a></td></tr>
+<tr><th scope="row"><a href="/posts/bell-pepper-nutrition-benefits/">파프리카(붉은 것)</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>26</td><td>0.99</td><td><a href="https://fdc.nal.usda.gov/food-details/170108/nutrients">FDC 170108</a></td></tr>
+<tr><th scope="row"><a href="/posts/tomato-nutrition-benefits/">토마토</a></th><td>생것</td><td>18</td><td>0.88</td><td><a href="https://fdc.nal.usda.gov/food-details/170457/nutrients">FDC 170457</a></td></tr>
+<tr><th scope="row"><a href="/posts/cauliflower-nutrition-benefits/">콜리플라워</a></th><td>생것</td><td>25</td><td>1.92</td><td><a href="https://fdc.nal.usda.gov/food-details/169986/nutrients">FDC 169986</a></td></tr>
+<tr><th scope="row"><a href="/posts/asparagus-nutrition-benefits/">아스파라거스</a></th><td>생것</td><td>20</td><td>2.20</td><td><a href="https://fdc.nal.usda.gov/food-details/168389/nutrients">FDC 168389</a></td></tr>
+<tr><th scope="row"><a href="/posts/kale-nutrition-benefits/">케일</a></th><td>생것</td><td>35</td><td>2.92</td><td><a href="https://fdc.nal.usda.gov/food-details/168421/nutrients">FDC 168421</a></td></tr>
+<tr><th scope="row"><a href="/posts/beetroot-nutrition-benefits/">비트</a></th><td>생것</td><td>43</td><td>1.61</td><td><a href="https://fdc.nal.usda.gov/food-details/169145/nutrients">FDC 169145</a></td></tr>
+<tr><th scope="row"><a href="/posts/lotus-root-nutrition-benefits/">연근</a></th><td>생것</td><td>74</td><td>2.60</td><td><a href="https://fdc.nal.usda.gov/food-details/169250/nutrients">FDC 169250</a></td></tr>
+<tr><th scope="row"><a href="/posts/sweet-potato-nutrition-benefits/">고구마 (미국 USDA)</a></th><td>생것</td><td>86</td><td>1.57</td><td><a href="https://fdc.nal.usda.gov/food-details/168482/nutrients">FDC 168482</a></td></tr>
+<tr><th scope="row"><a href="/posts/sweet-potato-nutrition-benefits/">고구마 (국내 국가표준)</a></th><td>생것</td><td>147</td><td>1.09</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=B0060000000a&amp;reformNo=-1">농진청 B0060000000a</a></td></tr>
+</tbody></table></div>
+<h3>과일</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">식재료</th><th scope="col">기준</th><th scope="col">kcal</th><th scope="col">단백질(g)</th><th scope="col">출처</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/posts/apple-nutrition-benefits/">사과</a></th><td>생것(껍질 포함)</td><td>52</td><td>0.26</td><td><a href="https://fdc.nal.usda.gov/food-details/171688/nutrients">FDC 171688</a></td></tr>
+<tr><th scope="row"><a href="/posts/asian-pear-nutrition-benefits/">배</a></th><td>생것</td><td>42</td><td>0.50</td><td><a href="https://fdc.nal.usda.gov/food-details/168177/nutrients">FDC 168177</a></td></tr>
+<tr><th scope="row"><a href="/posts/banana-nutrition-benefits/">바나나 (미국 USDA)</a></th><td>생것(가식부)</td><td>89</td><td>1.09</td><td><a href="https://fdc.nal.usda.gov/food-details/173944/nutrients">FDC 173944</a></td></tr>
+<tr><th scope="row"><a href="/posts/banana-nutrition-benefits/">바나나 (국내 국가표준)</a></th><td>생것(가식부)</td><td>77</td><td>1.11</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=H0370000000a&amp;reformNo=-1">농진청 H0370000000a</a></td></tr>
+<tr><th scope="row"><a href="/posts/orange-nutrition-benefits/">오렌지</a></th><td>생것</td><td>47</td><td>0.94</td><td><a href="https://fdc.nal.usda.gov/food-details/169097/nutrients">FDC 169097</a></td></tr>
+<tr><th scope="row"><a href="/posts/tangerine-nutrition-benefits/">귤</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>53</td><td>0.81</td><td><a href="https://fdc.nal.usda.gov/food-details/169105/nutrients">FDC 169105</a></td></tr>
+<tr><th scope="row"><a href="/posts/grape-nutrition-benefits/">포도</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>69</td><td>0.72</td><td><a href="https://fdc.nal.usda.gov/food-details/174683/nutrients">FDC 174683</a></td></tr>
+<tr><th scope="row"><a href="/posts/blueberry-nutrition-benefits/">블루베리</a></th><td>생것</td><td>57</td><td>0.74</td><td><a href="https://fdc.nal.usda.gov/food-details/171711/nutrients">FDC 171711</a></td></tr>
+<tr><th scope="row"><a href="/posts/strawberry-nutrition-benefits/">딸기</a></th><td>생것</td><td>32</td><td>0.67</td><td><a href="https://fdc.nal.usda.gov/food-details/167762/nutrients">FDC 167762</a></td></tr>
+<tr><th scope="row"><a href="/posts/kiwi-nutrition-benefits/">키위</a></th><td>생것</td><td>61</td><td>1.14</td><td><a href="https://fdc.nal.usda.gov/food-details/168153/nutrients">FDC 168153</a></td></tr>
+<tr><th scope="row"><a href="/posts/avocado-nutrition-benefits/">아보카도</a></th><td>생것</td><td>160</td><td>2.00</td><td><a href="https://fdc.nal.usda.gov/food-details/171705/nutrients">FDC 171705</a></td></tr>
+<tr><th scope="row"><a href="/posts/fig-nutrition-benefits/">무화과</a></th><td>생것</td><td>74</td><td>0.75</td><td><a href="https://fdc.nal.usda.gov/food-details/173021/nutrients">FDC 173021</a></td></tr>
+<tr><th scope="row"><a href="/posts/cherry-nutrition-benefits/">체리</a></th><td>생것</td><td>63</td><td>1.06</td><td><a href="https://fdc.nal.usda.gov/food-details/171719/nutrients">FDC 171719</a></td></tr>
+<tr><th scope="row"><a href="/posts/persimmon-nutrition-benefits/">감</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>70</td><td>0.58</td><td><a href="https://fdc.nal.usda.gov/food-details/169941/nutrients">FDC 169941</a></td></tr>
+<tr><th scope="row"><a href="/posts/pomegranate-nutrition-benefits/">석류</a></th><td>생것</td><td>83</td><td>1.67</td><td><a href="https://fdc.nal.usda.gov/food-details/169134/nutrients">FDC 169134</a></td></tr>
+<tr><th scope="row"><a href="/posts/quince-nutrition-benefits/">모과</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>57</td><td>0.40</td><td><a href="https://fdc.nal.usda.gov/food-details/168163/nutrients">FDC 168163</a></td></tr>
+</tbody></table></div>
+<h3>육류·달걀·콩</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">식재료</th><th scope="col">기준</th><th scope="col">kcal</th><th scope="col">단백질(g)</th><th scope="col">출처</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/posts/beef-sirloin-nutrition-benefits/">소고기 등심</a></th><td>생것</td><td>201</td><td>20.30</td><td><a href="https://fdc.nal.usda.gov/food-details/168726/nutrients">FDC 168726</a></td></tr>
+<tr><th scope="row"><a href="/posts/beef-liver-nutrition-benefits/">소간</a></th><td>생것</td><td>135</td><td>20.36</td><td><a href="https://fdc.nal.usda.gov/food-details/169451/nutrients">FDC 169451</a></td></tr>
+<tr><th scope="row"><a href="/posts/pork-belly-nutrition-benefits/">삼겹살</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>518</td><td>9.34</td><td><a href="https://fdc.nal.usda.gov/food-details/167812/nutrients">FDC 167812</a></td></tr>
+<tr><th scope="row"><a href="/posts/pork-tenderloin-nutrition-benefits/">돼지 안심</a></th><td>생것(지방 포함)</td><td>120</td><td>20.65</td><td><a href="https://fdc.nal.usda.gov/food-details/168312/nutrients">FDC 168312</a></td></tr>
+<tr><th scope="row"><a href="/posts/chicken-breast-nutrition-benefits/">닭가슴살 (미국 USDA)</a></th><td>생것(껍질·뼈 제거)</td><td>120</td><td>22.50</td><td><a href="https://fdc.nal.usda.gov/food-details/171077/nutrients">FDC 171077</a></td></tr>
+<tr><th scope="row"><a href="/posts/chicken-breast-nutrition-benefits/">닭가슴살 (국내 국가표준)</a></th><td>생것</td><td>106</td><td>22.97</td><td><a href="https://www.nics.go.kr/food/kfi/fct/fctFoodSrch/detailOne?customQnt=100&amp;fdNms=x&amp;foodCodes=I008000D020a&amp;reformNo=-1">농진청 I008000D020a</a></td></tr>
+<tr><th scope="row"><a href="/posts/chicken-thigh-nutrition-benefits/">닭다리살</a></th><td>생것(껍질 제거)</td><td>121</td><td>19.66</td><td><a href="https://fdc.nal.usda.gov/food-details/173627/nutrients">FDC 173627</a></td></tr>
+<tr><th scope="row"><a href="/posts/duck-meat-nutrition-benefits/">오리 살코기</a></th><td>생것</td><td>135</td><td>18.28</td><td><a href="https://fdc.nal.usda.gov/food-details/172410/nutrients">FDC 172410</a></td></tr>
+<tr><th scope="row"><a href="/posts/egg-nutrition-benefits/">달걀</a></th><td>생것(가식부)</td><td>143</td><td>12.56</td><td><a href="https://fdc.nal.usda.gov/food-details/171287/nutrients">FDC 171287</a></td></tr>
+<tr><th scope="row"><a href="/posts/tofu-nutrition-benefits/">두부</a></th><td>생것(황산칼슘 응고)</td><td>76</td><td>8.08</td><td><a href="https://fdc.nal.usda.gov/food-details/172476/nutrients">FDC 172476</a></td></tr>
+<tr><th scope="row"><a href="/posts/chickpea-nutrition-benefits/">병아리콩</a></th><td>삶은 것</td><td>164</td><td>8.86</td><td><a href="https://fdc.nal.usda.gov/food-details/173757/nutrients">FDC 173757</a></td></tr>
+<tr><th scope="row"><a href="/posts/lentil-nutrition-benefits/">렌틸콩</a></th><td>마른 것(조리 전)</td><td>352</td><td>24.63</td><td><a href="https://fdc.nal.usda.gov/food-details/172420/nutrients">FDC 172420</a></td></tr>
+<tr><th scope="row"><a href="/posts/black-soybean-nutrition-benefits/">검은콩</a><sup title="가이드는 다른 기준">※</sup></th><td>마른 것(조리 전)</td><td>341</td><td>21.60</td><td><a href="https://fdc.nal.usda.gov/food-details/173734/nutrients">FDC 173734</a></td></tr>
+<tr><th scope="row"><a href="/posts/natto-nutrition-benefits/">낫토</a></th><td>생것(시판)</td><td>211</td><td>19.40</td><td><a href="https://fdc.nal.usda.gov/food-details/172443/nutrients">FDC 172443</a></td></tr>
+</tbody></table></div>
+<h3>수산물·해조류</h3>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">식재료</th><th scope="col">기준</th><th scope="col">kcal</th><th scope="col">단백질(g)</th><th scope="col">출처</th></tr></thead><tbody>
+<tr><th scope="row"><a href="/posts/salmon-nutrition-benefits/">연어(대서양 양식)</a></th><td>생것</td><td>208</td><td>20.42</td><td><a href="https://fdc.nal.usda.gov/food-details/175167/nutrients">FDC 175167</a></td></tr>
+<tr><th scope="row"><a href="/posts/mackerel-nutrition-benefits/">고등어(대서양)</a></th><td>생것</td><td>205</td><td>18.60</td><td><a href="https://fdc.nal.usda.gov/food-details/175119/nutrients">FDC 175119</a></td></tr>
+<tr><th scope="row"><a href="/posts/spanish-mackerel-nutrition-benefits/">삼치</a></th><td>생것</td><td>139</td><td>19.29</td><td><a href="https://fdc.nal.usda.gov/food-details/173673/nutrients">FDC 173673</a></td></tr>
+<tr><th scope="row"><a href="/posts/anchovy-nutrition-benefits/">멸치</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>131</td><td>20.35</td><td><a href="https://fdc.nal.usda.gov/food-details/174182/nutrients">FDC 174182</a></td></tr>
+<tr><th scope="row"><a href="/posts/squid-nutrition-benefits/">오징어</a></th><td>생것</td><td>92</td><td>15.58</td><td><a href="https://fdc.nal.usda.gov/food-details/174223/nutrients">FDC 174223</a></td></tr>
+<tr><th scope="row"><a href="/posts/shrimp-nutrition-benefits/">새우</a></th><td>생것</td><td>85</td><td>20.10</td><td><a href="https://fdc.nal.usda.gov/food-details/175179/nutrients">FDC 175179</a></td></tr>
+<tr><th scope="row"><a href="/posts/crab-nutrition-benefits/">꽃게류(블루크랩)</a><sup title="가이드는 다른 기준">※</sup></th><td>캔(조리 전)</td><td>83</td><td>17.88</td><td><a href="https://fdc.nal.usda.gov/food-details/171966/nutrients">FDC 171966</a></td></tr>
+<tr><th scope="row"><a href="/posts/oyster-nutrition-benefits/">굴(참굴)</a><sup title="가이드는 다른 기준">※</sup></th><td>생것</td><td>51</td><td>5.71</td><td><a href="https://fdc.nal.usda.gov/food-details/171978/nutrients">FDC 171978</a></td></tr>
+<tr><th scope="row"><a href="/posts/mussel-nutrition-benefits/">홍합</a></th><td>생것</td><td>86</td><td>11.90</td><td><a href="https://fdc.nal.usda.gov/food-details/174216/nutrients">FDC 174216</a></td></tr>
+<tr><th scope="row"><a href="/posts/abalone-nutrition-benefits/">전복</a></th><td>생것</td><td>105</td><td>17.10</td><td><a href="https://fdc.nal.usda.gov/food-details/174212/nutrients">FDC 174212</a></td></tr>
+<tr><th scope="row"><a href="/posts/kelp-nutrition-benefits/">다시마</a></th><td>생것</td><td>43</td><td>1.68</td><td><a href="https://fdc.nal.usda.gov/food-details/168457/nutrients">FDC 168457</a></td></tr>
+</tbody></table></div>
+{% endif %}
+<p>{% if is_en %}Calculation: reference amount × edible grams ÷ 100. Data: USDA FoodData Central SR Legacy (and the Korean national standard food composition table where marked). Cooking method, cultivar and brand change the real numbers, and raw and cooked weights are not interchangeable. This is not a personalized dietary recommendation. Source IDs were checked against the published datasets on 2026-11-26.{% else %}계산식: 100g 기준 영양성분 × 가식부 중량 ÷ 100. 자료: USDA FoodData Central SR Legacy(표시된 3행은 농촌진흥청 국가표준식품성분표). 조리법·품종·제품에 따라 실제 수치는 달라지며 생것과 익힌 무게는 서로 환산되지 않습니다. 개인별 섭취 권고량이 아닙니다. 출처 ID는 2026-11-26에 원자료와 대조해 확인했습니다.{% endif %}</p>
 </section>
 <script>
 (function(){
-  var foods=[[143,12.56],[76,8.08],[120,22.5],[52,0.26],[89,1.09]];
+  var foods=[[40,1.1],[149,6.36],[34,2.82],[41,0.93],[23,2.86],[25,1.28],[16,1.2],[18,0.6],[26,0.99],[18,0.88],[25,1.92],[20,2.2],[35,2.92],[43,1.61],[74,2.6],[86,1.57],[147,1.09],[52,0.26],[42,0.5],[89,1.09],[77,1.11],[47,0.94],[53,0.81],[69,0.72],[57,0.74],[32,0.67],[61,1.14],[160,2.0],[74,0.75],[63,1.06],[70,0.58],[83,1.67],[57,0.4],[201,20.3],[135,20.36],[518,9.34],[120,20.65],[120,22.5],[106,22.97],[121,19.66],[135,18.28],[143,12.56],[76,8.08],[164,8.86],[352,24.63],[341,21.6],[211,19.4],[208,20.42],[205,18.6],[139,19.29],[131,20.35],[92,15.58],[85,20.1],[83,17.88],[51,5.71],[86,11.9],[105,17.1],[43,1.68]];
   var en=document.documentElement.lang==='en';
   var el=function(id){return document.getElementById(id);};
   function render(){

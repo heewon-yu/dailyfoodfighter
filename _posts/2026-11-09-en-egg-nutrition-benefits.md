@@ -78,6 +78,20 @@ A 100-gram serving of whole raw eggs yields approximately 143 kcal (roughly 72 k
 *¹ Water functions as the primary physiological solvent stabilizing native ovalbumin tertiary structures.*  
 *² Dietary cholesterol limits were removed from the USDA Dietary Guidelines following conclusive clinical evidence demonstrating minimal impact on circulating atherogenic LDL fractions.*
 
+### What one, two or three eggs deliver
+
+USDA portion weights, scaled to the 143 kcal per 100 g above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 medium | 44 g | 63 kcal | 5.53 g |
+| 1 large | 50 g | 72 kcal | 6.28 g |
+| 2 large | 100 g | 143 kcal | 12.56 g |
+| 3 large | 150 g | 215 kcal | 18.84 g |
+| 1 cup (4.86 large eggs) | 243 g | 348 kcal | 30.52 g |
+
+*Note: the 6.3 g protein figure for one egg assumes a 50 g large egg. Korean eggs are often 55–60 g, which puts one egg at 7 g of protein.*
+
 ---
 
 ## 2. What Are the Benefits of Eggs? Four Evidence-Backed Effects

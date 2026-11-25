@@ -61,6 +61,21 @@ Despite possessing an ultra-low caloric density (23 kcal/100g) with 91.4% water,
 *¹ Water functions as the primary physiological medium dispersing lipophilic carotenoids and mineral ions.*  
 *※ 'Daily value not established' designates carotenoid pigment isomers and botanical nitrate compounds lacking established percentage DV benchmarks.*
 
+*※ Source: [USDA FoodData Central FDC 168462](https://fdc.nal.usda.gov/food-details/168462/nutrients) — Spinach, raw (SR Legacy). The 23 kcal and 2.86 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What one leaf, one cup and one bunch actually deliver
+
+Nobody eats spinach by the 100 g. Here are the same values in the units people use: raw weights come from USDA portion data, and the cooked row is a typical side-dish portion.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 leaf | 10 g | 2.3 kcal | 0.29 g |
+| 1 cup, raw | 30 g | 6.9 kcal | 0.86 g |
+| 1 cup, cooked | 70 g | 16.1 kcal | 2.00 g |
+| 1 bunch | 340 g | 78.2 kcal | 9.72 g |
+
+*Note: cooked weights are smaller because water is lost, while total nutrients barely change — so these cooked rows are the raw values scaled to the cooked weight. One 340 g bunch cooks down to about two side-dish portions.*
+
 ---
 
 ## 2. What Are the Benefits of Spinach? Four Evidence-Backed Effects

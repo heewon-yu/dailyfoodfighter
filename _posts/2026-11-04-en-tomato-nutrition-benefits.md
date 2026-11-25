@@ -51,6 +51,8 @@ Data synthesized from the United States Department of Agriculture (USDA) FoodDat
 
 **How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
+*※ Source: [USDA FoodData Central FDC 170457](https://fdc.nal.usda.gov/food-details/170457/nutrients) — Tomatoes, red, ripe, raw, year round average (SR Legacy). The 18 kcal and 0.88 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Tomatoes? Four Evidence-Backed Effects

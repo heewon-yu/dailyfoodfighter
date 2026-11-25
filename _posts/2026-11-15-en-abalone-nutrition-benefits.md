@@ -64,6 +64,8 @@ Raw abalone delivers 105 kcal per 100 grams with negligible fat (0.76g), zero di
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Hydration and zero-baseline sugar values without an absolute daily requirement are marked 'See note¹', while non-essential bioactive compounds carry 'No DV' (Daily Value not established).*
 
+*※ Source: [USDA FoodData Central FDC 174212](https://fdc.nal.usda.gov/food-details/174212/nutrients) — Mollusks, abalone, mixed species, raw (SR Legacy). The 105 kcal and 17.1 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Abalone? Four Evidence-Backed Effects

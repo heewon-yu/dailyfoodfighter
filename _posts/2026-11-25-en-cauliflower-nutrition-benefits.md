@@ -95,6 +95,35 @@ The practical rule: <strong>compare within one table, not across two.</strong> T
 - <strong>Cauliflower rice, 100 g:</strong> 25–35 calories raw; pan-fried in a tablespoon of oil it becomes 145–155 calories, because oil contributes 120 of them.
 - <strong>Boiled 100 g:</strong> 23 calories. Calories barely change; what changes is everything else.
 
+### Cauliflower rice, 200 g: calories, yield and the dry-pan method
+
+Most people eat cauliflower rice by the bowl, not by the 100 g column. Here is the same maths for a **200 g raw portion**, which fills one rice bowl.
+
+| | Raw cauliflower, 200 g | Dry-pan cooked (130–150 g yield) |
+| :--- | :--- | :--- |
+| Energy | 50 kcal | 50 kcal (no oil added, so unchanged) |
+| Carbohydrate | 9.9 g | 9.9 g |
+| Fiber | 4.0 g | 4.0 g |
+| Protein | 3.8 g | 3.8 g |
+| Vitamin C | 96.4 mg (before cooking) | falls with heat and time |
+| Energy per 100 g | 25 kcal | about 33–38 kcal, because water left |
+
+This is the part that trips people up: **cooking raises the energy per 100 g but not the energy in the bowl.** Water leaves, solids do not. Oil is a different matter.
+
+- **No oil (dry pan):** 50 kcal
+- **1 teaspoon olive oil (5 g, ~45 kcal):** about 95 kcal
+- **1 tablespoon olive oil (15 g, ~120 kcal):** about 170 kcal
+
+A 200 g bowl of cooked white rice runs about 260 kcal and 56 g of carbohydrate, so 200 g of cauliflower rice is roughly **one-fifth the calories and one-sixth the carbohydrate**. Add a tablespoon of oil and you climb to about two-thirds of the rice figure — which is why "rice substitute" cooking that starts with a generous pour of oil gives most of the calorie saving back.
+
+**Dry-pan method for 200 g**
+
+1. Pulse florets to rice-sized pieces — too fine and it steams into porridge.
+2. Toss with 2 g of salt, rest 10 minutes, then squeeze hard in a clean towel. You will lose 10–20 g of water at this step.
+3. Heat a wide pan over high heat for 2 minutes and add the rice **with no oil**, spread thin. A crowded pan steams instead of browning.
+4. Leave it alone for 2–3 minutes, turn once, then 2–3 more. Five to seven minutes total; longer costs more vitamin C.
+5. Season off the heat. Unlike boiling, nothing leaches into water, but heat still degrades vitamin C.
+
 ---
 
 ## 2. Four Evidence-Based Health Benefits

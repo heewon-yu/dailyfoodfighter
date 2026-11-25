@@ -64,6 +64,19 @@ A standard 100-gram serving of raw mature carrots provides an exceptionally ligh
 *※ Source: USDA FoodData Central Analytical Repository.*  
 *¹ Intracellular water maintains cell turgor pressure and stabilizes carotenoid pigment crystals embedded in chromoplast matrices.*
 
+### What one carrot or one cup of sticks actually delivers
+
+Carrots vary a lot in size. These are the USDA portion weights, scaled to the per-100 g values above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 small | 50 g | 20.5 kcal | 0.47 g |
+| 1 medium | 61 g | 25 kcal | 0.57 g |
+| 1 large | 72 g | 29.5 kcal | 0.67 g |
+| 1 cup, chopped | 128 g | 52.5 kcal | 1.19 g |
+
+*Note: one whole carrot is 25–30 kcal, so the useful numbers here are beta-carotene and fiber, not energy. Juicing three or four carrots into a glass triples the calories without the chewing.*
+
 ---
 
 ## 2. What Are the Benefits of Carrots? Four Evidence-Backed Effects

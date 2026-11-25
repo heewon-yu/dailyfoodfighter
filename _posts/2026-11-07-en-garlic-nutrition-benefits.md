@@ -63,6 +63,21 @@ Unlike typical vegetative tissues that consist of over 90% water, raw garlic mai
 *¹ Water content functions as an indispensable biological cellular solvent and is excluded from standard federal reference intake percentages.*  
 *※ "No DV" denotes bioactive organosulfur molecules that demonstrate profound clinical efficacy but currently lack formal statutory Daily Values in federal dietary guidelines.*
 
+*※ Source: [USDA FoodData Central FDC 169230](https://fdc.nal.usda.gov/food-details/169230/nutrients) — Garlic, raw (SR Legacy). The 149 kcal and 6.36 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What one clove or one bulb actually delivers
+
+Nobody eats garlic by the 100 g. These are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 clove | 3 g | 4.5 kcal | 0.19 g |
+| 3 cloves | 9 g | 13.4 kcal | 0.57 g |
+| 1 tsp, minced | 2.8 g | 4.2 kcal | 0.18 g |
+| 1 cup, minced | 136 g | 202.6 kcal | 8.65 g |
+
+*Note: a clove is 4–5 kcal, so garlic is never a calorie problem. The issue is not quantity but eating a lot of raw garlic on an empty stomach.*
+
 ---
 
 ## 2. What Are the Benefits of Garlic? Four Evidence-Backed Effects

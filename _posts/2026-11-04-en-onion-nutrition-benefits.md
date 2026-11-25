@@ -51,6 +51,19 @@ The table refers to the edible portion of raw onion. A recipe with 200 g divided
 
 *Source: [USDA FoodData Central, Onions, raw](https://fdc.nal.usda.gov/food-search/?query=170000). Quercetin concentrations vary by cultivar and tissue, so a single reference value is omitted.*
 
+### What half an onion or a whole onion actually delivers
+
+Onions vary enough in size that weight beats counting. These are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 small | 70 g | 28 kcal | 0.77 g |
+| 1 medium | 110 g | 44 kcal | 1.21 g |
+| 1 large | 150 g | 60 kcal | 1.65 g |
+| 1 cup, chopped | 160 g | 64 kcal | 1.76 g |
+
+*Note: one medium onion (110 g) is 44 kcal. Frying shrinks it to a third of its volume but not its calories, so a large pile of caramelised onion carries a large share of the day’s energy.*
+
 ---
 
 ## 2. What Are the Benefits of Onions? Four Evidence-Backed Effects

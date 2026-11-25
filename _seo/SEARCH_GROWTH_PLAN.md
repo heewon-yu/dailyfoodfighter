@@ -69,3 +69,29 @@ Not done / still open (no claim of clinical validation):
 - Calculator expansion (5 foods now → target ~56) limited to foods whose FDC ID or Korean food code is confirmed; state raw/cooked basis next to each row.
 - Content gaps for observed queries: cauliflower-rice H3 (200 g conversion, dry-frying method), mackerel-skin H3 (species-specific omega-3), avocado PPO activity (no number until a primary source is checked).
 - `source_id_present` still 30/124; serving tables 60/124.
+
+## P1-3 complete — 2026-11-26 (source conflicts, calculator expansion, source IDs, serving tables)
+
+**Search exclusion (user instruction, 2026-11-26).** `_headers` now sends `X-Robots-Tag: noindex, nofollow` for `/games`, `/games/*`, `/map`, `/map/*`, `/benefits`, `/benefits/*` until the AdSense re-review passes. `robots.txt` was deliberately left untouched (a Disallow would stop Google from ever reading the noindex), and no page code, API or sitemap entry was changed — the sitemap never listed these paths. Delete the six blocks at the end of `_headers` to restore indexing.
+
+**Data-table conflicts, now disclosed side by side (3 foods × KO/EN).** Each page carries a two-row table with both sources and an explanation of the sample difference:
+- Banana — USDA FDC 173944 (89 kcal, 22.84 g carb, water 74.91 g) vs Korean national table H0370000000a, RDA 2020 (77 kcal, 20.0 g carb, water 78 g); 1 medium 118 g = 105 kcal vs about 91 kcal.
+- Sweet potato — USDA FDC 168482 (86 kcal, water 77.28 g) vs Korean code B0060000000a, RDA 2013 (**147 kcal**, water 62.2 g, carb 35.52 g). The earlier working note of "110–128 kcal" could not be reproduced in the current national DB; 147 kcal is what the RDA entry lists and is what the page now states. KO/EN titles and descriptions were changed so the headline no longer asserts 86 kcal on a page whose body says 147.
+- Chicken breast — USDA FDC 171077 (120 kcal, 22.5 g protein, 2.62 g fat) vs Korean code I008000D020a, RDA 2015 (106 kcal, 22.97 g, 0.97 g). The 1.65 g fat difference explains almost all of the 14 kcal gap (1 g fat ≈ 9 kcal); the cooked entry FDC 171477 (165 kcal/31.0 g) is shown separately so raw and cooked are not mixed.
+
+**Observed-query H3s added.** Cauliflower KO/EN: cauliflower rice at 200 g with a dry-pan method, yield 130–150 g, 54 kcal unchanged by dry-frying, 1 tsp vs 1 tbsp oil (99 / 174 kcal) and white rice 200 g (about 260 kcal, 56–57 g carb). Mackerel KO/EN: skin and dark muscle, species spread (Atlantic 2,299 mg EPA+DHA vs Spanish 1,341 vs king 313 per 100 g raw) and measured cooking loss (Atlantic cooked 1,203 mg, about 48% less per 100 g; the higher 262 kcal per 100 g is water loss, not added oil).
+
+**Nutrition calculator: 5 → 55 foods / 58 rows (`/nutrition-calculator/`, `/en/nutrition-calculator/`).** Every row states its basis (raw, cooked, dried, canned) and links to a USDA FDC entry or, for three rows, the RDA food code. All kcal/protein values were re-derived from the official SR Legacy CSV (April 2018 download) rather than copied from search results. Banana, sweet potato and chicken breast appear twice (USDA row + Korean row) so the calculator and the three guides agree. Ten rows carry a ※ marking a guide that presents a different basis (파프리카, 귤, 포도, 감, 모과, 삼겹살, 검은콩, 멸치, 꽃게, 굴). Dried laver, yuzu and bone broth were left out: no FDC/K-FIND entry could be verified for the form the guides describe. The formula (g/100), 0–5000 g validation, bilingual UI and two-portion comparison are unchanged.
+
+**Source IDs: 30/124 → 71/124.** 39 posts received a specific FDC line, added only after the post's own table and front matter matched that entry's kcal and protein (tolerance 1 kcal / 0.06 g). 10 rows could not be matched and were left uncited rather than guessed: oyster (68/7.13 matches no raw entry), pork tenderloin (120/21.8 — RDA lists 123/22.21, USDA 120/20.65), bell pepper KR (30/1.5), crab KR (77/16.2), black soybean (413/38.7 and 381/36.0), fig KR (47/0.8). A further set of "N" rows already carry a plain USDA link without an ID, which the audit counts as no ID; they are listed in the CSV.
+
+**Serving-size tables: 61/124 → 92/124.** 19 posts (spinach, carrot, tofu, chicken breast, oyster, garlic, onion ×2 languages plus EN banana, egg, blueberry, apple, squid) got a 1-serving conversion table using USDA portion weights, scaled from each article's own per-100 g values.
+
+**Transparency.** KO/EN About pages now state how sources are cited (FDC ID and RDA code next to every table), link the calculator, and keep a short corrections log. The 2026-11-26 beef liver post (published the same morning) had its heme-iron absorption wording qualified and its FAQ JSON-LD realigned; `faq_check.py` returns 0 issues for all 124 posts.
+
+**Still open**
+- 57 rows lack an ID (the 10 unmatched above, the 6 hub guides, and link-only pages); 36 rows have no serving table.
+- GI/GL values remain quoted from secondary pages; no international GI table has been checked.
+- The 2026-11-26 beef liver post (published the same morning) still carries one audit hit for quoting the 15–35% / 2–20% heme vs non-heme absorption range. The wording was qualified as a literature range with iron status and meal composition stated; it is listed here rather than silently cleared.
+- 10 calculator rows deliberately disagree with their guide's basis (marked ※).
+- AdSense re-review pending; the noindex exclusion above stays until it passes.

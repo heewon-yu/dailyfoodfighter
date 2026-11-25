@@ -79,7 +79,7 @@ Values are from the USDA FoodData Central SR Legacy entry for raw beef liver (FD
 - <strong>Vitamin A is the number that sets the portion size.</strong> Everything else in the table could be eaten daily without concern.
 - <strong>Riboflavin at 212% DV and pantothenic acid at 143% DV</strong> explain why liver is called a B-vitamin concentrate: one small portion covers the B-complex for days.
 - <strong>Cholesterol is 275 mg</strong> — 92% of the 300 mg daily figure still used on labels, though dietary cholesterol now has no strict U.S. limit for healthy adults.
-- <strong>Iron is 4.9 mg but almost entirely heme iron</strong>, absorbed at 15–35% rather than the 2–20% typical of plant iron. The effective dose is far higher than the milligram figure suggests.
+- <strong>Iron is 4.9 mg but almost entirely heme iron</strong>, which the literature puts at 15–35% absorption against 2–20% for plant iron. The absorbed dose is higher than the milligram figure suggests, though it varies with your iron status and the rest of the meal.
 - <strong>Calcium and vitamin C are negligible.</strong> Liver is not a complete food, despite the marketing.
 
 ### What a 50 g portion actually delivers
@@ -124,7 +124,7 @@ Riboflavin at 2.755 mg per 100 g (212% DV) is a cofactor for the electron transp
 
 ### Heme iron: the part of liver that changes clinical advice
 
-Iron in food comes in two forms. Heme iron, bound in hemoglobin and myoglobin, is absorbed at <strong>15–35%</strong>. Non-heme iron from plants is absorbed at 2–20% depending on the meal, and is inhibited by phytates, calcium and polyphenols.
+Iron in food comes in two forms. The absorption ranges usually quoted are 15–35% for heme iron, bound in hemoglobin and myoglobin, and 2–20% for non-heme iron from plants, which phytates, calcium and polyphenols inhibit. Real absorption depends on the person's iron status and on what else is on the plate.
 
 Liver's 4.9 mg is nearly all heme. That makes it one of the most effective foods for iron-deficiency anemia, which affects roughly a third of women of reproductive age worldwide. Comparing milligrams across foods is misleading: 50 g of liver (2.45 mg heme iron) can deliver more absorbed iron than 100 g of spinach (2.7 mg non-heme iron, much of it bound by oxalate).
 
@@ -171,7 +171,7 @@ Choline, at 333 mg per 100 g (61% DV), is the least discussed benefit. It is nee
 Daily 100 g portions are not advisable: one 100 g serving supplies 4,968 µg RAE of vitamin A, 1.66 times the 3,000 µg upper limit, and 9.76 mg copper against a 10 mg limit. A 50 g portion once a week is a more defensible pattern, and pregnancy is a reason to avoid liver entirely.
 
 **Is the iron in beef liver well absorbed?**  
-Yes. Almost all of liver's 4.9 mg iron per 100 g is heme iron, absorbed at 15–35%, compared with 2–20% for plant iron. Tea and coffee reduce absorption, so keep them an hour away from the meal.
+Almost all of liver's 4.9 mg iron per 100 g is heme iron, and the heme range usually quoted (15–35%) is higher than the non-heme range (2–20%). How much you actually absorb depends on your iron status and the meal, and tea or coffee reduce absorption, so keep them an hour away.
 
 **Does liver store toxins?**  
 The liver processes and detoxifies compounds rather than storing them, so the common claim is misleading. It can accumulate cadmium and other heavy metals over time, which is why marketed liver is tested against residue limits. Choose a traceable source and keep portions to 50 g.
@@ -232,7 +232,7 @@ The liver processes and detoxifies compounds rather than storing them, so the co
 - Raw beef liver is **135 kcal, 20.4 g protein, 4.9 mg iron, 59.3 µg B12 and 4,968 µg RAE vitamin A** per 100 g.
 - **Vitamin A is the limiting nutrient**: 100 g is 1.66 times the 3,000 µg upper limit. **Copper at 9.76 mg** nearly reaches its 10 mg limit.
 - **50 g** supplies 68 kcal, 2.45 mg iron and 2,484 µg RAE vitamin A — still 83% of the daily ceiling.
-- **Almost all of the iron is heme iron**, absorbed at 15–35%, which is why liver outperforms iron-matched plant foods.
+- **Almost all of the iron is heme iron**, quoted at 15–35% absorption, which is why liver compares well with iron-matched plant foods.
 - **Avoid liver in pregnancy** because of preformed vitamin A, and in **Wilson disease** because of copper.
 - **Weigh it raw**: pan-fried 100 g equals about 130 g of raw liver and concentrates the vitamin A.
 - **Soak 20–30 minutes, sear 1 cm slices 90 seconds a side, cook to 71°C**, and keep tea and coffee an hour away.

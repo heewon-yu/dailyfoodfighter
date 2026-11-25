@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Sweet Potato Nutrition: 86 Calories, Beta-Carotene & GI"
+title: "Sweet Potato Calories: 147 kcal or 86 kcal? Which Table"
 date: 2026-11-14 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en
 category: "Vegetables"
 tags: [Sweet Potato, Beta-Carotene, Resistant Starch, Glycemic Index, Dietary Fiber]
-description: "Raw sweet potato has 86 calories, 3.0 g fiber and 337 mg potassium per 100 g, with how boiling, baking and cooling shift GI and resistant starch."
+description: "Sweet potato is 86 kcal per 100 g in USDA data and 147 kcal in the Korean national table. Why water content splits the two, plus steamed and baked figures, beta-carotene and GI."
 permalink: /en/posts/sweet-potato-nutrition-benefits/
 image: "/assets/images/sweet-potato.jpg"
 nutrition:
@@ -60,6 +60,25 @@ Sweet potatoes are virtually fat-free (0.05 g) while delivering concentrated pro
 | **Jalapin & Polyphenols** | Peel-concentrated | No DV |
 
 *¹ How to read this table: Percent Daily Values (%DV) reflect the standard 2,000-kcal U.S. FDA reference diet. Total sugars and water lack a fixed daily requirement and are noted as 'See note¹', while bioactive phytochemicals such as beta-carotene and jalapin carry 'No DV' (Daily Value not established).*
+
+*※ Source: [USDA FoodData Central FDC 168482](https://fdc.nal.usda.gov/food-details/168482/nutrients) — Sweet potato, raw, unprepared (SR Legacy). The 86 kcal and 1.57 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### Why the USDA says 86 kcal and the Korean table 147 kcal
+
+Sweet potato energy per 100 g is quoted as 86 kcal or 147 kcal — nearly double. The difference is **water content, not a misprint.**
+
+| Source | Energy | Water | Carbohydrate | Fiber | Potassium |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| USDA FoodData Central, sweet potato, raw, unprepared (FDC 168482) | 86 kcal | 77.28 g | 20.12 g | 3.0 g | 337 mg |
+| Korean national food composition table, sweet potato, raw (food code B0060000000a, RDA 2013) | 147 kcal | 62.2 g | 35.52 g | 2.4 g | 375 mg |
+
+The USDA entry is 77.3% water; the Korean entry is 62.2%. The Korean sample therefore carries almost twice the dry matter — mostly starch — in the same 100 g. Korean chestnut and pumpkin sweet potatoes are starchier, drier cultivars, so **147 kcal is the realistic figure for a Korean sweet potato**, while the USDA average describes a different sample.
+
+The Korean table also lists cooked forms: steamed 163 kcal and baked 188 kcal per 100 g. Baking drives off water and develops maltose, raising both energy density and sweetness.
+
+How to read this article, then: the nutrition table uses USDA values so it compares cleanly with the other ingredient guides on this site. **For meal planning with Korean sweet potatoes, use 147 kcal per 100 g raw.**
+
+That changes the usual comparison. Cooked white rice is about 130 kcal per 100 g, so on the Korean figures **raw sweet potato (147) is already slightly above rice, and steamed (163) clearly above it.** Sweet potato earns its diet-food reputation not from low calories but from fiber, potassium and beta-carotene per calorie, plus how cooking and cooling change its glycemic response.
 
 ---
 

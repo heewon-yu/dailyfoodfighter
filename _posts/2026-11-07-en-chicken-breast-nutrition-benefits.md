@@ -62,7 +62,36 @@ Chicken breast delivers ultra-dense amino acid matrices alongside vital B-comple
 | **Water** | 73.90 g | Special classification¹ |
 
 *※ Source: [USDA FoodData Central FDC 171077](https://fdc.nal.usda.gov/food-details/171077/nutrients) — chicken breast, raw, skinless, boneless (SR Legacy). The Korean national table entry (chicken breast, raw, code I008000D020a) gives 106 kcal, 22.97 g protein and 0.97 g fat from a differently trimmed sample.*  
+
 *¹ Water serves as the fundamental physiological fluid matrix rather than a regulated dietary reference intake.*
+
+### Why the USDA says 120 kcal and the Korean table 106 kcal
+
+Chicken breast is quoted at 120 or 106 kcal per 100 g depending on the table. Side by side, the source of the gap is obvious.
+
+| Source | Energy | Protein | Fat | Potassium | Water |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| USDA FoodData Central, chicken breast, raw, skinless, boneless (FDC 171077) | 120 kcal | 22.5 g | 2.62 g | 334 mg | 73.9 g |
+| Korean national food composition table, chicken breast, raw (food code I008000D020a, RDA 2015) | 106 kcal | 22.97 g | 0.97 g | 371 mg | 76.2 g |
+
+Protein is nearly identical (22.5 g vs 22.97 g). **The 1.65 g difference in fat explains almost all of the 14 kcal gap** — fat supplies about 9 kcal per gram, so 1.65 g is roughly 15 kcal. In other words, the Korean sample is a more thoroughly trimmed piece of lean meat, while the USDA entry is labelled skinless and boneless but retains a little more attached fat.
+
+Both are **raw** values, not boiled or roasted. Cooking removes water, so energy and protein per 100 g rise. The same USDA dataset lists roasted chicken breast (FDC 171477) at 165 kcal, 31.0 g protein and 3.57 g fat per 100 g. **Raw 120 kcal and cooked 165 kcal are different stages of the same food**, not a contradiction: the cooked column is more concentrated because the water is gone.
+
+So: this article's table uses the USDA raw entry (171077); when you calculate with Korean data, use 106 kcal per 100 g. Mixing the two is what creates the illusion that the same chicken breast is both 106 and 120 kcal.
+
+### What one fillet, one 4 oz portion or one pack delivers
+
+Raw and cooked chicken breast weigh different amounts. Raw rows use FDC 171077; the cooked row uses the same dataset’s roasted entry (FDC 171477, 165 kcal and 31.0 g protein per 100 g).
+
+| Portion | Weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 raw fillet | 100 g | 120 kcal | 22.50 g |
+| 4 oz raw | 113 g | 136 kcal | 25.43 g |
+| 1 pack (2 fillets) | 200 g | 240 kcal | 45.00 g |
+| 100 g cooked (FDC 171477) | 100 g | 165 kcal | 31.02 g |
+
+*Note: 200 g raw cooks down to roughly 150 g, but the protein stays at 45 g. Log raw weights, not cooked ones, or you will under-count protein.*
 
 ---
 

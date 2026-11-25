@@ -201,7 +201,7 @@ for f in sorted((root / "_posts").glob("*.md")):
         "description_len": len(desc),
         "answer_first": "Y" if af_text else "N",
         "answer_first_text": af_text[:140],
-        "serving_table": "Y" if re.search(r"1\s*(회|인분|개|장|컵|봉|캔|마리|쪽|공기)\s*(섭취|분량|기준)?|per serving", flat, re.I) else "N",
+        "serving_table": "Y" if re.search(r"1\s*(회|인분|개|장|컵|봉|캔|마리|쪽|공기)\s*(섭취|분량|기준)?|per serving|\|\s*(portion|serving)\s*\||\b1\s*(cup|cups|medium|large|small|slice|clove|cloves|fillet|leaf|bunch|block|oz|plate)\b", flat, re.I) else "N",
         "per100g_table": "Y" if re.search(r"100\s*g\s*(당|기준)|per 100\s*g", flat, re.I) else "N",
         "front_serving_basis": serving,
         "state_flags": "/".join([n for n, c in (("raw", raw_state), ("cooked", cooked), ("dried", dried)) if c]),

@@ -64,6 +64,8 @@ nutrition:
 
 *¹ 표 읽는 법: 한국인 영양소 섭취기준(2020) 1일 권장량(열량 2,000kcal, 단백질 55g, 탄수화물 324g, 식이섬유 25g, 엽산 400mcg 등)을 적용했습니다. 수분과 총 당류처럼 절대 권장량 대신 적정 비율이나 총열량 대비 제한치로 관리되는 항목은 '별도 표기¹', 생리활성 탄수화물 및 파이토케미컬은 공식 기준치가 없어 '기준치 없음'으로 표시했습니다.*
 
+*※ 출처: [USDA FoodData Central FDC 173757](https://fdc.nal.usda.gov/food-details/173757/nutrients) — Chickpeas, mature seeds, cooked, boiled, without salt (SR Legacy). 표의 100g당 열량 164 kcal과 단백질 8.86 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ---
 
 ## 2. 병아리콩 효능은 무엇일까? 과학으로 입증된 4대 효과

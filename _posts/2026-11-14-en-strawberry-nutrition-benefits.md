@@ -61,6 +61,8 @@ Strawberries are composed of nearly 91% water, offering exceptional micronutrien
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Items regulated as total intake limits or hydration baselines without an absolute daily requirement (water, total sugars) are marked 'See note¹', while non-essential bioactive phytochemicals carry 'No DV' (Daily Value not established).*
 
+*※ Source: [USDA FoodData Central FDC 167762](https://fdc.nal.usda.gov/food-details/167762/nutrients) — Strawberries, raw (SR Legacy). The 32 kcal and 0.67 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Strawberries? Four Evidence-Backed Effects

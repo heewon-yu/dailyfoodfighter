@@ -69,6 +69,8 @@ Shrimp features near-zero carbohydrate presence with lipid concentrations suppre
 *¹ Water constitutes the biological fluid matrix maintaining myofibrillar hydration.*  
 *² While shrimp houses dietary cholesterol, its virtual absence of saturated fatty acids prevents hepatic low-density lipoprotein (LDL) upregulation.*
 
+*※ Source: [USDA FoodData Central FDC 175179](https://fdc.nal.usda.gov/food-details/175179/nutrients) — Crustaceans, shrimp, raw (SR Legacy). The 85 kcal and 20.1 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Shrimp? Four Evidence-Backed Effects

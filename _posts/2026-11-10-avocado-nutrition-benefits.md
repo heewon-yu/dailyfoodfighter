@@ -65,6 +65,8 @@ nutrition:
 *¹ 수분은 식물성 지질 입자를 안정화하고 부드러운 버터 질감을 형성하는 기본 매질입니다.*  
 *※ '기준치 없음' 표기는 기능성 지질 및 식물영양소로 법적 %DV가 책정되지 않은 항목입니다.*
 
+*※ 출처: [USDA FoodData Central FDC 171705](https://fdc.nal.usda.gov/food-details/171705/nutrients) — Avocados, raw, all commercial varieties (SR Legacy). 표의 100g당 열량 160 kcal과 단백질 2 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ---
 
 ## 2. 아보카도 효능은 무엇일까? 과학으로 입증된 4대 효과

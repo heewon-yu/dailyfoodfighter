@@ -64,6 +64,8 @@ nutrition:
 
 *¹ 표 읽는 법: 한국인 영양소 섭취기준(2020) 1일 권장량(열량 2,000kcal, 단백질 55g, 비타민 E 12mg α-TE, 셀레늄 60mcg, 철분 10mg 등)을 적용했습니다. 수분과 총 당류처럼 절대 권장량 대신 적정 비율이나 총열량 대비 제한치로 관리되는 항목은 '별도 표기¹', 생리활성 아미노산 및 다당류는 공식 권장 기준이 없어 '기준치 없음'으로 표시했습니다.*
 
+*※ 출처: [USDA FoodData Central FDC 174212](https://fdc.nal.usda.gov/food-details/174212/nutrients) — Mollusks, abalone, mixed species, raw (SR Legacy). 표의 100g당 열량 105 kcal과 단백질 17.1 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ---
 
 ## 2. 전복 효능은 무엇일까? 과학으로 입증된 4대 효과

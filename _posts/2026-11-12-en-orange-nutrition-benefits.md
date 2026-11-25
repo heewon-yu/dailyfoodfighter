@@ -67,6 +67,8 @@ Oranges exhibit high nutrient density with minimal energetic burden (47 kcal/100
 *¹ Water constitutes the biological transport solvent essential for electrolyte equilibrium.*  
 *※ 'Daily value not established' designates functional secondary metabolites, bioflavonoids, and carotenoids devoid of statutory percentage reference thresholds.*
 
+*※ Source: [USDA FoodData Central FDC 169097](https://fdc.nal.usda.gov/food-details/169097/nutrients) — Oranges, raw, all commercial varieties (SR Legacy). The 47 kcal and 0.94 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Oranges? Four Evidence-Backed Effects

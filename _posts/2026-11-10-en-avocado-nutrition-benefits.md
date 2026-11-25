@@ -64,6 +64,8 @@ A 100-gram serving of raw Hass avocado yields approximately 160 kcal, exhibiting
 *※ Source: USDA FoodData Central Analytical Repository.*  
 *¹ Water constitutes the stabilizing continuous aqueous phase maintaining delicate lipid emulsification in intact avocado parenchyma.*
 
+*※ Source: [USDA FoodData Central FDC 171705](https://fdc.nal.usda.gov/food-details/171705/nutrients) — Avocados, raw, all commercial varieties (SR Legacy). The 160 kcal and 2 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Avocado? Four Evidence-Backed Effects

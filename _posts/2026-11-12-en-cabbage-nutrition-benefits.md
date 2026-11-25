@@ -62,6 +62,7 @@ Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100
 | **Iron (Fe)** | 0.47 mg | 2.6% |
 
 *※ Source: [USDA FoodData Central FDC 169975](https://fdc.nal.usda.gov/food-details/169975/nutrients) — cabbage, raw (SR Legacy). Vitamin U (total S-methylmethionine) and glucosinolate totals have no standard analysed value in USDA or Korean composition tables, so those rows are omitted.*  
+
 *¹ Water serves as the physical hydration matrix sustaining gastric mucosal secretion.*  
 *※ 'Daily value not established' denotes functional organosulfur conjugates and glucosinolate precursors devoid of formal percentage DRI thresholds.*
 

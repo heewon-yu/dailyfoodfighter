@@ -62,6 +62,7 @@ nutrition:
 | **철분 (Iron, Fe)** | 0.47 mg | 3.9% |
 
 *※ 출처: [USDA FoodData Central FDC 169975](https://fdc.nal.usda.gov/food-details/169975/nutrients) — Cabbage, raw (SR Legacy). 비타민 U(총 S-메틸메티오닌)와 글루코시놀레이트는 USDA·국내 성분표에 표준 분석값이 없어 표에서 제외했습니다.*  
+
 *¹ 수분은 점막 조직 상피의 탄력성과 소화액 분비를 지지하는 생체 용매입니다.*  
 *※ '기준치 없음' 표기는 기능성 유황 화합물 및 파이토케미컬로 DRI상 일일 권장 백분율(%DV)이 법적으로 규정되지 않은 항목입니다.*
 

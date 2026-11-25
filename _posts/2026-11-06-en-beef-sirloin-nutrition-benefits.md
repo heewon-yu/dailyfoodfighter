@@ -60,6 +60,8 @@ Synthesized from standardized analytical spectroscopic determinations cataloged 
 
 *Data Source: USDA FoodData Central (FDC ID: 168726) & National Cattlemen's Beef Association.*
 
+*※ Source: [USDA FoodData Central FDC 168726](https://fdc.nal.usda.gov/food-details/168726/nutrients) — Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8 in fat, raw (SR Legacy). The 201 kcal and 20.3 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Beef Sirloin? Four Evidence-Backed Effects

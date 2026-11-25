@@ -71,6 +71,8 @@ Beetroot is roughly 88% water. Its carbohydrate fraction is nearly all sugars an
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Water and total sugars, which have no absolute daily requirement, are marked 'See note¹', while phytochemicals and antinutrients without an established allowance—nitrate, betalains, oxalate—carry 'No DV'.*
 
+*※ Source: [USDA FoodData Central FDC 169145](https://fdc.nal.usda.gov/food-details/169145/nutrients) — Beets, raw (SR Legacy). The 43 kcal and 1.61 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 Cooking shifts the profile. Boiled beetroot remains about 44 kcal per 100 g, but **10–30% of water-soluble betalains, folate, and potassium leach into the cooking water.** Steaming or roasting whole limits those losses to 5–15%.
 
 ---

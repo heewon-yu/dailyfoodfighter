@@ -70,6 +70,8 @@ nutrition:
 *² 새우의 콜레스테롤은 포화지방이 거의 없어 혈중 LDL 상승 효과가 극히 미미하며, 타우린 성분이 체외 배출을 자극합니다.*  
 *※ '기준치 없음' 표기는 기능성 아미노산 및 항산화 물질로 법적 일일 %DV 규정이 책정되지 않은 항목입니다.*
 
+*※ 출처: [USDA FoodData Central FDC 175179](https://fdc.nal.usda.gov/food-details/175179/nutrients) — Crustaceans, shrimp, raw (SR Legacy). 표의 100g당 열량 85 kcal과 단백질 20.1 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ---
 
 ## 2. 새우 효능은 무엇일까? 과학으로 입증된 4대 효과

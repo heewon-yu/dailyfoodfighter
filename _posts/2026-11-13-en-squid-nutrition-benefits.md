@@ -71,6 +71,21 @@ Squid exhibits high amino acid density, rich marine trace elements, and low calo
 *¹ Water constitutes the biological protoplasmic medium rather than an established dietary reference value.*  
 *※ 'Daily value not established' applies to non-proteinogenic amino sulfonic acids (taurine) and marine fatty acids lacking statutory DRI percentage limits.*
 
+*※ Source: [USDA FoodData Central FDC 174223](https://fdc.nal.usda.gov/food-details/174223/nutrients) — Mollusks, squid, mixed species, raw (SR Legacy). The 92 kcal and 15.58 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What a 3 oz portion or a whole squid delivers
+
+USDA portion weights, scaled to the 92 kcal per 100 g above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 oz, boneless | 28 g | 26 kcal | 4.42 g |
+| 3 oz | 85 g | 78 kcal | 13.24 g |
+| 100 g | 100 g | 92 kcal | 15.58 g |
+| 1 whole, cleaned (about 200 g) | 200 g | 184 kcal | 31.16 g |
+
+*Note: squid is lean enough that a 200 g cleaned body is still under 190 kcal with 31 g of protein. Frying is what changes the number, not the squid.*
+
 ---
 
 ## 2. What Are the Benefits of Squid? Four Evidence-Backed Effects

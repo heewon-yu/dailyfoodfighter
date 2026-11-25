@@ -65,6 +65,8 @@ The values below reflect **raw green kiwifruit (edible flesh, *Actinidia delicio
 
 *¹ Water and total sugars have no established U.S. Daily Value (%DV) on standard nutrition labels; federal dietary guidelines advise keeping added sugars below 10% of daily calories, whereas kiwi's sugars are intrinsic to whole-fruit cell walls.*
 
+*※ Source: [USDA FoodData Central FDC 168153](https://fdc.nal.usda.gov/food-details/168153/nutrients) — Kiwifruit, green, raw (SR Legacy). The 61 kcal and 1.14 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ### How to Read the Table: Green vs. Gold Kiwi
 - **Green Kiwi (Hayward):** Higher insoluble/soluble fiber (3.0 g/100 g) and high **actinidin** activity make it superior for constipation relief, post-meal protein digestion, and gentler glycemic response (GI ~39–47).
 - **Gold Kiwi (SunGold):** At **161.3 mg vitamin C per 100 g**, one medium gold kiwi easily exceeds an adult's entire daily vitamin C requirement while offering lower acidity for sensitive mouths.

@@ -62,6 +62,37 @@ Bananas feature zero saturated lipid fractions and deliver calibrated matrices o
 *¹ Water functions as the primary physiological solvent governing fluid volume and intracellular osmotic gradients.*  
 *※ 'Daily value not established' designates naturally occurring saccharide isomers, functional amino acids, or resistant polysaccharides lacking statutory DRI percentage benchmarks.*
 
+*※ Source: [USDA FoodData Central FDC 173944](https://fdc.nal.usda.gov/food-details/173944/nutrients) — Bananas, raw (SR Legacy). The 89 kcal and 1.09 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### Why does the USDA say 89 kcal and the Korean table 77 kcal?
+
+Banana energy per 100 g is quoted as either 89 or 77 kcal depending on the table. Neither is wrong, so this article shows both side by side.
+
+| Source | Energy | Water | Carbohydrate | Fiber | Potassium |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| USDA FoodData Central, bananas, raw (FDC 173944) | 89 kcal | 74.91 g | 22.84 g | 2.6 g | 358 mg |
+| Korean national food composition table, banana, raw (food code H0370000000a, RDA 2020) | 77 kcal | 78 g | 20.0 g | 2.2 g | 355 mg |
+
+The gap comes from **the sample and the calculation basis, not from error.** The Korean entry is 78% water with 20.0 g of carbohydrate; the USDA entry is 74.9% water with 22.84 g. Bananas convert starch to sugar as they ripen and their water content shifts, so **the ripeness of the analysed fruit** can move the figure by more than 10 kcal. The energy-conversion factors each agency applies add a little more.
+
+Per banana it looks like this: one medium fruit (118 g edible) is **105 kcal on the USDA figure and about 91 kcal on the Korean figure** (118 g × 0.77). Either way, one banana is roughly 100 kcal.
+
+Pick one table and stay with it for meal planning or labelling. This article uses USDA values so that it compares cleanly with the other ingredient guides on this site; when you compare with Korean products, read both rows above.
+
+### What one banana delivers, by size
+
+USDA portion weights, scaled to the 89 kcal per 100 g above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| Extra small (under 6 in) | 81 g | 72 kcal | 0.88 g |
+| Small (6–6 7/8 in) | 101 g | 90 kcal | 1.10 g |
+| Medium (7–7 7/8 in) | 118 g | 105 kcal | 1.29 g |
+| Large (8–8 7/8 in) | 136 g | 121 kcal | 1.48 g |
+| 1 cup, sliced | 150 g | 134 kcal | 1.64 g |
+
+*Note: the commonly quoted "105 calories per banana" is the medium fruit. On the Korean national table the same medium banana is about 91 kcal (see the source note above), so a banana is 90–105 kcal depending on the table and the size.*
+
 ---
 
 ## 2. What Are the Benefits of Bananas? Four Evidence-Backed Effects

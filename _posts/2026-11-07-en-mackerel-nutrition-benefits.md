@@ -63,6 +63,8 @@ Mackerel provides dense macronutrient energy supported by exceptional omega-3 pr
 *※ Source: USDA FoodData Central Standard Reference.*  
 *¹ Water serves as the biological solvent matrix rather than a regulated dietary reference intake.*
 
+*※ Source: [USDA FoodData Central FDC 175119](https://fdc.nal.usda.gov/food-details/175119/nutrients) — Fish, mackerel, Atlantic, raw (SR Legacy). The 205 kcal and 18.6 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ---
 
 ## 2. What Are the Benefits of Mackerel? Four Evidence-Backed Effects
@@ -78,6 +80,28 @@ Mackerel yields over 640 IU of natural **vitamin D3** per serving, stimulating i
 
 ### ④ Heavy Metal Antagonism through Selenoproteins
 Mackerel is exceptionally rich in **selenium (80% DV)**, which binds trace marine methylmercury to form inert bis(methylmercuric) selenide complexes, neutralizing heavy metal cytotoxicity while supercharging glutathione peroxidase antioxidant defenses.
+
+### Is mackerel skin worth eating? Species-specific omega-3 and cooking loss
+
+Mackerel fat sits mostly **just under the skin and in the dark red lateral muscle (chiai)**, not in the pale centre of the fillet. Remove the skin and you remove a disproportionate share of the EPA and DHA, even though the weight looks the same. The USDA entry this article uses is analysed on the **whole edible portion including skin**, so there is no official figure for how much is lost when the skin is discarded. The direction is not in doubt: **cooking the fish skin-on and keeping the rendered fat in the dish leaves more omega-3 on the plate.**
+
+Species matters more than most buyers realise. Per 100 g raw, from USDA FoodData Central:
+
+| Species (USDA entry) | Energy | Fat | EPA | DHA | EPA+DHA |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Atlantic mackerel, raw (FDC 175119) | 205 kcal | 13.89 g | 898 mg | 1,401 mg | 2,299 mg |
+| Spanish mackerel, raw (FDC 173673) | 139 kcal | 6.30 g | 329 mg | 1,012 mg | 1,341 mg |
+| King mackerel, raw (FDC 175122) | 105 kcal | 2.00 g | 136 mg | 177 mg | 313 mg |
+
+That is a **seven-fold spread in EPA+DHA** between Atlantic and king mackerel. If omega-3 is the reason you are buying the fish, the species on the label matters as much as the cooking method.
+
+Cooking loss is measured as well. Atlantic mackerel cooked by dry heat (FDC 175120) lists **262 kcal, 17.81 g fat and 1,203 mg EPA+DHA per 100 g**, about 48% less omega-3 per 100 g than the raw entry. The fat renders out during cooking. The higher calorie figure per 100 g is **not added oil** — it is the same fish with less water, so more solids fit into every 100 g. Per whole fillet, the energy barely changes.
+
+Three practical points follow.
+
+- **Cook it skin-on, over a tray or in a sauce.** Baking on parchment or braising in a shallow liquid keeps the rendered fat in the dish instead of on the pan.
+- **Brown it, do not char it.** Fat that drips onto a flame and burns produces polycyclic aromatic hydrocarbons (PAHs); a golden skin is the target, not a black one.
+- **One fillet is about 100–120 g,** which supplies 2.3–2.8 g of EPA+DHA — the range most guidelines suggest for a whole day.
 
 ---
 

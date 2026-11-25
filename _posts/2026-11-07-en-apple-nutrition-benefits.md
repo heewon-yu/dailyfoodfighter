@@ -62,6 +62,21 @@ Composed of approximately 85.6% biological cellular water, the raw whole apple d
 *¹ Water content is recognized as essential cellular solvent; standard daily dietary reference values are established independently of caloric intake.*  
 *※ "No DV" denotes bioactive phytochemicals that confer profound clinical benefits but lack formal legal Daily Value percentages in current federal guidelines.*
 
+*※ Source: [USDA FoodData Central FDC 171688](https://fdc.nal.usda.gov/food-details/171688/nutrients) — Apples, raw, with skin (SR Legacy). The 52 kcal and 0.26 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What one apple delivers, by size
+
+USDA portion weights, scaled to the 52 kcal per 100 g above.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 small (2 3/4 in) | 149 g | 77 kcal | 0.39 g |
+| 1 medium (3 in) | 182 g | 95 kcal | 0.47 g |
+| 1 large (3 1/4 in) | 223 g | 116 kcal | 0.58 g |
+| 1 cup, sliced | 109 g | 57 kcal | 0.28 g |
+
+*Note: a medium apple is 95 kcal — the fruit is not calorie-free, but the fiber and chewing are why it satisfies more than 95 kcal of juice.*
+
 ---
 
 ## 2. What Are the Benefits of Apples? Four Evidence-Backed Effects

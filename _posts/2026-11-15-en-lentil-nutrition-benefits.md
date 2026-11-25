@@ -73,6 +73,8 @@ Because the water content of dry lentils is only about 8%, the figures below des
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Water and total sugars, which have no absolute daily requirement, are marked 'See note¹', while phytic acid—a non-essential antinutrient without an established allowance—carries 'No DV'.*
 
+*※ Source: [USDA FoodData Central FDC 172420](https://fdc.nal.usda.gov/food-details/172420/nutrients) — Lentils, raw (SR Legacy). The 352 kcal and 24.63 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 Translated into an actual portion, **one cup of cooked lentils (about 200 g) provides 232 kcal, 18 g of protein, and 15.8 g of fiber**—more protein and fiber than two bowls of white rice at the same energy load.
 
 ---

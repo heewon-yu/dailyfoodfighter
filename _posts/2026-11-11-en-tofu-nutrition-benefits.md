@@ -78,6 +78,19 @@ The following table describes regular calcium-sulfate tofu, not a universal firm
 *¹ Water constitutes the biological hydration matrix rather than a regulated dietary intake value.*  
 *※ 'Daily value not established' applies to functional bioactive lipids, amino acids, and polyphenols devoid of formal statutory DRI percentage baselines.*
 
+### What a quarter block, half block and whole block deliver
+
+Tofu is sold in blocks of 250–400 g. These rows use a 300 g block and the USDA half-cup portion.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1/4 block | 75 g | 57 kcal | 6.06 g |
+| 1/2 block | 150 g | 114 kcal | 12.12 g |
+| 1 block | 300 g | 228 kcal | 24.24 g |
+| 1/2 cup (USDA) | 124 g | 94.2 kcal | 10.02 g |
+
+*Note: a whole 300 g block is 228 kcal and 24 g of protein. If you target about 20 g of protein per meal, **a third to a half of a block** is the realistic portion. Pressing tofu removes water, not nutrients.*
+
 ---
 
 ## 2. What Are the Benefits of Tofu? Four Evidence-Backed Effects
