@@ -52,6 +52,9 @@ def plain(md):
     s = s.replace("**", "").replace("__", "").replace("`", "")
     s = re.sub(r"(?<!\*)\*(?!\*)", "", s)
     s = re.sub(r"\s+", " ", s).strip()
+    s = re.sub(r"\s+([.,;:!?])", r"\1", s)
+    s = re.sub(r"([)\]\d%℃µ])\s+(가|는|은|을|를|이|와|과|로|으로|에|에서|도|만|보다|이며|이고)",
+               r"\1\2", s)
     return s
 
 

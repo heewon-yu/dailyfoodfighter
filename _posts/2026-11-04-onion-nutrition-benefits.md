@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "1.7 g"
   sugarContent: "4.24 g"
 ---
-
 <img src="/assets/images/onion.jpg" alt="양파를 잘랐을 때 드러나는 겹겹의 단면" width="1200" height="675" loading="eager" fetchpriority="high" decoding="async">
 *▲ 양파는 생으로 썰면 아삭하고, 익히면 매운맛이 줄어듭니다. 사진은 [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Sliced_Onions.jpg), CC0.*
 
@@ -134,7 +133,7 @@ nutrition:
       "name": "양파를 가열 조리하면 매운맛이 사라지면서 핵심 영양소가 파괴되나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "아닙니다. 양파의 핵심 플라보노이드인 케르세틴은 열 안정성이 매우 뛰어나 끓이거나 볶아도 85% 이상 파괴되지 않고 유지됩니다. 매운 황화알릴 성분은 가열 시 단맛을 내는 프로필메르캅탄으로 전환되어 위장 자극을 줄여줍니다."
+        "text": "아닙니다. 양파의 핵심 플라보노이드인 케르세틴은 열 안정성이 매우 뛰어나 끓이거나 볶아도 85%이상 파괴되지 않고 유지됩니다. 매운 황화알릴 성분은 가열 시 단맛을 내는 프로필메르캅탄으로 전환되어 위장 자극을 줄여줍니다."
       }
     },
     {
