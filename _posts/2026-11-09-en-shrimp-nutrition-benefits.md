@@ -152,7 +152,7 @@ The cuticular exoskeleton and tail segments of shrimp contain structural **chiti
     },
     {
       "@type": "Question",
-      "name": "Should the dark dorsal vein be removed prior to cooking?",
+      "name": "Should the dark dorsal vein (alimentary tract) be removed prior to cooking?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Removal is recommended for optimal texture, as the dorsal intestinal tract may contain fine sand particles that create a gritty culinary mouthfeel."

@@ -200,7 +200,7 @@ Nutritionally, it supplies **protein, iron and B vitamins** in an easy-to-eat fo
     },
     {
       "@type": "Question",
-      "name": "Should I eat the duck skin?",
+      "name": "Should I eat the skin?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "It is safe to eat, but skin-on duck runs 242 to 404 calories per 100 g, two to three times the skinless figure, and fat rises from about 6 g to 19 to 39 g. Removing the skin cuts calories by half or more and fat by roughly six sevenths."

@@ -137,7 +137,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Should mackerel skin and dark red lateral flesh be eaten?",
+      "name": "Should mackerel skin and dark red lateral flesh (chiai) be eaten?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Mackerel skin contains concentrated collagen and omega-3 lipids, while the dark red lateral muscle supplies dense bioavailable heme iron, vitamin B12, and cellular taurine."

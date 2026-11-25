@@ -154,7 +154,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
     },
     {
       "@type": "Question",
-      "name": "What is the biological basis behind avoiding oysters in months without the letter R?",
+      "name": "What is the biological basis behind the rule of avoiding oysters in months without the letter ‘R’?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "May through August is the primary spawning season, during which glycogen reserves drop sharply, degrading flavor and texture while summer seawater temperatures elevate Vibrio bacterial proliferation."

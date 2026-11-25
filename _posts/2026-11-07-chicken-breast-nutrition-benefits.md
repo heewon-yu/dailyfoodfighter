@@ -23,7 +23,7 @@ nutrition:
 *▲ 저지방 고단백의 대표 식재료인 닭가슴살(Chicken Breast)은 골격근 합성의 방아쇠인 류신(Leucine)을 비롯한 BCAA와 철새의 장거리 비행을 지탱하는 항피로 펩타이드인 이미다졸 디펩티드의 결정체입니다.*
 
 <div class="answer-first">
-<span class="answer-label">한 줄 결론</span> <strong>닭가슴살 100g은 110kcal, 단백질 23.1g, 지방 2.6g입니다.</strong> 단백질 1g당 열량이 낮아 근육을 늘리면서 지방을 줄일 때 기준 식품이 되고, 60~65℃에서 익히면 수분 손실이 적어 퍽퍽함이 줄어듭니다.
+<span class="answer-label">한 줄 결론</span> <strong>닭가슴살 100g은 110kcal, 단백질 23.1g, 지방 1.24g입니다.</strong> 단백질 1g당 열량이 낮아 근육을 늘리면서 지방을 줄일 때 기준 식품이 되고, 60~65℃에서 익히면 수분 손실이 적어 퍽퍽함이 줄어듭니다.
 </div>
 
 현대 스포츠 영양학과 임상 식이요법에서 **닭가슴살(Chicken Breast)**은 단순한 다이어트 식품을 넘어 세포 재생과 근육 대사의 표준(Gold Standard) 단백질 급원으로 자리매김하고 있습니다.

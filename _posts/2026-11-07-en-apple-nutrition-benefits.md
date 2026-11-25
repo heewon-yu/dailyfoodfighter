@@ -156,7 +156,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
   "mainEntity": [
     {
       "@type": "Question",
-      "name": "Is there scientific truth behind the proverb 'Gold in the morning, poison at night' regarding apples?",
+      "name": "Is there scientific truth behind the proverb ‘Gold in the morning, poison at night’ regarding apples?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "It is a clinical myth. Apples are never toxic at night. However, organic malic acids stimulate gastric secretions, which might exacerbate acid reflux in sensitive recumbent individuals, making morning ingestion preferable."

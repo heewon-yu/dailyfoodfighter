@@ -160,7 +160,7 @@ Garlic's clinically validated platelet anti-aggregatory and fibrinolytic actions
     },
     {
       "@type": "Question",
-      "name": "Does thermal cooking completely deactivate allicin's functional bioactivity in garlic?",
+      "name": "Does thermal cooking completely deactivate allicin’s functional bioactivity in garlic?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Heat denatures the alliinase enzyme, yet gives rise to ajoene and allyl polysulfides that retain cardiovascular efficacy. Slicing or crushing garlic and resting it for 10 minutes prior to heating ensures optimal allicin enzyme conversion."
