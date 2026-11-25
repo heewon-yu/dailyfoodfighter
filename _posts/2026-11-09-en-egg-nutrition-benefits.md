@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Egg Calories and Protein: 1 Egg, 2 Eggs & 100 g"
+title: "How Much Protein in an Egg? 6.3 g in a Large Egg (72 kcal)"
 date: 2026-11-09 08:00:00 +0900
 last_modified_at: 2026-11-25 09:50:00 +0900
 lang: en
 category: "Meat"
 tags: [Egg, Biological Value, Choline, Lutein, Dietary Cholesterol]
-description: "A 50 g edible portion of raw whole egg has about 72 kcal and 6.3 g protein; two have about 143 kcal and 12.6 g. See weight-based estimates and source."
+description: "A large egg (50 g edible) has 6.3 g protein and 72 kcal; a medium egg has 5.5 g, and two large eggs 12.6 g. Protein by egg size, white vs yolk, and how eggs fit a day's target."
 permalink: /en/posts/egg-nutrition-benefits/
 image: "/assets/images/egg.jpg"
 nutrition:
@@ -22,7 +22,7 @@ nutrition:
 *▲ The egg (Gallus gallus domesticus) is a compact source of high-quality protein, choline, lutein and zeaxanthin, and fat-soluble vitamins. Figures use USDA FoodData Central FDC 171287 (raw, edible portion).*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>A large raw whole egg (50 g edible weight) has about 72 kcal and 6.3 g protein; two have about 143 kcal and 12.6 g.</strong> Egg size, cooking and added oil affect actual values.
+<span class="answer-label">Quick answer</span> <strong>A large whole egg (50 g edible weight) has about 6.3 g of protein and 72 kcal. A medium egg (44 g) has 5.5 g; two large eggs give 12.6 g protein and 143 kcal.</strong> A large boiled egg is about 77 kcal because it loses water during cooking, but its protein stays at 6.3 g. The white carries roughly 3.6 g of the protein and the yolk about 2.7 g.
 </div>
 
 ## Calories and protein by egg size
@@ -37,13 +37,9 @@ nutrition:
 These are calculated from raw whole egg, not a separately measured boiled or fried egg. Shell weight and added fat are excluded. [USDA FoodData Central, FDC 171287](https://fdc.nal.usda.gov/food-details/171287/nutrients).
 
 
-Within clinical dietetics and metabolic biochemistry, the **whole egg** stands as the definitive nutritional benchmark for protein quality and micronutrient density.
+Egg protein is usually counted per egg rather than per 100 g. One large egg (50 g edible weight) carries 6.3 g of protein, which is about 11% of the 56 g daily protein reference for a sedentary 70 kg adult (0.8 g per kg body weight). The white holds roughly 3.6 g of that protein and the yolk about 2.7 g, so discarding the yolk removes fat and micronutrients but not most of the protein.
 
-Scoring a perfect 100 on the international **Biological Value (BV)** index, egg protein delivers all nine essential amino acids (EAAs) in proportions that precisely mirror human physiological demands. 
-
-Beyond its dense nitrogen matrix, the egg yolk (vitellus) houses dense reserves of **choline**—the indispensable biochemical substrate for the neurotransmitter acetylcholine and cell membrane phosphatidylcholine—alongside polar lipid-bound **lutein and zeaxanthin**, which demonstrate superior bioaccessibility compared to terrestrial plant sources.
-
-Synthesizing analytical datasets from the USDA FoodData Central and landmark cardiovascular cohort trials, this treatise delineates the quantitative nutritional profile of eggs, their systemic metabolic mechanisms, and molecular culinary parameters.
+The table above converts the USDA raw whole-egg entry ([FDC 171287](https://fdc.nal.usda.gov/food-details/171287/nutrients)) by edible weight. Boiling, frying or scrambling changes calories through added fat and water loss, while protein per egg stays close to the raw figure. Egg protein is highly digestible and supplies all nine essential amino acids; the yolk also carries choline, lutein and zeaxanthin. Practical portions: one egg for a light breakfast, two eggs when the rest of the meal is low in protein, and adjust the rest of the day rather than the egg count if you are tracking calories.
 
 ---
 

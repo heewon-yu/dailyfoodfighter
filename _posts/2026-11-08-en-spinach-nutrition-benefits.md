@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Spinach Nutrition per 100 g: 23 Calories, 483 mcg Vitamin K"
+title: "Palak Keerai (Spinach) Nutrition per 100 g: Iron, Folate, Oxalate"
 date: 2026-11-08 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Vegetables"
 tags: [Spinach, Lutein, Dietary Nitrates, Vitamin K, Folate]
-description: "Raw spinach has 23 calories, 2.2 g fiber and 483 mcg vitamin K per 100 g. Does sauteing cut oxalates? Boiling vs sauteing compared, plus iron and pH notes."
+description: "Palak keerai (spinach) has 23 kcal, 194 mcg folate, 2.71 mg iron, 558 mg potassium and 483 mcg vitamin K per 100 g raw. Why its iron absorbs poorly, and whether boiling or sauteing removes oxalate."
 permalink: /en/posts/spinach-nutrition-benefits/
 image: "/assets/images/spinach.jpg"
 nutrition:
@@ -22,18 +22,12 @@ nutrition:
 *▲ Regarded as the apex of green leafy vegetables, spinach (Spinacia oleracea) supplies concentrated inorganic dietary nitrates for vascular nitric oxide (NO) synthesis and exceptional reserves of phylloquinone (vitamin K1) for bone osteocalcin carboxylation.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>Spinach provides 23 calories, 483 mcg vitamin K and 2.71 mg iron per 100 g.</strong> Sauteing spinach does not remove oxalates because there is no water to leach into, while boiling in plenty of water leaches them into the cooking water.
+<span class="answer-label">Quick answer</span> <strong>Palak keerai (spinach) has 23 kcal, 194 mcg folate, 2.71 mg iron, 558 mg potassium and 483 mcg vitamin K per 100 g raw.</strong> The iron is non-heme and oxalate-bound, so only a small share is absorbed — pair it with vitamin C instead of counting on it as an iron food. Boiling in plenty of water leaches oxalate into the water; sauteing does not.
 </div>
 
-Within preventive cardiology, clinical ophthalmology, and sports nutrition, **spinach** functions as an indispensable plant matrix engineered by nature to protect vascular endothelium, bone architecture, and retinal photoreceptors from oxidative and metabolic decline.
+Palak keerai is simply spinach — the name used for it in Tamil and across South India, and the same leafy green behind palak paneer and dal palak. Per 100 g raw it gives 23 kcal, 2.71 mg iron, 194 mcg folate, 558 mg potassium, 2.2 g fiber and 483 mcg vitamin K. Those figures come from the USDA entry; Indian food composition tables and other national databases list somewhat different values, so compare a spinach table with itself rather than mixing sources.
 
-Delivering an extraordinary 483 mcg of **phylloquinone (vitamin K1)** per 100 g of fresh leaves—surpassing 400% of the statutory adult Daily Value—spinach represents the primary dietary driver for activating osteocalcin, directing calcium mineral deposition into the skeletal matrix while preventing vascular calcification.
-
-Moreover, spinach provides abundant stores of **inorganic nitrate (NO3-)**. Following salivary bacterial reduction to nitrite, systemic conversion yields active **nitric oxide (NO)**, which relaxes vascular smooth muscle, diminishes arterial stiffness, and enhances peripheral tissue perfusion.
-
-Simultaneously, the dense accumulation of macular carotenoids—**lutein and zeaxanthin** exceeding 12,000 mcg per 100 g—forms a physical filtration shield against high-energy short-wave blue light, safeguarding retinal pigment epithelial integrity.
-
-Extracting validated data from the USDA FoodData Central and biochemical literature, this monograph details the quantitative nutritional profile of spinach, its physiological bio-mechanisms, and culinary principles for minimizing oxalate interference.
+Iron and calcium are the nutrients spinach is famous for, and the ones it delivers least reliably. Both are bound by oxalate: only a small fraction of spinach iron is absorbed, and most of its calcium passes through. Treat spinach as a folate, vitamin K and potassium food, and pair it with vitamin C (lemon, tomato, bell pepper) when you want its non-heme iron to count. For cooking, the answer to "does sauteing remove oxalates" is no — without water there is nothing to leach into. Boiling in plenty of water and discarding it removes a measurable share, which is why blanched spinach is the better choice for anyone with a history of calcium oxalate stones.
 
 ---
 

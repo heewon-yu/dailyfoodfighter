@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Banana Nutrition per 100 g: 89 Calories, 358 mg Potassium"
+title: "How Many Carbs in a Banana? 27 g per Medium, 22.8 g per 100 g"
 date: 2026-11-08 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en
 category: "Fruits"
 tags: [Banana, Potassium, Vitamin B6, Resistant Starch, Gut Microbiome]
-description: "A 100 g banana has 89 calories, 22.8 g carbs, 2.6 g fiber and 358 mg potassium (a medium fruit: 105 calories, 422 mg). Carbs, sugar and ripeness answered."
+description: "A medium banana (118 g) has about 27 g carbs, 14 g sugars, 3.1 g fiber and 105 kcal; per 100 g: 22.8 g carbs, 12.2 g sugars, 2.6 g fiber, 358 mg potassium. Green vs ripe starch, net carbs and portion sizes."
 permalink: /en/posts/banana-nutrition-benefits/
 image: "/assets/images/banana.jpg"
 nutrition:
@@ -22,18 +22,12 @@ nutrition:
 *▲ As a preeminent global nutritional staple, the banana (Musa acuminata) provides essential bioavailable potassium for maintaining cellular membrane potentials alongside prebiotic resistant starch that systematically regenerates the human colonic microbiome.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>A medium banana has about 105 calories and supplies 422 mg potassium, 32 mg magnesium and 0.43 mg vitamin B6.</strong> Green bananas hold resistant starch with a glycemic index near 42, while ripe bananas are mostly free sugars.
+<span class="answer-label">Quick answer</span> <strong>A medium banana (118 g) has about 27 g of carbohydrate, 14 g of sugars, 3.1 g of fiber and 105 kcal. Per 100 g of peeled fruit: 22.8 g carbs, 12.2 g sugars, 2.6 g fiber, 89 kcal.</strong> A small banana (101 g) is about 23 g carbs and a large one (136 g) about 31 g. Green bananas hold resistant starch, so the same carb total raises blood sugar more slowly.
 </div>
 
-Within clinical dietetics and metabolic biochemistry, the **banana** transcends its perception as a portable carbohydrate source, functioning as an evidence-based functional food supporting arterial compliance, neurotransmitter homeostasis, and gastrointestinal mucosal integrity.
+Carbohydrate is what a banana mostly delivers: about 93% of its calories. Per 100 g of peeled fruit there are 22.84 g of carbohydrate, of which 12.23 g is sugars and 2.6 g is fiber. Scaled to the usual fruit size — a medium banana of 118 g edible weight — that is about 27 g carbs, 14 g sugars, 3.1 g fiber and 105 kcal, which is why "27 g" appears in most dietary tables.
 
-Supplying approximately 358 mg of bioavailable elemental potassium per 100 g of edible pulp, bananas directly counteract the cytotoxic intracellular sodium retention induced by hyper-processed modern diets. 
-
-Crucially, the chemical structure of banana carbohydrates evolves dynamically throughout ripening. In slightly underripe specimens, **type-2 resistant starch (RS2)** bypasses upper gastrointestinal enzymatic hydrolysis, acting as an elite fermentable prebiotic substrate that triggers colonic short-chain fatty acid (SCFA) biosynthesis. 
-
-Simultaneously, the rare botanical co-localization of **vitamin B6 (pyridoxine)** with the essential amino acid **L-tryptophan** establishes an efficient biosynthetic pathway for central nervous system serotonin synthesis, mitigating neuroendocrine cortisol elevations.
-
-Synthesizing analytical datasets from the USDA FoodData Central and clinical cardiovascular trials, this treatise delineates the quantitative nutritional profile of bananas, their systemic physiological mechanisms, and empirical dietary protocols.
+Ripeness changes the type of carbohydrate more than the total. A green banana holds resistant starch that is counted as carbohydrate but resists digestion, so it has a smaller effect on blood glucose; as the fruit ripens that starch becomes glucose, fructose and sucrose, and the same 27 g of carbs tastes sweeter and raises blood sugar faster. Weight for weight, a green banana is not lower in carbohydrate — it is lower in digestible carbohydrate. If you count net carbs, subtract fiber (2.6 g per 100 g, about 3.1 g per medium banana).
 
 ---
 
