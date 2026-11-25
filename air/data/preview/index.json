@@ -1,33 +1,33 @@
 {
   "mode": "test",
   "schema_version": 3,
-  "generated_at": "2026-11-25T07:43:05.750848+00:00",
+  "generated_at": "2026-11-25T08:38:37.915243+00:00",
   "total": 274,
-  "snapshot": "0e01169d7651560b",
+  "snapshot": "a14adde5762911bc",
   "files": [
     {
       "region": "europe",
       "month": "2026-11",
       "total": 90,
-      "path": "snapshots/0e01169d7651560b/europe/2026-11.json"
+      "path": "snapshots/a14adde5762911bc/europe/2026-11.json"
     },
     {
       "region": "japan",
       "month": "2027-04",
       "total": 4,
-      "path": "snapshots/0e01169d7651560b/japan/2027-04.json"
+      "path": "snapshots/a14adde5762911bc/japan/2027-04.json"
     },
     {
       "region": "north-america",
       "month": "2027-04",
       "total": 90,
-      "path": "snapshots/0e01169d7651560b/north-america/2027-04.json"
+      "path": "snapshots/a14adde5762911bc/north-america/2027-04.json"
     },
     {
       "region": "southeast-asia",
       "month": "2026-11",
       "total": 90,
-      "path": "snapshots/0e01169d7651560b/southeast-asia/2026-11.json"
+      "path": "snapshots/a14adde5762911bc/southeast-asia/2026-11.json"
     }
   ]
 }
