@@ -1,0 +1,44 @@
+{% if page.lang == 'en' %}{% assign is_en = true %}{% else %}{% assign is_en = false %}{% endif %}
+<section id="dff-calc" aria-labelledby="calc-heading">
+<h2 id="calc-heading">{% if is_en %}Calculate and compare two portions{% else %}섭취량별 칼로리·단백질 계산 및 비교{% endif %}</h2>
+<p>{% if is_en %}Choose up to two foods and enter their edible weights. Results use the reference data below, without added oil or other ingredients.{% else %}식재료 2개를 선택하고 껍질·뼈 등을 제외한 가식부 무게를 입력하세요. 아래 기준값에 따른 환산이며 추가 기름이나 양념은 포함하지 않습니다.{% endif %}</p>
+<div id="calc-controls" hidden>
+<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem">
+<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 1{% else %}식재료 1{% endif %}</legend><label for="food-0">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-0" style="display:block;width:100%;padding:.5rem;font:inherit"><option value="0" selected>{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</option><option value="1">{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</option><option value="2">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</option><option value="3">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</option><option value="4">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</option></select><label for="grams-0">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-0" type="number" min="0" max="5000" step="0.1" value="50" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-0" aria-live="polite"></p></fieldset>
+<fieldset style="min-width:0;padding:1rem;border:1px solid #a5b4ac;border-radius:8px"><legend>{% if is_en %}Food 2{% else %}식재료 2{% endif %}</legend><label for="food-1">{% if is_en %}Food{% else %}식재료{% endif %}</label><select id="food-1" style="display:block;width:100%;padding:.5rem;font:inherit"><option value="0">{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</option><option value="1" selected>{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</option><option value="2">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</option><option value="3">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</option><option value="4">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</option></select><label for="grams-1">{% if is_en %}Edible weight (g){% else %}가식부 무게(g){% endif %}</label><input id="grams-1" type="number" min="0" max="5000" step="0.1" value="100" inputmode="decimal" style="display:block;width:100%;box-sizing:border-box;padding:.5rem;font:inherit"><p id="result-1" aria-live="polite"></p></fieldset>
+</div>
+<p id="calc-total" aria-live="polite" style="font-weight:700;padding:1rem;background:#eef5f0;border-radius:8px;color:#172b20"></p>
+<p id="calc-error" role="alert"></p>
+</div>
+<noscript><p>{% if is_en %}Enable JavaScript for interactive calculation; the reference table remains available.{% else %}계산 기능을 사용하려면 자바스크립트를 활성화하세요. 아래 기준표는 그대로 이용할 수 있습니다.{% endif %}</p></noscript>
+<h2>{% if is_en %}Reference nutrition per 100 g{% else %}식재료별 100g 영양성분 기준표{% endif %}</h2>
+<div style="overflow-x:auto"><table><thead><tr><th scope="col">{% if is_en %}Food{% else %}식재료{% endif %}</th><th scope="col">kcal</th><th scope="col">{% if is_en %}Protein (g){% else %}단백질(g){% endif %}</th><th scope="col">{% if is_en %}Source{% else %}출처{% endif %}</th></tr></thead><tbody>
+<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/egg-nutrition-benefits/">{% if is_en %}Whole egg, raw{% else %}달걀 (생것·가식부){% endif %}</a></th><td>143</td><td>12.56</td><td><a href="https://fdc.nal.usda.gov/food-details/171287/nutrients">FDC 171287</a></td></tr>
+<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/tofu-nutrition-benefits/">{% if is_en %}Regular calcium-sulfate tofu, raw{% else %}일반 두부 (황산칼슘 응고){% endif %}</a></th><td>76</td><td>8.08</td><td><a href="https://fdc.nal.usda.gov/food-details/172476/nutrients">FDC 172476</a></td></tr>
+<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/chicken-breast-nutrition-benefits/">{% if is_en %}Chicken breast, raw, skinless, boneless{% else %}닭가슴살 (생것·껍질 제거){% endif %}</a></th><td>120</td><td>22.5</td><td><a href="https://fdc.nal.usda.gov/food-details/171077/nutrients">FDC 171077</a></td></tr>
+<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/apple-nutrition-benefits/">{% if is_en %}Apple, raw, with skin{% else %}사과 (생것·껍질 포함){% endif %}</a></th><td>52</td><td>0.26</td><td><a href="https://fdc.nal.usda.gov/food-details/171688/nutrients">FDC 171688</a></td></tr>
+<tr><th scope="row"><a href="{% if page.lang == 'en' %}/en{% endif %}/posts/banana-nutrition-benefits/">{% if is_en %}Banana, raw, edible portion{% else %}바나나 (생것·가식부){% endif %}</a></th><td>89</td><td>1.09</td><td><a href="https://fdc.nal.usda.gov/food-details/173944/nutrients">FDC 173944</a></td></tr>
+</tbody></table></div>
+<p>{% if is_en %}Calculation: reference amount × edible grams ÷ 100. Data: USDA FoodData Central SR Legacy reference foods. Actual products, cultivars and cooking methods differ. Raw and cooked weights are not interchangeable. This is not a personalized dietary recommendation.{% else %}계산식: 100g 기준 영양성분 × 가식부 중량 ÷ 100. 자료: USDA FoodData Central SR Legacy 식품 데이터. 제품·품종·조리 상태에 따라 실제 수치가 달라질 수 있으며 생것과 익힌 무게를 동일하게 환산할 수 없습니다. 개인별 섭취 권고량이 아닙니다.{% endif %}</p>
+</section>
+<script>
+(function(){
+  var foods=[[143,12.56],[76,8.08],[120,22.5],[52,0.26],[89,1.09]];
+  var en=document.documentElement.lang==='en';
+  var el=function(id){return document.getElementById(id);};
+  function render(){
+    var sumK=0,sumP=0,valid=true;
+    for(var i=0;i<2;i++){
+      var g=el('grams-'+i),n=g.valueAsNumber,food=foods[Number(el('food-'+i).value)];
+      if(!food||!Number.isFinite(n)||n<0||n>5000){valid=false;el('result-'+i).textContent='—';continue;}
+      var k=food[0]*n/100,p=food[1]*n/100;
+      sumK+=k;sumP+=p;
+      el('result-'+i).textContent=k.toFixed(1)+' kcal · '+(en?'Protein ':'단백질 ')+p.toFixed(2)+' g';
+    }
+    el('calc-error').textContent=valid?'':(en?'Enter a weight between 0 and 5000 g.':'0~5000g 사이의 무게를 입력하세요.');
+    el('calc-total').textContent=valid?(en?'Total: ':'합계: ')+sumK.toFixed(1)+' kcal · '+(en?'Protein ':'단백질 ')+sumP.toFixed(2)+' g':'—';
+  }
+  for(var i=0;i<2;i++){el('food-'+i).addEventListener('change',render);el('grams-'+i).addEventListener('input',render);}
+  el('calc-controls').hidden=false;render();
+})();
+</script>

@@ -12,6 +12,7 @@ permalink: /en/
 </div>
 
 {% include ingredient-search.html %}
+<p style="margin:1rem 0"><a href="/en/nutrition-calculator/">Calculate and compare food calories and protein →</a></p>
 
 {% assign pinned_posts = site.posts | where: "lang", "en" | where: "pinned", true | sort: "pin_order" %}
 {% if pinned_posts.size > 0 %}

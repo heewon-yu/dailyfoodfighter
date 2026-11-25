@@ -54,6 +54,7 @@ layout: default
 
   <div class="post-content">
     {{ content_2 }}
+    {% if page.nutrition %}<p><a href="{% if page.lang == 'en' %}/en{% endif %}/nutrition-calculator/">{% if page.lang == 'en' %}Calculate and compare calories and protein by weight{% else %}중량별 칼로리·단백질 계산 및 비교{% endif %}</a></p>{% endif %}
   </div>
 
   <footer class="post-footer">

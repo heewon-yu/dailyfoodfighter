@@ -34,6 +34,8 @@ layout: null
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/contact/</loc>
   </url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/nutrition-calculator/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/nutrition-calculator/</loc></url>
   {% for page in site.pages %}
   {% if page.url contains '/category/' and page.noindex != true %}
   <url>

@@ -12,6 +12,7 @@ permalink: /
 </div>
 
 {% include ingredient-search.html %}
+<p style="margin:1rem 0"><a href="/nutrition-calculator/">식재료 칼로리·단백질 계산 및 비교하기 →</a></p>
 
 {% assign pinned_posts = site.posts | where: "lang", "ko" | where: "pinned", true | sort: "pin_order" %}
 {% if pinned_posts.size > 0 %}
