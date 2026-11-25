@@ -79,7 +79,7 @@ Elevated sodium-to-potassium dietary ratios represent a major driver of essentia
 With 6.7 grams of dietary fiber per 100 grams, avocados supply an optimal ratio of 70% insoluble to 30% soluble fiber. Colonic fermentation of the soluble pectin fraction yields protective short-chain fatty acids (SCFAs), notably butyrate and propionate. These signaling molecules trigger intestinal L-cell secretion of glucagon-like peptide-1 (GLP-1) and peptide YY (PYY), delaying gastric emptying, curbing appetite, and enhancing peripheral insulin sensitivity.
 
 ### 4) Catalytic 'Nutrient Booster' for Fat-Soluble Carotenoids
-Beyond intrinsic retinal-protective **lutein and zeaxanthin**, the lipid emulsion within avocado pulp exhibits a profound 'nutrient booster' effect. Clinical pharmacokinetics published in *The Journal of Nutrition* demonstrated that co-ingesting avocado with carotenoid-rich vegetables amplified intestinal provitamin A (beta-carotene) absorption by up to 15-fold. The hydrophobic carotenoid molecules dissolve directly into avocado-derived lipid droplets, forming highly absorbable mixed micelles.
+Avocado also supplies **lutein and zeaxanthin**, and the lipid in its flesh helps with absorption of fat-soluble compounds eaten at the same meal. A study in *The Journal of Nutrition* found that adding avocado to a carotenoid-rich salad increased beta-carotene absorption, with reported increases ranging from roughly 2- to 15-fold depending on the carotenoid and the amount of avocado. The size of the effect is not fixed, so it is not stated as one multiplier.
 
 ---
 
@@ -97,7 +97,7 @@ Beyond intrinsic retinal-protective **lutein and zeaxanthin**, the lipid emulsio
 ## 4. Who Should Avoid Avocado? Side Effects and Cautions
 
 - **Latex-Fruit Syndrome:** Individuals with known immunoglobulin E (IgE)-mediated latex allergies may display cross-reactivity to class I chitinases and hevein-like protein domains within avocados, potentially provoking oral allergy symptoms, urticaria, or bronchospasm.
-- **Caloric and Lipophilic Density:** While predominantly composed of cardioprotective fats, an entire medium-to-large avocado delivers 250 to 320 kcal. Individuals undergoing strict energy-restricted dietary interventions should moderate consumption to half an avocado (approximately 75–100g) per serving.
+- **Caloric density:** an entire medium-to-large avocado delivers 250 to 320 kcal, mostly from monounsaturated fat. If you are restricting energy intake, half an avocado (about 75-100 g) per serving fits more easily. There is no official safe upper limit; what matters is the total calorie budget.
 
 ---
 

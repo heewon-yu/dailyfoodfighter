@@ -20,7 +20,7 @@ nutrition:
 ---
 
 <img src="/assets/images/shrimp.jpg" alt="Fresh Cooked King Prawns with Herbs and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-*▲ Renowned as a premier marine superfood, shrimp (Penaeus spp.) delivers an exceptional protein-to-calorie ratio with less than 1% lipid content, enriched with concentrated astaxanthin—a carotenoid with 6,000 times the antioxidant potency of vitamin C—and essential cellular taurine.*
+*▲ Shrimp (Penaeus spp.) is a lean, protein-dense seafood that contains astaxanthin and taurine. Comparisons such as "6,000 times the antioxidant power of vitamin C" come from test-tube assays and do not translate into that effect in people.*
 
 <div class="answer-first">
 <span class="answer-label">Quick answer</span> <strong>Shrimp provides 85 calories, 20.1 g protein and 1.34 mg zinc per 100 g.</strong> Its dietary cholesterol has little effect on blood lipids because saturated fat is low, but a high-protein seafood meal can raise creatinine readings briefly before a kidney test.
@@ -168,4 +168,4 @@ The cuticular exoskeleton and tail segments of shrimp contain structural **chiti
 
 - **Macronutrient Profile:** 85 kcal per 100g, 20.1g pure lean protein, 380mg taurine for hepatic clearance, and 1.8mg cellular astaxanthin.
 - **Culinary Preparation:** Employ gentle steaming (3-5 minutes) with fresh lemon juice to prevent astaxanthin oxidation and maximize carotenoid absorption.
-- **Synergistic Co-Factors:** Combine with [Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/) for nitric oxide amplification and [Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/) for systemic cellular detoxification.
+- **Pairings:** Garlic and broccoli add flavour and their own nutrients; claims that they amplify nitric oxide or "detoxify" the body are not established.

@@ -40,7 +40,7 @@ Based on [USDA regular tofu prepared with calcium sulfate, FDC 172476](https://f
 
 In the fields of preventive cardiology and nutritional biochemistry, **tofu (bean curd)** stands as one of the most rigorously investigated plant-derived functional foods.
 
-Derived through the mineral coagulation of aqueous soybean extracts, tofu bypasses the digestive hurdles of raw legumes. Thermal processing and separation of indigestible fibrous hulls elevate its **in vivo protein digestibility to over 95%**, providing a bioavailability profile rivaling animal albumen without saturated lipid burdens.
+Tofu is made by coagulating a soybean extract, and processing removes much of the fibre and trypsin inhibitor found in whole soybeans, so its protein is easier to digest than whole beans. There is no agreed figure for comparing tofu with whole soybeans as a percentage, so no multiple is claimed. Tofu supplies plant protein with all nine essential amino acids.
 
 Beyond delivering complete essential amino acids, tofu functions as nature’s densest nutritional vector of **soy isoflavones (genistein and daidzein)**. These diphenolic compounds display selective estrogen receptor modulator (SERM) properties, attenuating osteoclastic bone resorption in estrogen-deficient postmenopausal states while protecting arterial endothelial architecture. Furthermore, the storage globulins **glycinin and beta-conglycinin** stimulate hepatic low-density lipoprotein (LDL) clearance through transcription factor modulation.
 
@@ -74,7 +74,6 @@ The following table describes regular calcium-sulfate tofu, not a universal firm
 | **Potassium (K)** | 121.00 mg | 2.6% |
 | **Zinc (Zn)** | 0.80 mg | 7.3% |
 | **Total Isoflavones (Aglycone equivalents)** | 23.50 mg | Daily value not established |
-| **Soyasaponins** | ~65.00 mg | Daily value not established |
 
 *Source: [USDA FoodData Central, regular tofu prepared with calcium sulfate, FDC 172476](https://fdc.nal.usda.gov/food-details/172476/nutrients).*
 *¹ Water constitutes the biological hydration matrix rather than a regulated dietary intake value.*  
@@ -94,7 +93,7 @@ The primary soy isoflavone **genistein** exhibits high-affinity binding to **Est
 This USDA reference food contains 350 mg calcium per 100 g. Calcium content varies by coagulant and manufacturing; eating tofu does not establish prevention or treatment of bone disease.
 
 ### ④ Cytoprotective Saponins and Endothelial Nitric Oxide Synthesis
-Tofu retains bioactive **soyasaponins**, amphiphilic triterpenoid glycosides that scavenge lipoperoxyl radicals within cellular membranes. Simultaneously, tofu’s high arginine-to-lysine ratio fuels the endothelial nitric oxide synthase (**eNOS**) enzymatic pathway, elevating vascular nitric oxide (NO) generation and reducing peripheral arterial resistance.
+Tofu contains **soyasaponins**, which reduce lipid peroxidation in laboratory experiments. Tofu also has a high arginine-to-lysine ratio, and arginine is the substrate for endothelial nitric oxide synthase, but whether tofu lowers peripheral arterial resistance in people is not established.
 
 ---
 

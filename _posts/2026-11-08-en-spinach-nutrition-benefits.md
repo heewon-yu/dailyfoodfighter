@@ -98,9 +98,9 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 
 - **30-Second Blanching for Soluble Oxalate Clearance:**
   - Raw spinach contains significant concentrations of **oxalic acid (oxalates)**, which bind divalent cations (calcium and magnesium) to form insoluble calcium oxalate salts, impeding mineral absorption and posing nephrolithiasis (kidney stone) risks.
-  - Submerging fresh spinach in vigorously boiling water for **30 to 60 seconds**, followed by immediate ice-water quenching and water expulsion, leaches over 80% of soluble oxalates into the cooking water while preserving heat-tolerant carotenoids and phylloquinone.
+  - Submerging fresh spinach in vigorously boiling water for **30 to 60 seconds**, then quenching it in ice water and squeezing out the water, leaches a large share of soluble oxalates into the cooking water. The exact percentage depends on time and water volume, so no fixed figure is given.
 - **Sauteing Alone Does Not Remove Oxalates:** Dry heat and oil drive off moisture, so oxalate per gram actually rises in a plain saute. If you prefer sauteed spinach, blanch and squeeze it first, then finish it in olive oil to combine oxalate reduction with carotenoid absorption.
-- **Lipophilic Carrier Co-Ingestion:** Lutein, beta-carotene, and phylloquinone are profoundly hydrophobic. Sautéing blanched spinach in monounsaturated lipid matrices (such as extra virgin olive oil) increases carotenoid micellarization and intestinal absorption up to fivefold.
+- **Lipophilic Carrier Co-Ingestion:** Lutein, beta-carotene and phylloquinone are fat soluble. Sautéing blanched spinach in olive oil supports micelle formation and absorption of these compounds. The size of the increase varies between studies, so no multiple is claimed.
 
 ---
 
@@ -113,7 +113,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 
 ## 5. What Foods Pair Best with Spinach?
 
-- **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Organosulfur compounds in garlic enhance non-heme iron solubility and bio-absorption from blanched spinach matrices.
+- **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Some studies report that garlic sulfur compounds improve non-heme iron absorption; vitamin C is the better-established enhancer.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: The flavonoid quercetin in onions synergizes with spinach dietary nitrates, conferring enhanced endothelial cytoprotection.
 - **[Salmon]({{ site.baseurl }}/en/posts/salmon-nutrition-benefits/)**: Marine omega-3 polyunsaturated fatty acids (EPA/DHA) in salmon optimize the intestinal micellar transport of lipophilic lutein and vitamin K1.
 - **[Asparagus](/en/posts/asparagus-nutrition-benefits/):** asparagus adds folate and glutathione that complement spinach detoxification pathways.
@@ -123,10 +123,10 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
 ## 6. Frequently Asked Questions (FAQ)
 
 ### Q1. Does daily spinach consumption cause kidney or urinary tract stones?
-**A:** Ingesting large volumes of raw spinach can indeed increase urinary oxalate excretion. However, blanching spinach in boiling water for 30–60 seconds removes over 80% of soluble oxalates. Consuming blanched spinach in dietary moderation (100–150g daily) poses minimal nephrolithiasis risk for healthy adults.
+**A:** Large amounts of raw spinach can raise urinary oxalate. Blanching for 30 to 60 seconds and discarding the water removes a substantial share of soluble oxalate, though the percentage depends on conditions. If you have had kidney stones, eat blanched spinach in moderate amounts, drink enough fluid, and ask your clinician. There is no amount that is risk-free for everyone.
 
 ### Q2. Is raw spinach in salads nutritionally superior to blanched spinach?
-**A:** Raw spinach retains higher levels of heat-sensitive vitamin C and folate. However, blanching breaks down tough plant cellular walls and purges antinutrient oxalates, significantly augmenting the intestinal bioavailability of lutein, beta-carotene, and vitamin K1.
+**A:** Raw spinach keeps more heat-sensitive vitamin C and folate. Blanching reduces oxalate and breaks down cell walls, which improves absorption of lutein, beta-carotene and vitamin K1; the increase is real but varies, so no multiple is given.
 
 ### Q3. Does spinach genuinely enhance muscular contractile efficiency as depicted in popular culture?
 **A:** Yes, modern exercise physiology validates this phenomenon. The inorganic nitrates in spinach enhance mitochondrial oxidative phosphorylation efficiency, reducing the oxygen cost of physical exercise and improving skeletal muscle force production.
@@ -157,7 +157,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
       "name": "Is raw spinach in salads nutritionally superior to blanched spinach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "While raw spinach preserves vitamin C, blanched spinach purges inhibitory oxalates and enhances the intestinal bioavailability of critical lipophilic nutrients such as lutein and vitamin K1 by multiple folds."
+        "text": "Raw spinach keeps more vitamin C, while blanched spinach has less oxalate and better absorption of fat-soluble nutrients such as lutein and vitamin K1. The size of the difference varies, so no multiple is stated."
       }
     },
     {

@@ -20,19 +20,19 @@ nutrition:
 ---
 
 <img src="/assets/images/salmon.jpg" alt="Fresh raw salmon fillet with lemon slices and fresh dill on dark slate" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-*▲ Fresh Atlantic salmon (Salmo salar) provides an unparalleled concentration of bioavailable long-chain omega-3 fatty acids (EPA and DHA), high-potency vitamin D, and astaxanthin—nature's premier marine antioxidant.*
+*▲ Atlantic salmon (Salmo salar) is a practical source of long-chain omega-3 fatty acids (EPA and DHA), vitamin D and astaxanthin. Nutrient figures use USDA FoodData Central FDC 175167 (raw).*
 
 <div class="answer-first">
 <span class="answer-label">Quick answer</span> <strong>Salmon provides 208 calories, 20.4 g protein and 2,150 mg EPA plus DHA per 100 g.</strong> Two 100 g servings a week cover omega-3 targets, and smoked salmon carries several times the sodium of raw fillet.
 </div>
 
-When clinical nutritionists and preventive cardiologists evaluate nutritional interventions for longevity, vascular resilience, and neuroprotection, **salmon** consistently ranks at the top of biological value hierarchies.
+**Salmon** is often recommended for EPA, DHA and vitamin D. How much benefit it delivers depends on the amount eaten and the person, and no single food guarantees cardiovascular or brain protection.
 
 Adapted to thrive in cold ocean depths, salmon stores high concentrations of long-chain polyunsaturated fatty acids, specifically **eicosapentaenoic acid (EPA)** and **docosahexaenoic acid (DHA)**. These essential lipids integrate directly into human phospholipid bilayers, governing cellular membrane fluidity and signaling cascades.
 
 Furthermore, salmon’s distinctive crimson pigmentation is derived from **astaxanthin**, a potent marine xanthophyll carotenoid exhibiting hundreds of times greater singlet-oxygen quenching capacity than alpha-tocopherol (vitamin E). 
 
-Drawing upon empirical analyses from the **U.S. Department of Agriculture (USDA FoodData Central)** and peer-reviewed clinical trials, this article delivers an exhaustive breakdown of salmon's micronutrient profile, its four clinically validated health benefits, and biochemical guidelines to optimize bioaccessibility during culinary preparation.
+Using **USDA FoodData Central entry 175167**, this guide covers salmon's nutrient profile, how far human evidence supports each effect, and cooking methods that limit nutrient loss.
 
 ---
 
@@ -72,12 +72,12 @@ The long-chain omega-3 fatty acids EPA and DHA displace pro-inflammatory arachid
 
 Through enzymatic oxygenation, they serve as biological precursors for **specialized pro-resolving mediators (SPMs)**—namely resolvins, protectins, and maresins. These bioactive lipids actively extinguish chronic inflammatory signaling, dampen nuclear factor-kappa B (NF-κB) transcription, and downregulate adhesion molecules on vascular endothelial surfaces.
 
-Controlled human intervention studies confirm that regular dietary salmon consumption lowers serum fasting triglycerides by 20% to 30%, suppresses platelet hyperactivity, and reduces arterial stiffness.
+Trials giving 2 to 4 g of EPA plus DHA a day report fasting triglycerides falling by 20% to 30%. A 100 g portion of salmon supplies about 2 g of EPA plus DHA, so two servings a week will not reproduce that reduction. Trials of omega-3 intake and cardiovascular events have given mixed results, so salmon cannot be described as preventing atherosclerosis or heart attack.
 
 ### ② Astaxanthin Crossing the Blood-Brain Barrier (BBB) for Neuroprotection
 Unlike terrestrial carotenoids, the unique polar-nonpolar molecular structure of **astaxanthin** allows it to span cellular lipid bilayers entirely, preventing oxidative degradation both within and across cell membranes.
 
-Crucially, astaxanthin effortlessly crosses the **blood-brain barrier (BBB)** and the blood-retinal barrier. Once situated within central nervous system tissue, it mitigates microglial overactivation, shields mitochondrial respiratory complexes from lipid peroxidation, and supports cerebral perfusion, preserving executive cognitive processing and memory consolidation.
+In animal and cell models astaxanthin reduces oxidative stress in neural tissue. Whether eating salmon delivers enough astaxanthin to cross the human blood-brain barrier and improve memory or protect against Alzheimer's or Parkinson's disease has not been shown in clinical studies.
 
 ### ③ Immunomodulatory Synergy via Cholecalciferol (Vitamin D) and Selenium
 A single 100 g serving of fresh salmon fulfills over 50% of the baseline physiological vitamin D requirement. 
@@ -89,7 +89,7 @@ Concurrently, salmon delivers 66% DV of **selenium**, an essential structural co
 ### ④ Enhancement of Peripheral Insulin Sensitivity and Metabolic Homeostasis
 Incorporating salmon lipids into peripheral cell membranes increases receptor mobility and optimizes glucose transporter-4 (GLUT4) translocation in skeletal muscle tissue.
 
-This enhanced metabolic flexibility improves insulin signaling, curbs hepatic de novo lipogenesis, and protects against the accumulation of ectopic fat deposits characteristic of metabolic dysfunction-associated steatotic liver disease (MASLD).
+Replacing saturated fat with fish fat can modestly improve insulin sensitivity in some trials, but salmon is not a treatment for insulin resistance or fatty liver disease.
 
 ---
 
@@ -99,7 +99,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 
 - **Low-Temperature Sous-Vide or Gentle Pan-Poaching:** High-heat deep frying or direct open-flame charring accelerates lipid peroxidation and degradation of delicate double bonds. Preparing salmon at controlled temperatures between 55°C and 65°C preserves fatty acid integrity and prevents protein over-coagulation.
 - **Synergy with Ascorbic Acid (Lemon & Citrus):** Drizzling freshly squeezed lemon juice over cooked salmon supplies ascorbic acid, which acts as a secondary antioxidant, sequestering free radicals and stabilizing marine carotenoids.
-- **Lipid-Carotenoid Co-Ingestion:** Pairing salmon with extra virgin olive oil and leafy brassica vegetables enhances intestinal micelle formation, boosting systemic carotenoid and vitamin D absorption up to threefold.
+- **Lipid-Carotenoid Co-Ingestion:** Pairing salmon with olive oil and leafy vegetables supports micelle formation and absorption of fat-soluble vitamin D and carotenoids. The size of the increase depends on the meal, so no multiple is claimed.
 
 ---
 
@@ -130,7 +130,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
 ## 7. Frequently Asked Questions (FAQ)
 
 ### Q1. What nutritional disparities distinguish fresh raw salmon from commercial smoked salmon?
-**A:** Fresh salmon preserves thermal-sensitive omega-3 EPA/DHA and cobalamin without additive sodium, whereas smoked preparations frequently exhibit 500% to 1000% higher sodium concentrations.
+**A:** Fresh salmon keeps heat-sensitive omega-3 and vitamin B12 without added salt. Smoked and cured salmon are salted during processing and carry substantially more sodium than a raw fillet; if you have high blood pressure, keep portions small and choose grilled or raw salmon more often.
 
 ### Q2. Does consuming crispy salmon skin provide tangible biochemical advantages?
 **A:** Yes. The subdermal adipose layer immediately beneath the salmon epidermis concentrates long-chain marine omega-3s and bioavailable marine collagen peptides supporting connective tissue.
@@ -156,7 +156,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
       "name": "What nutritional disparities distinguish fresh raw salmon from commercial smoked salmon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fresh salmon preserves thermal-sensitive omega-3 EPA/DHA and cobalamin without additive sodium, whereas smoked preparations frequently exhibit 500% to 1000% higher sodium concentrations."
+        "text": "Fresh salmon keeps heat-sensitive omega-3 and vitamin B12 without added salt. Smoked and cured salmon are salted during processing and carry substantially more sodium than a raw fillet, so people with high blood pressure should keep portions smaller."
       }
     },
     {

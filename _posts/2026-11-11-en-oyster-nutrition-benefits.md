@@ -31,7 +31,7 @@ Often termed 'the milk of the sea' due to its pearlescent opacity and nutrient c
 
 In molecular biology, zinc serves as an indispensable structural coordinator for over 300 metalloenzymes and zinc-finger DNA transcription factors. Within male physiology, zinc catalyzes testicular 17β-hydroxysteroid dehydrogenase (17β-HSD) activity, supporting androgen synthesis and preserving spermatogenic membrane integrity. Concurrently, oysters accumulate dense reserves of **taurine (2-aminoethanesulfonic acid)** and pre-formed **glycogen**, which accelerate hepatic xenobiotic conjugation and restore depleted hepatocellular glycogen stores without requiring pancreatic amylase mediation.
 
-Synthesizing empirical data from the USDA FoodData Central and marine lipidomics literature, this monograph details the biochemical profile of oysters, their clinical systemic benefits, and precision microbiological safety standards.
+Using USDA FoodData Central figures, this guide covers oyster nutrition, the effects human evidence supports, and the food-safety rules that matter most for raw shellfish.
 
 ---
 
@@ -74,7 +74,7 @@ Oysters display a distinctive marine macronutrient profile characterized by low 
 With over 16 mg of elemental zinc per 100g, oysters saturate zinc-transporter mechanisms (ZnT and ZIP proteins) across the human intestine. Zinc stabilizes the structural folds of steroidogenic enzymes in Leydig cells, facilitating the enzymatic conversion of androstenedione to testosterone while safeguarding the prostate epithelium against intraprostatic oxidative stress.
 
 ### ② Hepatoprotection via Taurine Conjugation and Glycogen Replenishment
-Oysters supply over **500 mg of intracellular taurine**, which couples with hydrophobic bile acids to form taurocholate. This reduces hepatocyte membrane detergent toxicity and accelerates the biliary excretion of circulating cholesterol. Furthermore, oyster-derived **marine glycogen** enters the portal circulation rapidly, replenishing hepatic glycogen reserves depleted by ethanol catabolism or intensive metabolic stress.
+Oysters contain **taurine**, which conjugates with bile acids to form taurocholate as part of normal bile acid metabolism. Eating oysters has not been shown to speed up liver "detoxification" or prevent hangovers; recovery after drinking depends mainly on time, fluids and food. Oyster glycogen does help replenish liver glycogen stores.
 
 ### ③ Megaloblastic Prophylaxis via Concentrated Cobalamin (Vitamin B12)
 Yielding over **660% of the daily vitamin B12 requirement** in a single serving, oysters serve as an indispensable promoter of single-carbon folate transmethylation. Cobalamin facilitates methionine synthase conversion of homocysteine into methionine, mitigating vascular endothelial injury while supporting erythroid nuclear maturation.

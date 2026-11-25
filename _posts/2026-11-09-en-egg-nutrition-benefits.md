@@ -20,7 +20,7 @@ nutrition:
 ---
 
 <img src="/assets/images/egg.jpg" alt="Fresh and Sliced Hard Boiled Eggs on Rustic Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-*▲ Regarded as nature's quintessential biological nutrient capsule, the egg (Gallus gallus domesticus) represents the gold standard of protein bioavailability (BV 100), supplying concentrated neuroprotective choline, macular carotenoids, and vital fat-soluble micronutrients.*
+*▲ The egg (Gallus gallus domesticus) is a compact source of high-quality protein, choline, lutein and zeaxanthin, and fat-soluble vitamins. Figures use USDA FoodData Central FDC 171287 (raw, edible portion).*
 
 <div class="answer-first">
 <span class="answer-label">Quick answer</span> <strong>A large raw whole egg (50 g edible weight) has about 72 kcal and 6.3 g protein; two have about 143 kcal and 12.6 g.</strong> Egg size, cooking and added oil affect actual values.
@@ -94,7 +94,7 @@ Egg protein exhibits complete gastrointestinal assimilation and amino acid balan
 Supplying over 50% of the daily choline requirement per 100g, eggs fuel the biosynthesis of **acetylcholine**, the fundamental neurotransmitter governing hippocampal synaptic plasticity and memory encoding. Simultaneously, choline serves as a methyl donor for betaine synthesis, facilitating hepatic very-low-density lipoprotein (VLDL) secretion to prevent non-alcoholic fatty liver infiltration.
 
 ### 3) Superior Retinal Carotenoid Bioaccessibility
-Unlike plant-derived carotenoids trapped in fibrous matrices, egg yolk **lutein and zeaxanthin** are naturally dissolved within a lipid-phospholipid micellar matrix. Clinical trials confirm that egg yolk ingestion yields a 300% to 400% higher carotenoid plasma absorption rate, effectively augmenting macular pigment optical density (MPOD) to filter damaging high-energy blue photons.
+Plant lutein is bound in fibrous matrices and absorbed less efficiently. Egg yolk **lutein and zeaxanthin** are dissolved in lipid, which improves absorption. Small crossover studies found egg yolk raised blood lutein more than an equivalent amount from spinach or supplements, but the size of the difference varies between studies, so a 300-400% figure is not stated as fact.
 
 ### 4) Hepatic Cholesterol Homeostasis & Circulating Lipoprotein Modulation
 The human body synthesizes approximately 80% of systemic cholesterol endogenously via the hepatic HMG-CoA reductase pathway. When exogenous dietary cholesterol increases from whole eggs, negative feedback mechanisms downregulate endogenous hepatic synthesis. Extensive epidemiological data, including Harvard cohort analyses, show that daily consumption of 1 to 2 eggs does not heighten ischemic cardiovascular risk, often shifting small, dense LDL particles into benign, large buoyant subfractions while elevating protective HDL.
@@ -118,7 +118,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 
 ## 5. What Foods Pair Best with Eggs?
 
-- **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Egg yolk phospholipids augment the gastrointestinal lipophilic micellar solubilization of tomato lycopene by over 400%, creating an elite anti-inflammatory pairing.
+- **[Tomato]({{ site.baseurl }}/en/posts/tomato-nutrition-benefits/)**: Egg yolk lipids support micelle formation and absorption of fat-soluble tomato lycopene, and tomato adds the vitamin C and fibre an egg lacks.
 - **[Spinach]({{ site.baseurl }}/en/posts/spinach-nutrition-benefits/)**: The bioavailable vitamin D and choline in eggs synergize with non-heme iron and folate in spinach to enhance erythropoiesis.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Quercetin in onions scavenges oxidative metabolites and protects vascular endothelial function during dense protein metabolism.
 - **[Laver](/en/posts/laver-nutrition-benefits/):** five sheets of laver carry 3.9 g protein, more than half an egg.
@@ -134,7 +134,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
 **A:** It is completely non-toxic. The discoloration is ferrous sulfide ($FeS$), formed when sulfur from the white reacts with iron in the yolk under prolonged high temperatures. Shocking boiled eggs in ice water eliminates ring formation.
 
 ### Q3. Do raw eggs provide superior protein bioavailability compared to cooked eggs?
-**A:** No, clinical research indicates the exact opposite. Digestion studies demonstrate that cooked egg protein yields approximately 91% gastrointestinal bioavailability, whereas raw egg protein is only 51% bioavailable due to unrelaxed peptide structures.
+**A:** No. A small stable-isotope study found cooked egg protein was about 91% digestible and absorbed, against about 51% for raw egg. Heat unfolds the protein so digestive enzymes can reach it more easily.
 
 <div class="related-hub-box">
   <p class="related-hub-label">📌 Related ranking guide</p>
@@ -170,7 +170,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
       "name": "Do raw eggs provide superior protein bioavailability compared to cooked eggs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cooked eggs provide approximately 91% protein bioavailability compared to just 51% for raw eggs, as heat denatures peptide bonds for optimal enzymatic cleavage."
+        "text": "A small stable-isotope study found cooked egg protein about 91% digestible and absorbed, against about 51% for raw egg; heat unfolds the protein so enzymes can act on it."
       }
     }
   ]

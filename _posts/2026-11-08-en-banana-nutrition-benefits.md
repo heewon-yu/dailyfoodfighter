@@ -105,7 +105,7 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
 ## 4. Who Should Avoid Bananas? Side Effects and Cautions
 
 - **Hyperkalemia in Chronic Kidney Disease (CKD):** Individuals exhibiting impaired glomerular filtration rates cannot adequately clear potassium loads. Banana intake must be rigorously monitored in stages 4–5 renal insufficiency to avert cardiac conduction arrhythmias.
-- **Fasting Ingestion Hypotheses:** In healthy adults, gastrointestinal buffering mechanisms maintain electrolyte plasma homeostasis effortlessly. Fasting ingestion poses zero cardiac risk unless severe end-stage renal impairment or adrenal hypofunction is clinically present.
+- **Eating on an empty stomach:** In healthy adults, plasma potassium and magnesium are tightly regulated, and one banana (about 422 mg potassium, 32 mg magnesium) does not disturb them. People with advanced kidney disease or adrenal problems may need to limit potassium and should follow their clinician's advice.
 
 ---
 
@@ -123,7 +123,7 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
 **A:** Yes, under structured dietary modulation. Diabetic patients should select slightly underripe bananas with green tips, as their high resistant starch content confers a low glycemic index (GI around 42), preventing acute postprandial glucose surges.
 
 ### Q2. Does eating bananas on an empty stomach disrupt cardiac magnesium levels?
-**A:** This is an unsubstantiated myth. A single banana contains roughly 27 mg of magnesium (less than 8% of the Daily Value). In individuals with healthy renal filtration, physiological homeostatic mechanisms maintain plasma electrolyte equilibrium without systemic fluctuation.
+**A:** This is an unsubstantiated myth. A banana contains about 27 mg of magnesium, less than 8% of the Daily Value, so it cannot trigger cardiac arrest on its own. People with reduced kidney function need to watch potassium intake and should ask their clinician.
 
 ### Q3. Should the stringy white strands inside banana peels be discarded?
 **A:** Anatomically termed 'phloem bundles,' these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp.
@@ -153,7 +153,7 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
       "name": "Does eating bananas on an empty stomach disrupt cardiac magnesium levels?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. The 27 mg of magnesium present in an average banana represents only a minor fraction of daily requirements and is effortlessly handled by physiological regulatory pathways in individuals with normal renal function."
+        "text": "No. The roughly 27 mg of magnesium in a banana is a small fraction of daily needs and is regulated normally by healthy kidneys. People with reduced kidney function should ask their clinician about potassium intake."
       }
     },
     {

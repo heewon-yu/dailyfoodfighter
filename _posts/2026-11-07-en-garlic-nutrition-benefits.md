@@ -26,13 +26,13 @@ nutrition:
 <span class="answer-label">Quick answer</span> <strong>Raw garlic has 149 calories, 31.2 mg vitamin C and 401 mg potassium per 100 g.</strong> Allicin forms only after crushing activates alliinase, so chopping garlic and waiting 10 minutes before heating preserves the compound.
 </div>
 
-From sustaining the workforce of the Egyptian pyramids in 3000 BCE to anchoring modern cardiovascular pharmacotherapy, **garlic (Allium sativum)** remains one of the most thoroughly investigated natural therapeutic matrices in biomedical history.
+**Garlic (Allium sativum)** has been eaten for health for millennia and is now one of the more studied culinary plants. Whether it treats disease is a separate question, and the clinical evidence is mixed.
 
 The pungent, volatile sensory profile of garlic is not merely a gastronomic attribute; it constitutes a highly sophisticated chemical defense system developed through plant evolution. Structurally intact garlic cloves contain virtually zero active **allicin**. Instead, the stable, odorless sulfoxide precursor **S-allyl-L-cysteine sulfoxide (alliin)** is strictly sequestered within the storage vacuoles of plant mesophyll cells.
 
-Only upon mechanical trauma, cutting, or mastication is the membrane-bound vacuolar barrier breached, allowing alliin to interact with the cytosolic pyridoxal phosphate-dependent enzyme **alliinase (EC 4.4.1.4)**. This instantaneous catalytic cleavage generates **diallyl thiosulfinate (allicin)**, a transient and highly reactive electrophile responsible for profound microbial inhibition, arterial vasodilation, and Phase II hepatic xenobiotic detoxification.
+Only upon mechanical trauma, cutting, or mastication is the membrane-bound vacuolar barrier breached, allowing alliin to interact with the cytosolic pyridoxal phosphate-dependent enzyme **alliinase (EC 4.4.1.4)**. This cleavage generates **diallyl thiosulfinate (allicin)**, a short-lived and reactive compound that inhibits microbes in laboratory culture. Claims that it dilates arteries in people or drives liver "detoxification" are not established.
 
-Drawing upon rigorous standardized analytical assays from the **U.S. Department of Agriculture (USDA FoodData Central)** and peer-reviewed clinical trials, this article provides an exhaustive examination of garlic’s micronutrient density, its four clinically validated systemic mechanisms, and the molecular thermodynamics governing culinary bioaccessibility.
+Nutrient figures come from **USDA FoodData Central entry 169230**. This article covers garlic's micronutrients, the effects reported in research with a note on how far human trials go, and what chopping and heating do to allicin.
 
 ---
 
@@ -67,25 +67,17 @@ Unlike typical vegetative tissues that consist of over 90% water, raw garlic mai
 
 ## 2. What Are the Benefits of Garlic? Four Evidence-Backed Effects
 
-### ① Endothelial Vasorelaxation via Hydrogen Sulfide ($H_2S$) Signaling
-Garlic is recognized as one of the most potent dietary anti-hypertensive agents. Upon systemic absorption, low-molecular-weight organosulfur compounds, particularly **diallyl trisulfide (DATS)** and **diallyl disulfide (DADS)**, interact with intracellular thiol pools and reduced glutathione in erythrocytes, rapidly releasing the gasotransmitter **hydrogen sulfide ($H_2S$)**. 
+### ① Blood pressure: a mixed evidence base
+Organosulfur compounds such as **DATS** and **DADS** can release hydrogen sulfide, which relaxes blood vessels in laboratory and animal models. In people, meta-analyses disagree: some report systolic reductions of a few mmHg with garlic supplements, while reviews that pool only higher-quality trials find little or no effect. The 8.3 mmHg figure quoted in some sources comes from selected trials and cannot be generalised; garlic is not comparable to an ACE inhibitor and must not replace blood-pressure medication.
 
-Hydrogen sulfide diffuses across vascular smooth muscle cells, directly stimulating the opening of **ATP-sensitive potassium channels ($K_{ATP}$)**. The resulting cellular hyperpolarization closes L-type voltage-dependent calcium channels, preventing calcium influx and prompting profound vasodilation. Meta-analyses of randomized controlled trials reveal that standardized garlic supplementation reduces systolic blood pressure by an average of 8.3 mmHg and diastolic blood pressure by 5.5 mmHg in hypertensive cohorts—an efficacy comparable to first-line ACE inhibitor monotherapy.
+### ② Antimicrobial activity: mostly laboratory work
+**Allicin** reacts with thiol groups on microbial enzymes and inhibits bacterial and fungal growth in culture. Allicin is unstable, though, and breaks down during cooking and digestion. Human trials of garlic for preventing colds have produced inconsistent results, and no study supports a 60% or 63% reduction in infection incidence or duration.
 
-### ② Broad-Spectrum Antimicrobial and Immunomodulatory Potency
-The transient electrophilic nature of **allicin** allows it to rapidly permeate biological membranes of pathogenic bacteria, viruses, and fungi. Once intracellular, allicin readily participates in thiol-disulfide exchange reactions with the cysteine sulfhydryl (-SH) residues of essential microbial enzymes, including RNA polymerase, alcohol dehydrogenase, and thioredoxin reductase. 
+### ③ Blood lipids: small and inconsistent effects
+Allyl sulfides inhibit HMG-CoA reductase in cell models. In people, meta-analyses suggest garlic may lower LDL cholesterol slightly, but the 10% to 15% reductions reported in individual small trials are not reproduced consistently in larger ones. Garlic may modestly affect platelet aggregation; it does not dissolve clots, and anyone on anticoagulants should discuss intake with their clinician.
 
-This covalent modification causes irreversible inhibition of microbial nucleic acid replication and cell wall assembly. Simultaneously, garlic oligosaccharides and S-allylcysteine stimulate human **natural killer (NK) cell** cytotoxic activity and enhance macrophage phagocytosis, yielding up to a 63% reduction in the incidence and symptom duration of viral upper respiratory tract infections.
-
-### ③ Hepatic Lipid Homeostasis via HMG-CoA Reductase Inhibition
-The lipid-lowering pharmacology of garlic is centered on the competitive inhibition of **3-hydroxy-3-methylglutaryl-coenzyme A (HMG-CoA) reductase**, the primary rate-limiting enzyme in hepatic cholesterol biosynthesis. 
-
-Secondary organosulfur metabolites additionally suppress squalene monooxygenase, reducing downstream sterol synthesis. In clinical trials, habitual garlic consumption consistently achieves a 10% to 15% reduction in total serum cholesterol and low-density lipoprotein (LDL) fractions. Concurrently, garlic organosulfurs inhibit platelet cyclooxygenase, blunting **thromboxane $A_2$** synthesis to mitigate microvascular thrombogenesis.
-
-### ④ Upregulation of Phase II Xenobiotic Detoxification and Nrf2 Activation
-Garlic provides high bioavailable concentrations of organic sulfur necessary to replenish endogenous **reduced glutathione (GSH)**. 
-
-Bioactive diallyl sulfides activate the **nuclear factor erythroid 2-related factor 2 (Nrf2)** transcriptional cascade by modifying critical cysteine sensors on Keap1. This dissociation permits Nrf2 nuclear translocation, driving the gene transcription of Phase II conjugating enzymes, specifically **glutathione S-transferase (GST)** and **NAD(P)H:quinone oxidoreductase 1 (NQO1)**. This accelerated clearance expedites the renal and biliary elimination of heavy metals (lead, cadmium) and environmental xenobiotics, conferring profound hepatoprotection.
+### ④ "Detoxification" has never been measured in people
+Diallyl sulfides activate the **Nrf2** pathway and induce enzymes such as glutathione S-transferase and NQO1 in cell and animal studies. How much garlic changes heavy-metal excretion or protects liver tissue in humans has not been measured in controlled studies. "Detox" is a marketing term, not a clinical endpoint.
 
 ---
 
@@ -94,9 +86,9 @@ Bioactive diallyl sulfides activate the **nuclear factor erythroid 2-related fac
 ### Mandatory Mechanical Disruption Followed by Ambient Incubation
 Intact, whole garlic cloves contain **zero active allicin**. The precursor alliin and the enzyme alliinase reside in completely separate subcellular compartments. To initiate synthesis, the cell walls must be physically crushed, minced, or finely chopped with a flat blade.
 
-Crucially, **the crushed garlic matrix must rest undisturbed at room temperature for a minimum of 10 minutes prior to applying heat**. 
+In practice, **let chopped garlic rest at room temperature for around 10 minutes before heating it**. 
 
-The alliinase enzyme requires several minutes of ambient aqueous contact to catalyze maximum alliin cleavage into allicin. Alliinase is exceptionally thermolabile, undergoing irreversible thermal denaturation at temperatures exceeding 60°C within 60 seconds. If freshly minced garlic is dropped immediately into hot cooking oil or boiling water, alliinase is destroyed before allicin can be synthesized, extinguishing more than 90% of its bioactivity. Resting for 10 minutes ensures full allicin synthesis; once formed, allicin subsequently degrades into stable, heat-tolerant secondary sulfurs (ajoenes, vinyldithiins) during subsequent cooking.
+Alliinase needs a few minutes of contact with the crushed tissue to convert alliin into allicin. The enzyme is heat labile and is largely inactivated above about 60°C, so garlic dropped straight into hot oil forms much less allicin. Resting first allows allicin to form; some of it then converts into other sulfur compounds during cooking.
 
 ---
 
@@ -114,7 +106,7 @@ Garlic's clinically validated platelet anti-aggregatory and fibrinolytic actions
 
 1. **Enzymatic Activation via Trauma:** Always mechanically crush or finely mince garlic to rupture mesophyll walls and initiate alliinase catalysis.
 2. **Observe the 10-Minute Incubation:** Allow minced garlic to rest at room temperature for 10 minutes before applying heat to prevent premature enzyme denaturation.
-3. **Cardiovascular & Detox Foundation:** Garlic functions as an indispensable biological precursor for hydrogen sulfide vasorelaxation, broad-spectrum microbial defense, and Nrf2-driven hepatic detoxification.
+3. **What to expect:** garlic is a flavouring vegetable. Effects on blood pressure and cholesterol are small and inconsistent across trials, so it should not be used in place of prescribed medication.
 
 ---
 

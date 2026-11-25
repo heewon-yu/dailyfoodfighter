@@ -111,9 +111,9 @@ Modern controlled agricultural biosecurity has largely eliminated *Trichinella s
 
 ## 5. Storing and Portioning Pork Tenderloin
 
-- **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Allicin reacts with porcine thiamine to generate allithiamine, multiplying cellular absorption up to tenfold and prolonging metabolic energy enhancement.
+- **[Garlic]({{ site.baseurl }}/en/posts/garlic-nutrition-benefits/)**: Cooking garlic with pork can form allithiamine from allicin and thiamine. Claims of tenfold absorption or lasting energy gains have not been shown in people.
 - **[Onion]({{ site.baseurl }}/en/posts/onion-nutrition-benefits/)**: Quercetin and allyl sulfides in onions mitigate lipid peroxidation during thermal digestion and support cardiovascular vascular tone.
-- **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: High ascorbic acid and sulforaphane concentrations in broccoli enhance the non-heme iron absorption of pork while bolstering hepatic phase II detoxification.
+- **[Broccoli]({{ site.baseurl }}/en/posts/broccoli-nutrition-benefits/)**: Broccoli's vitamin C supports iron absorption from the meal. "Phase II detoxification" in the liver is a laboratory concept, not a measured benefit of eating broccoli.
 
 ---
 
@@ -145,7 +145,7 @@ Modern controlled agricultural biosecurity has largely eliminated *Trichinella s
       "name": "How does pork tenderloin compare to skinless chicken breast for weight loss?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pork tenderloin possesses an identical sub-3% lipid profile to chicken breast while delivering over 500% more thiamine, bolstering mitochondrial ATP production during hypocaloric diets."
+        "text": "Pork tenderloin has about 2.8 g fat per 100 g, similar to chicken breast, and more thiamine, a vitamin used in carbohydrate metabolism. Higher thiamine intake does not by itself prevent fatigue during a diet."
       }
     },
     {
@@ -153,7 +153,7 @@ Modern controlled agricultural biosecurity has largely eliminated *Trichinella s
       "name": "Is it microbiologically safe to consume pork tenderloin with a light pink interior?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Current USDA standards verify that an internal core temperature of 145°F (62.8°C) followed by a 3-minute rest ensures complete microbial safety while retaining peak tenderness."
+        "text": "Yes, for fresh chilled pork: cook to an internal temperature of 145°F (63°C) and rest for 3 minutes, per USDA guidance. Pink in the centre can remain at that temperature. Ground pork and liver need higher temperatures."
       }
     },
     {

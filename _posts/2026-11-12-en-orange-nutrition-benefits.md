@@ -89,7 +89,7 @@ The inner white mesocarp (albedo) of oranges contains dense concentrations of wa
 ## 3. Storing and Portioning Oranges
 
 ### Consuming the Sub-Epidermal Albedo Mesh
-A frequent culinary error involves over-stripping the white fibrous albedo mesh adhering to orange segments. Quantitative chromatography reveals that over 70% of total hesperidin and naringenin glycosides reside within this inner peel layer. Consuming segments intact rather than drinking strained clear juice ensures maximum bioflavonoid ingestion and optimizes glycemic response.
+Many people strip the white albedo mesh from orange segments. Hesperidin and naringenin glycosides are more concentrated in that inner layer than in the flesh, but the often-quoted "over 70%" depends on cultivar and the part measured. Eating segments whole rather than drinking strained juice simply gives you somewhat more flavonoids and fibre; it does not turn orange into a glucose-regulating food.
 
 ### Synergistic Chelation of Plant-Based Non-Heme Iron
 Non-heme iron (ferric Fe³⁺) from leafy crucifers and legumes displays exceptionally low baseline human enterocyte bioavailability (<5%). Concomitant intake of raw orange segments reduces ferric ions to bioavailable ferrous ions (Fe²⁺) while citric acid forms soluble monodentate chelates that prevent insoluble hydroxide precipitation in alkaline intestinal fluid, amplifying systemic iron absorption up to fivefold.
@@ -99,7 +99,7 @@ Non-heme iron (ferric Fe³⁺) from leafy crucifers and legumes displays excepti
 ## 4. Who Should Avoid Oranges? Side Effects and Cautions
 
 ### Lower Esophageal Sphincter Irritation in Gastroesophageal Reflux (GERD)
-With a titratable acidity producing an intrinsic pH between 3.3 and 4.0, concentrated citrus ingestion can transiently decrease lower esophageal sphincter (LES) pressure and stimulate gastric parietal cell hypersecretion. Patients presenting active erosive reflux or peptic ulcers should avoid consuming citrus on an empty stomach.
+Citrus has a pH around 3.3 to 4.0, and a large amount on an empty stomach can worsen heartburn or reflux in people who are sensitive. If you have erosive reflux or an active ulcer, smaller portions after a meal are usually easier; there is no single timing that is safe for everyone.
 
 ### Acid-Induced Dermal Enamel Demineralization
 Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. Ingesting citrus and immediately performing mechanical toothbrushing promotes enamel abrasion. Dental clinical guidelines recommend rinsing the oral cavity with neutral tap water post-consumption and delaying abrasive brushing by at least 30 minutes.
@@ -110,7 +110,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 
 1. **Microvascular Endothelial Protection:** Citrus hesperidin drives eNOS nitric oxide generation and microvascular dilation.
 2. **Dense Immunological Support:** Supplying 53.2 mg of natural vitamin C per 100g to prime leukocyte chemotaxis.
-3. **Whole Fruit with Albedo Outperforms Juicing:** Intact fiber and white inner peel retain 70% of cardioprotective bioflavonoids.
+3. **Whole Fruit with Albedo:** Fibre and the white inner peel carry more flavonoids than strained juice, so whole fruit is the better default.
 
 ---
 
@@ -126,7 +126,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
 ## 7. Frequently Asked Questions (FAQ)
 
 ### Q1. How does commercial 100% orange juice compare nutritionally to raw, whole oranges?
-**A:** Commercial juice lacks the structural dietary fiber and albedo mesh that contain over 70% of native hesperidin bioflavonoids. Straining and pasteurization deplete volatile terpenes and elevate the glycemic index (GI), triggering rapid postprandial glucose excursions. Whole raw oranges preserve functional pectin and steady glycemic uptake.
+**A:** Commercial juice has no fibre and little of the albedo where flavonoids concentrate, and pasteurisation reduces vitamin C. Removing fibre makes the sugar absorb faster, so the same amount of sugar raises blood glucose more quickly than whole fruit. Oranges themselves have a low glycemic index; if you have diabetes, keep juice portions small.
 
 ### Q2. Is daily orange consumption safe for individuals managing type 2 diabetes?
 **A:** Yes, when consumed as whole raw fruit. Oranges have a low glycemic index (~40–43) and a low glycemic load (~5 per serving) because viscous pectin fiber delays intestinal carbohydrate hydrolysis. Diabetic individuals should limit intake to one medium whole fruit per day and avoid liquid citrus juices.
@@ -152,7 +152,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
       "name": "How does commercial 100% orange juice compare nutritionally to raw, whole oranges?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Whole raw oranges retain over 70% more hesperidin bioflavonoids in their albedo and deliver intact pectin fiber that prevents rapid glucose absorption, unlike strained pasteurized juices."
+        "text": "Whole oranges keep the albedo and pectin that strained juice loses, so their flavonoids and fibre come along with the sugar. Orange has a low glycemic index, but juice raises blood glucose faster, so keep portions small if you have diabetes."
       }
     },
     {
@@ -168,7 +168,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
       "name": "What is the scientifically validated protocol for removing surface wax and pesticide residues from citrus peel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soaking in a warm baking soda solution followed by brushing and a dilute vinegar rinse removes over 99% of surface agricultural residues and protective wax coatings."
+        "text": "Soaking in warm water with baking soda for 3 to 5 minutes, then brushing and rinsing, reduces surface wax and residues. The removal rate depends on the pesticide and the method, so over 99% cannot be claimed, and a vinegar rinse does not sterilise the fruit."
       }
     }
   ]

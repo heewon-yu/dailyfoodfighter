@@ -20,19 +20,19 @@ nutrition:
 ---
 
 <img src="/assets/images/cabbage.jpg" alt="Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-*▲ Celebrated since Greco-Roman antiquity as a foundational digestive remedy, cabbage (Brassica oleracea var. capitata) concentrates the cytoprotective sulfonium derivative S-methylmethionine (Vitamin U) alongside the antimicrobial isothiocyanate sulforaphane.*
+*▲ Long treated as a soothing vegetable for the stomach, cabbage (Brassica oleracea var. capitata) contains S-methylmethionine (called vitamin U) and glucosinolate-derived sulforaphane. Nutrient figures use USDA FoodData Central FDC 169975 (raw).*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>Raw cabbage provides 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g.</strong> The anti-ulcer factor called vitamin U is heat sensitive, so raw juice or a brief blanch preserves more, while long boiling sheds sulforaphane.
+<span class="answer-label">Quick answer</span> <strong>Raw cabbage provides 25 calories, 36.6 mg vitamin C and 76 mcg vitamin K per 100 g.</strong> The compound called vitamin U and the enzyme that makes sulforaphane are heat sensitive, so raw or briefly steamed cabbage retains more of them. Cabbage is not a treatment for gastritis or ulcers.
 </div>
 
-Within nutritional gastroenterology and clinical oncology, **cabbage (Brassica oleracea var. capitata)** serves as an indispensable functional botanical matrix for mucosal epithelial defense.
+**Cabbage (Brassica oleracea var. capitata)** is a cruciferous vegetable rich in vitamin C, vitamin K and fibre. It is easy on the stomach for many people, but no regulator has approved it as a treatment for gastric disease.
 
-Pioneered in landmark clinical investigations by Dr. Garnett Cheney at Stanford University School of Medicine, the bioactive sulfonium compound **S-methylmethionine (conventionally designated Vitamin U)** directly accelerates gastrointestinal mucosal nucleic acid and protein synthesis. By stimulating cellular transmethylation pathways and enhancing protective surface glycoprotein (**mucin**) secretion, cabbage juice historically demonstrated remarkable efficacy in accelerating the radiographic healing time of peptic ulcers.
+Small studies by Garnett Cheney at Stanford in the 1950s reported faster ulcer healing with cabbage juice, and the name **vitamin U (S-methylmethionine)** comes from that work. Later placebo-controlled trials did not replicate the effect, and ulcers are now treated with acid suppression and H. pylori eradication. Cabbage juice should be seen as a food, not a therapy.
 
-Beyond sulfonium derivatives, mechanical comminution of cabbage tissue activates endogenous plant **myrosinase (thioglucosidase)**, hydrolyzing glucoraphanin into the bioactive isothiocyanate **sulforaphane**. Sulforaphane exhibits selective bactericidal antagonism against **Helicobacter pylori** strains, while upregulating the **Nrf2-ARE** (nuclear factor erythroid 2-related factor 2) transcriptional pathway to induce hepatic Phase II detoxification enzymes. Furthermore, with 76 mcg of **vitamin K1 (phylloquinone)** per 100g—supplying over 63% of statutory daily requirements—cabbage provides critical biological support for vascular endothelial hemostasis and osteocalcin carboxylation.
+Breaking cabbage tissue lets plant **myrosinase** convert glucoraphanin into **sulforaphane**. In vitro studies report antibacterial activity against **Helicobacter pylori** and activation of the **Nrf2** pathway with induction of phase II enzymes; no human trial shows that eating cabbage prevents gastritis or stomach cancer. Cabbage also supplies 76 mcg of **vitamin K1 (phylloquinone)** per 100 g, about 63% of the adult reference intake, which is needed for clotting factor synthesis.
 
-Correlating baseline analytical data from USDA FoodData Central with contemporary peer-reviewed clinical gastroenterology literature, this monograph examines the molecular taxonomy, digestive pharmacodynamics, and temperature-sensitive culinary preservation of Brassica oleracea.
+Using USDA FoodData Central entry 169975, this guide sets out the nutrient profile, the effects that human evidence supports, and how cooking and storage change the vegetable.
 
 ---
 
@@ -61,10 +61,8 @@ Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100
 | **Magnesium (Mg)** | 12.00 mg | 2.9% |
 | **Phosphorus (P)** | 26.00 mg | 2.1% |
 | **Iron (Fe)** | 0.47 mg | 2.6% |
-| **Vitamin U (S-Methylmethionine)** | ~18.20 mg | Daily value not established |
-| **Glucoraphanin / Sulforaphane Precursors** | ~42.00 mg | Daily value not established |
 
-*※ Source: USDA FoodData Central Standard Reference (Cabbage, common, raw).*  
+*※ Source: [USDA FoodData Central FDC 169975](https://fdc.nal.usda.gov/food-details/169975/nutrients) — cabbage, raw (SR Legacy). Vitamin U (total S-methylmethionine) and glucosinolate totals have no standard analysed value in USDA or Korean composition tables, so those rows are omitted.*  
 *¹ Water serves as the physical hydration matrix sustaining gastric mucosal secretion.*  
 *※ 'Daily value not established' denotes functional organosulfur conjugates and glucosinolate precursors devoid of formal percentage DRI thresholds.*
 
@@ -72,27 +70,27 @@ Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100
 
 ## 2. What Are the Benefits of Cabbage? Four Evidence-Backed Effects
 
-### ① S-Methylmethionine (Vitamin U) Mucosal Epithelial Cytoprotection
-The methyl sulfonium compound **S-methylmethionine (MMS / Vitamin U)** donates methyl groups for transmethylation pathways that synthesize gastric mucosal structural phospholipids and nucleoproteins. MMS upregulates endogenous mucosal prostaglandin E2 (PGE2) and **mucin** synthesis, providing an impermeable barrier against luminal hydrochloric acid and pepsin autodigestion while shortening ulcer re-epithelialization intervals.
+### ① Vitamin U (S-methylmethionine): old research, limited evidence
+The claim that cabbage speeds ulcer healing rests on small 1950s studies that were not reproduced in later placebo-controlled trials. Laboratory work suggests S-methylmethionine can affect methylation reactions in cells, but it has not been shown to heal ulcers in people. Suspected gastritis or ulcers need medical assessment and standard treatment.
 
-### ② Sulforaphane-Mediated Helicobacter pylori Bactericidal Action and Nrf2 Induction
-Hydrolysis of cabbage glucoraphanin yields **sulforaphane**, an aliphatic isothiocyanate that irreversibly inactivates the bacterial urease enzyme essential for **Helicobacter pylori** acid colonization. Concurrently, sulforaphane disrupts Keap1-Nrf2 binding within human cells, allowing nuclear Nrf2 translocation and transcriptional induction of heme oxygenase-1 (HO-1) and glutathione S-transferase (GST), accelerating endogenous xenobiotic detoxication.
+### ② Sulforaphane: laboratory and animal evidence
+In laboratory studies **sulforaphane** inhibits H. pylori urease and, in cells and animals, activates **Nrf2** with induction of enzymes such as HO-1 and glutathione S-transferase. Whether eating cabbage clears H. pylori in people, or how much "detoxification" that produces, has not been established clinically.
 
-### ③ Phylloquinone (Vitamin K1) Endothelial Hemostasis and Skeletal Carboxylation
-At 76 mcg per 100g, cabbage serves as one of nature’s richest non-leafy sources of **vitamin K1 (phylloquinone)**. In hepatic tissue, phylloquinone functions as an essential co-factor for gamma-glutamyl carboxylase, activating clotting factors II (prothrombin), VII, IX, and X to arrest microvascular mucosal bleeding. Systemically, it carboxylates **osteocalcin**, anchoring bioavailable calcium into hydroxyapatite bone crystal lattices.
+### ③ Vitamin K1: clotting factors and bone protein activation
+Cabbage provides 76 mcg of **vitamin K1** per 100 g, about 63% of the adult reference intake. Vitamin K is required for gamma-glutamyl carboxylation of clotting factors II, VII, IX and X, and for activating **osteocalcin** in bone. Getting enough matters, but extra vitamin K in people who already have enough has not been shown to prevent osteoporosis. Anyone taking warfarin should keep vitamin K intake steady rather than swinging up and down, and discuss changes with their clinician.
 
-### ④ Fermentable Glucosinolates and Colonic Microbiome Diversification
-Cabbage supplies 2.5g of complex structural celluloses and hemicelluloses alongside sulfur glycosides. Commensal bacterial taxa, including *Faecalibacterium prausnitzii* and *Bifidobacterium*, ferment these fibrous substrates into luminal short-chain fatty acids (primarily butyrate). Butyrate fuels colonocyte mitochondrial respiration, preserves apical tight junction proteins (claudin and occludin), and suppresses gut hyperpermeability.
+### ④ Fibre and the gut microbiome
+Cabbage supplies 2.5 g of fibre per 100 g. Gut bacteria ferment fibre into short-chain fatty acids, mainly butyrate, which colon cells use as fuel. Higher fibre intake is broadly associated with better gut health, but cabbage alone cannot be said to correct gut permeability or systemic inflammation.
 
 ---
 
 ## 3. Storing and Portioning Cabbage
 
 ### Preserving Thermolabile Sulfonium and Myrosinase via Minimal Heat
-Both S-methylmethionine (Vitamin U) and plant myrosinase are heat-labile biomolecules that degrade rapidly when exposed to temperatures exceeding 60°C (140°F). Sustained boiling strips cabbage of up to 80% of its gastroprotective efficacy. To preserve enzymatic potency, consume cabbage raw (finely shredded to mechanically trigger myrosinase action) or lightly steamed for under 3 minutes.
+S-methylmethionine and plant myrosinase are heat labile. Long boiling substantially reduces myrosinase activity, so less sulforaphane forms. Shredding cabbage raw or steaming it for under three minutes limits that loss.
 
 ### Dietary Lipid Emulsification for Lipophilic Phylloquinone Absorption
-Phylloquinone (Vitamin K1) is a strictly hydrophobic lipid-soluble molecule requiring mixed bile acid-phospholipid micelle formation for enterocyte uptake. Dressing raw cabbage salads with extra virgin olive oil, cold-pressed perilla oil, or avocado elevates systemic Vitamin K bioavailability by over 300% compared to dry raw consumption.
+Vitamin K1 is fat soluble, so it is absorbed better when the meal contains some fat. Dressing raw cabbage with olive oil or perilla oil supports absorption. The size of the increase varies with the meal and the person, so no multiple is claimed.
 
 ---
 
@@ -108,9 +106,9 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 
 ## 5. Cabbage per Day: How Much Do You Need?
 
-1. **Gastroprotective Vitamin U Matrix:** S-methylmethionine stimulates rapid epithelial mucosal repair and mucin defense.
-2. **Antimicrobial and Phase II Detoxification:** Sulforaphane inhibits *H. pylori* while upregulating Nrf2 cytoprotective enzymes.
-3. **High Phylloquinone Concentration:** 76 mcg of Vitamin K1 per 100g ensures vascular micro-hemostasis and skeletal mineralization.
+1. **Vitamin U (S-methylmethionine):** the stomach-soothing reputation rests on small 1950s studies; modern clinical evidence is limited.
+2. **Sulforaphane:** antibacterial and antioxidant activity shown mainly in laboratory and animal work.
+3. **Vitamin K1:** 76 mcg per 100 g covers about 63% of the adult reference intake and is needed for clotting factor synthesis.
 
 ---
 
@@ -125,13 +123,13 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 ## 7. Frequently Asked Questions (FAQ)
 
 ### Q1. How does commercial pasteurized cabbage juice compare to fresh raw cabbage?
-**A:** Industrial high-temperature short-time (HTST) pasteurization thermally denatures heat-sensitive S-methylmethionine (Vitamin U) and inactivates the endogenous myrosinase enzyme required for sulforaphane synthesis. Consuming freshly shredded raw cabbage or cold-pressed unheated juice delivers far superior biological mucosal healing.
+**A:** Heat treatment reduces heat-sensitive S-methylmethionine (vitamin U) and inactivates myrosinase, so freshly shredded raw cabbage forms more sulforaphane than a pasteurised juice. That is a difference in enzyme activity, not proof that either form heals the stomach lining.
 
 ### Q2. Does the fibrous inner core of cabbage contain therapeutic nutritional value?
-**A:** Yes. The dense structural core (stem) contains up to 1.5 to 2-fold higher concentrations of both Vitamin U and ascorbic acid than outer leaves. Rather than discarding the core, blend it finely into smoothies alongside apples or celery to capture its dense therapeutic micronutrients.
+**A:** The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted "1.5 to 2 times more than the leaves" figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana.
 
 ### Q3. Is daily cabbage intake clinically advisable for patients presenting acid reflux (GERD)?
-**A:** Yes, cabbage is strongly recommended. Its mucosal cytoprotective sulfonium compounds and neutral-to-alkaline post-digestive impact accelerate esophageal re-epithelialization. To avoid abdominal distension from fermentable fibers, steam cabbage lightly for 2 to 3 minutes prior to consumption.
+**A:** Most people can eat cabbage daily without problems. There is no evidence that cabbage treats acid reflux, so persistent symptoms need medical assessment. If raw cabbage on an empty stomach causes gas, steam it lightly first.
 
 <div class="related-hub-box">
   <p class="related-hub-label">📌 Related ranking guide</p>
@@ -151,7 +149,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "How does commercial pasteurized cabbage juice compare to fresh raw cabbage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Pasteurization heat destroys thermolabile Vitamin U and inactivates myrosinase. Fresh shredded cabbage or cold-pressed raw juice retains maximum cytoprotective enzymes."
+        "text": "Heat treatment reduces thermolabile vitamin U and inactivates myrosinase, so fresh shredded cabbage forms more sulforaphane. Cabbage juice is not an established treatment for stomach disease, however."
       }
     },
     {
@@ -159,7 +157,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "Does the fibrous inner core of cabbage contain therapeutic nutritional value?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The core harbors 1.5 to 2 times higher concentrations of Vitamin U and Vitamin C than outer leaves, making it an ideal component for blended digestive smoothies."
+        "text": "The core contains vitamin C and fibre and need not be discarded. The widely quoted 1.5 to 2 times higher figure is not supported by a standard analysed value; if it is tough, blend it into a smoothie."
       }
     },
     {
@@ -167,7 +165,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "Is daily cabbage intake clinically advisable for patients presenting acid reflux (GERD)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Cabbage aids esophageal mucosal healing via Vitamin U. Light steaming for 2 to 3 minutes mitigates fermentable gas formation while preserving therapeutic bioactives."
+        "text": "Most people can eat cabbage daily, but there is no evidence it treats acid reflux; persistent symptoms need medical assessment. Light steaming reduces gas in people who are sensitive."
       }
     }
   ]
