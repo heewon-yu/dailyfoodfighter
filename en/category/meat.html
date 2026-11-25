@@ -12,7 +12,7 @@ permalink: /en/category/meat/
 </div>
 
 <div class="post-list">
-  {% assign meat_posts = site.posts | where: "category", "Meat" %}
+  {% assign meat_posts = site.posts | where_exp: "p", "p.category == 'Meat' or p.category == 'Protein' or p.category == 'Meat & Protein'" %}
   {% for post in meat_posts %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">

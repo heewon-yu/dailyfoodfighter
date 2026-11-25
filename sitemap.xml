@@ -35,16 +35,18 @@ layout: null
     <loc>{{ site.url }}{{ site.baseurl }}/en/contact/</loc>
   </url>
   {% for page in site.pages %}
-  {% if page.url contains '/category/' %}
+  {% if page.url contains '/category/' and page.noindex != true %}
   <url>
     <loc>{{ page.url | absolute_url | uri_escape | xml_escape }}</loc>
   </url>
   {% endif %}
   {% endfor %}
   {% for post in site.posts %}
+  {% unless post.noindex %}
   <url>
-    <loc>{{ post.url | absolute_url | xml_escape }}</loc>
+    <loc>{{ post.url | absolute_url | uri_escape | xml_escape }}</loc>
     <lastmod>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</lastmod>
   </url>
+  {% endunless %}
   {% endfor %}
 </urlset>

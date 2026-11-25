@@ -3,19 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% if page.title %}{{ page.title }}{% if page.layout == 'post' %} | DFF{% else %} | DailyFoodFighter{% endif %}{% else %}{{ site.title }}{% endif %}</title>
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <title>{% if page.title %}{{ page.title | escape }}{% if page.layout == 'post' %} | DFF{% else %} | DailyFoodFighter{% endif %}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   {% if page.layout == 'post' and page.image %}
   <link rel="preload" as="image" href="{{ page.image | relative_url }}" fetchpriority="high">
   {% endif %}
   
-  <!-- Keywords & Tags for Search Engines -->
-  {% if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ', ' }}, {{ page.category }}, nutrition, health benefits, calories, DailyFoodFighter">
-  {% else %}
-  <meta name="keywords" content="daily food nutrition facts, health benefits of natural foods, superfood nutrition, healthy diet, dailyfoodfighter, food science">
-  {% endif %}
-  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}">
   <meta name="author" content="DailyFoodFighter (데일리푸드파이터)">
 
   <!-- RSS/Atom autodiscovery: feed readers and portal crawlers (Naver, Daum) find the feed from the page itself -->
@@ -37,25 +31,38 @@
     {% assign alternate_path = '/en' | append: canonical_path %}
     {% assign alternate_lang = 'en' %}
   {% endif %}
+  {% case canonical_path %}
+    {% when '/category/과일/' %}{% assign alternate_path = '/en/category/fruits/' %}
+    {% when '/category/채소/' %}{% assign alternate_path = '/en/category/vegetables/' %}
+    {% when '/category/육류/' %}{% assign alternate_path = '/en/category/meat/' %}
+    {% when '/category/수산물/' %}{% assign alternate_path = '/en/category/seafood/' %}
+    {% when '/en/category/fruits/' %}{% assign alternate_path = '/category/과일/' %}
+    {% when '/en/category/vegetables/' %}{% assign alternate_path = '/category/채소/' %}
+    {% when '/en/category/meat/' %}{% assign alternate_path = '/category/육류/' %}
+    {% when '/en/category/seafood/' %}{% assign alternate_path = '/category/수산물/' %}
+  {% endcase %}
   {% if alternate_path %}
     {% if page.layout == 'post' %}
       {% assign alternate_page = site.posts | where: 'url', alternate_path | first %}
     {% else %}
-      {% assign alternate_page = site.pages | where: 'url', alternate_path | first %}
+      {% for candidate in site.pages %}
+        {% assign candidate_path = candidate.url | remove: 'index.html' %}
+        {% if candidate_path == alternate_path %}{% assign alternate_page = candidate %}{% break %}{% endif %}
+      {% endfor %}
     {% endif %}
   {% endif %}
   {% if alternate_page %}
     <link rel="alternate" hreflang="{{ page.lang | default: 'ko' }}" href="{{ canonical_path | absolute_url }}">
-    <link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ alternate_page.url | absolute_url }}">
-    <link rel="alternate" hreflang="x-default" href="{% if page.lang == 'en' %}{{ canonical_path | absolute_url }}{% else %}{{ alternate_page.url | absolute_url }}{% endif %}">
+    <link rel="alternate" hreflang="{{ alternate_lang }}" href="{{ alternate_path | absolute_url }}">
+    <link rel="alternate" hreflang="x-default" href="{% if page.lang == 'en' %}{{ canonical_path | absolute_url }}{% else %}{{ alternate_path | absolute_url }}{% endif %}">
   {% endif %}
   
   <!-- Open Graph / Facebook / KakaoTalk / Twitter -->
   <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}">
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta property="og:description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
   <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}ko_KR{% endif %}">
   {% if page.layout == 'post' %}
   <meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}">
@@ -68,7 +75,7 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="800">
-  <meta property="og:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
   {% else %}
   <meta property="og:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
   <meta property="og:image:type" content="image/png">
@@ -81,11 +88,11 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:site" content="@Dailyfoodfff">
   <meta name="twitter:creator" content="@Dailyfoodfff">
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   {% if page.image %}
   <meta name="twitter:image" content="{{ page.image | absolute_url }}">
-  <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:image:alt" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}">
   {% else %}
   <meta name="twitter:image" content="{{ '/assets/images/dailyfoodfighter-logo.png' | absolute_url }}">
   <meta name="twitter:image:alt" content="DailyFoodFighter Logo">
@@ -103,12 +110,13 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": {% if page.layout == 'post' %}"BlogPosting"{% else %}"WebSite"{% endif %},
+    "@type": {% if page.layout == 'post' %}"BlogPosting"{% elsif canonical_path == '/' or canonical_path == '/en/' %}"WebSite"{% else %}"WebPage"{% endif %},
     "name": {{ page.title | default: site.title | jsonify }},
     "headline": {{ page.title | default: site.title | jsonify }},
     "description": {{ page.description | default: site.description | jsonify }},
-    "url": "{{ page.url | absolute_url }}",
+    "url": {{ canonical_path | absolute_url | jsonify }},
     {% if page.layout == 'post' %}
+    "@id": "{{ canonical_path | absolute_url }}#article",
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "{{ page.url | absolute_url }}"
@@ -132,7 +140,7 @@
     "author": {
       "@type": "Organization",
       "name": "DailyFoodFighter",
-      "url": "{{ site.url }}{{ site.baseurl }}"
+      "url": "{% if page.lang == 'en' %}{{ '/en/about/' | absolute_url }}{% else %}{{ '/about/' | absolute_url }}{% endif %}"
     },
     "publisher": {
       "@type": "Organization",
@@ -150,55 +158,12 @@
       "name": "DailyFoodFighter",
       "url": "{{ site.url }}{{ site.baseurl }}",
       "sameAs": ["https://x.com/Dailyfoodfff"]
-    },
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "{{ site.url }}{{ site.baseurl }}/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
     }
     {% endif %}
   }
   </script>
 
   {% if page.layout == 'post' %}
-  <!-- Article: 포스트 대표 문서 노드 (BlogPosting의 상위 타입) + 영양정보·출처·검토자 연결, YMYL 신뢰도 보강 -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    "@id": "{{ page.url | absolute_url }}#article",
-    "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ page.url | absolute_url }}" },
-    "headline": {{ page.title | jsonify }},
-    "description": {{ page.description | default: site.description | jsonify }},
-    "inLanguage": "{% if page.lang %}{{ page.lang }}{% else %}ko{% endif %}",
-    "datePublished": "{{ page.date | date_to_xmlschema }}",
-    "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
-    "isAccessibleForFree": true,
-    {% if page.image %}"image": "{{ page.image | absolute_url }}",{% endif %}
-    {% if page.nutrition %}"about": { "@id": "{{ page.url | absolute_url }}#nutrition" },{% endif %}
-    "author": {
-      "@type": "Organization",
-      "name": "DailyFoodFighter",
-      "url": "{{ site.url }}{{ site.baseurl }}"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "DailyFoodFighter",
-      "url": "{{ site.url }}{{ site.baseurl }}",
-      "sameAs": ["https://x.com/Dailyfoodfff"]
-    },
-    "citation": [
-      {"@type": "CreativeWork", "name": "USDA FoodData Central", "url": "https://fdc.nal.usda.gov/"},
-      {"@type": "CreativeWork", "name": "식품의약품안전처 국가표준식품성분표 (K-FIND)", "url": "https://various.foodsafetykorea.go.kr/"},
-      {"@type": "CreativeWork", "name": "PubMed (NCBI) 중재·관찰 연구 문헌", "url": "https://pubmed.ncbi.nlm.nih.gov/"}
-    ],
-    "reviewedBy": {
-      "@type": "Organization",
-      "name": "DailyFoodFighter Nutrition Science Team"
-    }
-  }
-  </script>
-
   <!-- BreadcrumbList: 검색 결과 경로 표시 + 크롤러 계층 구조 인식 -->
   {% if page.lang == 'en' %}
     {% assign crumb_home_name = 'Home' %}
@@ -207,13 +172,8 @@
     {% assign crumb_home_name = '홈' %}
     {% assign crumb_home_path = '/' %}
   {% endif %}
-  {% if page.category %}
-    {% if page.lang == 'en' %}
-      {% assign crumb_cat_path = '/en/category/' | append: page.category | downcase | append: '/' %}
-    {% else %}
-      {% assign crumb_cat_path = '/category/' | append: page.category | append: '/' %}
-    {% endif %}
-  {% endif %}
+  {% capture crumb_cat_path %}{% include seo-category-path.html category=page.category lang=page.lang %}{% endcapture %}
+  {% assign crumb_cat_path = crumb_cat_path | strip %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -224,7 +184,7 @@
         "position": 1,
         "name": {{ crumb_home_name | jsonify }},
         "item": {{ crumb_home_path | absolute_url | jsonify }}
-      }{% if page.category %},
+      }{% if crumb_cat_path != '' %},
       {
         "@type": "ListItem",
         "position": 2,
@@ -233,7 +193,7 @@
       }{% endif %},
       {
         "@type": "ListItem",
-        "position": {% if page.category %}3{% else %}2{% endif %},
+        "position": {% if crumb_cat_path != '' %}3{% else %}2{% endif %},
         "name": {{ page.title | jsonify }},
         "item": {{ page.url | absolute_url | jsonify }}
       }
@@ -307,6 +267,7 @@
         <a href="{{ '/about/' | relative_url }}">소개</a>
         <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 공식계정</a>
         {% endif %}
+        {% if alternate_page %}<a href="{{ alternate_path | relative_url }}" hreflang="{{ alternate_lang }}" lang="{{ alternate_lang }}">{% if page.lang == 'en' %}한국어{% else %}English{% endif %}</a>{% endif %}
       </nav>
     </div>
   </header>

@@ -1,0 +1,16 @@
+{%- assign c = include.category | downcase | strip -%}
+{%- if include.lang == 'en' -%}
+{%- case c -%}
+{%- when 'fruits', 'fruit' -%}/en/category/fruits/
+{%- when 'vegetables', 'vegetable' -%}/en/category/vegetables/
+{%- when 'meat', 'protein', 'meat & protein', 'meat and protein' -%}/en/category/meat/
+{%- when 'seafood', 'seaweed', 'seafood & seaweed' -%}/en/category/seafood/
+{%- endcase -%}
+{%- else -%}
+{%- case c -%}
+{%- when '과일' -%}/category/과일/
+{%- when '채소', '채소·야채', '채소·채소류' -%}/category/채소/
+{%- when '육류', '육류·단백질', '단백질' -%}/category/육류/
+{%- when '수산물', '해조류', '수산물·해조류', '해산물' -%}/category/수산물/
+{%- endcase -%}
+{%- endif -%}

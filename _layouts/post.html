@@ -2,35 +2,34 @@
 layout: default
 ---
 
+{% capture category_path %}{% include seo-category-path.html category=page.category lang=page.lang %}{% endcapture %}
+{% assign category_path = category_path | strip %}
 <article class="post-article">
   <nav class="breadcrumb-nav" aria-label="{% if page.lang == 'en' %}Breadcrumb{% else %}현재 위치{% endif %}">
     <ol>
       <li><a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% if page.lang == 'en' %}Home{% else %}홈{% endif %}</a></li>
-      {% if page.category %}
-        {% if page.lang == 'en' %}
-      <li><a href="{{ '/en/category/' | append: page.category | downcase | append: '/' | relative_url }}">{{ page.category }}</a></li>
-        {% else %}
-      <li><a href="{{ '/category/' | append: page.category | append: '/' | relative_url }}">{{ page.category }}</a></li>
-        {% endif %}
+      {% if category_path != '' %}
+      <li><a href="{{ category_path | relative_url }}">{{ page.category | escape }}</a></li>
       {% endif %}
       <li class="breadcrumb-current" aria-current="page">{{ page.title }}</li>
     </ol>
   </nav>
   <header class="post-header">
     <div class="post-meta">
-      <span class="post-category">🏷️ {{ page.category | default: page.categories | first }}</span>
+      <span class="post-category">🏷️ {{ page.category | escape }}</span>
       <span class="post-date">📅 {% if page.lang == 'en' %}{{ page.date | date: "%B %d, %Y" }}{% else %}{{ page.date | date: "%Y년 %m월 %d일" }}{% endif %}</span>
-      <span class="post-author">✍️ {% if page.lang == 'en' %}Nutrition Science Team{% else %}영양전문 에디터{% endif %}</span>
+      <span class="post-author">✍️ {% if page.lang == 'en' %}DailyFoodFighter{% else %}데일리푸드파이터{% endif %}</span>
     </div>
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-review">
       {% if page.lang == 'en' %}
-      <span class="review-item">🔬 Reviewed against <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">Korean MFDS food composition table</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed</a> literature</span>
-      {% if page.last_modified_at %}<span class="review-item">🕒 Last reviewed: {{ page.last_modified_at | date: "%B %d, %Y" }}</span>{% endif %}
+      <span class="review-item">🔬 Reference databases: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">Korean MFDS food composition table</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed</a> literature</span>
+      {% if page.last_modified_at %}<span class="review-item">🕒 Updated: {{ page.last_modified_at | date: "%B %d, %Y" }}</span>{% endif %}
       {% else %}
-      <span class="review-item">🔬 검증 기준: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">식약처 국가표준식품성분표</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed 문헌</a></span>
-      {% if page.last_modified_at %}<span class="review-item">🕒 최종 검토일: {{ page.last_modified_at | date: "%Y년 %m월 %d일" }}</span>{% endif %}
+      <span class="review-item">🔬 참고 데이터베이스: <a href="https://fdc.nal.usda.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">USDA FoodData Central</a> · <a href="https://various.foodsafetykorea.go.kr/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">식약처 국가표준식품성분표</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank" rel="nofollow noopener" style="color:inherit;text-decoration:underline;">PubMed 문헌</a></span>
+      {% if page.last_modified_at %}<span class="review-item">🕒 수정일: {{ page.last_modified_at | date: "%Y년 %m월 %d일" }}</span>{% endif %}
       {% endif %}
+      <span class="review-item"><a href="{% if page.lang == 'en' %}{{ '/en/about/' | relative_url }}{% else %}{{ '/about/' | relative_url }}{% endif %}">{% if page.lang == 'en' %}Editorial standards & corrections{% else %}작성 기준 및 정정 안내{% endif %}</a></span>
     </div>
   </header>
 
@@ -62,12 +61,8 @@ layout: default
       {% for tag in page.tags %}
       <a class="tag" href="{% if page.lang == 'en' %}{{ '/en/tags/' | relative_url }}{% else %}{{ '/tags/' | relative_url }}{% endif %}#{{ tag | slugify }}">#{{ tag }}</a>
       {% endfor %}
-      {% if page.category %}
-        {% if page.lang == 'en' %}
-        <a class="tag-archive-link" href="{{ '/en/category/' | append: page.category | downcase | append: '/' | relative_url }}">More {{ page.category | downcase }} guides →</a>
-        {% else %}
-        <a class="tag-archive-link" href="{{ '/category/' | append: page.category | append: '/' | relative_url }}">{{ page.category }} 가이드 더 보기 →</a>
-        {% endif %}
+      {% if category_path != '' %}
+        <a class="tag-archive-link" href="{{ category_path | relative_url }}">{% if page.lang == 'en' %}More nutrition guides →{% else %}{{ page.category | escape }} 가이드 더 보기 →{% endif %}</a>
       {% endif %}
     </div>
 
