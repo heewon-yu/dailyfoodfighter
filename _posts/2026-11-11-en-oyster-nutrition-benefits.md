@@ -120,7 +120,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
 **A:** No. Elemental zinc is an indestructible mineral, and taurine is a remarkably heat-stable sulfonic amino acid that withstands boiling temperatures. However, because both are water-soluble, incorporate the cooking broth into stews or reductions to consume 100% of the leached nutrients.
 
 ### Q3. What is the biological basis behind the rule of avoiding oysters in months without the letter 'R'?
-**A:** In the Northern Hemisphere, months devoid of the letter 'R' (May through August) coincide with the oyster reproductive spawning window. Spawning depletes glycogen reserves, resulting in watery, flaccid flesh. Concurrently, elevated summer ocean temperatures favor rapid blooms of marine *Vibrio* bacteria, multiplying raw consumption hazards.
+**A:** In the Northern Hemisphere, months devoid of the letter ‘R’ (May through August) coincide with the oyster reproductive spawning window. Spawning depletes glycogen reserves, resulting in watery, flaccid flesh. Concurrently, elevated summer ocean temperatures favor rapid blooms of marine *Vibrio* bacteria, multiplying raw consumption hazards.
 
 <div class="related-hub-box">
   <p class="related-hub-label">📌 Related ranking guide</p>
@@ -156,7 +156,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
       "name": "What is the biological basis behind the rule of avoiding oysters in months without the letter ‘R’?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In the Northern Hemisphere, months devoid of the letter 'R' (May through August) coincide with the oyster reproductive spawning window. Spawning depletes glycogen reserves, resulting in watery, flaccid flesh. Concurrently, elevated summer ocean temperatures favor rapid blooms of marine Vibrio bacteria, multiplying raw consumption hazards."
+        "text": "In the Northern Hemisphere, months devoid of the letter ‘R’ (May through August) coincide with the oyster reproductive spawning window. Spawning depletes glycogen reserves, resulting in watery, flaccid flesh. Concurrently, elevated summer ocean temperatures favor rapid blooms of marine Vibrio bacteria, multiplying raw consumption hazards."
       }
     }
   ]

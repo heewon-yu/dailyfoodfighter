@@ -125,7 +125,7 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
 **A:** This is an unsubstantiated myth. A banana contains about 27 mg of magnesium, less than 8% of the Daily Value, so it cannot trigger cardiac arrest on its own. People with reduced kidney function need to watch potassium intake and should ask their clinician.
 
 ### Q3. Should the stringy white strands inside banana peels be discarded?
-**A:** Anatomically termed 'phloem bundles,' these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp.
+**A:** Anatomically termed ‘phloem bundles,’ these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp.
 
 <div class="related-hub-box">
   <p class="related-hub-label">📌 Related ranking guide</p>
@@ -160,7 +160,7 @@ Furthermore, the balanced concentration of intracellular magnesium and potassium
       "name": "Should the stringy white strands inside banana peels be discarded?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Anatomically termed 'phloem bundles,' these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp."
+        "text": "Anatomically termed ‘phloem bundles,’ these vascular structures transport water and essential nutrients throughout fruit maturation. They are completely edible and contain higher relative concentrations of dietary fiber, potassium, and carotenoids than the core pulp."
       }
     }
   ]

@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.40 g"
   sugarContent: "9.96 g"
 ---
-
 <img src="/assets/images/blueberry.jpg" alt="Fresh organic blueberries with natural protective bloom in a rustic ceramic bowl" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Freshly harvested wild and cultivated blueberries (Vaccinium corymbosum) contain extraordinary concentrations of bioactive polyphenolic pigments known as anthocyanins.*
 
@@ -120,7 +119,7 @@ Incorporating whole blueberries into a daily evidence-based functional dietary p
 **A:** Yes, flash-freezing immediately post-harvest induces micro-fractures in the anthocyanin-rich plant epidermal cells, rendering polyphenols more bioaccessible and bioavailable during human digestion.
 
 ### Q2. Is the white powdery substance on blueberry skin a pesticide residue?
-**A:** No, it is a natural plant coating called 'epicuticular wax' or 'bloom.' It protects the berry against moisture loss and bacterial infestation; a prominent bloom is a hallmark of peak freshness.
+**A:** No, it is a natural plant coating called ‘epicuticular wax’ or ‘bloom.’ It protects the berry against moisture loss and bacterial infestation; a prominent bloom is a hallmark of peak freshness.
 
 ### Q3. What is the clinically validated optimal daily intake of blueberries for adults?
 **A:** Intervention trials report optimal vascular and cognitive improvements with approximately 100 to 130 grams (one standard cup, roughly 50 to 70 berries) consumed daily.
@@ -151,7 +150,7 @@ Incorporating whole blueberries into a daily evidence-based functional dietary p
       "name": "Is the white powdery substance on blueberry skin a pesticide residue?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, it is a natural plant coating called 'epicuticular wax' or 'bloom.' It protects the berry against moisture loss and bacterial infestation; a prominent bloom is a hallmark of peak freshness."
+        "text": "No, it is a natural plant coating called ‘epicuticular wax’ or ‘bloom.’ It protects the berry against moisture loss and bacterial infestation; a prominent bloom is a hallmark of peak freshness."
       }
     },
     {

@@ -125,7 +125,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
 **A:** Heat treatment reduces heat-sensitive S-methylmethionine (vitamin U) and inactivates myrosinase, so freshly shredded raw cabbage forms more sulforaphane than a pasteurised juice. That is a difference in enzyme activity, not proof that either form heals the stomach lining.
 
 ### Q2. Does the fibrous inner core of cabbage contain therapeutic nutritional value?
-**A:** The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted "1.5 to 2 times more than the leaves" figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana.
+**A:** The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted “1.5 to 2 times more than the leaves” figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana.
 
 ### Q3. Is daily cabbage intake clinically advisable for patients presenting acid reflux (GERD)?
 **A:** Most people can eat cabbage daily without problems. There is no evidence that cabbage treats acid reflux, so persistent symptoms need medical assessment. If raw cabbage on an empty stomach causes gas, steam it lightly first.
@@ -156,7 +156,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "Does the fibrous inner core of cabbage contain therapeutic nutritional value?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted \"1.5 to 2 times more than the leaves\" figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana."
+        "text": "The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted “1.5 to 2 times more than the leaves” figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana."
       }
     },
     {
