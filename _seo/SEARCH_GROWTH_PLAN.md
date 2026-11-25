@@ -30,4 +30,24 @@ Run locally (no new GitHub Actions):
 - Redirect alert resolved as non-defect: the only URL is `https://dailyfoodfighter.com/en` (no slash), 308-normalized to `/en/` by Cloudflare Pages; nothing on the site links to it. Always submit indexing requests with the trailing slash.
 - GA4: 28d 288 sessions, 79 engaged (27.4%), 13 s/session, 540 page views, 235 users, 2.30 views/user; organic 17 sessions (google 11, daum 5, bing 1), naver 0; 7d 61 sessions, organic 6. Calculator pages 0 views (deployed 11-25).
 - Deployment incident: commits 09:44–09:54 carried `[skip ci]`, which makes Cloudflare Pages skip the build; production was stale until a normal-message push deployed them. **Never put `[skip ci]` in commit messages for this repo.**
-- Next: `/en/nutrition-calculator/` indexing request (quota exhausted 11-25), chicken breast table source review, indexing coverage for broccoli en / onion kr / seafood category / en privacy, then 4–20 position query optimization.
+- Next: `/en/nutrition-calculator/` indexing request (quota exhausted 11-25), indexing coverage for broccoli en / onion kr / seafood category / en privacy, then 4–20 position query optimization.
+
+## P1-1 complete — 2026-11-25 (124-post evidence audit + high-risk claim fixes)
+
+Commits: `5f9a15b` (content fixes), `99df698` (audit table + scanner tools), plus this doc update. No `[skip ci]`.
+
+**Deliverable: `_seo/content_audit_124.csv`** — 124 rows (62 pairs), 34 columns: file, URL, language, pair slug, category, title/H1, description length, answer-first paragraph text, serving-size table, per-100 g table, front-matter basis (`servingSize`), raw/cooked/dried state, FDC IDs, direct DOI/PubMed/FDC links, per-class high-risk counts (c1 treatment/cure/detox, c2 absorption multiples, c3 blanket safe intake, c4 raw–cooked mixing, c5 numeric GI/GL, c6 animal/in-vitro, c7 bare percentages), FAQ body vs JSON-LD divergence, review status, action taken, remaining check. Rebuild with `python3 _seo/p1_build_audit.py . _seo/content_audit_124.csv`; inspect every matched sentence with `python3 _seo/p1_dump_claims.py <files...>`.
+
+Inventory (as of this pass): answer-first box 124/124, per-100 g table 124/124, serving-size table 59/124, source ID or direct reference link 30/124 (was 20/124), FAQ body–JSON-LD numeric conflict 15 rows, paraphrase-only difference 34 rows. Unqualified claim hits: c1 25, c2 26, c3 29, c5 (numeric GI/GL) 37, c6 26, c7 18. Review status: 수정완료 28 rows (14 pairs), 표현 완화 필요 14, 경미 검토 필요 40, 출처 ID 보강 필요 36, 구조·표현 양호 6.
+
+Fixed in `5f9a15b` (28 source files + calculator include):
+- **Chicken breast** — the 110 kcal / 23.1 g / 1.24 g basis did not match any single source: potassium 334 mg came from USDA FDC 171077 (raw) while B6 0.60, B12 0.34, P 228 and Se 27.6 came from FDC 171477 (cooked, roasted). Replaced the whole table with FDC 171077 (120 kcal, 22.5 g protein, 2.62 g fat, K 334, B6 0.81, B12 0.21, P 213, Se 22.8, water 73.9), recomputed every %DV, and added the Korean national entry (닭고기, 가슴, 생것, I008000D020a: 106 kcal, 22.97 g, 0.97 g) as a separately labelled sample. Calculator note now states both pages use FDC 171077.
+- **Cabbage / broccoli / garlic / carrot** — treatment, cure, cancer-prevention and “liver detox” assertions narrowed to cell/animal evidence or removed; unsupported multiples (3×, 5×, 2×, 10×, 6,000×) deleted; invented analysed values (vitamin U 18.2 mg, glucosinolate 42 mg, saponin 65 mg) removed from tables; blanket “X g is safe” answers replaced with individual guidance; FDC IDs added where the numbers matched (carrot 170393, cabbage 169975, broccoli 170379).
+- **Salmon / egg / tofu / spinach / avocado / oyster / shrimp / pork tenderloin / orange / banana** — quoted percentages and multiples tied to their study conditions (e.g. triglycerides 20–30% only at 2–4 g EPA+DHA/day), pork cooking answer corrected to USDA 63 °C + 3 min rest, FAQ JSON-LD answers aligned with the edited visible text.
+
+Not done / still open (no claim of clinical validation):
+- 14 rows still carry unqualified treatment/detox or absorption claims (c1/c2/c3 ≥ 1) — mostly 11-04~11-14 English counterparts not edited in this pass, plus category hub posts.
+- 36 rows have no FDC ID or direct DOI/PMID link; the numbers were not individually re-derived from a primary source.
+- Serving-size (실제 1회 섭취량) tables exist in only 59/124 posts.
+- GI/GL values are quoted in 37 posts from secondary pages; only a few are traceable to an international GI table or trial.
+- No local Jekyll build is possible here (no ruby), so rendering was verified on production after deploy instead.

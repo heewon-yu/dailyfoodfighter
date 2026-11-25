@@ -68,6 +68,7 @@ FIXED = {
     "avocado-nutrition-benefits": "4~15배·10배 흡수 배수 연구 범위로 한정, GI 15 이하 단정 → 연구별 범위, '하루 1/2개 안전' → 열량 예산 설명으로 교체",
     "oyster-nutrition-benefits": "타우린 간 해독·숙취 해소 단정 완화, 구연산 2~3배 흡수·무즙 중금속 '완벽 흡착' 삭제, 85℃ '완벽 차단' → 위험 감소로",
     "shrimp-nutrition-benefits": "아스타잔틴 비타민C 6,000배·E 500배 비교를 시험관 값으로 명시, 타우린 간 해독·심근 수축력 단정 완화, 레몬 항산화 2배 삭제",
+    "banana-nutrition-benefits": "공복 섭취 '완벽히 유지·심장 위험 0' 단정 완화, 신장 기능 저하 시 칼륨 주의로 대체(한/영)",
     "pork-tenderloin-nutrition-benefits": "비타민B1 10배·5배, 알리티아민 흡수 10배 수치 완화, 미디엄 익힘 안전 답변을 USDA 63℃·3분 기준으로 교체",
 }
 
