@@ -72,6 +72,26 @@ FIXED = {
     "pork-tenderloin-nutrition-benefits": "비타민B1 10배·5배, 알리티아민 흡수 10배 수치 완화, 미디엄 익힘 안전 답변을 USDA 63℃·3분 기준으로 교체",
 }
 
+
+# P1-2 (2026-11-25): Korean high-risk wording toned down in these 14 posts.
+# English counterparts were not part of this pass and keep their own status.
+FIXED_KO_P12 = {
+    "beef-sirloin-nutrition-benefits": "치료·빈혈 근본 개선·흡수율 10배/3배·15~35% 단정 완화, 근감소증·면역 차단 표현을 연구 수준으로, FAQ 답변 생것 온도 주의 추가",
+    "orange-nutrition-benefits": "헤스페리딘 RCT·혈관 확장 단정 완화, 세포 내 80배·철 흡수 4~6배/5배 배수 삭제, 절개 주름 억제·결석 예방 단정 철회, GI/GL 답변을 참고치로 한정",
+    "squid-nutrition-benefits": "고지혈증 '안심' 답변을 콜레스테롤 233mg 기준 양 조절로 교체, LDL 저하·혈전 억제·인슐린 촉진 단정 완화, 하얀 가루 '그대로 섭취 안전' 철회, 타우린 40% 유출 수치 삭체",
+    "beetroot-nutrition-benefits": "혈압 효과 수치·지속시간 단정 완화(약 대체 불가 명시), 옥살산 25%/30~50% 감소를 조리 조건 의존으로, 베투리아 빈도·무해 단정 완화, 디톡스 주스 표현 정리",
+    "lentil-nutrition-benefits": "GI 32를 국제 GI 표 인용으로 한정, 비타민C 2~3배·피트산 20~30% 수치 완화, 통풍 50~80g 일괄 안전량 삭제, 임신 초기 결정적 표현 수정",
+    "cherry-nutrition-benefits": "통풍 35%를 관찰연구·인과 미확정으로 명시, COX-2·잔틴산화효소 억제를 실험실 근거로 한정, 멜라토닌 배수 계산 오류(5만분의 1→4천~4만분의 1) 수정",
+    "kiwi-nutrition-benefits": "껍질 50%·1.5배 증가와 철 흡수 극대화·식이섬유 3~4배 팽창 수치 완화, 임산부 간식·면역력 보충 표현 정리, 시금치 내부링크의 '극대화' 삭제",
+    "laver-nutrition-benefits": "하루 2~5장 일괄 안전량을 제품·개인 편차 설명으로 교체, 달걀 1개 비교를 3.9g/6.3g(약 60%)로 정정, 비타민C 30~50% 손실·철 흡수 5~10% 수치 완화",
+    "natto-nutrition-benefits": "나토키나아제 혈전 분해를 시험관 기전으로 명시, MK-7 8~10배·필요량 표현을 충분섭취량 기준으로, '주 3~4회로 충분' 단정 철회, 프로바이오틱스 효과 완화",
+    "anchovy-nutrition-benefits": "칼슘 흡수율 20~30%·헹굼 염분 10~20% 수치를 조건 의존으로, 하루 10~15g을 나트륨 감당 범위로 설명, '최고 칼슘 밀도' 표현 완화",
+    "lotus-root-nutrition-benefits": "비타민C 39%를 식품성분표 데친 값 인용으로 정정(1분 데치 단정 철회), 망간 40~50%·손실 절반 수치 삭제, 하루 1~2잔·100g 일괄 상한 완화",
+    "black-soybean-nutrition-benefits": "익힌 콩 소화율 80~90%·하루 30g 안전 범위 완화, '4대 효능' 제목을 영양 포인트로 교체, 신장질환자 국물 섭취 문구를 상담 안내로",
+    "cauliflower-nutrition-benefits": "비타민C 40% 손실·칼륨 30~40% 감소를 문헌 인용으로 한정, '100% 섭취'·'40% 더 먹는 셈' 계산 단정 완화, 볶음 열량 배수 3배→5배 일관화",
+    "kelp-nutrition-benefits": "나트륨 10~20% 절감 효과 수치 삭제(양념·조리 의존), 철 흡수 2~10% 완화, '4대 효능' 제목을 쟁점·근거 수준으로 교체",
+}
+
 rows = []
 for f in sorted((root / "_posts").glob("*.md")):
     raw = f.read_text(encoding="utf-8")
@@ -153,6 +173,9 @@ for f in sorted((root / "_posts").glob("*.md")):
     if slug in FIXED:
         status = "수정완료"
         action = FIXED[slug]
+    elif lang == "ko" and slug in FIXED_KO_P12:
+        status = "수정완료"
+        action = FIXED_KO_P12[slug]
     elif high >= 3:
         status = "표현 완화 필요(미수정)"
         action = ""
