@@ -112,7 +112,7 @@ This is the part that trips people up: **cooking raises the energy per 100 g but
 
 - **No oil (dry pan):** 50 kcal
 - **1 teaspoon olive oil (5 g, ~45 kcal):** about 95 kcal
-- **1 tablespoon olive oil (15 g, ~120 kcal):** about 170 kcal
+- **1 tablespoon olive oil (about 14 g, 120 kcal):** about 170 kcal
 
 A 200 g bowl of cooked white rice runs about 260 kcal and 56 g of carbohydrate, so 200 g of cauliflower rice is roughly **one-fifth the calories and one-sixth the carbohydrate**. Add a tablespoon of oil and you climb to about two-thirds of the rice figure — which is why "rice substitute" cooking that starts with a generous pour of oil gives most of the calorie saving back.
 

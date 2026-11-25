@@ -101,7 +101,7 @@ Three practical points follow.
 
 - **Cook it skin-on, over a tray or in a sauce.** Baking on parchment or braising in a shallow liquid keeps the rendered fat in the dish instead of on the pan.
 - **Brown it, do not char it.** Fat that drips onto a flame and burns produces polycyclic aromatic hydrocarbons (PAHs); a golden skin is the target, not a black one.
-- **One fillet is about 100–120 g,** which supplies 2.3–2.8 g of EPA+DHA — the range most guidelines suggest for a whole day.
+- **One fillet is about 100–120 g,** which supplies 2.3–2.8 g of EPA+DHA — the figure most often quoted for a whole day of omega-3 for heart health.
 
 ---
 
