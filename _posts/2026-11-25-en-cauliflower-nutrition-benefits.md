@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Cauliflower per 100 g: 25 kcal, 48 mg Vitamin C, 2 g Fiber"
+title: "Cauliflower Nutrition per 100 g: Calories, Fiber & Cooking"
 date: 2026-11-25 07:50:00 +0900
+last_modified_at: 2026-11-25
 lang: en
 category: "Vegetables"
 tags: [Cauliflower, Vitamin C, Glucosinolates, Sulforaphane, Low-Carb]
-description: "Raw cauliflower is 25 kcal per 100 g with 48 mg vitamin C and 2 g fiber — but 20 minutes of boiling destroys 76% of its sulforaphane. Steam it instead."
+description: "Raw cauliflower provides 25 calories, 2 g fiber and 48.2 mg vitamin C per 100 g in USDA data. Compare boiling and steaming in a controlled study."
 permalink: /en/posts/cauliflower-nutrition-benefits/
 image: "/assets/images/cauliflower.jpg"
 nutrition:
@@ -23,7 +24,7 @@ nutrition:
 *▲ Raw cauliflower is 25 kcal per 100 g, with 48.2 mg of vitamin C (54% DV) and 2.0 g of fiber. One head weighs 600–900 g before trimming.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>Raw cauliflower supplies 25 calories, 4.97 g of carbohydrate, 2.0 g of fiber and 48.2 mg of vitamin C (54% DV) per 100 g.</strong> It is one of the few vegetables that gives you half a day's vitamin C for 25 calories. The catch is cooking: <strong>20 minutes in boiling water removes 76.2% of its sulforaphane and about 40% of its vitamin C</strong>, because both leach into the water rather than burn away. <strong>Steam it for four to five minutes</strong> and you keep roughly three times more of what you paid for.
+<span class="answer-label">Quick answer</span> <strong>Raw cauliflower supplies 25 calories, 4.97 g carbohydrate, 2.0 g fiber and 48.2 mg vitamin C per 100 g in USDA data.</strong> In one 20-minute cooking study, sulforaphane decreased by 76.2% after boiling and 66.1% after steaming. These are study-specific results, not universal cooking losses.
 </div>
 
 Cauliflower is the flower bud of *Brassica oleracea* var. *botrytis* — the same species as broccoli, cabbage and kale. The edible part is the arrested inflorescence, called the curd, harvested while the florets are still tightly packed. That structure is the reason it behaves so differently from leafy brassicas in the kitchen: a dense surface-to-volume ratio that holds water, hides grit, and soaks up oil.
@@ -138,7 +139,7 @@ Folate (57 µg DFE, 14% DV) and vitamin K (15.5 µg, 13% DV) round out the micro
 
 ## 3. Cooking and Eating Guide That Preserves Nutrients
 
-- <strong>Steam, don't boil.</strong> Four to five minutes over boiling water, lid on, until a knife meets slight resistance at the stem. This keeps sulforaphane loss near 66% instead of 76%, and vitamin C loss under 20%.
+- <strong>Steaming:</strong> try four to five minutes for texture, checking the stems. The reported 20-minute experimental losses cannot be extrapolated to this shorter cooking time.
 - <strong>If you boil, boil briefly in little water.</strong> Three minutes with a lid in half a cup of water beats twenty minutes in a liter. Use the cooking water in soup or a stew and you recover much of what leached out.
 - <strong>Chop, wait ten minutes, then apply heat.</strong> This lets myrosinase act before it is denatured, so the isothiocyanates are already formed.
 - <strong>Wash just before cooking, not before storing.</strong> Invert florets in lightly salted water for two to three minutes to float out grit, then rinse. Water trapped in the curd makes the vegetable soggy when roasted and encourages mold in the drawer.
@@ -165,10 +166,10 @@ Folate (57 µg DFE, 14% DV) and vitamin K (15.5 µg, 13% DV) round out the micro
 ## 5. Frequently Asked Questions
 
 **How much cauliflower should I eat per day?**  
-For healthy adults, 100–200 g per day is a reasonable range: 25–50 calories and 2–4 g of fiber on USDA figures. If you have thyroid disease, kidney disease, or take warfarin, fix the amount at around 100 g and keep it consistent rather than varying widely.
+A 100 g serving is a useful reference for nutrition comparisons, not a prescribed daily amount. If thyroid disease, kidney disease or warfarin use requires dietary adjustments, follow advice from your clinician or dietitian.
 
 **Does boiling cauliflower destroy its nutrients?**  
-Not all of them, but a large share leaves with the water. Twenty minutes of boiling removed 76.2% of sulforaphane and roughly 40% of vitamin C in controlled trials. Steaming cut the sulforaphane loss to 66.1% and kept vitamin C loss under 20%. Reusing the cooking water in soup recovers water-soluble vitamins.
+Not all nutrients disappear. In one 20-minute trial, sulforaphane decreased by 76.2% after boiling and 66.1% after steaming. Actual losses vary by cooking conditions and cultivar.
 
 **Is cauliflower rice good for weight loss?**  
 Only when it replaces rice. 100 g of cauliflower is 25 calories against about 130 for cooked white rice, so a straight swap cuts roughly 200 calories from a meal. It fails when pan-fried in oil (adds 120 calories per tablespoon) or eaten alongside rice instead of replacing it, and its 1.92 g protein per 100 g will not keep you full on its own.
@@ -183,7 +184,7 @@ Only when it replaces rice. 100 g of cauliflower is 25 calories against about 13
       "name": "How much cauliflower should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy adults, 100 to 200 g per day is a reasonable range: 25 to 50 calories and 2 to 4 g of fiber on USDA figures. If you have thyroid disease, kidney disease or take warfarin, fix the amount at around 100 g and keep it consistent rather than varying widely."
+        "text": "A 100 g serving is a useful reference for nutrition comparisons, not a prescribed daily amount. If thyroid disease, kidney disease or warfarin use requires dietary adjustments, follow advice from your clinician or dietitian."
       }
     },
     {
@@ -191,7 +192,7 @@ Only when it replaces rice. 100 g of cauliflower is 25 calories against about 13
       "name": "Does boiling cauliflower destroy its nutrients?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not all of them, but a large share leaves with the water. Twenty minutes of boiling removed 76.2 percent of sulforaphane and roughly 40 percent of vitamin C in controlled trials. Steaming cut the sulforaphane loss to 66.1 percent and kept vitamin C loss under 20 percent. Reusing the cooking water in soup recovers water-soluble vitamins."
+        "text": "Not all nutrients disappear. In one 20-minute trial, sulforaphane decreased by 76.2% after boiling and 66.1% after steaming. Actual losses vary by cooking conditions and cultivar."
       }
     },
     {
@@ -232,4 +233,7 @@ Only when it replaces rice. 100 g of cauliflower is 25 calories against about 13
 - **Chop ten minutes before cooking** so myrosinase can generate isothiocyanates while the enzyme is still active.
 - The **cancer claim stops at cell and animal studies** plus observational associations — no human trial shows cauliflower prevents cancer.
 - **Cauliflower rice works only as a replacement.** With oil, the calorie advantage disappears, and 1.92 g protein per 100 g will not hold you until the next meal.
-- Thyroid disease, kidney disease and warfarin users should keep intake **steady at about 100 g** and avoid powdered or juiced concentrates.
+- If thyroid disease, kidney disease or warfarin use requires diet changes, follow your clinician's advice rather than a fixed daily serving.
+
+
+**Cooking study:** [Impact of thermal processing and freezing on sulforaphane levels in selected brassica vegetables (2026)](https://doi.org/10.1007/s00217-026-05180-y).

@@ -1,11 +1,12 @@
 ---
 layout: post
-title: "Kelp per 100 g: 43 kcal, 168 mg Calcium, Iodine Warning"
+title: "Kelp Nutrition: Calories, Iodine in Dried Kelp & Broth"
 date: 2026-11-25 07:50:00 +0900
+last_modified_at: 2026-11-25
 lang: en
 category: "Seafood"
 tags: [Kelp, Iodine, Alginate, Thyroid, Magnesium]
-description: "Raw kelp is 43 kcal per 100 g with 168 mg calcium, 121 mg magnesium and 2.85 mg iron — plus iodine at up to 1,790 µg in a single 3×5 cm strip."
+description: "Compare raw and dried kelp nutrition and understand why iodine in kelp and broth varies, with practical precautions and sources."
 permalink: /en/posts/kelp-nutrition-benefits/
 image: "/assets/images/kelp.jpg"
 nutrition:
@@ -134,10 +135,10 @@ The white powder on the surface of dried kelp is mannitol, a sugar alcohol — n
 
 - <strong>Steep at 60–80°C, not at a rolling boil.</strong> Glutamate extracts best below boiling. Put kelp into cold water, heat gently, and remove it just before the water boils. Boiling longer than five minutes releases alginate and bitter compounds that cloud the broth.
 - <strong>Cold-steep for one hour in summer, three in winter.</strong> Cold water extracts glutamate cleanly with almost no bitterness. If you are short on time, use the gentle-heat method above.
-- <strong>Discard the first soak if you want less iodine.</strong> A ten-minute soak, water poured off, then a fresh pot, removes a meaningful share of surface iodine. For anyone with thyroid disease this is the single most useful technique in this article.
+- <strong>Discarding soaking water:</strong> may reduce iodine, but does not establish a safe iodine concentration in a subsequent broth.
 - <strong>Do not wash off the white powder.</strong> Mannitol carries sweetness. Wipe visible grit with a damp cloth instead.
-- <strong>Eat the steeped kelp.</strong> Slice it into a vinegar dressing with lemon; that is where the fiber, calcium and iodine-affected minerals remain.
-- <strong>Keep portions gram-scale.</strong> One 3×5 cm piece per day for broth is a reasonable ceiling for healthy adults; less, or less often, if you have thyroid disease.
+- <strong>Steeped kelp:</strong> retains fiber and may retain substantial iodine. Eating both broth and kelp can increase total iodine intake.
+- <strong>Portion size:</strong> no universal gram-scale daily ceiling can be guaranteed because iodine concentration and extraction vary substantially.
 - <strong>Skip kelp powders, capsules and juices</strong> unless a clinician directs them. Concentrates compress weeks of iodine into a spoonful, and the dosing is not standardized.
 - <strong>Store dried kelp airtight, frozen for long term.</strong> It absorbs moisture and odors readily.
 
@@ -145,7 +146,7 @@ The white powder on the surface of dried kelp is mannitol, a sugar alcohol — n
 
 ## 4. Cautions and Side Effects
 
-- <strong>Thyroid disease:</strong> if you have Hashimoto's thyroiditis, Graves' disease, a nodular goiter or a history of thyroid surgery, avoid kelp concentrates and keep food use to occasional broth. Excess iodine can worsen both hypothyroidism and hyperthyroidism in these groups.
+- <strong>Thyroid disease:</strong> people with thyroid conditions may be more susceptible to excess iodine. Discuss kelp concentrates, broth and food portions with a clinician.
 - <strong>Pregnancy and lactation:</strong> iodine needs rise to 220–290 µg/day, but the upper limit does not. Kelp is a poor way to supplement because the dose cannot be controlled; prenatal supplements with defined iodine are safer.
 - <strong>Kidney disease:</strong> the USDA figure for potassium is modest (89 mg), but dried kelp is far more concentrated and Korean tables list 7,500 mg potassium per 100 g dried. Under a potassium restriction, weigh portions rather than eyeballing them.
 - <strong>Sodium in salt-preserved kelp:</strong> salt-cured products can exceed 10,000 mg sodium per 100 g. Soak and rinse thoroughly before use.
@@ -159,10 +160,10 @@ The white powder on the surface of dried kelp is mannitol, a sugar alcohol — n
 ## 5. Frequently Asked Questions
 
 **How much iodine is in a piece of kelp?**  
-A 3×5 cm strip of dried kelp (1–2 g) contains roughly 1,790–3,580 µg of iodine based on Korean measured values of 179,060 µg per 100 g dried. A 10×10 cm broth piece (3–5 g) reaches 5,370–8,950 µg. Actual absorption is lower because extraction into broth is incomplete and much of the iodine stays in the leaf.
+At the cited measured concentration of 179,060 µg per 100 g of dried kelp, a 1–2 g piece contains about 1,790–3,580 µg before preparation. Concentration and transfer to broth vary, so this is an estimate rather than a universal serving value.
 
 **Can I drink kelp broth every day?**  
-Yes, if you keep the kelp to about 1–2 g per day and remove it before the water boils. At that level iodine approaches the U.S. upper limit of 1,100 µg and stays within Korea's 2,400 µg. If you have thyroid disease, treat daily broth as too frequent and use kelp two or three times a week instead.
+Daily kelp broth cannot be assumed safe. Using the cited dry-kelp measurement, 1–2 g contains about 1,790–3,580 µg of iodine before preparation, above the US adult upper limit of 1,100 µg and potentially above the Korean adult limit of 2,400 µg. The amount transferred into broth varies. If you have thyroid disease, discuss intake with your clinician.
 
 **Does kelp lower cholesterol?**  
 Probably a little, through alginate's viscosity, but the evidence is weak. Small trials with alginate-enriched foods show reduced energy intake and slower glucose absorption; there is no large trial showing that eating kelp lowers LDL in a clinically meaningful way. Treat kelp as a low-calorie, high-mineral seasoning rather than a lipid-lowering intervention.
@@ -177,7 +178,7 @@ Probably a little, through alginate's viscosity, but the evidence is weak. Small
       "name": "How much iodine is in a piece of kelp?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 3 by 5 cm strip of dried kelp weighing 1 to 2 g contains roughly 1,790 to 3,580 micrograms of iodine, based on Korean measured values of 179,060 micrograms per 100 g of dried kelp. A 10 by 10 cm broth piece of 3 to 5 g reaches 5,370 to 8,950 micrograms. Actual absorption is lower because extraction into broth is incomplete and much of the iodine stays in the leaf."
+        "text": "At the cited measured concentration of 179,060 µg per 100 g of dried kelp, a 1–2 g piece contains about 1,790–3,580 µg before preparation. Concentration and transfer to broth vary, so this is an estimate rather than a universal serving value."
       }
     },
     {
@@ -185,7 +186,7 @@ Probably a little, through alginate's viscosity, but the evidence is weak. Small
       "name": "Can I drink kelp broth every day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, if you keep the kelp to about 1 to 2 g per day and remove it before the water boils. At that level iodine approaches the U.S. upper limit of 1,100 micrograms and stays within Korea's 2,400 micrograms. If you have thyroid disease, daily broth is too frequent, so use kelp two or three times a week instead."
+        "text": "Daily kelp broth cannot be assumed safe. Using the cited dry-kelp measurement, 1–2 g contains about 1,790–3,580 µg of iodine before preparation, above the US adult upper limit of 1,100 µg and potentially above the Korean adult limit of 2,400 µg. The amount transferred into broth varies. If you have thyroid disease, discuss intake with your clinician."
       }
     },
     {
@@ -228,3 +229,6 @@ Probably a little, through alginate's viscosity, but the evidence is weak. Small
 - **Eat the steeped leaf, not just the broth** — that is where alginate, calcium and iron remain.
 - Avoid **powders, capsules and juices**; keep food use to grams, and separate kelp from **levothyroxine by four hours**.
 - Do not wash off the white powder: it is **mannitol**, and it carries sweetness.
+
+
+**Additional references:** [NIH ODS iodine fact sheet](https://ods.od.nih.gov/factsheets/iodine-HealthProfessional/) and [iodine in Korean brown seaweed and kelp broth (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11156764/).
