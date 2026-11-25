@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0 g"
   sugarContent: "0 g"
 ---
-
 <img src="/assets/images/salmon.jpg" alt="Fresh raw salmon fillet with lemon slices and fresh dill on dark slate" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Atlantic salmon (Salmo salar) is a practical source of long-chain omega-3 fatty acids (EPA and DHA), vitamin D and astaxanthin. Nutrient figures use USDA FoodData Central FDC 175167 (raw).*
 
@@ -156,7 +155,7 @@ Long-chain polyunsaturated fatty acids and marine carotenoids are inherently sus
       "name": "What nutritional disparities distinguish fresh raw salmon from commercial smoked salmon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fresh salmon keeps heat-sensitive omega-3 and vitamin B12 without added salt. Smoked and cured salmon are salted during processing and carry substantially more sodium than a raw fillet, so people with high blood pressure should keep portions smaller."
+        "text": "Fresh salmon keeps heat-sensitive omega-3 and vitamin B12 without added salt. Smoked and cured salmon are salted during processing and carry substantially more sodium than a raw fillet; if you have high blood pressure, keep portions small and choose grilled or raw salmon more often."
       }
     },
     {

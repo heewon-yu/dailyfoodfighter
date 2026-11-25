@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0.00 g"
   sugarContent: "0.37 g"
 ---
-
 <img src="/assets/images/egg.jpg" alt="Fresh and Sliced Hard Boiled Eggs on Rustic Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ The egg (Gallus gallus domesticus) is a compact source of high-quality protein, choline, lutein and zeaxanthin, and fat-soluble vitamins. Figures use USDA FoodData Central FDC 171287 (raw, edible portion).*
 
@@ -154,7 +153,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
       "name": "Does eating egg yolks daily elevate circulating atherogenic cholesterol?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy individuals, consuming whole eggs does not adversely impact circulating cardiovascular biomarkers, as hepatic feedback loops downregulate endogenous cholesterol biosynthesis."
+        "text": "In healthy adults, empirical evidence demonstrates that consuming 1 to 3 whole eggs daily does not adversely alter the total cholesterol to HDL ratio. Hepatic feedback mechanisms balance systemic production, maintaining stable cardiovascular risk biomarkers."
       }
     },
     {
@@ -162,7 +161,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
       "name": "Is the dark greenish-grey ring around overcooked yolks toxic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is completely harmless ferrous sulfide formed by thermal interaction between iron and sulfur, which can be prevented by immediate ice-water cooling."
+        "text": "It is completely non-toxic. The discoloration is ferrous sulfide ($FeS$), formed when sulfur from the white reacts with iron in the yolk under prolonged high temperatures. Shocking boiled eggs in ice water eliminates ring formation."
       }
     },
     {
@@ -170,7 +169,7 @@ The human body synthesizes approximately 80% of systemic cholesterol endogenousl
       "name": "Do raw eggs provide superior protein bioavailability compared to cooked eggs?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A small stable-isotope study found cooked egg protein about 91% digestible and absorbed, against about 51% for raw egg; heat unfolds the protein so enzymes can act on it."
+        "text": "No. A small stable-isotope study found cooked egg protein was about 91% digestible and absorbed, against about 51% for raw egg. Heat unfolds the protein so digestive enzymes can reach it more easily."
       }
     }
   ]

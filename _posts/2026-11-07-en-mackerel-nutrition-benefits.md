@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0.00 g"
   sugarContent: "0.00 g"
 ---
-
 <img src="/assets/images/mackerel.jpg" alt="Fresh and Grilled Mackerel Fillet with Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Characterized by dark undulating bands and silver ventral scales, mackerel stands as a premier pelagic superfood, supplying dense reserves of cardioprotective EPA, neuroprotective DHA, and bioavailable cholecalciferol (vitamin D3).*
 
@@ -140,7 +139,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
       "name": "Should mackerel skin and dark red lateral flesh (chiai) be eaten?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Mackerel skin contains concentrated collagen and omega-3 lipids, while the dark red lateral muscle supplies dense bioavailable heme iron, vitamin B12, and cellular taurine."
+        "text": "Yes, absolutely. The subcutaneous lipid layer under the skin houses concentrated marine collagen and omega-3s, while the dark red lateral muscle contains three times more heme iron, vitamin B12, and taurine than the white muscle tissue."
       }
     },
     {
@@ -148,7 +147,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
       "name": "How can one reduce sodium levels in commercial salted mackerel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soaking fillets in cold rice water for 20 minutes draws out excess sodium chloride through osmotic diffusion without degrading delicate fatty acid reserves."
+        "text": "Submerging salted fillets in cold rice-washing water or mild vinegar water for 20 minutes leverages osmotic diffusion to draw out excess sodium chloride while tenderizing the flesh. Avoid adding table salt during cooking."
       }
     },
     {
@@ -156,7 +155,7 @@ Pelagic scombroid fish degrade rapidly at ambient temperatures, converting endog
       "name": "Is mackerel safe for individuals managing gout or hyperuricemia?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mackerel is a high-purine pelagic fish. Individuals experiencing acute gouty flares should avoid it, reserving consumption for stable clinical periods under medical guidance."
+        "text": "Caution is warranted. Mackerel is classified as a high-purine food (>150mg purines per 100g). While beneficial for heart disease, individuals with active clinical gout flares should avoid consumption until serum uric acid normalizes."
       }
     }
   ]

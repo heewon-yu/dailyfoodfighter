@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0.00 g"
   sugarContent: "0.00 g"
 ---
-
 <img src="/assets/images/abalone.jpg" alt="Fresh Whole Raw Abalone in Shells on Crushed Ice with Lemon and Sea Salt" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Supplying 17.10 grams of bioavailable marine protein and under 1 gram of total fat per 100 grams, abalone (*Haliotis spp.*) concentrates free taurine, glycogen, vitamin E, and selenium to support hepatic detoxification and cellular energy recovery.*
 
@@ -135,7 +134,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
       "name": "Is raw abalone sashimi healthier than cooked abalone?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Lightly steaming or simmering abalone in congee softens dense collagen fibers, making its protein and glycogen significantly easier to digest and absorb than raw sashimi."
+        "text": "For digestive ease and post-illness recovery, lightly steamed or simmered abalone is generally superior. Gentle heat softens dense collagen fibers in the muscular foot, making protein and glycogen much easier to absorb without irritating the stomach."
       }
     },
     {
@@ -143,7 +142,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
       "name": "Why is abalone considered good for liver fatigue?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Abalone concentrates free taurine and sulfur amino acids that support hepatic bile conjugation, glutathione synthesis, and clearance of metabolic byproducts."
+        "text": "Abalone is naturally rich in free taurine and sulfur-containing amino acids, which support hepatic bile acid conjugation, antioxidant glutathione regeneration, and lipid clearance in the liver."
       }
     },
     {
@@ -151,7 +150,7 @@ Combining **3.19 mg of bioavailable iron** with **0.73 mcg of vitamin B12**, aba
       "name": "How should fresh abalone be cleaned before cooking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Scrub the muscular foot under cold running water with a brush and coarse salt, shuck from the shell, and remove the small hard beak before slicing or steaming."
+        "text": "Scrub the dark outer foot and shell rim under cold running water using a clean brush and a pinch of coarse sea salt to remove surface mucin, then shuck the meat and remove the small hard beak (mouth) before slicing or steaming."
       }
     }
   ]

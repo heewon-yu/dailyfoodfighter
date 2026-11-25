@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "2.03 g"
   sodiumContent: "6.00 mg"
 ---
-
 <img src="/assets/images/lentil.jpg" alt="Cooked Lentils in a Rustic Ceramic Bowl with Parsley and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Dry lentils deliver 24.6 g of protein and 10.7 g of fiber per 100 g. Simmered, the same weight triples in volume, so a 100 g serving of cooked lentils settles at 116 kcal and 9.0 g of protein.*
 
@@ -160,7 +159,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
       "name": "Do lentils really contain 24.6 g of protein per 100 g, and how much remains after cooking?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "That figure applies to dry lentils, which contain only about 8 percent water. Cooking roughly triples the weight, so 100 g of cooked lentils provides 9.0 g of protein and 116 kcal. A 150 to 200 g cooked portion supplies 14 to 18 g of protein and 12 to 16 g of fiber."
+        "text": "That figure applies to dry lentils, which hold only about 8% water. Simmering roughly triples the weight, so 100 g of cooked lentils delivers 9.0 g of protein and 116 kcal. A typical 150–200 g cooked portion (60–80 g dry) supplies 14–18 g of protein plus 12–16 g of fiber. Protein density is lower than chicken breast at 23 g per 100 g, but lentils bring fiber, folate, and iron that meat does not."
       }
     },
     {
@@ -168,7 +167,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
       "name": "How long should lentils be soaked and cooked, and how is phytic acid reduced?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 2 to 4 hour soak is sufficient and may be skipped. Brown and green lentils cook in 20 to 25 minutes, beluga in 18 to 22, split red or yellow in 10 to 15, and a pressure cooker in 8 to 10. Soaking 2 to 4 hours removes 20 to 30 percent of phytic acid, and sprouting for 12 to 24 hours removes more."
+        "text": "A 2–4 hour soak is sufficient and can be skipped entirely. Cooking takes 20–25 minutes for brown and green lentils, 18–22 for beluga, 10–15 for split red or yellow, and 8–10 in a pressure cooker. Soaking for 2–4 hours removes 20–30% of phytic acid; soaking beyond 12 hours or sprouting for 12–24 hours removes more. Reusing the cooking liquid in soup preserves water-soluble vitamins."
       }
     },
     {
@@ -176,7 +175,7 @@ The 6.5 mg of iron is non-heme, absorbed at only 2–10%, but pairing lentils wi
       "name": "Can people with kidney disease or gout still eat lentils?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the condition. With potassium and phosphorus restriction, 100 g of cooked lentils supplies about 369 mg of potassium, so portions must be limited under dietitian guidance, particularly for dialysis patients. During an acute gout flare intake should be reduced; in stable disease 50 to 80 g daily in divided portions is reasonable because plant purines are far less provocative than animal purines."
+        "text": "It depends on the condition. Under potassium and phosphorus restriction, 100 g of cooked lentils still carries about 369 mg of potassium, so portions must be controlled and nephrology dietitian input is essential—especially for dialysis patients. During an acute gout flare, intake should be reduced; in stable disease, plant purines appear far less provocative than animal purines, and 50–80 g daily in divided portions is a reasonable ceiling."
       }
     }
   ]

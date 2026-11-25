@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.20 g"
   sugarContent: "0.42 g"
 ---
-
 <img src="/assets/images/spinach.jpg" alt="Fresh Organic Spinach Leaves in Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded as the apex of green leafy vegetables, spinach (Spinacia oleracea) supplies concentrated inorganic dietary nitrates for vascular nitric oxide (NO) synthesis and exceptional reserves of phylloquinone (vitamin K1) for bone osteocalcin carboxylation.*
 
@@ -149,7 +148,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
       "name": "Does daily spinach consumption cause kidney or urinary tract stones?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Blanching fresh spinach in boiling water for 30–60 seconds leaches out the vast majority of soluble oxalates into the water, eliminating stone-forming risks when consumed in typical culinary portions."
+        "text": "Large amounts of raw spinach can raise urinary oxalate. Blanching for 30 to 60 seconds and discarding the water removes a substantial share of soluble oxalate, though the percentage depends on conditions. If you have had kidney stones, eat blanched spinach in moderate amounts, drink enough fluid, and ask your clinician. There is no amount that is risk-free for everyone."
       }
     },
     {
@@ -157,7 +156,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
       "name": "Is raw spinach in salads nutritionally superior to blanched spinach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Raw spinach keeps more vitamin C, while blanched spinach has less oxalate and better absorption of fat-soluble nutrients such as lutein and vitamin K1. The size of the difference varies, so no multiple is stated."
+        "text": "Raw spinach keeps more heat-sensitive vitamin C and folate. Blanching reduces oxalate and breaks down cell walls, which improves absorption of lutein, beta-carotene and vitamin K1; the increase is real but varies, so no multiple is given."
       }
     },
     {
@@ -165,7 +164,7 @@ Crucially, it facilitates the enzymatic remethylation of cytotoxic **homocystein
       "name": "Does spinach genuinely enhance muscular contractile efficiency as depicted in popular culture?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Inorganic dietary nitrates in spinach augment mitochondrial respiration and muscular contractile efficiency, delaying muscular exhaustion during sustained physical exertion."
+        "text": "Yes, modern exercise physiology validates this phenomenon. The inorganic nitrates in spinach enhance mitochondrial oxidative phosphorylation efficiency, reducing the oxygen cost of physical exercise and improving skeletal muscle force production."
       }
     }
   ]

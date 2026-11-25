@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "3.00 g"
   sugarContent: "4.18 g"
 ---
-
 <img src="/assets/images/sweet-potato.jpg" alt="Halved Roasted and Raw Orange-Fleshed Sweet Potatoes on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Delivering over 150% of daily vitamin A needs via beta-carotene alongside complex carbohydrates and potassium, sweet potatoes (Ipomoea batatas) exhibit markedly different glycemic profiles depending on thermal preparation and post-cooking retrogradation.*
 
@@ -142,7 +141,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
       "name": "Why does baked sweet potato raise blood sugar faster than steamed sweet potato?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Slow baking activates beta-amylase enzymes that break starch down into maltose, raising the glycemic index to 80–90, whereas steaming limits maltose conversion and keeps the GI near 45–55."
+        "text": "Slow oven baking holds the interior in the 60–75°C range long enough for beta-amylase enzymes to convert complex starch into free maltose sugar, driving the glycemic index into the 80–90 range. Steaming heats the tuber faster, limiting maltose formation and keeping the GI around 45–55."
       }
     },
     {
@@ -150,7 +149,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
       "name": "Does cooling cooked sweet potatoes really lower calorie absorption?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Refrigerating cooked sweet potatoes converts digestible starch into type 3 resistant starch, which slows glucose absorption and feeds beneficial colonic bacteria."
+        "text": "Yes. Chilling cooked sweet potatoes at refrigerator temperatures promotes starch retrogradation into resistant starch (RS3), which resists small-intestinal enzymes, reduces net absorbed glucose, and acts as prebiotic fiber in the colon."
       }
     },
     {
@@ -158,7 +157,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
       "name": "Are sprouted sweet potatoes toxic like sprouted white potatoes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, sweet potato sprouts do not contain solanine. Trim small sprouts before cooking, but discard any tuber with black fungal rot spots or a bitter smell."
+        "text": "No. Unlike white potatoes (Solanum tuberosum), sweet potatoes do not produce solanine alkaloids in their sprouts, so trimming small sprouts is safe. However, discard any sweet potato showing dark black rot spots with a bitter odor, which may contain fungal ipomeamarone toxins."
       }
     }
   ]

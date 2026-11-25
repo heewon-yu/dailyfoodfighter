@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "4.00 g"
   sugarContent: "13.67 g"
 ---
-
 <img src="/assets/images/pomegranate.jpg" alt="Whole and Halved Pomegranates with Ruby Red Arils on a Rustic Wooden Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ At just 83 kcal and 4.0 g of dietary fiber per 100 g, pomegranate arils deliver modest calories but extraordinary polyphenol density—punicalagin and related ellagitannins exceed 1 g in the peel and inner membranes, feeding the gut bacteria that produce urolithin A.*
 
@@ -152,7 +151,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
       "name": "Is pomegranate juice as nutritious as eating the arils?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Per 100 ml, 100% pressed pomegranate juice contains about 12.7 g of sugars but only 0.1 g of fiber, compared with 4.0 g of fiber in 100 g of fresh arils. Fiber slows glucose absorption and prolongs satiety, and inner-membrane punicalagin is largely lost during commercial pressing."
+        "text": "No. Per 100 ml, 100% pressed juice contains 12.7 g of sugars but only 0.1 g of fiber, versus 4.0 g of fiber in 100 g of fresh arils. Fiber slows glucose absorption and prolongs satiety, and much of the punicalagin in the inner membranes is lost during commercial pressing. If you prefer juice, blend whole arils with a little of the white membrane at home."
       }
     },
     {
@@ -160,7 +159,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
       "name": "Does eating pomegranate automatically produce urolithin A in the body?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Only in people whose gut microbiota can convert ellagitannins. Urolithin metabotype A accounts for roughly 55 to 65 percent of adults, while 10 to 30 percent produce little or no urolithin. A fiber-rich diet supporting microbial diversity helps, and unconverted ellagic acid retains antioxidant activity of its own."
+        "text": "Only if you carry the right gut bacteria. Roughly 55–65% of adults belong to urolithin metabotype A and convert ellagitannins efficiently, while 10–30% (metabotype 0) produce little or none. A fiber-rich diet that sustains microbial diversity supports conversion—and unconverted ellagic acid still exerts its own antioxidant and anti-inflammatory activity."
       }
     },
     {
@@ -168,7 +167,7 @@ Nutritionally, 100 g of arils supplies 23% of the Korean adequate intake for vit
       "name": "How much pomegranate is safe daily, and does it interact with warfarin or blood pressure medication?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most adults can eat 100 to 200 g of arils daily. Warfarin users should keep intake consistent because 16.4 mcg of vitamin K per 100 g can shift the INR. Those taking statins or antihypertensives should separate juice from medication by one to two hours and report dizziness or muscle pain promptly."
+        "text": "Most adults can enjoy 100–200 g of arils (about half to one medium fruit) daily. Anyone taking warfarin should keep pomegranate intake steady rather than varying widely, because 16.4 mcg of vitamin K per 100 g can shift the INR. People on statins or antihypertensives should separate juice from medication by 1–2 hours and report dizziness or muscle pain promptly."
       }
     }
   ]

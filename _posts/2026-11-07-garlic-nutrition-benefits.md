@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.10 g"
   sugarContent: "1.00 g"
 ---
-
 <img src="/assets/images/garlic.jpg" alt="신선한 통마늘과 깐마늘 정향" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 마늘(Garlic)은 으깨거나 다질 때 알리나아제 효소 반응으로 알리신(Allicin)이 생기는 유기유황 채소입니다. 영양 수치는 USDA FoodData Central FDC 169230(생것) 기준입니다.*
 
@@ -147,7 +146,7 @@ nutrition:
       "name": "흑마늘과 생마늘의 영양학적 효능 차이는 무엇인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "흑마늘은 숙성 과정에서 매운맛이 줄고 S-알릴시스테인(SAC) 같은 수용성 성분이 늘어납니다. 항산화 활성이 최대 10배라는 수치는 제품과 공정에 따라 달라 일반화할 수 없습니다."
+        "text": "흑마늘은 숙성 과정에서 매운맛이 줄고 S-알릴시스테인(SAC) 같은 수용성 성분이 늘어납니다. 다만 '항산화 활성이 최대 10배'라는 수치는 제품과 제조 공정에 따라 크게 달라 일반화할 수 없고, 위장 자극이 줄었다는 것도 개인차가 큽니다."
       }
     },
     {

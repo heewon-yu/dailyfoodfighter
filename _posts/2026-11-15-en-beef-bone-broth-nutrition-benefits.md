@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "0.30 g"
   sodiumContent: "122.00 mg"
 ---
-
 <img src="/assets/images/beef-bone-broth.jpg" alt="Steaming Bowl of Milky White Beef Bone Broth with Sliced Brisket and Scallions" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Beef bone broth delivers only 17 kcal per 100 g, yet a 12-hour simmer extracts roughly 2 g of collagen-derived peptides plus glycine and proline—while its calcium content remains near 10 mg per 100 g, far below milk.*
 
@@ -147,7 +146,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
       "name": "Does simmering bone broth for 24 hours extract more collagen than 12 hours?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not meaningfully. Most collagen hydrolysis into gelatin occurs within six to twelve hours, and extending to 24 hours raises protein yield by only about 10 to 20 percent while water evaporates and purines and sodium concentrate. A gentle 90 to 95 degree Celsius simmer for eight to twelve hours is the practical balance."
+        "text": "Not meaningfully. Most collagen-to-gelatin hydrolysis occurs within the 6–12 hour window, and extending to 24 hours raises protein yield by only about 10–20% while water evaporates away. Purines and sodium concentrate along with it. A gentle 90–95°C simmer for 8–12 hours is the practical balance between yield and effort."
       }
     },
     {
@@ -155,7 +154,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
       "name": "Is there real evidence that bone broth collagen helps joints?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Collagen peptides have randomized trial support at 8 to 12 grams daily for 12 weeks or longer, reducing knee pain and improving joint function. A cup of broth supplies only 2 to 3 grams, so two to three cups daily or a collagen peptide supplement would be needed to approach the clinical dose."
+        "text": "Collagen peptides themselves have randomized trial support—8–12 g daily for 12 weeks or longer reduced knee pain and improved function. But a cup of broth supplies only 2–3 g, well below the clinical dose. Broth is best treated as part of a joint-friendly diet, with two to three cups daily or a collagen peptide supplement to close the gap."
       }
     },
     {
@@ -163,7 +162,7 @@ At 17 kcal and 3.3 g of protein per 100 g, broth adds protein without a meaningf
       "name": "Should people with gout or kidney disease avoid beef bone broth?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "People with gout should limit concentrated beef bone broth to once or twice weekly and avoid it during flares because purine content rises with simmering time. Patients with chronic kidney disease on sodium, phosphorus, or potassium restriction should set intake with a nephrologist and check commercial labels for sodium."
+        "text": "For gout, limit concentrated beef or bone broth to once or twice weekly and avoid it entirely during flares, because purine content rises with simmering time. For chronic kidney disease with sodium, phosphorus, or potassium restriction, set intake with a nephrologist and check the sodium figure on any commercial broth label first."
       }
     }
   ]

@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.40 g"
   sugarContent: "9.35 g"
 ---
-
 <img src="/assets/images/orange.jpg" alt="Fresh Sliced Ripe Navel Oranges on Wooden Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Sun-ripened oranges (Citrus sinensis) deliver therapeutic densities of bioactive L-ascorbic acid and the citrus flavanone hesperidin, mediating microvascular elasticity and systemic cellular antioxidant defense.*
 
@@ -152,7 +151,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
       "name": "How does commercial 100% orange juice compare nutritionally to raw, whole oranges?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Whole oranges keep the albedo and pectin that strained juice loses, so their flavonoids and fibre come along with the sugar. Orange has a low glycemic index, but juice raises blood glucose faster, so keep portions small if you have diabetes."
+        "text": "Commercial juice has no fibre and little of the albedo where flavonoids concentrate, and pasteurisation reduces vitamin C. Removing fibre makes the sugar absorb faster, so the same amount of sugar raises blood glucose more quickly than whole fruit. Oranges themselves have a low glycemic index; if you have diabetes, keep juice portions small."
       }
     },
     {
@@ -160,7 +159,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
       "name": "Is daily orange consumption safe for individuals managing type 2 diabetes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Whole raw oranges possess a low glycemic index (GI ~40) and low glycemic load (~5), making one medium whole fruit per day safe and beneficial for glucose management."
+        "text": "Yes, when consumed as whole raw fruit. Oranges have a low glycemic index (~40–43) and a low glycemic load (~5 per serving) because viscous pectin fiber delays intestinal carbohydrate hydrolysis. Diabetic individuals should limit intake to one medium whole fruit per day and avoid liquid citrus juices."
       }
     },
     {
@@ -168,7 +167,7 @@ Organic fruit acids can temporarily soften dental hydroxyapatite enamel prisms. 
       "name": "What is the scientifically validated protocol for removing surface wax and pesticide residues from citrus peel?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soaking in warm water with baking soda for 3 to 5 minutes, then brushing and rinsing, reduces surface wax and residues. The removal rate depends on the pesticide and the method, so over 99% cannot be claimed, and a vinegar rinse does not sterilise the fruit."
+        "text": "Immerse citrus in lukewarm water containing 1% sodium bicarbonate (baking soda) for 3 to 5 minutes, scrub with a firm vegetable brush, and rinse under running water followed by a brief dilute acetic acid (vinegar) rinse to degrade lipophilic post-harvest coatings effectively."
       }
     }
   ]

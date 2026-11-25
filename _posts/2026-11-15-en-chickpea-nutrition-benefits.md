@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "7.60 g"
   sugarContent: "4.80 g"
 ---
-
 <img src="/assets/images/chickpea.jpg" alt="Golden Cooked Chickpeas in a Rustic Ceramic Bowl with Olive Oil and Herbs" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Supplying 8.86 grams of plant-derived protein and 7.60 grams of dietary fiber per 100 grams cooked, chickpeas (garbanzo beans) combine a low glycemic index (28–36) with dense folate, iron, and resistant starch to stabilize postprandial glucose and nourish colonic microbiota.*
 
@@ -137,7 +136,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
       "name": "Are canned chickpeas as nutritious as home-boiled dried chickpeas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Canned chickpeas retain nearly identical protein, fiber, and resistant starch. Draining and rinsing them thoroughly under cold water removes excess sodium and gas-forming oligosaccharides."
+        "text": "Canned chickpeas retain nearly identical levels of protein, fiber, and resistant starch, though some water-soluble B vitamins leach into the brine. Simply drain and rinse canned chickpeas under cold running water for 30 seconds to remove up to 40% of added sodium and excess oligosaccharides."
       }
     },
     {
@@ -145,7 +144,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
       "name": "Can chickpeas fit into a low-glycemic or diabetes-friendly meal plan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. With 7.6g of fiber per 100g and a high amylose-to-amylopectin starch ratio, cooked chickpeas carry a low glycemic index of 28 to 36 and help blunt postprandial glucose excursions."
+        "text": "Yes. Despite containing 27.4g of total carbohydrates per 100g, 7.6g is dietary fiber and much of the starch is slowly digested amylose, resulting in a low glycemic index (28–36) and minimal post-meal glucose spikes when consumed in sensible portions (100–150g cooked)."
       }
     },
     {
@@ -153,7 +152,7 @@ The dual presence of 8.86g protein and 7.60g fiber stimulates enteroendocrine L-
       "name": "What is the best way to prevent gas and bloating when eating chickpeas?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Soak dry chickpeas for 8 to 12 hours, discard the soaking water, boil in fresh water until tender, and increase portion sizes gradually."
+        "text": "Soak dried chickpeas for 8–12 hours, discard the soaking water completely, cook them until very tender (adding a strip of kombu seaweed or bay leaf helps), and introduce them gradually into your diet so colonic bacteria adapt smoothly."
       }
     }
   ]

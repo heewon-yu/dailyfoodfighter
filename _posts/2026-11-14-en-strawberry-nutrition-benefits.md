@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.00 g"
   sugarContent: "4.89 g"
 ---
-
 <img src="/assets/images/strawberry.jpg" alt="Fresh Ripe Red Strawberries in a Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Delivering just 32 kcal and under 5 grams of sugar per 100 grams, fresh strawberries combine high-density vitamin C with pelargonidin-based anthocyanins and ellagic acid to support endothelial nitric oxide signaling and blunted postprandial glucose excursions.*
 
@@ -142,7 +141,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
       "name": "Should strawberries be soaked in vinegar or salt water before eating?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Prolonged soaking is not recommended because water-soluble vitamin C and anthocyanins leach into the water. Rinse strawberries under cool running water for 20 to 30 seconds with the caps intact, then hull right before eating."
+        "text": "Prolonged soaking is not recommended. Because strawberries have a porous, delicate skin and water-soluble vitamin C and anthocyanins, soaking them for several minutes draws out both flavor and micronutrients. A 20–30 second rinse under cool running water with the green caps still attached is ideal."
       }
     },
     {
@@ -150,7 +149,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
       "name": "Are frozen strawberries as nutritious as fresh ones?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Flash-frozen strawberries retain virtually the same anthocyanins, ellagic acid, and dietary fiber as fresh berries. Use them directly without thawing and draining to preserve water-soluble vitamin C."
+        "text": "Yes. Commercially flash-frozen strawberries are harvested at peak ripeness and retain nearly identical levels of anthocyanins, ellagic acid, fiber, and minerals. To avoid losing water-soluble vitamin C in thaw drip, blend frozen berries directly into smoothies or fold them into yogurt while still chilled."
       }
     },
     {
@@ -158,7 +157,7 @@ Strawberries are a primary dietary source of ellagic acid and the flavonol fiset
       "name": "Can individuals with prediabetes eat strawberries daily?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, a 100 to 150 g portion of whole fresh strawberries contains around 5 to 7 grams of sugar with a low glycemic index near 40, making it suitable when eaten whole without added sweeteners."
+        "text": "In controlled whole-fruit portions (100–150 g per serving), strawberries have a low glycemic index (~40) and minimal glycemic load. Eating them intact after a balanced meal—without added sugar, syrup, or juicing—fits well within blood-glucose management plans."
       }
     }
   ]

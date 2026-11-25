@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.50 g"
   sugarContent: "3.20 g"
 ---
-
 <img src="/assets/images/cabbage.jpg" alt="Fresh Shredded Crisp Green Cabbage Slices on Rustic Cutting Table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Long treated as a soothing vegetable for the stomach, cabbage (Brassica oleracea var. capitata) contains S-methylmethionine (called vitamin U) and glucosinolate-derived sulforaphane. Nutrient figures use USDA FoodData Central FDC 169975 (raw).*
 
@@ -149,7 +148,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "How does commercial pasteurized cabbage juice compare to fresh raw cabbage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Heat treatment reduces thermolabile vitamin U and inactivates myrosinase, so fresh shredded cabbage forms more sulforaphane. Cabbage juice is not an established treatment for stomach disease, however."
+        "text": "Heat treatment reduces heat-sensitive S-methylmethionine (vitamin U) and inactivates myrosinase, so freshly shredded raw cabbage forms more sulforaphane than a pasteurised juice. That is a difference in enzyme activity, not proof that either form heals the stomach lining."
       }
     },
     {
@@ -157,7 +156,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "Does the fibrous inner core of cabbage contain therapeutic nutritional value?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The core contains vitamin C and fibre and need not be discarded. The widely quoted 1.5 to 2 times higher figure is not supported by a standard analysed value; if it is tough, blend it into a smoothie."
+        "text": "The core contains vitamin C and fibre, so there is no reason to discard it. The often-quoted \"1.5 to 2 times more than the leaves\" figure is not backed by a standard analysed value. If it is too tough to chew, blend it into a smoothie with apple or banana."
       }
     },
     {
@@ -165,7 +164,7 @@ Cruciferous plants synthesize indole glucosinolates that hydrolyze into thiocyan
       "name": "Is daily cabbage intake clinically advisable for patients presenting acid reflux (GERD)?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most people can eat cabbage daily, but there is no evidence it treats acid reflux; persistent symptoms need medical assessment. Light steaming reduces gas in people who are sensitive."
+        "text": "Most people can eat cabbage daily without problems. There is no evidence that cabbage treats acid reflux, so persistent symptoms need medical assessment. If raw cabbage on an empty stomach causes gas, steam it lightly first."
       }
     }
   ]

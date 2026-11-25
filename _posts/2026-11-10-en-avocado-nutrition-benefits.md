@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "6.70 g"
   sugarContent: "0.66 g"
 ---
-
 <img src="/assets/images/avocado.jpg" alt="Fresh Sliced Hass Avocado Halves on Kitchen Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded in nutritional science as 'nature’s butter', the Hass avocado (Persea americana) represents a unique botanical fruit characterized by high-density monounsaturated oleic acid, exceptional potassium concentrations surpassing bananas, and lipophilic carotenoid antioxidants.*
 
@@ -138,7 +137,7 @@ Avocado also supplies **lutein and zeaxanthin**, and the lipid in its flesh help
       "name": "Will the high fat content in avocados cause weight gain during a calorie-controlled diet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Avocado fats are predominantly monounsaturated oleic acid paired with 6.7g of fiber per 100g, promoting satiety and metabolic rate without promoting adipose accumulation when consumed in moderation."
+        "text": "In randomized metabolic trials, moderate avocado consumption (half a fruit daily) does not promote weight gain and frequently aids weight management. Its monounsaturated fatty acids exhibit higher postprandial fat oxidation rates compared to saturated fats, while the dense 6.7g fiber matrix sustains satiety and reduces subsequent meal caloric intake."
       }
     },
     {
@@ -146,7 +145,7 @@ Avocado also supplies **lutein and zeaxanthin**, and the lipid in its flesh help
       "name": "Can I store rock-hard, unripe avocados directly in the refrigerator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Unripe avocados suffer chilling injury in the refrigerator, arresting enzymatic ripening. They must be kept at room temperature until yielding, then refrigerated."
+        "text": "No. Placing unripe avocados in the refrigerator induces chilling injury (temperatures below 5°C / 41°F arrest normal climacteric ripening enzymes). The flesh becomes rubbery, fails to soften uniformly, and turns greyish-black internally upon subsequent exposure to warmth. Always ripen at room temperature first before refrigerating."
       }
     },
     {
@@ -154,7 +153,7 @@ Avocado also supplies **lutein and zeaxanthin**, and the lipid in its flesh help
       "name": "Are the dark stringy fibers inside an avocado safe to consume?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, they are oxidized botanical vascular bundles that carried sap during growth. They are completely harmless to health though physically fibrous."
+        "text": "Yes, they are entirely non-toxic. These dark strands represent mature vascular bundles (xylem and phloem tissue) that transported water and minerals during fruit development. While structurally tough and visually unappealing due to enzymatic oxidation, they present no pathological risk and can simply be scooped away."
       }
     }
   ]

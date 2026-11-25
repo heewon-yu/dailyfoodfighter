@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0.00 g"
   sugarContent: "0.00 g"
 ---
-
 <img src="/assets/images/chicken-breast.jpg" alt="Fresh Sliced Cooked Chicken Breast on Cutting Board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Lean and dense in essential amino acids, chicken breast is a standard protein source in fat-loss diets. All figures here use USDA FoodData Central FDC 171077 (raw, skinless, boneless) unless noted.*
 
@@ -141,7 +140,7 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
       "name": "Does daily chicken breast consumption strain renal function or promote gout?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For people with healthy kidneys, eating 200 to 300 g of chicken breast a day is common practice, but no safe upper limit is established for everyone. Chicken breast is lower in purines than organ meat, which does not rule out gout risk, and anyone with kidney disease should agree an intake with their clinician."
+        "text": "Many people with healthy kidneys eat 200 to 300 g a day, but that is not an established safe upper limit for everyone. Chicken breast is lower in purines than organ meat, which does not mean gout is impossible; anyone with kidney disease should set intake with their clinician. Drinking to thirst is enough for most people."
       }
     },
     {
@@ -149,7 +148,7 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
       "name": "What culinary technique scientifically eliminates dryness in chicken breast?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Equilibrium brining in light saline and gentle low-temperature sous-vide poaching at 60C to 64C prevents excessive myofibrillar shrinkage and preserves cellular moisture."
+        "text": "Submerging breasts in a 6% saline solution (brining) prior to cooking hydrates actomyosin fibers through osmotic equilibrium. Furthermore, gentle low-temperature sous-vide (60°C to 64°C) prevents severe protein thermal shrinkage, retaining cellular moisture."
       }
     },
     {
@@ -157,7 +156,7 @@ Pure poultry muscle contains zero dietary fiber. Unbalanced intake devoid of lea
       "name": "Is the widespread claim that humans can only absorb 30g of protein per meal true?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Total gastrointestinal absorption is nearly complete across larger doses. However, the leucine threshold for maximal myofibrillar protein synthesis plateaus around 25g to 35g per feeding window."
+        "text": "It is a persistent physiological misconception. The human gut absorbs nearly all digested amino acids regardless of bolus size. However, the maximal anabolic signaling threshold for muscle protein synthesis (the leucine trigger) saturates around 25 to 35 grams per meal, making distributed feedings optimal."
       }
     }
   ]

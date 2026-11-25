@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.60 g"
   sugarContent: "1.70 g"
 ---
-
 <img src="/assets/images/broccoli.jpg" alt="Fresh organic vibrant green broccoli crowns and florets on a rustic cutting board" width="1200" height="960" loading="eager" fetchpriority="high" decoding="async">
 *▲ Broccoli (Brassica oleracea var. italica) is a cruciferous vegetable rich in glucoraphanin, which becomes sulforaphane when the tissue is chopped or chewed. Nutrient figures use USDA FoodData Central FDC 170379 (raw).*
 
@@ -149,7 +148,7 @@ Broccoli is a convenient way to add vitamin C, vitamin K, folate and fibre to a 
       "name": "What is the optimal culinary preparation to preserve sulforaphane in broccoli?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Steaming for 1 to 3 minutes keeps more heat-sensitive myrosinase active than boiling. Adding myrosinase-rich condiments such as mustard seed powder or fresh wasabi increases sulforaphane formation, though the size of the increase varies."
+        "text": "Steaming for 1 to 3 minutes keeps more of the heat-sensitive myrosinase active than boiling does. Adding myrosinase-rich condiments such as mustard seed powder or fresh wasabi after cooking increases sulforaphane formation, though the size of the increase varies with how much you add."
       }
     },
     {
@@ -165,7 +164,7 @@ Broccoli is a convenient way to add vitamin C, vitamin K, folate and fibre to a 
       "name": "Does broccoli consumption interfere with thyroid endocrine function in patients with goiter?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "With adequate iodine intake, ordinary servings have not been linked to thyroid problems. Cooking reduces a large share of goitrogens, but people with hypothyroidism should avoid large volumes of raw brassica juice and ask their clinician."
+        "text": "With adequate iodine intake, ordinary servings have not been linked to thyroid problems. Cooking reduces a large share of goitrogens, but if you have hypothyroidism, avoid large volumes of raw brassica juice and ask your clinician."
       }
     }
   ]

@@ -17,7 +17,6 @@ nutrition:
   carbohydrateContent: "3.91 g"
   sugarContent: "0.85 g"
 ---
-
 <img src="/assets/images/oyster.jpg" alt="Fresh Raw Oysters on the Half Shell with Ice and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Regarded globally as the pinnacle of marine nutrient density, raw oysters supply unmatched concentrations of bioavailable zinc, osmoregulatory taurine, and glycogen reserves for rapid cellular resuscitation.*
 
@@ -141,7 +140,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
       "name": "Does the dark edge of the raw oyster mantle indicate freshness?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. A crisp, dark black pigmented mantle rim indicates immediate harvest freshness and cellular integrity, whereas faded or flaccid rims reflect prolonged cold storage."
+        "text": "Yes. The fringed outer mantle of the oyster should display a clear, intensely dark black or charcoal pigmented rim. A distinct, taut dark border signifies recent harvest and vibrant cellular freshness; faded, grayish, or flaccid tissues indicate prolonged post-harvest storage."
       }
     },
     {
@@ -149,7 +148,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
       "name": "Does thermal cooking destroy zinc or taurine in oysters?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Elemental zinc and taurine are highly thermostable. However, they leach into surrounding cooking liquids, so consuming the broth ensures complete nutrient recovery."
+        "text": "No. Elemental zinc is an indestructible mineral, and taurine is a remarkably heat-stable sulfonic amino acid that withstands boiling temperatures. However, because both are water-soluble, incorporate the cooking broth into stews or reductions to consume 100% of the leached nutrients."
       }
     },
     {
@@ -157,7 +156,7 @@ Due to immense zinc density, chronic excessive consumption of oysters (>300g dai
       "name": "What is the biological basis behind the rule of avoiding oysters in months without the letter ‘R’?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "May through August is the primary spawning season, during which glycogen reserves drop sharply, degrading flavor and texture while summer seawater temperatures elevate Vibrio bacterial proliferation."
+        "text": "In the Northern Hemisphere, months devoid of the letter 'R' (May through August) coincide with the oyster reproductive spawning window. Spawning depletes glycogen reserves, resulting in watery, flaccid flesh. Concurrently, elevated summer ocean temperatures favor rapid blooms of marine Vibrio bacteria, multiplying raw consumption hazards."
       }
     }
   ]

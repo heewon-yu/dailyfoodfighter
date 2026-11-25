@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0 g"
   sugarContent: "0 g"
 ---
-
 <img src="/assets/images/salmon.jpg" alt="신선한 생 연어 필렛과 레몬 슬라이스" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 연어(Salmon)는 장쇄 오메가-3 지방산(EPA·DHA)과 비타민 D, 아스타잔틴이 들어 있는 생선입니다. 영양 수치는 USDA FoodData Central FDC 175167(생것) 기준입니다.*
 
@@ -152,7 +151,7 @@ EPA·DHA를 하루 2~4g 수준으로 먹인 임상시험에서는 혈중 중성�
       "name": "생연어와 훈제연어의 영양학적 차이는 무엇인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "생연어는 열에 약한 오메가-3와 비타민 B군이 비교적 그대로 남아 있습니다. 훈제·염장 연어는 나트륨이 생연어보다 크게 높으므로 고혈압이나 부종이 있으면 양을 줄이고 구이나 생것 위주로 먹는 편이 좋습니다."
+        "text": "생연어는 열에 약한 오메가-3와 비타민 B군이 비교적 그대로 남아 있습니다. 훈제·염장 연어는 소금에 절이는 과정 때문에 나트륨이 생연어보다 크게 높으므로, 고혈압이나 부종이 있다면 양을 줄이고 구이나 생것 위주로 먹는 편이 좋습니다."
       }
     },
     {

@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "6.76 g"
   sodiumContent: "78.00 mg"
 ---
-
 <img src="/assets/images/beetroot.jpg" alt="Fresh Raw Beetroot with Green Tops and Halved Cross-Sections on Dark Wood" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ At just 43 kcal per 100 g, raw beetroot still carries 150–250 mg of dietary nitrate, 109 mcg of folate, and 128.7 mg of betaine. The magenta rings in the cross-section are concentric layers of betalain pigment.*
 
@@ -158,7 +157,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
       "name": "Is raw beetroot juice or boiled beet better for blood pressure?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For blood pressure specifically, raw juice has the edge. Boiling and steaming leach 10 to 30 percent of nitrate and betalains into the cooking water, while juice concentrates nitrate most densely. Juice has almost no fiber and retains all its oxalate, so 100 to 250 ml of juice or 100 g of steamed beet daily is a practical target, with effects peaking 1 to 3 hours after ingestion."
+        "text": "For blood pressure specifically, raw juice has the edge. Boiling and steaming leach 10–30% of nitrate and betalains into the cooking water, while juice concentrates nitrate most densely. Juice, however, has almost no fiber and retains all the oxalate. A practical target is 100–250 ml of beet juice or 100 g of steamed beet daily; the effect peaks 1–3 hours after ingestion and lasts 6–12 hours."
       }
     },
     {
@@ -166,7 +165,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
       "name": "My urine turns red after eating beetroot—should I see a doctor?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most likely this is beeturia, a harmless pigment excretion seen in roughly 10 to 14 percent of people that clears after one or two voids. Seek care promptly if discoloration persists beyond a day or comes with painful urination, fever, or flank pain, because hematuria must be excluded. Stop beets 48 hours before a fecal occult blood test."
+        "text": "Most likely this is beeturia, a harmless pigment excretion seen in roughly 10–14% of people that clears after one or two voids. Seek care promptly if discoloration persists beyond a day or comes with painful urination, fever, or flank pain, since hematuria must be excluded. Stop beets 48 hours before a fecal occult blood test to avoid a false positive."
       }
     },
     {
@@ -174,7 +173,7 @@ At 43 kcal with 88% water, beetroot delivers high satiety per calorie. The 6.76 
       "name": "Can I eat beetroot if I have kidney stones?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Calcium oxalate stone formers should avoid raw beetroot and beet juice because of its 50 to 120 mg of oxalate per 100 g. Steaming reduces oxalate by about 25 percent, but intake should still stay under 50 g daily and beets should be eaten with calcium-rich foods so oxalate binds in the intestine. Drinking 1 to 2 liters of water daily is the baseline preventive measure."
+        "text": "It depends on preparation. At 50–120 mg of oxalate per 100 g, beetroot is a risk for calcium oxalate stone formers, who should avoid raw beet and juice. Steaming reduces oxalate by about 25%, but even then keep intake under 50 g daily and eat beets with calcium-rich foods such as yogurt or cheese so oxalate binds in the intestine. Drinking 1–2 liters of water daily is the baseline preventive measure."
       }
     }
   ]

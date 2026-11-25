@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "0.30 g"
   sugarContent: "0.50 g"
 ---
-
 <img src="/assets/images/tofu.jpg" alt="Fresh Sliced Firm Tofu Cubes on Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Produced by curdling fresh soymilk and pressing the curds, firm tofu serves as an ideal zero-cholesterol, complete plant protein containing all nine essential amino acids alongside dense calcium reserves.*
 
@@ -155,7 +154,7 @@ In vitro research suggests that supraphysiological concentrations of unfermented
       "name": "Does daily tofu consumption cause feminization or gynecomastia in men?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Clinical meta-analyses confirm that dietary soy isoflavones do not alter circulating testosterone or estrogen levels in males, exerting tissue-selective SERM effects without feminizing endocrine disruption."
+        "text": "No. Extensive clinical meta-analyses demonstrate that soy isoflavones do not alter bioavailable serum testosterone, free testosterone, or estrogen levels in men. Isoflavones possess weak, selective receptor affinities (1/1,000th of endogenous estradiol) and actually exhibit protective actions against benign prostatic hyperplasia."
       }
     },
     {
@@ -163,7 +162,7 @@ In vitro research suggests that supraphysiological concentrations of unfermented
       "name": "How does firm tofu compare nutritionally to silken or soft tofu?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Due to extensive mechanical pressing and lower moisture retention, firm tofu contains approximately twice the protein and mineral concentration of silken tofu per equivalent serving weight."
+        "text": "Firm tofu undergoes vigorous hydraulic pressing, discarding excess whey water. Consequently, firm tofu delivers nearly twice the protein, calcium, and iron density per 100 grams compared to high-moisture silken or soft tofu varieties."
       }
     },
     {
@@ -171,7 +170,7 @@ In vitro research suggests that supraphysiological concentrations of unfermented
       "name": "Does freezing tofu truly alter its nutritional density?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Freezing creates ice lattices that expel free moisture upon thawing, condensing the structural solid matter and multiplying protein concentration per volume."
+        "text": "Freezing does not synthesize new nutrients, but it physically transforms water into ice crystals, creating a porous sponge structure. Upon thawing and pressing, expelling this water condenses dry-matter nutrients, multiplying protein density per unit volume up to fivefold."
       }
     }
   ]

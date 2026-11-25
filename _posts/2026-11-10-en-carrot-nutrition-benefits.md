@@ -18,7 +18,6 @@ nutrition:
   fiberContent: "2.80 g"
   sugarContent: "4.74 g"
 ---
-
 <img src="/assets/images/carrot.jpg" alt="Fresh Organic Carrots and Slices on Cutting Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Carrots (Daucus carota subsp. sativus) are a rich source of provitamin A carotenoids, beta- and alpha-carotene, soluble pectin, and polyacetylenes such as falcarinol. Nutrient figures use USDA FoodData Central FDC 170393 (raw).*
 
@@ -133,7 +132,7 @@ Carrots are one of the richer sources of **alpha-carotene** (3,477 mcg per 100 g
       "name": "Should I peel carrots before cooking or eat them with the skin intact?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Washed unpeeled carrots supply somewhat more carotenoids and falcarinol because these are concentrated in the outer layers, but the difference is modest and eating the skin does not create a cancer-preventive effect."
+        "text": "You can eat carrots unpeeled if you wash them well. Carotenoids and falcarinol are relatively concentrated in the outer periderm and phloem, so peeling removes some of them, though the difference is modest. A soft brush removes soil without taking off the outer layer. Eating the skin does not create a cancer-preventive effect."
       }
     },
     {
@@ -141,7 +140,7 @@ Carrots are one of the richer sources of **alpha-carotene** (3,477 mcg per 100 g
       "name": "Does drinking fresh carrot juice provide the same benefits as whole carrots?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Juicing removes most insoluble fiber, so sugars are absorbed faster. Reported glycemic index values for carrots vary, so a single figure is unreliable; with diabetes, keep the portion small and prefer whole blended carrots."
+        "text": "Juicing removes most insoluble fiber, so the sugar is absorbed faster. Glycemic index values reported for carrots vary between studies, so a single number should not be relied on. If you have diabetes, keep the portion small and prefer whole blended carrots over strained juice; a little olive oil also helps carotenoid absorption."
       }
     },
     {
@@ -149,7 +148,7 @@ Carrots are one of the richer sources of **alpha-carotene** (3,477 mcg per 100 g
       "name": "Why do carrots turn slimy or black during domestic refrigerator storage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Excess condensation promotes superficial mold growth; wrapping unwashed roots in paper towels and storing them vertically in sealed containers prevents moisture damage."
+        "text": "Carrots are highly susceptible to moisture-induced rot and postharvest transpiration. Storing unwashed carrots individually wrapped in absorbent paper towels inside an airtight container prevents ambient condensation. Placing them vertically mimics their natural root orientation, maintaining cellular turgor and crispness for over three weeks."
       }
     }
   ]
