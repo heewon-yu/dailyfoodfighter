@@ -193,7 +193,7 @@ Probably a little, through alginate's viscosity, but the evidence is weak. Small
       "name": "Does kelp lower cholesterol?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Probably a little, through alginate’s viscosity, but the evidence is weak. Small trials with alginate-enriched foods show reduced energy intake and slower glucose absorption; there is no large trial showing that eating kelp lowers LDL in a clinically meaningful way. Treat kelp as a low-calorie, high-mineral seasoning rather than a lipid-lowering intervention. 6. Synergistic Food Pairings Anchovy: kelp supplies glutamate, anchovy supplies inosinate, and the two combine into a much stronger umami signal than either alone. Stronger umami means less salt for the same taste — the most practical blood-pressure strategy in Korean cooking. Radish: radish brings about 300 mg potassium per 100 g and its own digestive enzymes, balancing kelp’s 233 mg sodium in a soup pot. Laver (Nori): laver holds 3,800 µg iodine per 100 g dried, roughly one-fiftieth of kelp. If you want seaweed regularly but want"
+        "text": "Probably a little, through alginate's viscosity, but the evidence is weak. Small trials with alginate-enriched foods show reduced energy intake and slower glucose absorption; there is no large trial showing that eating kelp lowers LDL in a clinically meaningful way. Treat kelp as a low-calorie, high-mineral seasoning rather than a lipid-lowering intervention."
       }
     }
   ]
