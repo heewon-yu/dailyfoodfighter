@@ -1,7 +1,8 @@
 ---
 layout: default
+title: "Meat & Protein Foods: Calories, Protein & Fat"
+description: "Find calorie, protein and fat information for meat, eggs and other protein foods, with preparation considerations."
 lang: en
-title: "Meat & Protein"
 permalink: /en/category/meat/
 ---
 
@@ -20,7 +21,7 @@ permalink: /en/category/meat/
       <span>{{ post.date | date: "%B %d, %Y" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No meat & protein articles published yet.</p>

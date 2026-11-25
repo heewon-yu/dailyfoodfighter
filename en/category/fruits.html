@@ -1,7 +1,8 @@
 ---
 layout: default
+title: "Fruit Nutrition Facts, Calories & Sugar"
+description: "Explore calories, sugar, fiber and vitamins in fruits, with nutrition facts per 100 g and practical serving considerations."
 lang: en
-title: "Fruits"
 permalink: /en/category/fruits/
 ---
 
@@ -20,7 +21,7 @@ permalink: /en/category/fruits/
       <span>{{ post.date | date: "%B %d, %Y" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No fruit articles published yet.</p>

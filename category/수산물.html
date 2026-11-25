@@ -1,6 +1,8 @@
 ---
 layout: default
-title: "수산물"
+title: "생선·해산물·해조류 영양성분 가이드"
+description: "생선, 해산물과 해조류의 칼로리, 단백질, 지방산과 미네랄 및 섭취 시 주의사항을 확인하세요."
+lang: ko
 permalink: /category/수산물/
 ---
 
@@ -19,7 +21,7 @@ permalink: /category/수산물/
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 수산물 포스팅이 없습니다.</p>

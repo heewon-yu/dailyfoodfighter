@@ -1,6 +1,9 @@
 ---
 layout: default
-title: "홈"
+title: "식재료 영양성분·칼로리·조리법 가이드"
+description: "식재료별 100g 칼로리, 단백질, 비타민과 미네랄, 조리 및 섭취 시 주의사항을 국내외 영양 데이터와 연구 자료를 바탕으로 찾아보세요."
+lang: ko
+permalink: /
 ---
 
 <div class="home-intro">
@@ -12,7 +15,7 @@ title: "홈"
 {% if pinned_posts.size > 0 %}
 <section class="pinned-section">
   <h2 class="pinned-heading">📌 핵심 영양·비교 가이드</h2>
-  <p class="pinned-sub">단백질·혈당·다이어트·항산화·혈관·피로 회복 — 검색량이 높은 주제를 100g 기준 수치로 비교한 TOP 10 허브입니다.</p>
+  <p class="pinned-sub">단백질·혈당·다이어트·항산화·혈관·피로 회복 — 자주 궁금해하는 영양 주제를 100g 기준 수치로 비교한 TOP 10 허브입니다.</p>
   <div class="pinned-grid">
     {% for post in pinned_posts %}
     <a href="{{ post.url | relative_url }}" class="pinned-card">
@@ -35,12 +38,12 @@ title: "홈"
   {% for post in ko_posts %}{% unless post.pinned %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
-      <span style="color: #10b981; font-weight: 600;">{{ post.category | default: post.categories | first }}</span>
+      <span style="color: #10b981; font-weight: 600;">{{ post.category | escape }}</span>
       <span>·</span>
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% endunless %}{% endfor %}
 </div>

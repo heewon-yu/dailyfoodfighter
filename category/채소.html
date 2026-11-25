@@ -1,6 +1,8 @@
 ---
 layout: default
-title: "채소·야채"
+title: "채소 칼로리·식이섬유·영양성분 가이드"
+description: "채소별 칼로리, 식이섬유, 비타민과 미네랄을 확인하고 생식과 조리에 따른 영양 차이를 알아보세요."
+lang: ko
 permalink: /category/채소/
 ---
 
@@ -19,7 +21,7 @@ permalink: /category/채소/
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 채소 포스팅이 없습니다.</p>

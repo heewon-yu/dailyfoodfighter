@@ -1,6 +1,8 @@
 ---
 layout: default
-title: "과일"
+title: "과일 칼로리·당류·영양성분 가이드"
+description: "과일별 100g 칼로리, 당류, 식이섬유와 비타민 함량 및 섭취 시 참고할 정보를 확인하세요."
+lang: ko
 permalink: /category/과일/
 ---
 
@@ -19,7 +21,7 @@ permalink: /category/과일/
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 과일 포스팅이 없습니다.</p>

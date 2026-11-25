@@ -1,6 +1,8 @@
 ---
 layout: default
-title: "육류·단백질"
+title: "육류·달걀·단백질 식품 영양성분 가이드"
+description: "육류와 단백질 식품의 칼로리, 단백질, 지방 함량 및 조리와 섭취 시 참고할 정보를 확인하세요."
+lang: ko
 permalink: /category/육류/
 ---
 
@@ -19,7 +21,7 @@ permalink: /category/육류/
       <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% else %}
   <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 육류 포스팅이 없습니다.</p>

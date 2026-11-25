@@ -1,7 +1,8 @@
 ---
 layout: default
+title: "Food Nutrition Facts, Calories & Cooking Guide"
+description: "Explore calories, protein, fiber, vitamins and minerals per 100 g of everyday foods, with cooking tips and source-based nutrition guides."
 lang: en
-title: "Evidence-Based Food Nutrition Science Guide"
 permalink: /en/
 ---
 
@@ -42,7 +43,7 @@ permalink: /en/
       <span>{{ post.date | date: "%B %d, %Y" }}</span>
     </div>
     <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
   {% endunless %}{% endfor %}
 </div>
