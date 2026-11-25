@@ -19,6 +19,11 @@ adsense_ready: false
 markdown: kramdown
 permalink: /posts/:title/
 
+# Cloudflare Pages reads _headers (and _redirects) from the build output root.
+# Jekyll drops files beginning with an underscore, so list it explicitly.
+include:
+  - _headers
+
 # Collections / Categories
 collections:
   posts:
