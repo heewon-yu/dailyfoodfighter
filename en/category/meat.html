@@ -12,8 +12,13 @@ permalink: /en/category/meat/
 </div>
 
 <div class="post-list">
-  {% assign meat_posts = site.posts | where_exp: "p", "p.category == 'Meat' or p.category == 'Protein' or p.category == 'Meat & Protein'" %}
-  {% for post in meat_posts %}
+  {% assign valid_categories = 'meat|protein|meat & protein|meat and protein' | split: '|' %}
+  {% assign category_posts = site.posts | where: "lang", "en" %}
+  {% assign shown = 0 %}
+  {% for post in category_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% if valid_categories contains normalized_category %}
+  {% assign shown = shown | plus: 1 %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
@@ -23,7 +28,9 @@ permalink: /en/category/meat/
     <h2 class="post-card-title">{{ post.title }}</h2>
     <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
-  {% else %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No meat & protein articles published yet.</p>
+  {% endif %}
   {% endfor %}
+  {% if shown == 0 %}
+  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No meat & protein articles published yet.</p>
+  {% endif %}
 </div>

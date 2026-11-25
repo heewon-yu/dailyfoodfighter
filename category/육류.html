@@ -12,8 +12,13 @@ permalink: /category/육류/
 </div>
 
 <div class="post-list">
-  {% assign meat_posts = site.posts | where_exp: "p", "p.category == '육류' or p.category == '육류·단백질' or p.category == '단백질'" %}
-  {% for post in meat_posts %}
+  {% assign valid_categories = '육류|육류·단백질|단백질' | split: '|' %}
+  {% assign category_posts = site.posts | where: "lang", "ko" %}
+  {% assign shown = 0 %}
+  {% for post in category_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% if valid_categories contains normalized_category %}
+  {% assign shown = shown | plus: 1 %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
@@ -23,7 +28,9 @@ permalink: /category/육류/
     <h2 class="post-card-title">{{ post.title }}</h2>
     <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
-  {% else %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 육류 포스팅이 없습니다.</p>
+  {% endif %}
   {% endfor %}
+  {% if shown == 0 %}
+  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 육류 포스팅이 없습니다.</p>
+  {% endif %}
 </div>

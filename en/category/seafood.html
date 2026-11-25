@@ -12,8 +12,13 @@ permalink: /en/category/seafood/
 </div>
 
 <div class="post-list">
-  {% assign fish_posts = site.posts | where_exp: "p", "p.category == 'Seafood' or p.category == 'Seaweed' or p.category == 'Seafood & Seaweed'" %}
-  {% for post in fish_posts %}
+  {% assign valid_categories = 'seafood|seaweed|seafood & seaweed' | split: '|' %}
+  {% assign category_posts = site.posts | where: "lang", "en" %}
+  {% assign shown = 0 %}
+  {% for post in category_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% if valid_categories contains normalized_category %}
+  {% assign shown = shown | plus: 1 %}
   <a href="{{ post.url | relative_url }}" class="post-card">
     <div class="post-card-footer" style="margin-bottom: 8px;">
       <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
@@ -23,7 +28,9 @@ permalink: /en/category/seafood/
     <h2 class="post-card-title">{{ post.title }}</h2>
     <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
   </a>
-  {% else %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No seafood articles published yet.</p>
+  {% endif %}
   {% endfor %}
+  {% if shown == 0 %}
+  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No seafood articles published yet.</p>
+  {% endif %}
 </div>
