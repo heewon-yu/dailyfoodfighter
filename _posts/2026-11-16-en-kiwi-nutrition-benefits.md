@@ -158,7 +158,7 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
       "name": "Why does kiwi sometimes make my tongue or mouth tingle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A mild prickly sensation is usually caused by kiwi's actinidin enzyme, fruit acids, and microscopic calcium oxalate crystals irritating oral mucosa. If tingling progresses to lip swelling, hives, or throat tightness, stop eating it immediately as that indicates a true food allergy."
+        "text": "A mild prickly sensation is usually caused by kiwi’s actinidin enzyme, fruit acids, and microscopic calcium oxalate crystals irritating oral mucosa. If tingling progresses to lip swelling, hives, or throat tightness, stop eating it immediately as that indicates a true food allergy."
       }
     },
     {
