@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "16.26 g"
   sodiumContent: "1 mg"
 ---
-
 <img src="/assets/images/fig.jpg" alt="Purple figs on a slate plate, one cut open to show the red seedy interior" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Fresh figs run 47–74 kcal per 100 g across national databases, with 1.3–2.9 g of fiber and 176–232 mg of potassium.*
 
@@ -183,7 +182,7 @@ It depends on the goal. For calories and blood sugar, **fresh**: 47–74 kcal an
       "name": "How many figs should I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy adults, two to three fresh figs (100 to 150 g) fit comfortably: 74 to 110 kcal and 16 to 24 g of sugar, within a normal snack budget. For dried figs, keep to three or four (25 to 30 g) because sugar is four to five times denser by weight."
+        "text": "For healthy adults, two to three fresh figs (100–150 g) fit comfortably: 74–110 kcal and 16–24 g of sugar, within a normal snack budget. For dried figs, keep to three or four (25–30 g) because sugar is four to five times denser by weight."
       }
     },
     {
@@ -191,7 +190,7 @@ It depends on the goal. For calories and blood sugar, **fresh**: 47–74 kcal an
       "name": "Can you eat fig skin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. The skin carries much of the anthocyanin and pectin, so rinse for 30 seconds and eat it. Figs picked straight from a tree can sting the mouth because of latex in the skin, so handle those with gloves and peel them."
+        "text": "Yes — the skin carries much of the anthocyanin and pectin. Rinse for 30 seconds and eat it. Figs picked straight from a tree can sting the mouth because of latex in the skin, so handle them with gloves and peel those."
       }
     },
     {
@@ -199,7 +198,7 @@ It depends on the goal. For calories and blood sugar, **fresh**: 47–74 kcal an
       "name": "Are dried figs or fresh figs healthier?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the goal. For calories and blood sugar, fresh figs at 47 to 74 kcal and about 16 g of sugar per 100 g are better. For concentrated fiber and minerals, dried figs work, but at five to seven times the calories and over 45 g of sugar per 100 g, so weigh out 25 to 30 g instead of eating from the bag."
+        "text": "It depends on the goal. For calories and blood sugar, fresh: 47–74 kcal and 16 g sugar per 100 g. For concentrated fiber and minerals, dried — but at five to seven times the calories and over 45 g of sugar per 100 g, so weigh out 25–30 g rather than eating from the bag."
       }
     }
   ]

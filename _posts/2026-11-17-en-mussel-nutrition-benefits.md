@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0.0 g"
   sodiumContent: "286 mg"
 ---
-
 <img src="/assets/images/mussel.jpg" alt="Fresh Raw Black Mussels in a Ceramic Bowl with Lemon and Parsley" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ One hundred grams of raw mussel meat carries 86 calories, 12 µg of vitamin B12 and 44.8 µg of selenium. A whole kilogram of mussels in the shell yields only 200–250 g of meat — roughly 200 calories.*
 
@@ -186,7 +185,7 @@ They sit in the middle. Shellfish purines are lower than those in mackerel or or
       "name": "How many mussels should I eat in one serving?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Plan on 10 to 20 mussels, about 60 to 120 g of meat, which supplies 7 to 14 g of protein and a full day of vitamin B12 for 52 to 103 calories. Keep total intake under about 200 g a day because sodium adds up quickly, and treat mussels as a two to three times a week protein rather than a daily staple."
+        "text": "Plan on 10–20 mussels, about 60–120 g of meat, which supplies 7–14 g of protein and a full day of vitamin B12 for 52–103 calories. Keep total intake under about 200 g a day, since sodium adds up quickly, and treat mussels as a two-to-three-times-a-week protein rather than a daily staple."
       }
     },
     {
@@ -194,7 +193,7 @@ They sit in the middle. Shellfish purines are lower than those in mackerel or or
       "name": "Can I drink the broth from steamed mussels?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, in a measured amount. The broth holds taurine, amino acids and savoriness, but also most of the added sodium. One or two ladles, about 100 ml, is a reasonable limit, and seasoning at the end rather than the start keeps the total sodium lower."
+        "text": "Yes, in a measured amount. The broth holds taurine, amino acids and the sea's savoriness, but also most of the added sodium. One or two ladles (about 100 ml) is a reasonable limit, and seasoning at the end rather than the start keeps the total lower."
       }
     },
     {
@@ -202,7 +201,7 @@ They sit in the middle. Shellfish purines are lower than those in mackerel or or
       "name": "Are mussels bad for gout?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "They sit in the middle. Shellfish purines at 100 to 150 mg per 100 g are lower than those in mackerel or organ meat, and a 100 g portion outside a flare is generally tolerated. During an acute attack, skip them and avoid the cooking liquid, where purines concentrate."
+        "text": "They sit in the middle. Shellfish purines are lower than those in mackerel or organ meat, and a 100 g portion outside a flare is generally tolerated. During an acute attack, skip them, and avoid the cooking liquid, where purines concentrate."
       }
     }
   ]

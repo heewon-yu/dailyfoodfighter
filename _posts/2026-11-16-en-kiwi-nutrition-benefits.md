@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "8.99 g"
   sodiumContent: "3.00 mg"
 ---
-
 <img src="/assets/images/kiwi.jpg" alt="Fresh Green and Gold Kiwifruit Halved on a Wooden Board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw green kiwifruit delivers 92.7 mg of vitamin C per 100 g (103% of the U.S. Daily Value), while gold kiwi reaches 161.3 mg. Eating the washed skin raises total fiber and polyphenol intake substantially.*
 
@@ -151,7 +150,7 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
       "name": "Is green or gold kiwi better for constipation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Green kiwi is substantially better. It contains more than twice as much dietary fiber (3.0 g vs. 1.4 g per 100 g) and higher levels of actinidin, which is why clinical constipation trials use two green kiwis daily."
+        "text": "Green kiwi is substantially better. It contains more than twice as much dietary fiber (3.0 g vs. 1.4 g per 100 g) and higher levels of the digestive enzyme actinidin, which is why clinical constipation trials specifically use two green kiwis daily."
       }
     },
     {
@@ -159,7 +158,7 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
       "name": "Why does kiwi sometimes make my tongue or mouth tingle?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A mild prickly sensation comes from actinidin enzyme, fruit acids, and microscopic calcium oxalate crystals. If tingling progresses to lip swelling or throat tightness, stop eating it immediately as that may indicate an allergy."
+        "text": "A mild prickly sensation is usually caused by kiwi's actinidin enzyme, fruit acids, and microscopic calcium oxalate crystals irritating oral mucosa. If tingling progresses to lip swelling, hives, or throat tightness, stop eating it immediately as that indicates a true food allergy."
       }
     },
     {
@@ -167,7 +166,7 @@ Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxi
       "name": "Is it safe to eat kiwi skin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Washed kiwi skin is edible and boosts fiber, folate, and antioxidant intake. Gold kiwis have smooth skin, while green kiwis can be scrubbed gently under running water to remove most of the fuzz."
+        "text": "Yes. Washed kiwi skin is completely edible and boosts fiber, folate, and antioxidant intake. Smooth-skinned gold kiwis are easiest to eat whole; for fuzzy green kiwis, gently scrubbing the fuzz off under running water before slicing makes the texture pleasant."
       }
     }
   ]

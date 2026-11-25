@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "7.05 g"
   sodiumContent: "0 mg"
 ---
-
 <img src="/assets/images/asian-pear.jpg" alt="Whole and halved Asian pears on a light oak board with thin slices of crisp white flesh" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ An Asian pear carries 42 calories, 3.6 g of fiber and 121 mg of potassium per 100 g. A single fruit weighs 350–500 g, so one pear delivers 150–210 calories and 25–35 g of sugar.*
 
@@ -179,7 +178,7 @@ Yes, within limits. **One cup daily** is the practical ceiling: juice concentrat
       "name": "How many Asian pears should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Half to one pear, about 200 to 400 g, is a reasonable daily amount, providing 84 to 168 calories and 14 to 28 g of sugar. People with diabetes should keep a single serving to half a pear, and anyone drinking pear juice should cap it at one cup, or 240 ml, per day."
+        "text": "Half to one pear (200–400 g) is reasonable, providing 84–168 calories and 14–28 g of sugar. People with diabetes should keep a single serving to half a pear, and anyone drinking pear juice should cap it at one cup (240 ml) a day."
       }
     },
     {
@@ -187,7 +186,7 @@ Yes, within limits. **One cup daily** is the practical ceiling: juice concentrat
       "name": "Can I drink pear juice every day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, within limits. One cup daily is the practical ceiling, because the juice concentrates sugar and sorbitol while removing the fiber that whole fruit provides. Drinking several cups a day is a reliable way to provoke loose stools and to add 60 g or more of sugar to your diet."
+        "text": "Yes, within limits. One cup daily is the practical ceiling: juice concentrates sugar and sorbitol while removing the fiber whole fruit provides. Several cups a day is a reliable way to provoke loose stools and to add 60 g or more of sugar to your diet."
       }
     },
     {
@@ -195,7 +194,7 @@ Yes, within limits. **One cup daily** is the practical ceiling: juice concentrat
       "name": "Does Asian pear cause constipation or relieve it?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It usually relieves constipation, and can cause the opposite in excess. Fiber and sorbitol promote bowel movements and soften stool, which is why pear juice has been used for constipation. In larger amounts, or in people with irritable bowel syndrome, the same sorbitol causes gas, bloating and diarrhea."
+        "text": "It usually relieves it, and can cause the opposite in excess. Fiber and sorbitol promote bowel movements and soften stool, which is why pear juice has been used for constipation. In larger amounts, or with IBS, the same sorbitol causes gas, bloating and diarrhea."
       }
     }
   ]

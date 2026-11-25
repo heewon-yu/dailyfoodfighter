@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0.0 g"
   sodiumContent: "86 mg"
 ---
-
 <img src="/assets/images/chicken-thigh.jpg" alt="Raw chicken thigh fillets on a dark slate board with rosemary, garlic and a seared thigh in a cast iron pan" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Skinless chicken thigh carries 119 calories and 19.7 g of protein per 100 g. The same weight with skin on reaches 211 calories — the skin accounts for 44% of the energy in the cut.*
 
@@ -176,7 +175,7 @@ Use an instant-read thermometer in the thickest part, away from bone: **165°F (
       "name": "How much chicken thigh should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A reasonable range is 100 to 200 g of skinless meat, or one to two thighs, which supplies 20 to 40 g of protein for 119 to 238 calories. Rotate it three to four times a week in place of processed meat, and count it toward an overall protein target of 0.8 to 1.2 g per kilogram of body weight."
+        "text": "A reasonable range is 100–200 g of skinless meat, or one to two thighs, which supplies 20–40 g of protein for 119–238 calories. Rotate it three to four times a week in place of processed meat, and count it toward an overall target of 0.8–1.2 g of protein per kilogram of body weight."
       }
     },
     {
@@ -184,7 +183,7 @@ Use an instant-read thermometer in the thickest part, away from bone: **165°F (
       "name": "Can I replace chicken breast with thigh on a diet?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Skinless thigh has 119 calories per 100 g against 120 for breast, so the calorie cost is effectively zero. You give up about 2.8 g of protein per 100 g and gain iron, zinc and vitamin B12, plus a texture that makes chicken easier to eat repeatedly. Weight change follows total calories and cooking method rather than the cut."
+        "text": "Yes. Skinless thigh has 119 calories per 100 g against 120 for breast, so the calorie cost is effectively zero. You give up about 2.8 g of protein per 100 g and gain iron, zinc and vitamin B12, plus a texture that makes chicken easier to eat repeatedly."
       }
     },
     {
@@ -192,7 +191,7 @@ Use an instant-read thermometer in the thickest part, away from bone: **165°F (
       "name": "How do I know chicken thigh is cooked safely?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Use an instant-read thermometer in the thickest part away from the bone: 165 degrees Fahrenheit, or 74 degrees Celsius, held for 15 seconds is the standard. Juices should run clear and the meat should no longer look translucent at the joint. Do not judge by color alone, because thigh meat stays pinkish near the bone even when safely cooked."
+        "text": "Use an instant-read thermometer in the thickest part, away from bone: 165°F (74°C) held for 15 seconds. Juices should run clear and the meat should not look translucent at the joint. Do not judge by color alone — thigh meat stays pinkish near the bone even when safely cooked."
       }
     }
   ]

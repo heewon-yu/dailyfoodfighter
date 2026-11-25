@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "2.50 g"
   sodiumContent: "21 mg"
 ---
-
 <img src="/assets/images/radish.jpg" alt="A whole white daikon radish with green tops beside thin crisp slices on a wooden board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Daikon radish carries 18 calories, 22 mg of vitamin C and 227 mg of potassium per 100 g. A typical root weighs 500–1,000 g, so one radish supplies 90–180 calories and 100–220 mg of vitamin C.*
 
@@ -200,7 +199,7 @@ In small amounts, yes — **up to 100 ml daily**. Juice concentrates potassium a
       "name": "How much radish should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "About 150 to 200 g, or one cup sliced, is a sensible daily amount, providing 27 to 36 calories and 33 to 44 mg of vitamin C. Radish juice should be capped at 100 ml a day, and anyone with kidney disease should avoid it in juice form because of the potassium concentration."
+        "text": "150–200 g (about one cup sliced) is a sensible daily amount, providing 27–36 calories and 33–44 mg of vitamin C. Radish juice should be capped at 100 ml a day, and anyone with kidney disease should avoid it in juice form because of the potassium concentration."
       }
     },
     {
@@ -208,7 +207,7 @@ In small amounts, yes — **up to 100 ml daily**. Juice concentrates potassium a
       "name": "Is radish juice safe every day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In small amounts, yes, up to 100 ml daily. Juice concentrates potassium and pungent compounds while removing most of the fiber, so several glasses a day can irritate the stomach and push potassium intake high. Adding honey also adds sugar."
+        "text": "In small amounts, yes — up to 100 ml daily. Juice concentrates potassium and pungent compounds while removing most of the fiber, so several glasses a day can irritate the stomach and push potassium intake high. Adding honey also adds sugar."
       }
     },
     {

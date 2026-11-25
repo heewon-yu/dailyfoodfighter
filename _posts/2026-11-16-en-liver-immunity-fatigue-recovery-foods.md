@@ -53,7 +53,6 @@ itemlist:
     name: "Beef bone broth"
     url: "https://dailyfoodfighter.com/en/posts/beef-bone-broth-nutrition-benefits/"
 ---
-
 <img src="/assets/images/liver-immunity-fatigue-recovery-foods.jpg" alt="Oysters on ice, sliced abalone, squid, garlic, kiwi, broccoli, bone broth and orange segments" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Three nutrient groups drive fatigue recovery: zinc and selenium for immunity, vitamin C and folate for cell repair, and taurine and glycine for liver metabolism and nerve calming.*
 
@@ -153,7 +152,7 @@ Cochrane reviews find little preventive effect in the general population. Some t
       "name": "Which single food is best for fatigue?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It depends on the cause. For immunity and zinc, oysters at 16.6 mg zinc; for anemic fatigue, beef sirloin at 1.48 mg heme iron; for antioxidant and cell repair, kale at 93.4 mg vitamin C."
+        "text": "It depends on the cause. For immunity and zinc, oysters (16.6 mg zinc); for anemic fatigue, beef sirloin (1.48 mg heme iron); for antioxidant and cell repair, kale (93.4 mg vitamin C)."
       }
     },
     {

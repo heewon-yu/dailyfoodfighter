@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "59 mg"
 ---
-
 <img src="/assets/images/spanish-mackerel.jpg" alt="A whole fresh Spanish mackerel with silver-blue spotted skin resting on crushed ice with lemon slices and parsley" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw Spanish mackerel supplies 139 calories, 19.3 g of protein and 1 g of EPA plus DHA per 100 g. The same 100 g grilled reads 184 calories because water leaves and the flesh concentrates.*
 
@@ -232,7 +231,7 @@ On mercury, Spanish mackerel sits low on the food chain and accumulates little. 
       "name": "How much Spanish mackerel should I eat?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "About 100 g per serving, two to three times a week. One 100 g serving gives 139 calories, 19.3 g of protein and roughly 1 g of EPA plus DHA. Rotate it with salmon, sardines or mackerel so omega-3 intake stays consistent."
+        "text": "About 100 g per serving, two to three times a week. One 100 g serving gives 139 calories, 19.3 g of protein and roughly 1 g of EPA plus DHA. Rotate it with salmon, sardines or mackerel so the omega-3 intake stays consistent."
       }
     },
     {
@@ -240,7 +239,7 @@ On mercury, Spanish mackerel sits low on the food chain and accumulates little. 
       "name": "Does Spanish mackerel have more omega-3 than salmon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Less than farmed Atlantic salmon, which has about 1.8 to 2.3 g per 100 g, and more than most white fish. At about 1.3 g of EPA plus DHA per 100 g it covers the 250 mg daily recommendation in one serving, with roughly half of salmon's total fat."
+        "text": "Less than farmed Atlantic salmon (about 1.8–2.3 g per 100 g) and more than most white fish. At 1.3 g of EPA plus DHA per 100 g it comfortably covers the 250 mg daily recommendation in a single serving, and its fat content is half of salmon's."
       }
     },
     {
@@ -248,7 +247,7 @@ On mercury, Spanish mackerel sits low on the food chain and accumulates little. 
       "name": "Why do grilled mackerel labels show more calories than raw?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Water loss, not added fat. Grilling removes about 12 g of water per 100 g, so a fixed 100 g of cooked fish contains more flesh and fat. The steak's total calories do not change: 130 g raw yields about 100 g grilled at the same total energy."
+        "text": "Water loss, not added fat. Grilling removes roughly 12 g of water per 100 g, so a fixed 100 g of cooked fish contains more flesh and fat. The steak's total calories do not change: 130 g raw yields about 100 g grilled at the same total energy."
       }
     }
   ]

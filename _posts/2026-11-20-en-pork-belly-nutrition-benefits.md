@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "32 mg"
 ---
-
 <img src="/assets/images/pork-belly.jpg" alt="Thick slices of raw pork belly with layers of fat and lean meat on a dark wooden board with garlic, coarse salt and rosemary" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw pork belly carries 518 calories and 53 g of fat per 100 g, with only 9.3 g of protein. The same 100 g pan-cooked reads higher because water leaves and the slice shrinks.*
 
@@ -230,7 +229,7 @@ Risk-reduction measures that preserve the dish:
       "name": "How much pork belly can I eat in a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 100 to 150 g portion, once or twice a week, is a reasonable pattern for most healthy adults. That is 370 to 780 calories and 13 to 29 g of saturated fat depending on the cut, so the rest of the day should lean on vegetables and lean protein. Anyone with high LDL cholesterol should stay at the lower end."
+        "text": "A 100–150 g portion, once or twice a week, is a reasonable pattern for most healthy adults. That is 370–780 calories and 13–29 g of saturated fat depending on the cut, so the rest of the day should lean on vegetables and lean protein. Anyone with high LDL cholesterol should stay at the lower end."
       }
     },
     {
@@ -238,7 +237,7 @@ Risk-reduction measures that preserve the dish:
       "name": "Is pork belly healthier grilled or boiled?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Per 100 g of finished meat, boiled is lower at 427 versus 484 calories in Korean composition data, because grilling drives off more water. Per meal the difference is small. Grilling removes some fat that drips away, while boiling leaves fat in the meat and broth. The bigger health lever is avoiding char, excess salt and sugary glazes."
+        "text": "Per 100 g of finished meat, boiled is lower (427 vs 484 kcal in Korean data), because grilling drives off more water. Per meal, the difference is small; grilling removes some fat that drips away, while boiling leaves fat in the meat and in the broth you may not eat. The bigger health lever is avoiding char, salt and sugary glazes."
       }
     },
     {
@@ -246,7 +245,7 @@ Risk-reduction measures that preserve the dish:
       "name": "How much protein is in pork belly?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "About 9.3 g per 100 g raw, or 13.9 g in the leaner Korean cut, roughly 19 to 25 percent of the daily value. Because fat supplies over 90 percent of its calories, pork belly is a poor protein staple. Pork tenderloin at 20.9 g per 100 g and 120 calories is the efficient choice from the same animal."
+        "text": "About 9.3 g per 100 g raw (13.9 g in the leaner Korean cut) — roughly 19–25% of the daily value. Because fat supplies over 90% of its calories, pork belly is a poor protein staple; pork tenderloin at 20.9 g per 100 g and 120 calories is the efficient choice from the same animal."
       }
     }
   ]

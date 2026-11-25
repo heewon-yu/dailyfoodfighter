@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "2.28 g"
   sodiumContent: "13 mg"
 ---
-
 <img src="/assets/images/cauliflower.jpg" alt="검은 슬레이트 위에 놓인 흰 콜리플라워 한 통과 잘라 놓은 꽃송이" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 콜리플라워 100g은 27kcal, 식이섬유 4.6g, 비타민C 33mg입니다. 먹는 부분은 꽃봉오리(화구)이고, 겉잎은 버리는 부분으로 잡힙니다.*
 
@@ -201,7 +200,7 @@ USDA FoodData Central의 콜리플라워(생것) 100g은 <strong>25kcal, 식이�
       "name": "콜리플라워 라이스는 정말 다이어트에 도움이 되나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "밥을 대체할 때만 도움이 됩니다. 콜리플라워 100g은 27kcal, 밥 100g은 약 130kcal로 같은 부피로 바꾸면 한 끼 열량이 200kcal 줄어듭니다. 다만 단백질이 2.17g뿐이라 달걀이나 두부, 닭가슴살을 곁들이지 않으면 금방 배가 고프고, 기름에 볶으면 열량 차이가 거의 사라집니다."
+        "text": "밥을 대체할 때만 도움이 됩니다. 콜리플라워 100g은 27kcal, 밥 100g은 약 130kcal입니다. 같은 부피로 바꾸면 한 끼 열량이 200kcal 줄어듭니다. 다만 단백질이 2.17g뿐 이라 달걀·두부·닭가슴살을 곁들이지 않으면 금방 배가 고프고, 기름에 볶으면 열량 차이가 거의 사라집니다."
       }
     }
   ]

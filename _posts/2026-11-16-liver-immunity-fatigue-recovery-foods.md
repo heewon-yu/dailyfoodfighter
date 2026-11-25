@@ -53,7 +53,6 @@ itemlist:
     name: "사골·도가니 육수"
     url: "https://dailyfoodfighter.com/posts/beef-bone-broth-nutrition-benefits/"
 ---
-
 <img src="/assets/images/liver-immunity-fatigue-recovery-foods.jpg" alt="얼음 위의 굴, 전복, 오징어, 마늘, 키위, 브로콜리, 사골육수, 오렌지" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ 피로 회복에 쓰이는 영양소는 세 갈래입니다. 아연·셀레늄(면역), 비타민C·엽산(세포 회복), 타우린·글리신(간 대사와 신경 안정)입니다.*
 
@@ -153,7 +152,7 @@ itemlist:
       "name": "피로에 가장 좋은 음식 하나는 무엇인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "원인에 따라 다릅니다. 면역과 아연이 목적이면 굴의 아연 16.6mg, 빈혈성 피로면 소고기 등심의 헴철 1.48mg, 항산화와 세포 회복이면 케일의 비타민C 93.4mg이 우선입니다."
+        "text": "원인에 따라 다릅니다. 면역과 아연이 목적이면 굴(아연 16.6mg), 빈혈성 피로면 소고기 등심(헴철 1.48mg), 항산화와 세포 회복이면 케일(비타민C 93.4mg)이 우선입니다."
       }
     },
     {
@@ -161,7 +160,7 @@ itemlist:
       "name": "아연은 얼마나 먹어야 하나요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "성인 남성 하루 10mg, 여성 8mg이며 상한은 35mg입니다. 굴 100g 한 번으로 하루치를 넘기므로 보충제를 함께 먹으면 과다 섭취가 되기 쉽습니다."
+        "text": "성인 남성 하루 10mg, 여성 8mg이며 상한은 35mg입니다. 굴 100g 한 번으로 하루치를 넘기므로, 보충제를 함께 먹으면 과다 섭취가 되기 쉽습니다."
       }
     },
     {

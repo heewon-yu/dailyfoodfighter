@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0.5 g"
   sodiumContent: "40 mg"
 ---
-
 <img src="/assets/images/lotus-root.jpg" alt="Fresh white lotus root slices with their characteristic holes on a dark slate board with perilla leaves and whole roots" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw lotus root carries 74 calories, 17.2 g of carbohydrate and 4.9 g of fiber per 100 g. Boiling drops its vitamin C from 44 mg to about 27 mg in the same 100 g.*
 
@@ -235,7 +234,7 @@ No. Korean composition data shows a **39% loss** (28.35 mg to 17.32 mg per 100 g
       "name": "Does boiling destroy all the vitamin C in lotus root?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Korean composition data shows a 39% loss, from 28.35 mg to 17.32 mg per 100 g, not total destruction. Fiber, potassium and starch largely remain. Blanching for 60 seconds in already-boiling water and slicing thick reduces the loss further."
+        "text": "No. Korean composition data shows a 39% loss (28.35 mg to 17.32 mg per 100 g), not total destruction. Fiber, potassium and starch largely remain. Blanching for 60 seconds in boiling water and slicing thick cuts the loss to roughly half of that."
       }
     },
     {
@@ -243,7 +242,7 @@ No. Korean composition data shows a **39% loss** (28.35 mg to 17.32 mg per 100 g
       "name": "Is lotus root juice good for gastritis?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The evidence is insufficient. The idea that its slippery polysaccharides protect the stomach lining comes from laboratory work, and clinical trials in gastritis patients are essentially absent. Well-cooked lotus root is gentle, but persistent stomach pain needs medical assessment rather than juice."
+        "text": "The evidence is insufficient. The idea that its slippery polysaccharides protect the stomach lining comes from laboratory work; clinical trials in gastritis patients are essentially absent. Softened, well-cooked lotus root is gentle, but persistent stomach pain needs medical assessment rather than juice."
       }
     }
   ]

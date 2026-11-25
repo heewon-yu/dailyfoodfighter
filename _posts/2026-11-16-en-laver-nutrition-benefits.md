@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "903 mg"
 ---
-
 <img src="/assets/images/laver.jpg" alt="Toasted Laver Sheets Brushed with Sesame Oil and Salted, with Rice and Sesame Seeds" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Dried laver delivers 202 calories, 38.5 g protein, 45.6 g fiber and 2,655 mg potassium per 100 g. One full sheet weighs about 2 g and carries only 4 calories—but five sheets supply 3.9 g protein, comparable to one egg.*
 
@@ -171,7 +170,7 @@ At usual intakes of two to five sheets a day, no causal link between iodine inta
       "name": "How many sheets of laver can I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two to five sheets (4-20 kcal) suits healthy adults, supplying 20-300 mcg iodine and 2-4.5 g fiber. With thyroid disease, stay at two or three sheets, and limit seasoned snack packs to one a day because of sodium."
+        "text": "Two to five sheets (4–20 kcal) suits healthy adults, supplying 20–300 µg iodine and 2–4.5 g fiber. With thyroid disease, stay at two or three sheets, and limit seasoned snack packs to one a day because of sodium."
       }
     },
     {
@@ -179,7 +178,7 @@ At usual intakes of two to five sheets a day, no causal link between iodine inta
       "name": "Is seasoned nori worse than plain dried laver?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes for fat and sodium. Plain laver has 2.82 g fat and 903 mg sodium per 100 g, while seasoned nori has 49.2 g fat and 1,299 mg sodium. A single 4-5 g snack pack is only 25-30 kcal, but several packs add sodium quickly."
+        "text": "Yes for fat and sodium. Plain laver has 2.82 g fat and 903 mg sodium per 100 g; seasoned nori has 49.2 g fat and 1,299 mg sodium. One 4–5 g snack pack is only 25–30 kcal, but eating several packs adds sodium quickly."
       }
     },
     {

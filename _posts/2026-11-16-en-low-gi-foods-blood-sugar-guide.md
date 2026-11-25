@@ -53,7 +53,6 @@ itemlist:
     name: "Sweet potato"
     url: "https://dailyfoodfighter.com/en/posts/sweet-potato-nutrition-benefits/"
 ---
-
 <img src="/assets/images/low-gi-foods-blood-sugar-guide.jpg" alt="Spinach, broccoli, avocado, cabbage, chickpeas, lentils, apples and strawberries on a light wooden table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Low-GI ingredients are mostly high in fiber and water with little starch. The same food can double its GI depending on whether it is baked or boiled.*
 
@@ -161,7 +160,7 @@ Switch to mixed grains, eat vegetables and protein first, then the rice. The pos
       "name": "Is fruit bad for diabetes?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Low-GI, low-GL fruit such as strawberry (GL 3.1), apple (GL 5.0) and kiwi (GL 6.9) is rarely a problem at 100–150 g once or twice a day. The bigger issue is juice and dried fruit, where fiber falls and sugar concentrates."
+        "text": "Low-GI, low-GL fruit (strawberry 3.1, apple 5.0, kiwi 6.9) is rarely a problem at 100–150 g once or twice a day. The bigger issue is juice and dried fruit, where fiber falls and sugar concentrates."
       }
     },
     {

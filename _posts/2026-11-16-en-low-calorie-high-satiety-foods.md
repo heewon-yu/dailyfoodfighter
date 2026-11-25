@@ -53,7 +53,6 @@ itemlist:
     name: "Egg"
     url: "https://dailyfoodfighter.com/en/posts/egg-nutrition-benefits/"
 ---
-
 <img src="/assets/images/low-calorie-high-satiety-foods.jpg" alt="Shredded cabbage, kale, boiled eggs, chicken breast, tofu, squid, kiwi and sweet potato on a light counter" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Satiety comes from volume, water, fiber and protein, not from calories. How much food you can eat per 100 kcal is the real variable in a diet.*
 
@@ -156,7 +155,7 @@ Yes. At 86 kcal per 100 g it is lower than rice (about 130 kcal per 100 g) and h
       "name": "Which food has the fewest calories?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Spinach at 23 kcal and cabbage at 25 kcal. Eating only those leaves you short on protein, so pair them with chicken breast, tofu or eggs, which deliver the most protein per calorie."
+        "text": "Spinach (23 kcal) and cabbage (25 kcal). Eating only those leaves you short on protein, so pair them with chicken breast, tofu or eggs, which deliver the most protein per calorie."
       }
     },
     {
@@ -172,7 +171,7 @@ Yes. At 86 kcal per 100 g it is lower than rice (about 130 kcal per 100 g) and h
       "name": "Can I eat sweet potato at night?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. At 86 kcal per 100 g it is lower than rice at about 130 kcal per 100 g and higher in fiber. Roasted sweet potato raises both GI and calories, so choose steamed portions of 100–150 g."
+        "text": "Yes. At 86 kcal per 100 g it is lower than rice (about 130 kcal per 100 g) and higher in fiber. Roasted sweet potato raises both GI and calories, so choose steamed portions of 100–150 g."
       }
     }
   ]

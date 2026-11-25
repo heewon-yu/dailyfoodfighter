@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "4.1 g"
   sodiumContent: "3 mg"
 ---
-
 <img src="/assets/images/yuzu.jpg" alt="Whole yellow yuzu citrus fruits with a halved fruit and a glass of yuzu tea on a dark slate board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ A whole yuzu carries 49 calories, 12.6 g of carbohydrate, 3.7 g of fiber and 95 mg of vitamin C per 100 g. Roughly 70% of that vitamin C sits in the peel, not the flesh.*
 
@@ -177,7 +176,7 @@ Fully removing sugar lowers the osmotic barrier that keeps the preserve safe. Us
       "name": "How much yuzu should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy adults, 100 g of whole fruit supplies 95% of Korea's vitamin C recommendation at 49 calories. As tea, keep cheong to 20 g or less and one to two cups a day. With diabetes or during weight loss, prefer fresh fruit, frozen zest or yuzu vinegar over sugar-preserved cheong."
+        "text": "For healthy adults, 100 g of whole fruit — about one to one and a half small yuzu — supplies 95% of Korea's vitamin C recommendation at 49 calories. If you drink it as tea, keep cheong to 20 g or less and one or two cups a day. With diabetes or during weight loss, prefer fresh fruit, frozen zest or yuzu vinegar."
       }
     },
     {
@@ -185,7 +184,7 @@ Fully removing sugar lowers the osmotic barrier that keeps the preserve safe. Us
       "name": "Does yuzu really have more vitamin C than lemon?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, when the peel is included: 95 mg versus 52 mg per 100 g, compared with 55 mg for orange and 48 mg for tangerine. Flesh alone contains 50.77 mg, which is close to lemon. The advantage depends on using the whole fruit."
+        "text": "Yes, when the peel is included: 95 mg versus 52 mg per 100 g, with orange at 55 mg and tangerine at 48 mg. Flesh alone drops to 50.77 mg, which is roughly lemon territory. The comparison only holds if you use the whole fruit."
       }
     },
     {
@@ -193,7 +192,7 @@ Fully removing sugar lowers the osmotic barrier that keeps the preserve safe. Us
       "name": "Can I make yuja-cheong with less sugar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Removing sugar entirely weakens the osmotic barrier that keeps the preserve safe. Using 50 to 60 percent of the fruit's weight in sugar and ripening in the refrigerator cuts sugar by 30 to 40 percent if the jar is finished within two to three weeks. For longer storage without sugar, ferment yuzu into vinegar."
+        "text": "Fully removing sugar lowers the osmotic barrier that keeps the preserve safe. Using 50–60% of the fruit's weight in sugar and ripening it in the refrigerator cuts sugar by 30–40%, provided you finish the jar within two to three weeks. For a longer shelf life without sugar, ferment yuzu into vinegar instead."
       }
     }
   ]

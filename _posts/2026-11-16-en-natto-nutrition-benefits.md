@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "4.89 g"
   sodiumContent: "7 mg"
 ---
-
 <img src="/assets/images/natto.jpg" alt="Sticky Fermented Soybeans Natto Lifted with Chopsticks, Topped with Scallion" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Natto delivers 212 calories, 17.7 g protein and 5.4 g fiber per 100 g, with 939–1,103 µg of vitamin K2 as menaquinone-7. One typical 50 g pack carries 106 calories, 8.9 g protein and five times an adult's daily vitamin K need.*
 
@@ -170,7 +169,7 @@ Yes, it can lower the INR. Natto contains 600–1,100 µg of vitamin K per 100 g
       "name": "How much natto should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One 50 g pack (106 kcal, 8.9 g protein) covers vitamin K2, protein and fiber needs. MK-7 has a half-life of about three days, so three to four packs a week maintains blood levels. Two packs a day remains reasonable if protein is the goal."
+        "text": "One 50 g pack (106 kcal, 8.9 g protein) covers vitamin K2, protein and fiber needs. Because MK-7 has a half-life of about three days, three to four packs a week maintains blood levels. For protein purposes, two packs (212 kcal, 17.7 g protein) is still reasonable."
       }
     },
     {
@@ -178,7 +177,7 @@ Yes, it can lower the INR. Natto contains 600–1,100 µg of vitamin K per 100 g
       "name": "Can nattokinase replace blood thinners?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Small trials show favorable changes in clotting markers, but there is no evidence nattokinase substitutes for aspirin, warfarin or direct oral anticoagulants. People with thrombotic conditions should keep natto at food level and never adjust medication themselves."
+        "text": "No. Small trials show favorable changes in clotting markers, but there is no evidence that nattokinase substitutes for aspirin, warfarin or direct oral anticoagulants. If you have a thrombotic condition or take anticoagulants, keep natto at food level and never adjust medication on your own."
       }
     },
     {
@@ -186,7 +185,7 @@ Yes, it can lower the INR. Natto contains 600–1,100 µg of vitamin K per 100 g
       "name": "Does natto reduce the effect of warfarin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It can lower the INR. Natto contains 600-1,100 mcg of vitamin K per 100 g, eight to fifteen times the daily requirement. Patients on warfarin should not start or stop natto abruptly and should keep the weekly amount steady while the INR is monitored."
+        "text": "Yes, it can lower the INR. Natto contains 600–1,100 µg of vitamin K per 100 g, eight to fifteen times the daily requirement. Patients on warfarin should not start or stop natto abruptly; if they eat it, they should keep the weekly amount steady and have the INR monitored."
       }
     }
   ]

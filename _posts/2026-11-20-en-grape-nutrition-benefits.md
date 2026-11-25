@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "15.5 g"
   sodiumContent: "2 mg"
 ---
-
 <img src="/assets/images/grape.jpg" alt="A rustic wooden bowl filled with dark purple and black grapes with green vine leaves beside a small paring knife" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Grapes provide 69 calories, 15.5 g of sugar and 191 mg of potassium per 100 g. A single 400–500 g bunch supplies 280–345 calories and 60–78 g of sugar.*
 
@@ -216,7 +215,7 @@ A 400–500 g bunch carries **280–345 calories and 60–78 g of sugar**. As an
       "name": "How many grapes should I eat in a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "About 100 to 200 g, or 15 to 30 grapes, is a sensible daily amount, providing 69 to 138 calories and 15 to 31 g of sugar. If you manage blood sugar, keep it to 100 g per sitting and pair grapes with protein, nuts or yogurt rather than eating them alone."
+        "text": "About 100–200 g, or 15–30 grapes, is a sensible daily amount: 69–138 calories and 15–31 g of sugar. If you are managing blood sugar, keep it to 100 g per sitting and pair the grapes with protein, nuts or yogurt rather than eating them alone."
       }
     },
     {
@@ -224,7 +223,7 @@ A 400–500 g bunch carries **280–345 calories and 60–78 g of sugar**. As an
       "name": "Can eating a whole bunch of grapes make me gain weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "A 400 to 500 g bunch carries 280 to 345 calories and 60 to 78 g of sugar. As an occasional snack that is not a problem, but as a daily habit it can push you past your energy needs without much satiety, because grapes are low in fiber and protein. Portion them into a bowl instead of eating from the bag."
+        "text": "A 400–500 g bunch carries 280–345 calories and 60–78 g of sugar. As an occasional snack that is not a problem; as a daily after-dinner habit it can push you past your energy needs without much satiety, because grapes are low in fiber and protein. Portion them into a bowl rather than eating from the bag."
       }
     },
     {
@@ -232,7 +231,7 @@ A 400–500 g bunch carries **280–345 calories and 60–78 g of sugar**. As an
       "name": "Is the resveratrol in grape skins worth seeking out?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Eat the skins, but do not expect a supplement effect. Grape skins supply anthocyanins, some resveratrol and fiber. Fresh grapes contain only 0.1 to 1.5 mg of resveratrol per 100 g, far below the 150 to 500 mg used in clinical trials, so benefits seen in supplement studies cannot be assumed from eating fruit."
+        "text": "Eat the skins, but do not expect a supplement effect. Grape skins supply anthocyanins, some resveratrol and fiber. Fresh grapes contain only 0.1–1.5 mg of resveratrol per 100 g, far below the 150–500 mg used in clinical trials, so the cardiovascular benefits seen in supplement studies cannot be assumed from eating fruit."
       }
     }
   ]

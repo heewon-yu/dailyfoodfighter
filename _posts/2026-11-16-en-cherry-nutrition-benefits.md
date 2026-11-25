@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "12.82 g"
   sodiumContent: "0 mg"
 ---
-
 <img src="/assets/images/cherry.jpg" alt="Fresh Dark Red Sweet Cherries with Stems and Water Droplets in a Ceramic Bowl" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Sweet cherries provide 63 calories, 2.1 g fiber and 222 mg potassium per 100 g. A one-cup serving (154 g with pits) is 97 calories and delivers 20–60 mg of anthocyanins, the pigments behind most of the fruit's research interest.*
 
@@ -169,7 +168,7 @@ Their glycemic index of about 22 is low, so the rise is gradual. But a full cup 
       "name": "How many cherries should I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Fifteen to twenty cherries, one cup or less (70-97 kcal), suits most adults. A cup carries 13-20 g of sugar, so people with diabetes should cap intake at 10 cherries (44 kcal) after a meal. For sleep, 10-15 cherries one to two hours before bed matches trial protocols."
+        "text": "Fifteen to twenty cherries—one cup or less, 70–97 kcal—suits most adults. Because a cup carries 13–20 g of sugar, people with diabetes should cap intake at 10 cherries (44 kcal) and eat them after a meal. For sleep, 10–15 cherries one to two hours before bed matches trial protocols."
       }
     },
     {
@@ -177,7 +176,7 @@ Their glycemic index of about 22 is low, so the rise is gradual. But a full cup 
       "name": "Is cherry juice as good as whole cherries?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. A 240 ml glass contains the sugar of about 90 g of fruit with almost none of the fiber, so glucose rises faster. Tart cherry concentrate used in sleep and gout trials is an alternative when eating 100 g of fresh fruit twice daily is impractical; dilute 30 ml in water."
+        "text": "No. A 240 ml glass contains the sugar of about 90 g of fruit with almost none of the fiber, so glucose rises faster. Tart cherry concentrate used in sleep and gout trials is a practical alternative when eating 100 g of fresh fruit twice daily is unrealistic—dilute 30 ml in water."
       }
     },
     {
@@ -185,7 +184,7 @@ Their glycemic index of about 22 is low, so the rise is gradual. But a full cup 
       "name": "Do cherries raise blood sugar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The glycemic index of about 22 is low, so the rise is gradual. A full cup still carries close to 20 g of sugar, and juice on an empty stomach raises glucose faster. Ten to fifteen cherries as a post-meal dessert is the most stable pattern."
+        "text": "Their glycemic index of about 22 is low, so the rise is gradual. But a full cup carries close to 20 g of sugar, and juice on an empty stomach will spike glucose faster than whole fruit. Ten to fifteen cherries as a post-meal dessert is the most stable pattern."
       }
     }
   ]

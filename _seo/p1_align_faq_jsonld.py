@@ -24,6 +24,11 @@ LD_RE = re.compile(r'(<script[^>]*type=["\']application/ld\+json["\'][^>]*>\s*)(
 
 
 def visible_faq(body):
+    """Visible question/answer pairs in either FAQ markup style used on the site.
+
+    Style A: `### Q1. question?` + `**A:** answer`
+    Style B: `**Q1. question?**` + plain answer paragraph
+    """
     out = []
     for b in re.split(r"\n(?=### )", body):
         m = re.match(r"###\s*(?:Q\d*\.?\s*)?(.+?)\s*\n+(.*)", b, re.S)
@@ -32,6 +37,10 @@ def visible_faq(body):
         am = re.search(r"\*\*A[:：]\*\*\s*(.+?)(?:\n\n|\n#|\n<div|\n<script|$)", m.group(2), re.S)
         if am:
             out.append((m.group(1).strip(), am.group(1).strip()))
+    for m in re.finditer(r"\*\*Q\d*\.?\s*(.+?)\*\*\s*\n+(.+?)(?=\n\s*\n|\n#|\n<div|\n<script|\Z)", body, re.S):
+        q, a = m.group(1).strip(), m.group(2).strip()
+        if q and a:
+            out.append((q, re.sub(r"^\*\*A[:：]\*\*\s*", "", a)))
     return out
 
 

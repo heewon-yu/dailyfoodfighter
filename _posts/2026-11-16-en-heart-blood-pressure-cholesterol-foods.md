@@ -53,7 +53,6 @@ itemlist:
     name: "Tofu"
     url: "https://dailyfoodfighter.com/en/posts/tofu-nutrition-benefits/"
 ---
-
 <img src="/assets/images/heart-blood-pressure-cholesterol-foods.jpg" alt="Salmon, mackerel, beetroot, garlic, avocado, banana, orange and kiwi on a wooden board" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Heart health is managed through three routes rather than one food: nitrate for vessel dilation, potassium to excrete sodium, and omega-3 for triglycerides and inflammation.*
 
@@ -154,7 +153,7 @@ For most people one egg a day is not a problem. Cutting saturated fat from pork 
       "name": "Which food lowers blood pressure fastest?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Beetroot nitrate and garlic alliin have the strongest evidence. The effect is a few mmHg with wide individual variation, so cutting sodium and managing weight come first."
+        "text": "Beetroot (nitrate) and garlic (alliin) have the strongest evidence. The effect is a few mmHg with wide individual variation, so cutting sodium and managing weight come first."
       }
     },
     {
@@ -162,7 +161,7 @@ For most people one egg a day is not a problem. Cutting saturated fat from pork 
       "name": "Mackerel or salmon: which is better?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Total omega-3 is slightly higher in mackerel at 2,299 mg than salmon at 2,150 mg, while salmon leads on vitamin D at 11 mcg and selenium. Alternate oily fish twice a week and either choice works."
+        "text": "Total omega-3 is slightly higher in mackerel (2,299 mg) than salmon (2,150 mg), while salmon leads on vitamin D (11 mcg) and selenium. Alternate oily fish twice a week and either choice works."
       }
     },
     {

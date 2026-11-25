@@ -53,7 +53,6 @@ itemlist:
     name: "Oysters"
     url: "https://dailyfoodfighter.com/en/posts/oyster-nutrition-benefits/"
 ---
-
 <img src="/assets/images/high-protein-foods-ranking.jpg" alt="Chicken breast, boiled eggs, tofu, salmon, mackerel, sirloin, lentils, chickpeas, squid and oysters on a dark slate table" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Protein content looks different depending on whether you measure per 100 g of food or per 100 kcal. Chicken breast delivers 23.1 g per 100 g, or 21.0 g per 100 kcal.*
 
@@ -163,7 +162,7 @@ Healthy adults commonly eat one or two a day, and two or three if they train wit
       "name": "If I pick only one high-protein food, which should it be?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "By weight, dry lentils at 24.6 g per 100 g; for real meals, chicken breast at 23.1 g per 100 g. Counting calories, chicken breast and squid win."
+        "text": "By weight, dry lentils (24.6 g per 100 g); for real meals, chicken breast (23.1 g per 100 g). Counting calories, chicken breast and squid win."
       }
     },
     {

@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "74 mg"
 ---
-
 <img src="/assets/images/duck-meat.jpg" alt="Sliced roasted duck breast with crisp golden skin on a wooden board with rosemary, garlic and coarse salt" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Duck meat only, raw, carries 135 calories, 18.3 g of protein, 5.95 g of fat and 2.4 mg of iron per 100 g. Add the skin and the same 100 g reaches 404 calories.*
 
@@ -195,7 +194,7 @@ Nutritionally, it supplies **protein, iron and B vitamins** in an easy-to-eat fo
       "name": "How much duck can I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For skinless meat, 100 to 150 g a day, three to four times a week, supplies 18 to 27 g of protein and 135 to 200 calories while holding saturated fat under 3.5 g. Skin-on roast duck should stay near 100 g per serving."
+        "text": "For skinless meat, 100–150 g a day, three to four times a week is a reasonable pattern: 18–27 g of protein and 135–200 calories, with saturated fat held under 3.5 g. If you eat skin-on roast duck, keep the portion to 100 g."
       }
     },
     {
@@ -203,7 +202,7 @@ Nutritionally, it supplies **protein, iron and B vitamins** in an easy-to-eat fo
       "name": "Should I eat the skin?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is safe to eat, but skin-on duck runs 242 to 404 calories per 100 g, two to three times the skinless figure, and fat rises from about 6 g to 19 to 39 g. Removing the skin cuts calories by half or more and fat by roughly six sevenths."
+        "text": "You can, but the calorie difference is decisive. Skin-on duck runs 242–404 kcal per 100 g, two to three times the skinless figure. If you want the crackling, keep one piece and remove the rest, and pour off the rendered fat."
       }
     },
     {
@@ -211,7 +210,7 @@ Nutritionally, it supplies **protein, iron and B vitamins** in an easy-to-eat fo
       "name": "Is duck soup really a health tonic?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is a practical source of protein, heme iron and B vitamins, which helps during recovery and in cold weather. Claims that it restores vitality are not supported by clinical trials. Glutinous rice and jujube add carbohydrate and calories, so the ratio matters."
+        "text": "Nutritionally, it supplies protein, iron and B vitamins in an easy-to-eat form, which is genuinely useful during recovery or in cold weather. The stronger claims about restoring vitality are not supported by clinical trials. Note that glutinous rice and jujube add carbohydrate and calories, so balance the ratio."
       }
     }
   ]

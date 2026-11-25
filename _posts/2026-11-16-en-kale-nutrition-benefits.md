@@ -19,7 +19,6 @@ nutrition:
   sugarContent: "0.99 g"
   sodiumContent: "53.00 mg"
 ---
-
 <img src="/assets/images/kale.jpg" alt="Fresh Curly Kale Leaves in a Ceramic Colander with Olive Oil and Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw kale delivers 389.6 mcg of vitamin K, 93.4 mg of vitamin C, and 6,261 mcg of lutein + zeaxanthin per 100 g for just 35 kcal. Massaging or cooking kale with olive oil unlocks its fat-soluble carotenoids.*
 
@@ -148,7 +147,7 @@ For raw salads, yes—removing the thick central rib dramatically improves textu
       "name": "Is kale healthier raw or cooked?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Raw kale massaged with olive oil preserves vitamin C and myrosinase for sulforaphane, while light steaming for 2–3 minutes with oil softens fiber, reduces goitrogenic potential, and supports carotenoid absorption."
+        "text": "Both have strengths: raw kale massaged with olive oil maximizes vitamin C and active myrosinase for sulforaphane, whereas lightly steaming kale for 2–3 minutes with oil softens fiber, reduces potential goitrogenic activity, and enhances bile-acid binding and carotenoid release."
       }
     },
     {
@@ -156,7 +155,7 @@ For raw salads, yes—removing the thick central rib dramatically improves textu
       "name": "Is kale high in oxalates like spinach?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Spinach contains roughly 600–970 mg of oxalates per 100 g, whereas kale contains only about 10–20 mg, making it a low-oxalate green with highly absorbable calcium."
+        "text": "No. Spinach averages 600–970 mg of oxalates per 100 g, whereas kale contains only about 10–20 mg. Kale is a low-oxalate leafy green whose calcium is highly absorbable and far gentler for people prone to calcium oxalate kidney stones."
       }
     },
     {
@@ -164,7 +163,7 @@ For raw salads, yes—removing the thick central rib dramatically improves textu
       "name": "Do you have to remove kale stems?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Removing the thick central rib makes raw kale salads much easier to chew, and the diced stems can be sautéed with aromatics or simmered in soup stock instead of being wasted."
+        "text": "For raw salads, yes—removing the thick central rib dramatically improves texture. Rather than discarding the stems, dice them finely and sauté them with garlic and onions or simmer them in soup stock."
       }
     }
   ]

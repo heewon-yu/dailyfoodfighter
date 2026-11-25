@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "10.58 g"
   sodiumContent: "2 mg"
 ---
-
 <img src="/assets/images/tangerine.jpg" alt="Fresh Tangerines with Leaves in a Basket and Peeled Segments" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ One hundred grams of raw tangerine delivers 53 calories and 26.7 mg of vitamin C (30% of the U.S. Daily Value). A medium fruit (about 84 g of edible flesh) lands near 44 calories, so two to three a day fits easily inside a weight-maintenance plan.*
 
@@ -164,7 +163,7 @@ No. The interaction risk from grapefruit comes from furanocoumarins blocking int
       "name": "How many tangerines should I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Two to three medium fruits (90-133 kcal, 18-27 g natural sugar) suit most healthy adults. One medium tangerine has 44 kcal, 9 g sugar, a glycemic index near 42 and a glycemic load near 5. People with diabetes or elevated triglycerides should keep to one or two fruits per sitting, eaten with a meal."
+        "text": "Two to three medium fruits (90–133 kcal, 18–27 g of natural sugar) suit most healthy adults. People with diabetes, fatty liver or elevated triglycerides should keep to one or two fruits per sitting and pair them with protein or fat. Natural fruit sugar is not counted in the WHO free-sugar limit, but total carbohydrate still matters for glucose control."
       }
     },
     {
@@ -172,7 +171,7 @@ No. The interaction risk from grapefruit comes from furanocoumarins blocking int
       "name": "Will eating tangerines make me gain weight?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One medium tangerine is about 44 calories, roughly 6% of the energy in the same weight of cookies. Weight gain comes from eating five or six fruits at a sitting and from drinking juice rather than from one or two whole fruits, which add fiber and water that increase satiety."
+        "text": "One medium fruit is about 44 calories, roughly 6% of the energy in the same weight of cookies or chips. Weight gain comes from eating five or six at a sitting and from drinking juice, not from one or two whole fruits. Fiber and water in whole tangerines increase satiety and tend to reduce intake at the next meal."
       }
     },
     {
@@ -180,7 +179,7 @@ No. The interaction risk from grapefruit comes from furanocoumarins blocking int
       "name": "Do tangerines interact with medications like grapefruit does?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No. Grapefruit furanocoumarins inhibit intestinal CYP3A4 and raise drug levels, but tangerines contain negligible furanocoumarins and no clinically significant interaction has been reported at usual intakes. People taking warfarin should keep vitamin K intake consistent rather than changing citrus amounts abruptly."
+        "text": "No. The interaction risk from grapefruit comes from furanocoumarins blocking intestinal CYP3A4; tangerines contain negligible amounts, and no clinically significant interaction has been documented at typical intakes. If you take warfarin, the relevant issue is keeping vitamin K intake consistent, and tangerines are a minor source compared with leafy greens."
       }
     }
   ]

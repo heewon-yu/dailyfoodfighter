@@ -53,7 +53,6 @@ itemlist:
     name: "Onion"
     url: "https://dailyfoodfighter.com/en/posts/onion-nutrition-benefits/"
 ---
-
 <img src="/assets/images/antioxidant-anti-aging-foods-guide.jpg" alt="Blueberries, cut pomegranate, tomatoes, red onion, beetroot, kale, carrots and oranges on a light marble surface" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Antioxidants live in pigments. The deeper the purple, red, orange or dark green, the more polyphenols and carotenoids the food carries.*
 
@@ -153,7 +152,7 @@ Fast-frozen blueberries lose little anthocyanin and are practical year round. Ch
       "name": "Which food has the most antioxidants?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "By polyphenols, blueberries and pomegranate lead; by carotenoids, spinach with 12,198 mcg lutein and carrots with 8,285 mcg beta-carotene. Mixing vegetables and fruit of different colors beats picking a single winner."
+        "text": "By polyphenols, blueberries and pomegranate lead; by carotenoids, spinach (12,198 mcg lutein) and carrots (8,285 mcg beta-carotene). Mixing vegetables and fruit of different colors beats picking a single winner."
       }
     },
     {

@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "395 mg"
 ---
-
 <img src="/assets/images/crab.jpg" alt="Whole blue crabs on a dark slate board beside a bowl of soy-marinated raw crab" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Cooked blue crab meat carries 83 calories, 17.9 g of protein and just 0.7 g of fat per 100 g, plus 139% of the daily value for vitamin B12 in a single serving.*
 
@@ -196,7 +195,7 @@ Yes. Dilute soy sauce 1:1 with water and rebuild the flavor with kelp, onion, ga
       "name": "How much crab can I eat in a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy adults, one to two crabs (100 to 200 g of meat) is a reasonable daily portion, supplying 18 to 36 g of protein for 83 to 166 calories. If the crab is soy-marinated, keep it to one and leave the marinade behind, because sodium rather than the crab itself is the limiting factor."
+        "text": "For healthy adults, one to two crabs (100–200 g of meat) is a reasonable daily portion, supplying 18–36 g of protein for 83–166 calories. If the crab is soy-marinated, keep it to one and leave the marinade behind — the sodium, not the crab, is the limiting factor."
       }
     },
     {
@@ -204,7 +203,7 @@ Yes. Dilute soy sauce 1:1 with water and rebuild the flavor with kelp, onion, ga
       "name": "Is November really the best month for female crab?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "In Korea, yes for meat yield. From September to November crabs feed heavily before winter and the females' meat-to-shell ratio rises. Spring, from April to June, is when females carry roe. So the answer depends on whether you want roe or meat."
+        "text": "In Korea, yes for meat yield. From September to November crabs feed heavily before winter, and the females' meat-to-shell ratio rises. Spring (April to June) is when females carry roe. So the answer depends on which you want: roe in spring, meat in late autumn."
       }
     },
     {
@@ -212,7 +211,7 @@ Yes. Dilute soy sauce 1:1 with water and rebuild the flavor with kelp, onion, ga
       "name": "Can I reduce the sodium in soy-marinated crab?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes. Dilute soy sauce one to one with water and rebuild flavor with kelp, onion, garlic and a little apple or pear. Marinate no longer than 12 hours, then pour the liquid off before storing. The most reliable reduction is to change the dish to steamed crab or a lightly salted stew."
+        "text": "Yes. Dilute soy sauce 1:1 with water and rebuild the flavor with kelp, onion, garlic and a little apple or pear. Marinate no longer than 12 hours, then pour the liquid off before storing. The most reliable reduction, though, is to change the dish: steamed crab or a lightly salted stew."
       }
     }
   ]

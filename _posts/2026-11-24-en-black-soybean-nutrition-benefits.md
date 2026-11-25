@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "7.0 g"
   sodiumContent: "1 mg"
 ---
-
 <img src="/assets/images/black-soybean.jpg" alt="Glossy black soybeans in a dark ceramic bowl with a wooden scoop" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Dry black soybeans deliver 36 g of protein, 20.6 g of fiber and 1,800 mg of potassium per 100 g, with the green interior hidden under a black seed coat.*
 
@@ -183,7 +182,7 @@ No. Trypsin inhibitors and saponins make raw beans indigestible and can cause cr
       "name": "How many black soybeans should I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "About 30 g dry, roughly 70 g cooked or 100 beans. That supplies 10.8 g of protein, 6.2 g of fiber and 2 mg of iron. Start at 15 to 20 g and build over two weeks, because 100 g dry in one day loads 381 kcal and 20.6 g of fiber at once."
+        "text": "About 30 g dry — roughly 70 g cooked, or 100 beans. That supplies 10.8 g of protein, 6.2 g of fiber and 2 mg of iron. Start at 15–20 g and build over two weeks. Going to 100 g dry in one day loads 381 kcal and 20.6 g of fiber at once, which most people cannot tolerate comfortably."
       }
     },
     {
@@ -191,7 +190,7 @@ No. Trypsin inhibitors and saponins make raw beans indigestible and can cause cr
       "name": "Are black soybeans nutritionally different from yellow soybeans?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Protein, fiber and minerals are nearly identical. The difference is anthocyanins in the seed coat, at 2.3 to 14.4 mg per gram of coat, with cyanidin-3-glucoside making up about 77 percent. Yellow soybeans have almost none."
+        "text": "Protein, fiber and minerals are nearly identical. The difference is anthocyanins in the seed coat: 2.3–14.4 mg per gram of coat, with cyanidin-3-glucoside making up about 77%. Yellow soybeans have almost none. Choose black for the pigment, yellow for milder flavor and bean sprouts."
       }
     },
     {

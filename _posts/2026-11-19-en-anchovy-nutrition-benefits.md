@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0 g"
   sodiumContent: "104 mg"
 ---
-
 <img src="/assets/images/anchovy.jpg" alt="A bowl of small dried anchovies beside a dish of glazed stir-fried anchovies with sesame and chili" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw European anchovy carries 131 calories, 20.4 g protein and about 1.45 g of EPA plus DHA per 100 g. Dried anchovies concentrate the same nutrients roughly fivefold — and the sodium and purines with them.*
 
@@ -203,7 +202,7 @@ As a **seasoning or side dish, 10–15 g of dried anchovy** is a reasonable dail
       "name": "How much anchovy should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "As a seasoning or side dish, 10 to 15 g of dried anchovy is a reasonable daily amount, giving 30 to 45 calories, 6 to 9 g of protein, 210 to 313 mg of calcium and 220 to 327 mg of sodium. For fresh fish, a 100 g serving is a standard portion with 131 calories and about 1.45 g of omega-3 fatty acids."
+        "text": "As a seasoning or side dish, 10–15 g of dried anchovy is a reasonable daily amount, giving 30–45 calories, 6–9 g protein, 210–313 mg calcium and 220–327 mg sodium. For fresh fish, a 100 g serving is a standard portion with 131 calories and 1.45 g of omega-3s."
       }
     },
     {
@@ -211,7 +210,7 @@ As a **seasoning or side dish, 10–15 g of dried anchovy** is a reasonable dail
       "name": "Does anchovy stock provide calcium?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Almost none. Calcium is poorly soluble in water, so simmering anchovies transfers umami compounds and some taurine but not the mineral. Eat the strained anchovies, or use anchovy powder, if calcium is the goal."
+        "text": "Almost none. Calcium is poorly soluble in water, so simmering anchovies transfers umami compounds and some taurine, not the mineral. Eat the strained anchovies, or use anchovy powder, if calcium is the goal."
       }
     },
     {
@@ -219,7 +218,7 @@ As a **seasoning or side dish, 10–15 g of dried anchovy** is a reasonable dail
       "name": "Should people with gout avoid anchovies completely?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "No, but portions matter. Dried anchovies measure about 1,109 mg of purines per 100 g, while 5 g used for stock contributes roughly 55 mg. Avoid eating dried anchovies in bulk and use them as a flavoring, and discuss regular fish intake with your doctor if uric acid is elevated."
+        "text": "No, but portions matter. Dried anchovies measure 1,109 mg of purines per 100 g, while 5 g used for stock is about 55 mg. Avoid eating dried anchovies in bulk and use them as a flavoring; discuss regular fish intake with your doctor if uric acid is elevated."
       }
     }
   ]

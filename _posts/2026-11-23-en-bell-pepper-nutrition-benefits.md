@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "4.2 g"
   sodiumContent: "4 mg"
 ---
-
 <img src="/assets/images/bell-pepper.jpg" alt="Red, yellow and green bell peppers cut in half on a bright kitchen counter" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw red bell pepper provides 31 calories, 127.7 mg of vitamin C and 2.1 g of fiber per 100 g, with 1,624 µg of beta-carotene behind its color.*
 
@@ -208,7 +207,7 @@ Not all of it. A two- to three-minute high-heat stir-fry loses under 10%, while 
       "name": "How much bell pepper should I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "For healthy adults, 100 to 150 g, about one large pepper, covers the daily vitamin C requirement and provides useful beta-carotene and vitamin B6 for 31 to 47 calories. Mixing colors covers different carotenoids, so half red and half green or yellow is a better default than one color alone."
+        "text": "For healthy adults, 100–150 g (one large pepper) covers the daily vitamin C requirement and provides useful beta-carotene and B6 for about 31–47 calories. Mixing colors covers different carotenoids, so half red and half green or yellow is a better default than one color alone."
       }
     },
     {
@@ -216,7 +215,7 @@ Not all of it. A two- to three-minute high-heat stir-fry loses under 10%, while 
       "name": "Is a red bell pepper the same as a green one?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "They are the same species with different maturity and cultivar. Green peppers are harvested before full ripening, so they are lower in sugar and carotenoids but can be higher in vitamin C depending on the database. Red peppers ripen longer on the plant, turn sweet, and accumulate capsanthin and beta-carotene."
+        "text": "Same species, different maturity and cultivar. Green peppers are harvested before full ripening, so they are lower in sugar and carotenoids but can be higher in vitamin C depending on the database. Red peppers ripen longer on the plant, turn sweet, and accumulate capsanthin and beta-carotene."
       }
     },
     {
@@ -224,7 +223,7 @@ Not all of it. A two- to three-minute high-heat stir-fry loses under 10%, while 
       "name": "Does cooking destroy the vitamin C in peppers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not all of it. A two to three minute high-heat stir-fry loses under 10 percent, while three minutes in boiling water loses 30 to 40 percent to leaching. Microwaving covered for 90 seconds also limits loss because there is no water for the vitamin C to dissolve into."
+        "text": "Not all of it. A two- to three-minute high-heat stir-fry loses under 10%, while three minutes in boiling water loses 30–40% to leaching. Microwaving covered for 90 seconds also limits loss because there is no water to dissolve the vitamin C into."
       }
     }
   ]

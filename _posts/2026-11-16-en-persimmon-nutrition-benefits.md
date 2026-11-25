@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "12.53 g"
   sodiumContent: "1 mg"
 ---
-
 <img src="/assets/images/persimmon.jpg" alt="Ripe Sweet Persimmons, One Halved, on a Slate Board with Autumn Leaves" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw Japanese persimmon delivers 70 calories, 3.6 g fiber and 81 µg vitamin A (RAE) per 100 g. Non-astringent Fuyu types carry under 0.1% soluble tannin, while astringent Hachiya fruit carries around 1% until fully ripened.*
 
@@ -174,7 +173,7 @@ It is a different food rather than a better or worse one. Drying concentrates fi
       "name": "Do persimmons cause constipation?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Non-astringent persimmons do not. They contain 3.6 g fiber per 100 g with under 0.1% soluble tannin and no human study links them to constipation. Astringent varieties and dried persimmons eaten in quantity on an empty stomach without adequate fluid are the source of most reports."
+        "text": "Non-astringent persimmons do not. They carry 3.6 g fiber per 100 g with under 0.1% soluble tannin, and no human study establishes a constipation link. Astringent varieties and dried persimmons eaten in quantity on an empty stomach, especially without adequate fluid, are where reports of hard stools and gastric discomfort originate."
       }
     },
     {
@@ -182,7 +181,7 @@ It is a different food rather than a better or worse one. Drying concentrates fi
       "name": "How many persimmons can I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One to two fresh fruits (118-236 kcal) is a reasonable daily limit for most adults. Dried persimmons should stay at one or two pieces because each piece carries about 80 kcal and 12 g sugar. People with diabetes should choose one small fresh fruit eaten after a meal."
+        "text": "One to two fresh fruits (118–236 kcal) is a sensible daily ceiling for most adults. Dried persimmons should stay at one or two pieces, and people with diabetes should limit themselves to one small fresh fruit or half a large one, eaten after a meal."
       }
     },
     {
@@ -190,7 +189,7 @@ It is a different food rather than a better or worse one. Drying concentrates fi
       "name": "Is dried persimmon as healthy as fresh?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "It is a different food. Drying concentrates fiber and minerals to 8.5 g fiber per 100 g but also concentrates sugar to 29.8 g and destroys most vitamin C. Treat dried persimmon as a small sweet rather than a fruit serving."
+        "text": "It is a different food rather than a better or worse one. Drying concentrates fiber (8.5 g vs 3.6 g per 100 g) and minerals, but also concentrates sugar (29.8 g vs 12.5 g) and destroys most vitamin C. Use it as a small sweet, not as a fruit serving."
       }
     }
   ]

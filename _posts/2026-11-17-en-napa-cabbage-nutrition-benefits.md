@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "0.78 g"
   sodiumContent: "9 mg"
 ---
-
 <img src="/assets/images/napa-cabbage.jpg" alt="Two Heads of Fresh Napa Cabbage with One Halved to Show the Tight Core" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ One hundred grams of raw napa cabbage delivers 16 calories and 27 mg of vitamin C (30% of the U.S. Daily Value). A whole 2 kg head is only about 320 calories, but kimchi made from it carries roughly 700 mg of sodium per 100 g.*
 
@@ -182,7 +181,7 @@ Not at ordinary intakes. Concern applies to people with low iodine intake who co
       "name": "How much napa cabbage should I eat per day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Most adults do well with 200 to 300 g, roughly five to eight leaves, which supplies 32 to 48 calories and 54 to 81 mg of vitamin C. If you also eat kimchi, count it separately and keep total kimchi to about 100 g a day so sodium from that source stays under 700 mg."
+        "text": "Most adults do well with 200–300 g, roughly five to eight leaves, which supplies 32–48 calories and 54–81 mg of vitamin C. If you also eat kimchi, count it separately and keep total kimchi to about 100 g a day so sodium stays under 700 mg from that source."
       }
     },
     {
@@ -190,7 +189,7 @@ Not at ordinary intakes. Concern applies to people with low iodine intake who co
       "name": "Is kimchi healthier than fresh napa cabbage?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "They are not substitutes. Fresh cabbage is the better source of vitamin C and potassium with almost no sodium, while kimchi supplies live lactic acid bacteria and additional B vitamins but carries roughly 70 times the sodium. Eating both, with a small portion of kimchi beside a fresh cabbage dish, covers more ground than either alone."
+        "text": "They are not substitutes. Fresh cabbage is the better source of vitamin C and potassium with almost no sodium; kimchi supplies live lactic acid bacteria and additional B vitamins but carries 70 times the sodium. A meal with both — fresh cabbage salad plus a small portion of kimchi — covers more ground than either alone."
       }
     },
     {
@@ -198,7 +197,7 @@ Not at ordinary intakes. Concern applies to people with low iodine intake who co
       "name": "Can eating napa cabbage every day affect my thyroid?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Not at ordinary intakes. Concern applies to people with low iodine intake who drink large volumes of raw cruciferous juice daily, and to those taking thyroid hormone, who should prefer cooked cabbage and keep intake steady. Separating a levothyroxine dose from large cabbage meals by a few hours is a reasonable habit."
+        "text": "Not at ordinary intakes. Concern applies to people with low iodine intake who consume large volumes of raw cruciferous juice daily, and to those taking thyroid hormone, who should prefer cooked cabbage and keep intake steady. If you take levothyroxine, separating the dose from large cabbage meals by a few hours is a reasonable habit."
       }
     }
   ]

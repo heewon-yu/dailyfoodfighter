@@ -18,7 +18,6 @@ nutrition:
   sugarContent: "1.88 g"
   sodiumContent: "2 mg"
 ---
-
 <img src="/assets/images/asparagus.jpg" alt="Bundle of Fresh Green Asparagus Spears on a Wooden Board with Lemon" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
 *▲ Raw asparagus supplies 20 calories, 2.2 g protein, 52 µg folate and 2.1 g fiber per 100 g. Five to six spears make a 20-calorie serving that carries 13% of the daily folate requirement and one of the highest glutathione contents of any vegetable.*
 
@@ -177,7 +176,7 @@ Thin spears can, though the cell walls are tough and oxalate and saponins may ir
       "name": "How much asparagus can I eat a day?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "One hundred to two hundred grams (5-10 spears) provides 20-40 kcal, 52-104 mcg folate and 2.1-4.2 g fiber. For prebiotic benefit 100 g or more is better; with IBS or a history of kidney stones, stay at or below 100 g."
+        "text": "One hundred to two hundred grams (5–10 spears) is a sensible range, providing 20–40 kcal, 52–104 µg folate and 2.1–4.2 g fiber. For prebiotic benefit, 100 g or more is better; with IBS or a history of kidney stones, stay at or below 100 g."
       }
     },
     {
@@ -193,7 +192,7 @@ Thin spears can, though the cell walls are tough and oxalate and saponins may ir
       "name": "Can asparagus be eaten raw?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Thin spears can, though the cell walls are tough and oxalate and saponins may irritate a sensitive stomach. Blanching for 90-120 seconds or grilling three to four minutes preserves most nutrients while making it easier to digest."
+        "text": "Thin spears can, though the cell walls are tough and oxalate and saponins may irritate a sensitive stomach. Blanching for 90–120 seconds or grilling for three to four minutes preserves most nutrients while making it easier to digest."
       }
     }
   ]
