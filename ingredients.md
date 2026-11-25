@@ -25,7 +25,7 @@
 - [ ] 무화과 (Fig)
 - [ ] 체리 (Cherry)
 - [ ] 매실 (Green Plum)
-- [ ] 모과 (Chinese Quince)
+- [x] 모과 (Chinese Quince) - 2026-11-26 한/영 발행완료
 - [x] 유자 (Yuzu) - 2026-11-22 한/영 발행완료
 - [ ] 살구 (Apricot)
 
@@ -82,7 +82,7 @@
 - [ ] 병아리콩 (Chickpea)
 - [x] 렌틸콩 (Lentil) - 2026-11-15 한/영 발행완료
 - [ ] 검은콩/서리태 (Black Soybean)
-- [ ] 쇠간 (Beef Liver)
+- [x] 쇠간 (Beef Liver) - 2026-11-26 한/영 발행완료
 - [ ] 도가니/사골 (Beef Bone Broth)
 - [ ] 닭안심 (Chicken Tender)
 - [ ] 낫토 (Natto)
