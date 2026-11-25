@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>마일지도 | 마일리지 항공권 검색</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f5f7fb;color:#17233a;
+font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}
+header{background:#fff;border-bottom:1px solid #e2e8f0;padding:20px}
+nav,main{max-width:1100px;margin:auto}
+.logo{font-weight:800;font-size:22px;letter-spacing:-1px}
+.logo span{color:#2563eb}
+main{padding:24px 18px 60px}
+.hero{background:#142b50;color:white;padding:36px;
+border-radius:20px;margin-bottom:20px}
+.hero h1{font-size:clamp(26px,5vw,38px);margin:0 0 12px}
+.hero p{color:#d3e1f6;margin:0;line-height:1.7}
+.panel{background:white;padding:24px;border:1px solid #e2e8f0;
+border-radius:16px;margin-bottom:20px}
+.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+label{display:block;font-size:13px;color:#64748b;font-weight:600}
+select,button{width:100%;border:1px solid #dbe2ec;
+border-radius:10px;padding:13px;font-size:15px;margin-top:7px;
+background:white;color:#17233a}
+button{background:#2563eb;color:white;border:0;cursor:pointer;font-weight:700}
+.notice{background:#fff5df;color:#835b13;padding:14px;
+border-radius:10px;font-size:13px;line-height:1.7;margin-bottom:20px}
+.results{display:grid;gap:10px}
+.flight{background:white;border:1px solid #e2e8f0;
+padding:20px;border-radius:14px;display:flex;
+align-items:center;justify-content:space-between;gap:15px}
+.airline{font-size:13px;color:#64748b}
+.route{font-size:21px;font-weight:800;margin:8px 0}
+.date{font-size:14px;color:#64748b}
+.cabin{background:#e8efff;color:#234fa3;
+padding:6px 10px;border-radius:7px;font-size:12px}
+.booking{display:inline-block;color:#2563eb;
+font-size:14px;text-decoration:none;font-weight:700;margin-top:12px}
+.summary{display:flex;justify-content:space-between;align-items:center}
+.empty{background:white;padding:35px;text-align:center;border-radius:14px}
+@media(max-width:640px){
+.filters{grid-template-columns:repeat(2,1fr)}
+.hero{padding:24px}.panel{padding:16px}
+.flight{padding:16px}.route{font-size:18px}
+}
+</style>
+<link rel="stylesheet" href="./assets/design.css?v=3">
+<link rel="stylesheet" href="./assets/calendar.css?v=1">
+<link rel="stylesheet" href="./assets/journey.css?v=4">
+<link rel="stylesheet" href="./assets/footer.css?v=1">
+<script src="./assets/data-loader.js?v=1"></script>
+<link rel="stylesheet" href="assets/milemap.css?v=1">
+<link rel="stylesheet" href="assets/airport-autocomplete.css?v=2">
+<link rel="stylesheet" href="assets/award-display.css?v=1">
+<link rel="stylesheet" href="assets/official-sources.css?v=1">
+<link rel="stylesheet" href="assets/mileage-integration.css?v=1">
+<script src="assets/award-filter-sync.js?v=1"></script>
+<link rel="stylesheet" href="assets/award-filter-final.css?v=1">
+<link rel="stylesheet" href="assets/simple-discount.css?v=1">
+<meta name="robots" content="noindex,nofollow">
+</head>
+<body>
+<header><nav class="logo">DailyFoodFighter <span>AIR</span></nav></header>
+<main>
+<section class="hero">
+<h1>마일지도</h1>
+<p>대한항공과 아시아나의 보너스 좌석 정보를 한곳에서 검색하세요.</p>
+</section>
+
+<div class="notice">
+개발용 테스트 화면입니다. 과거 검증 자료와
+인위적인 테스트 데이터가 포함되어 있으며,
+실제 예약 가능 여부를 나타내지 않습니다.
+</div>
+
+<section class="panel">
+<div class="filters">
+
+<label>항공사
+<select id="program">
+<option value="">전체 항공사</option>
+<option value="KE_SKYPASS">대한항공</option>
+<option value="OZ_ASIANA_CLUB">아시아나</option>
+</select>
+</label>
+
+<label>출발 공항
+<select id="origin">
+<option value="">전체 출발지</option>
+</select>
+</label>
+
+<label>목적지
+<select id="destination">
+<option value="">전체 목적지</option>
+</select>
+</label>
+
+<label>출발 월
+<select id="month">
+<option value="">전체 기간</option>
+</select>
+</label>
+
+<label>좌석 등급
+<select id="cabin">
+<option value="">전체 등급</option>
+<option value="economy">일반석</option>
+<option value="premium">프리미엄석</option>
+<option value="business">비즈니스석</option>
+</select>
+</label>
+
+<label>정렬
+<select id="sort">
+<option value="asc">출발일 빠른 순</option>
+<option value="desc">출발일 늦은 순</option>
+</select>
+</label>
+
+</div>
+<button id="search">마일리지 좌석 검색</button>
+</section>
+
+<div class="summary">
+<h2 id="count">데이터 불러오는 중</h2>
+</div>
+<div class="results" id="results"></div>
+
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const cities={
+ICN:"인천",JFK:"뉴욕",SIN:"싱가포르",
+CDG:"파리",NRT:"도쿄",GMP:"김포",PUS:"부산"
+};
+const airlines={
+KE_SKYPASS:"대한항공 스카이패스",
+OZ_ASIANA_CLUB:"아시아나클럽"
+};
+const cabins={
+economy:"일반석",
+premium:"프리미엄석",
+business:"비즈니스석"
+};
+const links={
+KE_SKYPASS:"https://www.koreanair.com/booking/book-and-manage/award-seat-availability",
+OZ_ASIANA_CLUB:"https://flyasiana.com/I/KR/KO/MileageSeatSearch.do"
+};
+
+let data=[];
+
+function optionList(id,values,format=x=>x){
+for(const value of [...new Set(values)].sort()){
+$(id).add(new Option(format(value),value));
+}
+}
+
+function render(){
+const rows=data.filter(r=>
+r.status==="available" &&
+(!$("program").value||r.program===$("program").value)&&
+(!$("origin").value||r.origin===$("origin").value)&&
+(!$("destination").value||r.destination===$("destination").value)&&
+(!$("month").value||r.departure_date.startsWith($("month").value))&&
+(!$("cabin").value||r.cabin===$("cabin").value)
+);
+
+rows.sort((a,b)=>$("sort").value==="asc"
+?a.departure_date.localeCompare(b.departure_date)
+:b.departure_date.localeCompare(a.departure_date));
+
+$("count").textContent=`테스트 검색 결과 ${rows.length}건`;
+$("results").replaceChildren();
+
+if(!rows.length){
+const empty=document.createElement("div");
+empty.className="empty";
+empty.textContent="조건에 맞는 테스트 좌석 표시가 없습니다. 실제 매진을 의미하지 않습니다.";
+$("results").append(empty);
+return;
+}
+
+for(const r of rows){
+const card=document.createElement("article");
+card.className="flight";
+const left=document.createElement("div");
+for(const [cls,txt] of [
+["airline",airlines[r.program]||r.program],
+["route",`${cities[r.origin]||r.origin} ${r.origin} → ${cities[r.destination]||r.destination} ${r.destination}`],
+["date",r.departure_date]
+]){
+const el=document.createElement("div");
+el.className=cls;
+el.textContent=txt;
+left.append(el);
+}
+
+const right=document.createElement("div");
+const cabin=document.createElement("div");
+cabin.className="cabin";
+cabin.textContent=cabins[r.cabin]||r.cabin;
+right.append(cabin);
+
+if(links[r.program]){
+const link=document.createElement("a");
+link.className="booking";
+link.href=links[r.program];
+link.target="_blank";
+link.rel="noopener noreferrer";
+link.textContent="공식 조회 ↗";
+right.append(link);
+}
+card.append(left,right);
+$("results").append(card);
+}
+}
+
+async function init(){
+try{
+const res=await window.AirData.response();
+if(!res.ok)throw new Error("Data unavailable");
+const payload=await res.json();
+
+if(payload.mode!=="test"||!Array.isArray(payload.items))
+throw new Error("Invalid dataset");
+
+data=payload.items.filter(r=>r.test_data===1);
+
+optionList("origin",data.map(r=>r.origin),
+x=>`${cities[x]||x} (${x})`);
+
+optionList("destination",data.map(r=>r.destination),
+x=>`${cities[x]||x} (${x})`);
+
+optionList("month",data.map(r=>r.departure_date.slice(0,7)));
+
+$("search").addEventListener("click",render);
+$("sort").addEventListener("change",render);
+render();
+
+}catch(e){
+$("count").textContent="데이터 로드 실패";
+console.error(e);
+}
+}
+init();
+</script>
+<script src="./assets/search-enhancement.js?v=1"></script>
+<script src="./assets/calendar.js?v=10"></script>
+<script src="./assets/journey.js?v=4"></script>
+
+<footer id="air-footer">
+  <p>
+    DailyFoodFighter AIR는 독립적인 마일리지 항공권
+    검색 지원 서비스이며 대한항공 및 아시아나항공의
+    공식 서비스가 아닙니다.
+  </p>
+
+  <p>
+    공식 정보 확인:
+    <a href="https://www.koreanair.com/"
+       target="_blank" rel="noopener noreferrer">
+      대한항공 스카이패스
+    </a>
+    ·
+    <a href="https://flyasiana.com/"
+       target="_blank" rel="noopener noreferrer">
+      아시아나클럽
+    </a>
+  </p>
+
+  <p>정기 갱신 예정: 매일 오전 09:00 (KST)</p>
+
+  <p>
+    현재 개발 및 테스트 단계이며 표시된 데이터는
+    실제 예약 현황이 아닙니다.
+    실제 예약 가능 여부 및 마일리지 차감액은
+    항공사 공식 홈페이지에서 최종 확인하시기 바랍니다.
+  </p>
+
+  <div class="footer-copy">
+    © 2026 DailyFoodFighter AIR
+  </div>
+</footer>
+
+<script src="assets/milemap.js?v=10"></script>
+<script src="assets/route-search.js?v=1"></script>
+<script src="assets/airport-autocomplete.js?v=5"></script>
+<script src="assets/booking-months.js?v=1"></script>
+<script src="assets/award-display.js?v=10"></script>
+<script src="assets/official-sources.js?v=1"></script>
+<script src="assets/mileage-integration.js?v=20"></script>
+</body>
+</html>

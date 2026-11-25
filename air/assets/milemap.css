@@ -1,0 +1,79 @@
+#milemap {
+    margin: 18px 0;
+    border: 1px solid #dce4ec;
+    border-radius: 14px;
+    overflow: hidden;
+    background: #fff;
+    color: #183951;
+}
+
+#milemap summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 56px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 700;
+    list-style: none;
+}
+
+#milemap summary::-webkit-details-marker {
+    display: none;
+}
+
+#milemap summary::after {
+    content: "＋";
+    font-size: 20px;
+}
+
+#milemap[open] summary::after {
+    content: "−";
+}
+
+.milemap-body {
+    padding: 0 12px 12px;
+}
+
+#milemap-canvas {
+    width: 100%;
+    height: 420px;
+    background: #e5eef5;
+    border-radius: 10px;
+    z-index: 0;
+}
+
+.milemap-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 2px;
+    color: #64748b;
+    font-size: 12px;
+}
+
+.milemap-note {
+    font-size: 12px;
+    color: #64748b;
+    margin: 6px 0;
+}
+
+@media(max-width: 600px) {
+    #milemap-canvas {
+        height: 300px;
+    }
+}
+
+@media(prefers-color-scheme: dark) {
+    #milemap {
+        background: #192434;
+        color: #e7eef5;
+        border-color: #334155;
+    }
+
+    .milemap-legend,
+    .milemap-note {
+        color: #b6c3d1;
+    }
+}

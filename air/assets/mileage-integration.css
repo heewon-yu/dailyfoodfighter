@@ -1,0 +1,50 @@
+.integrated-mileage {
+    display: grid;
+    gap: 5px;
+    margin: 12px 0 5px;
+    padding-top: 10px;
+    border-top: 1px solid #dce4ec;
+}
+
+.integrated-mileage strong {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.integrated-mileage small {
+    font-size: 12px;
+    opacity: .8;
+}
+
+.integrated-mileage s {
+    opacity: .6;
+    font-size: 13px;
+}
+
+.mile-saving {
+    color: #16805d;
+    font-weight: 700;
+}
+
+.mile-new {
+    width: fit-content;
+    padding: 3px 8px;
+    border-radius: 5px;
+    background: #e3f3ea;
+    color: #166534;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+#round-mileage-summary {
+    display: grid;
+    gap: 8px;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid #dce4ec;
+    border-radius: 12px;
+}
+
+#round-mileage-summary strong {
+    font-size: 18px;
+}

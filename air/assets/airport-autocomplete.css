@@ -1,0 +1,74 @@
+.airport-autocomplete {
+    position: relative;
+    width: 100%;
+    min-width: 0;
+    margin-bottom: 6px;
+}
+
+.airport-autocomplete input {
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 46px;
+    padding: 10px 12px;
+    border: 1px solid #ccd6e2;
+    border-radius: 9px;
+    font-size: 14px;
+}
+
+.airport-suggestions:not([hidden]) {
+    position: absolute;
+    z-index: 1001;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    max-height: 280px;
+    overflow-y: auto;
+    background: #fff;
+    color: #183951;
+    border: 1px solid #dce4ec;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px #00000018;
+}
+
+.airport-suggestion {
+    display: block;
+    width: 100%;
+    min-height: 45px;
+    padding: 10px 12px;
+    background: transparent;
+    color: inherit;
+    border: 0;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.airport-suggestion:hover,
+.airport-suggestion:focus-visible {
+    background: #edf3f9;
+    color: #183951;
+}
+
+.airport-suggestions p {
+    padding: 12px;
+    margin: 0;
+    font-size: 13px;
+}
+
+@media(prefers-color-scheme: dark) {
+    .airport-suggestions:not([hidden]) {
+        background: #192434;
+        color: #e7eef5;
+        border-color: #334155;
+    }
+}
+
+    
+/* Keep native selection state without duplicate UI. */
+select.airport-native-hidden {
+    display: none !important;
+}
+
+.airport-autocomplete {
+    margin-bottom: 0;
+}

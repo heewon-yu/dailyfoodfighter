@@ -1,0 +1,49 @@
+#official-sources {
+    margin: 14px 0;
+    border: 1px solid #dce4ec;
+    border-radius: 12px;
+    padding: 12px;
+}
+
+#official-sources summary {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 5px;
+}
+
+.official-source-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.official-source-grid a {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #dce4ec;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 13px;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
+}
+
+.official-source-grid a[hidden] {
+    display: none !important;
+}
+
+#official-sources p {
+    font-size: 12px;
+    opacity: .7;
+}
+
+@media(max-width: 450px) {
+    .official-source-grid {
+        grid-template-columns: 1fr;
+    }
+}

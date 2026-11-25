@@ -1,0 +1,2829 @@
+{
+  "schema_version": 1,
+  "mode": "schedule_catalog",
+  "award_availability_verified": false,
+  "airports": [
+    {
+      "code": "AKL",
+      "name": "오클랜드",
+      "region": "대양주/괌"
+    },
+    {
+      "code": "BNE",
+      "name": "브리즈번",
+      "region": "대양주/괌"
+    },
+    {
+      "code": "GUM",
+      "name": "괌",
+      "region": "대양주/괌"
+    },
+    {
+      "code": "MEL",
+      "name": "멜버른",
+      "region": "대양주/괌"
+    },
+    {
+      "code": "SYD",
+      "name": "시드니/킹즈퍼드 스미스",
+      "region": "대양주/괌"
+    },
+    {
+      "code": "CJU",
+      "name": "제주",
+      "region": "대한민국"
+    },
+    {
+      "code": "GMP",
+      "name": "서울/김포",
+      "region": "대한민국"
+    },
+    {
+      "code": "ICN",
+      "name": "서울/인천",
+      "region": "대한민국"
+    },
+    {
+      "code": "PUS",
+      "name": "부산/김해",
+      "region": "대한민국"
+    },
+    {
+      "code": "BKK",
+      "name": "방콕/수완나품",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "CEB",
+      "name": "세부",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "CGK",
+      "name": "자카르타/수카르노 하타",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "CNX",
+      "name": "치앙마이",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "CRK",
+      "name": "클락/앙헬레스",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "CXR",
+      "name": "나트랑",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "DAD",
+      "name": "다낭",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "DEL",
+      "name": "델리",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "DPS",
+      "name": "덴파사르 (발리)",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "HAN",
+      "name": "하노이",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "HKT",
+      "name": "푸껫",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "KTI",
+      "name": "프놈펜/떼쪼",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "KTM",
+      "name": "카트만두",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "KUL",
+      "name": "쿠알라룸푸르",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "MNL",
+      "name": "마닐라",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "PQC",
+      "name": "푸꾸옥",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "RGN",
+      "name": "양곤",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "SGN",
+      "name": "호찌민",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "SIN",
+      "name": "싱가포르/창이",
+      "region": "동남아시아/서남아시아"
+    },
+    {
+      "code": "AOJ",
+      "name": "아오모리",
+      "region": "동북아시아"
+    },
+    {
+      "code": "CAN",
+      "name": "광저우",
+      "region": "동북아시아"
+    },
+    {
+      "code": "CGO",
+      "name": "정저우",
+      "region": "동북아시아"
+    },
+    {
+      "code": "CGQ",
+      "name": "창춘",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "CSX",
+      "name": "창사",
+      "region": "동북아시아"
+    },
+    {
+      "code": "CTS",
+      "name": "삿포로/치토세",
+      "region": "동북아시아"
+    },
+    {
+      "code": "DLC",
+      "name": "다롄",
+      "region": "동북아시아"
+    },
+    {
+      "code": "DYG",
+      "name": "장자제",
+      "region": "동북아시아"
+    },
+    {
+      "code": "FOC",
+      "name": "푸저우",
+      "region": "동북아시아"
+    },
+    {
+      "code": "FUK",
+      "name": "후쿠오카",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HFE",
+      "name": "허페이",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HGH",
+      "name": "항저우",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HIJ",
+      "name": "히로시마",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HKG",
+      "name": "홍콩",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HND",
+      "name": "도쿄/하네다",
+      "region": "동북아시아"
+    },
+    {
+      "code": "HRB",
+      "name": "하얼빈",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "KIJ",
+      "name": "니가타",
+      "region": "동북아시아"
+    },
+    {
+      "code": "KIX",
+      "name": "오사카/간사이",
+      "region": "동북아시아"
+    },
+    {
+      "code": "KMG",
+      "name": "쿤밍",
+      "region": "동북아시아"
+    },
+    {
+      "code": "KMI",
+      "name": "미야자키",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "KMJ",
+      "name": "구마모토",
+      "region": "동북아시아"
+    },
+    {
+      "code": "KMQ",
+      "name": "고마쓰",
+      "region": "동북아시아"
+    },
+    {
+      "code": "KOJ",
+      "name": "가고시마",
+      "region": "동북아시아"
+    },
+    {
+      "code": "MFM",
+      "name": "마카오",
+      "region": "동북아시아"
+    },
+    {
+      "code": "NGO",
+      "name": "나고야",
+      "region": "동북아시아"
+    },
+    {
+      "code": "NGS",
+      "name": "나가사키",
+      "region": "동북아시아"
+    },
+    {
+      "code": "NKG",
+      "name": "난징",
+      "region": "동북아시아"
+    },
+    {
+      "code": "NRT",
+      "name": "도쿄/나리타",
+      "region": "동북아시아"
+    },
+    {
+      "code": "OIT",
+      "name": "오이타",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "OKA",
+      "name": "오키나와",
+      "region": "동북아시아"
+    },
+    {
+      "code": "OKJ",
+      "name": "오카야마",
+      "region": "동북아시아"
+    },
+    {
+      "code": "PEK",
+      "name": "베이징/서우두",
+      "region": "동북아시아"
+    },
+    {
+      "code": "PVG",
+      "name": "상하이/푸동",
+      "region": "동북아시아"
+    },
+    {
+      "code": "RMQ",
+      "name": "타이중",
+      "region": "동북아시아"
+    },
+    {
+      "code": "SDJ",
+      "name": "센다이",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "SHA",
+      "name": "상하이/홍차오",
+      "region": "동북아시아"
+    },
+    {
+      "code": "SHE",
+      "name": "선양",
+      "region": "동북아시아"
+    },
+    {
+      "code": "SZX",
+      "name": "선전",
+      "region": "동북아시아"
+    },
+    {
+      "code": "TAO",
+      "name": "칭다오",
+      "region": "동북아시아"
+    },
+    {
+      "code": "TFU",
+      "name": "청두/톈푸",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "TPE",
+      "name": "타이베이/타오위엔",
+      "region": "동북아시아"
+    },
+    {
+      "code": "TSN",
+      "name": "톈진",
+      "region": "동북아시아"
+    },
+    {
+      "code": "UKB",
+      "name": "고베",
+      "region": "동북아시아"
+    },
+    {
+      "code": "WUH",
+      "name": "우한",
+      "region": "동북아시아"
+    },
+    {
+      "code": "XIY",
+      "name": "시안/셴양",
+      "region": "동북아시아"
+    },
+    {
+      "code": "XMN",
+      "name": "샤먼",
+      "region": "동북아시아"
+    },
+    {
+      "code": "YNJ",
+      "name": "옌지",
+      "region": "동북아시아"
+    },
+    {
+      "code": "YNZ",
+      "name": "옌청",
+      "region": "동북아시아",
+      "source": "KAC"
+    },
+    {
+      "code": "UBN",
+      "name": "울란바타르/칭기즈칸 국제공항",
+      "region": "러시아/몽골/중앙아시아"
+    },
+    {
+      "code": "ATL",
+      "name": "애틀랜타/하츠필드잭슨, GA",
+      "region": "미주"
+    },
+    {
+      "code": "BOS",
+      "name": "보스턴,MA",
+      "region": "미주"
+    },
+    {
+      "code": "DFW",
+      "name": "댈러스/포트워스, TX",
+      "region": "미주"
+    },
+    {
+      "code": "HNL",
+      "name": "호놀룰루 (하와이), HI",
+      "region": "미주"
+    },
+    {
+      "code": "IAD",
+      "name": "워싱턴/덜레스, DC",
+      "region": "미주"
+    },
+    {
+      "code": "JFK",
+      "name": "뉴욕/존 F. 케네디, NY",
+      "region": "미주"
+    },
+    {
+      "code": "LAS",
+      "name": "라스베이거스/해리 리드, NV",
+      "region": "미주"
+    },
+    {
+      "code": "LAX",
+      "name": "로스앤젤레스, CA",
+      "region": "미주"
+    },
+    {
+      "code": "ORD",
+      "name": "시카고/오헤어, IL",
+      "region": "미주"
+    },
+    {
+      "code": "SEA",
+      "name": "시애틀/터코마, WA",
+      "region": "미주"
+    },
+    {
+      "code": "SFO",
+      "name": "샌프란시스코, CA",
+      "region": "미주"
+    },
+    {
+      "code": "YVR",
+      "name": "밴쿠버, BC",
+      "region": "미주"
+    },
+    {
+      "code": "YYZ",
+      "name": "토론토/피어슨, ON",
+      "region": "미주"
+    },
+    {
+      "code": "AMS",
+      "name": "암스테르담/스키폴",
+      "region": "유럽"
+    },
+    {
+      "code": "BCN",
+      "name": "바르셀로나",
+      "region": "유럽",
+      "source": "KAC"
+    },
+    {
+      "code": "BUD",
+      "name": "부다페스트",
+      "region": "유럽"
+    },
+    {
+      "code": "CDG",
+      "name": "파리/샤를 드 골",
+      "region": "유럽"
+    },
+    {
+      "code": "FCO",
+      "name": "로마/레오나르도 다빈치",
+      "region": "유럽"
+    },
+    {
+      "code": "FRA",
+      "name": "프랑크푸르트",
+      "region": "유럽"
+    },
+    {
+      "code": "IST",
+      "name": "이스탄불",
+      "region": "유럽"
+    },
+    {
+      "code": "LHR",
+      "name": "런던/히스로",
+      "region": "유럽"
+    },
+    {
+      "code": "LIS",
+      "name": "리스본",
+      "region": "유럽"
+    },
+    {
+      "code": "MAD",
+      "name": "마드리드",
+      "region": "유럽"
+    },
+    {
+      "code": "MXP",
+      "name": "밀라노/말펜사",
+      "region": "유럽"
+    },
+    {
+      "code": "PRG",
+      "name": "프라하",
+      "region": "유럽"
+    },
+    {
+      "code": "VIE",
+      "name": "비엔나",
+      "region": "유럽"
+    }
+  ],
+  "routes": [
+    {
+      "program": "KE_SKYPASS",
+      "origin": "AKL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "AMS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "AOJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ATL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "BCN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "BKK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "BNE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "BOS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "BUD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CAN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CDG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CEB",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CGK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CGO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CGQ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CJU",
+      "destination": "NRT",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CJU",
+      "destination": "PEK",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CNX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CRK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CSX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CTS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "CXR",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DAD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DAD",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DEL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DFW",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DLC",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DPS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "DYG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "FCO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "FOC",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "FRA",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "FUK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "GMP",
+      "destination": "HND",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "GMP",
+      "destination": "KIX",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "GMP",
+      "destination": "PEK",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "GMP",
+      "destination": "SHA",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "GUM",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HAN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HFE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HGH",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HIJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HKG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HKT",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HND",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HND",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HNL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "HRB",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "IAD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "AKL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "AMS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "AOJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "ATL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "BCN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "BKK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "BNE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "BOS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "BUD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CAN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CDG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CEB",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CGK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CGO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CGQ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CNX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CRK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CSX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CTS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "CXR",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DAD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DEL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DFW",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DLC",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DPS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "DYG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "FCO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "FOC",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "FRA",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "FUK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "GUM",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HAN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HFE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HGH",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HIJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HKG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HKT",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HND",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HNL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "HRB",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "IAD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "IST",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "JFK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KIJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KIX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KMG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KMI",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KMJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KMQ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KOJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KTI",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KTM",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "KUL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "LAS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "LAX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "LHR",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "LIS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "MAD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "MEL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "MFM",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "MNL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "MXP",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "NGO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "NGS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "NKG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "NRT",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "OIT",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "OKA",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "OKJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "ORD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "PEK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "PQC",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "PRG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "PVG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "RGN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "RMQ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SDJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SEA",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SFO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SGN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SHE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SIN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SYD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "SZX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "TAO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "TFU",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "TPE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "TSN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "UBN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "UKB",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "VIE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "WUH",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "XIY",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "XMN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "YNJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "YNZ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "YVR",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ICN",
+      "destination": "YYZ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "IST",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "JFK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KIJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KIX",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KIX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KMG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KMI",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KMJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KMQ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KOJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KTI",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KTM",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "KUL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "LAS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "LAX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "LHR",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "LIS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "MAD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "MEL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "MFM",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "MNL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "MXP",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NGO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NGO",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NGS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NKG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NRT",
+      "destination": "CJU",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NRT",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "NRT",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "OIT",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "OKA",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "OKJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "ORD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PEK",
+      "destination": "CJU",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PEK",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PEK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PEK",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PQC",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PRG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "DAD",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "NGO",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "NRT",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "PEK",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "PVG",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "TAO",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PUS",
+      "destination": "TPE",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PVG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "PVG",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "RGN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "RMQ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SDJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SEA",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SFO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SGN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SHA",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SHE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SIN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SYD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "SZX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TAO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TAO",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TFU",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TPE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TPE",
+      "destination": "PUS",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "TSN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "UBN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "UKB",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "VIE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "WUH",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "XIY",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "XMN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "YNJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "YNZ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "YVR",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "KE_SKYPASS",
+      "origin": "YYZ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "BCN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "BKK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CAN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CDG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CGK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CGQ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CRK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CSX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "CTS",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "DLC",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "FCO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "FRA",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "FUK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "GMP",
+      "destination": "HND",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "GMP",
+      "destination": "KIX",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "GMP",
+      "destination": "PEK",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "GMP",
+      "destination": "SHA",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HAN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HGH",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HKG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HKT",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HND",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HND",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "HRB",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "BCN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "BKK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CAN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CDG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CGK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CGQ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CRK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CSX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "CTS",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "DLC",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "FCO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "FRA",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "FUK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HAN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HGH",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HKG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HKT",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HND",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "HRB",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "IST",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "JFK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "KIX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "KMI",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "KTI",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "LAX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "LHR",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "MNL",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "MXP",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "NGO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "NKG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "NRT",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "OKA",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "PEK",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "PRG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "PVG",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SDJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SFO",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SGN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SIN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SYD",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "SZX",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "TFU",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "TPE",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "TSN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "UBN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "UKB",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "XIY",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "YNJ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "ICN",
+      "destination": "YNZ",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "IST",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "JFK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "KIX",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "KIX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "KMI",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "KTI",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "LAX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "LHR",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "MNL",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "MXP",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "NGO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "NKG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "NRT",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "OKA",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "PEK",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "PEK",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "PRG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "PVG",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SDJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SFO",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SGN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SHA",
+      "destination": "GMP",
+      "verification": "direction_provisional",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SIN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SYD",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "SZX",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "TFU",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "TPE",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "TSN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "UBN",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "UKB",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "XIY",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "YNJ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    },
+    {
+      "program": "OZ_ASIANA_CLUB",
+      "origin": "YNZ",
+      "destination": "ICN",
+      "verification": "master_schedule_observed",
+      "award_verified": false
+    }
+  ],
+  "international_only": true
+}
