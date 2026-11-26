@@ -37,3 +37,8 @@
   X-Robots-Tag: noindex, nofollow
 /air/*
   X-Robots-Tag: noindex, nofollow
+
+/cal
+  X-Robots-Tag: noindex, nofollow
+/cal/*
+  X-Robots-Tag: noindex, nofollow
