@@ -78,6 +78,7 @@
   const NAV = [
     { key: "search", href: "", label: "검색" },
     { key: "calendar", href: "calendar/", label: "달력/지도" },
+    { key: "first", href: "first/", label: "일등석" },
     { key: "mileage", href: "mileage/", label: "공제표" },
     { key: "guide", href: "guide/", label: "이용안내" }
   ];
@@ -353,6 +354,7 @@
         newlyAvailable,
         isNew,
         previousStatus,
+        firstCombined: raw.first_combined === true,
         collectedAt: raw.collected_at || null,
         sourceUpdatedAt: raw.source_updated_at || null,
         pricing: {
