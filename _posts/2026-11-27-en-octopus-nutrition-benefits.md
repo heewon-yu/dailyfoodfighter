@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Octopus: 82 Calories Raw, 164 Cooked — Here's Why"
-date: 2026-11-27 08:15:00 +0900
+date: 2026-11-27 07:55:00 +0900
 last_modified_at: 2026-11-27
 lang: en
 category: "Seafood"
