@@ -1018,7 +1018,7 @@
         out.push(entry);
       }
 
-      return out.slice(0, 12);
+      return out;
     }
 
     function candidates(keyword) {
