@@ -82,7 +82,7 @@
       root.append(Air.el("section", { class: "air-section chart-block" }, [
         Air.el("div", { class: "chart-block__head" }, [
           Air.el("h2", null, [Air.cabinChip(cabin.key), Air.el("span", { text: cabin.name })]),
-          Air.el("span", { class: "air-count", text: "대한항공 SKYPASS · 국제선" })
+          Air.el("span", { class: "air-count", text: "대한항공 SKYPASS · 국제선 · 단위 마일" })
         ]),
         cabinTable(regions, cabin)
       ]));
