@@ -1499,6 +1499,79 @@ img { max-width: 100%; }
   .air-seg--cabin button { min-height: 40px; }
 }
 
+/* ------------------------------------------------------- 묶음 공유·복사 */
+
+.air-share {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: linear-gradient(180deg, #f7faff 0%, #fff 100%);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+}
+.air-share__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px 12px;
+}
+.air-share__text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  min-width: 0;
+  flex: 1 1 200px;
+}
+.air-share__text strong {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--navy);
+  letter-spacing: -.01em;
+}
+.air-share__text span {
+  font-size: 12px;
+  color: var(--ink-3);
+  line-height: 1.5;
+  word-break: keep-all;
+}
+.air-share__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+.air-share__actions .air-btn {
+  white-space: nowrap;
+  padding: 10px 16px;
+  font-size: 14px;
+}
+.air-share__status {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  word-break: keep-all;
+}
+.air-share__status:empty { display: none; }
+.air-share__status[data-tone="ok"] { color: #0f7a3d; font-weight: 700; }
+.air-share__status[data-tone="warn"] { color: #8a1c13; }
+
+@media (max-width: 560px) {
+  .air-share { padding: 13px 14px; }
+  .air-share__text { flex-basis: 100%; }
+  .air-share__actions { width: 100%; flex-wrap: nowrap; }
+  .air-share__actions .air-btn {
+    flex: 1 1 0;
+    min-width: 0;
+    padding: 10px 8px;
+    font-size: 13.5px;
+    letter-spacing: -.02em;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
 }

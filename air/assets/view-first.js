@@ -161,6 +161,207 @@
     ]);
   }
 
+  /* ------------------------------------------------------- 묶음 공유·복사 */
+
+  const SHARE_URL = "https://dailyfoodfighter.com/air/first/";
+
+  const weekdayFormat = new Intl.DateTimeFormat("ko-KR", {
+    timeZone: "Asia/Seoul",
+    weekday: "short"
+  });
+
+  /** 출발일 → "월" 같은 요일 한 글자. 잘못된 값이면 빈 문자열. */
+  function weekday(iso) {
+    const date = new Date(`${String(iso).slice(0, 10)}T00:00:00+09:00`);
+    if (Number.isNaN(date.getTime())) return "";
+    return weekdayFormat.format(date).replace(/요일$/, "");
+  }
+
+  /** 묶음 텍스트에 쓰는 노선 표기 — 인천·김포는 짧게, 나머지는 공항명. */
+  function routeName(code) {
+    if (code === "ICN") return "인천";
+    if (code === "GMP") return "김포";
+    return Air.airportShort(code);
+  }
+
+  /**
+   * 현재 화면에 보이는 리스트를 카카오톡에 붙여넣을 하나의 텍스트로 묶는다.
+   * 노선별로 묶고, 노선 안에서는 출발일이 빠른 순서로 적는다.
+   */
+  function shareText(rows) {
+    const lines = [`👑 대한항공 일등석(F) 좌석 모음 (총 ${rows.length}건)`];
+
+    const latest = rows
+      .map(row => lastChecked(row))
+      .filter(Boolean)
+      .sort((a, b) => new Date(b) - new Date(a))[0] || null;
+    const checked = stamp(latest);
+
+    lines.push(checked ? `최종 조회 ${checked} KST` : "최종 조회 시각 없음");
+
+    if (state.direction !== "all" || state.airport) {
+      const condition = [DIRECTION_LABEL[state.direction]];
+      if (state.airport) condition.push(`${Air.airportShort(state.airport)}(${state.airport})`);
+      lines.push(`조건 ${condition.join(" · ")}`);
+    }
+
+    lines.push("");
+
+    const groups = new Map();
+
+    for (const row of rows) {
+      const key = `${row.origin}→${row.destination}`;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(row);
+    }
+
+    const ordered = [...groups.values()]
+      .map(list => list.slice().sort((a, b) => a.date.localeCompare(b.date)))
+      .sort((a, b) => a[0].date.localeCompare(b[0].date) || a[0].origin.localeCompare(b[0].origin));
+
+    let combined = false;
+
+    for (const list of ordered) {
+      const { origin, destination } = list[0];
+      lines.push(`${routeName(origin)} → ${routeName(destination)} (${origin}→${destination})`);
+
+      for (const row of list) {
+        const price = Air.priceOf(row);
+        const bits = [`· ${Air.fmtDate(row.date)} (${weekday(row.date)})`];
+
+        if (price.kind === "official") {
+          const otherSeason = price.season.peak ? "평수기" : "성수기";
+          const otherMiles = price.season.peak ? price.offpeak : price.peak;
+          bits.push(`${Air.milesText(price.miles)} (${price.season.label})`);
+          bits.push(`${otherSeason} ${Air.milesText(otherMiles)}`);
+        } else {
+          bits.push("공제량 확인 중");
+        }
+
+        if (row.firstCombined) {
+          bits.push("F 통합");
+          combined = true;
+        }
+
+        lines.push(bits.join(" · "));
+      }
+
+      lines.push("");
+    }
+
+    if (combined) {
+      lines.push("※ F 통합 = 공식 조회 화면에서 보너스 좌석과 좌석승급이 하나의 일등석(F)으로 함께 표시된 건");
+      lines.push("");
+    }
+
+    lines.push(SHARE_URL);
+
+    return lines.join("\n");
+  }
+
+  /** 클립보드 복사 — 최신 API가 막힌 환경(구형·비보안 컨텍스트)은 임시 textarea로 대체한다. */
+  async function copyText(text) {
+    try {
+      if (navigator.clipboard && window.isSecureContext) {
+        await navigator.clipboard.writeText(text);
+        return true;
+      }
+    } catch (error) {
+      /* 아래 대체 경로로 넘어간다 */
+    }
+
+    try {
+      const area = document.createElement("textarea");
+      area.value = text;
+      area.setAttribute("readonly", "");
+      area.style.position = "fixed";
+      area.style.top = "-1000px";
+      area.style.opacity = "0";
+      document.body.append(area);
+      area.select();
+      area.setSelectionRange(0, text.length);
+      const ok = document.execCommand("copy");
+      area.remove();
+      return ok;
+    } catch (error) {
+      return false;
+    }
+  }
+
+  const COPY_DONE = count => `전체 ${count}건 묶음 복사 완료! 카카오톡에 붙여넣기 하세요`;
+  const COPY_FAIL = "복사가 제한되었습니다. '카톡용 묶음 복사'를 한 번 더 누르거나 텍스트를 직접 선택해 주세요.";
+
+  function shareBar(rows) {
+    const status = Air.el("p", { class: "air-share__status", role: "status", "aria-live": "polite" });
+    const empty = rows.length === 0;
+
+    const setStatus = (text, tone) => {
+      status.textContent = text;
+      status.dataset.tone = tone || "";
+    };
+
+    const copyButton = Air.el("button", {
+      type: "button",
+      class: "air-btn air-btn--ghost",
+      id: "air-first-copy",
+      text: "카톡용 묶음 복사"
+    });
+
+    const shareButton = Air.el("button", {
+      type: "button",
+      class: "air-btn air-btn--navy",
+      id: "air-first-share",
+      text: "전체 공유하기"
+    });
+
+    copyButton.disabled = empty;
+    shareButton.disabled = empty;
+
+    copyButton.addEventListener("click", async () => {
+      if (!rows.length) return;
+      const ok = await copyText(shareText(rows));
+      setStatus(ok ? COPY_DONE(rows.length) : COPY_FAIL, ok ? "ok" : "warn");
+    });
+
+    shareButton.addEventListener("click", async () => {
+      if (!rows.length) return;
+
+      const text = shareText(rows);
+
+      if (typeof navigator.share === "function") {
+        try {
+          await navigator.share({ title: "대한항공 일등석(F) 좌석 모음", text });
+          setStatus("공유 창을 열었습니다. 카카오톡을 선택해 보내세요.", "ok");
+          return;
+        } catch (error) {
+          if (error && error.name === "AbortError") {
+            setStatus("공유를 취소했습니다.", "");
+            return;
+          }
+          /* 공유 시트가 실패하면 복사로 대체한다 */
+        }
+      }
+
+      const ok = await copyText(text);
+      setStatus(ok ? COPY_DONE(rows.length) : COPY_FAIL, ok ? "ok" : "warn");
+    });
+
+    return Air.el("div", { class: "air-share" }, [
+      Air.el("div", { class: "air-share__head" }, [
+        Air.el("div", { class: "air-share__text" }, [
+          Air.el("strong", { text: "일등석 목록 한 번에 공유" }),
+          Air.el("span", {
+            text: empty
+              ? "공유할 일등석 좌석이 없습니다."
+              : `화면에 보이는 ${rows.length}건을 하나의 묶음으로 — 모바일은 공유 시트, PC는 붙여넣기용 복사`
+          })
+        ]),
+        Air.el("div", { class: "air-share__actions" }, [shareButton, copyButton])
+      ]),
+      status
+    ]);
+  }
+
   /* ---------------------------------------------------------------- 카드 */
 
   function card(row) {
@@ -249,6 +450,7 @@
         || a.destination.localeCompare(b.destination));
 
     root.append(summary(rows));
+    root.append(shareBar(rows));
 
     root.append(Air.el("div", { class: "air-results-head" }, [
       Air.el("h2", { text: "일등석 예약 가능" }),
