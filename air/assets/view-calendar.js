@@ -588,19 +588,7 @@
       /* 공항 사전이 없어도 기존 조건으로 달력은 그린다. */
     }
 
-    if (!state.origin || !state.destination) {
-      const hasDefault = state.rows.some(r => r.origin === "ICN" && r.destination === "JFK");
-      if (hasDefault) {
-        state.origin = "ICN";
-        state.destination = "JFK";
-      } else {
-        const first = state.rows[0];
-        if (first) {
-          state.origin = first.origin;
-          state.destination = first.destination;
-        }
-      }
-    }
+    /* 기본 진입 시 출발/도착 공항은 비워 두고, 사용자가 선택하거나 지도에서 노선을 클릭할 때 조회한다. */
 
     mountMap();
     render();
