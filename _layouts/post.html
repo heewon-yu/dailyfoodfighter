@@ -4,12 +4,17 @@ layout: default
 
 {% capture category_path %}{% include seo-category-path.html category=page.category lang=page.lang %}{% endcapture %}
 {% assign category_path = category_path | strip %}
+{%- assign category_key = page.category | downcase | strip -%}
+{%- assign produce_keys = 'fruits|fruit|vegetables|vegetable|과일|채소|채소·야채|채소·채소류' | split: '|' -%}
+{%- assign protein_keys = 'meat|protein|meat & protein|meat and protein|seafood|seaweed|seafood & seaweed|육류|육류·단백질|단백질|수산물|해조류|수산물·해조류|해산물' | split: '|' -%}
+{%- assign category_query = '' -%}
+{%- if produce_keys contains category_key %}{% assign category_query = '?group=produce' %}{% elsif protein_keys contains category_key %}{% assign category_query = '?group=protein' %}{% endif -%}
 <article class="post-article">
   <nav class="breadcrumb-nav" aria-label="{% if page.lang == 'en' %}Breadcrumb{% else %}현재 위치{% endif %}">
     <ol>
       <li><a href="{% if page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/' | relative_url }}{% endif %}">{% if page.lang == 'en' %}Home{% else %}홈{% endif %}</a></li>
       {% if category_path != '' %}
-      <li><a href="{{ category_path | relative_url }}">{{ page.category | escape }}</a></li>
+      <li><a href="{{ category_path | relative_url }}{{ category_query }}">{% if page.lang == 'en' %}Food Guide{% else %}식재료 백과{% endif %} · {{ page.category | escape }}</a></li>
       {% endif %}
       <li class="breadcrumb-current" aria-current="page">{{ page.title }}</li>
     </ol>
@@ -63,7 +68,7 @@ layout: default
       <a class="tag" href="{% if page.lang == 'en' %}{{ '/en/tags/' | relative_url }}{% else %}{{ '/tags/' | relative_url }}{% endif %}#{{ tag | slugify }}">#{{ tag }}</a>
       {% endfor %}
       {% if category_path != '' %}
-        <a class="tag-archive-link" href="{{ category_path | relative_url }}">{% if page.lang == 'en' %}More nutrition guides →{% else %}{{ page.category | escape }} 가이드 더 보기 →{% endif %}</a>
+        <a class="tag-archive-link" href="{{ category_path | relative_url }}{{ category_query }}">{% if page.lang == 'en' %}More nutrition guides →{% else %}식재료 백과에서 더 보기 →{% endif %}</a>
       {% endif %}
     </div>
 

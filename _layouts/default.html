@@ -168,6 +168,7 @@
   {% endif %}
   {% capture crumb_cat_path %}{% include seo-category-path.html category=page.category lang=page.lang %}{% endcapture %}
   {% assign crumb_cat_path = crumb_cat_path | strip %}
+  {% if page.lang == 'en' %}{% assign crumb_cat_label = 'Food Guide · ' | append: page.category %}{% else %}{% assign crumb_cat_label = '식재료 백과 · ' | append: page.category %}{% endif %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -182,7 +183,7 @@
       {
         "@type": "ListItem",
         "position": 2,
-        "name": {{ page.category | jsonify }},
+        "name": {{ crumb_cat_label | jsonify }},
         "item": {{ crumb_cat_path | absolute_url | uri_escape | jsonify }}
       }{% endif %},
       {
