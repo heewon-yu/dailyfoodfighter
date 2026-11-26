@@ -1,0 +1,8 @@
+{
+  "date": "2026-11-26",
+  "rate": 13.5408,
+  "source": "우리채권 (이오플러스)",
+  "url": "https://wooribond.com/sub/1_2.htm?code=today&ptype=list",
+  "crossCheck": "https://lawss.co.kr/lawpro/homepage/siga/auto_siga_kjaa.php",
+  "type": "third-party-reference"
+}
