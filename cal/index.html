@@ -140,7 +140,7 @@ async function fxRates(force=false){
  if(!force&&fxCache&&Date.now()-fxCache.loaded<300000)return fxCache;
  if(fxPending)return fxPending;
  fxPending=(async()=>{const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),8000);
- try{const req=await fetch("https://api.frankfurter.dev/v1/latest?base=EUR&symbols=KRW,USD,JPY,CNY",{signal:controller.signal,cache:"no-store"});if(!req.ok)throw Error("환율 조회 실패");fxCache=parseFx(await req.json());return fxCache}
+ try{const req=await fetch("https://api.frankfurter.dev/v1/latest",{signal:controller.signal,cache:"no-store"});if(!req.ok)throw Error("환율 조회 실패");fxCache=parseFx(await req.json());return fxCache}
  finally{clearTimeout(timer)}})();
  try{return await fxPending}finally{fxPending=null}
 }
