@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "{English Food Name} Nutrition: {Calories} Calories, {Key Nutrient}, {Search Query}"  # 48~60 chars, max 62. Put Nutrition Facts/Calories/Protein/Benefits first; no academic filler
+title: "{English Food Name} {Key Point}"  # 2026-11-27 rule: max 28 chars (spaces included), compact one line matching the Korean title. e.g. `Chilled Potato Tips`, `Octopus Boiling Tips`, `Quince Buying Guide`
 date: YYYY-MM-DD 00:00:00 +0900
 last_modified_at: YYYY-MM-DD HH:MM:SS +0900   # update on revision (dateModified, last reviewed)
 category: "{Fruits | Vegetables | Meat | Seafood}"
