@@ -23,7 +23,7 @@
   const KE_AWARD_URL =
     "https://www.koreanair.com/booking/book-and-manage/award-seat-availability";
   const KE_HOTPICK_URL =
-    "https://www.koreanair.com/contents/promotion/list/2026/26winterhotpick";
+    "https://www.koreanair.com/contents/skypass/use-miles/award-ticket/hotpick";
 
   /* 화면에는 일반석(E) · 프레스티지석(P) · 일등석(F) 세 등급만 표시한다.
      프리미엄석(R)은 표시·검색·합산에서 제외한다. */
@@ -474,6 +474,51 @@
 
   function milesText(value) {
     return fmtMiles(value) || "—";
+  }
+
+  /* ------------------------------------------------------- 보너스 핫픽 */
+
+  function hotpickBadge(row) {
+    const award = window.Air && Air.award;
+    if (!award || typeof award.hotpickAt !== "function") return null;
+
+    const hit = award.hotpickAt(row.origin, row.destination, row.date, row.cabinKey);
+
+    if (hit.state === "applies") {
+      return el("span", {
+        class: "badge badge--hotpick",
+        title: `대한항공 보너스 핫픽 할인 대상 구간입니다. 편도 ${fmtMiles(hit.discount)}마일 할인.`,
+        text: `핫픽 -${fmtMiles(hit.discount)}`
+      });
+    }
+
+    if (hit.state === "excluded") {
+      return el("span", {
+        class: "badge badge--hotpick-off",
+        title: "대한항공 공식 안내 기준 핫픽 출발 제외 기간(12/23~1/4, 2/4~3/2)에 들어가는 날짜입니다. 실제 할인 여부는 예매 화면의 초록색 할인 표시로 확인해야 합니다.",
+        text: "핫픽 제외 기간"
+      });
+    }
+
+    return null;
+  }
+
+  /** 카드 가격 영역에 붙는 핫픽 안내(적용 시 실공제 + 편명 조건) */
+  function hotpickNote(row) {
+    const award = window.Air && Air.award;
+    if (!award || typeof award.hotpickMiles !== "function") return null;
+
+    const hit = award.hotpickMiles(row.origin, row.destination, row.date, row.cabinKey);
+    if (!hit) return null;
+
+    const flightNote = hit.flights && hit.flights.length
+      ? `대상 편명 ${hit.flights.join("·")} 확인 필요`
+      : "해당 노선 전편";
+
+    return el("div", { class: "price-hotpick" }, [
+      el("b", { text: `보너스 핫픽 시 ${fmtMiles(hit.miles)}마일` }),
+      el("span", { text: ` (-${fmtMiles(hit.discount)}) · ${flightNote}` })
+    ]);
   }
 
   /* --------------------------------------------------------------- 공항 */
@@ -1181,7 +1226,8 @@
     return el("div", { class: "flight-card__price" }, [
       el("strong", { text: milesText(price.miles) }),
       el("small", { text: `${price.season.label} 적용 · ${otherLabel} ${milesText(otherMiles)}` }),
-      el("small", { class: "price-sub", text: "편도 공제량 · 세금·유류할증료 별도" })
+      el("small", { class: "price-sub", text: "편도 공제량 · 세금·유류할증료 별도" }),
+      hotpickNote(row)
     ]);
   }
 
@@ -1201,7 +1247,7 @@
     el, fmtMiles, fmtDate, fmtMonth, fmtDateTime, fmtAge, hoursSince, todayKst,
     getManifest, loadRows, data, allData, manifestMeta, isStaleRow, safePath,
     priceOf, payableMiles, statusBadge, cabinChip, priceNode, emptyState,
-    seasonBadge, milesText,
+    seasonBadge, milesText, hotpickBadge, hotpickNote,
     airports, routeCatalog, airportLabel, airportShort, searchText, airport,
     params, param, setParams, viewLink, onPopState,
     mountChrome, combobox, airportCombo, pageKey, renderHeaderUpdated,

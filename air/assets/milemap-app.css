@@ -1150,6 +1150,67 @@ img { max-width: 100%; }
 .badge--offpeak { background: var(--blue-50); color: var(--blue-700); border-color: #cfdfff; }
 .badge--idle { background: #f8fafc; color: var(--ink-3); border: 1px dashed var(--line); }
 
+/* 보너스 핫픽 */
+.badge--hotpick { background: #eef0ff; color: #4338ca; border-color: #d6d9ff; }
+.badge--hotpick-off { background: #f8fafc; color: #64748b; border: 1px dashed #cbd5e1; }
+.price-hotpick {
+  display: flex; flex-direction: column; gap: 1px;
+  margin-top: 7px; padding: 6px 8px;
+  background: #f4f5ff; border: 1px solid #e0e2ff; border-radius: 7px;
+}
+.price-hotpick b { font-size: 12.5px; color: #4338ca; }
+.price-hotpick span { font-size: 11px; color: #5b5f8a; line-height: 1.4; }
+.air-notice--hotpick {
+  background: #f6f7ff; border: 1px solid #e3e5ff; color: #3b3f66;
+}
+.air-notice--hotpick .air-notice__icon { background: #4338ca; color: #fff; }
+.hotpick-kv {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px; margin-bottom: 14px;
+}
+.hotpick-kv__cell {
+  background: #f8faff; border: 1px solid var(--line); border-radius: 9px;
+  padding: 9px 11px; display: flex; flex-direction: column; gap: 3px;
+}
+.hotpick-kv__cell span { font-size: 11px; font-weight: 700; color: var(--ink-3); }
+.hotpick-kv__cell b { font-size: 12.5px; color: var(--navy); line-height: 1.45; }
+.hotpick-region {
+  border: 1px solid var(--line); border-radius: var(--radius);
+  background: #fff; margin: 10px 0; box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+.hotpick-region > summary {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 12px 15px; cursor: pointer; list-style: none;
+  background: #fbfcff; border-bottom: 1px solid transparent;
+}
+.hotpick-region[open] > summary { border-bottom-color: var(--line); }
+.hotpick-region > summary::-webkit-details-marker { display: none; }
+.hotpick-region > summary strong { font-size: 15px; color: var(--navy); }
+.hotpick-region > summary strong::before {
+  content: "▸"; display: inline-block; margin-right: 7px;
+  color: #8b90c0; transition: transform .15s ease;
+}
+.hotpick-region[open] > summary strong::before { transform: rotate(90deg); }
+.hotpick-region__discount {
+  font-size: 12px; font-weight: 800; color: #4338ca;
+  background: #eef0ff; border-radius: 6px; padding: 3px 8px;
+  font-variant-numeric: tabular-nums;
+}
+.hotpick-cabin { padding: 6px 15px 14px; }
+.hotpick-cabin__head {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 9px 0 7px; border-bottom: 1px dashed var(--line-2); margin-bottom: 8px;
+}
+.hotpick-cabin__head small { font-size: 11.5px; color: var(--ink-4); font-weight: 700; }
+.air-table--chart.hotpick-table { width: 100%; }
+.air-table--chart.hotpick-table th,
+.air-table--chart.hotpick-table td { padding: 8px 10px; font-size: 12.5px; }
+.air-table--chart.hotpick-table tbody th { text-align: left; font-weight: 700; }
+.hotpick-base { color: var(--ink-4); text-decoration: line-through; font-weight: 600; }
+.hotpick-arrow { color: #b6bad6; margin: 0 4px; }
+.hotpick-deal { color: #4338ca; font-weight: 800; font-variant-numeric: tabular-nums; }
+
 /* 좌석 데이터 없는 노선의 공제표 안내 */
 .air-stack { display: flex; flex-direction: column; gap: 14px; }
 .chart-hint { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
@@ -1317,6 +1378,11 @@ img { max-width: 100%; }
   .chart-card__cell span { font-size: 11px; color: var(--ink-3); font-weight: 700; }
   .chart-card__cell b { font-size: 15.5px; color: var(--navy); font-variant-numeric: tabular-nums; }
   .chart-card__cell.is-peak b { color: #9a4a05; }
+  .hotpick-kv { grid-template-columns: 1fr 1fr; }
+  .hotpick-region > summary { padding: 11px 12px; }
+  .hotpick-cabin { padding: 4px 12px 12px; }
+  .hotpick-region__discount { font-size: 11px; }
+  .hotpick-table-wrap { overflow-x: auto; }
   .chart-table .air-table { min-width: 0; }
   .chart-region { font-size: 12.5px; }
   .chart-region__dest { font-size: 10.5px; }
@@ -1329,6 +1395,9 @@ img { max-width: 100%; }
   .air-table th .cabin-chip { padding: 2px 6px; font-size: 11px; }
   .air-table th .cabin-chip span + span { display: none; }
   .air-table .badge { font-size: 10.5px; padding: 2px 6px; }
+  .hotpick-kv { grid-template-columns: 1fr; }
+  .hotpick-region > summary { flex-direction: column; align-items: flex-start; gap: 5px; }
+  .chart-card__cell b { font-size: 14px; }
   .air-actions .air-btn { min-height: 44px; }
   .air-seg--cabin button { min-height: 40px; }
 }

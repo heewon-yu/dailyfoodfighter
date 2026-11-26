@@ -120,6 +120,8 @@
         Air.seasonBadge(row.origin, row.date),
         Air.el("b", { text: Air.milesText(price.miles) })
       ]));
+      const hotpick = Air.hotpickNote(row);
+      if (hotpick) children.push(hotpick);
     } else {
       children.push(Air.el("div", { class: "air-inline-note", text: "공제 구간 확인 중" }));
     }

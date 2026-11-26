@@ -352,13 +352,16 @@
 
       for (const row of entries.slice().sort((a, b) => a.cabin.letter.localeCompare(b.cabin.letter))) {
         const price = Air.priceOf(row);
+        const hotpick = Air.hotpickNote(row);
         routeBox.append(Air.el("div", { class: "calendar-detail-row" }, [
           Air.cabinChip(row.cabinKey),
           Air.statusBadge(row, state.meta),
           Air.el("span", { class: "calendar-detail-row__miles", text:
             price.kind === "official"
               ? `${price.season.label} ${Air.milesText(price.miles)}`
-              : "공제 구간 확인 중" })
+              : "공제 구간 확인 중" }),
+          Air.hotpickBadge(row),
+          hotpick
         ]));
       }
 

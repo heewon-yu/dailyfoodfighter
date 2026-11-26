@@ -217,6 +217,245 @@
     ]);
   }
 
+  /* ------------------------------------------------------ 보너스 핫픽 */
+
+  function hotpickRegionCount(region, cabinKey) {
+    const cabin = (region.cabins || []).find(item => item.cabin === cabinKey);
+    return cabin ? (cabin.routes || []).length : 0;
+  }
+
+  function hotpickSummary(meta) {
+    const rows = Air.award ? Air.award.hotpickRegions() : [];
+
+    const head = Air.el("thead", null, [
+      Air.el("tr", null, [
+        Air.el("th", { scope: "col", class: "chart-th-region", text: "권역" }),
+        Air.el("th", { scope: "col", class: "num", text: "할인 편도" }),
+        Air.el("th", { scope: "col", class: "num", text: "할인 왕복" }),
+        Air.el("th", { scope: "col", class: "num", text: "일반석 대상" }),
+        Air.el("th", { scope: "col", class: "num", text: "프레스티지 대상" })
+      ])
+    ]);
+
+    const body = Air.el("tbody", null, rows.map(region => {
+      const economy = hotpickRegionCount(region, "economy");
+      const business = hotpickRegionCount(region, "business");
+
+      return Air.el("tr", null, [
+        Air.el("th", { scope: "row", class: "chart-cell-region" }, [
+          Air.el("span", { class: "chart-region", text: region.label })
+        ]),
+        Air.el("td", { class: "num", text: fmtMiles(region.discount.oneway) }),
+        Air.el("td", { class: "num", text: fmtMiles(region.discount.round) }),
+        Air.el("td", { class: "num", text: economy ? `${economy}개 노선` : "—" }),
+        Air.el("td", { class: "num", text: business ? `${business}개 노선` : "—" })
+      ]);
+    }));
+
+    return Air.el("div", { class: "chart-compact" }, [
+      Air.el("div", { class: "air-table-wrap chart-table chart-table--compact" }, [
+        Air.el("table", { class: "air-table air-table--chart" }, [head, body])
+      ]),
+      Air.el("div", { class: "chart-cards" }, rows.map(region => {
+        const economy = hotpickRegionCount(region, "economy");
+        const business = hotpickRegionCount(region, "business");
+
+        return Air.el("article", { class: "chart-card" }, [
+          Air.el("div", { class: "chart-card__head" }, [
+            Air.el("strong", { text: region.label }),
+            Air.el("small", { text:
+              `일반석 ${economy || 0}개 노선 · 프레스티지석 ${business ? business + "개 노선" : "없음"}` })
+          ]),
+          Air.el("div", { class: "chart-card__grid" }, [
+            Air.el("div", { class: "chart-card__cell" }, [
+              Air.el("span", { text: "편도 할인" }),
+              Air.el("b", { text: `-${fmtMiles(region.discount.oneway)}` })
+            ]),
+            Air.el("div", { class: "chart-card__cell" }, [
+              Air.el("span", { text: "왕복 할인" }),
+              Air.el("b", { text: `-${fmtMiles(region.discount.round)}` })
+            ])
+          ])
+        ]);
+      }))
+    ]);
+  }
+
+  function milesPair(route, key) {
+    const base = route.base_miles;
+    const discounted = route.discounted_miles;
+    if (!base || !discounted) return null;
+    return { base: base[key], discounted: discounted[key] };
+  }
+
+  function pairCell(route, key) {
+    const pair = milesPair(route, key);
+    if (!pair) return Air.el("td", { class: "num cell-muted", text: "공제표 확인 중" });
+
+    return Air.el("td", { class: "num" }, [
+      Air.el("span", { class: "hotpick-base", text: fmtMiles(pair.base) }),
+      Air.el("span", { class: "hotpick-arrow", text: "→" }),
+      Air.el("b", { class: "hotpick-deal", text: fmtMiles(pair.discounted) })
+    ]);
+  }
+
+  function routeTable(routes) {
+    const head = Air.el("thead", null, [
+      Air.el("tr", null, [
+        Air.el("th", { scope: "col", text: "구간" }),
+        Air.el("th", { scope: "col", text: "대상 편명" }),
+        Air.el("th", { scope: "col", text: "출발 기간" }),
+        Air.el("th", { scope: "col", class: "num", text: "평수기 편도" }),
+        Air.el("th", { scope: "col", class: "num", text: "성수기 편도" })
+      ])
+    ]);
+
+    const body = Air.el("tbody", null, routes.map(route =>
+      Air.el("tr", null, [
+        Air.el("th", { scope: "row", text: route.label }),
+        Air.el("td", { text: route.all_flights ? "전편" : route.flights.join(", ") }),
+        Air.el("td", { text: route.period.label }),
+        pairCell(route, "offpeak"),
+        pairCell(route, "peak")
+      ])
+    ));
+
+    return Air.el("div", { class: "air-table-wrap chart-table chart-table--compact" }, [
+      Air.el("table", { class: "air-table air-table--chart hotpick-table" }, [head, body])
+    ]);
+  }
+
+  function routeCards(routes) {
+    return Air.el("div", { class: "chart-cards" }, routes.map(route => {
+      const offpeak = milesPair(route, "offpeak");
+      const peak = milesPair(route, "peak");
+
+      return Air.el("article", { class: "chart-card" }, [
+        Air.el("div", { class: "chart-card__head" }, [
+          Air.el("strong", { text: route.label }),
+          Air.el("small", { text: `${route.all_flights ? "전편" : route.flights.join(", ")} · 출발 ${route.period.label}` })
+        ]),
+        Air.el("div", { class: "chart-card__grid" }, [
+          Air.el("div", { class: "chart-card__cell" }, [
+            Air.el("span", { text: "평수기 편도" }),
+            offpeak
+              ? Air.el("b", null, [
+                  Air.el("span", { class: "hotpick-base", text: fmtMiles(offpeak.base) }),
+                  " → ",
+                  Air.el("span", { class: "hotpick-deal", text: fmtMiles(offpeak.discounted) })
+                ])
+              : Air.el("b", { text: "확인 중" })
+          ]),
+          Air.el("div", { class: "chart-card__cell is-peak" }, [
+            Air.el("span", { text: "성수기 편도" }),
+            peak
+              ? Air.el("b", null, [
+                  Air.el("span", { class: "hotpick-base", text: fmtMiles(peak.base) }),
+                  " → ",
+                  Air.el("span", { class: "hotpick-deal", text: fmtMiles(peak.discounted) })
+                ])
+              : Air.el("b", { text: "확인 중" })
+          ])
+        ])
+      ]);
+    }));
+  }
+
+  function hotpickSection() {
+    const award = Air.award;
+    if (!award || typeof award.hotpickMeta !== "function") return null;
+
+    const meta = award.hotpickMeta();
+    const regions = award.hotpickRegions();
+    if (!regions.length) return null;
+
+    const purchase = meta.purchase ? meta.purchase.label : "";
+    const window = meta.window ? meta.window.label : "";
+    const excluded = meta.window && Array.isArray(meta.window.excluded)
+      ? meta.window.excluded.map(item => item.label).join(", ") : "";
+
+    const root = Air.el("section", { class: "air-section chart-block" });
+
+    root.append(Air.el("div", { class: "chart-block__head" }, [
+      Air.el("h2", null, [
+        Air.el("span", { class: "badge badge--hotpick", text: "HOTPICK" }),
+        Air.el("span", { text: "보너스 핫픽 — 마일리지 할인" })
+      ]),
+      Air.el("span", { class: "air-count", text: "대한항공 공식 · 단위 마일" })
+    ]));
+
+    root.append(Air.el("div", { class: "air-notice air-notice--hotpick" }, [
+      Air.el("span", { class: "air-notice__icon", text: "%" }),
+      Air.el("div", null, [
+        Air.el("strong", { text: "보너스 항공권을 신규 구매할 때 마일리지가 할인되는 노선입니다. " }),
+        `구매 기간 ${purchase}. 공식 출발 기간은 ${window}. 노선별 출발 기간은 그보다 짧을 수 있습니다. `,
+        "아래 ‘핫픽 적용’ 값은 공식 공제표 금액에서 지역별 할인 마일을 뺀 편도 공제량입니다."
+      ])
+    ]));
+
+    root.append(Air.el("div", { class: "hotpick-kv" }, [
+      Air.el("div", { class: "hotpick-kv__cell" }, [
+        Air.el("span", { text: "구매 기간" }),
+        Air.el("b", { text: purchase })
+      ]),
+      Air.el("div", { class: "hotpick-kv__cell" }, [
+        Air.el("span", { text: "출발 기간(공통)" }),
+        Air.el("b", { text: window })
+      ]),
+      Air.el("div", { class: "hotpick-kv__cell" }, [
+        Air.el("span", { text: "출발 제외 기간" }),
+        Air.el("b", { text: excluded || "—" })
+      ]),
+      Air.el("div", { class: "hotpick-kv__cell" }, [
+        Air.el("span", { text: "적용 등급" }),
+        Air.el("b", { text: "일반석(X) · 프레스티지석(O)" })
+      ])
+    ]));
+
+    root.append(hotpickSummary(meta));
+
+    for (const [index, region] of regions.entries()) {
+      const block = Air.el("details", { class: "hotpick-region", open: index === 0 ? "" : null });
+
+      block.append(Air.el("summary", null, [
+        Air.el("strong", { text: region.label }),
+        Air.el("span", { class: "hotpick-region__discount", text:
+          `편도 -${fmtMiles(region.discount.oneway)} · 왕복 -${fmtMiles(region.discount.round)}` })
+      ]));
+
+      for (const cabin of region.cabins || []) {
+        if (!cabin.routes || !cabin.routes.length) continue;
+        const cabinKey = cabin.cabin;
+        const meta2 = Air.CABIN_BY_KEY.get(cabinKey);
+
+        block.append(Air.el("div", { class: "hotpick-cabin" }, [
+          Air.el("div", { class: "hotpick-cabin__head" }, [
+            meta2 ? Air.cabinChip(cabinKey) : Air.el("span", { text: cabin.cabin }),
+            Air.el("small", { text: `예약 등급 ${cabin.booking_class} · ${cabin.routes.length}개 노선` })
+          ]),
+          routeTable(cabin.routes),
+          routeCards(cabin.routes)
+        ]));
+      }
+
+      root.append(block);
+    }
+
+    const domestic = meta.domestic;
+    const notes = Air.el("div", { class: "air-prose", style: "margin-top:12px" }, [
+      Air.el("h3", { text: "주의사항" }),
+      Air.el("ul", null, (meta.notes || []).map(note => Air.el("li", { text: note }))),
+      domestic
+        ? Air.el("li", { text:
+            `국내선 탭에도 핫픽이 있습니다(편도 ${fmtMiles(domestic.discount.oneway)} · 왕복 ${fmtMiles(domestic.discount.round)}마일, 요일·시간 조건). 마일지도는 국제선만 다루므로 이 표에서는 빼 두었습니다.` })
+        : null
+    ]);
+
+    root.append(notes);
+
+    return root;
+  }
+
   /* ---------------------------------------------------------------- init */
 
   async function init() {
@@ -233,12 +472,16 @@
     statusBox.replaceChildren(Air.el("div", { class: "air-notice" }, [
       Air.el("span", { class: "air-notice__icon", text: "✓" }),
       Air.el("div", null, [
-        Air.el("strong", { text: "공식 공제표 · 2026~2027 성수기 기간 반영. " }),
+        Air.el("strong", { text: "공식 공제표 · 2026~2027 성수기 · 보너스 핫픽 반영. " }),
         "검색·달력·노선·신규 좌석 화면의 모든 공제 마일이 이 표를 기준으로 자동 계산됩니다."
       ])
     ]));
 
     $("air-mileage-chart").replaceChildren(chartSection());
+
+    const hotpickSlot = $("air-mileage-hotpick");
+    const hotpick = hotpickSection();
+    if (hotpickSlot && hotpick) hotpickSlot.replaceChildren(hotpick);
 
     const tables = $("air-mileage-peak");
     tables.replaceChildren(

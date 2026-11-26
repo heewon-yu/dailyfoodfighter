@@ -234,6 +234,7 @@
       Air.el("div", { class: "flight-card__meta" }, [
         Air.el("span", { class: "flight-card__date", text: Air.fmtDate(row.date) }),
         Air.seasonBadge(row.origin, row.date),
+        Air.hotpickBadge(row),
         Air.el("span", { text: "·" }),
         Air.cabinChip(row.cabinKey)
       ]),
@@ -345,6 +346,13 @@
 
     wrapper.append(Air.el("p", { class: "air-inline-note", text:
       "좌석 데이터는 아직 수집되지 않아 좌석 유무는 표시할 수 없습니다. 공제 마일은 대한항공 공식 공제표 기준 편도 금액이며, 세금·유류할증료는 별도입니다." }));
+
+    if (dateISO && state.cabin) {
+      const hotpick = Air.hotpickNote({
+        origin, destination, date: dateISO, cabinKey: state.cabin
+      });
+      if (hotpick) wrapper.append(hotpick);
+    }
 
     return wrapper;
   }
@@ -510,9 +518,13 @@
       Air.el("strong", { text: Air.milesText(price.miles) }),
       Air.el("span", { class: "round-leg__season" }, [
         Air.seasonBadge(origin, date),
+        Air.hotpickBadge({ origin, destination, date, cabinKey }),
         Air.el("small", { text: `${cabinKey === "economy" ? "일반석" : cabinKey === "business" ? "프레스티지석" : "일등석"} · ${price.season.peak ? "성수기" : "평수기"} 공제` })
       ])
     ]));
+
+    const legHotpick = Air.hotpickNote({ origin, destination, date, cabinKey });
+    if (legHotpick) wrapper.append(legHotpick);
 
     if (statusRow) {
       wrapper.append(Air.el("div", { class: "round-leg__seat" }, [
