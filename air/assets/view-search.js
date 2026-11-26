@@ -295,7 +295,7 @@
   }
 
   /** 좌석 데이터가 없는 노선을 골랐을 때: 공식 공제표 기준 마일만 정직하게 보여준다. */
-  function chartPanel(origin, destination, dateISO) {
+  function chartPanel(origin, destination, dateISO, mode = "uncollected") {
     const award = Air.award;
     const record = award && award.route(origin, destination);
     const wrapper = Air.el("div", { class: "chart-hint" });
@@ -344,8 +344,9 @@
       return cell;
     })));
 
-    wrapper.append(Air.el("p", { class: "air-inline-note", text:
-      "좌석 데이터는 아직 수집되지 않아 좌석 유무는 표시할 수 없습니다. 공제 마일은 대한항공 공식 공제표 기준 편도 금액이며, 세금·유류할증료는 별도입니다." }));
+    wrapper.append(Air.el("p", { class: "air-inline-note", text: mode === "no-seat"
+      ? "선택한 날짜는 조회 결과 예약 가능한 보너스 좌석이 없습니다. 공제 마일은 대한항공 공식 공제표 기준 편도 금액이며, 세금·유류할증료는 별도입니다."
+      : "좌석 데이터는 아직 수집되지 않아 좌석 유무는 표시할 수 없습니다. 공제 마일은 대한항공 공식 공제표 기준 편도 금액이며, 세금·유류할증료는 별도입니다." }));
 
     if (dateISO && state.cabin) {
       const hotpick = Air.hotpickNote({
@@ -469,7 +470,10 @@
                 : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요."
       ));
 
-      if (pairMissing || dateNoSeat) box.append(chartPanel(state.origin, state.destination, dateFilter));
+      if (pairMissing || dateNoSeat) {
+        box.append(chartPanel(state.origin, state.destination, dateFilter,
+          dateNoSeat && dateRows.length ? "no-seat" : "uncollected"));
+      }
 
       results.replaceChildren(box);
       renderPagination(0, 1);
