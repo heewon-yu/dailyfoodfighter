@@ -151,7 +151,8 @@
     ]);
 
     return Air.el("div", { class: "air-tiles", style: "margin-bottom:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))" }, [
-      tile("일등석 예약 가능", `${rows.length}건`, "전체 수집 기준"),
+      tile("일등석 예약 가능", `${rows.length}건`,
+        (state.direction !== "all" || state.airport) ? "선택 조건 기준" : "전체 수집 기준"),
       tile("노선", `${routes.size}개`, "방향별 집계"),
       tile("최종 조회 일자", stamp(latest) || "미확인", latest ? "한국 시간(KST)" : "", marked),
       tile("데이터 생성", stamp(state.meta && state.meta.generatedAt) || "미확인",
@@ -262,7 +263,7 @@
       root.append(Air.el("div", { class: "air-result-grid" }, rows.map(card)));
     }
 
-    const collected = state.rows.length;
+    const collected = (state.stats && state.stats.firstTotal) || 0;
     const scope = state.stats && state.stats.raw ? state.stats.raw : null;
 
     root.append(Air.el("div", { class: "air-notice air-notice--info", style: "margin-top:16px" }, [
@@ -291,9 +292,10 @@
       await Air.airports();
 
       const payload = await Air.data({});
-      state.rows = payload.rows.filter(row =>
-        row.cabinKey === "first" && row.status === "available");
+      const firstRows = payload.rows.filter(row => row.cabinKey === "first");
+      state.rows = firstRows.filter(row => row.status === "available");
       state.stats = Object.assign({}, payload.stats, {
+        firstTotal: firstRows.length,
         firstAvailable: state.rows.length
       });
       state.meta = await Air.manifestMeta();
