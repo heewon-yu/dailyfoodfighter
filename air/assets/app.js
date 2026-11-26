@@ -659,10 +659,9 @@
 
     const header = el("header", { class: "air-header" }, [
       el("div", { class: "air-header__inner" }, [
-        el("a", { class: "air-logo", href: ROOT }, [
-          "마일지도 ",
-          el("b", { text: "MILEMAP" }),
-          el("small", { text: "AIR" })
+        el("a", { class: "air-logo", href: ROOT, "aria-label": "마일지도 홈" }, [
+          el("b", { "aria-hidden": "true", text: "✈" }),
+          el("span", { text: "마일지도" })
         ]),
         el("span", { class: "air-header__scope", text: "대한항공 SKYPASS 국제선 전용" }),
         el("p", { class: "air-header__updated", id: "air-updated" }, "갱신 정보 확인 중")

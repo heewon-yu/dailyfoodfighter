@@ -51,8 +51,8 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
-    "Malgun Gothic", "Noto Sans KR", "Segoe UI", sans-serif;
+  font-family: "Noto Sans KR", "Malgun Gothic", system-ui,
+    -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Segoe UI", sans-serif;
   font-size: 16px;
   line-height: 1.6;
   word-break: keep-all;
@@ -106,19 +106,26 @@ img { max-width: 100%; }
 
 .air-logo {
   display: inline-flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   color: var(--navy);
-  font-weight: 800;
-  font-size: 21px;
-  letter-spacing: -.04em;
+  font-weight: 900;
+  font-size: 1.35rem;
+  letter-spacing: -.06em;
+  line-height: 1.13;
 }
 .air-logo:hover { color: var(--navy); }
-.air-logo b { color: var(--blue); font-size: 12px; letter-spacing: .08em; font-weight: 800; }
-.air-logo small {
-  font-size: 11px; font-weight: 700; letter-spacing: .12em;
-  color: var(--ink-4); text-transform: uppercase;
+/* 한입지도(.brand)와 같은 배지형 심볼: 둥근 사각 배지 + 타이틀 */
+.air-logo b {
+  background: var(--navy);
+  color: #fff;
+  border-radius: 12px;
+  padding: 4px 10px;
+  font-size: 1.05rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: 0;
 }
 
 .air-header__scope {
@@ -202,8 +209,18 @@ img { max-width: 100%; }
   font-size: 11.5px; font-weight: 800; letter-spacing: .08em;
   color: #9dc0f7; text-transform: uppercase; margin-bottom: 8px;
 }
-.air-hero h1 { font-size: clamp(26px, 4.4vw, 36px); margin-bottom: 10px; }
-.air-hero p { color: #d7e4f8; max-width: 60ch; font-size: 14.5px; }
+.air-hero h1 {
+  font-size: clamp(26px, 4.4vw, 36px);
+  margin-bottom: 10px;
+  line-height: 1.13;
+  letter-spacing: -.075em;
+}
+.air-hero p {
+  color: #d7e4f8;
+  max-width: 60ch;
+  font-size: 16px;
+  line-height: 1.55;
+}
 .air-hero__meta {
   margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px;
 }
