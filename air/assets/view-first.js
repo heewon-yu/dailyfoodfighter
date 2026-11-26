@@ -1,7 +1,8 @@
 /* 마일지도 AIR — 일등석(F) 전용 뷰 (/air/first/)
    index.json 에 등록된 전체 월별 JSON 을 읽어 cabin === "first" 이고 status === "available" 인
    건만 날짜순으로 모아 보여준다. 화면을 막는 입력은 없고, 처음 열면 일등석 전체가 바로 보인다.
-   건마다 해당 레코드의 collected_at(없으면 source_updated_at)을 한국 시간으로 표시한다. */
+   건마다 해당 레코드의 collected_at(없으면 source_updated_at)을 한국 시간으로 표시하고,
+   묶음 공유 텍스트에도 티켓(건)마다 그 조회 시각을 함께 적는다. */
 (() => {
   "use strict";
 
@@ -46,6 +47,30 @@
   /** 레코드의 최종 조회 일자 — collected_at 우선, 없으면 source_updated_at. */
   function lastChecked(row) {
     return row.collectedAt || row.sourceUpdatedAt || null;
+  }
+
+  /** 올해(한국 시간) 네 자리 — 짧은 표기에서 연도를 생략할지 판단할 때 쓴다. */
+  function currentYear() {
+    const parts = stampFormat.formatToParts(new Date());
+    return (parts.find(entry => entry.type === "year") || {}).value || "";
+  }
+
+  /**
+   * 묶음 공유 텍스트용 짧은 시각 — "11.27 07:40".
+   * 올해가 아니면 "26.11.27 07:40"처럼 연도를 붙인다. 값이 없거나 잘못되면 null.
+   */
+  function shortStamp(iso) {
+    if (!iso) return null;
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return null;
+
+    const parts = stampFormat.formatToParts(date);
+    const part = type => (parts.find(entry => entry.type === type) || {}).value || "";
+
+    const year = part("year");
+    const prefix = year === currentYear() ? "" : `${year.slice(2)}.`;
+
+    return `${prefix}${part("month")}.${part("day")} ${part("hour")}:${part("minute")}`;
   }
 
   /* --------------------------------------------------------------- 필터 UI */
@@ -197,7 +222,9 @@
       .sort((a, b) => new Date(b) - new Date(a))[0] || null;
     const checked = stamp(latest);
 
-    lines.push(checked ? `최종 조회 ${checked} KST` : "최종 조회 시각 없음");
+    lines.push(checked
+      ? `가장 최근 조회 ${checked} KST · 티켓마다 조회 시각 표기`
+      : "조회 시각 없음");
 
     if (state.direction !== "all" || state.airport) {
       const condition = [DIRECTION_LABEL[state.direction]];
@@ -242,6 +269,10 @@
           bits.push("F 통합");
           combined = true;
         }
+
+        /* 티켓(건)마다 언제 조회해 갱신한 값인지 함께 적는다 */
+        const refreshed = shortStamp(lastChecked(row));
+        bits.push(refreshed ? `${refreshed} 조회` : "조회 시각 없음");
 
         lines.push(bits.join(" · "));
       }
@@ -346,7 +377,7 @@
           Air.el("span", {
             text: empty
               ? "공유할 일등석 좌석이 없습니다."
-              : `화면에 보이는 ${rows.length}건을 하나의 묶음으로 — 모바일은 공유 시트(카카오톡), PC는 클릭 한 번에 복사`
+              : `화면에 보이는 ${rows.length}건을 하나의 묶음으로 — 티켓마다 조회 시각 포함, 모바일은 공유 시트(카카오톡), PC는 클릭 한 번에 복사`
           })
         ]),
         Air.el("div", { class: "air-share__actions" }, [shareButton])
