@@ -1,36 +1,22 @@
 ---
-layout: default
-title: "채소 칼로리·식이섬유·영양성분 가이드"
-description: "채소별 칼로리, 식이섬유, 비타민과 미네랄을 확인하고 생식과 조리에 따른 영양 차이를 알아보세요."
+layout: null
+noindex: true
 lang: ko
 permalink: /category/채소/
 ---
-
-<div class="home-intro">
-  <h1>🥦 채소·야채 영양학 가이드</h1>
-  <p>풍부한 식이섬유와 항산화 물질을 품은 채소류의 영양소 보존 조리법과 건강 효능</p>
-</div>
-
-<div class="post-list">
-  {% assign valid_categories = '채소|채소·야채|채소·채소류' | split: '|' %}
-  {% assign category_posts = site.posts | where: "lang", "ko" %}
-  {% assign shown = 0 %}
-  {% for post in category_posts %}
-  {% assign normalized_category = post.category | downcase | strip %}
-  {% if valid_categories contains normalized_category %}
-  {% assign shown = shown | plus: 1 %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
-    <div class="post-card-footer" style="margin-bottom: 8px;">
-      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
-      <span>·</span>
-      <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
-    </div>
-    <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
-  </a>
-  {% endif %}
-  {% endfor %}
-  {% if shown == 0 %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 채소 포스팅이 없습니다.</p>
-  {% endif %}
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
+  <title>카테고리 통합 안내 | DailyFoodFighter</title>
+  <link rel="canonical" href="{{ '/category/ingredients/' | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ '/category/ingredients/' | relative_url }}">
+  <script>location.replace("{{ '/category/ingredients/' | relative_url }}");</script>
+</head>
+<body>
+  <p>채소 카테고리는 ‘식재료 백과’로 통합되었습니다.</p>
+  <p><a href="{{ '/category/ingredients/' | relative_url }}">식재료 백과로 이동</a></p>
+  <p style="font-size:0.85rem;color:#6b7280;">자동으로 이동하지 않으면 <a href="{{ '/category/ingredients/' | relative_url }}">{{ '/category/ingredients/' }}</a></p>
+</body>
+</html>

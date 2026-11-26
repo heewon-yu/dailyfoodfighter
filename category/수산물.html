@@ -1,36 +1,22 @@
 ---
-layout: default
-title: "생선·해산물·해조류 영양성분 가이드"
-description: "생선, 해산물과 해조류의 칼로리, 단백질, 지방산과 미네랄 및 섭취 시 주의사항을 확인하세요."
+layout: null
+noindex: true
 lang: ko
 permalink: /category/수산물/
 ---
-
-<div class="home-intro">
-  <h1>🐟 수산물 영양학 가이드</h1>
-  <p>EPA·DHA 오메가-3 지방산과 고품질 단백질, 타우린이 가득한 수산물의 건강 분석</p>
-</div>
-
-<div class="post-list">
-  {% assign valid_categories = '수산물|해조류|수산물·해조류|해산물' | split: '|' %}
-  {% assign category_posts = site.posts | where: "lang", "ko" %}
-  {% assign shown = 0 %}
-  {% for post in category_posts %}
-  {% assign normalized_category = post.category | downcase | strip %}
-  {% if valid_categories contains normalized_category %}
-  {% assign shown = shown | plus: 1 %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
-    <div class="post-card-footer" style="margin-bottom: 8px;">
-      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
-      <span>·</span>
-      <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
-    </div>
-    <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
-  </a>
-  {% endif %}
-  {% endfor %}
-  {% if shown == 0 %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 수산물 포스팅이 없습니다.</p>
-  {% endif %}
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
+  <title>카테고리 통합 안내 | DailyFoodFighter</title>
+  <link rel="canonical" href="{{ '/category/ingredients/' | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ '/category/ingredients/' | relative_url }}">
+  <script>location.replace("{{ '/category/ingredients/' | relative_url }}");</script>
+</head>
+<body>
+  <p>수산물 카테고리는 ‘식재료 백과’로 통합되었습니다.</p>
+  <p><a href="{{ '/category/ingredients/' | relative_url }}">식재료 백과로 이동</a></p>
+  <p style="font-size:0.85rem;color:#6b7280;">자동으로 이동하지 않으면 <a href="{{ '/category/ingredients/' | relative_url }}">{{ '/category/ingredients/' }}</a></p>
+</body>
+</html>

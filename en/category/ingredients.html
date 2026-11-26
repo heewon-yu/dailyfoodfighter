@@ -1,0 +1,140 @@
+---
+layout: default
+title: "Food Guide — Fruit, Vegetable, Meat & Seafood Nutrition Facts"
+description: "Browse calories, protein, sugar, fiber, vitamins and minerals per 100 g for fruits, vegetables, meat, fish and seafood, with cooking and serving guides."
+lang: en
+permalink: /en/category/ingredients/
+---
+
+<style>
+  .catfilter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+  }
+  .catfilter-btn {
+    appearance: none;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .catfilter-btn:hover {
+    border-color: #10b981;
+    color: #059669;
+  }
+  .catfilter-btn.is-active {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+  }
+  .catfilter-count {
+    font-weight: 500;
+    opacity: 0.75;
+    margin-left: 2px;
+  }
+  .post-list .post-card[hidden] {
+    display: none !important;
+  }
+  .catfilter-empty {
+    color: #9ca3af;
+    padding: 40px 0;
+    text-align: center;
+  }
+</style>
+
+<div class="home-intro">
+  <h1>🧺 Food Guide</h1>
+  <p>From fruits and vegetables to meat and seafood — evidence-based nutrition facts per 100 g, cooking methods and health insights for everyday ingredients.</p>
+</div>
+
+{% assign en_posts = site.posts | where: "lang", "en" %}
+{% assign produce_categories = 'fruits|fruit|vegetables|vegetable|fruits & vegetables|fruits and vegetables' | split: '|' %}
+{% assign protein_categories = 'meat|protein|meat & protein|meat and protein|seafood|seaweed|seafood & seaweed|meat & seafood|meat and seafood' | split: '|' %}
+{% assign n_all = 0 %}
+{% assign n_produce = 0 %}
+{% assign n_protein = 0 %}
+{% for post in en_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% if produce_categories contains normalized_category or protein_categories contains normalized_category %}
+    {% assign n_all = n_all | plus: 1 %}
+    {% if produce_categories contains normalized_category %}{% assign n_produce = n_produce | plus: 1 %}{% endif %}
+    {% if protein_categories contains normalized_category %}{% assign n_protein = n_protein | plus: 1 %}{% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="catfilter" role="group" aria-label="Category filter">
+  <button type="button" class="catfilter-btn is-active" data-filter="all" aria-pressed="true">All <span class="catfilter-count">{{ n_all }}</span></button>
+  <button type="button" class="catfilter-btn" data-filter="produce" aria-pressed="false">Fruits &amp; Vegetables <span class="catfilter-count">{{ n_produce }}</span></button>
+  <button type="button" class="catfilter-btn" data-filter="protein" aria-pressed="false">Meat &amp; Seafood <span class="catfilter-count">{{ n_protein }}</span></button>
+</div>
+
+<div class="post-list" id="ingredient-list">
+  {% for post in en_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% assign post_group = '' %}
+  {% if produce_categories contains normalized_category %}{% assign post_group = 'produce' %}{% endif %}
+  {% if protein_categories contains normalized_category %}{% assign post_group = 'protein' %}{% endif %}
+  {% if post_group != '' %}
+  <a href="{{ post.url | relative_url }}" class="post-card" data-group="{{ post_group }}">
+    <div class="post-card-footer" style="margin-bottom: 8px;">
+      <span style="color: #10b981; font-weight: 600;">{% if post_group == 'produce' %}Fruits &amp; Vegetables{% else %}Meat &amp; Seafood{% endif %} · {{ post.category }}</span>
+      <span>·</span>
+      <span>{{ post.date | date: "%B %d, %Y" }}</span>
+    </div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
+  </a>
+  {% endif %}
+  {% endfor %}
+  <p class="catfilter-empty" id="ingredient-empty" hidden>No articles in this category yet.</p>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.catfilter-btn');
+  var cards = document.querySelectorAll('#ingredient-list .post-card');
+  var empty = document.getElementById('ingredient-empty');
+
+  function applyFilter(group, updateUrl) {
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var show = (group === 'all' || cards[i].getAttribute('data-group') === group);
+      cards[i].hidden = !show;
+      if (show) visible++;
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      var active = buttons[j].getAttribute('data-filter') === group;
+      buttons[j].classList.toggle('is-active', active);
+      buttons[j].setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    if (empty) empty.hidden = visible !== 0;
+    if (updateUrl && window.history && window.history.replaceState) {
+      var url = new URL(window.location.href);
+      if (group === 'all') { url.searchParams.delete('group'); }
+      else { url.searchParams.set('group', group); }
+      window.history.replaceState(null, '', url);
+    }
+  }
+
+  var initial = 'all';
+  try {
+    var requested = new URL(window.location.href).searchParams.get('group');
+    if (requested === 'produce' || requested === 'protein') initial = requested;
+  } catch (e) {}
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      applyFilter(this.getAttribute('data-filter'), true);
+    });
+  }
+  applyFilter(initial, false);
+})();
+</script>

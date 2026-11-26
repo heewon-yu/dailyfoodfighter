@@ -1,0 +1,140 @@
+---
+layout: default
+title: "식재료 백과 — 과일·채소·육류·수산 영양성분 가이드"
+description: "과일·채소와 육류·수산 식재료의 100g 칼로리, 단백질, 당류, 식이섬유, 비타민·미네랄과 조리·섭취 시 참고할 정보를 한곳에서 확인하세요."
+lang: ko
+permalink: /category/ingredients/
+---
+
+<style>
+  .catfilter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 24px;
+  }
+  .catfilter-btn {
+    appearance: none;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 600;
+    line-height: 1;
+    padding: 10px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .catfilter-btn:hover {
+    border-color: #10b981;
+    color: #059669;
+  }
+  .catfilter-btn.is-active {
+    background: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+  }
+  .catfilter-count {
+    font-weight: 500;
+    opacity: 0.75;
+    margin-left: 2px;
+  }
+  .post-list .post-card[hidden] {
+    display: none !important;
+  }
+  .catfilter-empty {
+    color: #9ca3af;
+    padding: 40px 0;
+    text-align: center;
+  }
+</style>
+
+<div class="home-intro">
+  <h1>🧺 식재료 백과</h1>
+  <p>과일·채소부터 육류·수산까지, 매일 식탁에 오르는 식재료의 100g 기준 영양성분과 과학적 건강 가이드를 한곳에 모았습니다.</p>
+</div>
+
+{% assign ko_posts = site.posts | where: "lang", "ko" %}
+{% assign produce_categories = '과일|채소|채소·야채|채소·채소류|과일·채소' | split: '|' %}
+{% assign protein_categories = '육류|육류·단백질|단백질|수산물|해조류|수산물·해조류|해산물|육류·수산' | split: '|' %}
+{% assign n_all = 0 %}
+{% assign n_produce = 0 %}
+{% assign n_protein = 0 %}
+{% for post in ko_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% if produce_categories contains normalized_category or protein_categories contains normalized_category %}
+    {% assign n_all = n_all | plus: 1 %}
+    {% if produce_categories contains normalized_category %}{% assign n_produce = n_produce | plus: 1 %}{% endif %}
+    {% if protein_categories contains normalized_category %}{% assign n_protein = n_protein | plus: 1 %}{% endif %}
+  {% endif %}
+{% endfor %}
+
+<div class="catfilter" role="group" aria-label="카테고리 필터">
+  <button type="button" class="catfilter-btn is-active" data-filter="all" aria-pressed="true">전체 <span class="catfilter-count">{{ n_all }}</span></button>
+  <button type="button" class="catfilter-btn" data-filter="produce" aria-pressed="false">과일·채소 <span class="catfilter-count">{{ n_produce }}</span></button>
+  <button type="button" class="catfilter-btn" data-filter="protein" aria-pressed="false">육류·수산 <span class="catfilter-count">{{ n_protein }}</span></button>
+</div>
+
+<div class="post-list" id="ingredient-list">
+  {% for post in ko_posts %}
+  {% assign normalized_category = post.category | downcase | strip %}
+  {% assign post_group = '' %}
+  {% if produce_categories contains normalized_category %}{% assign post_group = 'produce' %}{% endif %}
+  {% if protein_categories contains normalized_category %}{% assign post_group = 'protein' %}{% endif %}
+  {% if post_group != '' %}
+  <a href="{{ post.url | relative_url }}" class="post-card" data-group="{{ post_group }}">
+    <div class="post-card-footer" style="margin-bottom: 8px;">
+      <span style="color: #10b981; font-weight: 600;">{% if post_group == 'produce' %}과일·채소{% else %}육류·수산{% endif %} · {{ post.category }}</span>
+      <span>·</span>
+      <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
+    </div>
+    <h2 class="post-card-title">{{ post.title }}</h2>
+    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
+  </a>
+  {% endif %}
+  {% endfor %}
+  <p class="catfilter-empty" id="ingredient-empty" hidden>해당 카테고리 포스팅이 없습니다.</p>
+</div>
+
+<script>
+(function () {
+  var buttons = document.querySelectorAll('.catfilter-btn');
+  var cards = document.querySelectorAll('#ingredient-list .post-card');
+  var empty = document.getElementById('ingredient-empty');
+
+  function applyFilter(group, updateUrl) {
+    var visible = 0;
+    for (var i = 0; i < cards.length; i++) {
+      var show = (group === 'all' || cards[i].getAttribute('data-group') === group);
+      cards[i].hidden = !show;
+      if (show) visible++;
+    }
+    for (var j = 0; j < buttons.length; j++) {
+      var active = buttons[j].getAttribute('data-filter') === group;
+      buttons[j].classList.toggle('is-active', active);
+      buttons[j].setAttribute('aria-pressed', active ? 'true' : 'false');
+    }
+    if (empty) empty.hidden = visible !== 0;
+    if (updateUrl && window.history && window.history.replaceState) {
+      var url = new URL(window.location.href);
+      if (group === 'all') { url.searchParams.delete('group'); }
+      else { url.searchParams.set('group', group); }
+      window.history.replaceState(null, '', url);
+    }
+  }
+
+  var initial = 'all';
+  try {
+    var requested = new URL(window.location.href).searchParams.get('group');
+    if (requested === 'produce' || requested === 'protein') initial = requested;
+  } catch (e) {}
+
+  for (var k = 0; k < buttons.length; k++) {
+    buttons[k].addEventListener('click', function () {
+      applyFilter(this.getAttribute('data-filter'), true);
+    });
+  }
+  applyFilter(initial, false);
+})();
+</script>

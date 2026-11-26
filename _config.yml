@@ -23,6 +23,7 @@ permalink: /posts/:title/
 # Jekyll drops files beginning with an underscore, so list it explicitly.
 include:
   - _headers
+  - _redirects
 
 # Collections / Categories
 collections:

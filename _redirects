@@ -1,0 +1,28 @@
+# ── 카테고리 통합(2026-11-27) ─────────────────────────────────────
+# 기존 4개 카테고리를 '식재료 백과'(KO) / 'Food Guide'(EN) 한 페이지로 통합하고
+# 페이지 안에서 과일·채소 / 육류·수산 필터로 나눈다.
+# 기존 URL로 들어오는 색인·외부 링크가 404가 되지 않도록 301 영구 이동.
+/category/과일/            /category/ingredients/          301
+/category/채소/            /category/ingredients/          301
+/category/육류/            /category/ingredients/          301
+/category/수산물/          /category/ingredients/          301
+/en/category/fruits/       /en/category/ingredients/       301
+/en/category/vegetables/   /en/category/ingredients/       301
+/en/category/meat/         /en/category/ingredients/       301
+/en/category/seafood/      /en/category/ingredients/       301
+
+# 퍼센트 인코딩 형태로 들어오는 요청도 동일하게 처리
+/category/%EA%B3%BC%EC%9D%BC/            /category/ingredients/   301
+/category/%EC%B1%84%EC%86%8C/            /category/ingredients/   301
+/category/%EC%9C%A1%EB%A5%98/            /category/ingredients/   301
+/category/%EC%88%98%EC%82%B0%EB%AC%BC/    /category/ingredients/   301
+
+# 슬래시 없는 형태
+/category/과일      /category/ingredients/   301
+/category/채소      /category/ingredients/   301
+/category/육류      /category/ingredients/   301
+/category/수산물    /category/ingredients/   301
+/en/category/fruits      /en/category/ingredients/   301
+/en/category/vegetables  /en/category/ingredients/   301
+/en/category/meat        /en/category/ingredients/   301
+/en/category/seafood     /en/category/ingredients/   301

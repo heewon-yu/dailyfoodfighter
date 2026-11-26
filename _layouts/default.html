@@ -32,14 +32,8 @@
     {% assign alternate_lang = 'en' %}
   {% endif %}
   {% case canonical_path %}
-    {% when '/category/과일/' %}{% assign alternate_path = '/en/category/fruits/' %}
-    {% when '/category/채소/' %}{% assign alternate_path = '/en/category/vegetables/' %}
-    {% when '/category/육류/' %}{% assign alternate_path = '/en/category/meat/' %}
-    {% when '/category/수산물/' %}{% assign alternate_path = '/en/category/seafood/' %}
-    {% when '/en/category/fruits/' %}{% assign alternate_path = '/category/과일/' %}
-    {% when '/en/category/vegetables/' %}{% assign alternate_path = '/category/채소/' %}
-    {% when '/en/category/meat/' %}{% assign alternate_path = '/category/육류/' %}
-    {% when '/en/category/seafood/' %}{% assign alternate_path = '/category/수산물/' %}
+    {% when '/category/ingredients/' %}{% assign alternate_path = '/en/category/ingredients/' %}
+    {% when '/en/category/ingredients/' %}{% assign alternate_path = '/category/ingredients/' %}
   {% endcase %}
   {% if alternate_path %}
     {% if page.layout == 'post' %}
@@ -250,19 +244,13 @@
       <nav class="site-nav">
         {% if page.lang == 'en' %}
         <a href="{{ '/en/' | relative_url }}">All Posts</a>
-        <a href="{{ '/en/category/fruits/' | relative_url }}">Fruits</a>
-        <a href="{{ '/en/category/vegetables/' | relative_url }}">Vegetables</a>
-        <a href="{{ '/en/category/meat/' | relative_url }}">Meat & Protein</a>
-        <a href="{{ '/en/category/seafood/' | relative_url }}">Seafood</a>
+        <a href="{{ '/en/category/ingredients/' | relative_url }}">Food Guide</a>
         <a href="{{ '/en/tags/' | relative_url }}">Tags</a>
         <a href="{{ '/en/about/' | relative_url }}">About</a>
         <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 @Dailyfoodfff</a>
         {% else %}
         <a href="{{ '/' | relative_url }}">전체글</a>
-        <a href="{{ '/category/과일/' | relative_url }}">과일</a>
-        <a href="{{ '/category/채소/' | relative_url }}">채소·야채</a>
-        <a href="{{ '/category/육류/' | relative_url }}">육류·단백질</a>
-        <a href="{{ '/category/수산물/' | relative_url }}">수산물</a>
+        <a href="{{ '/category/ingredients/' | relative_url }}">식재료 백과</a>
         <a href="{{ '/tags/' | relative_url }}">태그</a>
         <a href="{{ '/about/' | relative_url }}">소개</a>
         <a href="https://x.com/Dailyfoodfff" target="_blank" rel="noopener noreferrer" style="color: #1d9bf0; font-weight: 700;">𝕏 공식계정</a>

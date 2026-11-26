@@ -1,29 +1,22 @@
 ---
-layout: default
-title: "Vegetable Nutrition Facts, Calories & Fiber"
-description: "Explore calories, fiber, vitamins and minerals in vegetables and how preparation can affect nutrient content."
+layout: null
+noindex: true
 lang: en
 permalink: /en/category/vegetables/
 ---
-
-<div class="home-intro">
-  <h1>🥦 Vegetable Nutrition Science</h1>
-  <p>Dietary fiber fractions, micronutrient kinetics, and bioavailability of vegetables.</p>
-</div>
-
-<div class="post-list">
-  {% assign veg_posts = site.posts | where: "category", "Vegetables" %}
-  {% for post in veg_posts %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
-    <div class="post-card-footer" style="margin-bottom: 8px;">
-      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
-      <span>·</span>
-      <span>{{ post.date | date: "%B %d, %Y" }}</span>
-    </div>
-    <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
-  </a>
-  {% else %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">No vegetable articles published yet.</p>
-  {% endfor %}
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
+  <title>Category merged | DailyFoodFighter</title>
+  <link rel="canonical" href="{{ '/en/category/ingredients/' | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ '/en/category/ingredients/' | relative_url }}">
+  <script>location.replace("{{ '/en/category/ingredients/' | relative_url }}");</script>
+</head>
+<body>
+  <p>The Vegetables category has been merged into our Food Guide.</p>
+  <p><a href="{{ '/en/category/ingredients/' | relative_url }}">Go to the Food Guide</a></p>
+  <p style="font-size:0.85rem;color:#6b7280;">If you are not redirected automatically, <a href="{{ '/en/category/ingredients/' | relative_url }}">{{ '/en/category/ingredients/' }}</a></p>
+</body>
+</html>

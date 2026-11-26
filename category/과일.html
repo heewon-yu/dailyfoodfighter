@@ -1,29 +1,22 @@
 ---
-layout: default
-title: "과일 칼로리·당류·영양성분 가이드"
-description: "과일별 100g 칼로리, 당류, 식이섬유와 비타민 함량 및 섭취 시 참고할 정보를 확인하세요."
+layout: null
+noindex: true
 lang: ko
 permalink: /category/과일/
 ---
-
-<div class="home-intro">
-  <h1>🍎 과일 영양학 가이드</h1>
-  <p>천연 비타민과 파이토케미컬이 풍부한 제철 과일의 과학적 효능과 올바른 섭취법</p>
-</div>
-
-<div class="post-list">
-  {% assign fruit_posts = site.posts | where: "category", "과일" %}
-  {% for post in fruit_posts %}
-  <a href="{{ post.url | relative_url }}" class="post-card">
-    <div class="post-card-footer" style="margin-bottom: 8px;">
-      <span style="color: #10b981; font-weight: 600;">{{ post.category }}</span>
-      <span>·</span>
-      <span>{{ post.date | date: "%Y년 %m월 %d일" }}</span>
-    </div>
-    <h2 class="post-card-title">{{ post.title }}</h2>
-    <p class="post-card-excerpt">{{ post.description | default: post.excerpt | strip_html | truncate: 150 | escape }}</p>
-  </a>
-  {% else %}
-  <p style="color: #9ca3af; padding: 40px 0; text-align: center;">등록된 과일 포스팅이 없습니다.</p>
-  {% endfor %}
-</div>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex, follow">
+  <title>카테고리 통합 안내 | DailyFoodFighter</title>
+  <link rel="canonical" href="{{ '/category/ingredients/' | absolute_url }}">
+  <meta http-equiv="refresh" content="0; url={{ '/category/ingredients/' | relative_url }}">
+  <script>location.replace("{{ '/category/ingredients/' | relative_url }}");</script>
+</head>
+<body>
+  <p>과일 카테고리는 ‘식재료 백과’로 통합되었습니다.</p>
+  <p><a href="{{ '/category/ingredients/' | relative_url }}">식재료 백과로 이동</a></p>
+  <p style="font-size:0.85rem;color:#6b7280;">자동으로 이동하지 않으면 <a href="{{ '/category/ingredients/' | relative_url }}">{{ '/category/ingredients/' }}</a></p>
+</body>
+</html>
