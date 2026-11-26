@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Beef Bone Broth Nutrition: 17 Calories, Collagen & Glycine"
+title: "Bone Broth Calories"
 date: 2026-11-15 15:45:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

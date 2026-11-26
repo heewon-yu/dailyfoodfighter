@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삼치 칼로리 112kcal·단백질 20g, 오메가3 1,000mg의 실제"
+title: "삼치 오메가3"
 date: 2026-11-21 07:50:00 +0900
 lang: ko
 category: "수산물"

@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Tomato Nutrition: 18 Calories, 13.7 mg Vitamin C, Lycopene"
+title: "Cooked Tomato Lycopene"
 date: 2026-11-04 00:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Fruits"

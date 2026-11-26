@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "연어 칼로리 208kcal와 오메가-3 2,150mg, 생연어 vs 훈제연어"
+title: "연어 훈제 비교"
 date: 2026-11-06 18:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

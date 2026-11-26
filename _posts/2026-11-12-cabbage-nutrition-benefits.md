@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "양배추 효능과 비타민 U: 위점막 보호, 데치는 법과 주의점"
+title: "양배추 비타민U"
 date: 2026-11-12 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

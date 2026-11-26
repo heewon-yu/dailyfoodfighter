@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Red Bell Pepper Nutrition: 127 mg Vitamin C per 100 g"
+title: "Bell Pepper Colors"
 date: 2026-11-23 07:55:00 +0900
 lang: en
 category: "Vegetables"

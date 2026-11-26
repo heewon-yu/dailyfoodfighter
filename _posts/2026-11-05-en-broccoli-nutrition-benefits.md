@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Broccoli Nutrition: 34 Calories, Steaming vs Sulforaphane"
+title: "Broccoli Steaming Tips"
 date: 2026-11-05 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 category: "Vegetables"

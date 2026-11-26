@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "배추 칼로리 15kcal·비타민C 27mg: 하루 몇 장 먹어도 될까"
+title: "배추 하루 몇 장"
 date: 2026-11-17 08:00:00 +0900
 lang: ko
 category: "채소"

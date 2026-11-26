@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "토마토 칼로리 18kcal와 라이코펜: 생토마토 vs 익힌 토마토 흡수율"
+title: "토마토 익혀 먹기"
 date: 2026-11-04 00:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

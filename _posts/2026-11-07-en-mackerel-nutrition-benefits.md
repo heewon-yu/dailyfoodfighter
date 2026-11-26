@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mackerel Nutrition per 100 g: 2,299 mg Omega-3, 205 kcal"
+title: "Grilled vs Braised Mackerel"
 date: 2026-11-07 14:30:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

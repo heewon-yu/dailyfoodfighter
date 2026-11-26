@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "아보카도 칼로리 160kcal와 칼륨 485mg, 후숙·갈변 방지법"
+title: "아보카도 후숙 팁"
 date: 2026-11-10 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

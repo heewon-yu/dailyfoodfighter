@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "고구마 칼로리: 국내 표 147kcal·미국 자료 86kcal, 왜 다른가"
+title: "고구마 칼로리 왜?"
 date: 2026-11-14 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

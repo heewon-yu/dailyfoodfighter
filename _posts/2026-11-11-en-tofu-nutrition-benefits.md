@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tofu Calories and Protein: 100 g, 150 g & 300 g"
+title: "Tofu Block Calories"
 date: 2026-11-11 08:00:00 +0900
 last_modified_at: 2026-11-25 09:50:00 +0900
 lang: en

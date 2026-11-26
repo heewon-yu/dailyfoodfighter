@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Orange Nutrition: 47 Calories, 53.2 mg Vitamin C"
+title: "Orange Juice vs Whole"
 date: 2026-11-12 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

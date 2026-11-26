@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Abalone Nutrition: 105 Calories, 17.1 g Protein, Taurine"
+title: "Abalone Energy Boost"
 date: 2026-11-15 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

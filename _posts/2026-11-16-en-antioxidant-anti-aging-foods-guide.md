@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Top 10 Antioxidant Foods for Anti-Aging: Polyphenol List"
+title: "Top 10 Antioxidant Foods"
 date: 2026-11-16 08:08:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

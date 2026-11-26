@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chilled Potatoes Drop GI From 78 to 50: What Cooling Does"
+title: "Chilling Potato Lowers GI"
 date: 2026-11-27 08:10:00 +0900
 last_modified_at: 2026-11-27
 lang: en

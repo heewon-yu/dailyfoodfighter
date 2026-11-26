@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "콜리플라워 칼로리 27kcal·영양성분과 삶기·찌기 비교"
+title: "콜리플라워 삶기"
 date: 2026-11-25 07:45:00 +0900
 last_modified_at: 2026-11-25
 lang: ko

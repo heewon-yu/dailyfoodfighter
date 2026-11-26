@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "혈압·혈관 건강 음식 TOP 10: 콜레스테롤·중성지방 관리"
+title: "혈관 건강 음식"
 date: 2026-11-16 08:09:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

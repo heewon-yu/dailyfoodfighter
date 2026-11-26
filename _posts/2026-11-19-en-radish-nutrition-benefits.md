@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Radish Nutrition: 18 Calories, Vitamin C and Daikon Benefits"
+title: "Can You Drink Radish Juice?"
 date: 2026-11-19 07:55:00 +0900
 lang: en
 category: "Vegetables"

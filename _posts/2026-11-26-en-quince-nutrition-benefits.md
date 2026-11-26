@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Quince Nutrition: 57 Calories, Vitamin C and Pectin Power"
+title: "Quince Raw Warning"
 date: 2026-11-26 07:55:00 +0900
 last_modified_at: 2026-11-26
 lang: en

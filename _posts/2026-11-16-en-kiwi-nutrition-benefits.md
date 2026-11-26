@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kiwi Nutrition: 92.7 mg Vitamin C, 61 Calories, Constipation"
+title: "Kiwi for Constipation"
 date: 2026-11-16 07:55:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

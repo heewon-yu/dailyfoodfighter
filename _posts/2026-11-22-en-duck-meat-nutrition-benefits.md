@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Duck Meat Nutrition: 135 Calories and 18 g Protein per 100 g"
+title: "Duck Meat Without Skin"
 date: 2026-11-22 07:55:00 +0900
 lang: en
 category: "Meat & Protein"

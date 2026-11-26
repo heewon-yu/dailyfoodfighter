@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spanish Mackerel Nutrition: 139 Calories and 1 g of Omega-3"
+title: "Spanish Mackerel Omega-3"
 date: 2026-11-21 07:55:00 +0900
 lang: en
 category: "Seafood"

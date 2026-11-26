@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "쇠간(소간) 칼로리와 비타민A 4,968μg: 100g이 상한을 넘는 이유"
+title: "쇠간 비타민A"
 date: 2026-11-26 07:50:00 +0900
 last_modified_at: 2026-11-26
 lang: ko

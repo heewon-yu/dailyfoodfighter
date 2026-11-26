@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Blueberry Nutrition: 57 Calories, Anthocyanins per 100 g"
+title: "Fresh vs Frozen Blueberry"
 date: 2026-11-04 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Fruits"

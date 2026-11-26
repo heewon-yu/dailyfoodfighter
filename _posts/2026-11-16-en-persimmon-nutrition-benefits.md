@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Persimmon Nutrition: 70 Calories, Tannins and Blood Sugar"
+title: "Persimmon and Constipation"
 date: 2026-11-16 22:36:00 +0900
 lang: en
 category: "Fruits"

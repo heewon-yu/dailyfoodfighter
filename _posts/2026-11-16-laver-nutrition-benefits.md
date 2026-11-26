@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "김 1장 칼로리 4kcal와 요오드: 마른김 영양·갑상선 주의"
+title: "김 요오드 주의"
 date: 2026-11-16 22:50:00 +0900
 lang: ko
 category: "수산물"

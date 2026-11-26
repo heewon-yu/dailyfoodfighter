@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "파프리카 칼로리 30kcal, 색깔별 비타민C·베타카로틴 차이"
+title: "파프리카 색깔별"
 date: 2026-11-23 07:45:00 +0900
 lang: ko
 category: "채소"

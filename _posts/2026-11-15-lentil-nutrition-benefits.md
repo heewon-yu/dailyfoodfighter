@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "렌틸콩 단백질 24.6g·GI 32, 삶는 시간과 병아리콩 차이"
+title: "렌틸콩 삶는 시간"
 date: 2026-11-15 15:30:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

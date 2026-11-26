@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Garlic Nutrition: 149 Calories, Allicin & 31 mg Vitamin C"
+title: "Crushed Garlic 10 Min"
 date: 2026-11-07 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

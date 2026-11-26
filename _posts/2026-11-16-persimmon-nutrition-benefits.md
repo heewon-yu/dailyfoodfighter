@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "감 칼로리 57kcal와 변비 논란: 단감·홍시 차이, 공복 섭취 괜찮나"
+title: "감 변비 괜찮나"
 date: 2026-11-16 22:34:00 +0900
 lang: ko
 category: "과일"

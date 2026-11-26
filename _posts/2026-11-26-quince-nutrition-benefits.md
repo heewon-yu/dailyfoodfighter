@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "모과 칼로리와 비타민C 81mg: 생으로 못 먹는 이유와 모과청 주의점"
+title: "모과 못 먹는 이유"
 date: 2026-11-26 07:45:00 +0900
 last_modified_at: 2026-11-26
 lang: ko

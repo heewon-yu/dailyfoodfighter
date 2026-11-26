@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "멸치 칼슘 2,088mg·단백질 59g: 멸치육수 칼슘의 진실"
+title: "멸치육수 칼슘"
 date: 2026-11-19 07:50:00 +0900
 lang: ko
 category: "수산물"

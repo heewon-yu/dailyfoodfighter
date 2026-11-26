@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "무 칼로리 21kcal·비타민C 15mg: 무우 효능과 무즙 주의점"
+title: "무즙 먹어도 되나"
 date: 2026-11-19 07:45:00 +0900
 lang: ko
 category: "채소"

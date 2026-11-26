@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "전복 효능과 칼로리 105kcal: 타우린·글리코겐 기력 회복"
+title: "전복 기력 회복"
 date: 2026-11-15 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

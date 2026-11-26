@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "굴 효능과 영양: 아연 16.6mg, 타우린·글리코겐의 간 회복"
+title: "굴 아연 효능"
 date: 2026-11-11 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

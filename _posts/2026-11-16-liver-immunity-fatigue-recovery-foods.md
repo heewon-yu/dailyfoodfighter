@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "피로 회복·면역력 음식 TOP 10: 비타민C·아연 함량 순위"
+title: "피로 회복 음식"
 date: 2026-11-16 08:10:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

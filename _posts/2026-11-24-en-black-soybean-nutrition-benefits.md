@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Black Soybeans: 36 g Protein per 100 g — Better Than Yellow?"
+title: "Black Soybean Protein"
 date: 2026-11-24 07:52:00 +0900
 lang: en
 category: "Protein"

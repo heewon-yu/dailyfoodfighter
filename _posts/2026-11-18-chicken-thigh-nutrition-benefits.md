@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "닭다리살 칼로리 119kcal·단백질 19.7g: 껍질 vs 살코기"
+title: "닭다리살 껍질"
 date: 2026-11-18 07:45:00 +0900
 lang: ko
 category: "육류"

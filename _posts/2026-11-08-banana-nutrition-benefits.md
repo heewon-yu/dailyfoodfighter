@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "바나나 1개 칼로리 105kcal·탄수화물 27g, 100g은 89kcal"
+title: "바나나 탄수화물"
 date: 2026-11-08 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

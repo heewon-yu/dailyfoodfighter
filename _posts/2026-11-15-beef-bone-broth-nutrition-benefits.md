@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "사골·도가니 육수 칼로리 17kcal, 콜라겐과 끓이는 시간"
+title: "사골 육수 칼로리"
 date: 2026-11-15 15:45:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Top 10 High-Protein Foods: Grams per 100g and 100 kcal"
+title: "Top 10 Protein Foods"
 date: 2026-11-16 08:05:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

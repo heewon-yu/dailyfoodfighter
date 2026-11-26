@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Avocado Nutrition: 160 Calories, 485 mg Potassium"
+title: "Avocado Ripening Tips"
 date: 2026-11-10 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "항산화·노화 방지 음식 TOP 10: 폴리페놀·카로티노이드 순위"
+title: "항산화 음식 순위"
 date: 2026-11-16 08:08:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

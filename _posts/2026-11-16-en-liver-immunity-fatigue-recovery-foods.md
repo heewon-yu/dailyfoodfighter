@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Top 10 Foods for Fatigue Recovery, Liver & Immunity"
+title: "Fatigue Recovery Foods"
 date: 2026-11-16 08:10:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

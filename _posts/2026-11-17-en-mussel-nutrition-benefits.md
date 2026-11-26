@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Mussel Nutrition: 86 Calories, B12, Selenium and Iron"
+title: "Mussel Iron Benefits"
 date: 2026-11-17 08:06:00 +0900
 lang: en
 category: "Seafood"

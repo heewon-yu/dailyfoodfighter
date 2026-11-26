@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "단백질 많은 음식 TOP 10: 100g당 함량과 흡수율 비교"
+title: "단백질 많은 음식"
 date: 2026-11-16 08:05:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

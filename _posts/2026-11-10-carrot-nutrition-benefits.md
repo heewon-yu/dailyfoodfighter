@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "당근 칼로리 41kcal와 베타카로틴: 생당근·익힌 당근 비교"
+title: "당근 익혀 먹기"
 date: 2026-11-10 08:00:00 +0900
 last_modified_at: 2026-11-25 10:00:00 +0900
 lang: ko

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "다시마 칼로리와 요오드 함량: 한 장·육수 섭취 주의점"
+title: "다시마 요오드"
 date: 2026-11-25 07:45:00 +0900
 last_modified_at: 2026-11-25
 lang: ko

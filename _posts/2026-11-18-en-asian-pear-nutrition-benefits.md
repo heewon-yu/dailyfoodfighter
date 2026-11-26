@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asian Pear Nutrition: 42 Calories, Fiber and Potassium"
+title: "Pear Juice Daily Limit"
 date: 2026-11-18 08:00:00 +0900
 lang: en
 category: "Fruits"

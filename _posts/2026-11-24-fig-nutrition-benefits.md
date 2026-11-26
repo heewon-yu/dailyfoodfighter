@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "무화과 칼로리 47kcal, 식이섬유 1.3g 변비 효과 있을까"
+title: "무화과 변비 효과"
 date: 2026-11-24 07:40:00 +0900
 lang: ko
 category: "과일"

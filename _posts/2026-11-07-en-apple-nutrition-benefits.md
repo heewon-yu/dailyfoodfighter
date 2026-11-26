@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Apple Nutrition: 52 Calories, 2.4 g Fiber per 100 g"
+title: "Eat Apple With Skin"
 date: 2026-11-07 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

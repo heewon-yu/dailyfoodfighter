@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cherry Nutrition: 63 Calories, Melatonin, Gout, Anthocyanins"
+title: "Cherry for Better Sleep"
 date: 2026-11-16 22:44:00 +0900
 lang: en
 category: "Fruits"

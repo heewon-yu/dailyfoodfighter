@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "새우 칼로리 85kcal와 단백질 20.1g, 콜레스테롤·크레아티닌"
+title: "새우 콜레스테롤"
 date: 2026-11-09 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "소고기 등심 100g 칼로리 201kcal와 단백질 20.3g, 헴철 흡수율"
+title: "소고기 등심 팁"
 date: 2026-11-06 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

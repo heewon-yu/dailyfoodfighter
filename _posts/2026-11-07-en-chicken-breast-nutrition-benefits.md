@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chicken Breast Protein: 22.5 g per 100 g, 120 Calories"
+title: "Chicken Breast Boiling"
 date: 2026-11-07 14:30:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

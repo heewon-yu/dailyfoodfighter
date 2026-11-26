@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lentil Nutrition: 24.6 g Protein, GI 32, Cooking Times"
+title: "Lentil Cooking Time"
 date: 2026-11-15 15:30:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

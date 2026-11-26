@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How Much Protein in an Egg? 6.3 g in a Large Egg (72 kcal)"
+title: "Boiled Egg Calories"
 date: 2026-11-09 08:00:00 +0900
 last_modified_at: 2026-11-25 09:50:00 +0900
 lang: en

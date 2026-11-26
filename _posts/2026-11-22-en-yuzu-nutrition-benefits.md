@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Yuzu Nutrition: 49 Calories and 95 mg Vitamin C per 100 g"
+title: "Yuzu Tea Sugar Content"
 date: 2026-11-22 07:50:00 +0900
 lang: en
 category: "Fruits"

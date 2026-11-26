@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "체리 칼로리 63kcal와 수면: 멜라토닌·통풍 근거, 하루 몇 알"
+title: "체리 수면 효과"
 date: 2026-11-16 22:42:00 +0900
 lang: ko
 category: "과일"

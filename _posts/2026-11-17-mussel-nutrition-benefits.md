@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "홍합 칼로리 86kcal와 철분 3.9mg: 하루 몇 마리 먹어도 될까"
+title: "홍합 철분 효능"
 date: 2026-11-17 08:04:00 +0900
 lang: ko
 category: "수산물"

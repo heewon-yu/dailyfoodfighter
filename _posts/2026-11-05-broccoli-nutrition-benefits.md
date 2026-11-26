@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "브로콜리 칼로리 34kcal와 설포라판: 데치는 시간 몇 분이 좋을까"
+title: "브로콜리 데치기"
 date: 2026-11-05 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

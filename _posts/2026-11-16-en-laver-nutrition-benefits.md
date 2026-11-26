@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Laver (Nori) Nutrition: 202 Calories, Iodine, Iron, Vitamin C"
+title: "Laver Iodine Warning"
 date: 2026-11-16 22:52:00 +0900
 lang: en
 category: "Seafood"

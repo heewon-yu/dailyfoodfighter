@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "꽃게 칼로리 77kcal·단백질 16g, 간장게장 나트륨은?"
+title: "간장게장 나트륨"
 date: 2026-11-23 07:40:00 +0900
 lang: ko
 category: "수산물"

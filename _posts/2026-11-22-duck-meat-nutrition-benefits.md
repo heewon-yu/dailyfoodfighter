@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "오리고기 칼로리 135kcal·단백질 18g: 껍질 벗기면 절반"
+title: "오리 껍질 벗기기"
 date: 2026-11-22 07:45:00 +0900
 lang: ko
 category: "육류·단백질"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "낫토 1팩 106kcal와 비타민K2 550µg: 나토키나아제·장 건강"
+title: "낫토 나토키나아제"
 date: 2026-11-16 22:38:00 +0900
 lang: ko
 category: "육류"

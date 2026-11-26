@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lotus Root Nutrition: 74 Calories, 4.9 g Fiber and Vitamin C"
+title: "Lotus Root Vitamin C"
 date: 2026-11-21 07:45:00 +0900
 lang: en
 category: "Vegetables"

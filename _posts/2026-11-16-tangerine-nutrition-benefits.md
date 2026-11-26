@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "귤 칼로리 39kcal와 혈당: 하루 몇 개까지? 비타민C 30.7mg"
+title: "귤 하루 몇 개"
 date: 2026-11-16 22:30:00 +0900
 lang: ko
 category: "과일"

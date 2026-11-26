@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Salmon Nutrition: 208 Calories, 2,150 mg Omega-3"
+title: "Raw vs Smoked Salmon"
 date: 2026-11-06 18:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "시금치 칼로리 23kcal·철분 2.71mg, 데치면 옥살산 빠질까?"
+title: "시금치 데치는 팁"
 date: 2026-11-08 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

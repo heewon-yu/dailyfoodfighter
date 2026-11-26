@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "배 칼로리 45kcal·당류 7g: 배즙 하루 얼마나 마실까"
+title: "배즙 하루 얼마"
 date: 2026-11-18 07:50:00 +0900
 lang: ko
 category: "과일"

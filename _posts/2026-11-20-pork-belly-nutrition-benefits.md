@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삼겹살 칼로리 372kcal, 구우면 484kcal: 수육과 비교"
+title: "삼겹살 구우면"
 date: 2026-11-20 06:10:00 +0900
 lang: ko
 category: "육류·단백질"

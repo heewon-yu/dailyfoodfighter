@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "유자 칼로리 49kcal·비타민C 95mg: 유자차 한 잔의 당은?"
+title: "유자차 당 주의"
 date: 2026-11-22 07:40:00 +0900
 lang: ko
 category: "과일"

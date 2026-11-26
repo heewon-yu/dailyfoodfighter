@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Beef Liver Nutrition: 135 Calories, Vitamin A and Copper"
+title: "Beef Liver Vitamin A"
 date: 2026-11-26 08:00:00 +0900
 last_modified_at: 2026-11-26
 lang: en

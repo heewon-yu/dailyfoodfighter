@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kelp Nutrition: Calories, Iodine in Dried Kelp & Broth"
+title: "Kelp Iodine Intake"
 date: 2026-11-25 07:50:00 +0900
 last_modified_at: 2026-11-25
 lang: en

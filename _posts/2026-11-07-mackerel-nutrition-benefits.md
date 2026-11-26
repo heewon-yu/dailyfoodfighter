@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "고등어 칼로리 205kcal와 오메가-3 2,299mg, 구이 vs 조림"
+title: "고등어 굽기 팁"
 date: 2026-11-07 14:30:00 +0900
 last_modified_at: 2026-11-16 08:55:09 +0900
 lang: ko

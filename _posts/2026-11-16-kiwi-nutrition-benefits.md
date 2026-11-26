@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "키위 칼로리 61kcal와 비타민C: 그린 vs 골드, 변비 효과"
+title: "키위 변비 효과"
 date: 2026-11-16 07:55:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

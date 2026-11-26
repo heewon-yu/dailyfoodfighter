@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "병아리콩 칼로리 164kcal, 식이섬유 7.6g과 혈당 안정"
+title: "병아리콩 혈당"
 date: 2026-11-15 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

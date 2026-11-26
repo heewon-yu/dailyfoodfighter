@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Natto Nutrition: 212 Calories, Vitamin K2 MK-7, Nattokinase"
+title: "Natto Nattokinase"
 date: 2026-11-16 22:40:00 +0900
 lang: en
 category: "Meat & Protein"

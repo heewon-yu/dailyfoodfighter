@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "비트 칼로리 43kcal와 혈압: 생비트 vs 찐 비트 옥살산"
+title: "비트 혈압 효과"
 date: 2026-11-15 15:30:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

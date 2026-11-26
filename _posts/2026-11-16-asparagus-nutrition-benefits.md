@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "아스파라거스 칼로리 20kcal: 엽산·이눌린·글루타치온 효능"
+title: "아스파라거스 효능"
 date: 2026-11-16 22:46:00 +0900
 lang: ko
 category: "채소"

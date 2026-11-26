@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Onion Nutrition: 40 Calories, 1.7 g Fiber, Quercetin"
+title: "Raw vs Cooked Onion"
 date: 2026-11-04 00:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Vegetables"

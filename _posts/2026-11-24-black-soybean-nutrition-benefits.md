@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "서리태 효능 단백질 38.7g, 검은콩 하루 얼마나 먹을까?"
+title: "서리태 단백질"
 date: 2026-11-24 07:42:00 +0900
 lang: ko
 category: "육류·단백질"

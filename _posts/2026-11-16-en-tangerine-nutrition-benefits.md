@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Tangerine Nutrition: 53 Calories, Vitamin C and Blood Sugar"
+title: "How Many Tangerines?"
 date: 2026-11-16 22:32:00 +0900
 lang: en
 category: "Fruits"

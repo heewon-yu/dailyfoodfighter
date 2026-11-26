@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oyster Nutrition: 16.6 mg Zinc, 7.1 g Protein per 100 g"
+title: "Oyster Zinc Benefits"
 date: 2026-11-11 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

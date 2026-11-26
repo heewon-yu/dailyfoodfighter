@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "석류 칼로리 83kcal와 효능: 우롤리틴A, 즙 vs 생석류"
+title: "석류 즙 vs 생과"
 date: 2026-11-15 15:45:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

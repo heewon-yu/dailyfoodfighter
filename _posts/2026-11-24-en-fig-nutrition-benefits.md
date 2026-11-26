@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Figs per 100 g: 47 kcal, 1.3 g Fiber — Constipation Help?"
+title: "Fig for Constipation"
 date: 2026-11-24 07:50:00 +0900
 lang: en
 category: "Fruits"

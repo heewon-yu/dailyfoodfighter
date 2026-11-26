@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "오징어 칼로리 92kcal·단백질 15.6g과 타우린, 조리 시 주의점"
+title: "오징어 타우린"
 date: 2026-11-13 08:00:00 +0900
 last_modified_at: 2026-11-25 10:00:00 +0900
 lang: ko

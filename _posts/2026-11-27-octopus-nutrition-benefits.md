@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "문어숙회 101kcal vs 생문어 70kcal, 데치면 왜 늘어날까"
+title: "문어숙회 칼로리"
 date: 2026-11-27 08:05:00 +0900
 last_modified_at: 2026-11-27
 lang: ko

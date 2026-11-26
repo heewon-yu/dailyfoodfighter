@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cauliflower Nutrition per 100 g: Calories, Fiber & Cooking"
+title: "Cauliflower Boiling Tips"
 date: 2026-11-25 07:50:00 +0900
 last_modified_at: 2026-11-25
 lang: en

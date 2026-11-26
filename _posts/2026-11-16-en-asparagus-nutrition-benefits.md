@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Asparagus Nutrition: 20 Calories, Folate, Inulin, Glutathione"
+title: "Asparagus Nutrition Tips"
 date: 2026-11-16 22:48:00 +0900
 lang: en
 category: "Vegetables"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cabbage Nutrition: 25 Calories, 36.6 mg Vitamin C"
+title: "Cabbage Vitamin U"
 date: 2026-11-12 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

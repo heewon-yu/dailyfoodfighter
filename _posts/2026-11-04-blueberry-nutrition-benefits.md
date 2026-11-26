@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "블루베리 칼로리 57kcal와 효능: 생블루베리 vs 냉동 안토시아닌 차이"
+title: "블루베리 냉동 팁"
 date: 2026-11-04 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

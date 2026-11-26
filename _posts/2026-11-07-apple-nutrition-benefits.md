@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "사과 칼로리 52kcal와 펙틴 효능: 껍질째 먹어야 하는 이유"
+title: "사과 껍질째 먹기"
 date: 2026-11-07 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

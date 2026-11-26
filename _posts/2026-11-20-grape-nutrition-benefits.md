@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "포도 칼로리 57kcal·당류 14g: 한 송이 먹으면 혈당은"
+title: "포도 한 송이 혈당"
 date: 2026-11-20 06:00:00 +0900
 lang: ko
 category: "과일"

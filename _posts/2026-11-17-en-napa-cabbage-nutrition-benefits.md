@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Napa Cabbage Nutrition: 16 Calories, Vitamin C and Vitamin K"
+title: "How Many Napa Leaves?"
 date: 2026-11-17 08:02:00 +0900
 lang: en
 category: "Vegetables"

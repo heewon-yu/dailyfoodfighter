@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "딸기 칼로리 32kcal와 비타민C 58.8mg, 혈당과 세척법"
+title: "딸기 씻는 법"
 date: 2026-11-14 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

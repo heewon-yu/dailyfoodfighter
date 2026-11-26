@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "양파 칼로리 40kcal와 퀘르세틴: 생양파 vs 볶은 양파 흡수 차이"
+title: "양파 볶아 먹기"
 date: 2026-11-04 00:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

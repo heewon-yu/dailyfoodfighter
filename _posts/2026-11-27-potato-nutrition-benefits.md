@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삶은 감자 식히면 혈당지수 78→50? 저항전분 실제 증가량"
+title: "감자 식히는 팁"
 date: 2026-11-27 08:00:00 +0900
 last_modified_at: 2026-11-27
 lang: ko

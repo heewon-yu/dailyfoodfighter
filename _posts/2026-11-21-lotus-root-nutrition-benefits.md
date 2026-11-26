@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "연근 칼로리 75kcal·식이섬유 3.3g: 데치면 비타민C 39% 손실"
+title: "연근 데치면 손실"
 date: 2026-11-21 07:40:00 +0900
 lang: ko
 category: "채소"
