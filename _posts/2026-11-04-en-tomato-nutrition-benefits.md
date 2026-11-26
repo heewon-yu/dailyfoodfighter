@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Cooked Tomato Lycopene"
+title: "Cook Tomato for Lycopene"
 date: 2026-11-04 00:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Fruits"

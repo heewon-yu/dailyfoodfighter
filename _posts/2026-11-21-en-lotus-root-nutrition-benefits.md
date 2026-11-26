@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Lotus Root Vitamin C"
+title: "Lotus Root Boiling Loss"
 date: 2026-11-21 07:45:00 +0900
 lang: en
 category: "Vegetables"

@@ -1,8 +1,17 @@
 #!/usr/bin/env python3
-"""2026-11-27 유희원 님 지시: 전 게시물(한/영 132편) 제목 초컴팩트 일괄 수정.
+"""2026-11-27 유희원 님 지시(2차): 전 게시물(한/영 132편) 제목 '명사 나열형' 전수 교체.
 
-국문 <= 10자(공백 포함), 영문 <= 28자(공백 포함). title frontmatter만 교체하며
-permalink/slug/파일명/date/category/description/본문은 건드리지 않는다.
+1차(bb3a5fa)에서 10자/28자로 줄이며 `서리태 단백질`, `다시마 요오드`처럼 명사만
+이어 붙인 제목이 남았다. 이번에는 같은 길이 제한 안에서 `~팁`·`~삶는 법`·`~먹는 법`·
+`~고르는 법`·`~효과`·`~이유`·`~주의`·`~차이`처럼 서술·행동형으로 끝나게 바꾼다.
+
+- 국문: 공백 포함 10자 이내
+- 영문: 공백 포함 28자 이내, Tips / How to / Guide / Why / Benefits / Warning 류 사용
+- title frontmatter만 교체. permalink/slug/파일명/date/category/description/본문 불변.
+
+사용법:
+    python3 scripts/retitle_compact_20261127.py            # 검증만 (dry-run)
+    python3 scripts/retitle_compact_20261127.py --write    # 실제 반영
 """
 import re
 import sys
@@ -12,81 +21,104 @@ POSTS = Path(__file__).resolve().parent.parent / "_posts"
 
 # slug -> (국문 제목, 영문 제목)
 TITLES = {
-    "blueberry-nutrition-benefits": ("블루베리 냉동 팁", "Fresh vs Frozen Blueberry"),
-    "onion-nutrition-benefits": ("양파 볶아 먹기", "Raw vs Cooked Onion"),
-    "tomato-nutrition-benefits": ("토마토 익혀 먹기", "Cooked Tomato Lycopene"),
-    "broccoli-nutrition-benefits": ("브로콜리 데치기", "Broccoli Steaming Tips"),
-    "beef-sirloin-nutrition-benefits": ("소고기 등심 팁", "Beef Sirloin Nutrition"),
-    "salmon-nutrition-benefits": ("연어 훈제 비교", "Raw vs Smoked Salmon"),
-    "apple-nutrition-benefits": ("사과 껍질째 먹기", "Eat Apple With Skin"),
-    "chicken-breast-nutrition-benefits": ("닭가슴살 삶기", "Chicken Breast Boiling"),
-    "garlic-nutrition-benefits": ("마늘 10분 두기", "Crushed Garlic 10 Min"),
+    "blueberry-nutrition-benefits": ("블루베리 냉동 팁", "Frozen Blueberry Tips"),
+    "onion-nutrition-benefits": ("양파 볶아 먹기", "Raw or Cooked Onion?"),
+    "tomato-nutrition-benefits": ("토마토 익혀 먹기", "Cook Tomato for Lycopene"),
+    "broccoli-nutrition-benefits": ("브로콜리 데치기 팁", "Broccoli Steaming Tips"),
+    "beef-sirloin-nutrition-benefits": ("소고기 등심 굽기", "How to Grill Beef Sirloin"),
+    "salmon-nutrition-benefits": ("연어 훈제 비교", "Raw or Smoked Salmon?"),
+    "apple-nutrition-benefits": ("사과 껍질째 먹기", "Why Eat Apple With Skin"),
+    "chicken-breast-nutrition-benefits": ("닭가슴살 삶는 팁", "How to Boil Chicken Breast"),
+    "garlic-nutrition-benefits": ("마늘 으깨 두는 팁", "Why Crush Garlic First"),
     "mackerel-nutrition-benefits": ("고등어 굽기 팁", "Grilled vs Braised Mackerel"),
-    "banana-nutrition-benefits": ("바나나 탄수화물", "Carbs in One Banana"),
+    "banana-nutrition-benefits": ("바나나 숙성도 팁", "How Many Carbs in a Banana?"),
     "spinach-nutrition-benefits": ("시금치 데치는 팁", "Spinach Blanching Tips"),
-    "egg-nutrition-benefits": ("삶은 계란 칼로리", "Boiled Egg Calories"),
-    "shrimp-nutrition-benefits": ("새우 콜레스테롤", "Shrimp and Cholesterol"),
+    "egg-nutrition-benefits": ("계란 칼로리 정리", "How Many Calories in an Egg?"),
+    "shrimp-nutrition-benefits": ("새우 먹어도 되나", "Shrimp Cholesterol Myth"),
     "avocado-nutrition-benefits": ("아보카도 후숙 팁", "Avocado Ripening Tips"),
-    "carrot-nutrition-benefits": ("당근 익혀 먹기", "Raw vs Cooked Carrot"),
-    "oyster-nutrition-benefits": ("굴 아연 효능", "Oyster Zinc Benefits"),
-    "tofu-nutrition-benefits": ("두부 한 모 칼로리", "Tofu Block Calories"),
-    "cabbage-nutrition-benefits": ("양배추 비타민U", "Cabbage Vitamin U"),
-    "orange-nutrition-benefits": ("오렌지 주스 차이", "Orange Juice vs Whole"),
-    "pork-tenderloin-nutrition-benefits": ("돼지 안심 칼로리", "Pork Tenderloin Calories"),
-    "squid-nutrition-benefits": ("오징어 타우린", "Squid Taurine Guide"),
+    "carrot-nutrition-benefits": ("당근 익혀 먹기", "Raw or Cooked Carrot?"),
+    "oyster-nutrition-benefits": ("굴 아연 섭취 팁", "Oyster Zinc: Why It Wins"),
+    "tofu-nutrition-benefits": ("두부 칼로리 얼마", "How Many Calories in Tofu?"),
+    "cabbage-nutrition-benefits": ("양배추 위 건강 팁", "Cabbage Vitamin U Benefits"),
+    "orange-nutrition-benefits": ("오렌지 주스 차이", "Orange vs Orange Juice"),
+    "pork-tenderloin-nutrition-benefits": ("돼지 안심 굽는 법", "How to Cook Pork Tenderloin"),
+    "squid-nutrition-benefits": ("오징어 데치는 팁", "Why Squid Is Taurine Rich"),
     "strawberry-nutrition-benefits": ("딸기 씻는 법", "How to Wash Strawberries"),
-    "sweet-potato-nutrition-benefits": ("고구마 칼로리 왜?", "Sweet Potato Calories"),
-    "abalone-nutrition-benefits": ("전복 기력 회복", "Abalone Energy Boost"),
-    "beef-bone-broth-nutrition-benefits": ("사골 육수 칼로리", "Bone Broth Calories"),
-    "beetroot-nutrition-benefits": ("비트 혈압 효과", "Beetroot Blood Pressure"),
-    "chickpea-nutrition-benefits": ("병아리콩 혈당", "Chickpea Blood Sugar"),
-    "lentil-nutrition-benefits": ("렌틸콩 삶는 시간", "Lentil Cooking Time"),
-    "pomegranate-nutrition-benefits": ("석류 즙 vs 생과", "Pomegranate Juice vs Raw"),
-    "antioxidant-anti-aging-foods-guide": ("항산화 음식 순위", "Top 10 Antioxidant Foods"),
+    "sweet-potato-nutrition-benefits": ("고구마 칼로리 차이", "Sweet Potato Calorie Gap"),
+    "abalone-nutrition-benefits": ("전복 손질과 삶기", "Abalone: How to Clean It"),
+    "beef-bone-broth-nutrition-benefits": ("사골 맑게 우리기", "Clear Bone Broth Tips"),
+    "beetroot-nutrition-benefits": ("비트 혈압 효과", "Beetroot for Blood Pressure"),
+    "chickpea-nutrition-benefits": ("병아리콩 불리는 법", "Chickpea Soaking Tips"),
+    "lentil-nutrition-benefits": ("렌틸콩 삶는 시간", "How Long to Cook Lentils"),
+    "pomegranate-nutrition-benefits": ("석류즙 생과 차이", "Pomegranate: Juice or Fruit?"),
+    "antioxidant-anti-aging-foods-guide": ("노화 막는 음식 팁", "Top 10 Antioxidant Foods"),
     "asparagus-nutrition-benefits": ("아스파라거스 효능", "Asparagus Nutrition Tips"),
     "cherry-nutrition-benefits": ("체리 수면 효과", "Cherry for Better Sleep"),
-    "heart-blood-pressure-cholesterol-foods": ("혈관 건강 음식", "Foods for Blood Pressure"),
+    "heart-blood-pressure-cholesterol-foods": ("혈압 내리는 음식", "10 Foods for Blood Pressure"),
     "high-protein-foods-ranking": ("단백질 많은 음식", "Top 10 Protein Foods"),
-    "kale-nutrition-benefits": ("케일 비타민K", "Kale Vitamin K Benefits"),
+    "kale-nutrition-benefits": ("케일 데치는 팁", "Kale: Steam or Juice?"),
     "kiwi-nutrition-benefits": ("키위 변비 효과", "Kiwi for Constipation"),
     "laver-nutrition-benefits": ("김 요오드 주의", "Laver Iodine Warning"),
-    "liver-immunity-fatigue-recovery-foods": ("피로 회복 음식", "Fatigue Recovery Foods"),
-    "low-calorie-high-satiety-foods": ("저칼로리 포만 음식", "Low-Calorie Filling Foods"),
-    "low-gi-foods-blood-sugar-guide": ("혈당 낮추는 음식", "Foods to Lower Blood Sugar"),
-    "natto-nutrition-benefits": ("낫토 나토키나아제", "Natto Nattokinase"),
-    "persimmon-nutrition-benefits": ("감 변비 괜찮나", "Persimmon and Constipation"),
+    "liver-immunity-fatigue-recovery-foods": ("피로 풀리는 음식", "10 Foods to Beat Fatigue"),
+    "low-calorie-high-satiety-foods": ("포만감 높은 음식", "10 Filling Low-Cal Foods"),
+    "low-gi-foods-blood-sugar-guide": ("혈당 낮추는 음식", "Foods That Lower Blood Sugar"),
+    "natto-nutrition-benefits": ("낫토 제대로 먹기", "How to Eat Natto Right"),
+    "persimmon-nutrition-benefits": ("감 변비 논란 정리", "Persimmon Constipation Myth"),
     "tangerine-nutrition-benefits": ("귤 하루 몇 개", "How Many Tangerines?"),
-    "mussel-nutrition-benefits": ("홍합 철분 효능", "Mussel Iron Benefits"),
+    "mussel-nutrition-benefits": ("홍합 철분 효능", "How to Clean Mussels"),
     "napa-cabbage-nutrition-benefits": ("배추 하루 몇 장", "How Many Napa Leaves?"),
-    "asian-pear-nutrition-benefits": ("배즙 하루 얼마", "Pear Juice Daily Limit"),
-    "chicken-thigh-nutrition-benefits": ("닭다리살 껍질", "Chicken Thigh Skin"),
-    "anchovy-nutrition-benefits": ("멸치육수 칼슘", "Anchovy Broth Calcium"),
-    "radish-nutrition-benefits": ("무즙 먹어도 되나", "Can You Drink Radish Juice?"),
-    "grape-nutrition-benefits": ("포도 한 송이 혈당", "Grapes and Blood Sugar"),
-    "pork-belly-nutrition-benefits": ("삼겹살 구우면", "Grilled Pork Belly"),
-    "lotus-root-nutrition-benefits": ("연근 데치면 손실", "Lotus Root Vitamin C"),
-    "spanish-mackerel-nutrition-benefits": ("삼치 오메가3", "Spanish Mackerel Omega-3"),
-    "duck-meat-nutrition-benefits": ("오리 껍질 벗기기", "Duck Meat Without Skin"),
-    "yuzu-nutrition-benefits": ("유자차 당 주의", "Yuzu Tea Sugar Content"),
-    "bell-pepper-nutrition-benefits": ("파프리카 색깔별", "Bell Pepper Colors"),
-    "crab-nutrition-benefits": ("간장게장 나트륨", "Soy Crab Sodium Level"),
-    "black-soybean-nutrition-benefits": ("서리태 단백질", "Black Soybean Protein"),
+    "asian-pear-nutrition-benefits": ("배즙 하루 얼마", "How Much Pear Juice?"),
+    "chicken-thigh-nutrition-benefits": ("닭다리 껍질 팁", "Why Remove Thigh Skin"),
+    "anchovy-nutrition-benefits": ("멸치 육수 내기", "Boil Anchovies for Calcium"),
+    "radish-nutrition-benefits": ("무즙 기침 효과", "Can You Drink Radish Juice?"),
+    "grape-nutrition-benefits": ("포도 적당량 팁", "Grapes: Blood Sugar Guide"),
+    "pork-belly-nutrition-benefits": ("삼겹살 굽는 법", "Pork Belly Grilling Tips"),
+    "lotus-root-nutrition-benefits": ("연근 데치는 팁", "Lotus Root Boiling Loss"),
+    "spanish-mackerel-nutrition-benefits": ("삼치 굽기 팁", "Grilling Spanish Mackerel"),
+    "duck-meat-nutrition-benefits": ("오리 껍질 벗기기", "Duck Meat: Skin or Not?"),
+    "yuzu-nutrition-benefits": ("유자차 당 줄이기", "Yuja Tea Sugar: How Much?"),
+    "bell-pepper-nutrition-benefits": ("파프리카 고르기", "Bell Pepper Color Guide"),
+    "crab-nutrition-benefits": ("게장 덜 짜게 먹기", "Soy Crab Too Salty?"),
+    "black-soybean-nutrition-benefits": ("서리태 불리기 팁", "How to Soak Black Soybeans"),
     "fig-nutrition-benefits": ("무화과 변비 효과", "Fig for Constipation"),
-    "cauliflower-nutrition-benefits": ("콜리플라워 삶기", "Cauliflower Boiling Tips"),
-    "kelp-nutrition-benefits": ("다시마 요오드", "Kelp Iodine Intake"),
-    "beef-liver-nutrition-benefits": ("쇠간 비타민A", "Beef Liver Vitamin A"),
-    "quince-nutrition-benefits": ("모과 못 먹는 이유", "Quince Raw Warning"),
-    "octopus-nutrition-benefits": ("문어숙회 칼로리", "Boiled Octopus Calories"),
+    "cauliflower-nutrition-benefits": ("콜리플라워 삶는 팁", "Cauliflower Boiling Tips"),
+    "kelp-nutrition-benefits": ("다시마 육수 팁", "Kelp Broth Iodine Tips"),
+    "beef-liver-nutrition-benefits": ("쇠간 과다 주의", "Beef Liver: Too Much A?"),
+    "quince-nutrition-benefits": ("모과 못 먹는 이유", "Never Eat Quince Raw"),
+    "octopus-nutrition-benefits": ("문어 삶는 법", "Octopus Boiling Tips"),
     "potato-nutrition-benefits": ("감자 식히는 팁", "Chilling Potato Lowers GI"),
 }
 
 KO_MAX, EN_MAX = 10, 28
+
+# 국문 제목이 끝나야 하는 서술·행동형 어미 (명사 나열 금지)
+KO_ENDINGS = (
+    "팁", "법", "효과", "효능", "이유", "주의", "차이", "비교", "시간", "정리",
+    "우리기", "내기", "먹기", "삶기", "굽기", "데치기", "씻기", "벗기기", "고르기",
+    "불리기", "줄이기", "두기", "얼마", "개", "장", "되나",
+)
+# `~는/은/ㄴ 음식`처럼 관형형 수식을 받은 '음식'은 허용 (예: 혈당 낮추는 음식)
+KO_FOOD_QUALIFIERS = ("낮추는 음식", "내리는 음식", "풀리는 음식", "높은 음식",
+                      "막는 음식", "많은 음식")
+# 영문 제목에 반드시 하나 들어가야 하는 서술 신호
+EN_MARKERS = ("Tips", "How", "Guide", "Why", "Benefits", "Warning", "Best", "Top",
+              "vs", "or", "?", "Can", "Never", "Myth", "Loss", "Gap",
+              "Grilling", "Chilling", "Lowers", "That", "Filling", "Beat")
+
+
+def is_noun_dump_ko(title: str) -> bool:
+    return not (title.endswith(KO_ENDINGS) or title.endswith(KO_FOOD_QUALIFIERS))
+
+
+def is_noun_dump_en(title: str) -> bool:
+    return not any(m in title for m in EN_MARKERS)
 
 
 def apply(write: bool):
     problems = []
     changed = 0
     seen = set()
+    noun_dumps = []
     for path in sorted(POSTS.glob("*.md")):
         text = path.read_text(encoding="utf-8")
         lang = re.search(r"^lang:\s*(\w+)", text, re.M).group(1)
@@ -97,6 +129,10 @@ def apply(write: bool):
         new_title = ko if lang == "ko" else en
         if len(new_title) > limit:
             problems.append(f"{path.name}: {lang} title {len(new_title)}자 > {limit}: {new_title}")
+        if lang == "ko" and is_noun_dump_ko(new_title):
+            noun_dumps.append(f"KO {path.name}: {new_title}")
+        if lang == "en" and is_noun_dump_en(new_title):
+            noun_dumps.append(f"EN {path.name}: {new_title}")
         seen.add((slug, lang))
         m = re.search(r'^title:.*$', text, re.M)
         if not m:
@@ -116,7 +152,10 @@ def apply(write: bool):
     missing = {(s, l) for s in TITLES for l in ("ko", "en")} - seen
     if missing:
         problems.append(f"매핑 누락: {sorted(missing)}")
-    print(f"mapped slugs={len(TITLES)} files checked={len(seen)} changed={changed}")
+    if noun_dumps:
+        problems.extend(f"명사 나열형: {d}" for d in noun_dumps)
+    print(f"mapped slugs={len(TITLES)} files checked={len(seen)} changed={changed} "
+          f"noun_dump={len(noun_dumps)}")
     if problems:
         print("PROBLEMS:")
         for p in problems:

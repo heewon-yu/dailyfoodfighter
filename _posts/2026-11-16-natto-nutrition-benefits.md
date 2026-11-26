@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "낫토 나토키나아제"
+title: "낫토 제대로 먹기"
 date: 2026-11-16 22:38:00 +0900
 lang: ko
 category: "육류"

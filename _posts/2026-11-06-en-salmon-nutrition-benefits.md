@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Raw vs Smoked Salmon"
+title: "Raw or Smoked Salmon?"
 date: 2026-11-06 18:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "피로 회복 음식"
+title: "피로 풀리는 음식"
 date: 2026-11-16 08:10:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

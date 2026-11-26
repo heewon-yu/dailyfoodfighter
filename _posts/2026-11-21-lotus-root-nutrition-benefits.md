@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "연근 데치면 손실"
+title: "연근 데치는 팁"
 date: 2026-11-21 07:40:00 +0900
 lang: ko
 category: "채소"

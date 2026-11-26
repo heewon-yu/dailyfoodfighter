@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "닭다리살 껍질"
+title: "닭다리 껍질 팁"
 date: 2026-11-18 07:45:00 +0900
 lang: ko
 category: "육류"

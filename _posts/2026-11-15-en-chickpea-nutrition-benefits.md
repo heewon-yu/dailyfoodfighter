@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chickpea Blood Sugar"
+title: "Chickpea Soaking Tips"
 date: 2026-11-15 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

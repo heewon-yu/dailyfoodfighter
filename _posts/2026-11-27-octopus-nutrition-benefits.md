@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "문어숙회 칼로리"
+title: "문어 삶는 법"
 date: 2026-11-27 08:05:00 +0900
 last_modified_at: 2026-11-27
 lang: ko

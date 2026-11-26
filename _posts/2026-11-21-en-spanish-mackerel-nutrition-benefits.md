@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spanish Mackerel Omega-3"
+title: "Grilling Spanish Mackerel"
 date: 2026-11-21 07:55:00 +0900
 lang: en
 category: "Seafood"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "파프리카 색깔별"
+title: "파프리카 고르기"
 date: 2026-11-23 07:45:00 +0900
 lang: ko
 category: "채소"

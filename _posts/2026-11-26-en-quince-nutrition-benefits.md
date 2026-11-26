@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Quince Raw Warning"
+title: "Never Eat Quince Raw"
 date: 2026-11-26 07:55:00 +0900
 last_modified_at: 2026-11-26
 lang: en

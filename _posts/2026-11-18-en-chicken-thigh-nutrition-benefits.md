@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chicken Thigh Skin"
+title: "Why Remove Thigh Skin"
 date: 2026-11-18 07:55:00 +0900
 lang: en
 category: "Meat"

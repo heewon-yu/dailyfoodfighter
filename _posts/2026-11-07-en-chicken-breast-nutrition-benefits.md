@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Chicken Breast Boiling"
+title: "How to Boil Chicken Breast"
 date: 2026-11-07 14:30:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

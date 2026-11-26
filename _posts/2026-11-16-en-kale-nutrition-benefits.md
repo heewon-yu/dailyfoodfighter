@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Kale Vitamin K Benefits"
+title: "Kale: Steam or Juice?"
 date: 2026-11-16 07:55:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "돼지 안심 칼로리"
+title: "돼지 안심 굽는 법"
 date: 2026-11-13 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

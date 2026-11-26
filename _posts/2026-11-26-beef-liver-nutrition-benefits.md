@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "쇠간 비타민A"
+title: "쇠간 과다 주의"
 date: 2026-11-26 07:50:00 +0900
 last_modified_at: 2026-11-26
 lang: ko

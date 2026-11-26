@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Bell Pepper Colors"
+title: "Bell Pepper Color Guide"
 date: 2026-11-23 07:55:00 +0900
 lang: en
 category: "Vegetables"

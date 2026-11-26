@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Yuzu Tea Sugar Content"
+title: "Yuja Tea Sugar: How Much?"
 date: 2026-11-22 07:50:00 +0900
 lang: en
 category: "Fruits"

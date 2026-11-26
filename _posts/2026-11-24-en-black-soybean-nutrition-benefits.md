@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Black Soybean Protein"
+title: "How to Soak Black Soybeans"
 date: 2026-11-24 07:52:00 +0900
 lang: en
 category: "Protein"

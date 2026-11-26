@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Grapes and Blood Sugar"
+title: "Grapes: Blood Sugar Guide"
 date: 2026-11-20 06:05:00 +0900
 lang: en
 category: "Fruits"

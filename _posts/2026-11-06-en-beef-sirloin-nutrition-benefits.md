@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "Beef Sirloin Nutrition"
+title: "How to Grill Beef Sirloin"
 date: 2026-11-06 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 category: "Meat"

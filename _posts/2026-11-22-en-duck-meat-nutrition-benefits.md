@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Duck Meat Without Skin"
+title: "Duck Meat: Skin or Not?"
 date: 2026-11-22 07:55:00 +0900
 lang: en
 category: "Meat & Protein"

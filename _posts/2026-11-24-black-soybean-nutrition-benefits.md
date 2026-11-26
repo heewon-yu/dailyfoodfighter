@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "서리태 단백질"
+title: "서리태 불리기 팁"
 date: 2026-11-24 07:42:00 +0900
 lang: ko
 category: "육류·단백질"

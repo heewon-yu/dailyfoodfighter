@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삶은 계란 칼로리"
+title: "계란 칼로리 정리"
 date: 2026-11-09 08:00:00 +0900
 last_modified_at: 2026-11-25 09:50:00 +0900
 lang: ko

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삼겹살 구우면"
+title: "삼겹살 굽는 법"
 date: 2026-11-20 06:10:00 +0900
 lang: ko
 category: "육류·단백질"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Oyster Zinc Benefits"
+title: "Oyster Zinc: Why It Wins"
 date: 2026-11-11 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

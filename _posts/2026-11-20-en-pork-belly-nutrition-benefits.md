@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Grilled Pork Belly"
+title: "Pork Belly Grilling Tips"
 date: 2026-11-20 06:15:00 +0900
 lang: en
 category: "Meat & Protein"

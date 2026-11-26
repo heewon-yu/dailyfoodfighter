@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sweet Potato Calories"
+title: "Sweet Potato Calorie Gap"
 date: 2026-11-14 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

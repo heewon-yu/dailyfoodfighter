@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "유자차 당 주의"
+title: "유자차 당 줄이기"
 date: 2026-11-22 07:40:00 +0900
 lang: ko
 category: "과일"

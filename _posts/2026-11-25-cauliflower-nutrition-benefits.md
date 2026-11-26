@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "콜리플라워 삶기"
+title: "콜리플라워 삶는 팁"
 date: 2026-11-25 07:45:00 +0900
 last_modified_at: 2026-11-25
 lang: ko

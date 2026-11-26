@@ -79,7 +79,7 @@
 ```yaml
 ---
 layout: post
-title: "{한글식재료명} 효능과 영양 성분의 과학적 진실: {핵심 질문/효능}"
+title: "{한글식재료명} {서술형 마무리}"  # 10자 이내(공백 포함). ~팁 / ~삶는 법 / ~먹는 법 / ~고르는 법 / ~효과 / ~이유 / ~주의 / ~차이 로 끝낸다. 명사 나열(`서리태 단백질`) 금지. 예: `서리태 불리기 팁`
 date: YYYY-MM-DD 00:00:00 +0900
 lang: ko
 category: "과일" # 과일, 채소, 육류, 수산물 중 택 1
@@ -96,7 +96,7 @@ permalink: /posts/{식재료영문소문자}-nutrition-benefits/
 ---
 layout: post
 lang: en
-title: "The Clinical Nutrition Science of {English Food Name}: Proven Benefits, Bioavailability, and Culinary Optimization"
+title: "{English Food Name} {Key Point}"  # 28자 이내(공백 포함). Tips / How to / Guide / Why / Benefits / Warning 등 서술 신호 포함, 명사 덩어리(`Beef Sirloin Nutrition`) 금지. 예: `How to Boil Chicken Breast`
 date: YYYY-MM-DD 00:00:00 +0900
 category: "Fruits" # Fruits, Vegetables, Meat, Seafood
 tags: [{English Name}, {Key Nutrient}, Antioxidants, NutritionScience, EvidenceBased]
@@ -184,6 +184,8 @@ dailyfoodfighter/
 64편 전면 개편과 함께 아래 규격이 확정되었으니, 신규 글 작성 시 `docs/WRITING_MANUAL.md`의 **「SEO 최적화 규격 (2026-11-16)」** 표를 그대로 따른다.
 
 - 국문 제목 **10자 이내(공백 포함)** · 영문 제목 **28자 이내(공백 포함)** — 2026-11-27 유희원 님 지시로 초컴팩트 한 줄 규칙으로 변경(종전 32~42자·48~60자)
+- 제목은 **서술·행동형으로 끝낸다**: `~팁`·`~삶는 법`·`~먹는 법`·`~고르는 법`·`~효과`·`~이유`·`~주의`·`~차이` / 영문 `Tips`·`How to`·`Guide`·`Why`·`Benefits`·`Warning`. **명사만 이어 붙인 제목(`서리태 단백질`, `다시마 요오드`)은 금지** (2026-11-27 2차 지시)
+- 검증 스크립트: `python3 scripts/retitle_compact_20261127.py` — 길이·중복·명사 나열(`noun_dump=0`)을 전수 확인
 - 메타 설명 국문 75~110자 · 영문 130~155자
 - 도입부 `answer-first` 요약 박스(100g 기준 수치 직답) + 검색 질문형 H2
 - 본문 내부 링크 2~4개(같은 언어·실존 URL만), 수정 시 `last_modified_at` 갱신

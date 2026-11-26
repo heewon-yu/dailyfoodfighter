@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "삼치 오메가3"
+title: "삼치 굽기 팁"
 date: 2026-11-21 07:50:00 +0900
 lang: ko
 category: "수산물"

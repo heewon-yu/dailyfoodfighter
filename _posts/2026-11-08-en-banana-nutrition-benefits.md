@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Carbs in One Banana"
+title: "How Many Carbs in a Banana?"
 date: 2026-11-08 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

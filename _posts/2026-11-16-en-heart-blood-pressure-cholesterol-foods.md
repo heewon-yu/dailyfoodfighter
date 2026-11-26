@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Foods for Blood Pressure"
+title: "10 Foods for Blood Pressure"
 date: 2026-11-16 08:09:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

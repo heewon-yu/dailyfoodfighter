@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Persimmon and Constipation"
+title: "Persimmon Constipation Myth"
 date: 2026-11-16 22:36:00 +0900
 lang: en
 category: "Fruits"

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "간장게장 나트륨"
+title: "게장 덜 짜게 먹기"
 date: 2026-11-23 07:40:00 +0900
 lang: ko
 category: "수산물"

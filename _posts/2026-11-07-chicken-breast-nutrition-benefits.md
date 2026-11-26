@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "닭가슴살 삶기"
+title: "닭가슴살 삶는 팁"
 date: 2026-11-07 14:30:00 +0900
 last_modified_at: 2026-11-16 08:55:09 +0900
 lang: ko

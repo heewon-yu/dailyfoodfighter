@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "멸치육수 칼슘"
+title: "멸치 육수 내기"
 date: 2026-11-19 07:50:00 +0900
 lang: ko
 category: "수산물"

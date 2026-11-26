@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pear Juice Daily Limit"
+title: "How Much Pear Juice?"
 date: 2026-11-18 08:00:00 +0900
 lang: en
 category: "Fruits"

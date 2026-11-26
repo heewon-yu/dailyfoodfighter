@@ -1,7 +1,7 @@
 ---
 layout: post
 lang: en
-title: "{English Food Name} {Key Point}"  # 2026-11-27 rule: max 28 chars (spaces included), compact one line matching the Korean title. e.g. `Chilled Potato Tips`, `Octopus Boiling Tips`, `Quince Buying Guide`
+title: "{English Food Name} {Key Point}"  # 2026-11-27 rule: max 28 chars (spaces included), and it must end in a descriptive signal — Tips / How to / Guide / Why / Benefits / Warning / vs / or / ?. Bare noun stacks such as `Beef Sirloin Nutrition` or `Kelp Iodine Intake` are banned. e.g. `Frozen Blueberry Tips`, `How to Boil Chicken Breast`, `Why Crush Garlic First`, `Soy Crab Too Salty?`
 date: YYYY-MM-DD 00:00:00 +0900
 last_modified_at: YYYY-MM-DD HH:MM:SS +0900   # update on revision (dateModified, last reviewed)
 category: "{Fruits | Vegetables | Meat | Seafood}"

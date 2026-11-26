@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "감 변비 괜찮나"
+title: "감 변비 논란 정리"
 date: 2026-11-16 22:34:00 +0900
 lang: ko
 category: "과일"

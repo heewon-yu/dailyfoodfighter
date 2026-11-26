@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Soy Crab Sodium Level"
+title: "Soy Crab Too Salty?"
 date: 2026-11-23 07:50:00 +0900
 lang: en
 category: "Seafood"

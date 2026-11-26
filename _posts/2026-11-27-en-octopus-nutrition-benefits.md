@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Boiled Octopus Calories"
+title: "Octopus Boiling Tips"
 date: 2026-11-27 07:55:00 +0900
 last_modified_at: 2026-11-27
 lang: en

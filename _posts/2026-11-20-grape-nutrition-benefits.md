@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "포도 한 송이 혈당"
+title: "포도 적당량 팁"
 date: 2026-11-20 06:00:00 +0900
 lang: ko
 category: "과일"

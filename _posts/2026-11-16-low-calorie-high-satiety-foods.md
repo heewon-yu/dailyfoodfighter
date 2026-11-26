@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "저칼로리 포만 음식"
+title: "포만감 높은 음식"
 date: 2026-11-16 08:07:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cabbage Vitamin U"
+title: "Cabbage Vitamin U Benefits"
 date: 2026-11-12 08:00:00 +0900
 last_modified_at: 2026-11-23 09:10:00 +0900
 lang: en

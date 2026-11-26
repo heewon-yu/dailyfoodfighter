@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "소고기 등심 팁"
+title: "소고기 등심 굽기"
 date: 2026-11-06 08:00:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

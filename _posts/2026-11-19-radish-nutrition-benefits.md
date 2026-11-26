@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "무즙 먹어도 되나"
+title: "무즙 기침 효과"
 date: 2026-11-19 07:45:00 +0900
 lang: ko
 category: "채소"

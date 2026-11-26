@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Anchovy Broth Calcium"
+title: "Boil Anchovies for Calcium"
 date: 2026-11-19 08:00:00 +0900
 lang: en
 category: "Seafood"

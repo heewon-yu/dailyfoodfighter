@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Natto Nattokinase"
+title: "How to Eat Natto Right"
 date: 2026-11-16 22:40:00 +0900
 lang: en
 category: "Meat & Protein"

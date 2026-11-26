@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "석류 즙 vs 생과"
+title: "석류즙 생과 차이"
 date: 2026-11-15 15:45:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: ko

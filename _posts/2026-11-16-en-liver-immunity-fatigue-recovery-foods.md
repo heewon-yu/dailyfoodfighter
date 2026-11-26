@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fatigue Recovery Foods"
+title: "10 Foods to Beat Fatigue"
 date: 2026-11-16 08:10:00 +0900
 last_modified_at: 2026-11-16 08:48:19 +0900
 lang: en

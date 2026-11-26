@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "두부 한 모 칼로리"
+title: "두부 칼로리 얼마"
 date: 2026-11-11 08:00:00 +0900
 last_modified_at: 2026-11-25 09:50:00 +0900
 lang: ko

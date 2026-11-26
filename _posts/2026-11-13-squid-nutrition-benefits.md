@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "오징어 타우린"
+title: "오징어 데치는 팁"
 date: 2026-11-13 08:00:00 +0900
 last_modified_at: 2026-11-25 10:00:00 +0900
 lang: ko
