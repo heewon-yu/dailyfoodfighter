@@ -124,11 +124,11 @@
               Air.el("td", {
                 class: "cell-muted",
                 text: cabin.combined
-                  ? "일등석 보너스/좌석승급 통합 · 공제량 자동 합산 제외"
+                  ? "일등석 보너스/좌석승급 통합"
                   : cabin.key === "business"
                     ? "프레스티지 보너스(P) · 승급 전용 U 제외"
-                    : cabin.key === "premium"
-                      ? "프리미엄 보너스(R) · 승급 전용 G 제외"
+                    : cabin.key === "first"
+                      ? "일등석(F) · 공제표 일등석 값 적용"
                       : "일반석 보너스(E)"
               })
             ])
@@ -137,14 +137,14 @@
       ])
     ]));
 
-    /* 조회 범위 */
+    /* 수집 범위 */
     root.append(Air.el("section", { class: "air-section" }, [
-      Air.el("h2", { text: "조회 범위(지역·월 파일)" }),
+      Air.el("h2", { text: "수집 범위(파일 단위)" }),
       Air.el("div", { class: "air-table-wrap" }, [
         Air.el("table", { class: "air-table" }, [
           Air.el("thead", null, [
             Air.el("tr", null, [
-              Air.el("th", { scope: "col", text: "지역" }),
+              Air.el("th", { scope: "col", text: "수집 구분" }),
               Air.el("th", { scope: "col", text: "탑승월" }),
               Air.el("th", { scope: "col", text: "매니페스트 건수" }),
               Air.el("th", { scope: "col", text: "실제 반영" })
@@ -153,7 +153,7 @@
           Air.el("tbody", null, stats.files.map(file => {
             const actual = rows.filter(row => row.month === file.month && row.region === file.region).length;
             return Air.el("tr", null, [
-              Air.el("td", { text: Air.regionLabel(file.region) }),
+              Air.el("td", { text: `${Air.regionLabel(file.region)} 묶음` }),
               Air.el("td", { class: "num", text: Air.fmtMonth(file.month) }),
               Air.el("td", { class: "num", text: String(file.total) }),
               Air.el("td", {
@@ -187,22 +187,12 @@
             Air.el("tr", null, [
               Air.el("td", { text: "승급 전용 좌석(G·U)" }),
               Air.el("td", { class: "num", text: String(stats.excludedCabin) }),
-              Air.el("td", { class: "cell-muted", text: "표시·왕복 합산에서 제외" })
+              Air.el("td", { class: "cell-muted", text: "표시·검색에서 제외" })
             ]),
             Air.el("tr", null, [
               Air.el("td", { text: "형식 오류·fixture 혼입" }),
               Air.el("td", { class: "num", text: String(stats.invalid) }),
               Air.el("td", { class: "cell-muted", text: "표시하지 않음" })
-            ]),
-            Air.el("tr", null, [
-              Air.el("td", { text: "F 통합 표식" }),
-              Air.el("td", { class: "num", text: String(stats.firstCombined) }),
-              Air.el("td", { class: "cell-muted", text: "보너스 확정 아님 · 공제량 합산 제외" })
-            ]),
-            Air.el("tr", null, [
-              Air.el("td", { text: "F 통합 표식 불일치(first_combined=false)" }),
-              Air.el("td", { class: "num", text: String(stats.fConflict) }),
-              Air.el("td", { class: "cell-muted", text: "확인 필요 · 보너스 확정으로 표시하지 않음" })
             ]),
             Air.el("tr", null, [
               Air.el("td", { text: "NEW 전환 근거 없음" }),

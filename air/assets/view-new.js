@@ -1,13 +1,14 @@
 /* 마일지도 AIR — 신규 좌석 뷰 (/air/new/)
-   이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 기록만 표시한다.
-   최초 수집, 미조회(unknown) 전환은 NEW 가 아니다. */
+   이전 갱신에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 기록 중
+   프레스티지(P)·일등석(F)만 표시한다. 최초 수집·미조회 전환은 NEW가 아니다. */
 (() => {
   "use strict";
 
   const $ = id => document.getElementById(id);
 
+  const NEW_CABINS = ["business", "first"];
+
   const state = {
-    region: "",
     month: "",
     cabin: "",
     rows: [],
@@ -17,13 +18,13 @@
 
   function readUrl() {
     const params = Air.params();
-    state.region = params.get("region") || "";
     state.month = params.get("month") || "";
     state.cabin = params.get("cabin") || "";
+    if (state.cabin && !NEW_CABINS.includes(state.cabin)) state.cabin = "";
   }
 
   function syncUrl() {
-    Air.setParams({ region: state.region, month: state.month, cabin: state.cabin });
+    Air.setParams({ month: state.month, cabin: state.cabin });
   }
 
   function selectField(id, label, value, entries, onChange) {
@@ -63,9 +64,9 @@
       ]),
       Air.el("div", { class: "flight-card__meta" }, [
         Air.el("span", { class: "flight-card__date", text: Air.fmtDate(row.date) }),
+        Air.seasonBadge(row.origin, row.date),
         Air.el("span", { text: "·" }),
-        Air.cabinChip(row.cabinKey),
-        row.cabin.combined ? Air.el("span", { class: "badge badge--combined", text: "F 통합" }) : null
+        Air.cabinChip(row.cabinKey)
       ]),
       Air.el("div", { class: "flight-card__bottom" }, [
         Air.priceNode(row),
@@ -87,34 +88,34 @@
 
     const months = [...new Set(state.rows.map(row => row.month))].sort();
 
-    const regionEntries = [...new Set(state.rows.map(row => row.region || "").filter(Boolean))]
-      .sort()
-      .map(region => ({ value: region, label: Air.regionLabel(region) }));
-
     root.append(Air.el("div", { class: "air-panel", style: "margin-bottom:16px" }, [
       Air.el("div", { class: "air-filters", style: "grid-template-columns:repeat(auto-fit,minmax(190px,1fr))" }, [
-        selectField("air-new-region", "지역", state.region, regionEntries, value => { state.region = value; }),
         selectField("air-new-month", "탑승월", state.month,
           months.map(month => ({ value: month, label: Air.fmtMonth(month) })),
           value => { state.month = value; }),
         selectField("air-new-cabin", "좌석 등급", state.cabin,
-          Air.CABINS.map(cabin => ({ value: cabin.key, label: `${cabin.letter} · ${cabin.name}` })),
+          NEW_CABINS.map(key => {
+            const cabin = Air.CABIN_BY_KEY.get(key);
+            return { value: key, label: `${cabin.letter} · ${cabin.name}` };
+          }),
           value => { state.cabin = value; })
       ])
     ]));
 
     const rows = state.rows.filter(row => {
       if (!row.isNew) return false;
-      if (state.region && (row.region || "") !== state.region) return false;
+      if (!NEW_CABINS.includes(row.cabinKey)) return false;
       if (state.month && row.month !== state.month) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
       return true;
-    }).sort((a, b) => a.date.localeCompare(b.date));
+    }).sort((a, b) => a.date.localeCompare(b.date) ||
+      a.destination.localeCompare(b.destination));
 
     const head = Air.el("div", { class: "air-results-head" }, [
       Air.el("h2", { text: "신규 좌석" }),
       Air.el("p", { class: "air-results-summary" }, [
-        Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"])
+        Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"]),
+        Air.el("span", { text: "프레스티지·일등석" })
       ])
     ]);
 
@@ -122,8 +123,8 @@
 
     if (!rows.length) {
       root.append(Air.emptyState(
-        "확인된 신규 좌석이 없습니다",
-        "NEW는 이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다. " +
+        "확인된 신규 프레스티지·일등석 좌석이 없습니다",
+        "NEW는 이전 갱신에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다. " +
         "최초 수집된 날짜와 미조회 상태에서 바뀐 기록은 NEW로 표시하지 않습니다."
       ));
     } else {
@@ -151,6 +152,14 @@
       state.rows = payload.rows;
       state.stats = payload.stats;
       state.meta = await Air.manifestMeta();
+
+      const live = new Set();
+      for (const route of state.meta.collectionRoutes || []) {
+        for (const code of String(route).split("-")) {
+          if (/^[A-Z]{3}$/.test(code)) live.add(code);
+        }
+      }
+      if (live.size && Air.award && Air.award.setLiveRoutes) Air.award.setLiveRoutes([...live]);
     } catch (error) {
       $("air-new-view").replaceChildren(Air.emptyState(
         "좌석 데이터를 불러오지 못했습니다",

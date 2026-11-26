@@ -1,4 +1,5 @@
-/* 마일지도 AIR — 세계지도 뷰 (/air/map/) */
+/* 마일지도 AIR — 세계지도 뷰 (/air/map/)
+   좌석 표시가 확인된 노선을 지도에 그린다. 공항은 자동완성으로 고른다. */
 (() => {
   "use strict";
 
@@ -10,25 +11,25 @@
   const state = {
     origin: "",
     destination: "",
-    region: "",
     cabin: "",
     month: "",
     rows: [],
     meta: null,
     coordinates: new Map(),
-    airportList: []
+    mounted: false
   };
 
   let map = null;
   let layer = null;
   let leafletPromise = null;
   let renderVersion = 0;
+  let comboOrigin;
+  let comboDestination;
 
   function readUrl() {
     const params = Air.params();
     state.origin = (params.get("origin") || "").toUpperCase();
     state.destination = (params.get("destination") || "").toUpperCase();
-    state.region = params.get("region") || "";
     state.cabin = params.get("cabin") || "";
     state.month = params.get("month") || "";
   }
@@ -37,7 +38,6 @@
     Air.setParams({
       origin: state.origin,
       destination: state.destination,
-      region: state.region,
       cabin: state.cabin,
       month: state.month
     });
@@ -66,45 +66,40 @@
     return leafletPromise;
   }
 
-  async function loadCoordinates() {
-    try {
-      const data = await (await fetch(Air.ROOT + "data/airport-coordinates.json", { cache: "no-store" })).json();
-      for (const airport of data.airports || []) {
-        if (Number.isFinite(airport.latitude) && Number.isFinite(airport.longitude)) {
-          state.coordinates.set(airport.code, [airport.latitude, airport.longitude]);
+  function loadCoordinates() {
+    return Air.airports().then(() => {
+      for (const entry of Air.award ? Air.award.airports() : []) {
+        if (Number.isFinite(entry.lat) && Number.isFinite(entry.lon)) {
+          state.coordinates.set(entry.code, [entry.lat, entry.lon]);
         }
       }
-    } catch {
+    }).catch(() => {
       state.coordinates = new Map();
-    }
-  }
-
-  function selectField(id, label, value, entries, onChange) {
-    const select = Air.el("select", { class: "air-select", id });
-    select.append(new Option("전체", ""));
-
-    for (const entry of entries) {
-      select.append(new Option(entry.label, entry.value));
-    }
-
-    select.value = value;
-    select.addEventListener("change", () => {
-      onChange(select.value);
-      draw();
     });
-
-    return Air.el("div", { class: "air-field" }, [
-      Air.el("label", { for: id, text: label }),
-      select
-    ]);
   }
 
   function controls() {
-    const airportEntries = state.airportList.map(airport => ({
-      value: airport.code, label: `${airport.name} (${airport.code})`
-    }));
-
     const months = [...new Set(state.rows.map(row => row.month))].sort();
+
+    const cabinSelect = Air.el("select", { class: "air-select", id: "air-map-cabin" });
+    cabinSelect.append(new Option("전체 등급", ""));
+    for (const cabin of Air.CABINS) {
+      cabinSelect.append(new Option(`${cabin.letter} · ${cabin.name}`, cabin.key));
+    }
+    cabinSelect.value = state.cabin;
+    cabinSelect.addEventListener("change", () => {
+      state.cabin = cabinSelect.value;
+      draw();
+    });
+
+    const monthSelect = Air.el("select", { class: "air-select", id: "air-map-month" });
+    monthSelect.append(new Option("전체 기간", ""));
+    for (const month of months) monthSelect.append(new Option(Air.fmtMonth(month), month));
+    monthSelect.value = state.month;
+    monthSelect.addEventListener("change", () => {
+      state.month = monthSelect.value;
+      draw();
+    });
 
     const collapse = Air.el("button", {
       type: "button",
@@ -123,18 +118,32 @@
 
     return Air.el("div", { class: "air-panel", style: "margin-bottom:14px" }, [
       Air.el("div", { class: "air-filters", style: "grid-template-columns:repeat(auto-fit,minmax(180px,1fr))" }, [
-        selectField("air-map-origin", "출발 공항", state.origin, airportEntries, value => { state.origin = value; }),
-        selectField("air-map-destination", "도착 공항", state.destination, airportEntries, value => { state.destination = value; }),
-        selectField("air-map-region", "지역", state.region,
-          [...new Set(state.rows.map(row => row.region || "").filter(Boolean))].sort()
-            .map(region => ({ value: region, label: Air.regionLabel(region) })),
-          value => { state.region = value; }),
-        selectField("air-map-cabin", "좌석 등급", state.cabin,
-          Air.CABINS.map(cabin => ({ value: cabin.key, label: `${cabin.letter} · ${cabin.name}` })),
-          value => { state.cabin = value; }),
-        selectField("air-map-month", "탑승월", state.month,
-          months.map(month => ({ value: month, label: Air.fmtMonth(month) })),
-          value => { state.month = value; })
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-map-origin-input", text: "출발 공항" }),
+          Air.el("div", { class: "air-combo", id: "air-map-origin-combo" }, [
+            Air.el("input", {
+              class: "air-input air-combo__input", id: "air-map-origin-input", type: "search",
+              placeholder: "도시·공항명·코드", autocomplete: "off", spellcheck: "false"
+            })
+          ])
+        ]),
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-map-destination-input", text: "도착 공항" }),
+          Air.el("div", { class: "air-combo", id: "air-map-destination-combo" }, [
+            Air.el("input", {
+              class: "air-input air-combo__input", id: "air-map-destination-input", type: "search",
+              placeholder: "도시·공항명·코드", autocomplete: "off", spellcheck: "false"
+            })
+          ])
+        ]),
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-map-cabin", text: "좌석 등급" }),
+          cabinSelect
+        ]),
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-map-month", text: "탑승월" }),
+          monthSelect
+        ])
       ]),
       Air.el("div", { class: "air-actions" }, [collapse])
     ]);
@@ -144,7 +153,6 @@
     return state.rows.filter(row => {
       if (state.origin && row.origin !== state.origin) return false;
       if (state.destination && row.destination !== state.destination) return false;
-      if (state.region && (row.region || "") !== state.region) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
       if (state.month && row.month !== state.month) return false;
       return row.status === "available";
@@ -166,8 +174,9 @@
     const list = Air.el("ul");
 
     for (const entry of route.dates.slice(0, 6)) {
+      const season = Air.award ? Air.award.seasonOf(entry.date, route.origin) : null;
       list.append(Air.el("li", {
-        text: `${Air.fmtDate(entry.date)} · ${entry.letters.join(" ")}`
+        text: `${Air.fmtDate(entry.date)} · ${entry.letters.join(" ")}${season && season.peak ? " · 성수기" : ""}`
       }));
     }
 
@@ -202,7 +211,7 @@
           month: row.month,
           dates: [],
           hasNew: false,
-          hasDiscount: false
+          hasPeak: false
         });
       }
 
@@ -216,11 +225,7 @@
       }
 
       if (row.isNew) route.hasNew = true;
-
-      const price = Air.priceOf(row);
-      if (price.kind === "verified" || price.kind === "estimate") {
-        if ((price.discounted || price.standard) < price.standard) route.hasDiscount = true;
-      }
+      if (Air.award && Air.award.seasonOf(row.date, row.origin).peak) route.hasPeak = true;
     }
 
     for (const route of routes.values()) {
@@ -255,7 +260,7 @@
 
       if (!from || !to) { missing++; continue; }
 
-      const color = route.hasNew ? "#16965d" : route.hasDiscount ? "#e88b25" : "#3478bc";
+      const color = route.hasNew ? "#16965d" : route.hasPeak ? "#e88b25" : "#3478bc";
 
       const line = L.polyline([from, to], {
         color, weight: 2, opacity: .75, dashArray: "5 5"
@@ -265,8 +270,7 @@
         radius: 7, color: "#fff", weight: 2, fillColor: color, fillOpacity: 1
       }).addTo(layer);
 
-      const popup = popupContent(route);
-      marker.bindPopup(popup);
+      marker.bindPopup(popupContent(route));
 
       line.on("click", () => marker.openPopup());
 
@@ -327,6 +331,9 @@
       const payload = await Air.data({});
       state.rows = payload.rows;
       state.meta = await Air.manifestMeta();
+
+      const live = new Set(state.rows.flatMap(row => [row.origin, row.destination]));
+      if (live.size && Air.award && Air.award.setLiveRoutes) Air.award.setLiveRoutes([...live]);
     } catch (error) {
       root.replaceChildren(Air.emptyState(
         "좌석 데이터를 불러오지 못했습니다",
@@ -336,16 +343,24 @@
     }
 
     try {
-      const airports = await Air.airports();
-      const codes = new Set(state.rows.flatMap(row => [row.origin, row.destination]));
-      state.airportList = [...airports.values()]
-        .filter(airport => codes.has(airport.code))
-        .sort((a, b) => a.name.localeCompare(b.name, "ko"));
+      await Air.airports();
     } catch {
-      state.airportList = [];
+      /* 공항 사전이 없어도 지도는 그린다. */
     }
 
     root.prepend(controls());
+
+    comboOrigin = Air.airportCombo($("air-map-origin-combo"), {
+      value: state.origin,
+      placeholder: "도시·공항명·코드",
+      onSelect: value => { state.origin = value; draw(); }
+    });
+
+    comboDestination = Air.airportCombo($("air-map-destination-combo"), {
+      value: state.destination,
+      placeholder: "도시·공항명·코드",
+      onSelect: value => { state.destination = value; draw(); }
+    });
 
     const shell = $("air-map-shell");
     if ("IntersectionObserver" in window) {

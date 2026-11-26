@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>마일지도 | 대한항공 SKYPASS 보너스 좌석 검색</title>
-<meta name="description" content="대한항공 SKYPASS 국제선 보너스 좌석(E·R·P·F)을 노선·날짜별로 확인하는 마일지도입니다. 공식 조회 화면의 월별 좌석 현황을 수집해 보여줍니다.">
+<meta name="description" content="대한항공 SKYPASS 국제선 보너스 좌석(일반·프레스티지·일등석)을 노선·날짜별로 확인하고, 공식 공제표 기준 성수기·평수기 마일리지를 계산해 보여주는 마일지도입니다.">
 <meta name="theme-color" content="#0f2340">
-<link rel="stylesheet" href="/air/assets/milemap-app.css?v=3">
-<script src="/air/assets/app.js?v=3" defer></script>
-<script src="/air/assets/air-journey.js?v=3" defer></script>
-<script src="/air/assets/view-search.js?v=3" defer></script>
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=4">
+<script src="/air/assets/app.js?v=4" defer></script>
+<script src="/air/assets/award.js?v=4" defer></script>
+<script src="/air/assets/view-search.js?v=4" defer></script>
 </head>
 <body data-air-page="search">
 <main id="air-main" class="air-main">
@@ -18,7 +18,7 @@
   <section class="air-hero">
     <p class="air-hero__eyebrow">대한항공 SKYPASS · 국제선 보너스 좌석</p>
     <h1>마일지도</h1>
-    <p>로그인 없이 대한항공 보너스 좌석을 찾아보고, 날짜와 등급을 확인하세요.</p>
+    <p>로그인 없이 대한항공 보너스 좌석을 찾아보고, 날짜와 공제 마일리지를 확인하세요.</p>
     <p class="air-hero__meta">
       <span>대한항공 국제선 전용</span>
       <span>타 항공사·제휴사 미지원</span>
@@ -39,42 +39,38 @@
   <form class="air-panel" id="air-search-form" role="search" aria-label="보너스 좌석 검색">
     <div class="air-filters air-filters--search">
 
-      <div class="air-field">
+      <div class="air-field air-field--origin">
         <label for="air-origin-input">출발 공항</label>
         <div class="air-combo" id="air-origin-combo">
           <input class="air-input air-combo__input" id="air-origin-input" type="search"
-                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+                 placeholder="도시·공항명·코드 (예: 인천, 도쿄, ICN)" autocomplete="off" spellcheck="false">
         </div>
       </div>
 
-      <div class="air-field">
+      <div class="air-field air-field--destination">
         <label for="air-destination-input">도착 공항</label>
         <div class="air-combo" id="air-destination-combo">
           <input class="air-input air-combo__input" id="air-destination-input" type="search"
-                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+                 placeholder="도시·공항명·코드 (예: 도쿄, 나리타, NRT)" autocomplete="off" spellcheck="false">
         </div>
       </div>
 
-      <div class="air-field">
-        <label for="air-region">지역</label>
-        <select class="air-select" id="air-region">
-          <option value="">전체 지역</option>
-        </select>
+      <div class="air-field air-field--trip">
+        <span class="air-field__label" id="air-trip-label">여정</span>
+        <div class="air-seg air-seg--trip" role="group" aria-labelledby="air-trip-label">
+          <button type="button" id="air-trip-one" aria-pressed="true">편도</button>
+          <button type="button" id="air-trip-round" aria-pressed="false">왕복</button>
+        </div>
       </div>
 
-      <div class="air-field">
+      <div class="air-field air-field--month" id="air-month-field">
         <label for="air-month">탑승월</label>
         <select class="air-select" id="air-month">
           <option value="">전체 기간</option>
         </select>
       </div>
 
-      <div class="air-field air-field--wide">
-        <span class="air-field__label" id="air-cabin-label">좌석 등급</span>
-        <div class="air-seg air-seg--cabin" role="group" aria-labelledby="air-cabin-label" id="air-cabin"></div>
-      </div>
-
-      <div class="air-field">
+      <div class="air-field air-field--status">
         <label for="air-status">좌석 상태</label>
         <select class="air-select" id="air-status">
           <option value="">전체 상태</option>
@@ -86,7 +82,7 @@
         </select>
       </div>
 
-      <div class="air-field">
+      <div class="air-field air-field--sort">
         <label for="air-sort">정렬</label>
         <select class="air-select" id="air-sort">
           <option value="date-asc">출발일 빠른 순</option>
@@ -96,14 +92,28 @@
         </select>
       </div>
 
+      <div class="air-field air-field--wide">
+        <span class="air-field__label" id="air-cabin-label">좌석 등급</span>
+        <div class="air-seg air-seg--cabin" role="group" aria-labelledby="air-cabin-label" id="air-cabin"></div>
+      </div>
+
+    </div>
+
+    <div class="air-round" id="air-round-fields" hidden>
+      <div class="air-field">
+        <label for="air-out-date">가는 날</label>
+        <input class="air-input" id="air-out-date" type="date">
+      </div>
+      <div class="air-field">
+        <label for="air-in-date">오는 날</label>
+        <input class="air-input" id="air-in-date" type="date">
+      </div>
+      <p class="air-inline-note air-round__note">
+        가는 날과 오는 날 각각의 성수기·평수기 공제 마일을 더해 왕복 공제량을 계산합니다.
+      </p>
     </div>
 
     <div class="air-actions">
-      <div class="air-seg" role="group" aria-label="여정 유형">
-        <button type="button" id="air-trip-one" aria-pressed="true">편도 검색</button>
-        <button type="button" id="air-trip-round" aria-pressed="false">왕복 조합</button>
-      </div>
-      <span class="air-actions__spacer"></span>
       <button class="air-btn" type="submit">좌석 검색</button>
       <button class="air-btn air-btn--ghost" type="button" id="air-reset">조건 초기화</button>
       <button class="air-btn air-btn--ghost" type="button" id="air-share">링크 복사</button>
@@ -120,7 +130,7 @@
     <nav class="air-pagination" id="air-pagination" aria-label="검색 결과 페이지"></nav>
   </section>
 
-  <section id="air-journey-panel" class="air-section" aria-label="왕복 조합" hidden></section>
+  <section id="air-journey-panel" class="air-section" aria-label="왕복 공제량" hidden></section>
 
   <section class="air-section" aria-labelledby="air-marks">
     <h2 id="air-marks">표식 읽는 법</h2>
@@ -138,20 +148,22 @@
         </p>
       </div>
       <div class="air-card">
-        <p class="air-field__label">NEW</p>
-        <p style="margin-bottom:8px"><span class="badge badge--new">NEW</span></p>
+        <p class="air-field__label">성수기 · 평수기</p>
+        <p style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+          <span class="badge badge--peak">성수기</span>
+          <span class="badge badge--offpeak">평수기</span>
+        </p>
         <p class="air-inline-note">
-          이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다.
-          최초 수집이나 미조회 상태에서 바뀐 기록은 NEW가 아닙니다.
+          대한항공 공식 공제표의 성수기 기간에 드는 날짜는 같은 등급이라도 공제 마일이 더 높습니다.
+          마일지도는 탑승일과 노선으로 성수기·평수기를 자동 판별해 정확한 마일을 표시합니다.
         </p>
       </div>
       <div class="air-card">
-        <p class="air-field__label">일등석 F</p>
-        <p style="margin-bottom:8px"><span class="cabin-chip cabin-f"><span>F</span><span>일등</span></span>
-          <span class="badge badge--combined">통합</span></p>
+        <p class="air-field__label">NEW</p>
+        <p style="margin-bottom:8px"><span class="badge badge--new">NEW</span></p>
         <p class="air-inline-note">
-          대한항공 일등석 표식은 보너스 예약과 좌석승급이 구분되지 않습니다.
-          보너스 확정으로 표시하지 않으며, 공제량도 자동 합산하지 않습니다.
+          이전 갱신에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다.
+          최초 수집이나 미조회 상태에서 바뀐 기록은 NEW가 아닙니다.
         </p>
       </div>
     </div>
@@ -168,12 +180,12 @@
       <a class="air-card" href="/air/calendar/" style="text-decoration:none;color:inherit">
         <p class="air-field__label">월별 달력</p>
         <p style="font-weight:800;color:#0f2340;margin-bottom:4px">날짜별 좌석 등급</p>
-        <p class="air-inline-note">E·R·P·F 표식을 달력에서 한눈에 봅니다.</p>
+        <p class="air-inline-note">E·P·F 표식과 성수기 여부를 달력에서 한눈에 봅니다.</p>
       </a>
       <a class="air-card" href="/air/mileage/" style="text-decoration:none;color:#0f2340">
-        <p class="air-field__label">공제량 안내</p>
-        <p style="font-weight:800;margin-bottom:4px">공제표·성수기·핫픽</p>
-        <p class="air-inline-note">검증된 공식 공제표 기준으로만 수치를 표시합니다.</p>
+        <p class="air-field__label">공제표</p>
+        <p style="font-weight:800;margin-bottom:4px">권역·등급별 평수기·성수기</p>
+        <p class="air-inline-note">대한항공 공식 공제표와 2026~2027 성수기 날짜를 확인합니다.</p>
       </a>
     </div>
   </section>

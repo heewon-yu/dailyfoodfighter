@@ -1018,6 +1018,194 @@ img { max-width: 100%; }
   color: #9db3d1;
 }
 
+/* ================================================================ v4 additions
+   여정 선택 · 왕복 계산 · 공항 자동완성 · 공제표 · 성수기 표식 */
+
+.air-page-desc {
+  font-size: 14.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 72ch;
+}
+
+/* 검색 폼 그리드 */
+.air-filters--search > .air-field--origin,
+.air-filters--search > .air-field--destination { grid-column: span 4; }
+.air-filters--search > .air-field--trip { grid-column: span 4; }
+.air-filters--search > .air-field--month,
+.air-filters--search > .air-field--status,
+.air-filters--search > .air-field--sort { grid-column: span 3; }
+.air-filters--search > .air-field--wide { grid-column: span 12; }
+#air-search-form.is-round .air-field--status,
+#air-search-form.is-round .air-field--sort { grid-column: span 6; }
+
+.air-seg--trip {
+  display: flex;
+  width: 100%;
+  background: var(--line-2);
+  border-radius: var(--radius-sm);
+  padding: 3px;
+  gap: 3px;
+}
+.air-seg--trip button {
+  flex: 1 1 0;
+  min-height: 38px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+}
+.air-seg--trip button[aria-pressed="true"] {
+  background: var(--navy);
+  color: #fff;
+  box-shadow: var(--shadow-sm);
+}
+
+/* 왕복 날짜 입력 */
+.air-round {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) minmax(0, 2fr);
+  gap: 14px;
+  align-items: end;
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px dashed #cfdae8;
+  border-radius: var(--radius);
+  background: #fbfcfe;
+}
+.air-round[hidden] { display: none; }
+.air-round__note { margin: 0 0 10px; }
+
+/* 왕복 계산 패널 */
+.round-panel__head { margin-bottom: 14px; }
+.round-panel__head h2 { font-size: 20px; margin-bottom: 4px; }
+.round-panel__head p { margin-bottom: 2px; }
+.round-legs {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.round-leg {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow-sm);
+}
+.round-leg__head { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.round-leg__head h3 { font-size: 16px; }
+.round-leg__field label {
+  display: block;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--ink-2);
+  margin-bottom: 6px;
+}
+.round-leg__date { display: flex; align-items: baseline; gap: 8px; }
+.round-leg__date .air-field__label { margin: 0; }
+.round-leg__date strong { font-size: 14px; color: var(--navy); font-variant-numeric: tabular-nums; }
+.round-leg__price { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.round-leg__price > strong { font-size: 21px; color: var(--navy); font-variant-numeric: tabular-nums; }
+.round-leg__season { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.round-leg__season small { font-size: 11.5px; color: var(--ink-3); }
+.round-leg__seat { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.round-leg__seat small { flex-basis: 100%; }
+.round-total {
+  margin-top: 14px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+}
+.round-total__label { font-size: 13px; color: #cfe0f8; font-weight: 700; }
+.round-total__value { font-size: 28px; font-weight: 800; font-variant-numeric: tabular-nums; margin: 2px 0 8px; }
+.round-total__break { display: flex; flex-wrap: wrap; gap: 6px 12px; font-size: 13px; color: #dbe7fa; }
+.round-total__note { margin-top: 10px; font-size: 12px; color: #adc4e2; line-height: 1.55; }
+.round-note { margin-top: 14px; padding: 14px 16px; background: #fff; border: 1px solid var(--line); border-radius: var(--radius); }
+.round-note p { margin-bottom: 4px; }
+
+/* 자동완성 후보 */
+.air-combo__list li { align-items: center; }
+.air-combo__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.air-combo__body strong { font-size: 14px; font-weight: 800; color: var(--navy); }
+.air-combo__body small { font-size: 11.5px; color: var(--ink-3); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.air-combo__meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; flex: 0 0 auto; }
+.air-combo__tag { font-size: 10.5px; font-weight: 700; padding: 1px 6px; border-radius: 999px; white-space: nowrap; }
+.air-combo__tag.is-live { background: var(--green-50); color: var(--green); }
+.air-combo__tag.is-idle { background: #f1f5f9; color: var(--ink-4); }
+
+/* 여정·성수기 배지 */
+.badge--peak { background: #fff3e0; color: var(--amber); border-color: #fbdcaa; }
+.badge--offpeak { background: var(--blue-50); color: var(--blue-700); border-color: #cfdfff; }
+.badge--idle { background: #f8fafc; color: var(--ink-3); border: 1px dashed var(--line); }
+
+/* 좌석 데이터 없는 노선의 공제표 안내 */
+.air-stack { display: flex; flex-direction: column; gap: 14px; }
+.chart-hint { background: #fff; border: 1px solid var(--line); border-radius: var(--radius); padding: 18px; }
+.chart-hint__title { margin-bottom: 10px; font-size: 15px; }
+.chart-hint__title strong { color: var(--navy); }
+.chart-hint__title span { color: var(--ink-3); font-size: 13px; }
+.chart-hint__grid { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); margin-bottom: 10px; }
+.chart-hint__cell {
+  display: flex; flex-direction: column; gap: 3px;
+  border: 1px solid var(--line-2); border-radius: var(--radius-sm); padding: 12px;
+}
+.chart-hint__cell b { font-size: 15px; color: var(--navy); font-variant-numeric: tabular-nums; }
+.chart-hint__cell span:last-child { font-size: 12.5px; color: var(--ink-3); }
+
+/* 노선 상세 */
+.air-chart-card { margin-bottom: 16px; }
+.air-table--compact { min-width: 0; }
+.air-table--compact th, .air-table--compact td { padding: 9px 10px; }
+.route-cell__miles { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin-top: 4px; }
+.route-cell__miles b { font-size: 12.5px; color: var(--navy); font-variant-numeric: tabular-nums; }
+
+/* 달력 */
+.calendar-day.is-peak { background: #fffdf6; }
+.calendar-day.is-peak .calendar-day__state { color: var(--amber); }
+.calendar-day__peak {
+  font-size: 9.5px; font-weight: 800; color: var(--amber);
+  background: #fff3e0; border-radius: 4px; padding: 1px 4px; align-self: flex-start;
+}
+.calendar-detail-row {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  padding: 6px 0 0;
+}
+.calendar-detail-row__miles { font-size: 12.5px; font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums; }
+
+/* 공제표 페이지 */
+.chart-block { margin-top: 22px; }
+.chart-block__head { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; margin-bottom: 10px; }
+.chart-block__head h2 { font-size: 18px; display: flex; align-items: center; gap: 8px; }
+.chart-block__head .air-count { font-size: 12.5px; color: var(--ink-3); font-weight: 700; }
+.chart-table { margin-bottom: 6px; }
+.chart-region { font-weight: 800; color: var(--navy); font-size: 13.5px; }
+.chart-region__dest { display: block; font-size: 11.5px; color: var(--ink-3); font-weight: 400; margin-top: 2px; }
+.chart-table td.num { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--navy); }
+.chart-table thead th.num { text-align: right; }
+.chart-table tbody td.num { text-align: right; }
+.air-table--peak { width: 100%; min-width: 0; table-layout: fixed; }
+.air-table--peak td { vertical-align: top; text-align: left; white-space: normal; }
+.air-table--peak th { text-align: left; }
+.air-table--peak td.peak-cell { text-align: left; white-space: normal; }
+.air-table--peak td:first-of-type,
+.air-table--peak th:first-of-type { width: 76px; }
+.air-table--peak td.cell-muted { color: var(--ink-4); }
+.peak-range {
+  display: inline-block; margin: 1px 4px 1px 0;
+  font-size: 12px; font-weight: 700; color: var(--amber);
+  background: #fff3e0; border-radius: 5px; padding: 1px 5px;
+  font-variant-numeric: tabular-nums;
+}
+.price-sub { color: var(--ink-4) !important; }
+
 /* --------------------------------------------------------------- responsive */
 
 @media (max-width: 980px) {
@@ -1072,6 +1260,21 @@ img { max-width: 100%; }
   .air-footer { padding: 26px 14px 24px; }
   .journey-summary { padding: 16px; }
   .journey-summary__total { font-size: 16px; }
+
+  /* v4: 검색 폼 · 왕복 · 공제표 */
+  .air-filters--search > .air-field--origin,
+  .air-filters--search > .air-field--destination { grid-column: span 12; }
+  .air-filters--search > .air-field--trip { grid-column: span 6; }
+  .air-round { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 12px; }
+  .air-round__note { grid-column: 1 / -1; }
+  .round-legs { grid-template-columns: 1fr; }
+  .round-total { padding: 16px; }
+  .round-total__value { font-size: 23px; }
+  .chart-block__head h2 { font-size: 16px; }
+  .chart-table .air-table { min-width: 0; }
+  .chart-region { font-size: 12.5px; }
+  .chart-region__dest { font-size: 10.5px; }
+  .peak-range { font-size: 11px; }
 }
 
 @media (max-width: 560px) {

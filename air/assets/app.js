@@ -1,9 +1,11 @@
 /* ==========================================================================
    마일지도(MILEMAP) AIR — 공통 모듈
-   - 데이터: /air/data/preview/index.json 매니페스트 + 지역·월별 JSON 지연 로딩
-   - 화면: 공통 헤더/푸터, 필터 상태(URL), 공항 자동완성, 공제량 표시 규칙
-   - 원칙: 대한항공(KE)만, F는 보너스/승급 통합(구분 불가), G/U 제외,
-           좌석 수는 제공하지 않음, NEW는 확인된 unavailable→available 전환만.
+   - 데이터: /air/data/preview/index.json 매니페스트 + 월별 JSON 지연 로딩
+   - 화면: 공통 헤더/푸터, 필터 상태(URL), 공항 자동완성, 공제 마일 표시 규칙
+   - 원칙: 대한항공(KE)만, 일반석(E)·프레스티지석(P)·일등석(F) 세 등급만 표시,
+           R(프리미엄석)·G/U(승급 전용) 제외, 좌석 수는 제공하지 않음,
+           공제 마일은 공식 공제표 + 성수기/평수기 규칙으로만 계산,
+           NEW는 확인된 unavailable→available 전환만.
    ========================================================================== */
 (() => {
   "use strict";
@@ -23,23 +25,20 @@
   const KE_HOTPICK_URL =
     "https://www.koreanair.com/contents/promotion/list/2026/26winterhotpick";
 
+  /* 화면에는 일반석(E) · 프레스티지석(P) · 일등석(F) 세 등급만 표시한다.
+     프리미엄석(R)은 표시·검색·합산에서 제외한다. */
   const CABINS = [
     { key: "economy", letter: "E", name: "일반석", short: "일반", cls: "cabin-e" },
-    { key: "premium", letter: "R", name: "프리미엄석", short: "프리미엄", cls: "cabin-r" },
     { key: "business", letter: "P", name: "프레스티지석", short: "프레스티지", cls: "cabin-p" },
-    {
-      key: "first", letter: "F", name: "일등석(보너스·승급 통합)", short: "일등",
-      cls: "cabin-f", combined: true
-    }
+    { key: "first", letter: "F", name: "일등석", short: "일등", cls: "cabin-f" }
   ];
 
   const CABIN_BY_KEY = new Map(CABINS.map(c => [c.key, c]));
   const CABIN_BY_LETTER = new Map(CABINS.map(c => [c.letter, c]));
 
-  /* 데이터에 남아 있을 수 있는 값 별칭. G/U(승급 전용)는 표시하지 않는다. */
+  /* 데이터에 남아 있을 수 있는 값 별칭. R(프리미엄석)·G/U(승급 전용)는 표시하지 않는다. */
   const CABIN_ALIAS = {
     e: "economy", economy: "economy", "일반석": "economy", y: "economy",
-    r: "premium", premium: "premium", "프리미엄석": "premium", "프리미엄": "premium",
     p: "business", business: "business", prestige: "business",
     "프레스티지석": "business", "프레스티지": "business", j: "business", c: "business",
     f: "first", first: "first", first_combined: "first", first_award: "first",
@@ -47,6 +46,7 @@
   };
 
   const EXCLUDED_CABINS = new Set([
+    "r", "premium", "프리미엄석", "프리미엄",
     "g", "u", "premium_upgrade", "business_upgrade", "first_upgrade",
     "upgrade_premium", "upgrade_business", "upgrade_first",
     "premium_upgrade_seat", "business_upgrade_seat",
@@ -79,8 +79,7 @@
     { key: "map", href: "map/", label: "지도" },
     { key: "calendar", href: "calendar/", label: "달력" },
     { key: "new", href: "new/", label: "신규" },
-    { key: "journey", href: "journey/", label: "왕복" },
-    { key: "mileage", href: "mileage/", label: "공제량" },
+    { key: "mileage", href: "mileage/", label: "공제표" },
     { key: "guide", href: "guide/", label: "이용안내" },
     { key: "status", href: "status/", label: "갱신현황" }
   ];
@@ -329,13 +328,6 @@
 
     const cabin = CABIN_BY_KEY.get(cabinKey);
 
-    const combined = cabinKey === "first"
-      ? raw.first_combined !== false
-      : raw.first_combined === true;
-
-    if (raw.first_combined === false && cabinKey === "first" && status === "available") stats.fConflict++;
-    if (combined) stats.firstCombined++;
-
     const newlyAvailable = raw.newly_available === true;
     const previousStatus = raw.previous_status ? String(raw.previous_status) : null;
     const newEvidence = raw.new_evidence ? String(raw.new_evidence) : null;
@@ -360,8 +352,6 @@
         cabin,
         status,
         seatCount: null,
-        combined,
-        fConflict: raw.first_combined === false && cabinKey === "first" && status === "available",
         newlyAvailable,
         isNew,
         previousStatus,
@@ -443,40 +433,48 @@
   /* ------------------------------------------------------------- 공제량 */
 
   /**
-   * 행의 공제량 상태.
-   * kind: verified | estimate | unknown | combined(일등석 통합) | unavailable
+   * 행의 공제량 상태 — 대한항공 공식 공제표 + 성수기 계산만 사용한다.
+   * kind: official | no-chart
    */
   function priceOf(row) {
-    if (row.cabinKey === "first" || row.combined) {
-      return { kind: "combined" };
+    const award = window.Air && Air.award;
+
+    if (!award || typeof award.miles !== "function") {
+      return { kind: "no-chart", cabin: null, region: null };
     }
 
-    if (row.status === "unknown") return { kind: "unknown" };
+    const result = award.miles(row.origin, row.destination, row.date, row.cabinKey);
 
-    const p = row.pricing || {};
-
-    if (p.status === "verified" && Number.isInteger(p.standard) && p.standard > 0) {
-      const discounted = Number.isInteger(p.discounted) && p.discounted > 0 &&
-        p.discounted < p.standard ? p.discounted : null;
-      return { kind: "verified", standard: p.standard, discounted };
+    if (!result || result.state !== "ok") {
+      return { kind: "no-chart", cabin: result ? result.cabin : null, region: result ? result.region : null };
     }
 
-    if ((p.status === "standard_estimate" || p.status === "promotion_estimate") &&
-        Number.isInteger(p.standard) && p.standard > 0) {
-      const discounted = Number.isInteger(p.discounted) && p.discounted > 0 &&
-        p.discounted < p.standard ? p.discounted : null;
-      return { kind: "estimate", standard: p.standard, discounted };
-    }
-
-    return { kind: "unknown" };
+    return Object.assign({ kind: "official" }, result);
   }
 
   function payableMiles(row) {
     const price = priceOf(row);
-    if (price.kind === "verified" || price.kind === "estimate") {
-      return price.discounted || price.standard;
-    }
-    return null;
+    return price.kind === "official" ? price.miles : null;
+  }
+
+  /** 성수기/평수기 배지 (달력·카드·표 공통) */
+  function seasonBadge(origin, date, options) {
+    const award = window.Air && Air.award;
+    if (!award || typeof award.seasonOf !== "function") return null;
+
+    const season = award.seasonOf(date, origin);
+
+    return el("span", {
+      class: `badge ${season.peak ? "badge--peak" : "badge--offpeak"}`,
+      title: season.peak
+        ? "대한항공 성수기 기간에 포함되는 날짜입니다."
+        : "대한항공 비수기(평수기) 기간입니다.",
+      text: (options && options.long ? "" : "") + season.label
+    });
+  }
+
+  function milesText(value) {
+    return fmtMiles(value) || "—";
   }
 
   /* --------------------------------------------------------------- 공항 */
@@ -485,38 +483,32 @@
     if (state.airports) return Promise.resolve(state.airports);
 
     if (!state.airportPromise) {
-      state.airportPromise = Promise.all([
-        fetchJson(ROOT + "data/airport-coordinates.json").catch(() => ({ airports: [] })),
-        fetchJson(ROOT + "data/route-catalog.json").catch(() => ({ routes: [], airports: [] }))
-      ]).then(([coords, catalog]) => {
+      const award = window.Air && Air.award;
+
+      const loadAward = award && typeof award.load === "function"
+        ? award.load()
+        : Promise.reject(new Error("AWARD_MODULE_MISSING"));
+
+      state.airportPromise = loadAward.then(() => {
         const map = new Map();
 
-        for (const airport of coords.airports || []) {
-          map.set(airport.code, {
-            code: airport.code,
-            name: airport.name || airport.code,
-            english: airport.english_name || "",
-            municipality: airport.municipality || "",
-            region: airport.region || "",
-            lat: Number.isFinite(airport.latitude) ? airport.latitude : null,
-            lon: Number.isFinite(airport.longitude) ? airport.longitude : null
+        for (const entry of award.airports()) {
+          map.set(entry.code, {
+            code: entry.code,
+            name: entry.name || entry.code,
+            city: entry.city || "",
+            english: entry.english || "",
+            municipality: entry.municipality || "",
+            region: entry.region || "",
+            country: entry.country || "",
+            aliases: entry.aliases || [],
+            chart: entry.chart === true,
+            lat: Number.isFinite(entry.lat) ? entry.lat : null,
+            lon: Number.isFinite(entry.lon) ? entry.lon : null
           });
         }
 
-        for (const airport of catalog.airports || []) {
-          if (!map.has(airport.code)) {
-            map.set(airport.code, {
-              code: airport.code, name: airport.name || airport.code,
-              english: "", municipality: "", region: airport.region || "",
-              lat: null, lon: null
-            });
-          } else if (!map.get(airport.code).region) {
-            map.get(airport.code).region = airport.region || "";
-          }
-        }
-
         state.airports = map;
-        state.catalog = catalog;
         return map;
       }).catch(error => {
         state.airportPromise = null;
@@ -528,14 +520,31 @@
   }
 
   function routeCatalog() {
-    if (state.catalog && Array.isArray(state.catalog.routes)) {
-      return Promise.resolve(state.catalog);
+    const award = window.Air && Air.award;
+    if (!award || typeof award.load !== "function") {
+      return Promise.resolve({ routes: [], airports: [] });
     }
-    return airports().then(() => state.catalog || { routes: [], airports: [] });
+
+    return award.load().then(() => ({
+      routes: award.airports()
+        .filter(entry => entry.chart)
+        .map(entry => ({ program: PROGRAM, origin: "ICN", destination: entry.code })),
+      airports: award.airports()
+    }));
   }
 
-  function airportLabel(code) {
-    const airport = state.airports && state.airports.get(code);
+  function airport(code) {
+    const award = window.Air && Air.award;
+
+    if (award && typeof award.airport === "function") {
+      const entry = award.airport(code);
+      if (entry) return entry;
+    }
+
+    return state.airports ? state.airports.get(String(code || "").toUpperCase()) || null : null;
+  }
+
+  function airportLabel(code) {    const airport = state.airports && state.airports.get(code);
     if (!airport) return code;
     return `${airport.name} (${code})`;
   }
@@ -914,6 +923,213 @@
     };
   }
 
+  /* ---------------------------------------------------- 공항 자동완성 */
+
+  /**
+   * 공항 자동완성 입력란. 도시명·공항명·영문·IATA 코드를 모두 받는다.
+   * 데이터가 없는 공항도 후보에 뜨고, 후보마다 좌석 데이터 유무를 정직하게 표시한다.
+   */
+  function airportCombo(container, options = {}) {
+    const input = container.querySelector("input");
+    const list = el("ul", {
+      class: "air-combo__list",
+      role: "listbox",
+      id: container.id + "-list",
+      hidden: true
+    });
+
+    container.append(list);
+
+    input.setAttribute("role", "combobox");
+    input.setAttribute("aria-autocomplete", "list");
+    input.setAttribute("aria-expanded", "false");
+    input.setAttribute("aria-controls", list.id);
+    if (options.placeholder) input.setAttribute("placeholder", options.placeholder);
+
+    let selected = options.value || "";
+    let view = [];
+    let active = -1;
+
+    function labelOf(code) {
+      const airport = state.airports && state.airports.get(code);
+      return airport ? `${airport.name} (${code})` : (code || "");
+    }
+
+    function liveCodes() {
+      return window.Air && Air.award && Air.award.hasLive ? Air.award.hasLive : () => false;
+    }
+
+    function popular() {
+      const award = window.Air && Air.award;
+      if (!award) return [];
+
+      const live = award.airports().filter(entry => award.hasLive(entry.code));
+      const korea = award.airports().filter(entry => ["ICN", "GMP", "PUS", "CJU"].includes(entry.code));
+      const charted = award.airports().filter(entry => entry.chart);
+
+      const seen = new Set();
+      const out = [];
+
+      for (const entry of [...live, ...korea, ...charted]) {
+        if (seen.has(entry.code)) continue;
+        seen.add(entry.code);
+        out.push(entry);
+      }
+
+      return out.slice(0, 12);
+    }
+
+    function candidates(keyword) {
+      const award = window.Air && Air.award;
+      if (!award) return [];
+
+      const keywordTrimmed = keyword.trim();
+
+      if (!keywordTrimmed || keywordTrimmed === labelOf(selected)) return popular();
+      return award.search(keywordTrimmed, 8);
+    }
+
+    function open() {
+      list.hidden = false;
+      input.setAttribute("aria-expanded", "true");
+    }
+
+    function close() {
+      list.hidden = true;
+      input.setAttribute("aria-expanded", "false");
+      input.removeAttribute("aria-activedescendant");
+      active = -1;
+    }
+
+    function paint() {
+      view = candidates(input.value);
+      list.replaceChildren();
+
+      if (!view.length) {
+        list.append(el("li", {
+          class: "air-combo__empty",
+          text: "일치하는 공항이 없습니다. 도시명·공항명·코드(ICN)로 다시 입력해 보세요."
+        }));
+        open();
+        return;
+      }
+
+      const hasLive = liveCodes();
+
+      view.forEach((entry, index) => {
+        const live = hasLive(entry.code);
+
+        const title = el("strong", { text: entry.name });
+        const sub = [entry.english || entry.municipality, entry.region]
+          .filter(Boolean).join(" · ");
+
+        const li = el("li", {
+          role: "option",
+          id: `${list.id}-${index}`,
+          "aria-selected": entry.code === selected ? "true" : "false",
+          class: index === active ? "is-active" : null
+        }, [
+          el("span", { class: "air-combo__body" }, [
+            title,
+            sub ? el("small", { text: sub }) : null
+          ]),
+          el("span", { class: "air-combo__meta" }, [
+            el("span", { class: "air-combo__code", text: entry.code }),
+            el("span", {
+              class: `air-combo__tag ${live ? "is-live" : "is-idle"}`,
+              title: live
+                ? "이 공항이 포함된 노선의 좌석 데이터가 수집되어 있습니다."
+                : "이 공항의 좌석 데이터는 아직 수집되지 않았습니다. 공제표 기준 마일리지는 확인할 수 있습니다.",
+              text: live ? "좌석 데이터" : "미수집"
+            })
+          ])
+        ]);
+
+        li.addEventListener("mousedown", event => {
+          event.preventDefault();
+          choose(entry);
+        });
+
+        list.append(li);
+      });
+
+      open();
+    }
+
+    function choose(entry) {
+      selected = entry.code;
+      input.value = labelOf(entry.code);
+      close();
+      if (typeof options.onSelect === "function") options.onSelect(entry.code);
+    }
+
+    function move(step) {
+      if (!view.length) return;
+      active = (active + step + view.length) % view.length;
+
+      [...list.children].forEach((li, index) =>
+        li.classList.toggle("is-active", index === active));
+
+      const current = list.children[active];
+      if (current) {
+        input.setAttribute("aria-activedescendant", current.id);
+        current.scrollIntoView({ block: "nearest" });
+      }
+    }
+
+    input.addEventListener("input", () => {
+      active = -1;
+      paint();
+    });
+
+    input.addEventListener("focus", () => {
+      paint();
+    });
+
+    input.addEventListener("keydown", event => {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        if (list.hidden) paint();
+        else move(1);
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        move(-1);
+      } else if (event.key === "Enter") {
+        if (!list.hidden && view.length) {
+          event.preventDefault();
+          choose(view[Math.max(0, active)] || view[0]);
+        }
+      } else if (event.key === "Escape") {
+        close();
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      setTimeout(() => {
+        if (!container.contains(document.activeElement)) {
+          input.value = selected ? labelOf(selected) : "";
+          close();
+        }
+      }, 120);
+    });
+
+    document.addEventListener("pointerdown", event => {
+      if (!container.contains(event.target)) close();
+    });
+
+    if (selected) input.value = labelOf(selected);
+
+    return {
+      setValue(code) {
+        selected = code || "";
+        input.value = selected ? labelOf(selected) : "";
+      },
+      getValue() {
+        return selected;
+      }
+    };
+  }
+
   /* ----------------------------------------------------- 상태 배지 등 */
 
   function statusBadge(row, meta) {
@@ -954,43 +1170,21 @@
   function priceNode(row) {
     const price = priceOf(row);
 
-    if (price.kind === "combined") {
+    if (price.kind !== "official") {
       return el("div", { class: "flight-card__price" }, [
-        el("strong", { text: "공제량 미확인", class: "price-estimate" }),
-        el("small", { text: "일등석 F · 보너스/좌석승급 통합(구분 불가)" })
+        el("strong", { text: "공제 구간 확인 중", class: "price-estimate" }),
+        el("small", { text: "이 노선은 대한항공 공식 공제표에 아직 표기되어 있지 않습니다." })
       ]);
     }
 
-    if (price.kind === "unknown") {
-      return el("div", { class: "flight-card__price" }, [
-        el("strong", { text: "공제량 미확인", class: "price-estimate" }),
-        el("small", {
-          text: row.status === "unknown"
-            ? "미조회 · 공제량 계산 전"
-            : "공식 공제표 검증 전"
-        })
-      ]);
-    }
+    const otherLabel = price.season.peak ? "평수기" : "성수기";
+    const otherMiles = price.season.peak ? price.offpeak : price.peak;
 
-    const children = [];
-
-    if (price.discounted) {
-      children.push(el("s", { text: fmtMiles(price.standard) }));
-      children.push(el("strong", { text: fmtMiles(price.discounted) }));
-      children.push(el("small", {
-        text: `${price.kind === "estimate" ? "추정 " : ""}할인 적용 · ` +
-          `${fmtMiles(price.standard - price.discounted)} 절약`
-      }));
-    } else {
-      children.push(el("strong", { text: fmtMiles(price.standard) }));
-      children.push(el("small", {
-        text: price.kind === "estimate"
-          ? "추정 공제량 · 공식 검증 전"
-          : "공제량 · 세금·유류할증료 별도"
-      }));
-    }
-
-    return el("div", { class: "flight-card__price" }, children);
+    return el("div", { class: "flight-card__price" }, [
+      el("strong", { text: milesText(price.miles) }),
+      el("small", { text: `${price.season.label} 적용 · ${otherLabel} ${milesText(otherMiles)}` }),
+      el("small", { class: "price-sub", text: "편도 공제량 · 세금·유류할증료 별도" })
+    ]);
   }
 
   function emptyState(title, description) {
@@ -1009,9 +1203,10 @@
     el, fmtMiles, fmtDate, fmtMonth, fmtDateTime, fmtAge, hoursSince, todayKst,
     getManifest, loadRows, data, allData, manifestMeta, isStaleRow, safePath,
     priceOf, payableMiles, statusBadge, cabinChip, priceNode, emptyState,
-    airports, routeCatalog, airportLabel, airportShort, searchText,
+    seasonBadge, milesText,
+    airports, routeCatalog, airportLabel, airportShort, searchText, airport,
     params, param, setParams, viewLink, onPopState,
-    mountChrome, combobox, pageKey, renderHeaderUpdated,
+    mountChrome, combobox, airportCombo, pageKey, renderHeaderUpdated,
     regionLabel(region) { return REGION_LABEL[region] || region; },
     statusLabel(status) { return STATUS_LABEL[status] || status; }
   };

@@ -1,4 +1,7 @@
-/* 마일지도 AIR — 메인 검색 뷰 (/air/) */
+/* 마일지도 AIR — 메인 검색 뷰 (/air/)
+   - 공항 이름·도시명·IATA 코드 자동완성(유사 공항 추천)
+   - 편도/왕복을 검색 폼 안에서 선택. 왕복은 가는 편·오는 편 공제량을 각각 계산해 합산.
+   - 공제 마일은 대한항공 공식 공제표 + 성수기/평수기 규칙으로만 계산한다. */
 (() => {
   "use strict";
 
@@ -9,20 +12,19 @@
   const state = {
     origin: "",
     destination: "",
-    region: "",
     month: "",
     cabin: "",
     status: "",
     sort: "date-asc",
     page: 1,
     trip: "one",
+    outDate: "",
+    inDate: "",
     meta: null
   };
 
   let comboOrigin;
   let comboDestination;
-  let airportItems = [];
-  let catalogRoutes = [];
 
   /* ------------------------------------------------------------ 필터 UI */
 
@@ -40,8 +42,7 @@
         type: "button",
         class: option.key ? null : "cabin-all",
         "aria-pressed": String(state.cabin === option.key),
-        dataset: { cabin: option.key },
-        title: option.key === "first" ? "일등석 F는 보너스와 좌석승급이 통합되어 구분할 수 없습니다." : null
+        dataset: { cabin: option.key }
       }, [
         option.cls && option.key
           ? Air.el("span", { class: "cabin-chip " + option.cls }, [
@@ -74,92 +75,47 @@
 
   /* ------------------------------------------------------------- 로딩 */
 
-  async function loadAirports() {
-    const airports = await Air.airports();
-    const catalog = await Air.routeCatalog();
+  function liveAirportsFromManifest(meta) {
+    const codes = new Set();
 
-    const routeAirports = new Set();
-    for (const route of catalog.routes || []) {
-      if (route.program && route.program !== Air.PROGRAM) continue;
-      routeAirports.add(route.origin);
-      routeAirports.add(route.destination);
+    for (const route of meta && meta.collectionRoutes ? meta.collectionRoutes : []) {
+      for (const code of String(route).split("-")) {
+        if (/^[A-Z]{3}$/.test(code)) codes.add(code);
+      }
     }
 
-    airportItems = [...airports.values()]
-      .filter(airport => !routeAirports.size || routeAirports.has(airport.code))
-      .sort((a, b) => a.name.localeCompare(b.name, "ko"))
-      .map(airport => ({
-        value: airport.code,
-        label: `${airport.name} (${airport.code})`,
-        code: airport.code,
-        search: Air.searchText(airport),
-        region: airport.region || ""
-      }));
+    return codes;
+  }
 
-    catalogRoutes = (catalog.routes || []).filter(route =>
-      !route.program || route.program === Air.PROGRAM);
+  async function loadAirports() {
+    await Air.airports();
 
-    comboOrigin = Air.combobox($("air-origin-combo"), {
+    const live = liveAirportsFromManifest(state.meta);
+    if (live.size && Air.award && Air.award.setLiveRoutes) Air.award.setLiveRoutes([...live]);
+
+    comboOrigin = Air.airportCombo($("air-origin-combo"), {
       value: state.origin,
-      emptyLabel: "전체 출발 공항",
+      placeholder: "도시·공항명·코드 (예: 인천, 도쿄, ICN)",
       onSelect: value => {
         state.origin = value;
         state.page = 1;
-        refreshDestination();
         commit();
       }
     });
-    comboOrigin.setItems(airportItems);
 
-    comboDestination = Air.combobox($("air-destination-combo"), {
+    comboDestination = Air.airportCombo($("air-destination-combo"), {
       value: state.destination,
-      emptyLabel: "전체 목적지",
+      placeholder: "도시·공항명·코드 (예: 도쿄, 나리타, NRT)",
       onSelect: value => {
         state.destination = value;
         state.page = 1;
         commit();
       }
     });
-
-    refreshDestination();
-  }
-
-  /**
-   * 출발지가 정해지면 그 공항에서 출발하는 노선의 목적지만 후보로 보여준다.
-   * (카탈로그는 노선 후보일 뿐이며 보너스 좌석 확인 여부와 다르다.)
-   */
-  function refreshDestination() {
-    if (!comboDestination) return;
-
-    if (!state.origin || !catalogRoutes.length) {
-      comboDestination.setItems(airportItems);
-      return;
-    }
-
-    const allowed = new Set(
-      catalogRoutes.filter(route => route.origin === state.origin)
-        .map(route => route.destination)
-    );
-
-    if (!allowed.size) {
-      comboDestination.setItems(airportItems);
-      return;
-    }
-
-    comboDestination.setItems(airportItems.filter(item => allowed.has(item.value)));
-
-    if (state.destination && !allowed.has(state.destination)) {
-      state.destination = "";
-      comboDestination.setValue("");
-    }
   }
 
   async function readMeta() {
     state.meta = await Air.manifestMeta();
-
-    fillSelect($("air-region"),
-      state.meta.regions.map(region => ({ value: region, label: Air.regionLabel(region) })),
-      state.region, "전체 지역");
 
     fillSelect($("air-month"),
       state.meta.months.map(month => ({ value: month, label: Air.fmtMonth(month) })),
@@ -172,18 +128,20 @@
     Air.setParams({
       origin: state.origin,
       destination: state.destination,
-      region: state.region,
       month: state.month,
       cabin: state.cabin,
       status: state.status,
       sort: state.sort === "date-asc" ? "" : state.sort,
       page: state.page > 1 ? state.page : "",
-      trip: state.trip === "round" ? "round" : ""
+      trip: state.trip === "round" ? "round" : "",
+      out: state.trip === "round" ? state.outDate : "",
+      in: state.trip === "round" ? state.inDate : ""
     }, push);
   }
 
   function commit() {
     apply(true);
+    renderRoundTrip();
     renderResults();
   }
 
@@ -192,13 +150,14 @@
 
     state.origin = (params.get("origin") || "").toUpperCase();
     state.destination = (params.get("destination") || "").toUpperCase();
-    state.region = params.get("region") || "";
     state.month = params.get("month") || "";
     state.cabin = params.get("cabin") || "";
     state.status = params.get("status") || "";
     state.sort = params.get("sort") || "date-asc";
     state.page = Number(params.get("page")) || 1;
     state.trip = params.get("trip") === "round" ? "round" : "one";
+    state.outDate = params.get("out") || "";
+    state.inDate = params.get("in") || "";
   }
 
   /* ------------------------------------------------------------ 결과 렌더 */
@@ -269,14 +228,13 @@
           Air.el("span", { class: "flight-card__code", text: `${row.origin} → ${row.destination}` })
         ]),
         Air.el("div", { class: "flight-card__meta" }, [
-          Air.statusBadge(row, state.meta),
-          row.cabin.combined ? Air.el("span", { class: "badge badge--combined", text: "F 통합" }) : null
+          Air.statusBadge(row, state.meta)
         ])
       ]),
       Air.el("div", { class: "flight-card__meta" }, [
         Air.el("span", { class: "flight-card__date", text: Air.fmtDate(row.date) }),
+        Air.seasonBadge(row.origin, row.date),
         Air.el("span", { text: "·" }),
-        Air.el("span", { text: Air.PROGRAM_LABEL }),
         Air.cabinChip(row.cabinKey)
       ]),
       Air.el("div", { class: "flight-card__bottom" }, [
@@ -335,6 +293,46 @@
     nav.append(prev, Air.el("span", { text: `${page} / ${pages} 페이지` }), next);
   }
 
+  /** 좌석 데이터가 없는 노선을 골랐을 때: 공식 공제표 기준 마일만 정직하게 보여준다. */
+  function chartPanel(origin, destination) {
+    const award = Air.award;
+    const record = award && award.route(origin, destination);
+    const wrapper = Air.el("div", { class: "chart-hint" });
+
+    if (!record) {
+      wrapper.append(Air.el("p", { class: "air-inline-note", text:
+        "대한항공 직항 노선표에 없는 조합입니다. 출발·도착 공항을 다시 선택해 주세요." }));
+      return wrapper;
+    }
+
+    wrapper.append(Air.el("p", { class: "chart-hint__title" }, [
+      Air.el("strong", { text: `${Air.airportShort(origin)} → ${Air.airportShort(destination)}` }),
+      Air.el("span", { text: ` · 공제 구간 ${record.region}` })
+    ]));
+
+    const chart = record.miles || {};
+
+    if (!Array.isArray(chart.E)) {
+      wrapper.append(Air.el("p", { class: "air-inline-note", text:
+        "이 노선(몽골)은 대한항공 공식 공제표에 구간 값이 아직 표기되어 있지 않습니다. 공식 채널에서 확인해 주세요." }));
+      return wrapper;
+    }
+
+    wrapper.append(Air.el("div", { class: "chart-hint__grid" }, Air.CABINS.map(cabin => {
+      const values = chart[cabin.letter];
+      return Air.el("div", { class: "chart-hint__cell" }, [
+        Air.el("span", { class: "air-field__label" }, [Air.cabinChip(cabin.key)]),
+        Air.el("b", { text: `평수기 ${Air.milesText(values[0])}` }),
+        Air.el("span", { text: `성수기 ${Air.milesText(values[1])}` })
+      ]);
+    })));
+
+    wrapper.append(Air.el("p", { class: "air-inline-note", text:
+      "좌석 데이터는 아직 수집되지 않아 좌석 유무는 표시할 수 없습니다. 공제 마일은 대한항공 공식 공제표 기준 편도 금액이며, 세금·유류할증료는 별도입니다." }));
+
+    return wrapper;
+  }
+
   async function renderResults() {
     const results = $("air-results");
     const summary = $("air-result-summary");
@@ -351,7 +349,7 @@
     let payload;
 
     try {
-      payload = await Air.data({ region: state.region, month: state.month });
+      payload = await Air.data({ month: state.month });
     } catch (error) {
       results.replaceChildren(Air.emptyState(
         "데이터를 불러오지 못했습니다",
@@ -361,6 +359,8 @@
       return;
     }
 
+    if (state.trip === "round") return;
+
     const rows = payload.rows.filter(row => {
       if (state.origin && row.origin !== state.origin) return false;
       if (state.destination && row.destination !== state.destination) return false;
@@ -369,7 +369,6 @@
     });
 
     const counts = {
-      total: payload.rows.length,
       available: rows.filter(row => row.status === "available").length,
       unavailable: rows.filter(row => row.status === "unavailable").length,
       unknown: rows.filter(row => row.status === "unknown").length,
@@ -393,18 +392,24 @@
       const pairMissing = state.origin && state.destination &&
         !payload.rows.some(row => row.origin === state.origin && row.destination === state.destination);
 
-      results.replaceChildren(Air.emptyState(
-        pairMissing ? "이 노선은 아직 조회 기록이 없습니다" :
+      const box = Air.el("div", { class: "air-stack" });
+
+      box.append(Air.emptyState(
+        pairMissing ? "이 노선의 좌석 데이터는 아직 수집되지 않았습니다" :
           state.status === "new" ? "확인된 신규 좌석이 없습니다" :
           state.status === "unknown" ? "미조회 기록이 없습니다" :
           state.status === "stale" ? "오래된 데이터가 없습니다" :
           "조건에 맞는 기록이 없습니다",
         pairMissing
-          ? "조회 기록이 없는 상태(미조회)이며, 좌석이 없다는 뜻이 아닙니다. 다른 노선이나 지역을 선택해 주세요."
+          ? "좌석 유무는 데이터가 수집된 뒤 표시됩니다. 좌석이 없다는 뜻이 아니며, 공제 마일은 아래 공식 공제표로 확인할 수 있습니다."
           : state.status === "unknown"
             ? "선택한 조건의 모든 날짜에 조회 기록이 있습니다. 미조회는 데이터가 없는 상태로, 좌석 없음과 다릅니다."
             : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요. 미조회 날짜는 좌석 없음과 다릅니다."
       ));
+
+      if (pairMissing) box.append(chartPanel(state.origin, state.destination));
+
+      results.replaceChildren(box);
       renderPagination(0, 1);
       return;
     }
@@ -418,47 +423,207 @@
 
   /* --------------------------------------------------------- 왕복 모드 */
 
-  async function renderJourney() {
+  function isoAddDays(iso, days) {
+    const date = new Date(`${iso}T00:00:00Z`);
+    date.setUTCDate(date.getUTCDate() + days);
+    return date.toISOString().slice(0, 10);
+  }
+
+  function defaultDates() {
+    const today = Air.todayKst();
+    if (!state.outDate) state.outDate = isoAddDays(today, 30);
+    if (!state.inDate) state.inDate = isoAddDays(today, 34);
+
+    if (state.inDate < state.outDate) state.inDate = state.outDate;
+  }
+
+  function legBlock(direction, rows) {
+    const isOut = direction === "out";
+    const origin = isOut ? state.origin : state.destination;
+    const destination = isOut ? state.destination : state.origin;
+    const date = isOut ? state.outDate : state.inDate;
+
+    const wrapper = Air.el("div", { class: "round-leg" });
+
+    if (!Air.award) {
+      wrapper.append(Air.el("p", { class: "air-inline-note", text: "공제표 모듈을 불러오지 못했습니다." }));
+      return wrapper;
+    }
+
+    const cabinKey = state.cabin || "economy";
+    const price = Air.award.miles(origin, destination, date, cabinKey);
+    const head = Air.el("div", { class: "round-leg__head" }, [
+      Air.el("h3", { text: isOut ? "가는 편" : "오는 편" }),
+      Air.el("span", { class: "flight-card__code", text: `${origin} → ${destination}` })
+    ]);
+
+    wrapper.append(head);
+
+    wrapper.append(Air.el("div", { class: "round-leg__date" }, [
+      Air.el("span", { class: "air-field__label", text: isOut ? "가는 날" : "오는 날" }),
+      Air.el("strong", { text: date ? Air.fmtDate(date) : "날짜 미선택" })
+    ]));
+
+    if (!price || price.state !== "ok") {
+      wrapper.append(Air.el("p", { class: "air-inline-note", text:
+        "이 노선은 대한항공 공식 공제표에 구간 값이 아직 표기되어 있지 않습니다." }));
+      return wrapper;
+    }
+
+    const rowsForLeg = rows.filter(row =>
+      row.origin === origin && row.destination === destination &&
+      row.date === date && row.cabinKey === cabinKey
+    );
+
+    const statusRow = rowsForLeg[0];
+
+    wrapper.append(Air.el("div", { class: "round-leg__price" }, [
+      Air.el("strong", { text: Air.milesText(price.miles) }),
+      Air.el("span", { class: "round-leg__season" }, [
+        Air.seasonBadge(origin, date),
+        Air.el("small", { text: `${cabinKey === "economy" ? "일반석" : cabinKey === "business" ? "프레스티지석" : "일등석"} · ${price.season.peak ? "성수기" : "평수기"} 공제` })
+      ])
+    ]));
+
+    if (statusRow) {
+      wrapper.append(Air.el("div", { class: "round-leg__seat" }, [
+        Air.el("span", { class: "air-field__label", text: "좌석" }),
+        Air.statusBadge(statusRow, state.meta)
+      ]));
+    } else {
+      const hasRoute = rows.some(row => row.origin === origin && row.destination === destination);
+
+      wrapper.append(Air.el("div", { class: "round-leg__seat" }, [
+        Air.el("span", { class: "air-field__label", text: "좌석" }),
+        Air.el("span", { class: "badge badge--idle", text: hasRoute ? "이 날짜 미조회" : "귀국편 미수집" }),
+        Air.el("small", { class: "air-inline-note", text: hasRoute
+          ? "선택한 날짜의 좌석 기록이 없습니다. 좌석 없음과 다릅니다."
+          : "이 방향 좌석 데이터는 아직 수집되지 않았습니다. 공제 마일은 공식 공제표 기준입니다." })
+      ]));
+    }
+
+    return wrapper;
+  }
+
+  async function renderRoundTrip() {
     const panel = $("air-journey-panel");
     const searchResults = $("air-search-results");
+    const roundFields = $("air-round-fields");
+    const monthField = $("air-month-field");
 
     const round = state.trip === "round";
 
     panel.hidden = !round;
     searchResults.hidden = round;
+    roundFields.hidden = !round;
+    if (monthField) monthField.hidden = round;
+    $("air-search-form").classList.toggle("is-round", round);
 
     $("air-trip-one").setAttribute("aria-pressed", String(!round));
     $("air-trip-round").setAttribute("aria-pressed", String(round));
 
+    $("air-out-date").value = state.outDate;
+    $("air-in-date").value = state.inDate;
+
     if (!round) return;
 
-    if (typeof Air.mountJourney !== "function") {
+    if (state.origin && state.destination && state.origin !== state.destination) defaultDates();
+
+    $("air-out-date").value = state.outDate;
+    $("air-in-date").value = state.inDate;
+    $("air-in-date").min = state.outDate || "";
+
+    panel.replaceChildren(Air.el("div", { class: "air-loading", text: "왕복 공제량을 계산하는 중" }));
+
+    let rows = [];
+
+    try {
+      const payload = await Air.data({});
+      rows = payload.rows;
+    } catch {
+      rows = [];
+    }
+
+    if (state.trip !== "round") return;
+
+    if (!state.origin || !state.destination) {
       panel.replaceChildren(Air.emptyState(
-        "왕복 화면을 불러오지 못했습니다",
-        "왕복 조합 페이지에서 다시 시도해 주세요."
+        "출발·도착 공항을 먼저 선택해 주세요",
+        "위 검색창에서 출발 공항과 도착 공항을 입력하면 가는 편·오는 편 공제량과 왕복 합계를 계산합니다."
       ));
       return;
     }
 
-    Air.mountJourney(panel, {
-      origin: state.origin,
-      destination: state.destination,
-      month: state.month,
-      cabin: state.cabin,
-      compact: true
-    });
+    if (state.origin === state.destination) {
+      panel.replaceChildren(Air.emptyState("출발지와 목적지가 같습니다", "서로 다른 공항을 선택해 주세요."));
+      return;
+    }
+
+    const cabinKey = state.cabin || "economy";
+    const outPrice = Air.award.miles(state.origin, state.destination, state.outDate, cabinKey);
+    const inPrice = Air.award.miles(state.destination, state.origin, state.inDate, cabinKey);
+
+    const wrapper = Air.el("div", { class: "round-panel" });
+
+    const record = Air.award.route(state.origin, state.destination);
+
+    wrapper.append(Air.el("div", { class: "round-panel__head" }, [
+      Air.el("h2", { text: `${Air.airportShort(state.origin)} → ${Air.airportShort(state.destination)} 왕복` }),
+      Air.el("p", { class: "air-inline-note", text:
+        `${state.origin} ↔ ${state.destination}${record ? ` · 공제 구간 ${record.region}` : ""} · ${Air.PROGRAM_LABEL}` }),
+      Air.el("p", { class: "air-inline-note", text:
+        `좌석 등급은 위 검색 폼의 선택을 따릅니다(선택이 없으면 일반석). 현재 ${cabinKey === "economy" ? "일반석" : cabinKey === "business" ? "프레스티지석" : "일등석"} 기준입니다.` })
+    ]));
+
+    wrapper.append(Air.el("div", { class: "round-legs" }, [
+      legBlock("out", rows),
+      legBlock("in", rows)
+    ]));
+
+    if (outPrice && outPrice.state === "ok" && inPrice && inPrice.state === "ok") {
+      const total = outPrice.miles + inPrice.miles;
+
+      const totalBox = Air.el("div", { class: "round-total" }, [
+        Air.el("div", { class: "round-total__label", text: "왕복 공제 마일" }),
+        Air.el("div", { class: "round-total__value", text: Air.milesText(total) }),
+        Air.el("div", { class: "round-total__break" }, [
+          Air.el("span", { text: `가는 편 ${Air.fmtDate(state.outDate)} ${outPrice.season.label} ${Air.milesText(outPrice.miles)}` }),
+          Air.el("span", { text: `+ 오는 편 ${Air.fmtDate(state.inDate)} ${inPrice.season.label} ${Air.milesText(inPrice.miles)}` })
+        ]),
+        Air.el("p", { class: "round-total__note", text:
+          "가는 날·오는 날 각각의 성수기/평수기 공제 마일을 더한 값입니다. 세금·유류할증료는 별도이며, 좌석 확보를 보장하지 않습니다." })
+      ]);
+
+      wrapper.append(totalBox);
+    } else {
+      wrapper.append(Air.el("div", { class: "round-total" }, [
+        Air.el("div", { class: "round-total__label", text: "왕복 공제 마일" }),
+        Air.el("div", { class: "round-total__value", text: "공제 구간 확인 중" })
+      ]));
+    }
+
+    const upcoming = Air.award.upcomingPeak(state.origin, Air.todayKst(), 3);
+
+    if (upcoming.length) {
+      wrapper.append(Air.el("div", { class: "round-note" }, [
+        Air.el("p", { class: "air-field__label", text: "다가오는 성수기 (대한민국 출발 기준)" }),
+        Air.el("p", { class: "air-inline-note", text: upcoming.map(range =>
+          `${Air.fmtDate(range.start)} ~ ${Air.fmtDate(range.end)}`).join(" · ") }),
+        Air.el("p", { class: "air-inline-note", text:
+          "성수기에는 같은 좌석도 공제 마일이 더 듭니다. 날짜를 옮겨 평수기로 계산해 보세요." })
+      ]));
+    }
+
+    panel.replaceChildren(wrapper);
+
+    if (outPrice && outPrice.state === "ok" && inPrice && inPrice.state === "ok") {
+      apply(false);
+    }
   }
 
   /* ------------------------------------------------------------- 이벤트 */
 
   function bind() {
-    $("air-region").addEventListener("change", event => {
-      state.region = event.target.value;
-      state.page = 1;
-      apply(true);
-      renderResults();
-    });
-
     $("air-month").addEventListener("change", event => {
       state.month = event.target.value;
       state.page = 1;
@@ -485,31 +650,33 @@
       state.page = 1;
       apply(true);
       renderResults();
-      renderJourney();
+      renderRoundTrip();
     });
 
     $("air-reset").addEventListener("click", () => {
       state.origin = "";
       state.destination = "";
-      state.region = "";
       state.month = "";
       state.cabin = "";
       state.status = "";
       state.sort = "date-asc";
       state.page = 1;
       state.trip = "one";
+      state.outDate = "";
+      state.inDate = "";
 
       comboOrigin.setValue("");
       comboDestination.setValue("");
-      $("air-region").value = "";
       $("air-month").value = "";
       $("air-status").value = "";
       $("air-sort").value = "date-asc";
+      $("air-out-date").value = "";
+      $("air-in-date").value = "";
 
       cabinSegment();
       apply(true);
       renderResults();
-      renderJourney();
+      renderRoundTrip();
       $("air-share").textContent = "링크 복사";
     });
 
@@ -528,21 +695,34 @@
       state.trip = "one";
       state.page = 1;
       apply(true);
-      renderJourney();
+      renderRoundTrip();
       renderResults();
     });
 
     $("air-trip-round").addEventListener("click", () => {
       state.trip = "round";
       apply(true);
-      renderJourney();
+      renderRoundTrip();
+    });
+
+    $("air-out-date").addEventListener("change", event => {
+      state.outDate = event.target.value;
+      if (state.inDate && state.inDate < state.outDate) state.inDate = state.outDate;
+      apply(true);
+      renderRoundTrip();
+    });
+
+    $("air-in-date").addEventListener("change", event => {
+      state.inDate = event.target.value;
+      apply(true);
+      renderRoundTrip();
     });
 
     Air.onPopState(() => {
       readStateFromUrl();
       syncControls();
       renderResults();
-      renderJourney();
+      renderRoundTrip();
     });
   }
 
@@ -550,10 +730,11 @@
     if (comboOrigin) comboOrigin.setValue(state.origin);
     if (comboDestination) comboDestination.setValue(state.destination);
 
-    $("air-region").value = state.region;
     $("air-month").value = state.month;
     $("air-status").value = state.status;
     $("air-sort").value = state.sort;
+    $("air-out-date").value = state.outDate;
+    $("air-in-date").value = state.inDate;
     cabinSegment();
   }
 
@@ -577,10 +758,8 @@
       return;
     }
 
-    if (state.region && !state.meta.regions.includes(state.region)) state.region = "";
     if (state.month && !state.meta.months.includes(state.month)) state.month = "";
 
-    $("air-region").value = state.region;
     $("air-month").value = state.month;
     $("air-status").value = state.status;
     $("air-sort").value = state.sort;
@@ -591,12 +770,11 @@
       await loadAirports();
       syncControls();
     } catch (error) {
-      /* 공항 목록이 없어도 코드 직접 입력 없이 기존 데이터로 검색은 가능하다. */
       console.warn("AIR: airport catalog unavailable", error);
     }
 
     renderResults();
-    renderJourney();
+    renderRoundTrip();
   }
 
   if (document.readyState === "loading") {
