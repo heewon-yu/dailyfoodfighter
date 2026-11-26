@@ -291,6 +291,13 @@
   const COPY_DONE = count => `전체 ${count}건 묶음 복사 완료! 카카오톡에 붙여넣기 하세요`;
   const COPY_FAIL = "복사가 제한되었습니다. '카톡용 묶음 복사'를 한 번 더 누르거나 텍스트를 직접 선택해 주세요.";
 
+  /** 터치 기기(모바일·태블릿)에서만 네이티브 공유 시트를 쓴다. PC는 붙여넣기용 복사로 바로 안내한다. */
+  function canNativeShare() {
+    if (typeof navigator.share !== "function") return false;
+    if ((navigator.maxTouchPoints || 0) > 0) return true;
+    return !!(window.matchMedia && window.matchMedia("(pointer: coarse)").matches);
+  }
+
   function shareBar(rows) {
     const status = Air.el("p", { class: "air-share__status", role: "status", "aria-live": "polite" });
     const empty = rows.length === 0;
@@ -328,7 +335,7 @@
 
       const text = shareText(rows);
 
-      if (typeof navigator.share === "function") {
+      if (canNativeShare()) {
         try {
           await navigator.share({ title: "대한항공 일등석(F) 좌석 모음", text });
           setStatus("공유 창을 열었습니다. 카카오톡을 선택해 보내세요.", "ok");
