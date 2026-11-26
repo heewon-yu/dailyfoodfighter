@@ -163,7 +163,7 @@
     } catch (error) {
       $("air-new-view").replaceChildren(Air.emptyState(
         "좌석 데이터를 불러오지 못했습니다",
-        "갱신현황 화면에서 데이터 상태를 확인해 주세요."
+        "잠시 후 새로고침해 주세요."
       ));
       return;
     }

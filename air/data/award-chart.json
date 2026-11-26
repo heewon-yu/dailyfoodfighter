@@ -1,6 +1,6 @@
 {
  "schema_version": 2,
- "generated_at": "2026-11-26T17:09:24+09:00",
+ "generated_at": "2026-11-26T17:34:58+09:00",
  "source": "대한항공 공식 운항 노선 https://www.koreanair.com/booking/reservation-guide/route-map — 향후 30일 직항 정기편, 최근 업데이트 2026-11-26 06:01 KST",
  "chart_source": "https://www.koreanair.com/contents/skypass/use-miles/award-ticket/redemption",
  "chart_note": "편도 기준 [평수기,성수기] 마일. R(프리미엄석)은 현재 싱가포르 노선만 운항. 좌석 등급별 세금·유류할증료 별도.",
@@ -13,16 +13,23 @@
  "korea_airports": [
   "ICN",
   "GMP",
-  "PUS",
   "CJU"
  ],
+ "excluded_airports": [
+  "PUS"
+ ],
+ "excluded_reason": "부산/김해(PUS) 출발·도착 노선은 제외 방침에 따라 표시하지 않습니다.",
  "counts": {
-  "ICN": 90,
-  "GMP": 4,
-  "PUS": 7,
-  "CJU": 2,
-  "city_pairs_total": 103,
-  "directional_legs_total": 206
+  "city_pairs_total": 96,
+  "directional_legs_total": 192,
+  "by_origin": {
+   "ICN": 90,
+   "GMP": 4,
+   "CJU": 2
+  },
+  "excluded_origins": [
+   "PUS"
+  ]
  },
  "regions": [
   {
@@ -62,9 +69,7 @@
     "OIT",
     "OKA",
     "OKJ",
-    "UKB",
-    "NGO",
-    "NRT"
+    "UKB"
    ]
   },
   {
@@ -111,11 +116,7 @@
     "WUH",
     "XIY",
     "XMN",
-    "YNJ",
-    "PEK",
-    "PVG",
-    "TAO",
-    "TPE"
+    "YNJ"
    ]
   },
   {
@@ -152,8 +153,7 @@
     "PQC",
     "RGN",
     "SGN",
-    "SIN",
-    "DAD"
+    "SIN"
    ]
   },
   {
@@ -2190,146 +2190,6 @@
     "E": null,
     "P": null,
     "F": null
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "NGO",
-   "region": "일본",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "NRT",
-   "region": "일본",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "PEK",
-   "region": "중국/동북아시아",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "PVG",
-   "region": "중국/동북아시아",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "TAO",
-   "region": "중국/동북아시아",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "TPE",
-   "region": "중국/동북아시아",
-   "official_region": "동북아시아",
-   "miles": {
-    "E": [
-     15000,
-     22500
-    ],
-    "P": [
-     22500,
-     32500
-    ],
-    "F": [
-     32500,
-     47500
-    ]
-   }
-  },
-  {
-   "o": "PUS",
-   "d": "DAD",
-   "region": "동남아시아/괌",
-   "official_region": "동남아시아/서남아시아",
-   "miles": {
-    "E": [
-     20000,
-     30000
-    ],
-    "P": [
-     35000,
-     52500
-    ],
-    "F": [
-     45000,
-     67500
-    ]
    }
   }
  ],

@@ -1,8 +1,8 @@
 {
  "schema_version": 2,
- "generated_at": "2026-11-26T17:09:24+09:00",
+ "generated_at": "2026-11-26T17:34:58+09:00",
  "source": "OurAirports(좌표) + 대한항공 공식 운항 노선(도시명·공제 구간)",
- "total": 125,
+ "total": 124,
  "airports": [
   {
    "code": "AKL",
@@ -1556,26 +1556,6 @@
     "프라하"
    ],
    "chart": true
-  },
-  {
-   "code": "PUS",
-   "name": "부산/김해",
-   "city": "부산",
-   "english": "Gimhae International Airport",
-   "municipality": "Busan",
-   "region": "대한민국",
-   "country": "KR",
-   "lat": 35.179501,
-   "lon": 128.938004,
-   "aliases": [
-    "Busan",
-    "busan",
-    "gimhae",
-    "김해",
-    "부산",
-    "부산공항"
-   ],
-   "chart": false
   },
   {
    "code": "PVG",

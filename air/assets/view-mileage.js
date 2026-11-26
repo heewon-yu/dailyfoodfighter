@@ -26,40 +26,82 @@
   /* ------------------------------------------------------ 권역별 공제표 */
 
   function cabinTable(regionRows, cabin) {
-    const head = Air.el("thead", null, [
-      Air.el("tr", null, [
-        Air.el("th", { scope: "col", text: "권역" }),
-        Air.el("th", { scope: "col", class: "num", text: "평수기 편도" }),
-        Air.el("th", { scope: "col", class: "num", text: "성수기 편도" }),
-        Air.el("th", { scope: "col", class: "num", text: "평수기 왕복" }),
-        Air.el("th", { scope: "col", class: "num", text: "성수기 왕복" })
-      ])
-    ]);
-
-    const body = Air.el("tbody", null, regionRows.map(region => {
+    const rows = regionRows.map(region => {
       const values = region.miles[cabin.letter];
       const all = [...new Set(region.destinations || [])]
         .map(code => Air.airport(code))
         .filter(Boolean);
 
-      const destinations = all.slice(0, 4).map(entry => entry.name);
-      const count = all.length;
+      return {
+        label: region.label,
+        destinations: all.slice(0, 3).map(entry => entry.name).join(" · ") +
+          (all.length > 3 ? ` 외 ${all.length - 3}곳` : ""),
+        offpeakOne: values[0],
+        peakOne: values[1],
+        offpeakRound: values[0] * 2,
+        peakRound: values[1] * 2
+      };
+    });
 
-      return Air.el("tr", null, [
-        Air.el("th", { scope: "row" }, [
-          Air.el("div", { class: "chart-region", text: region.label }),
-          Air.el("small", { class: "chart-region__dest", text:
-            count > 4 ? `${destinations.join(" · ")} 외 ${count - 4}곳` : destinations.join(" · ") })
+    const head = Air.el("thead", null, [
+      Air.el("tr", null, [
+        Air.el("th", { scope: "col", rowspan: "2", class: "chart-th-region", text: "권역" }),
+        Air.el("th", { scope: "colgroup", colspan: "2", class: "chart-th-group", text: "평수기" }),
+        Air.el("th", { scope: "colgroup", colspan: "2", class: "chart-th-group is-peak", text: "성수기" })
+      ]),
+      Air.el("tr", null, [
+        Air.el("th", { scope: "col", class: "num", text: "편도" }),
+        Air.el("th", { scope: "col", class: "num", text: "왕복" }),
+        Air.el("th", { scope: "col", class: "num", text: "편도" }),
+        Air.el("th", { scope: "col", class: "num", text: "왕복" })
+      ])
+    ]);
+
+    const body = Air.el("tbody", null, rows.map(row =>
+      Air.el("tr", null, [
+        Air.el("th", { scope: "row", class: "chart-cell-region" }, [
+          Air.el("span", { class: "chart-region", text: row.label }),
+          Air.el("small", { class: "chart-region__dest", text: row.destinations })
         ]),
-        Air.el("td", { class: "num", text: fmtMiles(values[0]) }),
-        Air.el("td", { class: "num", text: fmtMiles(values[1]) }),
-        Air.el("td", { class: "num", text: fmtMiles(values[0] * 2) }),
-        Air.el("td", { class: "num", text: fmtMiles(values[1] * 2) })
-      ]);
-    }));
+        Air.el("td", { class: "num", text: fmtMiles(row.offpeakOne) }),
+        Air.el("td", { class: "num", text: fmtMiles(row.offpeakRound) }),
+        Air.el("td", { class: "num is-peak", text: fmtMiles(row.peakOne) }),
+        Air.el("td", { class: "num is-peak", text: fmtMiles(row.peakRound) })
+      ])
+    ));
 
-    return Air.el("div", { class: "air-table-wrap chart-table" }, [
-      Air.el("table", { class: "air-table" }, [head, body])
+    const cards = Air.el("div", { class: "chart-cards" }, rows.map(row =>
+      Air.el("article", { class: "chart-card" }, [
+        Air.el("div", { class: "chart-card__head" }, [
+          Air.el("strong", { text: row.label }),
+          Air.el("small", { text: row.destinations })
+        ]),
+        Air.el("div", { class: "chart-card__grid" }, [
+          Air.el("div", { class: "chart-card__cell" }, [
+            Air.el("span", { text: "평수기 편도" }),
+            Air.el("b", { text: fmtMiles(row.offpeakOne) })
+          ]),
+          Air.el("div", { class: "chart-card__cell" }, [
+            Air.el("span", { text: "평수기 왕복" }),
+            Air.el("b", { text: fmtMiles(row.offpeakRound) })
+          ]),
+          Air.el("div", { class: "chart-card__cell is-peak" }, [
+            Air.el("span", { text: "성수기 편도" }),
+            Air.el("b", { text: fmtMiles(row.peakOne) })
+          ]),
+          Air.el("div", { class: "chart-card__cell is-peak" }, [
+            Air.el("span", { text: "성수기 왕복" }),
+            Air.el("b", { text: fmtMiles(row.peakRound) })
+          ])
+        ])
+      ])
+    ));
+
+    return Air.el("div", { class: "chart-compact" }, [
+      Air.el("div", { class: "air-table-wrap chart-table chart-table--compact" }, [
+        Air.el("table", { class: "air-table air-table--chart" }, [head, body])
+      ]),
+      cards
     ]);
   }
 

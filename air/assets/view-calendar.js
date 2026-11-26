@@ -153,7 +153,7 @@
     const month = state.month || months[0];
 
     if (!month) {
-      return Air.emptyState("달력으로 표시할 기록이 없습니다", "갱신현황에서 데이터 수집 상태를 확인해 주세요.");
+      return Air.emptyState("달력으로 표시할 기록이 없습니다", "잠시 후 새로고침해 주세요.");
     }
 
     state.month = month;
@@ -403,7 +403,7 @@
     } catch (error) {
       $("air-calendar-view").replaceChildren(Air.emptyState(
         "좌석 데이터를 불러오지 못했습니다",
-        "갱신현황 화면에서 데이터 상태를 확인해 주세요."
+        "잠시 후 새로고침해 주세요."
       ));
       return;
     }

@@ -134,6 +134,10 @@ EXTRA_ALIASES = {
 
 KOREA = ["ICN", "GMP", "PUS", "CJU"]
 
+# 부산/김해(PUS) 출발·도착 노선은 운영 방침상 전부 제외한다(2026-11-26 지시).
+EXCLUDED_ORIGINS = {"PUS"}
+EXCLUDED_AIRPORTS = {"PUS"}
+
 
 def clean_city(raw: str) -> str:
     return re.split(r"[/,(]", raw)[0].strip()
@@ -151,6 +155,8 @@ def main() -> None:
     routes = []
 
     for route in catalog["routes"]:
+        if route["origin"] in EXCLUDED_ORIGINS:
+            continue
         dest = route["destination"]
         dest_names[dest] = route["destination_name"]
         dest_region[dest] = route["award_region"]
@@ -192,6 +198,15 @@ def main() -> None:
         if not r["miles"].get("E")
     ]
 
+    city_pairs = len({(r["o"], r["d"]) for r in routes})
+    counts = {
+        "city_pairs_total": city_pairs,
+        "directional_legs_total": city_pairs * 2,
+        "by_origin": {code: sum(1 for r in routes if r["o"] == code)
+                      for code in KOREA if code not in EXCLUDED_ORIGINS},
+        "excluded_origins": sorted(EXCLUDED_ORIGINS),
+    }
+
     award = {
         "schema_version": 2,
         "generated_at": now.isoformat(),
@@ -200,8 +215,10 @@ def main() -> None:
         "chart_note": catalog.get("award_chart_note"),
         "scope": catalog.get("scope"),
         "cabins": ["E", "P", "F"],
-        "korea_airports": KOREA,
-        "counts": catalog.get("counts"),
+        "korea_airports": [code for code in KOREA if code not in EXCLUDED_AIRPORTS],
+        "excluded_airports": sorted(EXCLUDED_AIRPORTS),
+        "excluded_reason": "부산/김해(PUS) 출발·도착 노선은 제외 방침에 따라 표시하지 않습니다.",
+        "counts": counts,
         "regions": ordered,
         "routes": routes,
         "pending": pending,
@@ -220,6 +237,8 @@ def main() -> None:
 
     airports = []
     for code, airport in sorted(by_code.items()):
+        if code in EXCLUDED_AIRPORTS:
+            continue
         name = dest_names.get(code) or airport.get("name") or code
         city = clean_city(name)
         english = airport.get("english_name") or ""
@@ -269,7 +288,7 @@ def main() -> None:
         encoding="utf-8",
     )
 
-    print(f"routes={len(routes)} regions={len(ordered)} pending={len(pending)} airports={len(airports)}")
+    print(f"routes={len(routes)} pairs={city_pairs} regions={len(ordered)} pending={len(pending)} airports={len(airports)}")
 
 
 if __name__ == "__main__":

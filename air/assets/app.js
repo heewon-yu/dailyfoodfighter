@@ -80,8 +80,7 @@
     { key: "calendar", href: "calendar/", label: "달력" },
     { key: "new", href: "new/", label: "신규" },
     { key: "mileage", href: "mileage/", label: "공제표" },
-    { key: "guide", href: "guide/", label: "이용안내" },
-    { key: "status", href: "status/", label: "갱신현황" }
+    { key: "guide", href: "guide/", label: "이용안내" }
   ];
 
   /* -------------------------------------------------------------- 유틸 */
@@ -724,8 +723,7 @@
             el("li", null, [el("a", { href: ROOT + "guide/", text: "이용안내·FAQ" })]),
             el("li", null, [el("a", { href: ROOT + "guide/#terms", text: "이용조건" })]),
             el("li", null, [el("a", { href: "/privacy/", text: "개인정보처리방침" })]),
-            el("li", null, [el("a", { href: "/contact/", text: "서비스 문의" })]),
-            el("li", null, [el("a", { href: ROOT + "status/", text: "데이터 갱신 현황" })])
+            el("li", null, [el("a", { href: "/contact/", text: "서비스 문의" })])
           ])
         ])
       ]),

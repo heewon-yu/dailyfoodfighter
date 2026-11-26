@@ -134,7 +134,7 @@
       sort: state.sort === "date-asc" ? "" : state.sort,
       page: state.page > 1 ? state.page : "",
       trip: state.trip === "round" ? "round" : "",
-      out: state.trip === "round" ? state.outDate : "",
+      out: state.outDate,
       in: state.trip === "round" ? state.inDate : ""
     }, push);
   }
@@ -294,7 +294,7 @@
   }
 
   /** 좌석 데이터가 없는 노선을 골랐을 때: 공식 공제표 기준 마일만 정직하게 보여준다. */
-  function chartPanel(origin, destination) {
+  function chartPanel(origin, destination, dateISO) {
     const award = Air.award;
     const record = award && award.route(origin, destination);
     const wrapper = Air.el("div", { class: "chart-hint" });
@@ -320,11 +320,27 @@
 
     wrapper.append(Air.el("div", { class: "chart-hint__grid" }, Air.CABINS.map(cabin => {
       const values = chart[cabin.letter];
-      return Air.el("div", { class: "chart-hint__cell" }, [
-        Air.el("span", { class: "air-field__label" }, [Air.cabinChip(cabin.key)]),
-        Air.el("b", { text: `평수기 ${Air.milesText(values[0])}` }),
-        Air.el("span", { text: `성수기 ${Air.milesText(values[1])}` })
+      const dated = dateISO && award
+        ? award.miles(origin, destination, dateISO, cabin.key)
+        : null;
+
+      const cell = Air.el("div", { class: "chart-hint__cell" }, [
+        Air.el("span", { class: "air-field__label" }, [Air.cabinChip(cabin.key)])
       ]);
+
+      if (dated && dated.state === "ok") {
+        cell.append(
+          Air.el("b", { text: `${dated.season.label} ${Air.milesText(dated.miles)}` }),
+          Air.el("span", { text: `${Air.fmtDate(dateISO)} 기준 · 평수기 ${Air.milesText(values[0])} / 성수기 ${Air.milesText(values[1])}` })
+        );
+      } else {
+        cell.append(
+          Air.el("b", { text: `평수기 ${Air.milesText(values[0])}` }),
+          Air.el("span", { text: `성수기 ${Air.milesText(values[1])}` })
+        );
+      }
+
+      return cell;
     })));
 
     wrapper.append(Air.el("p", { class: "air-inline-note", text:
@@ -353,7 +369,7 @@
     } catch (error) {
       results.replaceChildren(Air.emptyState(
         "데이터를 불러오지 못했습니다",
-        "잠시 후 다시 시도해 주세요. 계속되면 갱신현황 화면에서 데이터 상태를 확인해 주세요."
+        "잠시 후 다시 시도해 주세요. 계속되면 새로고침 후 이용안내를 확인해 주세요."
       ));
       summary.textContent = "";
       return;
@@ -361,10 +377,14 @@
 
     if (state.trip === "round") return;
 
+    const dateFilter = state.outDate && /^\d{4}-\d{2}-\d{2}$/.test(state.outDate)
+      ? state.outDate : "";
+
     const rows = payload.rows.filter(row => {
       if (state.origin && row.origin !== state.origin) return false;
       if (state.destination && row.destination !== state.destination) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
+      if (dateFilter && row.date !== dateFilter) return false;
       return matchesStatus(row);
     });
 
@@ -381,6 +401,10 @@
     const pageRows = sorted.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
 
     summary.replaceChildren(...[
+      dateFilter ? Air.el("span", { class: "air-results-summary__date" }, [
+        Air.el("b", { text: Air.fmtDate(dateFilter) }),
+        Air.seasonBadge(state.origin || "ICN", dateFilter)
+      ]) : null,
       Air.el("span", null, [Air.el("b", { text: String(sorted.length) }), "건"]),
       Air.el("span", { text: `좌석 있음 ${counts.available}` }),
       Air.el("span", { text: `좌석 없음 ${counts.unavailable}` }),
@@ -392,22 +416,27 @@
       const pairMissing = state.origin && state.destination &&
         !payload.rows.some(row => row.origin === state.origin && row.destination === state.destination);
 
+      const dateMissing = !pairMissing && dateFilter;
+
       const box = Air.el("div", { class: "air-stack" });
 
       box.append(Air.emptyState(
         pairMissing ? "이 노선의 좌석 데이터는 아직 수집되지 않았습니다" :
+          dateMissing ? "선택한 날짜의 조회 기록이 없습니다" :
           state.status === "new" ? "확인된 신규 좌석이 없습니다" :
           state.status === "unknown" ? "미조회 기록이 없습니다" :
           state.status === "stale" ? "오래된 데이터가 없습니다" :
           "조건에 맞는 기록이 없습니다",
         pairMissing
           ? "좌석 유무는 데이터가 수집된 뒤 표시됩니다. 좌석이 없다는 뜻이 아니며, 공제 마일은 아래 공식 공제표로 확인할 수 있습니다."
+          : dateMissing
+            ? "선택한 날짜는 미조회 상태이며 좌석이 없다는 뜻이 아닙니다. 가는 날을 비우면 탑승월 전체 기록을 볼 수 있습니다."
           : state.status === "unknown"
             ? "선택한 조건의 모든 날짜에 조회 기록이 있습니다. 미조회는 데이터가 없는 상태로, 좌석 없음과 다릅니다."
             : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요. 미조회 날짜는 좌석 없음과 다릅니다."
       ));
 
-      if (pairMissing) box.append(chartPanel(state.origin, state.destination));
+      if (pairMissing || dateMissing) box.append(chartPanel(state.origin, state.destination, dateFilter));
 
       results.replaceChildren(box);
       renderPagination(0, 1);
@@ -432,7 +461,7 @@
   function defaultDates() {
     const today = Air.todayKst();
     if (!state.outDate) state.outDate = isoAddDays(today, 30);
-    if (!state.inDate) state.inDate = isoAddDays(today, 34);
+    if (!state.inDate) state.inDate = isoAddDays(state.outDate, 4);
 
     if (state.inDate < state.outDate) state.inDate = state.outDate;
   }
@@ -515,9 +544,14 @@
 
     panel.hidden = !round;
     searchResults.hidden = round;
-    roundFields.hidden = !round;
+    roundFields.hidden = false;
     if (monthField) monthField.hidden = round;
     $("air-search-form").classList.toggle("is-round", round);
+
+    $("air-in-date-field").hidden = !round;
+    $("air-date-note").textContent = round
+      ? "가는 날·오는 날 각각의 성수기·평수기 공제 마일을 더해 왕복 공제량을 계산합니다."
+      : "가는 날을 비워두면 선택한 탑승월 전체를 보여줍니다. 날짜를 넣으면 그 날짜의 좌석과 공제 마일만 확인합니다.";
 
     $("air-trip-one").setAttribute("aria-pressed", String(!round));
     $("air-trip-round").setAttribute("aria-pressed", String(round));
@@ -708,7 +742,9 @@
     $("air-out-date").addEventListener("change", event => {
       state.outDate = event.target.value;
       if (state.inDate && state.inDate < state.outDate) state.inDate = state.outDate;
+      state.page = 1;
       apply(true);
+      renderResults();
       renderRoundTrip();
     });
 
@@ -752,7 +788,7 @@
     } catch (error) {
       $("air-results").replaceChildren(Air.emptyState(
         "데이터 목록을 불러오지 못했습니다",
-        "데이터 매니페스트(index.json)를 읽을 수 없습니다. 갱신현황 화면에서 상태를 확인해 주세요."
+        "데이터 목록(index.json)을 읽을 수 없습니다. 잠시 후 새로고침해 주세요."
       ));
       bind();
       return;
