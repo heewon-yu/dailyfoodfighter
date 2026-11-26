@@ -1232,7 +1232,7 @@ img { max-width: 100%; }
 .air-combo__tag.is-idle { background: #f1f5f9; color: var(--ink-4); }
 
 /* 여정·성수기 배지 */
-.badge--peak { background: #fff3e0; color: var(--amber); border-color: #fbdcaa; }
+.badge--peak { background: #ffe4e6; color: #be123c; border-color: #fda4af; }
 .badge--offpeak { background: var(--blue-50); color: var(--blue-700); border-color: #cfdfff; }
 .badge--idle { background: #f8fafc; color: var(--ink-3); border: 1px dashed var(--line); }
 
@@ -1320,11 +1320,11 @@ img { max-width: 100%; }
 .route-cell__miles b { font-size: 12.5px; color: var(--navy); font-variant-numeric: tabular-nums; }
 
 /* 달력 */
-.calendar-day.is-peak { background: #fffdf6; }
-.calendar-day.is-peak .calendar-day__state { color: var(--amber); }
+.calendar-day.is-peak { background: #fff5f7; }
+.calendar-day.is-peak .calendar-day__state { color: #be123c; }
 .calendar-day__peak {
-  font-size: 9.5px; font-weight: 800; color: var(--amber);
-  background: #fff3e0; border-radius: 4px; padding: 1px 4px; align-self: flex-start;
+  font-size: 9.5px; font-weight: 800; color: #be123c;
+  background: #ffe4e6; border-radius: 4px; padding: 1px 4px; align-self: flex-start;
 }
 .calendar-detail-row {
   display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
@@ -1367,7 +1367,7 @@ img { max-width: 100%; }
   text-align: center; font-size: 12px; font-weight: 800;
   background: #eef4ff; color: var(--blue-700); border-bottom: 1px solid var(--line);
 }
-.air-table--chart .chart-th-group.is-peak { background: #fff3e0; color: var(--amber); }
+.air-table--chart .chart-th-group.is-peak { background: #ffe4e6; color: #be123c; }
 .air-table--chart .chart-th-region { width: 250px; text-align: left; }
 .air-table--chart .chart-cell-region { width: 250px; max-width: 250px; vertical-align: middle; }
 .air-table--chart tbody tr:nth-child(even) { background: #fafcff; }
@@ -1377,7 +1377,7 @@ img { max-width: 100%; }
   text-align: right; white-space: nowrap; padding-left: 22px;
   color: var(--navy); font-weight: 800; font-variant-numeric: tabular-nums;
 }
-.air-table--chart td.num.is-peak { color: #9a4a05; }
+.air-table--chart td.num.is-peak { color: #be123c; }
 .air-table--chart th.num { text-align: right; }
 .chart-cards { display: none; }
 
@@ -1471,10 +1471,10 @@ img { max-width: 100%; }
     background: #f6f9fd; border-radius: 8px; padding: 8px 10px;
     display: flex; flex-direction: column; gap: 2px;
   }
-  .chart-card__cell.is-peak { background: #fff7ea; }
+  .chart-card__cell.is-peak { background: #fff1f2; }
   .chart-card__cell span { font-size: 11px; color: var(--ink-3); font-weight: 700; }
   .chart-card__cell b { font-size: 15.5px; color: var(--navy); font-variant-numeric: tabular-nums; }
-  .chart-card__cell.is-peak b { color: #9a4a05; }
+  .chart-card__cell.is-peak b { color: #be123c; }
   .hotpick-kv { grid-template-columns: 1fr 1fr; }
   .hotpick-region > summary { padding: 11px 12px; }
   .hotpick-cabin { padding: 4px 12px 12px; }

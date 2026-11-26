@@ -178,7 +178,7 @@
 
     const legend = Air.el("div", { class: "air-legend" }, [
       Air.el("span", null, [Air.el("i", { style: "background:#3478bc" }), "좌석 표시 노선"]),
-      Air.el("span", null, [Air.el("i", { style: "background:#e88b25" }), "성수기 좌석 포함"]),
+      Air.el("span", null, [Air.el("i", { style: "background:#e11d48" }), "성수기 좌석 포함"]),
       Air.el("span", null, [Air.el("i", { style: "background:#16965d" }), "신규 좌석 포함"]),
       Air.el("span", null, [Air.el("i", { style: "background:#183951" }), "출발 공항"])
     ]);
@@ -275,7 +275,7 @@
 
         if (!from || !to) { missing++; continue; }
 
-        const color = route.hasNew ? "#16965d" : route.hasPeak ? "#e88b25" : "#3478bc";
+        const color = route.hasNew ? "#16965d" : route.hasPeak ? "#e11d48" : "#3478bc";
 
         const line = L.polyline([from, to], {
           color, weight: 2, opacity: .72, dashArray: "5 5"

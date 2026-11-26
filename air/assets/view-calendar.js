@@ -341,7 +341,7 @@
   function legendItem(cls, label) {
     const color = cls === "is-available" ? "#bfe8cf" :
       cls === "is-unavailable" ? "#e2e8f0" :
-      cls === "is-peak" ? "#fbdcaa" : "#f6e3c4";
+      cls === "is-peak" ? "#fda4af" : "#f6e3c4";
 
     return Air.el("span", null, [
       Air.el("i", { style: `background:${color}` }),
