@@ -333,8 +333,7 @@
       legend,
       Air.el("p", { class: "air-map-note", text:
         "달력에는 조회된 좌석 기록만 표시합니다. 회색 날짜는 예약 가능한 보너스 좌석이 없는 날이고, 표시가 없는 날은 그날의 조회 기록이 없는 날입니다. 성수기 표시는 대한민국 출발 기준 공식 성수기 기간입니다." }),
-      state.selectedDate ? detail(state.selectedDate, monthRows) :
-        (detailDate ? detail(detailDate, monthRows) : null)
+      state.selectedDate ? detail(state.selectedDate, monthRows) : monthTicketList(month, monthRows)
     ]);
   }
 
@@ -349,14 +348,90 @@
     ]);
   }
 
+  function monthTicketList(month, monthRows) {
+    const [year, monthNumber] = month.split("-").map(Number);
+    const availableRows = monthRows
+      .filter(row => row.status === "available")
+      .slice()
+      .sort((a, b) => a.date.localeCompare(b.date) || a.origin.localeCompare(b.origin) || a.destination.localeCompare(b.destination) || a.cabin.letter.localeCompare(b.cabin.letter));
+
+    const panel = Air.el("section", { class: "air-card", style: "margin-top:16px" });
+    panel.append(Air.el("div", { style: "display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px" }, [
+      Air.el("h2", { style: "font-size:17px;margin:0", text: `${year}년 ${monthNumber}월 예약 가능 티켓 (${availableRows.length}건)` }),
+      Air.el("span", { class: "air-inline-note", text: "날짜순 · 달력 날짜를 누르면 해당일 상세로 봅니다" })
+    ]));
+
+    if (!availableRows.length) {
+      panel.append(Air.el("p", { class: "air-inline-note", text:
+        "이 달에는 예약 가능한 보너스 좌석이 없습니다." }));
+      return panel;
+    }
+
+    const byDate = new Map();
+    for (const row of availableRows) {
+      if (!byDate.has(row.date)) byDate.set(row.date, []);
+      byDate.get(row.date).push(row);
+    }
+
+    for (const [date, entries] of byDate) {
+      const season = Air.award ? Air.award.seasonOf(date, state.origin || "ICN") : null;
+      const dayBox = Air.el("div", { style: "padding:10px 0;border-bottom:1px solid #eef2f7" }, [
+        Air.el("div", { style: "display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap" }, [
+          Air.el("div", { style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap" }, [
+            Air.el("strong", { style: "color:#0f2340", text: Air.fmtDate(date) }),
+            season ? Air.seasonBadge(state.origin || "ICN", date) : null
+          ]),
+          Air.el("a", { href: Air.KE_AWARD_URL, target: "_blank", rel: "noopener noreferrer",
+            style: "font-size:12px;font-weight:700", text: "공식 조회 ↗" })
+        ])
+      ]);
+
+      for (const row of entries) {
+        const price = Air.priceOf(row);
+        const hotpick = Air.hotpickNote(row);
+        dayBox.append(Air.el("div", { class: "calendar-detail-row" }, [
+          Air.el("span", { style: "font-weight:700;color:#1e293b", text: `${Air.airportShort(row.origin)} ${row.origin} → ${Air.airportShort(row.destination)} ${row.destination}` }),
+          Air.cabinChip(row.cabinKey),
+          Air.statusBadge(row, state.meta),
+          Air.el("span", { class: "calendar-detail-row__miles", text:
+            price.kind === "official"
+              ? `${price.season.label} ${Air.milesText(price.miles)}`
+              : "공제 구간 확인 중" }),
+          Air.hotpickBadge(row),
+          hotpick
+        ]));
+      }
+
+      panel.append(dayBox);
+    }
+
+    panel.append(Air.el("p", { class: "air-inline-note", style: "margin-top:10px", text:
+      "공제 마일은 대한항공 공식 공제표의 편도 기준이며, 세금·유류할증료는 별도입니다." }));
+
+    return panel;
+  }
+
   function detail(date, monthRows) {
     const rows = monthRows.filter(row => row.date === date);
     const panel = Air.el("section", { class: "air-card", style: "margin-top:16px" });
     const season = Air.award ? Air.award.seasonOf(date, state.origin || "ICN") : null;
 
-    panel.append(Air.el("div", { style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px" }, [
-      Air.el("h2", { style: "font-size:17px;margin:0", text: `${Air.fmtDate(date)} 상세` }),
-      season ? Air.seasonBadge(state.origin || "ICN", date) : null
+    const resetBtn = Air.el("button", {
+      type: "button",
+      class: "air-btn air-btn--ghost air-btn--sm",
+      text: "이 달 전체 보기"
+    });
+    resetBtn.addEventListener("click", () => {
+      state.selectedDate = "";
+      renderCalendarOnly();
+    });
+
+    panel.append(Air.el("div", { style: "display:flex;justify-content:space-between;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:10px" }, [
+      Air.el("div", { style: "display:flex;gap:8px;align-items:center;flex-wrap:wrap" }, [
+        Air.el("h2", { style: "font-size:17px;margin:0", text: `${Air.fmtDate(date)} 상세` }),
+        season ? Air.seasonBadge(state.origin || "ICN", date) : null
+      ]),
+      resetBtn
     ]));
 
     if (!rows.length) {
