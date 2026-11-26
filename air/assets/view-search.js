@@ -393,8 +393,10 @@
       if (state.destination && row.destination !== state.destination) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
       if (dateFilter && row.date !== dateFilter) return false;
-      // 미조회(unknown)는 기본 목록에서 숨긴다. 사용자가 좌석 상태에서 '미조회'를
-      // 직접 고른 경우에만 예외로 보여 준다.
+      // 기본(전체 상태) 목록은 예약 가능한 좌석이 있는 행만 보여 준다.
+      // 미조회(unknown)·좌석 없음(unavailable)은 사용자가 좌석 상태에서 직접
+      // 고른 경우에만 예외로 보여 준다(유희원 님 지시, 2026-11-26).
+      if (!state.status) return row.status === "available";
       if (row.status === "unknown" && state.status !== "unknown") return false;
       return matchesStatus(row);
     });
@@ -417,8 +419,8 @@
         Air.seasonBadge(state.origin || "ICN", dateFilter)
       ]) : null,
       Air.el("span", null, [Air.el("b", { text: String(sorted.length) }), "건"]),
-      Air.el("span", { text: `좌석 있음 ${counts.available}` }),
-      Air.el("span", { text: `좌석 없음 ${counts.unavailable}` }),
+      counts.available ? Air.el("span", { text: `좌석 있음 ${counts.available}` }) : null,
+      counts.unavailable ? Air.el("span", { text: `좌석 없음 ${counts.unavailable}` }) : null,
       counts.unknown ? Air.el("span", { text: `미조회 ${counts.unknown}` }) : null,
       counts.new ? Air.el("span", { text: `NEW ${counts.new}` }) : null
     ].filter(Boolean));
@@ -427,37 +429,47 @@
       const pairMissing = state.origin && state.destination &&
         !payload.rows.some(row => row.origin === state.origin && row.destination === state.destination);
 
-      const dateMissing = !pairMissing && dateFilter;
+      const scopeRows = payload.rows.filter(row =>
+        (!state.origin || row.origin === state.origin) &&
+        (!state.destination || row.destination === state.destination) &&
+        (!state.cabin || row.cabinKey === state.cabin)
+      );
+      const dateRows = dateFilter ? scopeRows.filter(row => row.date === dateFilter) : scopeRows;
+      const hasAvailable = list => list.some(row => row.status === "available");
+      // 날짜를 지정했는데 그 날 예약 가능한 좌석이 0건이면(좌석 없음·미조회 모두)
+      // 빈 목록 대신 '예약 가능한 좌석 없음'으로 안내한다.
+      const dateNoSeat = !pairMissing && Boolean(dateFilter) && !hasAvailable(dateRows);
+      const monthNoSeat = !pairMissing && !dateFilter && !state.status &&
+        scopeRows.length > 0 && !hasAvailable(scopeRows);
       const unknownOnly = !pairMissing && !dateFilter && state.status !== "unknown" &&
-        payload.rows.some(row =>
-          (!state.origin || row.origin === state.origin) &&
-          (!state.destination || row.destination === state.destination) &&
-          (!state.cabin || row.cabinKey === state.cabin) &&
-          row.status === "unknown"
-        );
+        scopeRows.length > 0 && scopeRows.every(row => row.status === "unknown");
 
       const box = Air.el("div", { class: "air-stack" });
 
       box.append(Air.emptyState(
         pairMissing ? "이 노선의 좌석 데이터는 아직 수집되지 않았습니다" :
-          dateMissing ? "선택한 날짜의 조회 기록이 없습니다" :
+          dateNoSeat ? "예약 가능한 좌석 없음" :
           state.status === "new" ? "확인된 신규 좌석이 없습니다" :
           state.status === "unknown" ? "미조회 기록이 없습니다" :
           state.status === "stale" ? "오래된 데이터가 없습니다" :
+          state.status === "unavailable" ? "좌석 없음 기록이 없습니다" :
+          monthNoSeat ? "예약 가능한 좌석 없음" :
           unknownOnly ? "확인된 좌석 기록이 없습니다" :
           "조건에 맞는 기록이 없습니다",
         pairMissing
           ? "좌석 유무는 데이터가 수집된 뒤 표시됩니다. 좌석이 없다는 뜻이 아니며, 공제 마일은 아래 공식 공제표로 확인할 수 있습니다."
-          : dateMissing
-            ? "선택한 날짜는 미조회 상태이며 좌석이 없다는 뜻이 아닙니다. 가는 날을 비우면 탑승월 전체 기록을 볼 수 있습니다."
+          : dateNoSeat
+            ? "선택한 날짜는 조회 결과 예약 가능한 보너스 좌석이 없습니다. 좌석 유무는 대한항공 공개 표식(기준 시각) 기준이며 실시간과 다를 수 있습니다."
           : state.status === "unknown"
             ? "선택한 조건의 모든 날짜에 조회 기록이 있습니다. 미조회는 데이터가 없는 상태로, 좌석 없음과 다릅니다."
-            : unknownOnly
-              ? "이 조건의 날짜는 모두 미조회 상태입니다. 미조회는 기본 목록에서 숨기며, 좌석 상태에서 '미조회'를 직접 선택하면 확인할 수 있습니다. 미조회는 좌석 없음과 다릅니다."
-              : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요."
+            : monthNoSeat
+              ? "이 조건의 탑승월 전체에 예약 가능한 보너스 좌석이 없습니다. 좌석 상태에서 '좌석 없음'을 고르면 조회된 날짜를 볼 수 있습니다."
+              : unknownOnly
+                ? "이 조건의 날짜는 모두 미조회 상태입니다. 미조회는 기본 목록에서 숨기며, 좌석 상태에서 '미조회'를 직접 선택하면 확인할 수 있습니다. 미조회는 좌석 없음과 다릅니다."
+                : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요."
       ));
 
-      if (pairMissing || dateMissing) box.append(chartPanel(state.origin, state.destination, dateFilter));
+      if (pairMissing || dateNoSeat) box.append(chartPanel(state.origin, state.destination, dateFilter));
 
       results.replaceChildren(box);
       renderPagination(0, 1);
@@ -526,7 +538,8 @@
       row.date === date && row.cabinKey === cabinKey
     );
 
-    const statusRow = rowsForLeg.find(row => row.status !== "unknown");
+    const availableRow = rowsForLeg.find(row => row.status === "available");
+    const checkedRow = rowsForLeg.find(row => row.status !== "unknown");
 
     wrapper.append(Air.el("div", { class: "round-leg__price" }, [
       Air.el("strong", { text: Air.milesText(price.miles) }),
@@ -540,20 +553,23 @@
     const legHotpick = Air.hotpickNote({ origin, destination, date, cabinKey });
     if (legHotpick) wrapper.append(legHotpick);
 
-    if (statusRow) {
+    if (availableRow) {
       wrapper.append(Air.el("div", { class: "round-leg__seat" }, [
         Air.el("span", { class: "air-field__label", text: "좌석" }),
-        Air.statusBadge(statusRow, state.meta)
+        Air.statusBadge(availableRow, state.meta)
       ]));
     } else {
       const hasRoute = rows.some(row => row.origin === origin && row.destination === destination);
 
+      // 지정한 날짜에 예약 가능한 좌석이 0건이면 '예약 가능한 좌석 없음'으로 표기한다.
       wrapper.append(Air.el("div", { class: "round-leg__seat" }, [
         Air.el("span", { class: "air-field__label", text: "좌석" }),
-        Air.el("span", { class: "badge badge--idle", text: hasRoute ? "이 날짜 미조회" : "귀국편 미수집" }),
-        Air.el("small", { class: "air-inline-note", text: hasRoute
-          ? "선택한 날짜의 좌석 기록이 없습니다. 좌석 없음과 다릅니다."
-          : "이 방향 좌석 데이터는 아직 수집되지 않았습니다. 공제 마일은 공식 공제표 기준입니다." })
+        Air.el("span", { class: "badge badge--idle", text: hasRoute ? "예약 가능한 좌석 없음" : "귀국편 미수집" }),
+        Air.el("small", { class: "air-inline-note", text: !hasRoute
+          ? "이 방향 좌석 데이터는 아직 수집되지 않았습니다. 공제 마일은 공식 공제표 기준입니다."
+          : checkedRow
+            ? "선택한 날짜는 조회 결과 예약 가능한 보너스 좌석이 없습니다."
+            : "선택한 날짜의 좌석 기록이 없어 확인된 좌석이 없습니다." })
       ]));
     }
 
@@ -698,11 +714,15 @@
     const origin = isOut ? state.origin : state.destination;
     const destination = isOut ? state.destination : state.origin;
 
-    const list = rows.filter(row =>
+    const scoped = rows.filter(row =>
       row.origin === origin && row.destination === destination &&
       row.cabinKey === cabinKey && (!state.month || row.month === state.month) &&
       row.status !== "unknown"
-    ).sort((a, b) => a.date.localeCompare(b.date));
+    );
+
+    // 월 전체 표는 예약 가능한 날짜만 보여 주고, 없으면 같은 안내를 낸다.
+    const list = scoped.filter(row => row.status === "available")
+      .sort((a, b) => a.date.localeCompare(b.date));
 
     const box = Air.el("div", { class: "round-leg" }, [
       Air.el("div", { class: "round-leg__head" }, [
@@ -716,17 +736,15 @@
     ]);
 
     if (!list.length) {
-      box.append(Air.el("p", { class: "air-inline-note", text: isOut
-        ? "이 노선·등급의 좌석 기록이 아직 없습니다(미수집). 좌석 없음과 다릅니다."
-        : "귀국편 좌석 데이터가 아직 수집되지 않았습니다. 좌석 없음과 다릅니다." }));
+      box.append(Air.el("p", { class: "air-inline-note", text: scoped.length
+        ? "예약 가능한 좌석 없음 — 이 기간에 예약 가능한 보너스 좌석이 없습니다."
+        : isOut
+          ? "이 노선·등급의 좌석 기록이 아직 없습니다(미수집)."
+          : "귀국편 좌석 데이터가 아직 수집되지 않았습니다." }));
       return box;
     }
 
-    const available = list.filter(row => row.status === "available").length;
-    const unknown = list.filter(row => row.status === "unknown").length;
-
-    box.append(Air.el("p", { class: "air-inline-note", text:
-      `${list.length}일 기록 · 좌석 있음 ${available}일` + (unknown ? ` · 미조회 ${unknown}일` : "") }));
+    box.append(Air.el("p", { class: "air-inline-note", text: `예약 가능한 날짜 ${list.length}일` }));
 
     box.append(Air.el("div", { class: "air-table-wrap" }, [
       Air.el("table", { class: "air-table air-table--compact" }, [

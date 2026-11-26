@@ -44,12 +44,15 @@
       if (state.origin && row.origin !== state.origin) return false;
       if (state.destination && row.destination !== state.destination) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
+      // 미조회(unknown)는 달력에 아예 표시하지 않는다(유희원 님 지시, 2026-11-26).
+      if (row.status === "unknown") return false;
       return true;
     });
   }
 
   function availableMonths() {
-    return [...new Set(state.rows.map(row => row.month))].sort();
+    // 미조회만 있는 달은 달력 선택지에 넣지 않는다.
+    return [...new Set(filteredRows().map(row => row.month))].sort();
   }
 
   function controls() {
@@ -142,9 +145,8 @@
   }
 
   function dayState(dayRows) {
-    if (!dayRows.length) return "unknown";
+    if (!dayRows.length) return "nodata";
     if (dayRows.some(row => row.status === "available")) return "available";
-    if (dayRows.every(row => row.status === "unknown")) return "unknown";
     return "unavailable";
   }
 
@@ -157,6 +159,12 @@
     }
 
     state.month = month;
+
+    // 선택한 등급에 확인된 기록이 하나도 없으면(예: 일등석 F가 전부 미조회) 달력 대신 안내를 낸다.
+    if (!filteredRows().some(row => row.month === month)) {
+      return Air.emptyState("확인된 좌석 기록이 없습니다",
+        "이 등급은 공개 달력에 확인된 좌석 기록이 없습니다. 등급을 프레스티지(P)로 바꾸거나 다른 달을 선택해 주세요.");
+    }
 
     const [year, monthNumber] = month.split("-").map(Number);
     const index = months.indexOf(month);
@@ -258,7 +266,7 @@
       cell.append(Air.el("span", {
         class: "calendar-day__state",
         text: status === "available" ? `${availableCabins.length}개 등급` :
-          status === "unknown" ? "미조회" :
+          status === "nodata" ? "" :
           stale ? "없음·오래됨" : "없음"
       }));
 
@@ -266,7 +274,7 @@
 
       cell.setAttribute("aria-label",
         `${date} ${season.peak ? "성수기 " : "평수기 "}${status === "available" ? availableCabins.map(cabin => cabin.name).join(", ") + " 좌석 표시" :
-          status === "unknown" ? "미조회" : "좌석 표시 없음"}`);
+          status === "nodata" ? "좌석 정보 없음" : "좌석 표시 없음"}`);
 
       cell.addEventListener("click", () => {
         state.selectedDate = state.selectedDate === date ? "" : date;
@@ -279,7 +287,6 @@
     const legend = Air.el("div", { class: "calendar-legend" }, [
       legendItem("is-available", "좌석 있음"),
       legendItem("is-unavailable", "좌석 없음"),
-      legendItem("is-unknown", "미조회(데이터 없음)"),
       legendItem("is-peak", "성수기 기간"),
       ...Air.CABINS.map(cabin => Air.el("span", null, [
         Air.el("span", { class: `calendar-day__mark ${cabin.cls}`, text: cabin.letter }),
@@ -292,7 +299,7 @@
       grid,
       legend,
       Air.el("p", { class: "air-map-note", text:
-        "색이 있는 날짜는 저장된 조회 기록이 있는 날입니다. 미조회 날짜는 좌석이 없다는 뜻이 아니며, 실제 예약 가능 여부는 대한항공 공식 조회에서 확인해야 합니다. 성수기 표시는 대한민국 출발 기준 공식 성수기 기간입니다." }),
+        "달력에는 조회된 좌석 기록만 표시합니다. 회색 날짜는 예약 가능한 보너스 좌석이 없는 날이고, 표시가 없는 날은 그날의 조회 기록이 없는 날입니다. 성수기 표시는 대한민국 출발 기준 공식 성수기 기간입니다." }),
       state.selectedDate ? detail(state.selectedDate, monthRows) :
         (detailDate ? detail(detailDate, monthRows) : null)
     ]);
@@ -321,7 +328,7 @@
 
     if (!rows.length) {
       panel.append(Air.el("p", { class: "air-inline-note", text:
-        "이 날짜는 조회 기록이 없습니다(미조회). 좌석 없음과 다릅니다." }));
+        "이 날짜는 확인된 좌석 기록이 없습니다." }));
       return panel;
     }
 

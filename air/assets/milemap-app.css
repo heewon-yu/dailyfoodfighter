@@ -792,6 +792,12 @@ img { max-width: 100%; }
   background: #fffdf8;
 }
 .calendar-day.is-unknown .calendar-day__state { color: var(--amber); }
+/* 미조회는 달력에 표시하지 않으므로, 기록이 없는 날은 빈 칸처럼 보이게 둔다. */
+.calendar-day.is-nodata {
+  border-color: #eef2f7;
+  background: #fcfdfe;
+  color: var(--ink-3);
+}
 .calendar-day.is-stale { box-shadow: inset 0 0 0 1px #f3d9a4; }
 .calendar-day[aria-pressed="true"] {
   border-color: var(--blue);
