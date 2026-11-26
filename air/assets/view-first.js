@@ -206,12 +206,6 @@
       Air.el("div", { class: "flight-card__bottom" }, [
         Air.priceNode(row),
         Air.el("div", { class: "flight-card__side" }, [
-          Air.el("span", { class: "flight-card__observed" }, [
-            Air.el("b", { text: "최종 조회 " }),
-            checked
-              ? `${checked} KST`
-              : (row.collectedAt ? Air.fmtDateTime(row.collectedAt) : "조회 시각 없음")
-          ]),
           Air.el("a", {
             class: "flight-card__link",
             href: Air.KE_AWARD_URL,
@@ -220,6 +214,17 @@
             text: "공식 조회 ↗"
           })
         ])
+      ]),
+      Air.el("p", {
+        class: "flight-card__observed",
+        style: "margin:0;display:flex;align-items:center;justify-content:space-between;gap:8px;" +
+          "border-top:1px solid var(--line-2);padding-top:8px;font-size:11.5px;color:var(--ink-3)"
+      }, [
+        Air.el("span", null, [
+          Air.el("b", { text: "최종 조회 " }),
+          checked ? `${checked} KST` : "조회 시각 없음"
+        ]),
+        Air.el("span", { text: "공식 월별 현황 수집" })
       ])
     ]);
   }
