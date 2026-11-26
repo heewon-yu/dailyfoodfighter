@@ -71,6 +71,7 @@
     const counts = new Map();
 
     for (const row of state.rows) {
+      if (state.direction !== "all" && directionOf(row) !== state.direction) continue;
       for (const code of [row.origin, row.destination]) {
         if (KOREA.has(code)) continue;
         counts.set(code, (counts.get(code) || 0) + 1);
