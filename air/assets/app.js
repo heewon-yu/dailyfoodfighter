@@ -60,13 +60,13 @@
 
   const REGION_LABEL = {
     "japan": "일본",
-    "china": "중국",
+    "china": "중국·동북아",
     "southeast-asia": "동남아시아",
     "southwest-asia": "서남아시아",
     "northeast-asia": "동북아시아",
     "north-america": "북미",
     "south-america": "남미",
-    "europe": "유럽",
+    "europe": "유럽·중동",
     "oceania": "대양주·괌",
     "middle-east": "중동",
     "africa": "아프리카",
