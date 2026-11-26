@@ -10,6 +10,7 @@
   const state = {
     origin: "",
     destination: "",
+    region: "",
     cabin: "",
     month: "",
     rows: [],
@@ -27,6 +28,7 @@
     const params = Air.params();
     state.origin = (params.get("origin") || "").toUpperCase();
     state.destination = (params.get("destination") || "").toUpperCase();
+    state.region = params.get("region") || "";
     state.cabin = params.get("cabin") || "";
     state.month = params.get("month") || "";
   }
@@ -35,6 +37,7 @@
     Air.setParams({
       origin: state.origin,
       destination: state.destination,
+      region: state.region,
       cabin: state.cabin,
       month: state.month
     });
@@ -122,6 +125,10 @@
       Air.el("div", { class: "air-filters", style: "grid-template-columns:repeat(auto-fit,minmax(180px,1fr))" }, [
         selectField("air-map-origin", "출발 공항", state.origin, airportEntries, value => { state.origin = value; }),
         selectField("air-map-destination", "도착 공항", state.destination, airportEntries, value => { state.destination = value; }),
+        selectField("air-map-region", "지역", state.region,
+          [...new Set(state.rows.map(row => row.region || "").filter(Boolean))].sort()
+            .map(region => ({ value: region, label: Air.regionLabel(region) })),
+          value => { state.region = value; }),
         selectField("air-map-cabin", "좌석 등급", state.cabin,
           Air.CABINS.map(cabin => ({ value: cabin.key, label: `${cabin.letter} · ${cabin.name}` })),
           value => { state.cabin = value; }),
@@ -137,6 +144,7 @@
     return state.rows.filter(row => {
       if (state.origin && row.origin !== state.origin) return false;
       if (state.destination && row.destination !== state.destination) return false;
+      if (state.region && (row.region || "") !== state.region) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
       if (state.month && row.month !== state.month) return false;
       return row.status === "available";
