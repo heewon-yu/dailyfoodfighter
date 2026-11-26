@@ -450,13 +450,16 @@
     }
 
     const domestic = meta.domestic;
+    const noteItems = (meta.notes || []).map(note => Air.el("li", { text: note }));
+
+    if (domestic) {
+      noteItems.push(Air.el("li", { text:
+        `국내선 탭에도 핫픽이 있습니다(편도 ${fmtMiles(domestic.discount.oneway)} · 왕복 ${fmtMiles(domestic.discount.round)}마일, 요일·시간 조건). 마일지도는 국제선만 다루므로 이 표에서는 빼 두었습니다.` }));
+    }
+
     const notes = Air.el("div", { class: "air-prose", style: "margin-top:12px" }, [
       Air.el("h3", { text: "주의사항" }),
-      Air.el("ul", null, (meta.notes || []).map(note => Air.el("li", { text: note }))),
-      domestic
-        ? Air.el("li", { text:
-            `국내선 탭에도 핫픽이 있습니다(편도 ${fmtMiles(domestic.discount.oneway)} · 왕복 ${fmtMiles(domestic.discount.round)}마일, 요일·시간 조건). 마일지도는 국제선만 다루므로 이 표에서는 빼 두었습니다.` })
-        : null
+      Air.el("ul", null, noteItems)
     ]);
 
     root.append(notes);

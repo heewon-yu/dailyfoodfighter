@@ -486,7 +486,7 @@
     if (hit.state === "applies") {
       return el("span", {
         class: "badge badge--hotpick",
-        title: `대한항공 보너스 핫픽 할인 대상 구간입니다. 편도 ${fmtMiles(hit.discount)}마일 할인.`,
+        title: `대한항공 보너스 핫픽 할인 대상 구간입니다. 편도 ${fmtMiles(hit.discount)} 할인.`,
         text: `핫픽 -${fmtMiles(hit.discount)}`
       });
     }
@@ -515,7 +515,7 @@
       : "해당 노선 전편";
 
     return el("div", { class: "price-hotpick" }, [
-      el("b", { text: `보너스 핫픽 시 ${fmtMiles(hit.miles)}마일` }),
+      el("b", { text: `보너스 핫픽 시 ${fmtMiles(hit.miles)}` }),
       el("span", { text: ` (-${fmtMiles(hit.discount)}) · ${flightNote}` })
     ]);
   }

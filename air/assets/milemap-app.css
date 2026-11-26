@@ -1204,6 +1204,7 @@ img { max-width: 100%; }
 }
 .hotpick-cabin__head small { font-size: 11.5px; color: var(--ink-4); font-weight: 700; }
 .air-table--chart.hotpick-table { width: 100%; }
+.hotpick-cabin .chart-table--compact { display: block; }
 .air-table--chart.hotpick-table th,
 .air-table--chart.hotpick-table td { padding: 8px 10px; font-size: 12.5px; }
 .air-table--chart.hotpick-table tbody th { text-align: left; font-weight: 700; }
