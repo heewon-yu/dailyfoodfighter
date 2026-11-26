@@ -4,60 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="ko_KR">
-<meta property="og:site_name" content="마일지도">
-<meta property="og:url" content="https://dailyfoodfighter.com/air/map/">
-<meta property="og:title" content="세계지도 | 마일지도 대한항공 보너스 좌석">
-<meta property="og:description" content="프레스티지·일등석 좌석이 확인된 대한항공 보너스 노선을 세계지도에서 보고, 날짜별 좌석과 공제 마일로 바로 이동하세요.">
-<meta property="og:image" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
-<meta property="og:image:secure_url" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:width" content="1200">
-<meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="남색 배경에 비행기와 접힌 세계지도, 금색 좌석 표식으로 노선을 표시한 마일지도 일러스트">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="세계지도 | 마일지도 대한항공 보너스 좌석">
-<meta name="twitter:description" content="프레스티지·일등석 좌석이 확인된 대한항공 보너스 노선을 세계지도에서 보고, 날짜별 좌석과 공제 마일로 바로 이동하세요.">
-<meta name="twitter:image" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
-<title>세계지도 | 마일지도 대한항공 보너스 좌석</title>
-<meta name="description" content="대한항공 SKYPASS 국제선 프레스티지·일등석 보너스 좌석이 표시된 노선을 세계지도에서 확인합니다.">
+<title>달력/지도 | 마일지도 대한항공 보너스 좌석</title>
+<meta name="description" content="지도 탭은 달력/지도 페이지로 통합되었습니다. 지도에서 노선을 고르고 날짜별 좌석을 확인하세요.">
 <meta name="theme-color" content="#0f2340">
-<link rel="stylesheet" href="/air/assets/milemap-app.css?v=9">
-<script src="/air/assets/app.js?v=7" defer></script>
-<script src="/air/assets/award.js?v=7" defer></script>
-<script src="/air/assets/view-map.js?v=7" defer></script>
+<link rel="canonical" href="https://dailyfoodfighter.com/air/calendar/">
+<meta http-equiv="refresh" content="0;url=/air/calendar/">
+<script>
+/* 기존 /air/map/ 주소로 들어온 사용자를 달력/지도로 보낸다. 검색 조건(쿼리)은 그대로 넘긴다. */
+(function () {
+  try {
+    location.replace("/air/calendar/" + location.search);
+  } catch (error) {
+    /* 자바스크립트가 막혀 있으면 meta refresh 와 아래 안내 링크로 이동한다. */
+  }
+})();
+</script>
 </head>
-<body data-air-page="map">
-<main id="air-main" class="air-main">
-
-  <div class="air-page-head">
-    <p class="air-hero__eyebrow" style="color:#2563eb">Route map</p>
-    <h1>세계지도</h1>
-    <p>노선을 지도에서 보고, 좌석이 확인된 날짜로 바로 이동하세요.</p>
-  </div>
-
-  <div class="air-notice air-notice--info" role="note">
-    <span class="air-notice__icon" aria-hidden="true">ℹ</span>
-    <div>
-      지도 선과 점은 저장된 조회 기록 기준입니다. 좌석 없음·미조회 노선은 지도에 표시하지 않으며,
-      실제 예약 가능 여부는 대한항공 공식 조회에서 확인해야 합니다.
-    </div>
-  </div>
-
-  <div id="air-map-view">
-    <div class="air-map-shell" id="air-map-shell">
-      <div id="air-map" role="application" aria-label="보너스 좌석 노선 지도"></div>
-    </div>
-    <p class="air-map-note" id="air-map-status">지도를 준비하는 중입니다.</p>
-    <div class="air-legend">
-      <span><i style="background:#3478bc"></i>좌석 표시 노선</span>
-      <span><i style="background:#e88b25"></i>성수기 좌석 포함</span>
-      <span><i style="background:#16965d"></i>신규 좌석 포함</span>
-      <span><i style="background:#183951"></i>출발 공항</span>
-    </div>
-  </div>
-
-</main>
+<body>
+<p>지도 탭은 <a href="/air/calendar/">달력/지도</a>로 통합되었습니다. 자동으로 이동하지 않으면 링크를 눌러 주세요.</p>
 </body>
 </html>

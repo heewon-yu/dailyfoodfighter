@@ -1,4 +1,5 @@
-/* 마일지도 AIR — 월별 달력 뷰 (/air/calendar/)
+/* 마일지도 AIR — 달력/지도 뷰 (/air/calendar/)
+   상단의 접기/펼치기 노선 지도에서 노선을 고르면, 아래 달력이 그 노선으로 즉시 바뀐다.
    날짜 칸에 좌석 표식(P·F)과 성수기 여부를 함께 보여준다.
    공제 마일은 대한항공 공식 공제표 + 성수기 규칙으로 계산한다. */
 (() => {
@@ -14,7 +15,8 @@
     selectedDate: "",
     rows: [],
     meta: null,
-    mounted: false
+    mounted: false,
+    mapPanel: null
   };
 
   let comboOrigin;
@@ -142,6 +144,25 @@
     slot = Air.el("div", { id: "air-calendar-slot" });
     root.append(slot);
     state.mounted = true;
+  }
+
+  function mountMap() {
+    const host = $("air-route-map");
+    if (!host || !Air.mapPanel || typeof Air.mapPanel.mount !== "function") return;
+
+    state.mapPanel = Air.mapPanel.mount(host, {
+      rows: state.rows,
+      getSelection: () => ({ origin: state.origin, destination: state.destination }),
+      onSelect: route => {
+        if (!route || !route.origin || !route.destination) return;
+        state.origin = route.origin;
+        state.destination = route.destination;
+        state.selectedDate = "";
+        if (comboOrigin) comboOrigin.setValue(state.origin);
+        if (comboDestination) comboDestination.setValue(state.destination);
+        render();
+      }
+    });
   }
 
   function dayState(dayRows) {
@@ -386,6 +407,7 @@
     const y = window.scrollY;
     slot.replaceChildren(calendar());
     syncUrl();
+    if (state.mapPanel) state.mapPanel.paintSelection();
     window.scrollTo({ top: y });
   }
 
@@ -432,6 +454,7 @@
       }
     }
 
+    mountMap();
     render();
   }
 

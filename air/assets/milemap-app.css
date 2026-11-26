@@ -854,6 +854,49 @@ img { max-width: 100%; }
 }
 .air-legend i { width: 12px; height: 12px; border-radius: 3px; display: inline-block; }
 
+/* 달력/지도 통합 페이지 — 접기/펼치기 노선 지도 패널 */
+.air-map-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 16px 18px 14px;
+  margin-bottom: 16px;
+}
+.air-map-card__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.air-map-card__title { min-width: 0; flex: 1 1 260px; }
+.air-map-card__title h2 { font-size: 17px; color: var(--navy); }
+.air-map-card__title p {
+  margin-top: 5px;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--ink-3);
+  max-width: 78ch;
+}
+.air-map-card__toggle { flex: 0 0 auto; }
+.air-map-card__body[hidden] { display: none; }
+.air-map-card #air-map { height: 430px; }
+
+@media (max-width: 720px) {
+  .air-map-card { padding: 14px 14px 12px; }
+  .air-map-card__head { gap: 8px; margin-bottom: 10px; }
+  .air-map-card__title h2 { font-size: 16px; }
+  .air-map-card #air-map { height: 44vh; min-height: 250px; }
+}
+
+.air-map-popup__meta {
+  color: #64748b;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+
 /* ---------------------------------------------------------------- journey */
 
 .journey-legs {

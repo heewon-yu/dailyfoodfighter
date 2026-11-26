@@ -8,8 +8,8 @@
 <meta property="og:locale" content="ko_KR">
 <meta property="og:site_name" content="마일지도">
 <meta property="og:url" content="https://dailyfoodfighter.com/air/calendar/">
-<meta property="og:title" content="월별 달력 | 마일지도 대한항공 보너스 좌석">
-<meta property="og:description" content="대한항공 국제선 보너스 좌석을 날짜별 달력에서 프레스티지·일등석과 성수기 여부로 한눈에 확인하세요.">
+<meta property="og:title" content="달력/지도 | 마일지도 대한항공 보너스 좌석">
+<meta property="og:description" content="노선 지도에서 프레스티지·일등석 보너스 좌석이 확인된 노선을 고르고, 아래 달력에서 날짜별 좌석과 성수기를 바로 확인하세요.">
 <meta property="og:image" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
 <meta property="og:image:secure_url" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
 <meta property="og:image:type" content="image/jpeg">
@@ -17,25 +17,28 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="남색 배경에 비행기와 접힌 세계지도, 금색 좌석 표식으로 노선을 표시한 마일지도 일러스트">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="월별 달력 | 마일지도 대한항공 보너스 좌석">
-<meta name="twitter:description" content="대한항공 국제선 보너스 좌석을 날짜별 달력에서 프레스티지·일등석과 성수기 여부로 한눈에 확인하세요.">
+<meta name="twitter:title" content="달력/지도 | 마일지도 대한항공 보너스 좌석">
+<meta name="twitter:description" content="노선 지도에서 프레스티지·일등석 보너스 좌석이 확인된 노선을 고르고, 아래 달력에서 날짜별 좌석과 성수기를 바로 확인하세요.">
 <meta name="twitter:image" content="https://dailyfoodfighter.com/air/og-air-illustrated.jpg">
-<title>월별 달력 | 마일지도 대한항공 보너스 좌석</title>
-<meta name="description" content="대한항공 국제선 프레스티지·일등석 보너스 좌석을 날짜별 달력으로 확인하고, 성수기 여부와 공제 마일을 함께 봅니다.">
+<title>달력/지도 | 마일지도 대한항공 보너스 좌석</title>
+<meta name="description" content="대한항공 국제선 프레스티지·일등석 보너스 좌석을 노선 지도에서 고르고, 날짜별 달력으로 성수기 여부와 공제 마일을 함께 봅니다.">
 <meta name="theme-color" content="#0f2340">
-<link rel="stylesheet" href="/air/assets/milemap-app.css?v=9">
-<script src="/air/assets/app.js?v=7" defer></script>
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=10">
+<script src="/air/assets/app.js?v=8" defer></script>
 <script src="/air/assets/award.js?v=7" defer></script>
-<script src="/air/assets/view-calendar.js?v=10" defer></script>
+<script src="/air/assets/view-map.js?v=8" defer></script>
+<script src="/air/assets/view-calendar.js?v=11" defer></script>
 </head>
 <body data-air-page="calendar">
 <main id="air-main" class="air-main">
 
   <div class="air-page-head">
-    <p class="air-hero__eyebrow" style="color:#2563eb">Month view</p>
-    <h1>월별 달력</h1>
-    <p>한 달 좌석 표식을 달력으로 보고, 날짜별 프레스티지·일등석과 성수기를 확인하세요.</p>
+    <p class="air-hero__eyebrow" style="color:#2563eb">Calendar &amp; map</p>
+    <h1>달력/지도</h1>
+    <p>지도에서 노선을 고르면 아래 달력이 그 노선으로 바로 바뀝니다. 날짜별 프레스티지·일등석 좌석과 성수기를 한눈에 확인하세요.</p>
   </div>
+
+  <div id="air-route-map"></div>
 
   <div class="air-notice air-notice--info" role="note">
     <span class="air-notice__icon" aria-hidden="true">ℹ</span>

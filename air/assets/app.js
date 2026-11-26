@@ -73,10 +73,11 @@
     "domestic": "국내"
   };
 
+  /* 지도와 달력은 /air/calendar/ 하나로 통합했다(2026-11-26 유희원 님 지시).
+     /air/map/ 은 /air/calendar/ 로 이동한다. */
   const NAV = [
     { key: "search", href: "", label: "검색" },
-    { key: "map", href: "map/", label: "지도" },
-    { key: "calendar", href: "calendar/", label: "달력" },
+    { key: "calendar", href: "calendar/", label: "달력/지도" },
     { key: "new", href: "new/", label: "신규" },
     { key: "mileage", href: "mileage/", label: "공제표" },
     { key: "guide", href: "guide/", label: "이용안내" }

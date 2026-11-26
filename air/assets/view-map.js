@@ -1,47 +1,18 @@
-/* 마일지도 AIR — 세계지도 뷰 (/air/map/)
-   좌석 표시가 확인된 노선을 지도에 그린다. 공항은 자동완성으로 고른다. */
+/* 마일지도 AIR — 노선 지도 패널
+   /air/calendar/ (`달력/지도`) 상단에서 쓰는 접기/펼치기 지도 패널이다.
+   좌석 표시가 확인된 노선을 지도에 그리고, 노선·공항을 클릭하면
+   같은 페이지 아래 달력의 출발지·도착지가 그 노선으로 바뀐다.
+   (/air/map/ 은 /air/calendar/ 로 이동하므로 이 파일은 달력/지도 페이지에서만 쓰인다.) */
 (() => {
   "use strict";
-
-  const $ = id => document.getElementById(id);
 
   const LEAFLET_CSS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css";
   const LEAFLET_JS = "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js";
 
-  const state = {
-    origin: "",
-    destination: "",
-    cabin: "",
-    month: "",
-    rows: [],
-    meta: null,
-    coordinates: new Map(),
-    mounted: false
-  };
+  const SELECTED_COLOR = "#0f2340";
+  const ORIGIN_COLOR = "#183951";
 
-  let map = null;
-  let layer = null;
   let leafletPromise = null;
-  let renderVersion = 0;
-  let comboOrigin;
-  let comboDestination;
-
-  function readUrl() {
-    const params = Air.params();
-    state.origin = (params.get("origin") || "").toUpperCase();
-    state.destination = (params.get("destination") || "").toUpperCase();
-    state.cabin = params.get("cabin") || "";
-    state.month = params.get("month") || "";
-  }
-
-  function syncUrl() {
-    Air.setParams({
-      origin: state.origin,
-      destination: state.destination,
-      cabin: state.cabin,
-      month: state.month
-    });
-  }
 
   function loadLeaflet() {
     if (window.L) return Promise.resolve();
@@ -66,142 +37,28 @@
     return leafletPromise;
   }
 
-  function loadCoordinates() {
-    return Air.airports().then(() => {
-      for (const entry of Air.award ? Air.award.airports() : []) {
-        if (Number.isFinite(entry.lat) && Number.isFinite(entry.lon)) {
-          state.coordinates.set(entry.code, [entry.lat, entry.lon]);
-        }
+  /** 공항 좌표 사전 (award.js 의 공항 목록) */
+  function coordinates() {
+    const map = new Map();
+    const award = window.Air && Air.award;
+    const entries = award && typeof award.airports === "function" ? award.airports() : [];
+
+    for (const entry of entries) {
+      if (Number.isFinite(entry.lat) && Number.isFinite(entry.lon)) {
+        map.set(entry.code, [entry.lat, entry.lon]);
       }
-    }).catch(() => {
-      state.coordinates = new Map();
-    });
-  }
-
-  function controls() {
-    const months = [...new Set(state.rows.map(row => row.month))].sort();
-
-    const cabinSelect = Air.el("select", { class: "air-select", id: "air-map-cabin" });
-    cabinSelect.append(new Option("전체 등급", ""));
-    for (const cabin of Air.CABINS) {
-      cabinSelect.append(new Option(`${cabin.letter} · ${cabin.name}`, cabin.key));
-    }
-    cabinSelect.value = state.cabin;
-    cabinSelect.addEventListener("change", () => {
-      state.cabin = cabinSelect.value;
-      draw();
-    });
-
-    const monthSelect = Air.el("select", { class: "air-select", id: "air-map-month" });
-    monthSelect.append(new Option("전체 기간", ""));
-    for (const month of months) monthSelect.append(new Option(Air.fmtMonth(month), month));
-    monthSelect.value = state.month;
-    monthSelect.addEventListener("change", () => {
-      state.month = monthSelect.value;
-      draw();
-    });
-
-    const collapse = Air.el("button", {
-      type: "button",
-      class: "air-btn air-btn--ghost air-btn--sm",
-      "aria-expanded": "true",
-      text: "지도 접기"
-    });
-
-    collapse.addEventListener("click", () => {
-      const shell = $("air-map-shell");
-      const collapsed = shell.classList.toggle("is-collapsed");
-      collapse.textContent = collapsed ? "지도 펼치기" : "지도 접기";
-      collapse.setAttribute("aria-expanded", String(!collapsed));
-      if (!collapsed && map) setTimeout(() => map.invalidateSize(), 60);
-    });
-
-    return Air.el("div", { class: "air-panel", style: "margin-bottom:14px" }, [
-      Air.el("div", { class: "air-filters", style: "grid-template-columns:repeat(auto-fit,minmax(180px,1fr))" }, [
-        Air.el("div", { class: "air-field" }, [
-          Air.el("label", { for: "air-map-origin-input", text: "출발 공항" }),
-          Air.el("div", { class: "air-combo", id: "air-map-origin-combo" }, [
-            Air.el("input", {
-              class: "air-input air-combo__input", id: "air-map-origin-input", type: "search",
-              placeholder: "도시·공항명·코드", autocomplete: "off", spellcheck: "false"
-            })
-          ])
-        ]),
-        Air.el("div", { class: "air-field" }, [
-          Air.el("label", { for: "air-map-destination-input", text: "도착 공항" }),
-          Air.el("div", { class: "air-combo", id: "air-map-destination-combo" }, [
-            Air.el("input", {
-              class: "air-input air-combo__input", id: "air-map-destination-input", type: "search",
-              placeholder: "도시·공항명·코드", autocomplete: "off", spellcheck: "false"
-            })
-          ])
-        ]),
-        Air.el("div", { class: "air-field" }, [
-          Air.el("label", { for: "air-map-cabin", text: "좌석 등급" }),
-          cabinSelect
-        ]),
-        Air.el("div", { class: "air-field" }, [
-          Air.el("label", { for: "air-map-month", text: "탑승월" }),
-          monthSelect
-        ])
-      ]),
-      Air.el("div", { class: "air-actions" }, [collapse])
-    ]);
-  }
-
-  function filteredRows() {
-    return state.rows.filter(row => {
-      if (state.origin && row.origin !== state.origin) return false;
-      if (state.destination && row.destination !== state.destination) return false;
-      if (state.cabin && row.cabinKey !== state.cabin) return false;
-      if (state.month && row.month !== state.month) return false;
-      return row.status === "available";
-    });
-  }
-
-  function popupContent(route) {
-    const wrapper = Air.el("div", { class: "air-map-popup" });
-
-    wrapper.append(Air.el("strong", {
-      text: `${Air.airportShort(route.origin)} → ${Air.airportShort(route.destination)}`
-    }));
-
-    wrapper.append(Air.el("div", {
-      style: "color:#64748b;font-size:12px;margin-bottom:6px",
-      text: `${route.origin} → ${route.destination} · 좌석 표시 ${route.dates.length}일`
-    }));
-
-    const list = Air.el("ul");
-
-    for (const entry of route.dates.slice(0, 6)) {
-      const season = Air.award ? Air.award.seasonOf(entry.date, route.origin) : null;
-      list.append(Air.el("li", {
-        text: `${Air.fmtDate(entry.date)} · ${entry.letters.join(" ")}${season && season.peak ? " · 성수기" : ""}`
-      }));
     }
 
-    if (route.dates.length > 6) {
-      list.append(Air.el("li", { text: `외 ${route.dates.length - 6}일` }));
-    }
-
-    wrapper.append(list);
-
-    wrapper.append(Air.el("a", {
-      href: Air.ROOT + "route/?" + new URLSearchParams({
-        origin: route.origin,
-        destination: route.destination,
-        month: route.month || ""
-      }).toString(),
-      text: "노선 상세 보기 →"
-    }));
-
-    return wrapper;
+    return map;
   }
 
+  /** 좌석 표시가 확인된 노선만 노선별로 묶는다. */
   function summarize(rows) {
     const routes = new Map();
 
     for (const row of rows) {
+      if (row.status !== "available") continue;
+
       const key = `${row.origin}-${row.destination}`;
 
       if (!routes.has(key)) {
@@ -236,150 +93,280 @@
     return routes;
   }
 
-  async function draw() {
-    const status = $("air-map-status");
-    const current = ++renderVersion;
+  function popupContent(route) {
+    const wrapper = Air.el("div", { class: "air-map-popup" });
 
-    syncUrl();
+    wrapper.append(Air.el("strong", {
+      text: `${Air.airportShort(route.origin)} → ${Air.airportShort(route.destination)}`
+    }));
 
-    if (!map) return;
+    wrapper.append(Air.el("div", {
+      class: "air-map-popup__meta",
+      text: `${route.origin} → ${route.destination} · 좌석 표시 ${route.dates.length}일`
+    }));
 
-    const routes = summarize(filteredRows());
+    const list = Air.el("ul");
 
-    if (current !== renderVersion) return;
-
-    layer.clearLayers();
-
-    const bounds = [];
-    let missing = 0;
-    const drawnOrigins = new Set();
-
-    for (const route of routes.values()) {
-      const from = state.coordinates.get(route.origin);
-      const to = state.coordinates.get(route.destination);
-
-      if (!from || !to) { missing++; continue; }
-
-      const color = route.hasNew ? "#16965d" : route.hasPeak ? "#e88b25" : "#3478bc";
-
-      const line = L.polyline([from, to], {
-        color, weight: 2, opacity: .75, dashArray: "5 5"
-      }).addTo(layer);
-
-      const marker = L.circleMarker(to, {
-        radius: 7, color: "#fff", weight: 2, fillColor: color, fillOpacity: 1
-      }).addTo(layer);
-
-      marker.bindPopup(popupContent(route));
-
-      line.on("click", () => marker.openPopup());
-
-      if (!drawnOrigins.has(route.origin)) {
-        L.circleMarker(from, {
-          radius: 6, color: "#fff", weight: 2, fillColor: "#183951", fillOpacity: 1
-        }).bindTooltip(route.origin).addTo(layer);
-
-        drawnOrigins.add(route.origin);
-      }
-
-      bounds.push(from, to);
+    for (const entry of route.dates.slice(0, 6)) {
+      const season = Air.award ? Air.award.seasonOf(entry.date, route.origin) : null;
+      list.append(Air.el("li", {
+        text: `${Air.fmtDate(entry.date)} · ${entry.letters.join(" ")}${season && season.peak ? " · 성수기" : ""}`
+      }));
     }
 
-    if (bounds.length && !map.__fittedOnce) {
-      map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
-      map.__fittedOnce = true;
+    if (route.dates.length > 6) {
+      list.append(Air.el("li", { text: `외 ${route.dates.length - 6}일` }));
     }
 
-    status.textContent = routes.size
-      ? `좌석 표시 노선 ${routes.size - missing}개 표시 · 좌표 미등록 ${missing}개 · 좌석 없음·미조회 노선은 표시하지 않습니다.`
-      : "선택한 조건에서 좌석 표시가 있는 노선이 없습니다. 좌석 없음·미조회와 구분해서 표시하지 않습니다.";
+    wrapper.append(list);
+
+    wrapper.append(Air.el("a", {
+      href: Air.ROOT + "route/?" + new URLSearchParams({
+        origin: route.origin,
+        destination: route.destination,
+        month: route.month || ""
+      }).toString(),
+      text: "노선 상세 보기 →"
+    }));
+
+    return wrapper;
   }
 
-  async function startMap() {
-    const status = $("air-map-status");
+  /**
+   * 지도 패널을 host 안에 그린다.
+   * @param {HTMLElement} host 패널을 붙일 컨테이너
+   * @param {Object} options
+   *   rows: 전체 행 배열
+   *   getSelection: () => ({origin, destination}) — 현재 달력의 선택 노선
+   *   onSelect: (route) => void — 지도에서 노선을 골랐을 때
+   *   collapsed: 처음부터 접어 둘지
+   */
+  function mount(host, options) {
+    const opts = options || {};
+    const rows = Array.isArray(opts.rows) ? opts.rows : [];
 
-    try {
-      status.textContent = "지도를 준비하는 중입니다.";
-      await Promise.all([loadCoordinates(), loadLeaflet(), Air.airports()]);
+    let map = null;
+    let layer = null;
+    let coords = new Map();
+    let layers = new Map();
+    let fittedOnce = false;
+    let started = false;
+    let renderVersion = 0;
 
-      if (!map) {
-        map = L.map("air-map", { minZoom: 2, maxZoom: 9, worldCopyJump: true })
-          .setView([30, 110], 2);
+    const bodyId = "air-map-body";
 
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-          maxZoom: 19,
-          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(map);
+    const toggle = Air.el("button", {
+      type: "button",
+      class: "air-btn air-btn--ghost air-btn--sm air-map-card__toggle",
+      "aria-expanded": "true",
+      "aria-controls": bodyId,
+      text: "지도 접기"
+    });
 
-        layer = L.layerGroup().addTo(map);
+    const head = Air.el("div", { class: "air-map-card__head" }, [
+      Air.el("div", { class: "air-map-card__title" }, [
+        Air.el("h2", { id: "air-map-title", text: "노선 지도" }),
+        Air.el("p", {
+          text: "좌석 표시가 확인된 노선입니다. 지도에서 노선이나 목적지 공항을 누르면 아래 달력이 그 노선으로 바로 바뀝니다."
+        })
+      ]),
+      toggle
+    ]);
+
+    const status = Air.el("p", { class: "air-map-note", id: "air-map-status", text: "지도를 준비하는 중입니다." });
+
+    const legend = Air.el("div", { class: "air-legend" }, [
+      Air.el("span", null, [Air.el("i", { style: "background:#3478bc" }), "좌석 표시 노선"]),
+      Air.el("span", null, [Air.el("i", { style: "background:#e88b25" }), "성수기 좌석 포함"]),
+      Air.el("span", null, [Air.el("i", { style: "background:#16965d" }), "신규 좌석 포함"]),
+      Air.el("span", null, [Air.el("i", { style: "background:#183951" }), "출발 공항"]),
+      Air.el("span", null, [Air.el("i", { style: `background:${SELECTED_COLOR}` }), "지금 보고 있는 노선"])
+    ]);
+
+    const mapEl = Air.el("div", {
+      id: "air-map",
+      role: "application",
+      "aria-label": "보너스 좌석 노선 지도"
+    });
+
+    const shell = Air.el("div", { class: "air-map-shell", id: "air-map-shell" }, [mapEl]);
+    const body = Air.el("div", { class: "air-map-card__body", id: bodyId }, [shell, status, legend]);
+
+    const panel = Air.el("section", { class: "air-map-card", "aria-labelledby": "air-map-title" }, [head, body]);
+
+    host.append(panel);
+
+    function selection() {
+      return typeof opts.getSelection === "function" ? (opts.getSelection() || {}) : {};
+    }
+
+    /** 지금 달력이 보고 있는 노선을 지도에서 강조한다. */
+    function paintSelection() {
+      const current = selection();
+
+      for (const entry of layers.values()) {
+        const isSelected = current.origin === entry.route.origin &&
+          current.destination === entry.route.destination;
+
+        entry.line.setStyle({
+          color: isSelected ? SELECTED_COLOR : entry.color,
+          weight: isSelected ? 4.5 : 2,
+          opacity: isSelected ? .95 : .72,
+          dashArray: isSelected ? "" : "5 5"
+        });
+
+        entry.marker.setStyle({ radius: isSelected ? 9 : 7, weight: isSelected ? 3 : 2 });
+        entry.marker.setZIndexOffset(isSelected ? 500 : 0);
+      }
+    }
+
+    function focusRoute(route) {
+      if (!map) return;
+
+      const from = coords.get(route.origin);
+      const to = coords.get(route.destination);
+      if (!from || !to) return;
+
+      map.fitBounds([from, to], { padding: [40, 40], maxZoom: 5 });
+    }
+
+    function select(route) {
+      if (typeof opts.onSelect === "function") opts.onSelect(route);
+      paintSelection();
+      focusRoute(route);
+    }
+
+    function draw() {
+      if (!map || !layer) return;
+
+      const token = ++renderVersion;
+      const routes = summarize(rows);
+
+      if (token !== renderVersion) return;
+
+      layer.clearLayers();
+      layers = new Map();
+
+      const bounds = [];
+      const drawnOrigins = new Set();
+      let missing = 0;
+
+      for (const route of routes.values()) {
+        const from = coords.get(route.origin);
+        const to = coords.get(route.destination);
+
+        if (!from || !to) { missing++; continue; }
+
+        const color = route.hasNew ? "#16965d" : route.hasPeak ? "#e88b25" : "#3478bc";
+
+        const line = L.polyline([from, to], {
+          color, weight: 2, opacity: .72, dashArray: "5 5"
+        }).addTo(layer);
+
+        const marker = L.circleMarker(to, {
+          radius: 7, color: "#fff", weight: 2, fillColor: color, fillOpacity: 1
+        }).addTo(layer);
+
+        marker.bindPopup(popupContent(route));
+
+        const handler = () => select(route);
+        marker.on("click", handler);
+        line.on("click", handler);
+
+        layers.set(`${route.origin}-${route.destination}`, { line, marker, route, color });
+
+        if (!drawnOrigins.has(route.origin)) {
+          L.circleMarker(from, {
+            radius: 6, color: "#fff", weight: 2, fillColor: ORIGIN_COLOR, fillOpacity: 1
+          }).bindTooltip(route.origin, { direction: "top" }).addTo(layer);
+
+          drawnOrigins.add(route.origin);
+        }
+
+        bounds.push(from, to);
       }
 
-      map.invalidateSize();
-      draw();
-    } catch (error) {
-      status.textContent = "지도를 불러오지 못했습니다. 네트워크 상태를 확인한 뒤 새로고침해 주세요.";
-    }
-  }
+      if (bounds.length && !fittedOnce) {
+        map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
+        fittedOnce = true;
+      }
 
-  async function init() {
-    Air.mountChrome();
-    readUrl();
+      paintSelection();
 
-    const root = $("air-map-view");
+      const shown = routes.size - missing;
 
-    try {
-      const payload = await Air.data({});
-      state.rows = payload.rows;
-      state.meta = await Air.manifestMeta();
-
-      const live = new Set(state.rows.flatMap(row => [row.origin, row.destination]));
-      if (live.size && Air.award && Air.award.setLiveRoutes) Air.award.setLiveRoutes([...live]);
-    } catch (error) {
-      root.replaceChildren(Air.emptyState(
-        "좌석 데이터를 불러오지 못했습니다",
-        "잠시 후 새로고침해 주세요. 계속되면 이용안내를 확인해 주세요."
-      ));
-      return;
+      status.textContent = routes.size
+        ? `좌석 표시 노선 ${shown}개 표시 · 좌표 미등록 ${missing}개 · 지도에서 노선을 누르면 아래 달력이 그 노선으로 바뀝니다.`
+        : "지금은 좌석 표시가 확인된 노선이 없습니다. 아래 달력에서 출발지·도착지를 직접 골라 주세요.";
     }
 
-    try {
-      await Air.airports();
-    } catch {
-      /* 공항 사전이 없어도 지도는 그린다. */
+    async function start() {
+      if (started) return;
+      started = true;
+
+      try {
+        await Promise.all([
+          loadLeaflet(),
+          window.Air && Air.airports ? Air.airports() : Promise.resolve()
+        ]);
+
+        coords = coordinates();
+
+        if (!map) {
+          map = L.map("air-map", { minZoom: 2, maxZoom: 9, worldCopyJump: true })
+            .setView([30, 110], 2);
+
+          L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          }).addTo(map);
+
+          layer = L.layerGroup().addTo(map);
+        }
+
+        map.invalidateSize();
+        draw();
+      } catch (error) {
+        started = false;
+        status.textContent = "지도를 불러오지 못했습니다. 지도 없이 아래 달력에서 출발지·도착지를 직접 고를 수 있습니다.";
+      }
     }
 
-    root.prepend(controls());
+    function setCollapsed(collapsed) {
+      body.hidden = collapsed;
+      toggle.textContent = collapsed ? "지도 펼치기" : "지도 접기";
+      toggle.setAttribute("aria-expanded", String(!collapsed));
 
-    comboOrigin = Air.airportCombo($("air-map-origin-combo"), {
-      value: state.origin,
-      placeholder: "도시·공항명·코드",
-      onSelect: value => { state.origin = value; draw(); }
-    });
+      if (collapsed) return;
 
-    comboDestination = Air.airportCombo($("air-map-destination-combo"), {
-      value: state.destination,
-      placeholder: "도시·공항명·코드",
-      onSelect: value => { state.destination = value; draw(); }
-    });
+      if (!started) start();
+      else if (map) setTimeout(() => map.invalidateSize(), 60);
+    }
 
-    const shell = $("air-map-shell");
+    toggle.addEventListener("click", () => setCollapsed(!body.hidden));
+
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(entries => {
         if (entries.some(entry => entry.isIntersecting)) {
           observer.disconnect();
-          startMap();
+          if (!body.hidden) start();
         }
       }, { rootMargin: "200px" });
 
       observer.observe(shell);
-    } else {
-      startMap();
+    } else if (!body.hidden) {
+      start();
     }
+
+    setCollapsed(opts.collapsed === true);
+
+    return {
+      refresh() { draw(); },
+      paintSelection,
+      setCollapsed,
+      focusRoute
+    };
   }
 
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init, { once: true });
-  } else {
-    init();
-  }
+  Air.mapPanel = { mount };
 })();
