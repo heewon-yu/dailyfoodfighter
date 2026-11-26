@@ -289,7 +289,7 @@
   }
 
   const COPY_DONE = count => `전체 ${count}건 묶음 복사 완료! 카카오톡에 붙여넣기 하세요`;
-  const COPY_FAIL = "복사가 제한되었습니다. '카톡용 묶음 복사'를 한 번 더 누르거나 텍스트를 직접 선택해 주세요.";
+  const COPY_FAIL = "복사가 제한되었습니다. '일등석 공유하기'를 한 번 더 누르거나 텍스트를 직접 선택해 주세요.";
 
   /** 터치 기기(모바일·태블릿)에서만 네이티브 공유 시트를 쓴다. PC는 붙여넣기용 복사로 바로 안내한다. */
   function canNativeShare() {
@@ -307,28 +307,14 @@
       status.dataset.tone = tone || "";
     };
 
-    const copyButton = Air.el("button", {
-      type: "button",
-      class: "air-btn air-btn--ghost",
-      id: "air-first-copy",
-      text: "카톡용 묶음 복사"
-    });
-
     const shareButton = Air.el("button", {
       type: "button",
       class: "air-btn air-btn--navy",
       id: "air-first-share",
-      text: "전체 공유하기"
+      text: "일등석 공유하기"
     });
 
-    copyButton.disabled = empty;
     shareButton.disabled = empty;
-
-    copyButton.addEventListener("click", async () => {
-      if (!rows.length) return;
-      const ok = await copyText(shareText(rows));
-      setStatus(ok ? COPY_DONE(rows.length) : COPY_FAIL, ok ? "ok" : "warn");
-    });
 
     shareButton.addEventListener("click", async () => {
       if (!rows.length) return;
@@ -360,10 +346,10 @@
           Air.el("span", {
             text: empty
               ? "공유할 일등석 좌석이 없습니다."
-              : `화면에 보이는 ${rows.length}건을 하나의 묶음으로 — 모바일은 공유 시트, PC는 붙여넣기용 복사`
+              : `화면에 보이는 ${rows.length}건을 하나의 묶음으로 — 모바일은 공유 시트(카카오톡), PC는 클릭 한 번에 복사`
           })
         ]),
-        Air.el("div", { class: "air-share__actions" }, [shareButton, copyButton])
+        Air.el("div", { class: "air-share__actions" }, [shareButton])
       ]),
       status
     ]);
