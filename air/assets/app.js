@@ -2,7 +2,7 @@
    마일지도(MILEMAP) AIR — 공통 모듈
    - 데이터: /air/data/preview/index.json 매니페스트 + 월별 JSON 지연 로딩
    - 화면: 공통 헤더/푸터, 필터 상태(URL), 공항 자동완성, 공제 마일 표시 규칙
-   - 원칙: 대한항공(KE)만, 일반석(E)·프레스티지석(P)·일등석(F) 세 등급만 표시,
+   - 원칙: 대한항공(KE)만, 프레스티지석(P)·일등석(F) 두 등급만 표시(일반석 E·프리미엄석 R 제외),
            R(프리미엄석)·G/U(승급 전용) 제외, 좌석 수는 제공하지 않음,
            공제 마일은 공식 공제표 + 성수기/평수기 규칙으로만 계산,
            NEW는 확인된 unavailable→available 전환만.
@@ -25,10 +25,9 @@
   const KE_HOTPICK_URL =
     "https://www.koreanair.com/contents/skypass/use-miles/award-ticket/hotpick";
 
-  /* 화면에는 일반석(E) · 프레스티지석(P) · 일등석(F) 세 등급만 표시한다.
-     프리미엄석(R)은 표시·검색·합산에서 제외한다. */
+  /* 화면에는 프레스티지석(P) · 일등석(F) 두 등급만 표시한다.
+     일반석(E)·프리미엄석(R)은 표시·검색·수집·합산 어디에서도 쓰지 않는다. */
   const CABINS = [
-    { key: "economy", letter: "E", name: "일반석", short: "일반", cls: "cabin-e" },
     { key: "business", letter: "P", name: "프레스티지석", short: "프레스티지", cls: "cabin-p" },
     { key: "first", letter: "F", name: "일등석", short: "일등", cls: "cabin-f" }
   ];
@@ -36,16 +35,16 @@
   const CABIN_BY_KEY = new Map(CABINS.map(c => [c.key, c]));
   const CABIN_BY_LETTER = new Map(CABINS.map(c => [c.letter, c]));
 
-  /* 데이터에 남아 있을 수 있는 값 별칭. R(프리미엄석)·G/U(승급 전용)는 표시하지 않는다. */
+  /* 데이터에 남아 있을 수 있는 값 별칭. 일반석(E)·프리미엄석(R)·G/U(승급 전용)는 쓰지 않는다. */
   const CABIN_ALIAS = {
-    e: "economy", economy: "economy", "일반석": "economy", y: "economy",
-    p: "business", business: "business", prestige: "business",
+    p: "business", business: "business", prestige: "business", o: "business",
     "프레스티지석": "business", "프레스티지": "business", j: "business", c: "business",
     f: "first", first: "first", first_combined: "first", first_award: "first",
     "일등석": "first"
   };
 
   const EXCLUDED_CABINS = new Set([
+    "e", "economy", "일반석", "일반", "y", "x",
     "r", "premium", "프리미엄석", "프리미엄",
     "g", "u", "premium_upgrade", "business_upgrade", "first_upgrade",
     "upgrade_premium", "upgrade_business", "upgrade_first",

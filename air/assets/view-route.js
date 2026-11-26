@@ -1,5 +1,5 @@
 /* 마일지도 AIR — 노선 상세 뷰 (/air/route/)
-   출발·도착(자동완성)과 탑승월을 골라 날짜별 E·P·F 좌석 상태와
+   출발·도착(자동완성)과 탑승월을 골라 날짜별 P·F 좌석 상태와
    공식 공제표 기준 성수기·평수기 공제 마일을 표로 보여준다. */
 (() => {
   "use strict";
@@ -43,7 +43,7 @@
 
   /* ---------------------------------------------------------- 공제표 요약 */
 
-  const CABIN_LABEL = { economy: "일반석", business: "프레스티지석", first: "일등석" };
+  const CABIN_LABEL = { business: "프레스티지석", first: "일등석" };
 
   function chartSummary() {
     const award = Air.award;
@@ -186,7 +186,7 @@
       Air.el("div", { class: "air-tile" }, [
         Air.el("div", { class: "air-tile__label", text: "좌석 표시 있는 날" }),
         Air.el("div", { class: "air-tile__value", text: String(availableDays.size) }),
-        Air.el("div", { class: "air-tile__sub", text: "E·P·F 중 하나 이상" })
+        Air.el("div", { class: "air-tile__sub", text: "P·F 중 하나 이상" })
       ]),
       Air.el("div", { class: "air-tile" }, [
         Air.el("div", { class: "air-tile__label", text: "미조회 날짜" }),
@@ -290,7 +290,7 @@
     if (!state.origin || !state.destination) {
       slot.append(Air.emptyState(
         "노선을 선택해 주세요",
-        "출발 공항과 도착 공항을 입력하면 날짜별 E·P·F 좌석 상태와 공제 마일을 볼 수 있습니다."
+        "출발 공항과 도착 공항을 입력하면 날짜별 P·F 좌석 상태와 공제 마일을 볼 수 있습니다."
       ));
       return;
     }

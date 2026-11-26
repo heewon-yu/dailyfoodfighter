@@ -468,10 +468,11 @@
 
   function defaultDates() {
     const today = Air.todayKst();
-    if (!state.outDate) state.outDate = isoAddDays(today, 30);
-    if (!state.inDate) state.inDate = isoAddDays(state.outDate, 4);
+    if (!state.outDate) state.outDate = "";
+    if (!state.inDate) state.inDate = "";
 
-    if (state.inDate < state.outDate) state.inDate = state.outDate;
+    if (state.outDate && state.outDate < today) state.outDate = state.outDate;
+    if (state.outDate && state.inDate && state.inDate < state.outDate) state.inDate = state.outDate;
   }
 
   function legBlock(direction, rows) {
@@ -487,7 +488,7 @@
       return wrapper;
     }
 
-    const cabinKey = state.cabin || "economy";
+    const cabinKey = state.cabin || Air.CABINS[0].key;
     const price = Air.award.miles(origin, destination, date, cabinKey);
     const head = Air.el("div", { class: "round-leg__head" }, [
       Air.el("h3", { text: isOut ? "가는 편" : "오는 편" }),
@@ -519,7 +520,7 @@
       Air.el("span", { class: "round-leg__season" }, [
         Air.seasonBadge(origin, date),
         Air.hotpickBadge({ origin, destination, date, cabinKey }),
-        Air.el("small", { text: `${cabinKey === "economy" ? "일반석" : cabinKey === "business" ? "프레스티지석" : "일등석"} · ${price.season.peak ? "성수기" : "평수기"} 공제` })
+        Air.el("small", { text: `${Air.CABIN_BY_KEY.get(cabinKey).name} · ${price.season.peak ? "성수기" : "평수기"} 공제` })
       ])
     ]));
 
@@ -557,12 +558,12 @@
     panel.hidden = !round;
     searchResults.hidden = round;
     roundFields.hidden = false;
-    if (monthField) monthField.hidden = round;
+    if (monthField) monthField.hidden = false;
     $("air-search-form").classList.toggle("is-round", round);
 
     $("air-in-date-field").hidden = !round;
     $("air-date-note").textContent = round
-      ? "가는 날·오는 날 각각의 성수기·평수기 공제 마일을 더해 왕복 공제량을 계산합니다."
+      ? "가는 날·오는 날을 모두 넣으면 두 날짜의 왕복 공제량을, 비워두면 선택한 탑승월 전체의 가는 편·귀국편 좌석 현황과 왕복 공제 마일 범위를 보여줍니다."
       : "가는 날을 비워두면 선택한 탑승월 전체를 보여줍니다. 날짜를 넣으면 그 날짜의 좌석과 공제 마일만 확인합니다.";
 
     $("air-trip-one").setAttribute("aria-pressed", String(!round));
@@ -605,12 +606,10 @@
       return;
     }
 
-    const cabinKey = state.cabin || "economy";
-    const outPrice = Air.award.miles(state.origin, state.destination, state.outDate, cabinKey);
-    const inPrice = Air.award.miles(state.destination, state.origin, state.inDate, cabinKey);
+    const cabinKey = state.cabin || Air.CABINS[0].key;
+    const dated = /^\d{4}-\d{2}-\d{2}$/.test(state.outDate) && /^\d{4}-\d{2}-\d{2}$/.test(state.inDate);
 
     const wrapper = Air.el("div", { class: "round-panel" });
-
     const record = Air.award.route(state.origin, state.destination);
 
     wrapper.append(Air.el("div", { class: "round-panel__head" }, [
@@ -618,53 +617,195 @@
       Air.el("p", { class: "air-inline-note", text:
         `${state.origin} ↔ ${state.destination}${record ? ` · 공제 구간 ${record.region}` : ""} · ${Air.PROGRAM_LABEL}` }),
       Air.el("p", { class: "air-inline-note", text:
-        `좌석 등급은 위 검색 폼의 선택을 따릅니다(선택이 없으면 일반석). 현재 ${cabinKey === "economy" ? "일반석" : cabinKey === "business" ? "프레스티지석" : "일등석"} 기준입니다.` })
+        `좌석 등급은 위 검색 폼의 선택을 따릅니다(선택이 없으면 프레스티지석). 현재 ${Air.CABIN_BY_KEY.get(cabinKey).name} 기준입니다.` })
     ]));
+
+    if (dated) {
+      appendDatedRound(wrapper, rows, cabinKey);
+    } else {
+      appendMonthRound(wrapper, rows, cabinKey);
+    }
+
+    appendUpcomingPeak(wrapper);
+
+    panel.replaceChildren(wrapper);
+
+    if (dated) apply(false);
+  }
+
+  /* ----------------------------------------------- 왕복: 날짜 지정 모드 */
+
+  function appendDatedRound(wrapper, rows, cabinKey) {
+    const outPrice = Air.award.miles(state.origin, state.destination, state.outDate, cabinKey);
+    const inPrice = Air.award.miles(state.destination, state.origin, state.inDate, cabinKey);
 
     wrapper.append(Air.el("div", { class: "round-legs" }, [
       legBlock("out", rows),
       legBlock("in", rows)
     ]));
 
-    if (outPrice && outPrice.state === "ok" && inPrice && inPrice.state === "ok") {
-      const total = outPrice.miles + inPrice.miles;
-
-      const totalBox = Air.el("div", { class: "round-total" }, [
-        Air.el("div", { class: "round-total__label", text: "왕복 공제 마일" }),
-        Air.el("div", { class: "round-total__value", text: Air.milesText(total) }),
-        Air.el("div", { class: "round-total__break" }, [
-          Air.el("span", { text: `가는 편 ${Air.fmtDate(state.outDate)} ${outPrice.season.label} ${Air.milesText(outPrice.miles)}` }),
-          Air.el("span", { text: `+ 오는 편 ${Air.fmtDate(state.inDate)} ${inPrice.season.label} ${Air.milesText(inPrice.miles)}` })
-        ]),
-        Air.el("p", { class: "round-total__note", text:
-          "가는 날·오는 날 각각의 성수기/평수기 공제 마일을 더한 값입니다. 세금·유류할증료는 별도이며, 좌석 확보를 보장하지 않습니다." })
-      ]);
-
-      wrapper.append(totalBox);
-    } else {
+    if (!outPrice || outPrice.state !== "ok" || !inPrice || inPrice.state !== "ok") {
       wrapper.append(Air.el("div", { class: "round-total" }, [
         Air.el("div", { class: "round-total__label", text: "왕복 공제 마일" }),
         Air.el("div", { class: "round-total__value", text: "공제 구간 확인 중" })
       ]));
+      return;
     }
 
+    const total = outPrice.miles + inPrice.miles;
+    const outHotpick = Air.award.hotpickMiles(state.origin, state.destination, state.outDate, cabinKey);
+    const inHotpick = Air.award.hotpickMiles(state.destination, state.origin, state.inDate, cabinKey);
+    const hotpickTotal = outHotpick || inHotpick
+      ? (outHotpick ? outHotpick.miles : outPrice.miles) + (inHotpick ? inHotpick.miles : inPrice.miles)
+      : null;
+
+    const breakLines = [
+      Air.el("span", { text: `가는 편 ${Air.fmtDate(state.outDate)} ${outPrice.season.label} ${Air.milesText(outPrice.miles)}` }),
+      Air.el("span", { text: `+ 오는 편 ${Air.fmtDate(state.inDate)} ${inPrice.season.label} ${Air.milesText(inPrice.miles)}` })
+    ];
+
+    if (hotpickTotal !== null) {
+      breakLines.push(Air.el("span", { class: "round-total__hotpick", text:
+        `보너스 핫픽 적용 시 ${Air.milesText(hotpickTotal)} (편도 -${Air.milesText(outHotpick ? outHotpick.discount : inHotpick.discount)}${outHotpick && inHotpick ? "씩" : ""})` }));
+    }
+
+    wrapper.append(Air.el("div", { class: "round-total" }, [
+      Air.el("div", { class: "round-total__label", text: "왕복 공제 마일" }),
+      Air.el("div", { class: "round-total__value", text: Air.milesText(total) }),
+      Air.el("div", { class: "round-total__break" }, breakLines),
+      Air.el("p", { class: "round-total__note", text:
+        "가는 날·오는 날 각각의 성수기/평수기 공제 마일을 더한 값입니다. 핫픽 금액은 대상 편명·기간을 확인해야 하며, 세금·유류할증료는 별도입니다." })
+    ]));
+  }
+
+  /* ------------------------------------------- 왕복: 날짜 비움(월 전체) */
+
+  function monthLegList(direction, rows, cabinKey) {
+    const isOut = direction === "out";
+    const origin = isOut ? state.origin : state.destination;
+    const destination = isOut ? state.destination : state.origin;
+
+    const list = rows.filter(row =>
+      row.origin === origin && row.destination === destination &&
+      row.cabinKey === cabinKey && (!state.month || row.month === state.month)
+    ).sort((a, b) => a.date.localeCompare(b.date));
+
+    const box = Air.el("div", { class: "round-leg" }, [
+      Air.el("div", { class: "round-leg__head" }, [
+        Air.el("h3", { text: isOut ? "가는 편" : "오는 편" }),
+        Air.el("span", { class: "flight-card__code", text: `${origin} → ${destination}` })
+      ]),
+      Air.el("div", { class: "round-leg__date" }, [
+        Air.el("span", { class: "air-field__label", text: "보는 범위" }),
+        Air.el("strong", { text: state.month ? Air.fmtMonth(state.month) : "수집된 전체 기간" })
+      ])
+    ]);
+
+    if (!list.length) {
+      box.append(Air.el("p", { class: "air-inline-note", text: isOut
+        ? "이 노선·등급의 좌석 기록이 아직 없습니다(미수집). 좌석 없음과 다릅니다."
+        : "귀국편 좌석 데이터가 아직 수집되지 않았습니다. 좌석 없음과 다릅니다." }));
+      return box;
+    }
+
+    const available = list.filter(row => row.status === "available").length;
+    const unknown = list.filter(row => row.status === "unknown").length;
+
+    box.append(Air.el("p", { class: "air-inline-note", text:
+      `${list.length}일 기록 · 좌석 있음 ${available}일` + (unknown ? ` · 미조회 ${unknown}일` : "") }));
+
+    box.append(Air.el("div", { class: "air-table-wrap" }, [
+      Air.el("table", { class: "air-table air-table--compact" }, [
+        Air.el("thead", null, [
+          Air.el("tr", null, [
+            Air.el("th", { scope: "col", text: "날짜" }),
+            Air.el("th", { scope: "col", text: "좌석" }),
+            Air.el("th", { scope: "col", text: "성수기" }),
+            Air.el("th", { scope: "col", class: "num", text: "편도 공제" })
+          ])
+        ]),
+        Air.el("tbody", null, list.map(row => {
+          const price = Air.priceOf(row);
+          const hit = Air.award.hotpickMiles(row.origin, row.destination, row.date, cabinKey);
+
+          return Air.el("tr", { class: state.selectedDate === row.date ? "is-selected" : null }, [
+            Air.el("th", { scope: "row", class: "num", text: Air.fmtDate(row.date) }),
+            Air.el("td", null, [Air.statusBadge(row, state.meta)]),
+            Air.el("td", null, [Air.seasonBadge(row.origin, row.date)]),
+            Air.el("td", { class: "num" }, [
+              Air.el("b", { text: price.kind === "official" ? Air.milesText(price.miles) : "—" }),
+              hit ? Air.el("div", { class: "price-hotpick" }, [
+                Air.el("b", { text: `핫픽 ${Air.milesText(hit.miles)}` }),
+                Air.el("span", { text: ` (-${Air.milesText(hit.discount)})` })
+              ]) : null
+            ])
+          ]);
+        }))
+      ])
+    ]));
+
+    return box;
+  }
+
+  function roundRangeBlock(cabinKey) {
+    const letter = Air.award.CABIN_LETTER[cabinKey];
+    const record = Air.award.route(state.origin, state.destination);
+    const chart = record && record.miles ? record.miles[letter] : null;
+
+    if (!Array.isArray(chart) || !Number.isInteger(chart[0])) {
+      return Air.el("div", { class: "round-total" }, [
+        Air.el("div", { class: "round-total__label", text: "왕복 공제 마일 범위" }),
+        Air.el("div", { class: "round-total__value", text: "공제 구간 확인 중" })
+      ]);
+    }
+
+    const hotpick = Air.award.hotpickFor
+      ? Air.award.hotpickFor(state.origin, state.destination, cabinKey)
+      : null;
+
+    const lines = [
+      Air.el("span", { text: `평수기 ${Air.milesText(chart[0] * 2)} · 성수기 ${Air.milesText(chart[1] * 2)}` }),
+      Air.el("span", { text: `편도 기준 ${Air.milesText(chart[0])} ~ ${Air.milesText(chart[1])}` })
+    ];
+
+    if (hotpick) {
+      lines.push(Air.el("span", { class: "round-total__hotpick", text:
+        `보너스 핫픽 적용 시 ${Air.milesText((chart[0] - hotpick.discount_oneway) * 2)} ~ ${Air.milesText((chart[1] - hotpick.discount_oneway) * 2)} (출발 ${hotpick.period_label || ""}·편도 -${Air.milesText(hotpick.discount_oneway)})` }));
+    }
+
+    return Air.el("div", { class: "round-total" }, [
+      Air.el("div", { class: "round-total__label", text: "이 달의 왕복 공제 마일 범위" }),
+      Air.el("div", { class: "round-total__value", text: `${Air.milesText(chart[0] * 2)} ~ ${Air.milesText(chart[1] * 2)}` }),
+      Air.el("div", { class: "round-total__break" }, lines),
+      Air.el("p", { class: "round-total__note", text:
+        "왕복 = 가는 편 + 오는 편(각 날짜의 성수기 여부 반영)입니다. 표시된 범위는 평수기·성수기 각각 같은 날짜 가정한 값이며, 날짜를 지정하면 정확한 합계를 계산합니다. 세금·유류할증료는 별도입니다." })
+    ]);
+  }
+
+  function appendMonthRound(wrapper, rows, cabinKey) {
+    wrapper.append(Air.el("p", { class: "air-inline-note", text:
+      "가는 날·오는 날을 비워 두어 월 전체를 보고 있습니다. 두 날짜를 넣으면 그 날짜의 정확한 왕복 공제량을 계산합니다." }));
+
+    wrapper.append(Air.el("div", { class: "round-legs" }, [
+      monthLegList("out", rows, cabinKey),
+      monthLegList("in", rows, cabinKey)
+    ]));
+
+    wrapper.append(roundRangeBlock(cabinKey));
+  }
+
+  function appendUpcomingPeak(wrapper) {
     const upcoming = Air.award.upcomingPeak(state.origin, Air.todayKst(), 3);
 
-    if (upcoming.length) {
-      wrapper.append(Air.el("div", { class: "round-note" }, [
-        Air.el("p", { class: "air-field__label", text: "다가오는 성수기 (대한민국 출발 기준)" }),
-        Air.el("p", { class: "air-inline-note", text: upcoming.map(range =>
-          `${Air.fmtDate(range.start)} ~ ${Air.fmtDate(range.end)}`).join(" · ") }),
-        Air.el("p", { class: "air-inline-note", text:
-          "성수기에는 같은 좌석도 공제 마일이 더 듭니다. 날짜를 옮겨 평수기로 계산해 보세요." })
-      ]));
-    }
+    if (!upcoming.length) return;
 
-    panel.replaceChildren(wrapper);
-
-    if (outPrice && outPrice.state === "ok" && inPrice && inPrice.state === "ok") {
-      apply(false);
-    }
+    wrapper.append(Air.el("div", { class: "round-note" }, [
+      Air.el("p", { class: "air-field__label", text: "다가오는 성수기 (대한민국 출발 기준)" }),
+      Air.el("p", { class: "air-inline-note", text: upcoming.map(range =>
+        `${Air.fmtDate(range.start)} ~ ${Air.fmtDate(range.end)}`).join(" · ") }),
+      Air.el("p", { class: "air-inline-note", text:
+        "성수기에는 같은 좌석도 공제 마일이 더 듭니다. 날짜를 옮겨 평수기로 계산해 보세요." })
+    ]));
   }
 
   /* ------------------------------------------------------------- 이벤트 */

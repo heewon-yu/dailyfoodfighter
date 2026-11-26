@@ -83,7 +83,6 @@ function fetch(url) {
 AIR_STUB = r"""
 window.Air = {
   ROOT: '/air/', CABINS: [
-    { key: 'economy', letter: 'E', name: '일반석', short: '일반', cls: 'cabin-e' },
     { key: 'business', letter: 'P', name: '프레스티지석', short: '프레스티지', cls: 'cabin-p' },
     { key: 'first', letter: 'F', name: '일등석', short: '일등', cls: 'cabin-f' }
   ],
@@ -166,10 +165,10 @@ report = ctx.eval("""
   out.chartText = __slots && __slots['air-mileage-chart'] ? __slots['air-mileage-chart'].textContent.length : 0;
   out.peakText = __slots && __slots['air-mileage-peak'] ? __slots['air-mileage-peak'].textContent.length : 0;
   var full = hot ? hot.textContent : '';
-  out.has12500 = full.indexOf('12,500') >= 0;
-  out.has21500 = full.indexOf('21,500') >= 0;
   out.has20000 = full.indexOf('20,000') >= 0;
-  out.hasKE737 = full.indexOf('KE737') >= 0;
+  out.has41500 = full.indexOf('41,500') >= 0;
+  out.hasKE705 = full.indexOf('KE705') >= 0;
+  out.noEconomy = full.indexOf('일반석') >= 0 ? 'MENTIONED' : 'none';
   out.hasDomesticNote = full.indexOf('국내선 탭에도') >= 0;
   out.tail = full.slice(-420);
   return JSON.stringify(out);

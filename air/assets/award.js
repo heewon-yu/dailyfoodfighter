@@ -14,7 +14,7 @@
   const PEAK_KEY_DEFAULT = "국제선_미주출발외";
   const PEAK_KEY_AMERICAS = "국제선_미주출발";
 
-  const CABIN_LETTER = { economy: "E", business: "P", first: "F" };
+  const CABIN_LETTER = { business: "P", first: "F" };
 
   const state = {
     chart: null,
@@ -244,7 +244,7 @@
 
   function regionTable() {
     return (state.chart && state.chart.regions ? state.chart.regions : []).filter(
-      region => region.miles && Array.isArray(region.miles.E)
+      region => region.miles && Array.isArray(region.miles.P)
     );
   }
 
@@ -330,6 +330,25 @@
     };
   }
 
+  /** 날짜와 무관하게 구간·등급의 핫픽 조건(기간·할인·편명)을 돌려준다. 대상이 아니면 null. */
+  function hotpickFor(origin, destination, cabinKey) {
+    const o = String(origin || "").toUpperCase();
+    const d = String(destination || "").toUpperCase();
+    const cabin = String(cabinKey || "").toLowerCase();
+    const item = state.hotpickMap.get(`${o}-${d}-${cabin}`);
+
+    if (!item) return null;
+
+    return {
+      discount_oneway: item.discount_oneway,
+      discount_round: item.discount_round,
+      flights: item.flights || [],
+      period_start: item.period_start,
+      period_end: item.period_end,
+      period_label: `${item.period_start} ~ ${item.period_end}`
+    };
+  }
+
   function hotpickRegions() {
     return (state.hotpick && Array.isArray(state.hotpick.regions)) ? state.hotpick.regions : [];
   }
@@ -392,6 +411,7 @@
     route,
     miles,
     hotpickAt,
+    hotpickFor,
     hotpickMiles,
     hotpickExcluded,
     hotpickRegions,

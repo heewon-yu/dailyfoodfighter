@@ -116,7 +116,7 @@
       Air.el("div", null, [
         Air.el("strong", { text: "대한항공 공식 보너스 공제표를 그대로 옮겼습니다. " }),
         "모든 값은 마일 단위이며, 왕복은 편도 공제 마일의 2배로 계산합니다. 세금·유류할증료는 별도입니다. ",
-        "일반석·프레스티지석·일등석만 표시합니다."
+        "프레스티지석·일등석만 표시합니다(일반석·프리미엄석 제외)."
       ])
     ]));
 
@@ -194,7 +194,6 @@
 
   function cabinGuide() {
     const rows = [
-      { key: "economy", desc: "일반석 보너스", note: "검색·공제 계산 대상" },
       { key: "business", desc: "프레스티지석(비즈니스) 보너스", note: "검색·공제 계산 대상" },
       { key: "first", desc: "일등석 보너스", note: "검색·공제 계산 대상 · 일등석 표식은 보너스/좌석승급이 통합되어 있을 수 있습니다" }
     ];
@@ -232,13 +231,11 @@
         Air.el("th", { scope: "col", class: "chart-th-region", text: "권역" }),
         Air.el("th", { scope: "col", class: "num", text: "할인 편도" }),
         Air.el("th", { scope: "col", class: "num", text: "할인 왕복" }),
-        Air.el("th", { scope: "col", class: "num", text: "일반석 대상" }),
         Air.el("th", { scope: "col", class: "num", text: "프레스티지 대상" })
       ])
     ]);
 
     const body = Air.el("tbody", null, rows.map(region => {
-      const economy = hotpickRegionCount(region, "economy");
       const business = hotpickRegionCount(region, "business");
 
       return Air.el("tr", null, [
@@ -247,8 +244,7 @@
         ]),
         Air.el("td", { class: "num", text: fmtMiles(region.discount.oneway) }),
         Air.el("td", { class: "num", text: fmtMiles(region.discount.round) }),
-        Air.el("td", { class: "num", text: economy ? `${economy}개 노선` : "—" }),
-        Air.el("td", { class: "num", text: business ? `${business}개 노선` : "—" })
+        Air.el("td", { class: "num", text: business ? `${business}개 노선` : "대상 없음" })
       ]);
     }));
 
@@ -257,14 +253,14 @@
         Air.el("table", { class: "air-table air-table--chart" }, [head, body])
       ]),
       Air.el("div", { class: "chart-cards" }, rows.map(region => {
-        const economy = hotpickRegionCount(region, "economy");
         const business = hotpickRegionCount(region, "business");
 
         return Air.el("article", { class: "chart-card" }, [
           Air.el("div", { class: "chart-card__head" }, [
             Air.el("strong", { text: region.label }),
-            Air.el("small", { text:
-              `일반석 ${economy || 0}개 노선 · 프레스티지석 ${business ? business + "개 노선" : "없음"}` })
+            Air.el("small", { text: business
+              ? `프레스티지석 ${business}개 노선`
+              : "프레스티지 핫픽 대상 노선 없음" })
           ]),
           Air.el("div", { class: "chart-card__grid" }, [
             Air.el("div", { class: "chart-card__cell" }, [
@@ -387,9 +383,9 @@
     root.append(Air.el("div", { class: "air-notice air-notice--hotpick" }, [
       Air.el("span", { class: "air-notice__icon", text: "%" }),
       Air.el("div", null, [
-        Air.el("strong", { text: "보너스 항공권을 신규 구매할 때 마일리지가 할인되는 노선입니다. " }),
+        Air.el("strong", { text: "프레스티지석 보너스 항공권을 신규 구매할 때 마일리지가 할인되는 노선입니다. " }),
         `구매 기간 ${purchase}. 공식 출발 기간은 ${window}. 노선별 출발 기간은 그보다 짧을 수 있습니다. `,
-        "아래 ‘핫픽 적용’ 값은 공식 공제표 금액에서 지역별 할인 마일을 뺀 편도 공제량입니다."
+        "일등석 할인은 대한항공 공식 표에 없습니다."
       ])
     ]));
 
@@ -408,20 +404,32 @@
       ]),
       Air.el("div", { class: "hotpick-kv__cell" }, [
         Air.el("span", { text: "적용 등급" }),
-        Air.el("b", { text: "일반석(X) · 프레스티지석(O)" })
+        Air.el("b", { text: "프레스티지석(O) · 일등석 할인 없음" })
       ])
     ]));
 
     root.append(hotpickSummary(meta));
 
     for (const [index, region] of regions.entries()) {
+      const hasPrestige = (region.cabins || []).some(cabin => cabin.cabin === "business" && cabin.routes && cabin.routes.length);
+
       const block = Air.el("details", { class: "hotpick-region", open: index === 0 ? "" : null });
 
       block.append(Air.el("summary", null, [
         Air.el("strong", { text: region.label }),
-        Air.el("span", { class: "hotpick-region__discount", text:
-          `편도 -${fmtMiles(region.discount.oneway)} · 왕복 -${fmtMiles(region.discount.round)}` })
+        Air.el("span", { class: "hotpick-region__discount", text: hasPrestige
+          ? `편도 -${fmtMiles(region.discount.oneway)} · 왕복 -${fmtMiles(region.discount.round)}`
+          : "프레스티지 대상 없음" })
       ]));
+
+      if (!hasPrestige) {
+        block.append(Air.el("div", { class: "hotpick-cabin" }, [
+          Air.el("p", { class: "air-inline-note", text: region.note ||
+            "이 지역은 프레스티지 핫픽 대상 노선이 없습니다(대한항공 공식 표 기준)." })
+        ]));
+        root.append(block);
+        continue;
+      }
 
       for (const cabin of region.cabins || []) {
         if (!cabin.routes || !cabin.routes.length) continue;

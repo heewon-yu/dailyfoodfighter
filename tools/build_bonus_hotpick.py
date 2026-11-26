@@ -253,12 +253,14 @@ DOMESTIC = {
 MONTH_KO = {i: f"{i}월" for i in range(1, 13)}
 
 NOTES = [
+    "마일지도는 프레스티지석·일등석 전용입니다. 아래 할인은 프레스티지석(예약 등급 O) 노선만 해당합니다.",
     "대한항공 보너스 핫픽은 홈페이지·모바일 앱에서 보너스 항공권을 신규 구매할 때만 적용됩니다(예약 변경 시 적용되지 않음).",
     "공식 안내상 전체 출발 기간은 10월 25일 ~ 3월 27일이며, 12/23~1/4 과 2/4~3/2 는 제외 기간으로 표기되어 있습니다. 노선별 출발 기간은 이보다 짧을 수 있습니다.",
     "수요가 집중되는 항공편은 예약이 일찍 마감될 수 있습니다.",
     "할인 대상 노선·구매·출발 기간은 수시로 바뀌며, 예매 시점에 따라 할인 적용 여부가 달라질 수 있습니다. 실제 적용 여부는 대한항공 예매 화면의 초록색 할인 표시로 확인해야 합니다.",
     "예약 변경으로 할인 조건을 충족하지 못하면 마일리지가 추가 공제되고 재발행 수수료가 부과됩니다.",
-    "공식 표에는 일반석(예약 등급 X)과 프레스티지석(예약 등급 O)만 있으며, 일등석 할인은 없습니다.",
+    "대한항공 공식 핫픽 표에 일등석 할인은 없습니다.",
+    "북미·유럽/중동·대양주는 프레스티지 핫픽 대상 노선이 없습니다.",
     "부산/김해(PUS) 출발·도착 노선은 마일지도 정책상 표시하지 않습니다(공식 표에는 부산↔칭다오·타이베이·다낭이 있음).",
 ]
 
@@ -299,6 +301,9 @@ def main():
             "cabins": [],
         }
         for cabin in region["cabins"]:
+            # 마일지도는 프레스티지(P)·일등석(F) 전용이다. 일반석(X) 표는 수집만 보관하고 내보내지 않는다.
+            if cabin["cabin"] != "business":
+                continue
             cabin_out = {
                 "cabin": cabin["cabin"],
                 "booking_class": cabin["booking_class"],
@@ -366,6 +371,10 @@ def main():
                 })
 
             region_out["cabins"].append(cabin_out)
+
+        if not region_out["cabins"] or not region_out["cabins"][0]["routes"]:
+            region_out["cabins"] = []
+            region_out["note"] = "이 지역은 프레스티지 핫픽 대상 노선이 없습니다(대한항공 공식 표 기준)."
         regions.append(region_out)
 
     payload = {
@@ -386,9 +395,11 @@ def main():
             "excluded": EXCLUDED_MD,
         },
         "cabins": [
-            {"key": "economy", "letter": "E", "booking_class": "X", "name": "일반석"},
             {"key": "business", "letter": "P", "booking_class": "O", "name": "프레스티지석"},
+            {"key": "first", "letter": "F", "booking_class": "", "name": "일등석"},
         ],
+        "scope": "프레스티지석(P)·일등석(F) 전용 — 일반석(E·X) 수집·표시 제외",
+        "first_note": "대한항공 공식 핫픽 표에는 일등석 할인이 없습니다.",
         "regions": regions,
         "domestic": {
             "key": DOMESTIC["key"],
