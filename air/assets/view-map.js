@@ -216,7 +216,8 @@
         });
 
         entry.marker.setStyle({ radius: isSelected ? 9 : 7, weight: isSelected ? 3 : 2 });
-        entry.marker.setZIndexOffset(isSelected ? 500 : 0);
+        /* CircleMarker 에는 setZIndexOffset 이 없으므로 bringToFront 로만 앞쪽에 올린다. */
+        if (isSelected && typeof entry.marker.bringToFront === "function") entry.marker.bringToFront();
       }
     }
 
