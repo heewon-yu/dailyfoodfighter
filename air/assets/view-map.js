@@ -305,9 +305,13 @@
       }
 
       if (bounds.length && !fittedOnce) {
-        /* 넓은 화면은 노선 전체가 들어오도록 맞추고, 좁은 화면은 출발 공항(인천) 중심 개요로 둔다. */
-        if (map.getSize().x >= 720) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
-        else map.setView(bounds[0], 2);
+        /* 넓은 화면은 노선 전체가 들어오도록 맞추고,
+           좁은 화면은 이 서비스의 출발 거점(인천) 중심 개요로 둔다. */
+        if (map.getSize().x >= 720) {
+          map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
+        } else {
+          map.setView(coords.get("ICN") || bounds[0], 2);
+        }
         fittedOnce = true;
       }
 
