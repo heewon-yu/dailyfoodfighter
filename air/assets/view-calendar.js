@@ -589,10 +589,16 @@
     }
 
     if (!state.origin || !state.destination) {
-      const first = state.rows[0];
-      if (first) {
-        state.origin = first.origin;
-        state.destination = first.destination;
+      const hasDefault = state.rows.some(r => r.origin === "ICN" && r.destination === "JFK");
+      if (hasDefault) {
+        state.origin = "ICN";
+        state.destination = "JFK";
+      } else {
+        const first = state.rows[0];
+        if (first) {
+          state.origin = first.origin;
+          state.destination = first.destination;
+        }
       }
     }
 
