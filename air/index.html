@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>마일지도 | 대한항공 SKYPASS 보너스 좌석 검색</title>
+<meta name="description" content="대한항공 SKYPASS 국제선 보너스 좌석(E·R·P·F)을 노선·날짜별로 확인하는 마일지도입니다. 공식 조회 화면의 월별 좌석 현황을 수집해 보여줍니다.">
+<meta name="theme-color" content="#0f2340">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=2">
+<script src="/air/assets/app.js" defer></script>
+<script src="/air/assets/air-journey.js" defer></script>
+<script src="/air/assets/view-search.js" defer></script>
+</head>
+<body data-air-page="search">
+<main id="air-main" class="air-main">
+
+  <section class="air-hero">
+    <p class="air-hero__eyebrow">대한항공 SKYPASS · 국제선 보너스 좌석</p>
+    <h1>마일지도</h1>
+    <p>
+      대한항공 SKYPASS 국제선 보너스 좌석을 노선과 날짜별로 모아 보여줍니다.
+      좌석 등급은 일반석(E), 프리미엄석(R), 프레스티지석(P), 일등석(F)이며
+      일등석은 보너스와 좌석승급이 통합되어 구분할 수 없습니다.
+    </p>
+    <p class="air-hero__meta">
+      <span>대한항공 국제선 전용</span>
+      <span>타 항공사·제휴사 미지원</span>
+      <span>예약 보장 서비스 아님</span>
+    </p>
+  </section>
+
+  <div class="air-notice" role="note">
+    <span class="air-notice__icon" aria-hidden="true">⚠</span>
+    <div>
+      <strong>공식 조회 화면에서 수집한 좌석 현황입니다.</strong>
+      대한항공 보너스 좌석 조회 화면이 매일 1회 공지하는 월별 좌석 현황을 수집한 자료이며,
+      실시간 잔여 좌석이 아니고 예약 가능 여부를 보장하지 않습니다.
+      실제 발권 전에는 반드시 대한항공 공식 채널에서 확인하세요.
+    </div>
+  </div>
+
+  <form class="air-panel" id="air-search-form" role="search" aria-label="보너스 좌석 검색">
+    <div class="air-filters air-filters--search">
+
+      <div class="air-field">
+        <label for="air-origin-input">출발 공항</label>
+        <div class="air-combo" id="air-origin-combo">
+          <input class="air-input air-combo__input" id="air-origin-input" type="search"
+                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="air-field">
+        <label for="air-destination-input">도착 공항</label>
+        <div class="air-combo" id="air-destination-combo">
+          <input class="air-input air-combo__input" id="air-destination-input" type="search"
+                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
+
+      <div class="air-field">
+        <label for="air-region">지역</label>
+        <select class="air-select" id="air-region">
+          <option value="">전체 지역</option>
+        </select>
+      </div>
+
+      <div class="air-field">
+        <label for="air-month">탑승월</label>
+        <select class="air-select" id="air-month">
+          <option value="">전체 기간</option>
+        </select>
+      </div>
+
+      <div class="air-field air-field--wide">
+        <span class="air-field__label" id="air-cabin-label">좌석 등급</span>
+        <div class="air-seg air-seg--cabin" role="group" aria-labelledby="air-cabin-label" id="air-cabin"></div>
+      </div>
+
+      <div class="air-field">
+        <label for="air-status">좌석 상태</label>
+        <select class="air-select" id="air-status">
+          <option value="">전체 상태</option>
+          <option value="available">좌석 있음</option>
+          <option value="unavailable">좌석 없음</option>
+          <option value="unknown">미조회</option>
+          <option value="new">NEW(확인된 신규)</option>
+          <option value="stale">오래된 데이터</option>
+        </select>
+      </div>
+
+      <div class="air-field">
+        <label for="air-sort">정렬</label>
+        <select class="air-select" id="air-sort">
+          <option value="date-asc">출발일 빠른 순</option>
+          <option value="date-desc">출발일 늦은 순</option>
+          <option value="miles-asc">공제량 적은 순</option>
+          <option value="miles-desc">공제량 많은 순</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="air-actions">
+      <div class="air-seg" role="group" aria-label="여정 유형">
+        <button type="button" id="air-trip-one" aria-pressed="true">편도 검색</button>
+        <button type="button" id="air-trip-round" aria-pressed="false">왕복 조합</button>
+      </div>
+      <span class="air-actions__spacer"></span>
+      <button class="air-btn" type="submit">좌석 검색</button>
+      <button class="air-btn air-btn--ghost" type="button" id="air-reset">조건 초기화</button>
+      <button class="air-btn air-btn--ghost" type="button" id="air-share">링크 복사</button>
+    </div>
+  </form>
+
+  <section id="air-search-results" aria-labelledby="air-results-title" class="air-section">
+    <div class="air-results-head">
+      <h2 id="air-results-title">검색 결과</h2>
+      <p class="air-results-summary" id="air-result-summary" aria-live="polite">데이터 불러오는 중</p>
+    </div>
+
+    <div id="air-results"></div>
+    <nav class="air-pagination" id="air-pagination" aria-label="검색 결과 페이지"></nav>
+  </section>
+
+  <section id="air-journey-panel" class="air-section" aria-label="왕복 조합" hidden></section>
+
+  <section class="air-section" aria-labelledby="air-marks">
+    <h2 id="air-marks">표식 읽는 법</h2>
+    <div class="air-grid-3">
+      <div class="air-card">
+        <p class="air-field__label">좌석 상태</p>
+        <p style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+          <span class="badge badge--available">좌석 있음</span>
+          <span class="badge badge--unavailable">좌석 없음</span>
+          <span class="badge badge--unknown">미조회</span>
+        </p>
+        <p class="air-inline-note">
+          '좌석 없음'은 조회 결과 좌석 표시가 없었다는 뜻이고, '미조회'는 아직 데이터가 없는 상태입니다.
+          두 상태는 다르며, 어느 쪽도 실제 매진이나 예약 불가를 확정하지 않습니다.
+        </p>
+      </div>
+      <div class="air-card">
+        <p class="air-field__label">NEW</p>
+        <p style="margin-bottom:8px"><span class="badge badge--new">NEW</span></p>
+        <p class="air-inline-note">
+          이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다.
+          최초 수집이나 미조회 상태에서 바뀐 기록은 NEW가 아닙니다.
+        </p>
+      </div>
+      <div class="air-card">
+        <p class="air-field__label">일등석 F</p>
+        <p style="margin-bottom:8px"><span class="cabin-chip cabin-f"><span>F</span><span>일등</span></span>
+          <span class="badge badge--combined">통합</span></p>
+        <p class="air-inline-note">
+          대한항공 일등석 표식은 보너스 예약과 좌석승급이 구분되지 않습니다.
+          보너스 확정으로 표시하지 않으며, 공제량도 자동 합산하지 않습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="air-section" aria-labelledby="air-more">
+    <h2 id="air-more">더 보기</h2>
+    <div class="air-grid-3">
+      <a class="air-card" href="/air/map/" style="text-decoration:none;color:inherit">
+        <p class="air-field__label">세계지도</p>
+        <p style="font-weight:800;color:#0f2340;margin-bottom:4px">노선을 지도에서 보기</p>
+        <p class="air-inline-note">좌석이 표시된 노선과 날짜를 지도에서 확인합니다.</p>
+      </a>
+      <a class="air-card" href="/air/calendar/" style="text-decoration:none;color:inherit">
+        <p class="air-field__label">월별 달력</p>
+        <p style="font-weight:800;color:#0f2340;margin-bottom:4px">날짜별 좌석 등급</p>
+        <p class="air-inline-note">E·R·P·F 표식을 달력에서 한눈에 봅니다.</p>
+      </a>
+      <a class="air-card" href="/air/mileage/" style="text-decoration:none;color:#0f2340">
+        <p class="air-field__label">공제량 안내</p>
+        <p style="font-weight:800;margin-bottom:4px">공제표·성수기·핫픽</p>
+        <p class="air-inline-note">검증된 공식 공제표 기준으로만 수치를 표시합니다.</p>
+      </a>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>

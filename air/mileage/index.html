@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>공제량 안내 | 마일지도 대한항공 보너스 좌석</title>
+<meta name="description" content="대한항공 SKYPASS 보너스 공제량의 지역·등급 구분, 성수기·비수기, 핫픽 할인, 왕복 합산 기준을 안내합니다.">
+<meta name="theme-color" content="#0f2340">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=2">
+<script src="/air/assets/app.js" defer></script>
+<script src="/air/assets/view-mileage.js" defer></script>
+</head>
+<body data-air-page="mileage">
+<main id="air-main" class="air-main">
+
+  <div class="air-page-head">
+    <p class="air-hero__eyebrow" style="color:#2563eb">Mileage guide</p>
+    <h1>공제량 안내</h1>
+    <p>
+      보너스 항공권 공제량은 지역과 좌석 등급, 출발 날짜의 성수기·비수기, 그리고 핫픽 할인 적용 여부에 따라 달라집니다.
+      마일지도는 <strong>공식 공제표로 검증된 값만</strong> 수치로 표시합니다.
+    </p>
+  </div>
+
+  <div id="air-mileage-status"></div>
+
+  <section class="air-section">
+    <h2>지역·등급별 공제량 <span class="air-count" id="air-mileage-count"></span></h2>
+    <div id="air-mileage-table"></div>
+    <p class="air-map-note">
+      '검증 전'은 공식 공제표 확인이 끝나지 않아 수치를 표시하지 않는 상태입니다.
+      추정치나 참고용 값은 운영 수치로 사용하지 않습니다.
+    </p>
+  </section>
+
+  <section class="air-section">
+    <h2>좌석 등급 구분</h2>
+    <div class="air-table-wrap">
+      <table class="air-table">
+        <thead>
+          <tr>
+            <th scope="col">표식</th>
+            <th scope="col">구분</th>
+            <th scope="col">마일지도 처리</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row"><span class="cabin-chip cabin-e"><span>E</span><span>일반</span></span></th>
+            <td>일반석 보너스</td>
+            <td>검색·합산 대상</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="cabin-chip cabin-r"><span>R</span><span>프리미엄</span></span></th>
+            <td>프리미엄석 보너스</td>
+            <td>검색·합산 대상</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="cabin-chip cabin-p"><span>P</span><span>프레스티지</span></span></th>
+            <td>프레스티지석(비즈니스) 보너스</td>
+            <td>검색·합산 대상</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="cabin-chip cabin-f"><span>F</span><span>일등</span></span></th>
+            <td>일등석 보너스 / 좌석승급 통합</td>
+            <td>검색 표시 · 보너스 확정 아님 · <strong>왕복 자동 합산 제외</strong></td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="badge badge--muted">G</span></th>
+            <td>프리미엄석 좌석승급 전용</td>
+            <td>표시·합산 제외</td>
+          </tr>
+          <tr>
+            <th scope="row"><span class="badge badge--muted">U</span></th>
+            <td>프레스티지석 좌석승급 전용</td>
+            <td>표시·합산 제외</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="air-prose" style="margin-top:14px">
+      <p>
+        대한항공 일등석 좌석 표식은 보너스 좌석과 좌석승급이 구분되지 않는 형태로 제공됩니다.
+        그래서 F는 '보너스 확정'이 아니라 <strong>보너스/승급 통합</strong>으로 표시하고,
+        공제량도 보너스 공제량과 승급 공제량을 나눠 안내할 수 없어 왕복 자동 합산에서 제외합니다.
+      </p>
+    </div>
+  </section>
+
+  <section class="air-section">
+    <h2>성수기·비수기와 핫픽</h2>
+    <div class="air-prose">
+      <ul>
+        <li>보너스 공제량은 노선 지역과 좌석 등급, 출발일이 속한 성수기·비수기 구간에 따라 달라집니다.</li>
+        <li>핫픽(Hot Pick)은 대한항공이 특정 기간·노선에 일반 공제량보다 낮은 공제량을 적용하는 프로모션입니다.</li>
+        <li>할인 여부는 <strong>출발 날짜</strong> 기준으로 판단하며, 왕복은 가는 편·오는 편 각각 확인해야 합니다.</li>
+        <li>마일지도는 할인 전용 검색 탭을 따로 두지 않고, 검색 결과 카드에서 정상 공제량과 할인 공제량을 함께 표시합니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="air-section">
+    <h2>왕복 공제량 합산</h2>
+    <div class="air-prose">
+      <ul>
+        <li>왕복 합계는 가는 편과 오는 편의 편도 공제량을 각각 계산해 더합니다.</li>
+        <li>두 구간 중 하나라도 공제량이 확인되지 않으면 합계를 '미확인'으로 표시합니다.</li>
+        <li>F(일등석 통합) 구간은 합계에서 제외하고 별도로 표시합니다.</li>
+        <li>세금·유류할증료는 공제량과 별도로 부과됩니다.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="air-section">
+    <h2>공식 출처·적용 기간</h2>
+    <div class="air-prose">
+      <p>
+        공제량은 대한항공 공식 보너스 항공권 공제표와 프로모션 안내를 기준으로 검증합니다.
+        검증에는 지역 구분, 좌석 등급, 성수기·비수기 적용 기간, 출발 방향, 핫픽 적용 조건이 모두 포함되어야 합니다.
+      </p>
+      <p>
+        <a class="air-btn air-btn--sm" href="https://www.koreanair.com/booking/book-and-manage/award-seat-availability"
+           target="_blank" rel="noopener noreferrer">대한항공 보너스 좌석 조회 ↗</a>
+        <a class="air-btn air-btn--ghost air-btn--sm" href="https://www.koreanair.com/contents/promotion/list/2026/26winterhotpick"
+           target="_blank" rel="noopener noreferrer">대한항공 보너스 핫픽 ↗</a>
+      </p>
+    </div>
+  </section>
+
+</main>
+</body>
+</html>
