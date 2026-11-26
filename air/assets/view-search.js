@@ -373,6 +373,16 @@
     const results = $("air-results");
     const summary = $("air-result-summary");
 
+    if (!state.origin || !state.destination) {
+      results.replaceChildren(Air.emptyState(
+        "출발 공항과 도착 공항을 모두 선택해 주세요",
+        "예: 인천(ICN) → 도쿄/나리타(NRT)처럼 두 공항을 고른 뒤 [좌석 검색] 버튼을 누르면 해당 노선의 예약 가능한 좌석을 보여드립니다."
+      ));
+      $("air-pagination").replaceChildren();
+      summary.textContent = "출발 · 도착 공항 필수 선택";
+      return;
+    }
+
     if (state.trip === "round") {
       results.replaceChildren();
       $("air-pagination").replaceChildren();
@@ -879,6 +889,11 @@
     $("air-search-form").addEventListener("submit", event => {
       event.preventDefault();
       state.page = 1;
+      if (!state.origin) {
+        $("air-origin-input").focus();
+      } else if (!state.destination) {
+        $("air-destination-input").focus();
+      }
       commit();
     });
 

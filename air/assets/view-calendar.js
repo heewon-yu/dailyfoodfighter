@@ -69,13 +69,29 @@
     cabinSelect.value = state.cabin;
     cabinSelect.addEventListener("change", () => {
       state.cabin = cabinSelect.value;
-      render();
+      markDirty();
     });
 
     monthSelect = Air.el("select", { class: "air-select", id: "air-cal-month" });
     monthSelect.addEventListener("change", () => {
       state.month = monthSelect.value;
       state.selectedDate = "";
+      markDirty();
+    });
+
+    const submitBtn = Air.el("button", {
+      type: "button",
+      class: "air-btn air-btn--sm",
+      id: "air-cal-submit",
+      text: "달력 조회"
+    });
+    submitBtn.addEventListener("click", () => {
+      if (!state.origin) {
+        $("air-cal-origin-input").focus();
+      } else if (!state.destination) {
+        $("air-cal-destination-input").focus();
+      }
+      clearDirty();
       render();
     });
 
@@ -124,8 +140,18 @@
           monthSelect
         ])
       ]),
-      Air.el("div", { class: "air-actions" }, [swap])
+      Air.el("div", { class: "air-actions" }, [submitBtn, swap])
     ]);
+  }
+
+  function markDirty() {
+    const btn = $("air-cal-submit");
+    if (btn) btn.textContent = "달력 조회 (변경 적용)";
+  }
+
+  function clearDirty() {
+    const btn = $("air-cal-submit");
+    if (btn) btn.textContent = "달력 조회";
   }
 
   function mountControls() {
@@ -139,7 +165,7 @@
       onSelect: value => {
         state.origin = value;
         state.selectedDate = "";
-        render();
+        markDirty();
       }
     });
 
@@ -149,7 +175,7 @@
       onSelect: value => {
         state.destination = value;
         state.selectedDate = "";
-        render();
+        markDirty();
       }
     });
 
@@ -184,6 +210,13 @@
   }
 
   function calendar() {
+    if (!state.origin || !state.destination) {
+      return Air.emptyState(
+        "출발 공항과 도착 공항을 모두 선택해 주세요",
+        "두 공항을 고른 뒤 [달력 조회] 버튼을 누르거나, 위 노선 지도에서 노선을 직접 선택하면 달력이 열립니다."
+      );
+    }
+
     const months = availableMonths();
     const month = state.month || months[0];
 
