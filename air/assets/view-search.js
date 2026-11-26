@@ -393,6 +393,9 @@
       if (state.destination && row.destination !== state.destination) return false;
       if (state.cabin && row.cabinKey !== state.cabin) return false;
       if (dateFilter && row.date !== dateFilter) return false;
+      // 미조회(unknown)는 기본 목록에서 숨긴다. 사용자가 좌석 상태에서 '미조회'를
+      // 직접 고른 경우에만 예외로 보여 준다.
+      if (row.status === "unknown" && state.status !== "unknown") return false;
       return matchesStatus(row);
     });
 
@@ -416,7 +419,7 @@
       Air.el("span", null, [Air.el("b", { text: String(sorted.length) }), "건"]),
       Air.el("span", { text: `좌석 있음 ${counts.available}` }),
       Air.el("span", { text: `좌석 없음 ${counts.unavailable}` }),
-      Air.el("span", { text: `미조회 ${counts.unknown}` }),
+      counts.unknown ? Air.el("span", { text: `미조회 ${counts.unknown}` }) : null,
       counts.new ? Air.el("span", { text: `NEW ${counts.new}` }) : null
     ].filter(Boolean));
 
@@ -425,6 +428,13 @@
         !payload.rows.some(row => row.origin === state.origin && row.destination === state.destination);
 
       const dateMissing = !pairMissing && dateFilter;
+      const unknownOnly = !pairMissing && !dateFilter && state.status !== "unknown" &&
+        payload.rows.some(row =>
+          (!state.origin || row.origin === state.origin) &&
+          (!state.destination || row.destination === state.destination) &&
+          (!state.cabin || row.cabinKey === state.cabin) &&
+          row.status === "unknown"
+        );
 
       const box = Air.el("div", { class: "air-stack" });
 
@@ -434,6 +444,7 @@
           state.status === "new" ? "확인된 신규 좌석이 없습니다" :
           state.status === "unknown" ? "미조회 기록이 없습니다" :
           state.status === "stale" ? "오래된 데이터가 없습니다" :
+          unknownOnly ? "확인된 좌석 기록이 없습니다" :
           "조건에 맞는 기록이 없습니다",
         pairMissing
           ? "좌석 유무는 데이터가 수집된 뒤 표시됩니다. 좌석이 없다는 뜻이 아니며, 공제 마일은 아래 공식 공제표로 확인할 수 있습니다."
@@ -441,7 +452,9 @@
             ? "선택한 날짜는 미조회 상태이며 좌석이 없다는 뜻이 아닙니다. 가는 날을 비우면 탑승월 전체 기록을 볼 수 있습니다."
           : state.status === "unknown"
             ? "선택한 조건의 모든 날짜에 조회 기록이 있습니다. 미조회는 데이터가 없는 상태로, 좌석 없음과 다릅니다."
-            : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요. 미조회 날짜는 좌석 없음과 다릅니다."
+            : unknownOnly
+              ? "이 조건의 날짜는 모두 미조회 상태입니다. 미조회는 기본 목록에서 숨기며, 좌석 상태에서 '미조회'를 직접 선택하면 확인할 수 있습니다. 미조회는 좌석 없음과 다릅니다."
+              : "필터를 바꾸거나 조건 초기화를 눌러 다시 검색해 주세요."
       ));
 
       if (pairMissing || dateMissing) box.append(chartPanel(state.origin, state.destination, dateFilter));
@@ -513,7 +526,7 @@
       row.date === date && row.cabinKey === cabinKey
     );
 
-    const statusRow = rowsForLeg[0];
+    const statusRow = rowsForLeg.find(row => row.status !== "unknown");
 
     wrapper.append(Air.el("div", { class: "round-leg__price" }, [
       Air.el("strong", { text: Air.milesText(price.miles) }),
@@ -687,7 +700,8 @@
 
     const list = rows.filter(row =>
       row.origin === origin && row.destination === destination &&
-      row.cabinKey === cabinKey && (!state.month || row.month === state.month)
+      row.cabinKey === cabinKey && (!state.month || row.month === state.month) &&
+      row.status !== "unknown"
     ).sort((a, b) => a.date.localeCompare(b.date));
 
     const box = Air.el("div", { class: "round-leg" }, [
