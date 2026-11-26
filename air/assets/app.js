@@ -1006,7 +1006,7 @@
       if (!award) return [];
 
       const live = award.airports().filter(entry => award.hasLive(entry.code));
-      const korea = award.airports().filter(entry => ["ICN", "GMP", "PUS", "CJU"].includes(entry.code));
+      const korea = award.airports().filter(entry => ["ICN", "GMP"].includes(entry.code));
       const charted = award.airports().filter(entry => entry.chart);
 
       const seen = new Set();

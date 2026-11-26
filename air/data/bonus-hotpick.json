@@ -6,7 +6,7 @@
     "url": "https://www.koreanair.com/contents/skypass/use-miles/award-ticket/hotpick",
     "label": "대한항공 보너스 항공권 > 보너스 핫픽",
     "verified_at": "2026-11-26T17:50:00+09:00",
-    "method": "공식 페이지 7개 지역 탭(일본·중국/동북아·동/서남아·북미·유럽/중동·대양주·국내선) 전수 확인"
+    "method": "공식 페이지 지역 탭(일본·중국/동북아·동/서남아·북미·유럽/중동·대양주·국내선) 전수 확인 후, 마일지도 범위(ICN·GMP 출발, 프레스티지)만 반영"
   },
   "purchase_period": {
     "start": "2026-10-25",
@@ -602,26 +602,6 @@
                 "offpeak": 20000,
                 "peak": 30000
               }
-            },
-            {
-              "label": "제주 ↔ 베이징/서우두",
-              "origin": "CJU",
-              "destination": "PEK",
-              "flights": [],
-              "all_flights": true,
-              "period": {
-                "start": "2026-10-25",
-                "end": "2027-03-27",
-                "label": "10/25~3/27"
-              },
-              "base_miles": {
-                "offpeak": 22500,
-                "peak": 32500
-              },
-              "discounted_miles": {
-                "offpeak": 20000,
-                "peak": 30000
-              }
             }
           ]
         }
@@ -837,97 +817,6 @@
       "note": "이 지역은 프레스티지 핫픽 대상 노선이 없습니다(대한항공 공식 표 기준)."
     }
   ],
-  "domestic": {
-    "key": "domestic",
-    "label": "한국 국내선",
-    "discount": {
-      "oneway": 1000,
-      "round": 2000
-    },
-    "booking_class": "X",
-    "conditions": [
-      {
-        "route": "김포/청주-제주",
-        "weekdays": "월/화/수/일",
-        "time": "15:00 이후"
-      },
-      {
-        "route": "제주-김포/청주",
-        "weekdays": "화/수/목/금",
-        "time": "11:59 이전, 20:00 이후"
-      },
-      {
-        "route": "부산-제주",
-        "weekdays": "월/화/수",
-        "time": "07:59 이전, 15:00 이후"
-      },
-      {
-        "route": "제주-부산",
-        "weekdays": "화/수/목",
-        "time": "11:59 이전, 20:00 이후"
-      },
-      {
-        "route": "광주/대구-제주",
-        "weekdays": "월/화/수/토/일",
-        "time": "13:00 이후"
-      },
-      {
-        "route": "제주-광주/대구",
-        "weekdays": "화/수/목/금/토",
-        "time": "11:59 이전"
-      },
-      {
-        "route": "여수/진주/울산-제주",
-        "weekdays": "월/화/수/목/토/일",
-        "time": "13:00 이후"
-      },
-      {
-        "route": "제주-여수/진주/울산",
-        "weekdays": "월/화/수/목/금/토",
-        "time": "14:59 이전"
-      },
-      {
-        "route": "김포-부산",
-        "weekdays": "월/화/수/토",
-        "time": "18:00 이후"
-      },
-      {
-        "route": "김포-부산",
-        "weekdays": "일",
-        "time": "07:59 이전"
-      },
-      {
-        "route": "부산-김포",
-        "weekdays": "화/수/목/일",
-        "time": "08:59 이전"
-      },
-      {
-        "route": "부산-김포",
-        "weekdays": "월/화/수/목",
-        "time": "20:00 이후"
-      },
-      {
-        "route": "김포-울산",
-        "weekdays": "화/수/목/금/토/일",
-        "time": "13시 이전"
-      },
-      {
-        "route": "김포-울산",
-        "weekdays": "월/화/수/목/토",
-        "time": "13시 이후"
-      },
-      {
-        "route": "울산-김포",
-        "weekdays": "월/화/수/목/금/일",
-        "time": "13시 이전"
-      },
-      {
-        "route": "울산-김포",
-        "weekdays": "월/화/수",
-        "time": "13시 이후"
-      }
-    ]
-  },
   "index": [
     {
       "o": "ICN",
@@ -1536,28 +1425,6 @@
       "period_end": "2027-03-27"
     },
     {
-      "o": "CJU",
-      "d": "PEK",
-      "cabin": "business",
-      "region": "china",
-      "discount_oneway": 2500,
-      "discount_round": 5000,
-      "flights": [],
-      "period_start": "2026-10-25",
-      "period_end": "2027-03-27"
-    },
-    {
-      "o": "PEK",
-      "d": "CJU",
-      "cabin": "business",
-      "region": "china",
-      "discount_oneway": 2500,
-      "discount_round": 5000,
-      "flights": [],
-      "period_start": "2026-10-25",
-      "period_end": "2027-03-27"
-    },
-    {
       "o": "ICN",
       "d": "SGN",
       "cabin": "business",
@@ -1741,8 +1608,8 @@
     }
   ],
   "counts": {
-    "route_cabin_entries": 34,
-    "directions": 68,
+    "route_cabin_entries": 33,
+    "directions": 66,
     "region_total": 6
   },
   "excluded_pus": [
@@ -1759,7 +1626,7 @@
     "예약 변경으로 할인 조건을 충족하지 못하면 마일리지가 추가 공제되고 재발행 수수료가 부과됩니다.",
     "대한항공 공식 핫픽 표에 일등석 할인은 없습니다.",
     "북미·유럽/중동·대양주는 프레스티지 핫픽 대상 노선이 없습니다.",
-    "부산/김해(PUS) 출발·도착 노선은 마일지도 정책상 표시하지 않습니다(공식 표에는 부산↔칭다오·타이베이·다낭이 있음)."
+    "한국 출발·도착은 인천(ICN)·김포(GMP)만 다룹니다. 부산(PUS)·제주(CJU)를 포함한 다른 한국 공항과 국내선은 수집·표시하지 않습니다."
   ],
   "no_chart": [
     "부산 ↔ 칭다오 O",

@@ -29,11 +29,6 @@
       "region": "대양주/괌"
     },
     {
-      "code": "CJU",
-      "name": "제주",
-      "region": "대한민국"
-    },
-    {
       "code": "GMP",
       "name": "서울/김포",
       "region": "대한민국"
@@ -41,11 +36,6 @@
     {
       "code": "ICN",
       "name": "서울/인천",
-      "region": "대한민국"
-    },
-    {
-      "code": "PUS",
-      "name": "부산/김해",
       "region": "대한민국"
     },
     {
@@ -635,20 +625,6 @@
     },
     {
       "program": "KE_SKYPASS",
-      "origin": "CJU",
-      "destination": "NRT",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "CJU",
-      "destination": "PEK",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
       "origin": "CNX",
       "destination": "ICN",
       "verification": "master_schedule_observed",
@@ -687,13 +663,6 @@
       "origin": "DAD",
       "destination": "ICN",
       "verification": "master_schedule_observed",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "DAD",
-      "destination": "PUS",
-      "verification": "direction_provisional",
       "award_verified": false
     },
     {
@@ -1720,13 +1689,6 @@
     },
     {
       "program": "KE_SKYPASS",
-      "origin": "NGO",
-      "destination": "PUS",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
       "origin": "NGS",
       "destination": "ICN",
       "verification": "master_schedule_observed",
@@ -1742,22 +1704,8 @@
     {
       "program": "KE_SKYPASS",
       "origin": "NRT",
-      "destination": "CJU",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "NRT",
       "destination": "ICN",
       "verification": "master_schedule_observed",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "NRT",
-      "destination": "PUS",
-      "verification": "direction_provisional",
       "award_verified": false
     },
     {
@@ -1791,13 +1739,6 @@
     {
       "program": "KE_SKYPASS",
       "origin": "PEK",
-      "destination": "CJU",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PEK",
       "destination": "GMP",
       "verification": "direction_provisional",
       "award_verified": false
@@ -1807,13 +1748,6 @@
       "origin": "PEK",
       "destination": "ICN",
       "verification": "master_schedule_observed",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PEK",
-      "destination": "PUS",
-      "verification": "direction_provisional",
       "award_verified": false
     },
     {
@@ -1832,65 +1766,9 @@
     },
     {
       "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "DAD",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "NGO",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "NRT",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "PEK",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "PVG",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "TAO",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PUS",
-      "destination": "TPE",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
       "origin": "PVG",
       "destination": "ICN",
       "verification": "master_schedule_observed",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "PVG",
-      "destination": "PUS",
-      "verification": "direction_provisional",
       "award_verified": false
     },
     {
@@ -1979,13 +1857,6 @@
     },
     {
       "program": "KE_SKYPASS",
-      "origin": "TAO",
-      "destination": "PUS",
-      "verification": "direction_provisional",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
       "origin": "TFU",
       "destination": "ICN",
       "verification": "master_schedule_observed",
@@ -1996,13 +1867,6 @@
       "origin": "TPE",
       "destination": "ICN",
       "verification": "master_schedule_observed",
-      "award_verified": false
-    },
-    {
-      "program": "KE_SKYPASS",
-      "origin": "TPE",
-      "destination": "PUS",
-      "verification": "direction_provisional",
       "award_verified": false
     },
     {
@@ -2825,5 +2689,6 @@
       "award_verified": false
     }
   ],
-  "international_only": true
+  "international_only": true,
+  "korea_policy": "ICN·GMP 전용 — 부산(PUS)·제주(CJU) 포함 그 외 한국 공항 제외"
 }
