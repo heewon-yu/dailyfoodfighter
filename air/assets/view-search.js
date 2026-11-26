@@ -56,7 +56,7 @@
         state.cabin = option.key;
         state.page = 1;
         cabinSegment();
-        commit();
+        markDirty();
       });
 
       root.append(button);
@@ -99,7 +99,7 @@
       onSelect: value => {
         state.origin = value;
         state.page = 1;
-        commit();
+        markDirty();
       }
     });
 
@@ -109,7 +109,7 @@
       onSelect: value => {
         state.destination = value;
         state.page = 1;
-        commit();
+        markDirty();
       }
     });
   }
@@ -139,7 +139,18 @@
     }, push);
   }
 
+  function markDirty() {
+    const btn = $("air-submit");
+    if (btn) btn.textContent = "좌석 검색 (변경 적용)";
+  }
+
+  function clearDirty() {
+    const btn = $("air-submit");
+    if (btn) btn.textContent = "좌석 검색";
+  }
+
   function commit() {
+    clearDirty();
     apply(true);
     renderRoundTrip();
     renderResults();
@@ -850,30 +861,25 @@
     $("air-month").addEventListener("change", event => {
       state.month = event.target.value;
       state.page = 1;
-      apply(true);
-      renderResults();
+      markDirty();
     });
 
     $("air-status").addEventListener("change", event => {
       state.status = event.target.value;
       state.page = 1;
-      apply(true);
-      renderResults();
+      markDirty();
     });
 
     $("air-sort").addEventListener("change", event => {
       state.sort = event.target.value;
       state.page = 1;
-      apply(true);
-      renderResults();
+      markDirty();
     });
 
     $("air-search-form").addEventListener("submit", event => {
       event.preventDefault();
       state.page = 1;
-      apply(true);
-      renderResults();
-      renderRoundTrip();
+      commit();
     });
 
     /* 출발·도착 공항 바꾸기: 편도·왕복 모두에서 입력값과 선택 코드를 즉시 교환한다. */
@@ -927,9 +933,7 @@
       $("air-in-date").value = "";
 
       cabinSegment();
-      apply(true);
-      renderResults();
-      renderRoundTrip();
+      commit();
       $("air-share").textContent = "링크 복사";
     });
 
@@ -947,30 +951,35 @@
     $("air-trip-one").addEventListener("click", () => {
       state.trip = "one";
       state.page = 1;
-      apply(true);
-      renderRoundTrip();
-      renderResults();
+      const inField = $("air-in-date-field");
+      if (inField) inField.hidden = true;
+      $("air-trip-one").setAttribute("aria-pressed", "true");
+      $("air-trip-round").setAttribute("aria-pressed", "false");
+      markDirty();
     });
 
     $("air-trip-round").addEventListener("click", () => {
       state.trip = "round";
-      apply(true);
-      renderRoundTrip();
+      const inField = $("air-in-date-field");
+      if (inField) inField.hidden = false;
+      $("air-trip-one").setAttribute("aria-pressed", "false");
+      $("air-trip-round").setAttribute("aria-pressed", "true");
+      markDirty();
     });
 
     $("air-out-date").addEventListener("change", event => {
       state.outDate = event.target.value;
-      if (state.inDate && state.inDate < state.outDate) state.inDate = state.outDate;
+      if (state.inDate && state.inDate < state.outDate) {
+        state.inDate = state.outDate;
+        $("air-in-date").value = state.inDate;
+      }
       state.page = 1;
-      apply(true);
-      renderResults();
-      renderRoundTrip();
+      markDirty();
     });
 
     $("air-in-date").addEventListener("change", event => {
       state.inDate = event.target.value;
-      apply(true);
-      renderRoundTrip();
+      markDirty();
     });
 
     Air.onPopState(() => {
