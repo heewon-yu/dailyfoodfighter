@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "무즙 기침 효과"
+title: "무즙 기침에 좋나"
 date: 2026-11-19 07:45:00 +0900
 lang: ko
 category: "채소"

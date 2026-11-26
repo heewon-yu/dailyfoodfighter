@@ -50,7 +50,7 @@ TITLES = {
     "beetroot-nutrition-benefits": ("비트 혈압 효과", "Beetroot for Blood Pressure"),
     "chickpea-nutrition-benefits": ("병아리콩 불리는 법", "Chickpea Soaking Tips"),
     "lentil-nutrition-benefits": ("렌틸콩 삶는 시간", "How Long to Cook Lentils"),
-    "pomegranate-nutrition-benefits": ("석류즙 생과 차이", "Pomegranate: Juice or Fruit?"),
+    "pomegranate-nutrition-benefits": ("석류즙과 생과 차이", "Pomegranate: Juice or Fruit?"),
     "antioxidant-anti-aging-foods-guide": ("노화 막는 음식 팁", "Top 10 Antioxidant Foods"),
     "asparagus-nutrition-benefits": ("아스파라거스 효능", "Asparagus Nutrition Tips"),
     "cherry-nutrition-benefits": ("체리 수면 효과", "Cherry for Better Sleep"),
@@ -69,8 +69,8 @@ TITLES = {
     "napa-cabbage-nutrition-benefits": ("배추 하루 몇 장", "How Many Napa Leaves?"),
     "asian-pear-nutrition-benefits": ("배즙 하루 얼마", "How Much Pear Juice?"),
     "chicken-thigh-nutrition-benefits": ("닭다리 껍질 팁", "Why Remove Thigh Skin"),
-    "anchovy-nutrition-benefits": ("멸치 육수 내기", "Boil Anchovies for Calcium"),
-    "radish-nutrition-benefits": ("무즙 기침 효과", "Can You Drink Radish Juice?"),
+    "anchovy-nutrition-benefits": ("멸치 육수 내기", "Anchovy Broth: Any Calcium?"),
+    "radish-nutrition-benefits": ("무즙 기침에 좋나", "Can You Drink Radish Juice?"),
     "grape-nutrition-benefits": ("포도 적당량 팁", "Grapes: Blood Sugar Guide"),
     "pork-belly-nutrition-benefits": ("삼겹살 굽는 법", "Pork Belly Grilling Tips"),
     "lotus-root-nutrition-benefits": ("연근 데치는 팁", "Lotus Root Boiling Loss"),
@@ -83,8 +83,8 @@ TITLES = {
     "fig-nutrition-benefits": ("무화과 변비 효과", "Fig for Constipation"),
     "cauliflower-nutrition-benefits": ("콜리플라워 삶는 팁", "Cauliflower Boiling Tips"),
     "kelp-nutrition-benefits": ("다시마 육수 팁", "Kelp Broth Iodine Tips"),
-    "beef-liver-nutrition-benefits": ("쇠간 과다 주의", "Beef Liver: Too Much A?"),
-    "quince-nutrition-benefits": ("모과 못 먹는 이유", "Never Eat Quince Raw"),
+    "beef-liver-nutrition-benefits": ("쇠간 과다 주의", "Beef Liver: Vitamin A Risk"),
+    "quince-nutrition-benefits": ("모과 못 먹는 이유", "Why Quince Is Cooked"),
     "octopus-nutrition-benefits": ("문어 삶는 법", "Octopus Boiling Tips"),
     "potato-nutrition-benefits": ("감자 식히는 팁", "Chilling Potato Lowers GI"),
 }
@@ -95,7 +95,7 @@ KO_MAX, EN_MAX = 10, 28
 KO_ENDINGS = (
     "팁", "법", "효과", "효능", "이유", "주의", "차이", "비교", "시간", "정리",
     "우리기", "내기", "먹기", "삶기", "굽기", "데치기", "씻기", "벗기기", "고르기",
-    "불리기", "줄이기", "두기", "얼마", "개", "장", "되나",
+    "불리기", "줄이기", "두기", "얼마", "개", "장", "되나", "좋나", "있나", "맞나",
 )
 # `~는/은/ㄴ 음식`처럼 관형형 수식을 받은 '음식'은 허용 (예: 혈당 낮추는 음식)
 KO_FOOD_QUALIFIERS = ("낮추는 음식", "내리는 음식", "풀리는 음식", "높은 음식",
@@ -103,7 +103,7 @@ KO_FOOD_QUALIFIERS = ("낮추는 음식", "내리는 음식", "풀리는 음식"
 # 영문 제목에 반드시 하나 들어가야 하는 서술 신호
 EN_MARKERS = ("Tips", "How", "Guide", "Why", "Benefits", "Warning", "Best", "Top",
               "vs", "or", "?", "Can", "Never", "Myth", "Loss", "Gap",
-              "Grilling", "Chilling", "Lowers", "That", "Filling", "Beat")
+              "Grilling", "Chilling", "Lowers", "That", "Filling", "Beat", "Risk")
 
 
 def is_noun_dump_ko(title: str) -> bool:
