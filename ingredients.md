@@ -44,7 +44,7 @@
 - [ ] 오이 (Cucumber)
 - [ ] 가지 (Eggplant)
 - [ ] 호박 (Pumpkin / Zucchini)
-- [ ] 감자 (Potato)
+- [x] 감자 (Potato) - 2026-11-27 한/영 발행완료
 - [x] 고구마 (Sweet Potato) - 2026-11-14 한/영 발행완료
 - [ ] 아스파라거스 (Asparagus)
 - [ ] 샐러리 (Celery)
@@ -96,7 +96,7 @@
 - [ ] 갈치 (Hairtail)
 - [ ] 명태/북어/황태 (Pollock)
 - [x] 오징어 (Squid) - 2026-11-13 한/영 발행완료
-- [ ] 문어 (Octopus)
+- [x] 문어 (Octopus) - 2026-11-27 한/영 발행완료
 - [ ] 낙지 (Small Octopus)
 - [x] 새우 (Shrimp) - 2026-11-09 한/영 발행완료
 - [x] 꽃게 (Blue Crab) - 2026-11-23 한/영 발행완료
