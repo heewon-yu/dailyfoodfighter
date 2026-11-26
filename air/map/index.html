@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>세계지도 | 마일지도 대한항공 보너스 좌석</title>
+<meta name="description" content="대한항공 SKYPASS 국제선 보너스 좌석이 표시된 노선을 세계지도에서 확인합니다.">
+<meta name="theme-color" content="#0f2340">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=1">
+<script src="/air/assets/app.js" defer></script>
+<script src="/air/assets/view-map.js" defer></script>
+</head>
+<body data-air-page="map">
+<main id="air-main" class="air-main">
+
+  <div class="air-page-head">
+    <p class="air-hero__eyebrow" style="color:#2563eb">Route map</p>
+    <h1>세계지도</h1>
+    <p>
+      출발 공항에서 이어지는 노선 중 <strong>좌석 표시가 확인된 노선</strong>만 지도에 그립니다.
+      노선 후보에 있다는 사실은 보너스 좌석이 있다는 뜻이 아닙니다.
+    </p>
+  </div>
+
+  <div class="air-notice air-notice--info" role="note">
+    <span class="air-notice__icon" aria-hidden="true">ℹ</span>
+    <div>
+      지도 선과 점은 저장된 조회 기록 기준입니다. 좌석 없음·미조회 노선은 지도에 표시하지 않으며,
+      실제 예약 가능 여부는 대한항공 공식 조회에서 확인해야 합니다.
+    </div>
+  </div>
+
+  <div id="air-map-view">
+    <div class="air-map-shell" id="air-map-shell">
+      <div id="air-map" role="application" aria-label="보너스 좌석 노선 지도"></div>
+    </div>
+    <p class="air-map-note" id="air-map-status">지도를 준비하는 중입니다.</p>
+    <div class="air-legend">
+      <span><i style="background:#3478bc"></i>좌석 표시 노선</span>
+      <span><i style="background:#e88b25"></i>할인 공제 적용</span>
+      <span><i style="background:#16965d"></i>신규 좌석 포함</span>
+      <span><i style="background:#183951"></i>출발 공항</span>
+    </div>
+  </div>
+
+</main>
+</body>
+</html>

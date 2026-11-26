@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>신규 좌석 | 마일지도 대한항공 보너스 좌석</title>
+<meta name="description" content="좌석 없음에서 좌석 있음으로 확인된 전환만 모아 보여주는 신규 좌석 화면입니다.">
+<meta name="theme-color" content="#0f2340">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=1">
+<script src="/air/assets/app.js" defer></script>
+<script src="/air/assets/view-new.js" defer></script>
+</head>
+<body data-air-page="new">
+<main id="air-main" class="air-main">
+
+  <div class="air-page-head">
+    <p class="air-hero__eyebrow" style="color:#2563eb">Newly available</p>
+    <h1>신규 좌석</h1>
+    <p>
+      이전 조회에서 <strong>좌석 없음</strong>이 확인된 뒤 <strong>좌석 있음</strong>으로 바뀐 기록만 모읍니다.
+      최초 수집된 날짜, 미조회 상태에서 바뀐 기록은 신규 좌석으로 보지 않습니다.
+    </p>
+  </div>
+
+  <div class="air-notice air-notice--info" role="note">
+    <span class="air-notice__icon" aria-hidden="true">ℹ</span>
+    <div>
+      NEW 판정에는 이전 상태 기록이 필요합니다. 데이터에 이전 상태(unavailable)나 확인된 전환 근거가 없으면
+      신규로 표시하지 않고 <a href="/air/status/">갱신현황</a>의 '전환 근거 없음' 항목에 집계합니다.
+    </div>
+  </div>
+
+  <div id="air-new-view"></div>
+
+</main>
+</body>
+</html>

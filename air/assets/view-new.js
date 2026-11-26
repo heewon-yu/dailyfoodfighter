@@ -1,0 +1,170 @@
+/* 마일지도 AIR — 신규 좌석 뷰 (/air/new/)
+   이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 기록만 표시한다.
+   최초 수집, 미조회(unknown) 전환은 NEW 가 아니다. */
+(() => {
+  "use strict";
+
+  const $ = id => document.getElementById(id);
+
+  const state = {
+    region: "",
+    month: "",
+    cabin: "",
+    rows: [],
+    stats: null,
+    meta: null
+  };
+
+  function readUrl() {
+    const params = Air.params();
+    state.region = params.get("region") || "";
+    state.month = params.get("month") || "";
+    state.cabin = params.get("cabin") || "";
+  }
+
+  function syncUrl() {
+    Air.setParams({ region: state.region, month: state.month, cabin: state.cabin });
+  }
+
+  function selectField(id, label, value, entries, onChange) {
+    const select = Air.el("select", { class: "air-select", id });
+    select.append(new Option("전체", ""));
+
+    for (const entry of entries) {
+      select.append(new Option(entry.label, entry.value));
+    }
+
+    select.value = value;
+    select.addEventListener("change", () => {
+      onChange(select.value);
+      render();
+    });
+
+    return Air.el("div", { class: "air-field" }, [
+      Air.el("label", { for: id, text: label }),
+      select
+    ]);
+  }
+
+  function card(row) {
+    return Air.el("article", { class: "flight-card" }, [
+      Air.el("div", { class: "flight-card__top" }, [
+        Air.el("div", null, [
+          Air.el("a", {
+            class: "flight-card__route",
+            href: Air.ROOT + "route/?" + new URLSearchParams({
+              origin: row.origin, destination: row.destination, month: row.month
+            }).toString(),
+            text: `${Air.airportShort(row.origin)} → ${Air.airportShort(row.destination)}`
+          }),
+          Air.el("span", { class: "flight-card__code", text: `${row.origin} → ${row.destination}` })
+        ]),
+        Air.el("span", { class: "badge badge--new", text: "NEW" })
+      ]),
+      Air.el("div", { class: "flight-card__meta" }, [
+        Air.el("span", { class: "flight-card__date", text: Air.fmtDate(row.date) }),
+        Air.el("span", { text: "·" }),
+        Air.cabinChip(row.cabinKey),
+        row.cabin.combined ? Air.el("span", { class: "badge badge--combined", text: "F 통합" }) : null
+      ]),
+      Air.el("div", { class: "flight-card__bottom" }, [
+        Air.priceNode(row),
+        Air.el("div", { class: "flight-card__side" }, [
+          Air.el("span", { class: "flight-card__observed", text:
+            row.collectedAt ? `관측 ${Air.fmtDateTime(row.collectedAt)}` : "관측 시각 없음" }),
+          Air.el("span", { class: "flight-card__observed", text:
+            row.previousStatus === "unavailable" ? "이전 조회: 좌석 없음" : "전환 근거: 확인됨" })
+        ])
+      ])
+    ]);
+  }
+
+  function render() {
+    const root = $("air-new-view");
+    root.replaceChildren();
+
+    syncUrl();
+
+    const months = [...new Set(state.rows.map(row => row.month))].sort();
+
+    const regionEntries = [...new Set(state.rows.map(row => row.region || "").filter(Boolean))]
+      .sort()
+      .map(region => ({ value: region, label: Air.regionLabel(region) }));
+
+    root.append(Air.el("div", { class: "air-panel", style: "margin-bottom:16px" }, [
+      Air.el("div", { class: "air-filters", style: "grid-template-columns:repeat(auto-fit,minmax(190px,1fr))" }, [
+        selectField("air-new-region", "지역", state.region, regionEntries, value => { state.region = value; }),
+        selectField("air-new-month", "탑승월", state.month,
+          months.map(month => ({ value: month, label: Air.fmtMonth(month) })),
+          value => { state.month = value; }),
+        selectField("air-new-cabin", "좌석 등급", state.cabin,
+          Air.CABINS.map(cabin => ({ value: cabin.key, label: `${cabin.letter} · ${cabin.name}` })),
+          value => { state.cabin = value; })
+      ])
+    ]));
+
+    const rows = state.rows.filter(row => {
+      if (!row.isNew) return false;
+      if (state.region && (row.region || "") !== state.region) return false;
+      if (state.month && row.month !== state.month) return false;
+      if (state.cabin && row.cabinKey !== state.cabin) return false;
+      return true;
+    }).sort((a, b) => a.date.localeCompare(b.date));
+
+    const head = Air.el("div", { class: "air-results-head" }, [
+      Air.el("h2", { text: "신규 좌석" }),
+      Air.el("p", { class: "air-results-summary" }, [
+        Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"])
+      ])
+    ]);
+
+    root.append(head);
+
+    if (!rows.length) {
+      root.append(Air.emptyState(
+        "확인된 신규 좌석이 없습니다",
+        "NEW는 이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다. " +
+        "최초 수집된 날짜와 미조회 상태에서 바뀐 기록은 NEW로 표시하지 않습니다."
+      ));
+    } else {
+      root.append(Air.el("div", { class: "air-result-grid" }, rows.map(card)));
+    }
+
+    if (state.stats && state.stats.newUnproven) {
+      root.append(Air.el("div", { class: "air-notice air-notice--info", style: "margin-top:16px" }, [
+        Air.el("span", { class: "air-notice__icon", text: "ℹ" }),
+        Air.el("div", null, [
+          Air.el("strong", { text: "전환 근거가 확인되지 않은 기록 " }),
+          ` ${state.stats.newUnproven}건은 NEW로 표시하지 않았습니다. `,
+          "이전 상태(previous_status)가 'unavailable'이거나 확인된 전환 근거가 있어야 신규 좌석으로 인정합니다."
+        ])
+      ]));
+    }
+  }
+
+  async function init() {
+    Air.mountChrome();
+    readUrl();
+
+    try {
+      const payload = await Air.data({});
+      state.rows = payload.rows;
+      state.stats = payload.stats;
+      state.meta = await Air.manifestMeta();
+    } catch (error) {
+      $("air-new-view").replaceChildren(Air.emptyState(
+        "좌석 데이터를 불러오지 못했습니다",
+        "갱신현황 화면에서 데이터 상태를 확인해 주세요."
+      ));
+      return;
+    }
+
+    render();
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init, { once: true });
+  } else {
+    init();
+  }
+})();

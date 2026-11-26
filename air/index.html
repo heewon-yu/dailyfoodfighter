@@ -4,295 +4,183 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>마일지도 | 마일리지 항공권 검색</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;background:#f5f7fb;color:#17233a;
-font-family:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo",sans-serif}
-header{background:#fff;border-bottom:1px solid #e2e8f0;padding:20px}
-nav,main{max-width:1100px;margin:auto}
-.logo{font-weight:800;font-size:22px;letter-spacing:-1px}
-.logo span{color:#2563eb}
-main{padding:24px 18px 60px}
-.hero{background:#142b50;color:white;padding:36px;
-border-radius:20px;margin-bottom:20px}
-.hero h1{font-size:clamp(26px,5vw,38px);margin:0 0 12px}
-.hero p{color:#d3e1f6;margin:0;line-height:1.7}
-.panel{background:white;padding:24px;border:1px solid #e2e8f0;
-border-radius:16px;margin-bottom:20px}
-.filters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-label{display:block;font-size:13px;color:#64748b;font-weight:600}
-select,button{width:100%;border:1px solid #dbe2ec;
-border-radius:10px;padding:13px;font-size:15px;margin-top:7px;
-background:white;color:#17233a}
-button{background:#2563eb;color:white;border:0;cursor:pointer;font-weight:700}
-.notice{background:#fff5df;color:#835b13;padding:14px;
-border-radius:10px;font-size:13px;line-height:1.7;margin-bottom:20px}
-.results{display:grid;gap:10px}
-.flight{background:white;border:1px solid #e2e8f0;
-padding:20px;border-radius:14px;display:flex;
-align-items:center;justify-content:space-between;gap:15px}
-.airline{font-size:13px;color:#64748b}
-.route{font-size:21px;font-weight:800;margin:8px 0}
-.date{font-size:14px;color:#64748b}
-.cabin{background:#e8efff;color:#234fa3;
-padding:6px 10px;border-radius:7px;font-size:12px}
-.booking{display:inline-block;color:#2563eb;
-font-size:14px;text-decoration:none;font-weight:700;margin-top:12px}
-.summary{display:flex;justify-content:space-between;align-items:center}
-.empty{background:white;padding:35px;text-align:center;border-radius:14px}
-@media(max-width:640px){
-.filters{grid-template-columns:repeat(2,1fr)}
-.hero{padding:24px}.panel{padding:16px}
-.flight{padding:16px}.route{font-size:18px}
-}
-</style>
-<link rel="stylesheet" href="./assets/design.css?v=3">
-<link rel="stylesheet" href="./assets/calendar.css?v=1">
-<link rel="stylesheet" href="./assets/journey.css?v=4">
-<link rel="stylesheet" href="./assets/footer.css?v=1">
-<script src="./assets/data-loader.js?v=1"></script>
-<link rel="stylesheet" href="assets/milemap.css?v=1">
-<link rel="stylesheet" href="assets/airport-autocomplete.css?v=2">
-<link rel="stylesheet" href="assets/award-display.css?v=1">
-<link rel="stylesheet" href="assets/official-sources.css?v=1">
-<link rel="stylesheet" href="assets/mileage-integration.css?v=1">
-<script src="assets/award-filter-sync.js?v=1"></script>
-<link rel="stylesheet" href="assets/award-filter-final.css?v=1">
-<link rel="stylesheet" href="assets/simple-discount.css?v=1">
+<title>마일지도 | 대한항공 SKYPASS 보너스 좌석 검색</title>
+<meta name="description" content="대한항공 SKYPASS 국제선 보너스 좌석(E·R·P·F)을 노선·날짜별로 확인하는 마일지도 테스트 화면입니다.">
+<meta name="theme-color" content="#0f2340">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=1">
+<script src="/air/assets/app.js" defer></script>
+<script src="/air/assets/air-journey.js" defer></script>
+<script src="/air/assets/view-search.js" defer></script>
 </head>
-<body>
-<header><nav class="logo">DailyFoodFighter <span>AIR</span></nav></header>
-<main>
-<section class="hero">
-<h1>마일지도</h1>
-<p>대한항공과 아시아나의 보너스 좌석 정보를 한곳에서 검색하세요.</p>
-</section>
+<body data-air-page="search">
+<main id="air-main" class="air-main">
 
-<div class="notice">
-개발용 테스트 화면입니다. 과거 검증 자료와
-인위적인 테스트 데이터가 포함되어 있으며,
-실제 예약 가능 여부를 나타내지 않습니다.
-</div>
+  <section class="air-hero">
+    <p class="air-hero__eyebrow">대한항공 SKYPASS · 국제선 보너스 좌석</p>
+    <h1>마일지도</h1>
+    <p>
+      대한항공 SKYPASS 국제선 보너스 좌석을 노선과 날짜별로 모아 보여줍니다.
+      좌석 등급은 일반석(E), 프리미엄석(R), 프레스티지석(P), 일등석(F)이며
+      일등석은 보너스와 좌석승급이 통합되어 구분할 수 없습니다.
+    </p>
+    <p class="air-hero__meta">
+      <span>대한항공 국제선 전용</span>
+      <span>타 항공사·제휴사 미지원</span>
+      <span>예약 보장 서비스 아님</span>
+    </p>
+  </section>
 
-<section class="panel">
-<div class="filters">
+  <div class="air-notice" role="note">
+    <span class="air-notice__icon" aria-hidden="true">⚠</span>
+    <div>
+      <strong>테스트·개발 화면입니다.</strong>
+      현재 표시되는 자료는 인위적인 검증용 데이터이며 실제 예약 가능 여부나 잔여 좌석을 나타내지 않습니다.
+      실제 발권 전에는 반드시 대한항공 공식 채널에서 확인하세요.
+    </div>
+  </div>
 
-<label>항공사
-<select id="program">
-<option value="">전체 항공사</option>
-<option value="KE_SKYPASS">대한항공</option>
-<option value="OZ_ASIANA_CLUB">아시아나</option>
-</select>
-</label>
+  <form class="air-panel" id="air-search-form" role="search" aria-label="보너스 좌석 검색">
+    <div class="air-filters air-filters--search">
 
-<label>출발 공항
-<select id="origin">
-<option value="">전체 출발지</option>
-</select>
-</label>
+      <div class="air-field">
+        <label for="air-origin-input">출발 공항</label>
+        <div class="air-combo" id="air-origin-combo">
+          <input class="air-input air-combo__input" id="air-origin-input" type="search"
+                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
 
-<label>목적지
-<select id="destination">
-<option value="">전체 목적지</option>
-</select>
-</label>
+      <div class="air-field">
+        <label for="air-destination-input">도착 공항</label>
+        <div class="air-combo" id="air-destination-combo">
+          <input class="air-input air-combo__input" id="air-destination-input" type="search"
+                 placeholder="도시·공항 코드·영문 검색" autocomplete="off" spellcheck="false">
+        </div>
+      </div>
 
-<label>출발 월
-<select id="month">
-<option value="">전체 기간</option>
-</select>
-</label>
+      <div class="air-field">
+        <label for="air-region">지역</label>
+        <select class="air-select" id="air-region">
+          <option value="">전체 지역</option>
+        </select>
+      </div>
 
-<label>좌석 등급
-<select id="cabin">
-<option value="">전체 등급</option>
-<option value="economy">일반석</option>
-<option value="premium">프리미엄석</option>
-<option value="business">비즈니스석</option>
-</select>
-</label>
+      <div class="air-field">
+        <label for="air-month">탑승월</label>
+        <select class="air-select" id="air-month">
+          <option value="">전체 기간</option>
+        </select>
+      </div>
 
-<label>정렬
-<select id="sort">
-<option value="asc">출발일 빠른 순</option>
-<option value="desc">출발일 늦은 순</option>
-</select>
-</label>
+      <div class="air-field air-field--wide">
+        <span class="air-field__label" id="air-cabin-label">좌석 등급</span>
+        <div class="air-seg air-seg--cabin" role="group" aria-labelledby="air-cabin-label" id="air-cabin"></div>
+      </div>
 
-</div>
-<button id="search">마일리지 좌석 검색</button>
-</section>
+      <div class="air-field">
+        <label for="air-status">좌석 상태</label>
+        <select class="air-select" id="air-status">
+          <option value="">전체 상태</option>
+          <option value="available">좌석 있음</option>
+          <option value="unavailable">좌석 없음</option>
+          <option value="unknown">미조회</option>
+          <option value="new">NEW(확인된 신규)</option>
+          <option value="stale">오래된 데이터</option>
+        </select>
+      </div>
 
-<div class="summary">
-<h2 id="count">데이터 불러오는 중</h2>
-</div>
-<div class="results" id="results"></div>
+      <div class="air-field">
+        <label for="air-sort">정렬</label>
+        <select class="air-select" id="air-sort">
+          <option value="date-asc">출발일 빠른 순</option>
+          <option value="date-desc">출발일 늦은 순</option>
+          <option value="miles-asc">공제량 적은 순</option>
+          <option value="miles-desc">공제량 많은 순</option>
+        </select>
+      </div>
+
+    </div>
+
+    <div class="air-actions">
+      <div class="air-seg" role="group" aria-label="여정 유형">
+        <button type="button" id="air-trip-one" aria-pressed="true">편도 검색</button>
+        <button type="button" id="air-trip-round" aria-pressed="false">왕복 조합</button>
+      </div>
+      <span class="air-actions__spacer"></span>
+      <button class="air-btn" type="submit">좌석 검색</button>
+      <button class="air-btn air-btn--ghost" type="button" id="air-reset">조건 초기화</button>
+      <button class="air-btn air-btn--ghost" type="button" id="air-share">링크 복사</button>
+    </div>
+  </form>
+
+  <section id="air-search-results" aria-labelledby="air-results-title" class="air-section">
+    <div class="air-results-head">
+      <h2 id="air-results-title">검색 결과</h2>
+      <p class="air-results-summary" id="air-result-summary" aria-live="polite">데이터 불러오는 중</p>
+    </div>
+
+    <div id="air-results"></div>
+    <nav class="air-pagination" id="air-pagination" aria-label="검색 결과 페이지"></nav>
+  </section>
+
+  <section id="air-journey-panel" class="air-section" aria-label="왕복 조합" hidden></section>
+
+  <section class="air-section" aria-labelledby="air-marks">
+    <h2 id="air-marks">표식 읽는 법</h2>
+    <div class="air-grid-3">
+      <div class="air-card">
+        <p class="air-field__label">좌석 상태</p>
+        <p style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px">
+          <span class="badge badge--available">좌석 있음</span>
+          <span class="badge badge--unavailable">좌석 없음</span>
+          <span class="badge badge--unknown">미조회</span>
+        </p>
+        <p class="air-inline-note">
+          '좌석 없음'은 조회 결과 좌석 표시가 없었다는 뜻이고, '미조회'는 아직 데이터가 없는 상태입니다.
+          두 상태는 다르며, 어느 쪽도 실제 매진이나 예약 불가를 확정하지 않습니다.
+        </p>
+      </div>
+      <div class="air-card">
+        <p class="air-field__label">NEW</p>
+        <p style="margin-bottom:8px"><span class="badge badge--new">NEW</span></p>
+        <p class="air-inline-note">
+          이전 조회에서 '좌석 없음'이 확인된 뒤 '좌석 있음'으로 바뀐 경우에만 표시합니다.
+          최초 수집이나 미조회 상태에서 바뀐 기록은 NEW가 아닙니다.
+        </p>
+      </div>
+      <div class="air-card">
+        <p class="air-field__label">일등석 F</p>
+        <p style="margin-bottom:8px"><span class="cabin-chip cabin-f"><span>F</span><span>일등</span></span>
+          <span class="badge badge--combined">통합</span></p>
+        <p class="air-inline-note">
+          대한항공 일등석 표식은 보너스 예약과 좌석승급이 구분되지 않습니다.
+          보너스 확정으로 표시하지 않으며, 공제량도 자동 합산하지 않습니다.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="air-section" aria-labelledby="air-more">
+    <h2 id="air-more">더 보기</h2>
+    <div class="air-grid-3">
+      <a class="air-card" href="/air/map/" style="text-decoration:none;color:inherit">
+        <p class="air-field__label">세계지도</p>
+        <p style="font-weight:800;color:#0f2340;margin-bottom:4px">노선을 지도에서 보기</p>
+        <p class="air-inline-note">좌석이 표시된 노선과 날짜를 지도에서 확인합니다.</p>
+      </a>
+      <a class="air-card" href="/air/calendar/" style="text-decoration:none;color:inherit">
+        <p class="air-field__label">월별 달력</p>
+        <p style="font-weight:800;color:#0f2340;margin-bottom:4px">날짜별 좌석 등급</p>
+        <p class="air-inline-note">E·R·P·F 표식을 달력에서 한눈에 봅니다.</p>
+      </a>
+      <a class="air-card" href="/air/mileage/" style="text-decoration:none;color:#0f2340">
+        <p class="air-field__label">공제량 안내</p>
+        <p style="font-weight:800;margin-bottom:4px">공제표·성수기·핫픽</p>
+        <p class="air-inline-note">검증된 공식 공제표 기준으로만 수치를 표시합니다.</p>
+      </a>
+    </div>
+  </section>
 
 </main>
-
-<script>
-const $=id=>document.getElementById(id);
-const cities={
-ICN:"인천",JFK:"뉴욕",SIN:"싱가포르",
-CDG:"파리",NRT:"도쿄",GMP:"김포",PUS:"부산"
-};
-const airlines={
-KE_SKYPASS:"대한항공 스카이패스",
-OZ_ASIANA_CLUB:"아시아나클럽"
-};
-const cabins={
-economy:"일반석",
-premium:"프리미엄석",
-business:"비즈니스석"
-};
-const links={
-KE_SKYPASS:"https://www.koreanair.com/booking/book-and-manage/award-seat-availability",
-OZ_ASIANA_CLUB:"https://flyasiana.com/I/KR/KO/MileageSeatSearch.do"
-};
-
-let data=[];
-
-function optionList(id,values,format=x=>x){
-for(const value of [...new Set(values)].sort()){
-$(id).add(new Option(format(value),value));
-}
-}
-
-function render(){
-const rows=data.filter(r=>
-r.status==="available" &&
-(!$("program").value||r.program===$("program").value)&&
-(!$("origin").value||r.origin===$("origin").value)&&
-(!$("destination").value||r.destination===$("destination").value)&&
-(!$("month").value||r.departure_date.startsWith($("month").value))&&
-(!$("cabin").value||r.cabin===$("cabin").value)
-);
-
-rows.sort((a,b)=>$("sort").value==="asc"
-?a.departure_date.localeCompare(b.departure_date)
-:b.departure_date.localeCompare(a.departure_date));
-
-$("count").textContent=`테스트 검색 결과 ${rows.length}건`;
-$("results").replaceChildren();
-
-if(!rows.length){
-const empty=document.createElement("div");
-empty.className="empty";
-empty.textContent="조건에 맞는 테스트 좌석 표시가 없습니다. 실제 매진을 의미하지 않습니다.";
-$("results").append(empty);
-return;
-}
-
-for(const r of rows){
-const card=document.createElement("article");
-card.className="flight";
-const left=document.createElement("div");
-for(const [cls,txt] of [
-["airline",airlines[r.program]||r.program],
-["route",`${cities[r.origin]||r.origin} ${r.origin} → ${cities[r.destination]||r.destination} ${r.destination}`],
-["date",r.departure_date]
-]){
-const el=document.createElement("div");
-el.className=cls;
-el.textContent=txt;
-left.append(el);
-}
-
-const right=document.createElement("div");
-const cabin=document.createElement("div");
-cabin.className="cabin";
-cabin.textContent=cabins[r.cabin]||r.cabin;
-right.append(cabin);
-
-if(links[r.program]){
-const link=document.createElement("a");
-link.className="booking";
-link.href=links[r.program];
-link.target="_blank";
-link.rel="noopener noreferrer";
-link.textContent="공식 조회 ↗";
-right.append(link);
-}
-card.append(left,right);
-$("results").append(card);
-}
-}
-
-async function init(){
-try{
-const res=await window.AirData.response();
-if(!res.ok)throw new Error("Data unavailable");
-const payload=await res.json();
-
-if(payload.mode!=="test"||!Array.isArray(payload.items))
-throw new Error("Invalid dataset");
-
-data=payload.items.filter(r=>r.test_data===1);
-
-optionList("origin",data.map(r=>r.origin),
-x=>`${cities[x]||x} (${x})`);
-
-optionList("destination",data.map(r=>r.destination),
-x=>`${cities[x]||x} (${x})`);
-
-optionList("month",data.map(r=>r.departure_date.slice(0,7)));
-
-$("search").addEventListener("click",render);
-$("sort").addEventListener("change",render);
-render();
-
-}catch(e){
-$("count").textContent="데이터 로드 실패";
-console.error(e);
-}
-}
-init();
-</script>
-<script src="./assets/search-enhancement.js?v=1"></script>
-<script src="./assets/calendar.js?v=10"></script>
-<script src="./assets/journey.js?v=4"></script>
-
-<footer id="air-footer">
-  <p>
-    DailyFoodFighter AIR는 독립적인 마일리지 항공권
-    검색 지원 서비스이며 대한항공 및 아시아나항공의
-    공식 서비스가 아닙니다.
-  </p>
-
-  <p>
-    공식 정보 확인:
-    <a href="https://www.koreanair.com/"
-       target="_blank" rel="noopener noreferrer">
-      대한항공 스카이패스
-    </a>
-    ·
-    <a href="https://flyasiana.com/"
-       target="_blank" rel="noopener noreferrer">
-      아시아나클럽
-    </a>
-  </p>
-
-  <p>정기 갱신 예정: 매일 오전 09:00 (KST)</p>
-
-  <p>
-    현재 개발 및 테스트 단계이며 표시된 데이터는
-    실제 예약 현황이 아닙니다.
-    실제 예약 가능 여부 및 마일리지 차감액은
-    항공사 공식 홈페이지에서 최종 확인하시기 바랍니다.
-  </p>
-
-  <div class="footer-copy">
-    © 2026 DailyFoodFighter AIR
-  </div>
-</footer>
-
-<script src="assets/milemap.js?v=10"></script>
-<script src="assets/route-search.js?v=1"></script>
-<script src="assets/airport-autocomplete.js?v=5"></script>
-<script src="assets/booking-months.js?v=1"></script>
-<script src="assets/award-display.js?v=10"></script>
-<script src="assets/official-sources.js?v=1"></script>
-<script src="assets/mileage-integration.js?v=20"></script>
 </body>
 </html>
