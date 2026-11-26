@@ -92,6 +92,12 @@ FIXED_KO_P12 = {
     "kelp-nutrition-benefits": "나트륨 10~20% 절감 효과 수치 삭제(양념·조리 의존), 철 흡수 2~10% 완화, '4대 효능' 제목을 쟁점·근거 수준으로 교체",
 }
 
+# P1-4 (2026-11-26): heme/non-heme absorption ranges kept as literature values but
+# now cited to Hurrell & Egli 2010 and labelled as ranges that move with conditions.
+FIXED_P14 = {
+    "beef-liver-nutrition-benefits": "헴철 15~35%·비헴철 2~20% 흡수율 범위를 Hurrell & Egli 2010 인용으로 명시하고 '단일 값이 아닌 측정 조건 의존 범위'로 서술(수치 유지)",
+}
+
 rows = []
 for f in sorted((root / "_posts").glob("*.md")):
     raw = f.read_text(encoding="utf-8")
@@ -173,6 +179,9 @@ for f in sorted((root / "_posts").glob("*.md")):
     if slug in FIXED:
         status = "수정완료"
         action = FIXED[slug]
+    elif slug in FIXED_P14:
+        status = "수정완료"
+        action = FIXED_P14[slug]
     elif lang == "ko" and slug in FIXED_KO_P12:
         status = "수정완료"
         action = FIXED_KO_P12[slug]
