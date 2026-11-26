@@ -37,7 +37,7 @@ Drawing from authoritative analytical datasets in the USDA FoodData Central and 
 
 ## 1. How Many Calories Are in Avocado? (6.7 g fiber, 485 mg potassium per 100 g)
 
-A 100-gram serving of raw Hass avocado yields approximately 160 kcal, exhibiting an exceptionally low glycemic impact (GI < 15) with less than 1 gram of total sugars.
+A 100-gram serving of raw Hass avocado yields approximately 160 kcal, with no measured glycemic index in the international tables — 8.5 g of carbohydrate, of which less than 1 g is sugar.
 
 | Nutrient | Amount (per 100g) | Daily Value (% DV) |
 | :--- | :--- | :--- |

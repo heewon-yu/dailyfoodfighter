@@ -60,6 +60,8 @@ The values below describe **raw napa cabbage, edible portion**, as listed in USD
 
 **How to read the table:** percentages follow the U.S. Daily Values used on food labels, based on a 2,000-calorie reference diet. ¹Water, total sugars and glucosinolates have no established Daily Value, so only absolute amounts are shown. Glucosinolate content varies widely with cultivar, season and growing region, which is why a range appears instead of a single figure.
 
+*※ Source: [USDA FoodData Central FDC 169979](https://fdc.nal.usda.gov/food-details/169979/nutrients) — Cabbage, chinese (pe-tsai), raw (SR Legacy). The 16 kcal and 1.2 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Cabbage, napa, raw) · Korea Ministry of Food and Drug Safety, National Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> glucosinolate and Brassica literature
 </div>

@@ -5,7 +5,7 @@ date: 2026-11-16 22:32:00 +0900
 lang: en
 category: "Fruits"
 tags: [Tangerine, Vitamin C, Hesperidin, Glycemic Index, Mandarin Orange]
-description: "A tangerine has 53 calories and 26.7 mg vitamin C per 100 g, with a glycemic index near 42. How many a day, blood sugar effects, hesperidin and cautions."
+description: "A tangerine has 53 calories and 26.7 mg vitamin C per 100 g, with a glycemic index near 42–52. How many a day, blood sugar effects, hesperidin and cautions."
 permalink: /en/posts/tangerine-nutrition-benefits/
 image: "/assets/images/tangerine.jpg"
 nutrition:
@@ -22,7 +22,7 @@ nutrition:
 *▲ One hundred grams of raw tangerine delivers 53 calories and 26.7 mg of vitamin C (30% of the U.S. Daily Value). A medium fruit (about 84 g of edible flesh) lands near 44 calories, so two to three a day fits easily inside a weight-maintenance plan.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>A raw tangerine provides 53 calories, 13.3 g carbohydrate, 1.8 g fiber and 26.7 mg vitamin C per 100 g, with a glycemic index of about 42.</strong> One medium fruit is roughly 44 calories and 9 g of sugar, so most adults can eat two to three a day; people with diabetes should keep to one or two at a meal and eat them with or right after food rather than on an empty stomach.
+<span class="answer-label">Quick answer</span> <strong>A raw tangerine provides 53 calories, 13.3 g carbohydrate, 1.8 g fiber and 26.7 mg vitamin C per 100 g, with a glycemic index of about 42–52.</strong> One medium fruit is roughly 44 calories and 9 g of sugar, so most adults can eat two to three a day; people with diabetes should keep to one or two at a meal and eat them with or right after food rather than on an empty stomach.
 </div>
 
 Tangerines, mandarins and clementines are the small, easy-peel citrus fruits that dominate winter produce aisles from November through February. Their reputation as a "light" snack is justified: the fruit is roughly 87% water, and its sugar arrives packaged with fiber, potassium and a family of citrus flavonoids that plain juice does not carry.
@@ -57,6 +57,8 @@ The values below reflect **raw tangerines (mandarin oranges), edible portion**. 
 
 **How to read the table:** percentages for energy, carbohydrate, protein, fat and sodium follow the U.S. Daily Values used on food labels (2,000 kcal reference diet). Vitamin C, vitamin A, folate, potassium, calcium and magnesium percentages reflect the adult RDA or AI. ¹Water and total sugars carry no Daily Value, so only absolute amounts are shown.
 
+*※ Source: [USDA FoodData Central FDC 169105](https://fdc.nal.usda.gov/food-details/169105/nutrients) — Tangerines, (mandarin oranges), raw (SR Legacy). The 53 kcal and 0.81 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Tangerines, raw) · Korean National Standard Food Composition Table, Ministry of Food and Drug Safety (K-FIND)
 </div>
@@ -83,7 +85,7 @@ At 26.7 mg per 100 g, tangerines hold roughly 13 times the vitamin C of apples (
 
 ### H3. Is the sugar in tangerines a problem for diabetes?
 
-<div class="h3-answer">At one or two fruits per sitting, no. Tangerine has a glycemic index near 42 and a glycemic load of about 5 per medium fruit, both in the low range; juice and canned segments are the real problem.</div>
+<div class="h3-answer">At one or two fruits per sitting, no. Tangerine has a glycemic index near 42–52 and a glycemic load of about 5 per medium fruit, both in the low range; juice and canned segments are the real problem.</div>
 
 Glycemic index measures how fast a fixed amount of carbohydrate raises blood glucose; glycemic load adjusts that for the actual carbohydrate in a portion. A medium tangerine carries about 9 g of sugar and 1.5 g of fiber, giving a load near 5—well below the "high" threshold of 20.
 
@@ -149,7 +151,7 @@ No. The interaction risk from grapefruit comes from furanocoumarins blocking int
 
 ## 7. Bottom Line
 
-- **Calories and sugar:** one medium tangerine is 44 kcal with about 9 g of sugar, GI ~42 and a glycemic load near 5—a low-impact fruit. Two to three a day is a sensible ceiling.
+- **Calories and sugar:** one medium tangerine is 44 kcal with about 9 g of sugar, GI 42–52 and a glycemic load near 5—a low-impact fruit. Two to three a day is a sensible ceiling.
 - **Hesperidin lives in the pith:** keep the white albedo and steep washed peel for tea to multiply flavonoid intake.
 - **Clinical conditions:** diabetes calls for one or two fruits with meals; advanced kidney disease calls for potassium restriction.
 

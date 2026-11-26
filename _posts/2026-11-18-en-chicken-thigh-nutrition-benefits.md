@@ -59,6 +59,8 @@ The values below describe **raw chicken thigh, meat only, skin removed**, as pub
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Water and total sugars carry no Daily Value, so absolute amounts are listed. Cholesterol at 88 mg is for raw skinless meat; with skin on it rises to about 146 mg, and fat climbs from 3.91 g to 15.5 g.
 
+*※ Data basis: the figures above follow the Korean national food composition table (MFDS food nutrient database) for skinless chicken thigh meat, raw. The matching [USDA FoodData Central FDC 173627](https://fdc.nal.usda.gov/food-details/173627/nutrients) — Chicken, broilers or fryers, dark meat, thigh, meat only, raw (SR Legacy) lists 121 kcal and 19.66 g protein per 100 g. The figures here follow the Korean analysis; the skin-on USDA entry (FDC 172385) is 221 kcal.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Chicken, broilers or fryers, thigh, meat only, raw and with skin, raw) · Korea Ministry of Food and Drug Safety, Food Composition Table · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> poultry protein digestibility literature
 </div>

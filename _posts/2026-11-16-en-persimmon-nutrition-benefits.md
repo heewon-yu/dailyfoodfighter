@@ -57,6 +57,20 @@ Values below are for **raw Japanese persimmon, edible portion**. Cultivar change
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages use U.S. Daily Values for a 2,000 kcal diet. Vitamin A, vitamin C, potassium, manganese, copper and folate percentages use adult RDAs or AIs. ¹Water, total sugars and beta-carotene have no established Daily Value, so absolute amounts are shown. Manganese at 15% DV is notable for a fruit: it supports bone matrix formation and superoxide dismutase, an internal antioxidant enzyme.
 
+*※ Source: [USDA FoodData Central FDC 169941](https://fdc.nal.usda.gov/food-details/169941/nutrients) — Persimmons, japanese, raw (SR Legacy). The 70 kcal and 0.58 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What one persimmon and half a fruit deliver
+
+Persimmons are counted. Weights below are USDA portion weights for a Japanese persimmon.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| Half a fruit | 84 g | 58.8 kcal | 0.49 g |
+| 1 fruit (6 cm) | 168 g | 117.6 kcal | 0.97 g |
+| 100 g | 100 g | 70 kcal | 0.58 g |
+
+*Note: one fruit (168 g) is 118 kcal and 21 g of sugar. For blood-sugar control, half a fruit (84 g) with a protein food is a better single serving than a whole one.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
 </div>

@@ -67,6 +67,18 @@ The figures below reflect **raw green kale leaves (*Brassica oleracea*) per 100 
 
 *※ Source: [USDA FoodData Central FDC 168421](https://fdc.nal.usda.gov/food-details/168421/nutrients) — Kale, raw (SR Legacy). The 35 kcal and 2.92 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
 
+### What one cup and one bunch of kale deliver
+
+Kale is eaten by the cup once cooked, and by the handful raw.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 cup, raw | 21 g | 7.3 kcal | 0.61 g |
+| 2 cups, raw | 42 g | 14.7 kcal | 1.23 g |
+| 1 side-dish portion, cooked | 70 g | 24.5 kcal | 2.04 g |
+
+*Note: one cup of raw kale (21 g) is only 7 kcal. Massaged or cooked kale shrinks to a fraction of its raw volume, so a "bowl" of cooked kale can be four or five cups raw.*
+
 ### How to Read the Table: Bioavailable Calcium Without the Oxalate Trap
 Raw kale provides **254 mg of calcium per 100 g** alongside just **10–20 mg of oxalic acid**—roughly thirty times lower than spinach (600–970 mg). Because oxalate does not lock up kale's calcium in the gut, human absorption studies show kale's calcium bioavailability rivals or slightly exceeds cow's milk (~30–40%).
 

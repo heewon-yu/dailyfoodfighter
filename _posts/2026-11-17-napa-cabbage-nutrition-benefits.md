@@ -59,6 +59,8 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비이고, 비타민C·엽산·칼슘·칼륨·철분의 %는 한국인 영양소 섭취기준 성인 권장량(비타민C 100mg, 엽산 400µg DFE, 칼슘 700mg, 칼륨 3,500mg, 철분 10mg) 대비입니다. 비타민K는 충분섭취량 75µg 기준입니다. ¹수분과 글루코시놀레이트는 1일 기준치가 설정되지 않은 성분으로 절대량만 표기했고, 글루코시놀레이트는 품종·재배지에 따라 20~70mg까지 편차가 큽니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 배추, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 169979](https://fdc.nal.usda.gov/food-details/169979/nutrients) — Cabbage, chinese (pe-tsai), raw (SR Legacy)는 100g당 16 kcal·단백질 1.2 g입니다. 이 글의 15 kcal는 국내 배추 값으로, 1 kcal 차이는 품종과 수분 함량에서 옵니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 식품의약품안전처 국가표준식품성분표(농촌진흥청 국립식량과학원 분석) · <a href="https://various.foodsafetykorea.go.kr/" rel="nofollow noopener" target="_blank">K-FIND 식품영양성분 DB</a> · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a>
 </div>

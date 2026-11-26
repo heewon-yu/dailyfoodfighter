@@ -61,6 +61,8 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비이고, 나머지 미량 영양소의 %는 한국인 영양소 섭취기준 성인 권장량(비타민B12 2.4µg, 셀레늄 55µg, 철분 10mg, 아연 10mg, 칼륨 3,500mg, 인 700mg, 마그네슘 340mg, 칼슘 700mg) 대비입니다. ¹수분과 오메가-3는 1일 기준치가 설정되지 않아 절대량만 표기했으며, 오메가-3는 계절과 서식지에 따라 편차가 큽니다. 조리 후 수치는 수분 손실로 100g당 열량·단백질이 2배 가까이 높아집니다.
 
+*※ 출처: [USDA FoodData Central FDC 174216](https://fdc.nal.usda.gov/food-details/174216/nutrients) — Mollusks, mussel, blue, raw (SR Legacy). 표의 100g당 열량 86 kcal과 단백질 11.9 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 <div class="source-note">
 <strong>출처:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a>(Mollusks, mussel, blue, raw) · 식품의약품안전처 국가표준식품성분표 · 해양수산부 「이달의 수산물」 자료
 </div>

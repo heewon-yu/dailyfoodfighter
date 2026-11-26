@@ -60,6 +60,8 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·콜레스테롤·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비이고, 칼슘·인·철분·칼륨·마그네슘·엽산·비타민D의 %는 한국인 영양소 섭취기준 성인 권장량(칼슘 700mg, 인 700mg, 철분 10mg, 칼륨 3,500mg, 마그네슘 308mg, 엽산 400µg DFE, 비타민D 10µg) 대비입니다. ¹수분과 퓨린은 1일 기준치가 설정되지 않은 성분으로 절대량만 표기했습니다. 퓨린은 USDA·ODS-NIH 데이터베이스의 건조 멸치 측정값(1,109mg/100g)이며, 생멸치는 304~411mg/100g으로 훨씬 낮습니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 마른멸치, 대멸치, 삶아서 말린 것 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 174182](https://fdc.nal.usda.gov/food-details/174182/nutrients) — Fish, anchovy, european, raw (SR Legacy)는 100g당 131 kcal·단백질 20.35 g입니다. 이 글의 302 kcal·단백질 59.3 g은 삶아서 말린 국내 멸치 값입니다. 건조로 수분이 빠지면 100g당 값이 두 배 이상 올라갑니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 농촌진흥청 국가표준식품성분 DB 10.4(멸치, 대멸치·중멸치·잔멸치, 삶아서 말린 것) · 국립수산과학원 표준수산물성분표 · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Fish, anchovy, european) · USDA·ODS-NIH Database for the Purine Content of Foods (2025)
 </div>

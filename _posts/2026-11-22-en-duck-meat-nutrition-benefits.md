@@ -67,6 +67,18 @@ The values below describe **domesticated duck, meat only, raw, skin and subcutan
 | **Copper** | 0.25 mg | 28% |
 | **Sodium** | 74 mg | 3% |
 
+### What one leg, half a duck and a 100 g roast portion deliver
+
+Duck portions are counted by the piece, not weighed at the table.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 100 g, meat only | 100 g | 135 kcal | 18.30 g |
+| 1 serving (meat from a 1 lb duck) | 137 g | 184.9 kcal | 25.07 g |
+| Half a duck | 303 g | 409.1 kcal | 55.45 g |
+
+*Note: the 137 g row is the meat from a 1 lb duck, and half a duck is 303 g. Skin-on duck is 404 kcal per 100 g; taking the skin off and pouring off the rendered fat brings the meat back to the values in this table.*
+
 ¹ Added sugars carry a 50 g Daily Value; total sugars in meat are zero. See note¹.
 No DV — monounsaturated and polyunsaturated fat have no FDA Daily Value.
 

@@ -201,13 +201,16 @@ for f in sorted((root / "_posts").glob("*.md")):
         "description_len": len(desc),
         "answer_first": "Y" if af_text else "N",
         "answer_first_text": af_text[:140],
-        "serving_table": "Y" if re.search(r"1\s*(회|인분|개|장|컵|봉|캔|마리|쪽|공기)\s*(섭취|분량|기준)?|per serving|\|\s*(portion|serving)\s*\||\b1\s*(cup|cups|medium|large|small|slice|clove|cloves|fillet|leaf|bunch|block|oz|plate)\b", flat, re.I) else "N",
+        "serving_table": "Y" if re.search(r"1\s*(회|인분|개|장|컵|봉|캔|마리|쪽|공기)\s*(섭취|분량|기준)?|per serving|\|\s*(portion|serving|섭취 단위)\s*\||실생활 환산|Portion math|What one [^\n]{0,60}deliver|\b(one|two|three|1|2|3)\s+(small|medium|large|whole|slice|fillet|steak|fruit|floret|crab|fig|pepper|leaf|cup|cups|spear|stalk|leg|bowl|spoonful|handful)\b", flat, re.I) else "N",
         "per100g_table": "Y" if re.search(r"100\s*g\s*(당|기준)|per 100\s*g", flat, re.I) else "N",
         "front_serving_basis": serving,
         "state_flags": "/".join([n for n, c in (("raw", raw_state), ("cooked", cooked), ("dried", dried)) if c]),
         "fdc_ids": ",".join(fdc),
         "direct_ref_links": len(links),
         "source_id_present": "Y" if (fdc or links) else "N",
+        "source_basis": ("FDC 값 일치" if re.search(r"※ (출처|Source): \[USDA FoodData Central FDC", body)
+                         else "국내DB + USDA 대조" if re.search(r"※ (데이터 기준|Data basis)", body)
+                         else "링크만" if links else "없음"),
         "raw_cooked_mix": "Y" if mixed else "N",
         "cooked_state_numeric_claims": cook_nums,
         "c1": counts["c1_treatment_cure_prevention"],

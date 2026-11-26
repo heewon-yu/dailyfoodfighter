@@ -58,6 +58,21 @@ The values below describe **whole raw yuzu, edible portion, peel included and se
 | **Sodium** | 3 mg | 0% |
 
 ¹ Added sugars carry a 50 g Daily Value; total sugars in fruit do not. See note¹.
+
+*※ Data basis: the figures follow the Korean national food composition table entry for yuzu (whole fruit, raw, seeds removed). USDA FoodData Central has no yuzu entry, so no FDC ID is given.*
+
+### What one yuzu, 100 g and a glass of yuja tea deliver
+
+Yuzu varies in size; the Korean guide uses a 70 g fruit as the assumption, and the table states it.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 fruit (70 g, assumed) | 70 g | 34.3 kcal | 0.63 g |
+| 2 fruits | 140 g | 68.6 kcal | 1.26 g |
+| 100 g | 100 g | 49 kcal | 0.90 g |
+
+*Note: one yuzu (about 70 g) is 34 kcal. The tea is the issue: 20 g of yuja-cheong with water adds roughly 12 g of sugar and 60–70 kcal, three teaspoons of sugar, while the fruit itself contributes about 10 kcal.*
+
 No DV — energy has no Daily Value in U.S. labeling, and water is not a nutrient with a reference intake.
 
 ### How to read the table: the 100 g includes the peel

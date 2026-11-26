@@ -71,6 +71,8 @@ The values below describe **raw lotus root, edible portion**, from USDA FoodData
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Water and total sugars have no established Daily Value, so only absolute amounts are listed. Vitamins A and D are effectively absent because this is a root, not a leaf — lotus root has no carotenoids and no fat-soluble vitamin content worth counting. Note that the nutrients are reported **raw**; lotus root is almost always eaten cooked, and cooking changes several of these numbers substantially.
 
+*※ Source: [USDA FoodData Central FDC 169250](https://fdc.nal.usda.gov/food-details/169250/nutrients) — Lotus root, raw (SR Legacy). The 74 kcal and 2.6 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Lotus root, raw, SR Legacy) · Korea Rural Development Administration, National Food Composition Table DB 10.4 (연근, 생것 / 데친것) · Korea Ministry of Food and Drug Safety, Food Nutrient Database
 </div>

@@ -19,7 +19,7 @@ nutrition:
   sugarContent: "4.80 g"
 ---
 <img src="/assets/images/chickpea.jpg" alt="따뜻한 원목 테이블 위 도자기 그릇에 올리브오일과 허브를 곁들인 황금빛 삶은 병아리콩" width="1200" height="800" loading="eager" fetchpriority="high" decoding="async">
-*▲ 100g당 8.86g의 식물성 단백질과 7.60g의 풍부한 식이섬유를 동시에 공급하는 병아리콩(Chickpea)은 낮은 혈당지수(GI 28~36)와 높은 저항성 전분 비율 덕분에 포만감을 오래 유지하고 대사 건강을 지키는 핵심 콩류입니다.*
+*▲ 100g당 8.86g의 식물성 단백질과 7.60g의 풍부한 식이섬유를 동시에 공급하는 병아리콩(Chickpea)은 낮은 혈당지수(GI 28~37)와 높은 저항성 전분 비율 덕분에 포만감을 오래 유지하고 대사 건강을 지키는 핵심 콩류입니다.*
 
 <div class="answer-first">
 <span class="answer-label">한 줄 결론</span> <strong>삶은 병아리콩 100g은 164kcal, 식이섬유 7.6g, 단백질 8.86g입니다.</strong> 식이섬유가 하루 권장량의 30%에 달하고 저항성 전분이 식후 혈당 상승을 완만하게 만들어, 밥의 일부를 대체하기 좋습니다.

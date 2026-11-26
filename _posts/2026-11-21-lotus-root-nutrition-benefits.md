@@ -70,6 +70,8 @@ nutrition:
 
 **표 읽는 법:** 당류·탄수화물·단백질·지방·나트륨·비타민C의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal, 탄수화물 324g·당류 100g·단백질 55g·지방 54g·나트륨 2,000mg·비타민C 100mg 기준) 대비입니다. 칼륨·칼슘·인·마그네슘·철분의 %는 한국인 영양소 섭취기준 성인 권장량(칼륨 3,500mg, 칼슘 700mg, 인 700mg, 마그네슘 315mg, 철분 10mg) 대비입니다. ¹수분과 수용성·불용성 식이섬유, 식염상당량은 1일 기준치가 설정되지 않아 절대량만 적었습니다. ²비타민A·D·K는 원자료에 0으로 기록돼 있습니다. 연근은 잎을 먹는 채소가 아니라 뿌리라서 카로티노이드도, 지용성 비타민도 거의 없습니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 연근, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 169250](https://fdc.nal.usda.gov/food-details/169250/nutrients) — Lotus root, raw (SR Legacy)는 100g당 74 kcal·단백질 2.6 g입니다. 이 글의 75 kcal·단백질 1.63 g은 국내 연근 값이며, 단백질 값에서 차이가 납니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 농촌진흥청 국가표준식품성분표 DB 10.4(연근, 생것 / 데친것) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Lotus root, raw) · 보건복지부 2025 한국인 영양소 섭취기준
 </div>

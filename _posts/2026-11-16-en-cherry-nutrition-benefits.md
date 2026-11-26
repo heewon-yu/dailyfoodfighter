@@ -22,7 +22,7 @@ nutrition:
 *▲ Sweet cherries provide 63 calories, 2.1 g fiber and 222 mg potassium per 100 g. A one-cup serving (154 g with pits) is 97 calories and delivers 20–60 mg of anthocyanins, the pigments behind most of the fruit's research interest.*
 
 <div class="answer-first">
-<span class="answer-label">Quick answer</span> <strong>Sweet cherries contain 63 calories, 12.8 g sugar and 2.1 g fiber per 100 g, with a glycemic index near 22; one cup (about 21 cherries) is 97 calories.</strong> Observational data link cherry intake to a 35% lower risk of gout flares, while sleep trials show objective improvements only. The melatonin in a serving is about 0.13 µg—one-ten-thousandth of a supplement dose—so the effect comes from more than melatonin alone.
+<span class="answer-label">Quick answer</span> <strong>Sweet cherries contain 63 calories, 12.8 g sugar and 2.1 g fiber per 100 g, with a glycemic index of 22–46; one cup (about 21 cherries) is 97 calories.</strong> Observational data link cherry intake to a 35% lower risk of gout flares, while sleep trials show objective improvements only. The melatonin in a serving is about 0.13 µg—one-ten-thousandth of a supplement dose—so the effect comes from more than melatonin alone.
 </div>
 
 Cherry season runs from May through July in Korea and the United States, with frozen tart cherries and juice concentrate available year-round. What distinguishes cherries nutritionally is not vitamin C (7 mg per 100 g is modest) but their **anthocyanin density**—the highest among common temperate fruits—and the clinical literature built around it.
@@ -57,6 +57,8 @@ Values are for **raw sweet cherries, weighed with pits**. Roughly 15% of the wei
 | **Sodium** | 0 mg | 0.0% |
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages follow U.S. Daily Values for a 2,000 kcal diet; vitamins and minerals use adult RDAs or AIs. ¹Water, total sugars, anthocyanins, melatonin and tryptophan have no Daily Value, so absolute amounts are shown. Keep the melatonin figure in perspective: 0.13 µg is roughly one-fiftieth-thousandth of a 0.5–5 mg sleep supplement. Anthocyanin content varies more than threefold by cultivar, with deep red Bing and Lapins types at the high end.
+
+*※ Source: [USDA FoodData Central FDC 171719](https://fdc.nal.usda.gov/food-details/171719/nutrients) — Cherries, sweet, raw (SR Legacy). The 63 kcal and 1.06 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
 
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
@@ -114,7 +116,7 @@ Cherry anthocyanins—mainly cyanidin-3-rutinoside and cyanidin-3-glucoside—in
 
 - **Fructose load:** a cup of cherries carries about 20 g of sugar with a high fructose fraction. People with IBS or fructose malabsorption may notice bloating and loose stools; 10 cherries is a safer trial dose.
 - **Chronic kidney disease:** potassium at 222 mg per 100 g is high for a fruit. If you are on potassium restriction, keep servings to 10 cherries.
-- **Diabetes:** the glycemic index of 22 is low, but a full cup still carries 20 g of sugar. Ten to fifteen cherries (44–66 kcal) per sitting is the sensible pattern.
+- **Diabetes:** the glycemic index of 22–46 is low, but a full cup still carries 20 g of sugar. Ten to fifteen cherries (44–66 kcal) per sitting is the sensible pattern.
 - **Anticoagulant and antiplatelet medication:** cherry anthocyanins inhibit platelet aggregation in vitro. Avoid large daily intakes if you take warfarin, clopidogrel or DOACs, and reduce intake before surgery.
 
 ---
@@ -128,7 +130,7 @@ Fifteen to twenty cherries—one cup or less, 70–97 kcal—suits most adults. 
 No. A 240 ml glass contains the sugar of about 90 g of fruit with almost none of the fiber, so glucose rises faster. Tart cherry concentrate used in sleep and gout trials is a practical alternative when eating 100 g of fresh fruit twice daily is unrealistic—dilute 30 ml in water.
 
 **Q3. Do cherries raise blood sugar?**  
-Their glycemic index of about 22 is low, so the rise is gradual. But a full cup carries close to 20 g of sugar, and juice on an empty stomach will spike glucose faster than whole fruit. Ten to fifteen cherries as a post-meal dessert is the most stable pattern.
+Their glycemic index of 22–46 is low, so the rise is gradual. But a full cup carries close to 20 g of sugar, and juice on an empty stomach will spike glucose faster than whole fruit. Ten to fifteen cherries as a post-meal dessert is the most stable pattern.
 
 ---
 
@@ -184,7 +186,7 @@ Their glycemic index of about 22 is low, so the rise is gradual. But a full cup 
       "name": "Do cherries raise blood sugar?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Their glycemic index of about 22 is low, so the rise is gradual. But a full cup carries close to 20 g of sugar, and juice on an empty stomach will spike glucose faster than whole fruit. Ten to fifteen cherries as a post-meal dessert is the most stable pattern."
+        "text": "Their glycemic index of 22–46 is low, so the rise is gradual. But a full cup carries close to 20 g of sugar, and juice on an empty stomach will spike glucose faster than whole fruit. Ten to fifteen cherries as a post-meal dessert is the most stable pattern."
       }
     }
   ]

@@ -60,6 +60,8 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비이고, 비타민C·칼슘·칼륨·철분·엽산의 %는 한국인 영양소 섭취기준 성인 권장량(비타민C 100mg, 칼슘 700mg, 칼륨 3,500mg, 철분 10mg, 엽산 400µg DFE) 대비입니다. ¹수분과 소르비톨은 1일 기준치가 설정되지 않은 성분으로 절대량만 표기했고, 소르비톨은 품종·숙성도에 따라 1.5~3.5g까지 차이가 납니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 배, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 168177](https://fdc.nal.usda.gov/food-details/168177/nutrients) — Pears, asian, raw (SR Legacy)는 100g당 42 kcal·단백질 0.5 g입니다. 이 글의 45 kcal·단백질 0.5 g은 국내산 배 값이고, 품종과 수분 함량 차이로 3 kcal 차이가 납니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 식품의약품안전처 국가표준식품성분표(배, 생것) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Pears, asian, raw) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> 아시아배 소르비톨·배즙 연구
 </div>

@@ -61,7 +61,7 @@ Oysters display a distinctive marine macronutrient profile characterized by low 
 | **Potassium (K)** | 156.00 mg | 3.3% |
 | **Calcium (Ca)** | 45.00 mg | 3.5% |
 
-*※ Source: USDA FoodData Central Standard Reference (Eastern/Pacific raw oysters).*  
+*※ Data basis: the figures above follow the Korean national food composition table (MFDS food nutrient database) for raw oyster, edible portion. The matching [USDA FoodData Central FDC 174219](https://fdc.nal.usda.gov/food-details/174219/nutrients) — Mollusks, oyster, Pacific, raw (SR Legacy) lists 81 kcal and 9.45 g protein per 100 g. The 68 kcal and 7.13 g protein here come from the Korean analysis of shucked meat; the USDA sample is a whole Pacific oyster.*
 *¹ Water constitutes the biological fluid matrix rather than a regulated dietary reference value.*  
 *※ 'Daily value not established' applies to functional bioactive fatty acids, glycogen, and sulfonic amino acids lacking formal statutory DRI percentages.*
 

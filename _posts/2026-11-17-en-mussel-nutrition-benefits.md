@@ -61,6 +61,8 @@ The values below describe **raw blue mussel meat**, as published in USDA FoodDat
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Water, total sugars and omega-3 fatty acids carry no Daily Value, so absolute amounts are listed. Omega-3 content swings widely with season, water temperature and the plankton the mussels fed on, which is why a range is shown.
 
+*※ Source: [USDA FoodData Central FDC 174216](https://fdc.nal.usda.gov/food-details/174216/nutrients) — Mollusks, mussel, blue, raw (SR Legacy). The 86 kcal and 11.9 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Mollusks, mussel, blue, raw and cooked) · Korea Ministry of Oceans and Fisheries, "Seafood of the Month" bulletins · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> bivalve nutrition literature
 </div>

@@ -71,6 +71,8 @@ The values below describe **raw sweet red pepper, edible portion** — stem and 
 
 ² Individual carotenoids have no Daily Value of their own. Beta-carotene is counted inside vitamin A activity, which is why the 157 µg RAE line already reflects part of it.
 
+*※ Data basis: the figures above follow the Korean national food composition table (MFDS food nutrient database) for red bell pepper, raw, edible portion. The matching [USDA FoodData Central FDC 170108](https://fdc.nal.usda.gov/food-details/170108/nutrients) — Peppers, sweet, red, raw (SR Legacy) lists 26 kcal and 0.99 g protein per 100 g. The figures here follow the Korean analysis of domestic cultivars; variety and growing conditions explain the energy gap.*
+
 ### How to read the table: 100 g is one large pepper
 
 A bell pepper weighs 120–200 g, so **100 g is about one large pepper, or one and a half small ones**. Half a pepper on a salad therefore supplies roughly half the column — still over 60 mg of vitamin C, which is 70% of a day's requirement.

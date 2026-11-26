@@ -60,6 +60,8 @@ Values below describe **raw asparagus with the woody base trimmed**. Boiled aspa
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages use U.S. Daily Values for a 2,000 kcal diet; vitamins and minerals use adult RDAs or AIs. ¹Water, total sugars, fructans, glutathione and asparagine have no Daily Value, so absolute amounts are shown.
 
+*※ Source: [USDA FoodData Central FDC 168389](https://fdc.nal.usda.gov/food-details/168389/nutrients) — Asparagus, raw (SR Legacy). The 20 kcal and 2.2 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
 </div>

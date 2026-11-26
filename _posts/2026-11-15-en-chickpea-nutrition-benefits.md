@@ -27,7 +27,7 @@ nutrition:
 
 Also known globally as **garbanzo beans**, **chickpeas (*Cicer arietinum*)** serve as a foundational legume across Mediterranean and Middle Eastern dietary patterns—and for compelling biochemical reasons.
 
-Unlike refined cereal starches that undergo rapid luminal hydrolysis into glucose, chickpea starch possesses a markedly elevated **amylose-to-amylopectin ratio** encased within intact cotyledon cell walls. Combined with substantial **resistant starch (Type 1 and Type 3)** and viscous dietary fiber, cooked chickpeas yield a remarkably low glycemic index (GI 28–36). Clinical feeding studies even document a reproducible **"second-meal effect,"** wherein consuming chickpeas at one meal blunts the glycemic excursion of a subsequent carbohydrate-rich meal hours later.
+Unlike refined cereal starches that undergo rapid luminal hydrolysis into glucose, chickpea starch possesses a markedly elevated **amylose-to-amylopectin ratio** encased within intact cotyledon cell walls. Combined with substantial **resistant starch (Type 1 and Type 3)** and viscous dietary fiber, cooked chickpeas yield a remarkably low glycemic index (GI 28–37). Clinical feeding studies even document a reproducible **"second-meal effect,"** wherein consuming chickpeas at one meal blunts the glycemic excursion of a subsequent carbohydrate-rich meal hours later.
 
 Beyond glycemic kinetics, 100 grams of boiled chickpeas supply **43% of the U.S. Daily Value for folate (172 mcg)** alongside meaningful concentrations of manganese, copper, iron, magnesium, and zinc—making them an exceptional micronutrient anchor for plant-forward and cardiometabolic nutrition.
 
@@ -65,6 +65,19 @@ Cooked chickpeas contain roughly 60% water, zero cholesterol, and minimal satura
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Hydration and total sugars without an absolute daily requirement are marked 'See note¹', while non-essential bioactive compounds carry 'No DV' (Daily Value not established).*
 
 *※ Source: [USDA FoodData Central FDC 173757](https://fdc.nal.usda.gov/food-details/173757/nutrients) — Chickpeas, mature seeds, cooked, boiled, without salt (SR Legacy). The 164 kcal and 8.86 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What half a cup, one cup and one spoonful of chickpeas deliver
+
+Cooked chickpeas are measured by the cup. Weights below are USDA portion weights for boiled chickpeas without salt.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 2 tbsp | 25 g | 41 kcal | 2.21 g |
+| Half a cup | 82 g | 134.5 kcal | 7.27 g |
+| 1 cup | 164 g | 269 kcal | 14.53 g |
+| 100 g drained | 100 g | 164 kcal | 8.86 g |
+
+*Note: one cup (164 g) is 269 kcal and 14.5 g protein, which is a full protein portion. Half a cup in a salad is the realistic single serving.*
 
 ---
 

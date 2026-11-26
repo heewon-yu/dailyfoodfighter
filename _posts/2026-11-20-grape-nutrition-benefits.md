@@ -61,6 +61,8 @@ nutrition:
 
 **표 읽는 법:** 당류·탄수화물·단백질·지방·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal, 당류 100g·포화지방 15g 기준) 대비이고, 칼륨·칼슘·철분의 %는 한국인 영양소 섭취기준 성인 권장량(칼륨 3,500mg, 칼슘 700mg, 철분 10mg) 대비입니다. ¹수분과 과당·포도당은 1일 기준치가 설정되지 않은 성분으로 절대량만 적었습니다. ²비타민C는 원자료에 'tr(미량 존재)'로 표기돼 있어 수치 대신 표기만 남겼습니다. 캠벨얼리는 비타민C가 거의 없는 품종이고, 오렌지(100g당 45mg)와 비교하면 사실상 무시할 수준입니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 포도, 캠벨얼리, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 174683](https://fdc.nal.usda.gov/food-details/174683/nutrients) — Grapes, red or green (European type), raw (SR Legacy)는 100g당 69 kcal·단백질 0.72 g입니다. 이 글의 57 kcal는 국내 주력 품종인 캠벨얼리 값이고, 품종에 따라 당도가 10~15% 차이 납니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 농촌진흥청 국가표준식품성분표(포도, 캠벨얼리, 생것) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Grapes, red or green, raw) · 농식품정보누리 제철농식품 포도
 </div>

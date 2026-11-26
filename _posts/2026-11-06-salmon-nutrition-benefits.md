@@ -58,6 +58,18 @@ nutrition:
 | 칼륨 (Potassium) | 363 mg | 7.7% |
 | 아스타잔틴 (카로티노이드) | 1.80 mg | 기준치 없음 |
 
+### 1회 섭취량 환산: 연어 한 토막·3온스는 몇 kcal인가?
+
+연어는 100g보다 3온스(85g)나 한 토막 단위로 먹습니다. USDA 1회 섭취량 자료의 무게로 환산했습니다.
+
+| 섭취 단위 | 가식부 무게 | 열량 | 단백질 |
+| :--- | :--- | :--- | :--- |
+| 3온스(85g) 토막 | 85 g | 176.8 kcal | 17.34 g |
+| 100g | 100 g | 208 kcal | 20.40 g |
+| 필레 절반 | 198 g | 411.8 kcal | 40.39 g |
+
+*※ 생연어 3온스(85g)는 177kcal·단백질 17.4g에 EPA·DHA가 1,800mg 안팎 들어 있습니다. 같은 무게 닭가슴살보다 열량이 높은 이유가 이 지방이며, 구우면 수분이 빠져 같은 무게의 열량은 더 올라갑니다.*
+
 **표 읽는 법.** 미국 %DV는 생것 100 g이 [FDA 일일기준치](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label)의 몇 퍼센트인지 보여줍니다. ‘기준치 없음’은 성분이 없다는 뜻이 아닙니다. ¹ 단백질은 일반 식품 영양표시 관행에 따라 g으로 표시했습니다.
 
 *데이터 출처: USDA FoodData Central (FDC ID: 175167) & European Journal of Clinical Nutrition.*

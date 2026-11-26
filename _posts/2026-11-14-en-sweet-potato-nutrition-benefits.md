@@ -27,7 +27,7 @@ nutrition:
 
 In metabolic dietetics and athletic nutrition, **orange-fleshed sweet potatoes (*Ipomoea batatas*)** are prized as a nutrient-dense complex carbohydrate alternative to refined grains.
 
-Yet one biochemical principle dictates whether a sweet potato acts as a slow-release energy substrate or triggers a rapid glucose spike: **cooking method and temperature kinetics**. Raw sweet potato provides 86 kcal, 20.12 g of carbohydrate, and 3.0 g of dietary fiber per 100 grams. However, slow dry roasting activates endogenous beta-amylase enzymes between 60°C and 75°C, hydrolyzing starch into maltose and elevating the glycemic index (GI) toward 80–90. By contrast, steaming or boiling rapidly denatures amylase while preserving moisture, keeping the GI in a moderate 45–55 range.
+Yet one biochemical principle dictates whether a sweet potato acts as a slow-release energy substrate or triggers a rapid glucose spike: **cooking method and temperature kinetics**. Raw sweet potato provides 86 kcal, 20.12 g of carbohydrate, and 3.0 g of dietary fiber per 100 grams. However, slow dry roasting activates endogenous beta-amylase enzymes between 60°C and 75°C, hydrolyzing starch into maltose and elevating the glycemic index (GI) toward 80–90. By contrast, steaming or boiling rapidly denatures amylase while preserving moisture, keeping the GI in a moderate 46–63 range.
 
 Beyond carbohydrate kinetics, sweet potatoes are one of nature’s richest sources of **beta-carotene (8,509 mcg per 100g)**, supplying 709 mcg RAE of provitamin A without risk of preformed retinol toxicity. Moreover, the milky resinous latex near the peel—rich in **jalapin** and caffeoylquinic acids—supports colonic transit and mucosal antioxidant defense.
 
@@ -62,6 +62,18 @@ Sweet potatoes are virtually fat-free (0.05 g) while delivering concentrated pro
 *¹ How to read this table: Percent Daily Values (%DV) reflect the standard 2,000-kcal U.S. FDA reference diet. Total sugars and water lack a fixed daily requirement and are noted as 'See note¹', while bioactive phytochemicals such as beta-carotene and jalapin carry 'No DV' (Daily Value not established).*
 
 *※ Source: [USDA FoodData Central FDC 168482](https://fdc.nal.usda.gov/food-details/168482/nutrients) — Sweet potato, raw, unprepared (SR Legacy). The 86 kcal and 1.57 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
+### What one medium sweet potato and one cup of cubes deliver
+
+Weights below are USDA portion weights for raw sweet potato.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 medium (13 cm long) | 130 g | 111.8 kcal | 2.04 g |
+| Half, medium | 65 g | 55.9 kcal | 1.02 g |
+| 1 cup, cubes | 133 g | 114.4 kcal | 2.09 g |
+
+*Note: one medium sweet potato (130 g) is 112 kcal raw. Baking drives off water, so a baked potato of the same size weighs less but carries nearly the same energy.*
 
 ### Why the USDA says 86 kcal and the Korean table 147 kcal
 
@@ -116,7 +128,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 
 ## 5. Sweet Potatoes per Day: How Much Do You Need?
 
-1. **Method Dictates Glycemic Response:** Steamed sweet potatoes maintain a moderate GI (~45–55), whereas slow-roasted ones climb sharply due to maltose conversion.
+1. **Method Dictates Glycemic Response:** Steamed sweet potatoes maintain a moderate GI (~46–63), whereas slow-roasted ones climb sharply due to maltose conversion.
 2. **Cook, Cool, and Pair With Fat:** Chilling boosts resistant starch, while a drizzle of olive oil or pairing with eggs unlocks beta-carotene absorption.
 3. **Standard Portion:** Aim for one medium steamed sweet potato (~130–150 g) per meal as a balanced complex carbohydrate base.
 
@@ -134,7 +146,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
 ## 7. Frequently Asked Questions (FAQ)
 
 ### Q1. Why does baked sweet potato raise blood sugar faster than steamed sweet potato?
-**A:** Slow oven baking holds the interior in the 60–75°C range long enough for beta-amylase enzymes to convert complex starch into free maltose sugar, driving the glycemic index into the 80–90 range. Steaming heats the tuber faster, limiting maltose formation and keeping the GI around 45–55.
+**A:** Slow oven baking holds the interior in the 60–75°C range long enough for beta-amylase enzymes to convert complex starch into free maltose sugar, driving the glycemic index into the 80–90 range. Steaming heats the tuber faster, limiting maltose formation and keeping the GI around 46–63.
 
 ### Q2. Does cooling cooked sweet potatoes really lower calorie absorption?
 **A:** Yes. Chilling cooked sweet potatoes at refrigerator temperatures promotes starch retrogradation into resistant starch (RS3), which resists small-intestinal enzymes, reduces net absorbed glucose, and acts as prebiotic fiber in the colon.
@@ -160,7 +172,7 @@ The outer skin holds several-fold higher concentrations of chlorogenic acids and
       "name": "Why does baked sweet potato raise blood sugar faster than steamed sweet potato?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Slow oven baking holds the interior in the 60–75°C range long enough for beta-amylase enzymes to convert complex starch into free maltose sugar, driving the glycemic index into the 80–90 range. Steaming heats the tuber faster, limiting maltose formation and keeping the GI around 45–55."
+        "text": "Slow oven baking holds the interior in the 60–75°C range long enough for beta-amylase enzymes to convert complex starch into free maltose sugar, driving the glycemic index into the 80–90 range. Steaming heats the tuber faster, limiting maltose formation and keeping the GI around 46–63."
       }
     },
     {

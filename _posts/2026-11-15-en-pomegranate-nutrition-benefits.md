@@ -70,6 +70,18 @@ Edible arils are roughly 78% water, essentially free of cholesterol and saturate
 
 *※ Source: [USDA FoodData Central FDC 169134](https://fdc.nal.usda.gov/food-details/169134/nutrients) — Pomegranates, raw (SR Legacy). The 83 kcal and 1.67 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
 
+### What half a cup of arils and one whole pomegranate deliver
+
+The peel and pith are discarded, so portions are measured in arils. Weights below are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| Half a cup of arils | 87 g | 72.2 kcal | 1.45 g |
+| 100 g arils | 100 g | 83 kcal | 1.67 g |
+| 1 whole fruit (edible part) | 165 g | 136.9 kcal | 2.76 g |
+
+*Note: one 282 g fruit yields roughly 150–180 g of arils. Juicing sends two or three fruits into one glass, so the sugar arrives faster than it does from the arils.*
+
 By comparison, **100% pressed pomegranate juice** provides about 54 kcal, 12.7 g of sugars, and only 0.1 g of fiber per 100 ml. Pressing strips away the fiber that moderates glycemic response while concentrating sugar—a critical distinction for anyone monitoring glucose.
 
 ---

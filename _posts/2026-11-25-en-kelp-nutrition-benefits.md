@@ -67,6 +67,18 @@ Values below are the USDA FoodData Central SR Legacy entry for raw kelp (FDC 168
 | Vitamin K | 66 µg | 55% |
 | Iodine | 16–8,000 µg per gram dry weight | See note¹ |
 
+### What one sheet, one spoonful and one bowl of broth deliver
+
+Kelp is a seasoning, not a vegetable serving: a 10 × 10 cm sheet weighs 3–5 g.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 sheet (10 × 10 cm) | 4 g | 1.7 kcal | 0.07 g |
+| 2 tbsp, cut (10 g) | 10 g | 4.3 kcal | 0.17 g |
+| 1 side portion, 20 g | 20 g | 8.6 kcal | 0.34 g |
+
+*Note: one sheet in a litre of broth adds 1–2 kcal and 93–155 mg sodium. The number that matters is iodine: a 3 g spoonful of kelp powder carries about 5,370 µg, more than twice the daily upper limit.*
+
 ¹ Water and total sugars have no Daily Value. Iodine has no Daily Value either, because content in kelp is not a fixed property of the food: published values across species, harvest sites and seasons span 16 to 8,000 µg per gram of dry weight. See the note below for measured figures that can be used for planning.
 
 ### How to read the table
@@ -228,6 +240,5 @@ Probably a little, through alginate's viscosity, but the evidence is weak. Small
 - **Eat the steeped leaf, not just the broth** — that is where alginate, calcium and iron remain.
 - Avoid **powders, capsules and juices**; keep food use to grams, and separate kelp from **levothyroxine by four hours**.
 - Do not wash off the white powder: it is **mannitol**, and it carries sweetness.
-
 
 **Additional references:** [NIH ODS iodine fact sheet](https://ods.od.nih.gov/factsheets/iodine-HealthProfessional/) and [iodine in Korean brown seaweed and kelp broth (2024)](https://pmc.ncbi.nlm.nih.gov/articles/PMC11156764/).

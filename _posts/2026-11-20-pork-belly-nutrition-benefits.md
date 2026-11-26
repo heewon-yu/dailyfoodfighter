@@ -66,6 +66,8 @@ nutrition:
 
 **표 읽는 법:** 열량·단백질·지방·포화지방·콜레스테롤·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal, 포화지방 15g·콜레스테롤 300mg 기준) 대비이고, 티아민·리보플라빈·나이아신·아연·칼륨·인의 %는 한국인 영양소 섭취기준 성인 권장량(티아민 1.2mg, 리보플라빈 1.4mg, 나이아신 15mg NE, 아연 12mg, 칼륨 3,500mg, 인 700mg) 대비입니다. ¹수분은 1일 기준치가 없는 성분이라 절대량만 적었습니다. ²트랜스지방은 1일 기준치 대신 "총열량의 1% 미만" 권고만 있어 수치로만 표기했습니다. **핵심은 포화지방 13.3g**입니다. 100g만 먹어도 하루 기준치(15g)의 88%에 이릅니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 돼지고기 삼겹살, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 167812](https://fdc.nal.usda.gov/food-details/167812/nutrients) — Pork, fresh, belly, raw (SR Legacy)는 100g당 518 kcal·단백질 9.34 g입니다. 이 글의 372 kcal·단백질 13.9 g은 국내 유통 삼겹살 분석값으로, 지방층 비율이 다른 미국 표준 시료보다 열량이 낮습니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 농촌진흥청 국가표준식품성분표(돼지고기, 삼겹살, 생것 / 삶은것 / 구운것(팬)) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Pork, fresh, belly, raw) · 식품의약품안전처 1일 영양성분 기준치
 </div>

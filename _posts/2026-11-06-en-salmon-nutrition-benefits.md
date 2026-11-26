@@ -58,6 +58,18 @@ According to standardized laboratory data from the USDA FoodData Central (FDC ID
 | Potassium | 363 mg | 7.7% |
 | Astaxanthin (Carotenoid) | 1.80 mg | No DV |
 
+### What 3 oz, 100 g and half a fillet deliver
+
+Salmon is eaten by the fillet or the 3 oz portion, not by the 100 g. Weights below are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 3 oz portion | 85 g | 176.8 kcal | 17.34 g |
+| 100 g | 100 g | 208 kcal | 20.40 g |
+| Half a fillet | 198 g | 411.8 kcal | 40.39 g |
+
+*Note: 3 oz (85 g) raw is about 177 kcal and 17.4 g protein, with roughly 1,800 mg of EPA and DHA per portion. That fat is why it carries more calories than the same weight of chicken breast; grilling removes water, not the fat.*
+
 **How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 *Data Source: USDA FoodData Central (FDC ID: 175167) & European Journal of Clinical Nutrition.*

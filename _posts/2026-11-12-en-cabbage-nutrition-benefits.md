@@ -66,6 +66,19 @@ Raw green cabbage exhibits an exceptionally low energetic footprint (25 kcal/100
 *¹ Water serves as the physical hydration matrix sustaining gastric mucosal secretion.*  
 *※ 'Daily value not established' denotes functional organosulfur conjugates and glucosinolate precursors devoid of formal percentage DRI thresholds.*
 
+### What one leaf and one cup of shredded cabbage deliver
+
+Cabbage is eaten by the leaf or by the cup. Weights below are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 medium leaf | 23 g | 5.8 kcal | 0.29 g |
+| 1 large leaf | 33 g | 8.2 kcal | 0.42 g |
+| 1 cup shredded | 70 g | 17.5 kcal | 0.90 g |
+| 1 cup chopped | 89 g | 22.2 kcal | 1.14 g |
+
+*Note: five leaves are still about 30 kcal. Cabbage dishes get their calories from mayonnaise, oil and sugar, not from the vegetable.*
+
 ---
 
 ## 2. What Are the Benefits of Cabbage? Four Evidence-Backed Effects

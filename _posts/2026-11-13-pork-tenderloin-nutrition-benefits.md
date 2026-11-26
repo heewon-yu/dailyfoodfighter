@@ -68,7 +68,7 @@ nutrition:
 | **셀레늄 (Selenium, Se)** | 38.00 mcg | 69.1% |
 | **철분 (Iron, Fe)** | 1.10 mg | 9.2% |
 
-*※ 출처: 미국 농무부(USDA FoodData Central) 표준 분석 데이터 (Pork Tenderloin, Fresh, Raw 기준).*  
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 돼지고기 안심, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 168312](https://fdc.nal.usda.gov/food-details/168312/nutrients) — Pork, fresh, loin, tenderloin, separable lean and fat, raw (SR Legacy)는 100g당 120 kcal·단백질 20.65 g입니다. 이 글의 120 kcal·단백질 21.8 g은 국내 분석값이며, USDA에서 지방을 떼어낸 항목(FDC 168249)은 109 kcal·20.95 g입니다. 조리 전 손질과 지방 함량 차이가 값을 가릅니다.*
 *¹ 수분은 육조직 내 단백질 수화 및 세포액 유지를 위한 기본 용매로 분류됩니다.*  
 *※ '기준치 없음' 표기는 기능성 필수아미노산 및 불포화지방산으로 한국인 영양소 섭취기준(KDRIs)상 일일 권장 백분율(%DV)이 법적으로 규정되지 않은 항목입니다.*
 

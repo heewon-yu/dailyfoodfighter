@@ -61,6 +61,8 @@ nutrition:
 
 **표 읽는 법:** 열량·지방·포화지방·콜레스테롤·나트륨의 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비이고, 단백질·비타민B군·셀레늄·인·아연·철분·칼륨의 %는 한국인 영양소 섭취기준 성인 권장량(단백질 55g, 나이아신 15mg NE, 비타민B6 1.5mg, 비타민B12 2.4µg, 판토텐산 5mg, 셀레늄 55µg, 인 700mg, 아연 8mg, 철분 10mg, 칼륨 3,500mg) 대비입니다. ¹수분은 1일 기준치가 설정되지 않은 성분이라 절대량만 표기했습니다. 콜레스테롤 88mg은 조리 전 생고기 기준이며, 껍질을 포함하면 146mg까지 올라갑니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 닭고기 다리살, 껍질 제거, 생것 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 173627](https://fdc.nal.usda.gov/food-details/173627/nutrients) — Chicken, broilers or fryers, dark meat, thigh, meat only, raw (SR Legacy)는 100g당 121 kcal·단백질 19.66 g입니다. 이 글의 119 kcal·단백질 19.7 g은 국내 값이며, 껍질을 포함한 USDA 항목(FDC 172385)은 221 kcal입니다.*
+
 <div class="source-note">
 <strong>출처:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Chicken, broilers or fryers, thigh, meat only, raw) · 식품의약품안전처 국가표준식품성분표(닭고기 다리살) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> 가금육 단백질 소화율 연구
 </div>

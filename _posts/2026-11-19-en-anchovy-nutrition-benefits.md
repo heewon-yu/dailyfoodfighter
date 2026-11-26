@@ -62,6 +62,8 @@ The values below describe **raw European anchovy, edible portion**, from USDA Fo
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Omega-3 fatty acids and purines have no established Daily Value, so absolute amounts are listed. Purine figures for raw anchovy range from 304 mg (fresh, Japanese analysis) to 411 mg (raw, U.S. testing) per 100 g in the USDA and ODS-NIH purine database.
 
+*※ Source: [USDA FoodData Central FDC 174182](https://fdc.nal.usda.gov/food-details/174182/nutrients) — Fish, anchovy, european, raw (SR Legacy). The 131 kcal and 20.35 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Fish, anchovy, european, raw; canned in oil, drained) · USDA and ODS-NIH Database for the Purine Content of Foods (2025) · Korea Rural Development Administration, National Food Composition DB 10.4 (dried anchovy) · National Institute of Fisheries Science, Standard Seafood Composition Table
 </div>

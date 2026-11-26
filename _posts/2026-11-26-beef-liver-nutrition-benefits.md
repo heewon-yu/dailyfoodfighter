@@ -70,6 +70,8 @@ nutrition:
 
 ¹ 수분·구리·콜린은 1일 기준치가 설정되지 않은 항목입니다. 구리와 비타민A는 기준치보다 <strong>상한섭취량</strong>과 비교해야 합니다. 비타민A의 미국 %DV는 900μg RAE를 기준으로 해서 <strong>552%</strong>로 표시됩니다. 국내 기준치(700μg RAE)로 계산하면 709.7%입니다.
 
+*※ 출처: [USDA FoodData Central FDC 169451](https://fdc.nal.usda.gov/food-details/169451/nutrients) — Beef, variety meats and by-products, liver, raw (SR Legacy). 표의 100g당 열량 135 kcal과 단백질 20.4 g은 이 항목의 값이며, 조리 상태가 다르면 값도 달라집니다.*
+
 ### 표 읽는 법: 100g에 하루치가 여러 개 들어 있습니다
 
 이 표는 <strong>단백질 식품표가 아니라 농축 미량영양소표</strong>입니다. 열량은 135kcal로 닭가슴살보다 낮은데, 비타민과 미네랄은 몇 배에서 수십 배입니다.
@@ -123,7 +125,7 @@ nutrition:
 
 ### 헴철 4.9mg, 흡수율이 다른 철분이다
 
-식품의 철은 <strong>헴철</strong>(동물성)과 <strong>비헴철</strong>(식물성)로 나뉩니다. 문헌에서 흔히 인용하는 흡수율 범위는 헴철 <strong>15~35%</strong>, 비헴철 2~20%이며, 실제 흡수량은 개인의 철 상태와 같은 끼니의 구성(비타민C·탄닌·칼슘)에 따라 크게 달라집니다. 소간의 철 4.9mg은 전부에 가깝게 헴철입니다.
+식품의 철은 <strong>헴철</strong>(동물성)과 <strong>비헴철</strong>(식물성)로 나뉩니다. 문헌이 제시하는 흡수율 범위는 헴철 <strong>15~35%</strong>, 비헴철 2~20%입니다(Hurrell &amp; Egli, Am J Clin Nutr 2010). 단일 값이 아니라 측정 조건에 따라 갈리는 범위이며, 실제 흡수량은 개인의 철 상태와 같은 끼니의 구성(비타민C·탄닌·칼슘)에 따라 크게 달라집니다. 소간의 철 4.9mg은 전부에 가깝게 헴철입니다.
 
 그래서 숫자만 비교하면 착각하기 쉽습니다. 시금치 100g의 철은 2.7mg으로 소간의 절반이지만, <strong>옥살산에 묶여 흡수율이 낮습니다</strong>. 소간 50g(철 2.5mg)이 시금치 100g보다 실제로 흡수되는 철이 많을 수 있습니다. 철결핍 빈혈을 진단받은 사람에게 소간이 자주 권해지는 이유입니다.
 
@@ -238,4 +240,4 @@ nutrition:
 - <strong>우유에 30분 담그고 1cm 두께로 센 불 1분 30초</strong>, 중심 71℃ 이상이 조리의 기본입니다.
 
 
-**추가 근거:** [NIH 식이보충제 사무국 비타민A 사실표](https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/)(상한 3,000μg RAE·임신 중 주의), [USDA FoodData Central](https://fdc.nal.usda.gov/)(원료 간 169451·팬구이 168627), 농촌진흥청 국가표준식품성분 DB '소 부산물, 간, 생것'.
+**추가 근거:** [NIH 식이보충제 사무국 비타민A 사실표](https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/)(상한 3,000μg RAE·임신 중 주의), [USDA FoodData Central](https://fdc.nal.usda.gov/)(원료 간 169451·팬구이 168627), 농촌진흥청 국가표준식품성분 DB '소 부산물, 간, 생것', 헴철·비헴철 흡수율 범위는 [Hurrell R, Egli I. Iron bioavailability and dietary reference values. Am J Clin Nutr 2010;91(5):1461S-1467S](https://doi.org/10.3945/ajcn.2010.28674f).

@@ -58,6 +58,8 @@ The values below describe **raw Asian pear (nashi pear), edible portion**, as pu
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Water, total sugars and sorbitol carry no Daily Value, so absolute amounts are listed. Sorbitol content varies with cultivar and ripeness, from roughly 1.5 g to 3.5 g per 100 g; Korean pears tend toward the higher end.
 
+*※ Source: [USDA FoodData Central FDC 168177](https://fdc.nal.usda.gov/food-details/168177/nutrients) — Pears, asian, raw (SR Legacy). The 42 kcal and 0.5 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Pears, asian, raw) · Korea Ministry of Food and Drug Safety, Food Composition Table (배, 생것) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> literature on sorbitol in Asian pear and pear juice
 </div>

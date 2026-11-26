@@ -30,7 +30,7 @@ nutrition:
 
 Nutritionally, their strength is not simply a high protein number. Per 100 g dry, lentils supply 24.6 g protein alongside 10.7 g fiber, 479 mcg folate, 6.5 mg iron, and 677 mg potassium—with only 0.15 g of saturated fat and no cholesterol at all.
 
-Their starch is also structurally unusual. The high amylose fraction and intact cell walls mean digestive enzymes reach it slowly, producing a measured glycemic index of roughly 29–32—less than half that of white rice.
+Their starch is also structurally unusual. The high amylose fraction and intact cell walls mean digestive enzymes reach it slowly, producing a measured glycemic index of roughly 16–32 across studies (29–32 in the 2008 tables, 16–32 in the 2021 edition)—well under half that of white rice.
 
 Drawing on USDA FoodData Central analytical profiles and published human trials, this monograph details the precise nutrient composition, four principal physiological effects, a practical soaking-and-cooking protocol that reduces phytic acid and bloating, and the kidney-disease and gout considerations that matter most.
 

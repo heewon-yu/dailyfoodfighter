@@ -66,7 +66,7 @@ Pork tenderloin provides exceptional nitrogen density, minimal saturated lipids,
 | **Selenium (Se)** | 38.00 mcg | 69.1% |
 | **Iron (Fe)** | 1.10 mg | 6.1% |
 
-*※ Source: USDA FoodData Central Standard Reference (Pork, fresh, loin, tenderloin, separable lean only, raw).*  
+*※ Data basis: the figures above follow the Korean national food composition table (MFDS food nutrient database) for raw pork tenderloin, edible portion. The matching [USDA FoodData Central FDC 168312](https://fdc.nal.usda.gov/food-details/168312/nutrients) — Pork, fresh, loin, tenderloin, separable lean and fat, raw (SR Legacy) lists 120 kcal and 20.65 g protein per 100 g. The 120 kcal and 21.8 g here are the Korean analysis; the lean-only USDA entry (FDC 168249) lists 109 kcal and 20.95 g, so trimming explains most of the gap.*
 *¹ Water represents intracellular and extracellular hydration volume rather than a regulated statutory dietary value.*  
 *※ 'Daily value not established' applies to amino acid fractions and bioactive lipids devoid of formal statutory DRI percentage baselines.*
 

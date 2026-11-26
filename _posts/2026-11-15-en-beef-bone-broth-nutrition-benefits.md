@@ -64,6 +64,20 @@ Values vary widely with the bone-to-water ratio, simmering duration, and fat rem
 
 *¹ How to read this table: Percent Daily Values (%DV) are calculated against the standard 2,000-kcal U.S. FDA adult reference intake. Water and total sugars carry 'See note¹' because they have no absolute daily requirement, and amino acids or collagen peptides carry 'No DV' (Daily Value not established). Across registered products, energy spans 14–21 kcal, protein 2.5–4.3 g, and sodium 35–180 mg per 100 g; unsalted homemade broth sits at the low end of the sodium range.*
 
+*※ Data basis: each value is a median across several commercial beef-bone-broth products rather than a single analysed entry. Bone-to-water ratio, simmering time and fat removal differ by product, so no one USDA FoodData Central entry represents it; canned beef broth (FDC 171538) lists 7 kcal and 1.14 g protein and is far thinner.*
+
+### What one cup and one bowl of bone broth deliver
+
+Broth is drunk by the cup or the bowl, and the weight is mostly water.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 cup | 240 g | 40.8 kcal | 7.92 g |
+| 1 soup bowl | 300 g | 51 kcal | 9.90 g |
+| 1 large pot (4 servings) | 1000 g | 170 kcal | 33.00 g |
+
+*Note: one cup (240 g) is 41 kcal and 7.9 g protein; a 300 g soup bowl is 51 kcal. The sodium in a bowl depends entirely on how much salt and soy sauce went in, not on the bones.*
+
 The calcium figure deserves emphasis. Even after twelve hours of simmering, calcium reaches only about 10 mg per 100 g—less than one tenth of the 113 mg in an equivalent weight of milk—because bone mineral is nearly insoluble in water. Treating bone broth as a calcium supplement is not supported by measurement.
 
 ---

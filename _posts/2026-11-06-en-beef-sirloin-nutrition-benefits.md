@@ -62,6 +62,18 @@ Synthesized from standardized analytical spectroscopic determinations cataloged 
 
 *※ Source: [USDA FoodData Central FDC 168726](https://fdc.nal.usda.gov/food-details/168726/nutrients) — Beef, top sirloin, steak, separable lean and fat, trimmed to 1/8 in fat, raw (SR Legacy). The 201 kcal and 20.3 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
 
+### What 4 oz, 100 g and a whole steak deliver
+
+Weights below are USDA portion weights for raw sirloin. A whole steak is rarely one serving.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 100 g raw | 100 g | 201 kcal | 20.30 g |
+| 4 oz raw | 113 g | 227.1 kcal | 22.94 g |
+| 1 steak, whole (5–6 servings) | 608 g | 1222.1 kcal | 123.42 g |
+
+*Note: 4 oz raw (113 g) is the usual single serving and loses roughly a quarter of its weight in cooking. A whole 608 g steak is five or six servings, not one.*
+
 ---
 
 ## 2. What Are the Benefits of Beef Sirloin? Four Evidence-Backed Effects

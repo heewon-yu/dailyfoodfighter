@@ -58,6 +58,8 @@ Values below describe **fresh natto, plain**. Retail packs weigh 45–55 g and i
 
 **How to read the table:** energy, carbohydrate, protein, fat and sodium percentages use U.S. Daily Values for a 2,000 kcal diet; vitamin and mineral percentages use adult RDAs or AIs. ¹Water, total sugars and MK-7 have no established Daily Value, so absolute amounts are shown. MK-7 ranges from 939 µg per 100 g in Japanese analytical studies to 1,103 µg in the Korean food database. Because MK-7 has a plasma half-life of roughly three days—far longer than vitamin K1—blood levels stay stable without eating natto daily.
 
+*※ Data basis: the figures follow the Korean food nutrient database and commercial natto labels. The USDA FoodData Central entry Natto (FDC 172443) lists 211 kcal and 19.4 g protein per 100 g; strain and soybean blend shift that protein figure.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · Korean National Standard Food Composition Table (K-FIND) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed literature</a>
 </div>

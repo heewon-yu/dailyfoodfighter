@@ -124,7 +124,7 @@ Riboflavin at 2.755 mg per 100 g (212% DV) is a cofactor for the electron transp
 
 ### Heme iron: the part of liver that changes clinical advice
 
-Iron in food comes in two forms. The absorption ranges usually quoted are 15–35% for heme iron, bound in hemoglobin and myoglobin, and 2–20% for non-heme iron from plants, which phytates, calcium and polyphenols inhibit. Real absorption depends on the person's iron status and on what else is on the plate.
+Iron in food comes in two forms. The literature gives 15–35% absorption for heme iron, bound in hemoglobin and myoglobin, and 2–20% for non-heme iron from plants, which phytates, calcium and polyphenols inhibit (Hurrell &amp; Egli, Am J Clin Nutr 2010). These are ranges that move with the measurement conditions, not fixed values, and real absorption depends on the person's iron status and on what else is on the plate.
 
 Liver's 4.9 mg is nearly all heme. That makes it one of the most effective foods for iron-deficiency anemia, which affects roughly a third of women of reproductive age worldwide. Comparing milligrams across foods is misleading: 50 g of liver (2.45 mg heme iron) can deliver more absorbed iron than 100 g of spinach (2.7 mg non-heme iron, much of it bound by oxalate).
 
@@ -238,4 +238,4 @@ The liver processes and detoxifies compounds rather than storing them, so the co
 - **Soak 20–30 minutes, sear 1 cm slices 90 seconds a side, cook to 71°C**, and keep tea and coffee an hour away.
 
 
-**Additional references:** [NIH Office of Dietary Supplements, vitamin A fact sheet](https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/) (upper limit 3,000 µg RAE, pregnancy caution) and [USDA FoodData Central](https://fdc.nal.usda.gov/) entries for raw liver (FDC 169451) and pan-fried liver (FDC 168627).
+**Additional references:** [NIH Office of Dietary Supplements, vitamin A fact sheet](https://ods.od.nih.gov/factsheets/VitaminA-HealthProfessional/) (upper limit 3,000 µg RAE, pregnancy caution), [USDA FoodData Central](https://fdc.nal.usda.gov/) entries for raw liver (FDC 169451) and pan-fried liver (FDC 168627), and [Hurrell R, Egli I. Iron bioavailability and dietary reference values. Am J Clin Nutr 2010;91(5):1461S–1467S](https://doi.org/10.3945/ajcn.2010.28674f) for the heme and non-heme absorption ranges.

@@ -60,6 +60,8 @@ nutrition:
 
 **표 읽는 법:** 열량·탄수화물·단백질·지방·나트륨 %는 식품 표시용 1일 영양성분 기준치(2,000kcal) 대비, 비타민C·엽산·칼륨·칼슘·망간 %는 한국인 영양소 섭취기준 성인 권장량 대비입니다. ¹수분·베타카로틴·불용성 식이섬유·탄닌은 1일 기준치가 없어 절대량만 적었습니다. 망간 13%는 하루 필요량의 8분의 1을 감 한 개 남짓으로 채운다는 뜻으로, 뼈 형성과 항산화 효소(MnSOD) 작동에 쓰입니다.
 
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 단감, 생것, 껍질 제외 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 169941](https://fdc.nal.usda.gov/food-details/169941/nutrients) — Persimmons, japanese, raw (SR Legacy)는 100g당 70 kcal·단백질 0.58 g입니다. 국내 단감(부유 등)과 미국에서 분석한 일본 감은 품종과 숙성도가 달라 당과 열량이 다릅니다.*
+
 <div class="source-note">
 <strong>출처:</strong> 식품의약품안전처·농촌진흥청 국가표준식품성분표(K-FIND) · <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed 문헌</a>
 </div>

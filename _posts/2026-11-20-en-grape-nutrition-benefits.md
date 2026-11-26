@@ -68,6 +68,8 @@ The values below describe **raw red or green European-type grapes, edible portio
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Total sugars, water and polyphenols carry no Daily Value, so absolute amounts are listed. Polyphenol content is expressed as gallic acid equivalents and varies widely with cultivar, ripeness, skin color and growing conditions; darker, thicker-skinned grapes carry more. Vitamin C is low enough that grapes should not be counted as a vitamin C source — one orange supplies about 17 times as much.
 
+*※ Source: [USDA FoodData Central FDC 174683](https://fdc.nal.usda.gov/food-details/174683/nutrients) — Grapes, red or green (European type), raw (SR Legacy). The 69 kcal and 0.72 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Grapes, red or green, raw) · Korea Rural Development Administration, National Food Composition Table (포도, 캠벨얼리, 생것) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> literature on grape polyphenols, resveratrol bioavailability and grape glycemic response
 </div>

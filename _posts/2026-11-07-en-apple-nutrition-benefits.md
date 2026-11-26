@@ -92,7 +92,7 @@ The flavonol **quercetin**, alongside its glycosidic conjugates (quercetin-3-gal
 Mechanistically, quercetin acts as a direct scavenger of superoxide anions ($O_2^{\bullet-}$), preventing the oxidative degradation of endothelial-derived **nitric oxide (NO)** into cytotoxic peroxynitrite ($ONOO^-$). Furthermore, quercetin stimulates phosphorylation of endothelial nitric oxide synthase (eNOS) at Ser1177, promoting smooth muscle vasorelaxation and attenuating systemic peripheral vascular resistance. Clinical trials demonstrate that habitual apple consumption significantly improves flow-mediated dilation (FMD) and lowers circulating oxidized LDL (oxLDL) particles.
 
 ### ③ Modulation of Postprandial Glycemia via SGLT1 Inhibition
-Despite its palpable natural sweetness, the whole apple possesses a remarkably low **glycemic index (GI ~36)** and **glycemic load (GL ~5)**. 
+Despite its palpable natural sweetness, the whole apple possesses a remarkably low **glycemic index (GI 36–44)** and **glycemic load (GL 5–6)**. 
 
 The three-dimensional viscous matrix formed by hydrated soluble pectin delays gastric emptying and physically entraps luminal monosaccharides, retarding their transit across the brush border membrane. Concurrently, the unique apple dihydrochalcone **phloridzin** acts as a competitive inhibitor of the **sodium-glucose cotransporter 1 (SGLT1)** located on enterocyte apical membranes. This dual action blunts postprandial glucose surges and reduces compensatory insulin hypersecretion by pancreatic beta cells.
 
@@ -152,7 +152,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
 **A:** It is a clinical myth. Apples are never toxic at night. However, organic malic acids stimulate gastric secretions, which might exacerbate acid reflux in sensitive recumbent individuals, making morning ingestion preferable.
 
 ### Q2. Can diabetic individuals safely consume apples without provoking glycemic volatility?
-**A:** Yes, one small-to-medium apple (GI ~36) daily is metabolically beneficial. Soluble pectin matrices decelerate intestinal carbohydrate uptake, smoothing postprandial glucose transitions.
+**A:** Yes, one small-to-medium apple (GI 36–44) daily is metabolically beneficial. Soluble pectin matrices decelerate intestinal carbohydrate uptake, smoothing postprandial glucose transitions.
 
 ### Q3. Does enzymatic browning on sliced apples pose metabolic or toxic risks?
 **A:** No. Polyphenol oxidase turns exposed polyphenols into brown melanoid pigments. While this marginally depletes antioxidant potency, no cellular toxicity occurs. A lemon water dip prevents this enzymic oxidation.
@@ -182,7 +182,7 @@ Apples possess substantial concentrations of organic malic and citric acids (pH 
       "name": "Can diabetic individuals safely consume apples without provoking glycemic volatility?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Yes, one small-to-medium apple (GI ~36) daily is metabolically beneficial. Soluble pectin matrices decelerate intestinal carbohydrate uptake, smoothing postprandial glucose transitions."
+        "text": "Yes, one small-to-medium apple (GI 36–44) daily is metabolically beneficial. Soluble pectin matrices decelerate intestinal carbohydrate uptake, smoothing postprandial glucose transitions."
       }
     },
     {

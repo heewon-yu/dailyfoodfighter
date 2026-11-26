@@ -65,6 +65,8 @@ The values below describe **raw oriental radish (daikon), edible portion**, from
 
 **How to read the table:** percentages use the U.S. Daily Values printed on food labels, based on a 2,000-calorie reference diet. ¹Water, total sugars and glucosinolates carry no Daily Value, so absolute amounts are listed. Glucosinolate content varies widely with cultivar, growing conditions and how the root is cut; the range above reflects published analyses of daikon.
 
+*※ Source: [USDA FoodData Central FDC 168451](https://fdc.nal.usda.gov/food-details/168451/nutrients) — Radishes, oriental, raw (SR Legacy). The 18 kcal and 0.6 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 <div class="source-note">
 <strong>Sources:</strong> <a href="https://fdc.nal.usda.gov/" rel="nofollow noopener" target="_blank">USDA FoodData Central</a> (Radishes, oriental, raw) · Korea Ministry of Food and Drug Safety, National Food Composition Table (무, 조선무, 생것) · <a href="https://pubmed.ncbi.nlm.nih.gov/" rel="nofollow noopener" target="_blank">PubMed</a> literature on radish isothiocyanates and myrosinase
 </div>

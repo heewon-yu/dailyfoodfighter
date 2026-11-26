@@ -70,6 +70,8 @@ Values below are the USDA FoodData Central SR Legacy entry for raw cauliflower, 
 
 ¹ Water and total sugars have no Daily Value. “No DV” means the FDA has not set a reference amount — it does not mean zero.
 
+*※ Source: [USDA FoodData Central FDC 169986](https://fdc.nal.usda.gov/food-details/169986/nutrients) — Cauliflower, raw (SR Legacy). The 25 kcal and 1.92 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
+
 ### How to read the table
 
 Three things stand out, and one of them is a trap.

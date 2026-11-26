@@ -61,7 +61,7 @@ nutrition:
 | **칼륨 (Potassium, K)** | 156.00 mg | 4.5% |
 | **칼슘 (Calcium, Ca)** | 45.00 mg | 6.4% |
 
-*※ 출처: 미국 농무부(USDA FoodData Central) 표준 분석 데이터.*  
+*※ 데이터 기준: 표의 수치는 국내 국가표준식품성분표(식약처 식품영양성분 DB)의 굴, 생것, 가식부 분석값입니다. 같은 식품의 [USDA FoodData Central FDC 174219](https://fdc.nal.usda.gov/food-details/174219/nutrients) — Mollusks, oyster, Pacific, raw (SR Legacy)는 100g당 81 kcal·단백질 9.45 g입니다. 이 글의 68 kcal·단백질 7.13 g은 국내 분석값이고, 차이는 시료와 분석 시기에서 옵니다.*
 *¹ 수분은 체액 항상성 유지를 위한 기본 용매로 분류됩니다.*  
 *※ '기준치 없음' 표기는 기능성 아미노산·지방산 및 대사산물로 DRI상 일일 권장 백분율(%DV)이 법적으로 규정되지 않은 항목입니다.*
 

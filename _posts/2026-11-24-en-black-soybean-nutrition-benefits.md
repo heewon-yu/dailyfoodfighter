@@ -66,6 +66,20 @@ The values below describe **dry, mature black soybean seeds**, the form you buy 
 
 ¹ Total sugars have no Daily Value; the FDA reference applies to added sugars, and a dry bean contains none.
 
+*※ Data basis: the figures follow the Korean national food composition table entry for seoritae, a Korean black soybean. The USDA entry Beans, black, mature seeds, raw (FDC 173734) lists 341 kcal and 21.6 g protein for a different cultivar (black turtle bean), so it is not cited as the source here.*
+
+### What 30 g of dry beans, one handful and one cup deliver
+
+Black soybeans are stored dry and eaten cooked, and water roughly doubles the weight, so the dry weight is the number to log.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 handful, roasted (20 g) | 20 g | 76.2 kcal | 7.20 g |
+| 30 g dry (about 100 beans) | 30 g | 114.3 kcal | 10.80 g |
+| 1 cup, dry | 194 g | 739.1 kcal | 69.84 g |
+
+*Note: 30 g of dry seoritae (about 100 beans) is 114 kcal and about 11 g of protein. One cup of dry beans (194 g) is a week of servings, not one.*
+
 ### How to read the table: 100 g dry is a week of beans
 
 A single black soybean weighs about 0.3 g, so **100 g dry is roughly 300 to 400 beans** — seven to ten servings, not one. The column describes the raw ingredient, not a plate.

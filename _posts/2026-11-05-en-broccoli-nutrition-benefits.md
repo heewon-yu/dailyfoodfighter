@@ -53,6 +53,19 @@ Synthesized from empirical spectroscopic assays cataloged in the United States D
 | Potassium | 316.00 mg | 6.7% |
 | Calcium | 47.00 mg | 3.6% |
 
+### What one spear, one stalk and one cup deliver
+
+Nobody eats broccoli by the 100 g. Weights below are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 spear | 31 g | 10.5 kcal | 0.87 g |
+| 1 cup chopped | 91 g | 30.9 kcal | 2.57 g |
+| 1 stalk | 151 g | 51.3 kcal | 4.26 g |
+| 1 side-dish portion, cooked | 100 g | 34 kcal | 2.82 g |
+
+*Note: cooking drives off water, so cooked broccoli is slightly denser per gram while the pile on the plate shrinks. Blanch for three minutes or less to keep sulforaphane.*
+
 **How to read the table.** U.S. %DV shows how much 100 g raw contributes to the [FDA Daily Value](https://www.fda.gov/food/nutrition-facts-label/how-understand-and-use-nutrition-facts-label). “No DV” means no reference value applies. ¹ Protein is shown in grams, as on most general-use U.S. food labels.
 
 *Data source: [USDA FoodData Central FDC 170379](https://fdc.nal.usda.gov/food-details/170379/nutrients) — broccoli, raw. Glucoraphanin content varies widely by cultivar and growing conditions, so a range is given.*

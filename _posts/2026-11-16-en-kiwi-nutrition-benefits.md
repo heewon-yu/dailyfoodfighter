@@ -67,8 +67,20 @@ The values below reflect **raw green kiwifruit (edible flesh, *Actinidia delicio
 
 *※ Source: [USDA FoodData Central FDC 168153](https://fdc.nal.usda.gov/food-details/168153/nutrients) — Kiwifruit, green, raw (SR Legacy). The 61 kcal and 1.14 g protein per 100 g in the table above are this entry’s values; a different cooking state changes them.*
 
+### What one kiwi, two kiwis and one cup of slices deliver
+
+Kiwis are counted, not weighed. Weights below are USDA portion weights.
+
+| Portion | Edible weight | Energy | Protein |
+| :--- | :--- | :--- | :--- |
+| 1 fruit (5 cm) | 69 g | 42.1 kcal | 0.79 g |
+| 2 fruits | 138 g | 84.2 kcal | 1.57 g |
+| 1 cup, sliced | 180 g | 109.8 kcal | 2.05 g |
+
+*Note: one fruit (69 g) is 42 kcal and about 64 mg of vitamin C, most of a day’s requirement. Two a day is a sensible ceiling for most adults, set by fiber and oxalate rather than by calories.*
+
 ### How to Read the Table: Green vs. Gold Kiwi
-- **Green Kiwi (Hayward):** Higher insoluble/soluble fiber (3.0 g/100 g) and high **actinidin** activity make it superior for constipation relief, post-meal protein digestion, and gentler glycemic response (GI ~39–47).
+- **Green Kiwi (Hayward):** Higher insoluble/soluble fiber (3.0 g/100 g) and high **actinidin** activity make it superior for constipation relief, post-meal protein digestion, and gentler glycemic response (GI ~39–53).
 - **Gold Kiwi (SunGold):** At **161.3 mg vitamin C per 100 g**, one medium gold kiwi easily exceeds an adult's entire daily vitamin C requirement while offering lower acidity for sensitive mouths.
 
 ---
