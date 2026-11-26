@@ -23,10 +23,10 @@
 <title>마일지도 | 대한항공 SKYPASS 보너스 좌석 검색</title>
 <meta name="description" content="대한항공 SKYPASS 국제선 프레스티지·일등석 보너스 좌석을 노선·날짜별로 확인하고, 공식 공제표 기준 성수기·평수기 마일리지와 보너스 핫픽 할인을 계산해 보여주는 마일지도입니다.">
 <meta name="theme-color" content="#0f2340">
-<link rel="stylesheet" href="/air/assets/milemap-app.css?v=7">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=8">
 <script src="/air/assets/app.js?v=7" defer></script>
 <script src="/air/assets/award.js?v=7" defer></script>
-<script src="/air/assets/view-search.js?v=7" defer></script>
+<script src="/air/assets/view-search.js?v=8" defer></script>
 </head>
 <body data-air-page="search">
 <main id="air-main" class="air-main">
@@ -60,6 +60,15 @@
           <input class="air-input air-combo__input" id="air-origin-input" type="search"
                  placeholder="도시·공항명·코드 (예: 인천, 도쿄, ICN)" autocomplete="off" spellcheck="false">
         </div>
+      </div>
+
+      <div class="air-field air-field--swap">
+        <button type="button" class="air-swap" id="air-swap"
+                aria-label="출발 공항과 도착 공항 바꾸기" title="출발·도착 공항 바꾸기" aria-describedby="air-swap-help">
+          <span aria-hidden="true">⇄</span>
+        </button>
+        <span class="air-sr-only" id="air-swap-help">출발 공항과 도착 공항에 입력된 값을 서로 바꿉니다.</span>
+        <span class="air-sr-only" id="air-swap-live" role="status" aria-live="polite"></span>
       </div>
 
       <div class="air-field air-field--destination">

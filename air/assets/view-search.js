@@ -840,6 +840,36 @@
       renderRoundTrip();
     });
 
+    /* 출발·도착 공항 바꾸기: 편도·왕복 모두에서 입력값과 선택 코드를 즉시 교환한다. */
+    const swapButton = $("air-swap");
+    if (swapButton) swapButton.addEventListener("click", () => {
+      const origin = state.origin;
+      const destination = state.destination;
+
+      if (!origin && !destination) {
+        $("air-origin-input").focus();
+        return;
+      }
+
+      state.origin = destination;
+      state.destination = origin;
+      state.page = 1;
+
+      if (comboOrigin) comboOrigin.setValue(state.origin);
+      if (comboDestination) comboDestination.setValue(state.destination);
+
+      const button = $("air-swap");
+      button.classList.toggle("is-swapped");
+      if (window.matchMedia && window.matchMedia("(max-width: 720px)").matches) {
+        const live = $("air-swap-live");
+        if (live) live.textContent = `${state.origin || "출발"} → ${state.destination || "도착"}`;
+      }
+
+      apply(true);
+      renderResults();
+      renderRoundTrip();
+    });
+
     $("air-reset").addEventListener("click", () => {
       state.origin = "";
       state.destination = "";

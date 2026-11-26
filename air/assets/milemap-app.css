@@ -1033,13 +1033,50 @@ img { max-width: 100%; }
 /* 검색 폼 그리드 */
 .air-filters--search > .air-field--origin,
 .air-filters--search > .air-field--destination { grid-column: span 4; }
-.air-filters--search > .air-field--trip { grid-column: span 4; }
+.air-filters--search > .air-field--swap { grid-column: span 1; }
+.air-filters--search > .air-field--trip { grid-column: span 3; }
 .air-filters--search > .air-field--month,
 .air-filters--search > .air-field--status,
 .air-filters--search > .air-field--sort { grid-column: span 3; }
 .air-filters--search > .air-field--wide { grid-column: span 12; }
 #air-search-form.is-round .air-field--status,
 #air-search-form.is-round .air-field--sort { grid-column: span 6; }
+
+/* 출발·도착 공항 바꾸기 */
+.air-filters--search > .air-field--swap {
+  align-self: end;
+  justify-self: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.air-swap {
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--navy);
+  font-size: 19px;
+  line-height: 1;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+.air-swap > span { display: block; transition: transform .18s ease; }
+.air-swap:hover { background: var(--line-2); border-color: #b9c7dd; }
+.air-swap:active { transform: scale(.94); }
+.air-swap.is-swapped > span { transform: rotate(180deg); }
+@media (prefers-reduced-motion: reduce) {
+  .air-swap, .air-swap > span { transition: none; }
+}
 
 .air-seg--trip {
   display: flex;
@@ -1299,6 +1336,11 @@ img { max-width: 100%; }
 
 @media (max-width: 980px) {
   .air-filters--search > .air-field { grid-column: span 6; }
+  .air-filters--search > .air-field--swap {
+    grid-column: span 12;
+    justify-self: end;
+    margin: -4px 0 -4px 0;
+  }
   .air-filters--search > .air-field--wide { grid-column: span 12; }
 }
 
@@ -1353,6 +1395,11 @@ img { max-width: 100%; }
   /* v4: 검색 폼 · 왕복 · 공제표 */
   .air-filters--search > .air-field--origin,
   .air-filters--search > .air-field--destination { grid-column: span 12; }
+  .air-filters--search > .air-field--swap {
+    grid-column: span 12;
+    justify-self: end;
+    margin: -2px 0;
+  }
   .air-filters--search > .air-field--trip { grid-column: span 6; }
   .air-round { gap: 10px; padding: 12px; }
   .air-round > .air-field { flex: 1 1 140px; }
