@@ -152,6 +152,7 @@
     let fittedOnce = false;
     let started = false;
     let renderVersion = 0;
+    let summary = null;
 
     const bodyId = "air-map-body";
 
@@ -179,8 +180,7 @@
       Air.el("span", null, [Air.el("i", { style: "background:#3478bc" }), "좌석 표시 노선"]),
       Air.el("span", null, [Air.el("i", { style: "background:#e88b25" }), "성수기 좌석 포함"]),
       Air.el("span", null, [Air.el("i", { style: "background:#16965d" }), "신규 좌석 포함"]),
-      Air.el("span", null, [Air.el("i", { style: "background:#183951" }), "출발 공항"]),
-      Air.el("span", null, [Air.el("i", { style: `background:${SELECTED_COLOR}` }), "지금 보고 있는 노선"])
+      Air.el("span", null, [Air.el("i", { style: "background:#183951" }), "출발 공항"])
     ]);
 
     const mapEl = Air.el("div", {
@@ -198,6 +198,21 @@
 
     function selection() {
       return typeof opts.getSelection === "function" ? (opts.getSelection() || {}) : {};
+    }
+
+    function renderStatus() {
+      if (!summary || !summary.total) {
+        status.textContent = "지금은 좌석 표시가 확인된 노선이 없습니다. 아래 달력에서 출발지·도착지를 직접 골라 주세요.";
+        return;
+      }
+
+      const current = selection();
+      const selected = current.origin && current.destination
+        ? ` · 지금 보고 있는 노선 ${Air.airportShort(current.origin)} ${current.origin} → ${Air.airportShort(current.destination)} ${current.destination}`
+        : "";
+      const missing = summary.missing ? ` · 좌표 미등록 ${summary.missing}개` : "";
+
+      status.textContent = `좌석 표시 노선 ${summary.shown}개${missing}${selected}`;
     }
 
     /** 지금 달력이 보고 있는 노선을 지도에서 강조한다. */
@@ -219,6 +234,8 @@
         /* CircleMarker 에는 setZIndexOffset 이 없으므로 bringToFront 로만 앞쪽에 올린다. */
         if (isSelected && typeof entry.marker.bringToFront === "function") entry.marker.bringToFront();
       }
+
+      renderStatus();
     }
 
     function focusRoute(route) {
@@ -288,17 +305,19 @@
       }
 
       if (bounds.length && !fittedOnce) {
-        map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
+        /* 넓은 화면은 노선 전체가 들어오도록 맞추고, 좁은 화면은 출발 공항(인천) 중심 개요로 둔다. */
+        if (map.getSize().x >= 720) map.fitBounds(bounds, { padding: [30, 30], maxZoom: 5 });
+        else map.setView(bounds[0], 2);
         fittedOnce = true;
       }
 
+      summary = {
+        total: routes.size,
+        shown: routes.size - missing,
+        missing
+      };
+
       paintSelection();
-
-      const shown = routes.size - missing;
-
-      status.textContent = routes.size
-        ? `좌석 표시 노선 ${shown}개 표시 · 좌표 미등록 ${missing}개 · 지도에서 노선을 누르면 아래 달력이 그 노선으로 바뀝니다.`
-        : "지금은 좌석 표시가 확인된 노선이 없습니다. 아래 달력에서 출발지·도착지를 직접 골라 주세요.";
     }
 
     async function start() {
@@ -314,7 +333,7 @@
         coords = coordinates();
 
         if (!map) {
-          map = L.map("air-map", { minZoom: 2, maxZoom: 9, worldCopyJump: true })
+          map = L.map("air-map", { minZoom: 1, maxZoom: 9, worldCopyJump: true })
             .setView([30, 110], 2);
 
           L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
