@@ -32,3 +32,8 @@
   X-Robots-Tag: noindex, nofollow
 /benefits/*
   X-Robots-Tag: noindex, nofollow
+
+/air
+  X-Robots-Tag: noindex, nofollow
+/air/*
+  X-Robots-Tag: noindex, nofollow
