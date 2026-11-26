@@ -254,7 +254,7 @@
       Air.el("h2", { text: "일등석 예약 가능" }),
       Air.el("p", { class: "air-results-summary" }, [
         Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"]),
-        Air.el("span", { text: DIRECTION_LABEL[state.direction] + (state.airport ? ` · ${state.airport}` : "") }),
+        Air.el("span", { text: DIRECTION_LABEL[state.direction] + (state.airport ? ` · ${Air.airportShort(state.airport)} (${state.airport})` : "") }),
         Air.el("span", { class: "air-results-summary__date", text: "출발일 빠른 순" })
       ])
     ]));
