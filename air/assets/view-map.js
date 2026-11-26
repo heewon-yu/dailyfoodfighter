@@ -382,7 +382,7 @@
       start();
     }
 
-    setCollapsed(opts.collapsed === true);
+    setCollapsed(opts.collapsed !== false);
 
     return {
       refresh() { draw(); },

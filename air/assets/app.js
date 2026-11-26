@@ -78,7 +78,6 @@
   const NAV = [
     { key: "search", href: "", label: "검색" },
     { key: "calendar", href: "calendar/", label: "달력/지도" },
-    { key: "new", href: "new/", label: "신규" },
     { key: "mileage", href: "mileage/", label: "공제표" },
     { key: "guide", href: "guide/", label: "이용안내" }
   ];
