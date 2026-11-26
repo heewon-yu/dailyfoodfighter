@@ -21,6 +21,7 @@
 
   let comboOrigin;
   let comboDestination;
+  let monthSelect;
   let slot;
 
   function readUrl() {
@@ -71,6 +72,13 @@
       render();
     });
 
+    monthSelect = Air.el("select", { class: "air-select", id: "air-cal-month" });
+    monthSelect.addEventListener("change", () => {
+      state.month = monthSelect.value;
+      state.selectedDate = "";
+      render();
+    });
+
     const swap = Air.el("button", {
       type: "button",
       class: "air-btn air-btn--ghost air-btn--sm",
@@ -110,6 +118,10 @@
         Air.el("div", { class: "air-field" }, [
           Air.el("label", { for: "air-cal-cabin", text: "좌석 등급" }),
           cabinSelect
+        ]),
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-cal-month", text: "출발월" }),
+          monthSelect
         ])
       ]),
       Air.el("div", { class: "air-actions" }, [swap])
@@ -402,10 +414,32 @@
     return panel;
   }
 
+  function syncMonthSelect() {
+    if (!monthSelect) return;
+    const months = availableMonths();
+    monthSelect.replaceChildren();
+    if (!months.length) {
+      monthSelect.append(new Option("선택 가능한 월 없음", ""));
+      monthSelect.disabled = true;
+      return;
+    }
+    monthSelect.disabled = false;
+    for (const m of months) {
+      const [y, mm] = m.split("-");
+      monthSelect.append(new Option(`${y}년 ${Number(mm)}월`, m));
+    }
+    if (state.month && months.includes(state.month)) {
+      monthSelect.value = state.month;
+    } else {
+      monthSelect.value = months[0];
+    }
+  }
+
   function renderCalendarOnly() {
     if (!slot) return;
     const y = window.scrollY;
     slot.replaceChildren(calendar());
+    syncMonthSelect();
     syncUrl();
     if (state.mapPanel) state.mapPanel.paintSelection();
     window.scrollTo({ top: y });
