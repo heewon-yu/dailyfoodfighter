@@ -25,6 +25,9 @@ layout: null
   <url><loc>{{ site.url }}{{ site.baseurl }}/en/nutrition-calculator/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <!-- 서브앱 — 2026-11-27 색인 허용 -->
   <url><loc>{{ site.url }}{{ site.baseurl }}/map/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/map/restaurants/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/map/stays/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/map/overseas/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/air/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/air/calendar/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/air/first/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
@@ -38,13 +41,19 @@ layout: null
   <url><loc>{{ site.url }}{{ site.baseurl }}/cal/{{ pair[0] }}/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   {% endfor %}
   <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/points-stay/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/weekend-reward/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/macro/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/macro/fear-greed/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/macro/rates-inflation/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/rhythm-classic/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/hormuz/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/government-support/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/business-funding/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/privacy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   {% for page in site.pages %}
   {% if page.url contains '/category/' and page.noindex != true %}
