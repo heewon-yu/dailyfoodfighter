@@ -17,28 +17,3 @@
 
 /feed.xml
   Cache-Control: public, max-age=3600
-
-# Temporary search exclusion for app sub-sites until AdSense re-review passes.
-# Remove these blocks (and nothing else) to restore indexing within seconds.
-/games
-  X-Robots-Tag: noindex, nofollow
-/games/*
-  X-Robots-Tag: noindex, nofollow
-/map
-  X-Robots-Tag: noindex, nofollow
-/map/*
-  X-Robots-Tag: noindex, nofollow
-/benefits
-  X-Robots-Tag: noindex, nofollow
-/benefits/*
-  X-Robots-Tag: noindex, nofollow
-
-/air
-  X-Robots-Tag: noindex, nofollow
-/air/*
-  X-Robots-Tag: noindex, nofollow
-
-/cal
-  X-Robots-Tag: noindex, nofollow
-/cal/*
-  X-Robots-Tag: noindex, nofollow

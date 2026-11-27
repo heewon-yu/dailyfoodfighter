@@ -124,3 +124,19 @@ Not done / still open (no claim of clinical validation):
 - Korean food codes are given for only three foods (chicken breast, banana, sweet potato) because those were the only codes verifiable from the national table; other domestic values name the table without a code.
 - The 7 hub guides have no 1-serving table (they are rankings, not single foods).
 - AdSense re-review pending; the noindex exclusion stays until it passes.
+
+## Search exclusion reversed — 2026-11-27 (전 영역 색인 허용)
+
+**User instruction (2026-11-27).** Remove every `noindex` tied to `dailyfoodfighter.com` and rebuild/deploy so all areas can be indexed. The 2026-11-26 temporary exclusion is over; indexing is now open across the whole site.
+
+What changed:
+
+- `_headers` — deleted all ten `X-Robots-Tag: noindex, nofollow` blocks (`/games`, `/games/*`, `/map`, `/map/*`, `/benefits`, `/benefits/*`, `/air`, `/air/*`, `/cal`, `/cal/*`). Security headers, `/assets/*` immutable caching and the robots/sitemap/feed cache rules are unchanged.
+- Page meta — `cal/index.html`, ten `air/**/index.html` pages and three game pages (`hormuz`, `rhythm-classic`, `scalping-king`) now carry `<meta name="robots" content="index, follow">` instead of `noindex, nofollow`. `map/` and `benefits/` had no robots meta; nothing to change there.
+- `sitemap.xml` — new static entries for the sub-apps: `/map/`, `/air/`, `/air/calendar/`, `/air/first/`, `/air/mileage/`, `/air/route/`, `/air/new/`, `/air/guide/`, `/cal/`, `/games/`, the four game pages, `/benefits/`, `/benefits/privacy/`.
+- `games/index.html` — new static hub (was a 404) listing the four games, so `/games/` returns 200 with `index, follow` and gives the games an internal link path.
+- `robots.txt` — `Allow: /` kept plus explicit `Allow:` lines for `/map/`, `/air/`, `/cal/`, `/games/`, `/benefits/`.
+
+Kept as-is on purpose: `404.html` and the eight legacy category redirect stubs (`/category/*.html`, `/en/category/*.html`) keep `noindex, follow`; the `_layouts/default.html` conditional (`page.noindex`) and the sitemap `noindex` guards exist only to serve those stubs. `air/journey/`, `air/map/` and `air/status/` are client-side redirect stubs (each declares a canonical to another page) and are therefore left out of the sitemap although their meta is now `index, follow`. `air/data/preview/` was not touched.
+
+**Still open:** AdSense re-review was the reason for the earlier exclusion. Indexing is open again while that review is pending — if AdSense rejects the site again, the exclusion can be restored by re-adding the header blocks.

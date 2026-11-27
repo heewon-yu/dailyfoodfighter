@@ -5,6 +5,13 @@ layout: null
 User-agent: *
 Allow: /
 
+# 서브앱도 색인 허용 (2026-11-27) — 별도 차단 규칙 없이 전체 허용
+Allow: /map/
+Allow: /air/
+Allow: /cal/
+Allow: /games/
+Allow: /benefits/
+
 # Major Search Engine Crawlers
 User-agent: Googlebot
 Allow: /

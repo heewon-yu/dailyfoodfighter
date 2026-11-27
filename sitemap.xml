@@ -36,6 +36,23 @@ layout: null
   </url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/nutrition-calculator/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/en/nutrition-calculator/</loc></url>
+  <!-- 서브앱 — 2026-11-27 색인 허용 -->
+  <url><loc>{{ site.url }}{{ site.baseurl }}/map/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/calendar/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/first/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/mileage/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/route/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/new/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/guide/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/rhythm-classic/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/hormuz/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/privacy/</loc></url>
   {% for page in site.pages %}
   {% if page.url contains '/category/' and page.noindex != true %}
   <url>
