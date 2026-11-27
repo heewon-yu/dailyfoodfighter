@@ -533,6 +533,7 @@
       state.dir.limit = 24;
       renderDirectory();
     });
+    $("#dir-sort").value = state.dir.sort;   // 셀렉트 표시값을 실제 정렬 상태와 맞춘다
     $("#dir-sort").addEventListener("change", function () {
       state.dir.sort = this.value; renderDirectory();
     });
