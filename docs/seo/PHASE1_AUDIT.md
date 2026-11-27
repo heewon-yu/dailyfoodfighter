@@ -10,7 +10,7 @@
 - `/air/`는 네이비 `#0f2340`, 블루 `#2563eb`, 밝은 회색 배경 `#f5f7fb`, 흰 카드와 둥근 모서리를 사용하는 별도 스타일시트가 있다.
 - `_posts/`에는 132개 게시글이 있으며 front matter 기준 한국어 66개, 영어 66개다. 기존 영양 게시글 경로는 `/posts/:title/` 규칙을 사용한다.
 - `/cal/`, `/map/`, `/air/`, `/benefits/`, `/games/`, `/nutrition-calculator/` 경로가 코드에 있다. `/hotel/`은 저장소에 없었고 운영 도메인 요청은 404를 반환했다.
-- `/cal/`에는 이미 호텔 포인트 비교 기능(`#hotel`)이 있다. 새 `/hotel/` 안내 페이지는 해당 기능으로 바로 연결한다.
+- `/cal/`에는 이미 별도의 다중 브랜드 호텔 포인트 비교 기능(`#hotel`)이 있다. `/hotel/`은 `힐튼 포인트 숙박` 안내 페이지로 분리해 StayPoint에 연결한다.
 - 기존 사이트에는 GA4 측정 설정, 검색엔진 인증값, 광고 관련 파일, `robots.txt`, `sitemap.xml`이 있다. 이 변경에서 해당 인증 및 광고 설정은 수정하지 않았다.
 - 기존 사이트맵은 주요 서비스 경로와 게시글을 포함하도록 작성되어 있다. 생활지도 변경과 함께 `/blog/`, `/editorial-policy/`, `/hotel/` 경로를 추가했다.
 
@@ -27,14 +27,14 @@
 
 ## 구현 검증 제한
 
-로컬 실행 환경에는 Jekyll gem이 없지만 PR에 자동 연결된 기존 검증 워크플로에서 `jekyll build`와 사이트맵·게시글 구조화 데이터 검사가 성공했다. Cloudflare Pages 미리보기도 성공적으로 배포됐다. 모바일 뷰포트 320·360·375·390·430px과 태블릿·데스크톱 768·1024·1280·1440·1920px에서 생활지도 카드 배치와 페이지 가로 넘침을 확인했다.
+로컬 실행 환경에는 Jekyll gem이 없지만 기존 PR 검증 워크플로의 Jekyll 빌드와 사이트맵·게시글 구조화 데이터 검사는 성공했다. 별도 미리보기 브랜치 `codex/first-screen-preview`로 GitHub Actions를 실행하지 않고 Cloudflare Pages 브랜치 미리보기를 배포했다. 현재 배포 커밋은 `2e30378`이다.
 
-미리보기: https://codex-living-guide.dailyfoodfighter.pages.dev/
-Cloudflare 상태: 성공 (`e08e075`)
+미리보기: https://codex-first-screen-preview.dailyfoodfighter.pages.dev/
+Cloudflare 브랜치 미리보기: 성공 (`2e30378`); 운영 도메인 배포: 미진행.
 
-생활지도 카드 8개와 블로그·정책·호텔 경로 모두 HTTP 200을 반환했다. `/blog/` canonical과 ko/en hreflang, 색인 허용 상태를 확인했다. 기존 게시글 URL `/posts/octopus-nutrition-benefits/`도 200을 반환했다. 블로그 검색에서 `문어`를 입력하면 해당 글 1개가 표시되고, `/hotel/` 안내 버튼은 기존 `/cal/#hotel` 상세 계산기를 열었다.
+브라우저에서 첫 화면의 12개 서비스 링크와 390px 화면을 확인했으며 문서 가로 넘침은 없었다. `/hotel/`의 제목·안내 문구·StayPoint 링크를 확인했다. StayPoint는 현재 Sites 접근 모드가 `custom`이고 소유자 1명만 허용한다. 익명 방문으로 직접 접속하면 HTTP 401이므로 공개 이용을 위해서는 StayPoint 접근 범위 변경이 필요하다. 공개 권한은 변경하지 않았다. `/cal/#hotel`은 별도의 다중 브랜드 호텔 계산기로 유지한다.
 
-미리보기 생활지도에서 확인된 브라우저 오류는 저장소에 favicon 파일이 없어 `/favicon.ico` 요청이 404를 반환한 건이다. 생활지도 코드와 계산기 이동 중 다른 콘솔 오류는 관찰되지 않았다.
+초기 브라우저 확인에서 파비콘 요청이 404였으며, 기존 사이트 로고 PNG를 파비콘으로 지정했다. 이 수정 후 오류가 사라졌는지 다음 미리보기에서 재확인한다.
 
 ## 진행 중인 URL 확인
 
