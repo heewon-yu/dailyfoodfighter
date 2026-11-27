@@ -1,0 +1,187 @@
+{
+  "reviewDate": "2026-11-27",
+  "main": "18c76643e27ab4559fdb11ff33141424bf091cc8",
+  "total": 179,
+  "unique": 179,
+  "http200": 179,
+  "selfCanonical": 179,
+  "description": 179,
+  "singleH1": 179,
+  "noindex": 0,
+  "jsonErrors": 0,
+  "serviceWithoutGa": [
+    "https://dailyfoodfighter.com/air/first/",
+    "https://dailyfoodfighter.com/air/calendar/",
+    "https://dailyfoodfighter.com/map/",
+    "https://dailyfoodfighter.com/air/",
+    "https://dailyfoodfighter.com/air/route/",
+    "https://dailyfoodfighter.com/air/guide/",
+    "https://dailyfoodfighter.com/air/new/",
+    "https://dailyfoodfighter.com/air/mileage/",
+    "https://dailyfoodfighter.com/cal/",
+    "https://dailyfoodfighter.com/games/rhythm-classic/",
+    "https://dailyfoodfighter.com/games/",
+    "https://dailyfoodfighter.com/hotel/",
+    "https://dailyfoodfighter.com/macro/",
+    "https://dailyfoodfighter.com/games/scalping-king/",
+    "https://dailyfoodfighter.com/games/300-seconds/",
+    "https://dailyfoodfighter.com/benefits/privacy/",
+    "https://dailyfoodfighter.com/benefits/",
+    "https://dailyfoodfighter.com/games/hormuz/"
+  ],
+  "redirects": [
+    {
+      "requested": "http://dailyfoodfighter.com/",
+      "final": "https://dailyfoodfighter.com/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "http://dailyfoodfighter.com/",
+          "status": 307,
+          "location": "https://dailyfoodfighter.com/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/"
+    },
+    {
+      "requested": "https://www.dailyfoodfighter.com/",
+      "final": "https://dailyfoodfighter.com/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://www.dailyfoodfighter.com/",
+          "status": 301,
+          "location": "https://dailyfoodfighter.com/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.pages.dev/",
+      "final": "https://dailyfoodfighter.pages.dev/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.pages.dev/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/cal",
+      "final": "https://dailyfoodfighter.com/cal/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/cal",
+          "status": 308,
+          "location": "/cal/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/cal/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/cal/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/hotel",
+      "final": "https://dailyfoodfighter.com/hotel/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/hotel",
+          "status": 308,
+          "location": "/hotel/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/hotel/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/hotel/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/category/%EA%B3%BC%EC%9D%BC/",
+      "final": "https://dailyfoodfighter.com/category/ingredients/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/category/%EA%B3%BC%EC%9D%BC/",
+          "status": 301,
+          "location": "/category/ingredients/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/category/ingredients/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/category/ingredients/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/en/category/fruits/",
+      "final": "https://dailyfoodfighter.com/en/category/ingredients/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/en/category/fruits/",
+          "status": 301,
+          "location": "/en/category/ingredients/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/en/category/ingredients/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/en/category/ingredients/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/index.html",
+      "final": "https://dailyfoodfighter.com/",
+      "status": 200,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/index.html",
+          "status": 308,
+          "location": "/"
+        },
+        {
+          "url": "https://dailyfoodfighter.com/",
+          "status": 200
+        }
+      ],
+      "canonical": "https://dailyfoodfighter.com/"
+    },
+    {
+      "requested": "https://dailyfoodfighter.com/nonexistent-seo-review-20261127/",
+      "final": "https://dailyfoodfighter.com/nonexistent-seo-review-20261127/",
+      "status": 404,
+      "chain": [
+        {
+          "url": "https://dailyfoodfighter.com/nonexistent-seo-review-20261127/",
+          "status": 404
+        }
+      ],
+      "canonical": null
+    }
+  ],
+  "reachability": {
+    "reachable": 176,
+    "unreachable": [
+      "https://dailyfoodfighter.com/air/route/",
+      "https://dailyfoodfighter.com/air/guide/",
+      "https://dailyfoodfighter.com/air/new/"
+    ],
+    "duplicateTitles": [],
+    "duplicateDescriptions": []
+  }
+}
