@@ -17,7 +17,9 @@
 - `git diff --check`: 통과.
 - 저장소의 핵심 서비스 경로 파일 존재 확인: 통과.
 - 기존 PR 자동 검증 워크플로의 Jekyll 빌드와 SEO 검사: 성공. PR 이벤트이므로 IndexNow 제출 단계는 건너뜀.
-- Cloudflare Pages 미리보기: 성공 (`https://codex-living-guide.dailyfoodfighter.pages.dev/`).
+- 저장소의 기존 GSC/GA4 기준선(2026-11-25 보고서)을 확인하고 현재 기준과 구분해 기록.
+- 132개 게시글 정적 감사 실행: front matter·내부 링크 오류 없음; 건강 주장 패턴 후보 70개, 직접 출처 링크 확인 후보 35개.
+- Cloudflare Pages 미리보기: 성공 (`https://codex-living-guide.dailyfoodfighter.pages.dev/`, 최신 커밋 `e08e075`).
 - 반응형 뷰포트 10종, 서비스 카드 URL 8개 및 관련 안내 URL HTTP 200: 확인.
 - `/blog/` 검색·canonical·hreflang, 기존 게시글 URL, `/hotel/`에서 `/cal/#hotel` 이동: 확인.
 - 생활지도 미리보기에서 누락된 favicon 요청 404 한 건 확인. 페이지 및 계산기 상호작용 관련 콘솔 오류는 없음.
