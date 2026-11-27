@@ -87,6 +87,7 @@ body{
 .card-item__benefits li{margin-bottom:3px}
 .card-item__badges{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
 .card-item__badges .badge{background:#fff;border-color:var(--gold-line);color:var(--gold-700);font-weight:700}
+.badge--gold{background:var(--gold-soft);border-color:var(--gold-line);color:var(--gold-700);font-weight:800}
 .card-item__links{margin:12px 0 0;font-size:12.5px;display:flex;flex-wrap:wrap;gap:12px}
 .card-item__links a{color:var(--gold-700);font-weight:800;text-decoration:none;padding:4px 0}
 .card-item__links a:hover{text-decoration:underline}
@@ -138,8 +139,10 @@ body{
   .sec-title h2{font-size:16.5px}
   .sec-title{flex-direction:column;align-items:flex-start;gap:2px}
   .sec-title span{font-size:11.5px}
-  .rate-table{font-size:12px}
-  .rate-table th,.rate-table td{padding:8px 6px}
+  .rate-table{font-size:11.5px;min-width:0}
+  .rate-table th,.rate-table td{padding:7px 5px;font-size:11.5px}
+  .rate-table td.num{white-space:nowrap}
+  .rate-table th:last-child,.rate-table td:last-child{display:none}
   .air-table-wrap{-webkit-overflow-scrolling:touch}
 }
 @media(max-width:360px){
@@ -299,7 +302,7 @@ body{
       <span>연회비·전월실적·핵심 혜택 · 2026-11-27 확인</span>
     </div>
 
-    <div class="type-grid" role="group" aria-label="카드 유형 선택">
+    <div class="type-grid" id="top-types" role="group" aria-label="카드 유형 선택">
       <button type="button" class="type-card" data-type="mileage" aria-pressed="true">
         <span class="type-card__glyph" aria-hidden="true">✈️</span>
         <span class="type-card__body"><span class="type-card__title">마일리지 적립</span><span class="type-card__desc">대한항공·스카이패스 적립, 해외결제 2배 적립</span></span>
