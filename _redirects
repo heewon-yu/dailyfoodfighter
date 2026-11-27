@@ -30,3 +30,7 @@
 # 검증용 임시 프리뷰 정리(2026-11-27)
 /card/preview-mobile        /card/   301
 /card/preview-mobile.html   /card/   301
+
+# 렌더 검증 페이지 정리(2026-11-27)
+/card/check-render /card/ 301
+/card/check-render.html /card/ 301
