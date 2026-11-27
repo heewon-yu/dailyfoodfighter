@@ -1,1 +1,399 @@
-{"mode":"production","schema_version":3,"generated_at":"2026-11-27T21:41:48.419126+00:00","total":36634,"snapshot":"704adc7830de751c","files":[{"region":"china","month":"2026-11","total":112,"path":"snapshots/704adc7830de751c/china/2026-11.json"},{"region":"china","month":"2026-12","total":868,"path":"snapshots/704adc7830de751c/china/2026-12.json"},{"region":"china","month":"2027-01","total":868,"path":"snapshots/704adc7830de751c/china/2027-01.json"},{"region":"china","month":"2027-02","total":784,"path":"snapshots/704adc7830de751c/china/2027-02.json"},{"region":"china","month":"2027-03","total":868,"path":"snapshots/704adc7830de751c/china/2027-03.json"},{"region":"china","month":"2027-04","total":840,"path":"snapshots/704adc7830de751c/china/2027-04.json"},{"region":"china","month":"2027-05","total":868,"path":"snapshots/704adc7830de751c/china/2027-05.json"},{"region":"europe","month":"2026-11","total":192,"path":"snapshots/704adc7830de751c/europe/2026-11.json"},{"region":"europe","month":"2026-12","total":1488,"path":"snapshots/704adc7830de751c/europe/2026-12.json"},{"region":"europe","month":"2027-01","total":1488,"path":"snapshots/704adc7830de751c/europe/2027-01.json"},{"region":"europe","month":"2027-02","total":1344,"path":"snapshots/704adc7830de751c/europe/2027-02.json"},{"region":"europe","month":"2027-03","total":1488,"path":"snapshots/704adc7830de751c/europe/2027-03.json"},{"region":"europe","month":"2027-04","total":1440,"path":"snapshots/704adc7830de751c/europe/2027-04.json"},{"region":"europe","month":"2027-05","total":1488,"path":"snapshots/704adc7830de751c/europe/2027-05.json"},{"region":"japan","month":"2026-11","total":112,"path":"snapshots/704adc7830de751c/japan/2026-11.json"},{"region":"japan","month":"2026-12","total":868,"path":"snapshots/704adc7830de751c/japan/2026-12.json"},{"region":"japan","month":"2027-01","total":868,"path":"snapshots/704adc7830de751c/japan/2027-01.json"},{"region":"japan","month":"2027-02","total":784,"path":"snapshots/704adc7830de751c/japan/2027-02.json"},{"region":"japan","month":"2027-03","total":868,"path":"snapshots/704adc7830de751c/japan/2027-03.json"},{"region":"japan","month":"2027-04","total":840,"path":"snapshots/704adc7830de751c/japan/2027-04.json"},{"region":"japan","month":"2027-05","total":868,"path":"snapshots/704adc7830de751c/japan/2027-05.json"},{"region":"north-america","month":"2026-11","total":208,"path":"snapshots/704adc7830de751c/north-america/2026-11.json"},{"region":"north-america","month":"2026-12","total":1612,"path":"snapshots/704adc7830de751c/north-america/2026-12.json"},{"region":"north-america","month":"2027-01","total":1612,"path":"snapshots/704adc7830de751c/north-america/2027-01.json"},{"region":"north-america","month":"2027-02","total":1456,"path":"snapshots/704adc7830de751c/north-america/2027-02.json"},{"region":"north-america","month":"2027-03","total":1612,"path":"snapshots/704adc7830de751c/north-america/2027-03.json"},{"region":"north-america","month":"2027-04","total":60,"path":"snapshots/704adc7830de751c/north-america/2027-04.json"},{"region":"north-america","month":"2027-05","total":62,"path":"snapshots/704adc7830de751c/north-america/2027-05.json"},{"region":"oceania","month":"2026-11","total":64,"path":"snapshots/704adc7830de751c/oceania/2026-11.json"},{"region":"oceania","month":"2026-12","total":620,"path":"snapshots/704adc7830de751c/oceania/2026-12.json"},{"region":"oceania","month":"2027-01","total":620,"path":"snapshots/704adc7830de751c/oceania/2027-01.json"},{"region":"oceania","month":"2027-02","total":560,"path":"snapshots/704adc7830de751c/oceania/2027-02.json"},{"region":"oceania","month":"2027-03","total":620,"path":"snapshots/704adc7830de751c/oceania/2027-03.json"},{"region":"oceania","month":"2027-04","total":120,"path":"snapshots/704adc7830de751c/oceania/2027-04.json"},{"region":"oceania","month":"2027-05","total":124,"path":"snapshots/704adc7830de751c/oceania/2027-05.json"},{"region":"southeast-asia","month":"2026-11","total":176,"path":"snapshots/704adc7830de751c/southeast-asia/2026-11.json"},{"region":"southeast-asia","month":"2026-12","total":1364,"path":"snapshots/704adc7830de751c/southeast-asia/2026-12.json"},{"region":"southeast-asia","month":"2027-01","total":1364,"path":"snapshots/704adc7830de751c/southeast-asia/2027-01.json"},{"region":"southeast-asia","month":"2027-02","total":1232,"path":"snapshots/704adc7830de751c/southeast-asia/2027-02.json"},{"region":"southeast-asia","month":"2027-03","total":1364,"path":"snapshots/704adc7830de751c/southeast-asia/2027-03.json"},{"region":"southeast-asia","month":"2027-04","total":1200,"path":"snapshots/704adc7830de751c/southeast-asia/2027-04.json"},{"region":"southeast-asia","month":"2027-05","total":1240,"path":"snapshots/704adc7830de751c/southeast-asia/2027-05.json"}],"source":"KOREAN_AIR_PUBLIC_AWARD_CALENDAR","source_url":"https://www.koreanair.com/booking/book-and-manage/award-seat-availability","source_updated_at":"2026-11-26T01:30:00+09:00","collection":{"method":"OFFICIAL_PUBLIC_MONTHLY_CALENDAR","logged_in":false,"routes":["AKL-ICN","AKL-ICN","AKL-ICN","AKL-ICN","AKL-ICN","AMS-ICN","AMS-ICN","AMS-ICN","AMS-ICN","AMS-ICN","AMS-ICN","AMS-ICN","ATL-ICN","ATL-ICN","ATL-ICN","ATL-ICN","ATL-ICN","BKK-ICN","BKK-ICN","BKK-ICN","BKK-ICN","BKK-ICN","BKK-ICN","BKK-ICN","BNE-ICN","BNE-ICN","BNE-ICN","BNE-ICN","BNE-ICN","BOS-ICN","BOS-ICN","BOS-ICN","BOS-ICN","BOS-ICN","BUD-ICN","BUD-ICN","BUD-ICN","BUD-ICN","BUD-ICN","BUD-ICN","BUD-ICN","CDG-ICN","CDG-ICN","CDG-ICN","CDG-ICN","CDG-ICN","CDG-ICN","CDG-ICN","CEB-ICN","CEB-ICN","CEB-ICN","CEB-ICN","CEB-ICN","CEB-ICN","CEB-ICN","CNX-ICN","CNX-ICN","CNX-ICN","CNX-ICN","CNX-ICN","CTS-ICN","CTS-ICN","CTS-ICN","CTS-ICN","CTS-ICN","CTS-ICN","CTS-ICN","CXR-ICN","CXR-ICN","CXR-ICN","CXR-ICN","CXR-ICN","CXR-ICN","CXR-ICN","DAD-ICN","DAD-ICN","DAD-ICN","DAD-ICN","DAD-ICN","DAD-ICN","DAD-ICN","DFW-ICN","DFW-ICN","DFW-ICN","DFW-ICN","DFW-ICN","DPS-ICN","DPS-ICN","DPS-ICN","DPS-ICN","DPS-ICN","DPS-ICN","DPS-ICN","FCO-ICN","FCO-ICN","FCO-ICN","FCO-ICN","FCO-ICN","FCO-ICN","FCO-ICN","FRA-ICN","FRA-ICN","FRA-ICN","FRA-ICN","FRA-ICN","FRA-ICN","FRA-ICN","GMP-HND","GMP-HND","GMP-HND","GMP-HND","GMP-HND","GMP-HND","GMP-HND","GMP-KIX","GMP-KIX","GMP-KIX","GMP-KIX","GMP-KIX","GMP-KIX","GMP-KIX","GMP-PEK","GMP-PEK","GMP-PEK","GMP-PEK","GMP-PEK","GMP-PEK","GMP-PEK","GMP-SHA","GMP-SHA","GMP-SHA","GMP-SHA","GMP-SHA","GMP-SHA","GMP-SHA","GUM-ICN","GUM-ICN","GUM-ICN","GUM-ICN","GUM-ICN","GUM-ICN","GUM-ICN","HKG-ICN","HKG-ICN","HKG-ICN","HKG-ICN","HKG-ICN","HKG-ICN","HKG-ICN","HKT-ICN","HKT-ICN","HKT-ICN","HKT-ICN","HKT-ICN","HKT-ICN","HKT-ICN","HND-GMP","HND-GMP","HND-GMP","HND-GMP","HND-GMP","HND-GMP","HND-GMP","HND-ICN","HND-ICN","HND-ICN","HND-ICN","HND-ICN","HND-ICN","HND-ICN","HNL-ICN","HNL-ICN","HNL-ICN","HNL-ICN","HNL-ICN","IAD-ICN","IAD-ICN","IAD-ICN","IAD-ICN","IAD-ICN","ICN-AKL","ICN-AKL","ICN-AKL","ICN-AKL","ICN-AKL","ICN-AMS","ICN-AMS","ICN-AMS","ICN-AMS","ICN-AMS","ICN-AMS","ICN-AMS","ICN-ATL","ICN-ATL","ICN-ATL","ICN-ATL","ICN-ATL","ICN-ATL","ICN-ATL","ICN-BKK","ICN-BKK","ICN-BKK","ICN-BKK","ICN-BKK","ICN-BKK","ICN-BKK","ICN-BNE","ICN-BNE","ICN-BNE","ICN-BNE","ICN-BNE","ICN-BOS","ICN-BOS","ICN-BOS","ICN-BOS","ICN-BOS","ICN-BUD","ICN-BUD","ICN-BUD","ICN-BUD","ICN-BUD","ICN-BUD","ICN-BUD","ICN-CDG","ICN-CDG","ICN-CDG","ICN-CDG","ICN-CDG","ICN-CDG","ICN-CDG","ICN-CEB","ICN-CEB","ICN-CEB","ICN-CEB","ICN-CEB","ICN-CEB","ICN-CEB","ICN-CNX","ICN-CNX","ICN-CNX","ICN-CNX","ICN-CNX","ICN-CTS","ICN-CTS","ICN-CTS","ICN-CTS","ICN-CTS","ICN-CTS","ICN-CTS","ICN-CXR","ICN-CXR","ICN-CXR","ICN-CXR","ICN-CXR","ICN-CXR","ICN-CXR","ICN-DAD","ICN-DAD","ICN-DAD","ICN-DAD","ICN-DAD","ICN-DAD","ICN-DAD","ICN-DFW","ICN-DFW","ICN-DFW","ICN-DFW","ICN-DFW","ICN-DPS","ICN-DPS","ICN-DPS","ICN-DPS","ICN-DPS","ICN-DPS","ICN-DPS","ICN-FCO","ICN-FCO","ICN-FCO","ICN-FCO","ICN-FCO","ICN-FCO","ICN-FCO","ICN-FRA","ICN-FRA","ICN-FRA","ICN-FRA","ICN-FRA","ICN-FRA","ICN-FRA","ICN-GUM","ICN-GUM","ICN-GUM","ICN-GUM","ICN-GUM","ICN-GUM","ICN-GUM","ICN-HKG","ICN-HKG","ICN-HKG","ICN-HKG","ICN-HKG","ICN-HKG","ICN-HKG","ICN-HKT","ICN-HKT","ICN-HKT","ICN-HKT","ICN-HKT","ICN-HKT","ICN-HKT","ICN-HND","ICN-HND","ICN-HND","ICN-HND","ICN-HND","ICN-HND","ICN-HND","ICN-HNL","ICN-HNL","ICN-HNL","ICN-HNL","ICN-HNL","ICN-IAD","ICN-IAD","ICN-IAD","ICN-IAD","ICN-IAD","ICN-IST","ICN-IST","ICN-IST","ICN-IST","ICN-IST","ICN-IST","ICN-IST","ICN-JFK","ICN-JFK","ICN-JFK","ICN-JFK","ICN-JFK","ICN-KIX","ICN-KIX","ICN-KIX","ICN-KIX","ICN-KIX","ICN-KIX","ICN-KIX","ICN-LAS","ICN-LAS","ICN-LAS","ICN-LAS","ICN-LAS","ICN-LAX","ICN-LAX","ICN-LAX","ICN-LAX","ICN-LAX","ICN-LHR","ICN-LHR","ICN-LHR","ICN-LHR","ICN-LHR","ICN-LHR","ICN-LHR","ICN-LIS","ICN-LIS","ICN-LIS","ICN-LIS","ICN-LIS","ICN-LIS","ICN-LIS","ICN-MAD","ICN-MAD","ICN-MAD","ICN-MAD","ICN-MAD","ICN-MAD","ICN-MAD","ICN-MEL","ICN-MEL","ICN-MEL","ICN-MEL","ICN-MFM","ICN-MFM","ICN-MFM","ICN-MFM","ICN-MFM","ICN-MFM","ICN-MFM","ICN-MNL","ICN-MNL","ICN-MNL","ICN-MNL","ICN-MNL","ICN-MNL","ICN-MNL","ICN-MXP","ICN-MXP","ICN-MXP","ICN-MXP","ICN-MXP","ICN-MXP","ICN-MXP","ICN-NRT","ICN-NRT","ICN-NRT","ICN-NRT","ICN-NRT","ICN-NRT","ICN-NRT","ICN-OKA","ICN-OKA","ICN-OKA","ICN-OKA","ICN-OKA","ICN-OKA","ICN-OKA","ICN-ORD","ICN-ORD","ICN-ORD","ICN-ORD","ICN-ORD","ICN-PEK","ICN-PEK","ICN-PEK","ICN-PEK","ICN-PEK","ICN-PEK","ICN-PEK","ICN-PQC","ICN-PQC","ICN-PQC","ICN-PQC","ICN-PQC","ICN-PQC","ICN-PQC","ICN-PRG","ICN-PRG","ICN-PRG","ICN-PRG","ICN-PRG","ICN-PRG","ICN-PRG","ICN-PVG","ICN-PVG","ICN-PVG","ICN-PVG","ICN-PVG","ICN-PVG","ICN-PVG","ICN-SEA","ICN-SEA","ICN-SEA","ICN-SEA","ICN-SEA","ICN-SFO","ICN-SFO","ICN-SFO","ICN-SFO","ICN-SFO","ICN-SGN","ICN-SGN","ICN-SGN","ICN-SGN","ICN-SGN","ICN-SGN","ICN-SGN","ICN-SIN","ICN-SIN","ICN-SIN","ICN-SIN","ICN-SIN","ICN-SIN","ICN-SIN","ICN-SYD","ICN-SYD","ICN-SYD","ICN-SYD","ICN-SYD","ICN-TPE","ICN-TPE","ICN-TPE","ICN-TPE","ICN-TPE","ICN-TPE","ICN-TPE","ICN-VIE","ICN-VIE","ICN-VIE","ICN-VIE","ICN-VIE","ICN-VIE","ICN-VIE","ICN-YVR","ICN-YVR","ICN-YVR","ICN-YVR","ICN-YVR","ICN-YYZ","ICN-YYZ","ICN-YYZ","ICN-YYZ","ICN-YYZ","IST-ICN","IST-ICN","IST-ICN","IST-ICN","IST-ICN","IST-ICN","IST-ICN","JFK-ICN","JFK-ICN","JFK-ICN","JFK-ICN","JFK-ICN","KIX-GMP","KIX-GMP","KIX-GMP","KIX-GMP","KIX-GMP","KIX-GMP","KIX-GMP","KIX-ICN","KIX-ICN","KIX-ICN","KIX-ICN","KIX-ICN","KIX-ICN","KIX-ICN","LAS-ICN","LAS-ICN","LAS-ICN","LAS-ICN","LAS-ICN","LAX-ICN","LAX-ICN","LAX-ICN","LAX-ICN","LAX-ICN","LHR-ICN","LHR-ICN","LHR-ICN","LHR-ICN","LHR-ICN","LHR-ICN","LHR-ICN","LIS-ICN","LIS-ICN","LIS-ICN","LIS-ICN","LIS-ICN","LIS-ICN","LIS-ICN","MAD-ICN","MAD-ICN","MAD-ICN","MAD-ICN","MAD-ICN","MAD-ICN","MAD-ICN","MEL-ICN","MEL-ICN","MEL-ICN","MEL-ICN","MFM-ICN","MFM-ICN","MFM-ICN","MFM-ICN","MFM-ICN","MFM-ICN","MFM-ICN","MNL-ICN","MNL-ICN","MNL-ICN","MNL-ICN","MNL-ICN","MNL-ICN","MNL-ICN","MXP-ICN","MXP-ICN","MXP-ICN","MXP-ICN","MXP-ICN","MXP-ICN","MXP-ICN","NRT-ICN","NRT-ICN","NRT-ICN","NRT-ICN","NRT-ICN","NRT-ICN","NRT-ICN","OKA-ICN","OKA-ICN","OKA-ICN","OKA-ICN","OKA-ICN","OKA-ICN","OKA-ICN","ORD-ICN","ORD-ICN","ORD-ICN","ORD-ICN","ORD-ICN","PEK-GMP","PEK-GMP","PEK-GMP","PEK-GMP","PEK-GMP","PEK-GMP","PEK-GMP","PEK-ICN","PEK-ICN","PEK-ICN","PEK-ICN","PEK-ICN","PEK-ICN","PEK-ICN","PQC-ICN","PQC-ICN","PQC-ICN","PQC-ICN","PQC-ICN","PQC-ICN","PQC-ICN","PRG-ICN","PRG-ICN","PRG-ICN","PRG-ICN","PRG-ICN","PRG-ICN","PRG-ICN","PVG-ICN","PVG-ICN","PVG-ICN","PVG-ICN","PVG-ICN","PVG-ICN","PVG-ICN","SEA-ICN","SEA-ICN","SEA-ICN","SEA-ICN","SEA-ICN","SFO-ICN","SFO-ICN","SFO-ICN","SFO-ICN","SFO-ICN","SGN-ICN","SGN-ICN","SGN-ICN","SGN-ICN","SGN-ICN","SGN-ICN","SGN-ICN","SHA-GMP","SHA-GMP","SHA-GMP","SHA-GMP","SHA-GMP","SHA-GMP","SHA-GMP","SIN-ICN","SIN-ICN","SIN-ICN","SIN-ICN","SIN-ICN","SIN-ICN","SIN-ICN","SYD-ICN","SYD-ICN","SYD-ICN","SYD-ICN","SYD-ICN","TPE-ICN","TPE-ICN","TPE-ICN","TPE-ICN","TPE-ICN","TPE-ICN","TPE-ICN","VIE-ICN","VIE-ICN","VIE-ICN","VIE-ICN","VIE-ICN","VIE-ICN","VIE-ICN","YVR-ICN","YVR-ICN","YVR-ICN","YVR-ICN","YVR-ICN","YYZ-ICN","YYZ-ICN","YYZ-ICN","YYZ-ICN","YYZ-ICN"],"months":["2026-11","2026-12","2027-01","2027-02","2027-03","2027-04","2027-05"],"last_success_at":"2026-11-27T21:41:48.419126+00:00"},"last_success_at":"2026-11-27T21:41:48.419126+00:00","last_error":null}
+{
+  "mode": "production",
+  "schema_version": 3,
+  "generated_at": "2026-11-27T22:14:05.045176+00:00",
+  "total": 36754,
+  "snapshot": "c730118a5bddd38c",
+  "files": [
+    {
+      "region": "china",
+      "month": "2026-11",
+      "total": 112,
+      "path": "snapshots/c730118a5bddd38c/china/2026-11.json"
+    },
+    {
+      "region": "china",
+      "month": "2026-12",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/china/2026-12.json"
+    },
+    {
+      "region": "china",
+      "month": "2027-01",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/china/2027-01.json"
+    },
+    {
+      "region": "china",
+      "month": "2027-02",
+      "total": 784,
+      "path": "snapshots/c730118a5bddd38c/china/2027-02.json"
+    },
+    {
+      "region": "china",
+      "month": "2027-03",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/china/2027-03.json"
+    },
+    {
+      "region": "china",
+      "month": "2027-04",
+      "total": 840,
+      "path": "snapshots/c730118a5bddd38c/china/2027-04.json"
+    },
+    {
+      "region": "china",
+      "month": "2027-05",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/china/2027-05.json"
+    },
+    {
+      "region": "europe",
+      "month": "2026-11",
+      "total": 192,
+      "path": "snapshots/c730118a5bddd38c/europe/2026-11.json"
+    },
+    {
+      "region": "europe",
+      "month": "2026-12",
+      "total": 1488,
+      "path": "snapshots/c730118a5bddd38c/europe/2026-12.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-01",
+      "total": 1488,
+      "path": "snapshots/c730118a5bddd38c/europe/2027-01.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-02",
+      "total": 1344,
+      "path": "snapshots/c730118a5bddd38c/europe/2027-02.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-03",
+      "total": 1488,
+      "path": "snapshots/c730118a5bddd38c/europe/2027-03.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-04",
+      "total": 1440,
+      "path": "snapshots/c730118a5bddd38c/europe/2027-04.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-05",
+      "total": 1488,
+      "path": "snapshots/c730118a5bddd38c/europe/2027-05.json"
+    },
+    {
+      "region": "japan",
+      "month": "2026-11",
+      "total": 112,
+      "path": "snapshots/c730118a5bddd38c/japan/2026-11.json"
+    },
+    {
+      "region": "japan",
+      "month": "2026-12",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/japan/2026-12.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-01",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-01.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-02",
+      "total": 784,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-02.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-03",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-03.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-04",
+      "total": 840,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-04.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-05",
+      "total": 868,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-05.json"
+    },
+    {
+      "region": "japan",
+      "month": "2027-06",
+      "total": 120,
+      "path": "snapshots/c730118a5bddd38c/japan/2027-06.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2026-11",
+      "total": 208,
+      "path": "snapshots/c730118a5bddd38c/north-america/2026-11.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2026-12",
+      "total": 1612,
+      "path": "snapshots/c730118a5bddd38c/north-america/2026-12.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2027-01",
+      "total": 1612,
+      "path": "snapshots/c730118a5bddd38c/north-america/2027-01.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2027-02",
+      "total": 1456,
+      "path": "snapshots/c730118a5bddd38c/north-america/2027-02.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2027-03",
+      "total": 1612,
+      "path": "snapshots/c730118a5bddd38c/north-america/2027-03.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2027-04",
+      "total": 60,
+      "path": "snapshots/c730118a5bddd38c/north-america/2027-04.json"
+    },
+    {
+      "region": "north-america",
+      "month": "2027-05",
+      "total": 62,
+      "path": "snapshots/c730118a5bddd38c/north-america/2027-05.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2026-11",
+      "total": 64,
+      "path": "snapshots/c730118a5bddd38c/oceania/2026-11.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2026-12",
+      "total": 620,
+      "path": "snapshots/c730118a5bddd38c/oceania/2026-12.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2027-01",
+      "total": 620,
+      "path": "snapshots/c730118a5bddd38c/oceania/2027-01.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2027-02",
+      "total": 560,
+      "path": "snapshots/c730118a5bddd38c/oceania/2027-02.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2027-03",
+      "total": 620,
+      "path": "snapshots/c730118a5bddd38c/oceania/2027-03.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2027-04",
+      "total": 120,
+      "path": "snapshots/c730118a5bddd38c/oceania/2027-04.json"
+    },
+    {
+      "region": "oceania",
+      "month": "2027-05",
+      "total": 124,
+      "path": "snapshots/c730118a5bddd38c/oceania/2027-05.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2026-11",
+      "total": 176,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2026-11.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2026-12",
+      "total": 1364,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2026-12.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2027-01",
+      "total": 1364,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2027-01.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2027-02",
+      "total": 1232,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2027-02.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2027-03",
+      "total": 1364,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2027-03.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2027-04",
+      "total": 1200,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2027-04.json"
+    },
+    {
+      "region": "southeast-asia",
+      "month": "2027-05",
+      "total": 1240,
+      "path": "snapshots/c730118a5bddd38c/southeast-asia/2027-05.json"
+    }
+  ],
+  "source": "KOREAN_AIR_PUBLIC_AWARD_CALENDAR",
+  "source_url": "https://www.koreanair.com/booking/book-and-manage/award-seat-availability",
+  "source_updated_at": null,
+  "collection": {
+    "method": "OFFICIAL_PUBLIC_MONTHLY_CALENDAR",
+    "logged_in": false,
+    "routes": [
+      "AKL-ICN",
+      "AMS-ICN",
+      "ATL-ICN",
+      "BKK-ICN",
+      "BNE-ICN",
+      "BOS-ICN",
+      "BUD-ICN",
+      "CDG-ICN",
+      "CEB-ICN",
+      "CNX-ICN",
+      "CTS-ICN",
+      "CXR-ICN",
+      "DAD-ICN",
+      "DFW-ICN",
+      "DPS-ICN",
+      "FCO-ICN",
+      "FRA-ICN",
+      "GMP-HND",
+      "GMP-KIX",
+      "GMP-PEK",
+      "GMP-SHA",
+      "GUM-ICN",
+      "HKG-ICN",
+      "HKT-ICN",
+      "HND-GMP",
+      "HND-ICN",
+      "HNL-ICN",
+      "IAD-ICN",
+      "ICN-AKL",
+      "ICN-AMS",
+      "ICN-ATL",
+      "ICN-BKK",
+      "ICN-BNE",
+      "ICN-BOS",
+      "ICN-BUD",
+      "ICN-CDG",
+      "ICN-CEB",
+      "ICN-CNX",
+      "ICN-CTS",
+      "ICN-CXR",
+      "ICN-DAD",
+      "ICN-DFW",
+      "ICN-DPS",
+      "ICN-FCO",
+      "ICN-FRA",
+      "ICN-GUM",
+      "ICN-HKG",
+      "ICN-HKT",
+      "ICN-HND",
+      "ICN-HNL",
+      "ICN-IAD",
+      "ICN-IST",
+      "ICN-JFK",
+      "ICN-KIX",
+      "ICN-LAS",
+      "ICN-LAX",
+      "ICN-LHR",
+      "ICN-LIS",
+      "ICN-MAD",
+      "ICN-MEL",
+      "ICN-MFM",
+      "ICN-MNL",
+      "ICN-MXP",
+      "ICN-NRT",
+      "ICN-OKA",
+      "ICN-ORD",
+      "ICN-PEK",
+      "ICN-PQC",
+      "ICN-PRG",
+      "ICN-PVG",
+      "ICN-SEA",
+      "ICN-SFO",
+      "ICN-SGN",
+      "ICN-SIN",
+      "ICN-SYD",
+      "ICN-TPE",
+      "ICN-VIE",
+      "ICN-YVR",
+      "ICN-YYZ",
+      "IST-ICN",
+      "JFK-ICN",
+      "KIX-GMP",
+      "KIX-ICN",
+      "LAS-ICN",
+      "LAX-ICN",
+      "LHR-ICN",
+      "LIS-ICN",
+      "MAD-ICN",
+      "MEL-ICN",
+      "MFM-ICN",
+      "MNL-ICN",
+      "MXP-ICN",
+      "NRT-ICN",
+      "OKA-ICN",
+      "ORD-ICN",
+      "PEK-GMP",
+      "PEK-ICN",
+      "PQC-ICN",
+      "PRG-ICN",
+      "PVG-ICN",
+      "SEA-ICN",
+      "SFO-ICN",
+      "SGN-ICN",
+      "SHA-GMP",
+      "SIN-ICN",
+      "SYD-ICN",
+      "TPE-ICN",
+      "VIE-ICN",
+      "YVR-ICN",
+      "YYZ-ICN"
+    ],
+    "months": [
+      "2026-11",
+      "2026-12",
+      "2027-01",
+      "2027-02",
+      "2027-03",
+      "2027-04",
+      "2027-05",
+      "2027-06"
+    ],
+    "last_success_at": "2026-11-27T22:14:05.045176+00:00"
+  },
+  "last_success_at": "2026-11-27T22:14:05.045176+00:00",
+  "last_error": null
+}
