@@ -1,0 +1,14 @@
+---
+layout: default
+title: "계산기별 사용법과 안내"
+description: "생활·금융·여행·건강 계산기 12종의 사용 방법, 계산 조건과 참고사항을 확인하세요."
+lang: ko
+permalink: /cal/guides/
+---
+<main class="calculator-guides" style="max-width:900px;margin:0 auto;padding:40px 20px 64px;line-height:1.7">
+  <p><a href="/">쓸모집</a> › <a href="/cal/">한번에 계산기</a></p>
+  <h1>계산기별 사용법과 안내</h1>
+  <p>각 계산기의 입력 방법과 결과를 읽을 때 확인할 조건을 살펴보세요. 금융·세금·건강 계산 결과는 입력한 조건을 바탕으로 한 참고 정보입니다.</p>
+  <ul style="padding-left:1.3em">{% for pair in site.data.calculator_guides %}{% assign key = pair[0] %}{% assign guide = pair[1] %}<li style="margin:.65em 0"><a href="/cal/{{ key }}/">{{ guide.icon }} {{ guide.heading | escape }}</a> <span>— {{ guide.category | escape }}</span></li>{% endfor %}</ul>
+  <p><a href="/cal/">계산기 바로 사용</a></p>
+</main>
