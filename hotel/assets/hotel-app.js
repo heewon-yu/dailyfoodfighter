@@ -20,7 +20,7 @@
     fx: { KRW: 1 },
     tab: "points",
     points: { region: "한국", city: "Seoul", checkIn: "", checkOut: "", adults: "2" },
-    weekend: { region: "한국", city: "Seoul", date: "", adults: "2" },
+    weekend: { region: "한국", city: "Seoul", date: "", adults: "2", monthIndex: 0 },
     dir: { brand: "", region: "", q: "", standardOnly: false, sort: "points-asc", limit: 24,
            checkIn: "", checkOut: "", adults: "2" },
     obs: { start: "", end: "" },
@@ -721,16 +721,36 @@
     if (weekday(wd) === 0) wd = addDays(wd, 5);   // 일요일이면 다음 금요일로
     if (wd < today) wd = nextWeekend(today);
     setWeekendDate(wd);
+    showWeekendMonthOf(wd);
     syncWeekendInputs();
     renderWeekendCalendar();
   }
 
-  /* --------------------------------------------------- weekend calendar */
-  /* 금·토·일만 고를 수 있는 달력. 체크아웃은 금→일(2박)·금→토·토→일·일→월만 허용. */
+  /* 금·토·일만 고를 수 있는 달력. 한 번에 1개월만 보여 주고 ‹ › 로 넘긴다.
+     범위는 이번 달부터 12개월. 체크아웃은 금→일(2박)·금→토·토→일·일→월만 허용. */
+  var CAL_MONTHS = 12;
+
   function maxCheckout(iso) {
     var w = weekday(iso);
     if (w === 5) return addDays(iso, 2);   // 금 → 일요일 체크아웃(2박)
     return addDays(iso, 1);                // 토 → 일, 일 → 월
+  }
+
+  /* 이번 달을 0으로 한 달 오프셋 — 달력이 보여 줄 수 있는 범위(0~11)로 자른다. */
+  function monthOffset(iso) {
+    if (!iso) return 0;
+    var t = parts(kstToday()), p = parts(iso);
+    var i = (p.y - t.y) * 12 + (p.m - t.m);
+    return Math.min(Math.max(i, 0), CAL_MONTHS - 1);
+  }
+
+  /* 오프셋에 해당하는 연·월 */
+  function calMonthOf(index) {
+    var p = parts(kstToday());
+    var m = p.m + index, y = p.y;
+    while (m > 12) { m -= 12; y += 1; }
+    while (m < 1) { m += 12; y -= 1; }
+    return { y: y, m: m };
   }
 
   function setWeekendDate(iso) {
@@ -758,15 +778,45 @@
     var box = $("#w-cal-months");
     if (!box) return;
     var today = kstToday();
-    var p = parts(today);
-    var html = "";
-    for (var i = 0; i < 12; i++) {         // 이번 달 포함 12개월 — 날짜 범위 제한 없이 선택
-      var m = p.m + i, y = p.y;
-      while (m > 12) { m -= 12; y += 1; }
-      html += weekendMonth(y, m, today);
+    var idx = state.weekend.monthIndex || 0;
+    if (idx < 0) idx = 0;
+    if (idx > CAL_MONTHS - 1) idx = CAL_MONTHS - 1;
+    state.weekend.monthIndex = idx;
+    var ym = calMonthOf(idx);
+    box.innerHTML = weekendMonth(ym.y, ym.m, today);
+
+    var label = $("#w-month-label");
+    if (label) label.textContent = ym.y + "년 " + ym.m + "월";
+
+    /* 첫 달에서는 ‹, 마지막 달에서는 › 비활성 */
+    var prev = $("#w-prev"), next = $("#w-next");
+    if (prev) {
+      prev.disabled = idx === 0;
+      prev.setAttribute("aria-disabled", String(idx === 0));
     }
-    box.innerHTML = html;
+    if (next) {
+      next.disabled = idx >= CAL_MONTHS - 1;
+      next.setAttribute("aria-disabled", String(idx >= CAL_MONTHS - 1));
+    }
+    var note = $("#w-range-note");
+    if (note) {
+      var firstM = calMonthOf(0), lastM = calMonthOf(CAL_MONTHS - 1);
+      note.textContent = firstM.y + "년 " + firstM.m + "월 ~ " + lastM.y + "년 " + lastM.m + "월";
+    }
     updateWeekendPicked();
+  }
+
+  function goWeekendMonth(delta) {
+    var i = (state.weekend.monthIndex || 0) + delta;
+    if (i < 0 || i > CAL_MONTHS - 1) return;
+    state.weekend.monthIndex = i;
+    renderWeekendCalendar();
+  }
+
+  /* 고른 날짜가 있는 달로 달력을 맞춘다 (초기값·도시 변경 시). */
+  function showWeekendMonthOf(iso) {
+    if (!iso) return;
+    state.weekend.monthIndex = monthOffset(iso);
   }
 
   function weekendMonth(y, m, today) {
@@ -790,7 +840,6 @@
         : '<span class="' + cls + '">' + d + "</span>";
     }
     return '<div class="wcal__month">' +
-      '<div class="wcal__mname">' + y + "년 " + m + "월</div>" +
       '<div class="wcal__grid">' +
         ["일", "월", "화", "수", "목", "금", "토"].map(function (n) {
           return '<span class="wcal__dow">' + n + "</span>";
@@ -802,6 +851,9 @@
   function bindWeekendCalendar() {
     var box = $("#w-cal-months");
     if (!box) return;
+    var prev = $("#w-prev"), next = $("#w-next");
+    if (prev) prev.addEventListener("click", function () { goWeekendMonth(-1); });
+    if (next) next.addEventListener("click", function () { goWeekendMonth(1); });
     box.addEventListener("click", function (e) {
       var btn = e.target.closest("[data-wday]");
       if (!btn) return;
@@ -840,6 +892,7 @@
         d = addDays(d, 1);
       }
       setWeekendDate(d);
+      showWeekendMonthOf(d);
       syncWeekendInputs();
       renderWeekendCalendar();
     });

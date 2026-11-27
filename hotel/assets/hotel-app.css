@@ -796,29 +796,44 @@ img { max-width: 100%; }
   .calc__grid { grid-template-columns: 1fr; }
 }
 
-/* ── 주말숙박권 달력 (금·토·일만 선택) ─────────────────────────── */
+/* ── 주말숙박권 달력 (한 번에 1개월 · 좌우 월 넘김) ─────────────── */
 .wcal { margin-top:18px; border:1px solid #ece7f8; border-radius:14px; padding:14px; background:#fbfaff; }
 .wcal__head { display:flex; align-items:baseline; justify-content:space-between; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
 .wcal__title { font-weight:700; color:#3b2f5e; }
 .wcal__picked { font-size:.85rem; color:#6d28d9; font-weight:600; }
-.wcal__months { display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:14px; }
+.wcal__nav { display:flex; align-items:center; justify-content:space-between; gap:10px; max-width:420px; margin:0 auto 10px; }
+.wcal__navbtn {
+  width:40px; height:36px; flex:0 0 auto;
+  display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid #e2d9f7; border-radius:10px; background:#fff;
+  color:#6d28d9; font-size:1.3rem; line-height:1; font-family:inherit;
+  cursor:pointer; transition:background .12s ease, border-color .12s ease;
+}
+.wcal__navbtn:hover:not(:disabled) { background:#f1ebff; border-color:#cfc0f2; }
+.wcal__navbtn:disabled { color:#cbc4de; background:#f7f5fc; border-color:#f0ecf9; cursor:default; }
+.wcal__navbtn:focus-visible { outline:2px solid #6d28d9; outline-offset:2px; }
+.wcal__now { font-size:1rem; font-weight:700; color:#3b2f5e; letter-spacing:-.01em; text-align:center; }
+.wcal__months { display:grid; grid-template-columns:minmax(0,1fr); gap:14px; max-width:420px; margin:0 auto; }
 .wcal__mname { font-size:.82rem; font-weight:600; color:#4b3f72; margin-bottom:6px; }
 .wcal__grid { display:grid; grid-template-columns:repeat(7, minmax(0,1fr)); gap:2px; }
 .wcal__dow { font-size:.68rem; color:#8b82a8; text-align:center; padding:2px 0; }
 .wcal__cell {
   display:flex; align-items:center; justify-content:center;
-  height:30px; border-radius:8px; font-size:.8rem; color:#b9b2cc;
+  height:38px; border-radius:8px; font-size:.86rem; color:#b9b2cc;
   background:transparent; border:0; font-family:inherit;
 }
 .wcal__cell.is-weekend { color:#3b2f5e; background:#fff; box-shadow:inset 0 0 0 1px #e6e0f5; cursor:pointer; }
 .wcal__cell.is-weekend:hover { background:#f1ebff; }
+.wcal__cell.is-weekend:focus-visible { outline:2px solid #6d28d9; outline-offset:1px; }
 .wcal__cell.is-on { background:#6d28d9; color:#fff; box-shadow:none; font-weight:700; }
 .wcal__cell.is-out { background:#c9b6f5; color:#2b1a55; box-shadow:none; font-weight:600; }
 .wcal__cell.is-range { background:#efe7ff; color:#4b3f72; }
 .wcal__cell.is-blank { visibility:hidden; }
 .wcal__tip { margin:10px 0 0; font-size:.78rem; color:#8b82a8; }
+.wcal__range { display:inline-block; margin-left:2px; color:#6d28d9; }
 
 @media (max-width: 760px) {
-  .wcal__months { grid-template-columns:1fr; }
-  .wcal__cell { height:34px; }
+  .wcal { padding:12px; }
+  .wcal__nav { margin-bottom:8px; }
+  .wcal__cell { height:40px; font-size:.9rem; }
 }
