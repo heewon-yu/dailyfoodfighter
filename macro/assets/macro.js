@@ -127,7 +127,7 @@
 
   function renderYield(id, m) {
     if (!m) return;
-    setValue(id, nf(m.value, 2), "%");
+    setValue("v-" + id, nf(m.value, 2), "%");
     var diff = m.prev != null ? m.value - m.prev : null;
     setDelta("d-" + id, diff, "%p", " · " + (kstDate(m.date) || "") + " 기준");
     setText("s-" + id, "미 재무부 · " + (kstDate(m.date) || "–") + " 고시");
@@ -242,14 +242,14 @@
 
   function renderIndex(id, m, digits) {
     if (!m) return;
-    setValue(id, nf(m.price, digits == null ? 2 : digits));
+    setValue("v-" + id, nf(m.price, digits == null ? 2 : digits));
     setDelta("d-" + id, m.changePct, "%", " · 1개월 " + signed(m.monthPct, 1, "%"));
     setText("s-" + id, "Yahoo Finance · " + (kst(m.asOf) || "–"));
   }
 
   function renderFx(id, m, prefix, digits) {
     if (!m) return;
-    setValue(id, (prefix || "") + nf(m.price, digits == null ? 2 : digits));
+    setValue("v-" + id, (prefix || "") + nf(m.price, digits == null ? 2 : digits));
     setDelta("d-" + id, m.changePct, "%", " · 1개월 " + signed(m.monthPct, 1, "%"));
     setText("s-" + id, "Yahoo Finance · " + (kst(m.asOf) || "–"));
   }
@@ -300,7 +300,7 @@
 
     var when = kst((data && data.generatedAt) || (data && data.snapshotBuiltAt));
     var us = m.sp500 && kst(m.sp500.asOf);
-    setText("stamp", (when ? "갱신 " + when : "갱신 시각 확인 중") + (us ? " · 미국장 " + us : ""));
+    setText("stamp", (when ? "갱신 " + when : "갱신 시각 확인 중") + (us ? " · 미국장 마감 " + us : ""));
 
     var missing = [];
     ["fear_greed", "vix", "yield10", "yield2", "spread", "hy_oas", "fed", "buffett", "sp500", "nasdaq", "kospi", "kosdaq", "usdkrw", "dxy", "wti", "gold", "btc"]
