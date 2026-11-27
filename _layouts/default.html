@@ -4,21 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" type="image/png" href="{{ '/assets/images/dailyfoodfighter-logo.png' | relative_url }}">
-  <title>{% if page.title %}{{ page.title | escape }}{% if page.layout == 'post' %} | DFF{% else %} | DailyFoodFighter{% endif %}{% else %}{{ site.title | escape }}{% endif %}</title>
+  <title>{% if page.title %}{{ page.title | escape }}{% if page.brand_suffix == false %}{% elsif page.layout == 'post' %} | DFF{% else %} | DailyFoodFighter{% endif %}{% else %}{{ site.title | escape }}{% endif %}</title>
   <meta name="description" content="{% if page.description %}{{ page.description | escape }}{% else %}{{ site.description | escape }}{% endif %}">
   {% if page.layout == 'post' and page.image %}
   <link rel="preload" as="image" href="{{ page.image | relative_url }}" fetchpriority="high">
   {% endif %}
   
   <meta name="robots" content="{% if page.noindex %}noindex, follow{% else %}index, follow, max-image-preview:large{% endif %}">
-  <meta name="author" content="DailyFoodFighter (데일리푸드파이터)">
+  <meta name="author" content="{% if page.site_name %}{{ page.site_name | escape }}{% else %}DailyFoodFighter (데일리푸드파이터){% endif %}">
 
   <!-- RSS/Atom autodiscovery: feed readers and portal crawlers (Naver, Daum) find the feed from the page itself -->
   {% if page.lang == 'en' %}
-  <link rel="alternate" type="application/rss+xml" title="DailyFoodFighter RSS" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="쓸모있는 모음.zip English RSS" href="{{ '/feed.xml' | absolute_url }}">
   {% else %}
-  <link rel="alternate" type="application/rss+xml" title="데일리푸드파이터 RSS" href="{{ '/feed-ko.xml' | absolute_url }}">
-  <link rel="alternate" type="application/rss+xml" title="DailyFoodFighter RSS" href="{{ '/feed.xml' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="쓸모있는 모음.zip RSS" href="{{ '/feed-ko.xml' | absolute_url }}">
+  <link rel="alternate" type="application/rss+xml" title="쓸모있는 모음.zip English RSS" href="{{ '/feed.xml' | absolute_url }}">
   {% endif %}
 
   {% assign canonical_path = page.url | remove: 'index.html' %}
@@ -121,7 +121,7 @@
     "@context": "https://schema.org",
     "@type": {% if page.layout == 'post' %}"BlogPosting"{% elsif canonical_path == '/' or canonical_path == '/en/' %}"WebSite"{% else %}"WebPage"{% endif %},
     "name": {{ page.site_name | default: page.title | default: site.title | jsonify }},
-    {% if page.portal %}"alternateName": "DailyFoodFighter",{% endif %}
+    {% if page.alt_name %}"alternateName": "{{ page.alt_name | escape }}",{% endif %}
     "headline": {{ page.title | default: site.title | jsonify }},
     "description": {{ page.description | default: site.description | jsonify }},
     "url": {{ canonical_path | absolute_url | jsonify }},
@@ -160,12 +160,12 @@
     },
     "keywords": {{ page.tags | join: ', ' | jsonify }}
     {% else %}
-    "alternateName": "데일리푸드파이터",
+    {% unless page.site_name %}"alternateName": "데일리푸드파이터",{% endunless %}
     "inLanguage": ["ko", "en"],
     "sameAs": ["https://x.com/Dailyfoodfff"],
     "publisher": {
       "@type": "Organization",
-      "name": "DailyFoodFighter",
+      "name": "{{ page.site_name | default: 'DailyFoodFighter' }}",
       "url": "{{ site.url }}{{ site.baseurl }}",
       "sameAs": ["https://x.com/Dailyfoodfff"]
     }
@@ -255,7 +255,7 @@
   <header class="site-header">
     <div class="wrapper header-inner">
       <div class="brand">
-        <a href="{% if page.portal %}{{ '/' | relative_url }}{% elsif page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}" class="site-logo">🥑 DailyFoodFighter</a>
+        <a href="{% if page.portal %}{{ '/' | relative_url }}{% elsif page.lang == 'en' %}{{ '/en/' | relative_url }}{% else %}{{ '/blog/' | relative_url }}{% endif %}" class="site-logo">{% if page.portal %}쓸모있는 모음.zip{% else %}🥑 DailyFoodFighter{% endif %}</a>
         <span class="site-tagline">{% if page.portal %}생활에 유용한 온라인 서비스{% elsif page.lang == 'en' %}Evidence-Based Food Nutrition Science Guide{% else %}식재료 영양학과 건강한 식생활{% endif %}</span>
       </div>
       <nav class="site-nav">
@@ -292,7 +292,10 @@
   <!-- Footer -->
   <footer class="site-footer">
     <div class="wrapper footer-inner">
-      <p class="footer-copy">&copy; {{ 'now' | date: "%Y" }} DailyFoodFighter. All rights reserved.</p>
+      <p class="footer-brand">
+        <span class="footer-brand__name">쓸모있는 모음.zip</span>
+        <span class="footer-brand__tagline">{% if page.lang == 'en' %}Everyday tools and information in one place{% else %}일상에 필요한 도구와 정보를 한곳에{% endif %}</span>
+      </p>
       <div class="footer-links">
         {% if page.lang == 'en' %}
         <a href="{{ '/en/about/' | relative_url }}">About Us</a>
@@ -314,11 +317,12 @@
         <a href="{{ '/contact/' | relative_url }}">문의·오류 제보</a>
         {% endif %}
       </div>
+      <p class="footer-copy">&copy; 2026 쓸모있는 모음.zip. All rights reserved.</p>
       <p class="footer-disclaimer">
         {% if page.lang == 'en' %}
-        Disclaimer: The information provided on DailyFoodFighter is based on reputable scientific research and dietary data for educational purposes only. It is not intended to be a substitute for professional medical advice, diagnosis, or treatment.
+        쓸모있는 모음.zip brings together a nutrition blog, everyday calculators, restaurant and stay maps, airline mileage and hotel point tools, policy and welfare matching, and web games. All information and calculation results are provided for reference only and do not replace professional medical, legal, tax, or financial advice. Check the original notice or a qualified professional before making a decision.
         {% else %}
-        본 블로그에서 제공하는 영양 및 건강 정보는 신뢰할 수 있는 학술 연구와 과학적 데이터에 기반하여 작성되었으나, 전문적인 의료 행위나 진단을 대신할 수 없습니다. 질환이 있는 경우 반드시 전문의와 상담하시기 바랍니다.
+        쓸모있는 모음.zip은 영양학 블로그, 생활 계산기, 맛집·숙소·해외 지도, 항공 마일리지와 호텔 포인트 도구, 정책·복지 매칭, 웹게임까지 일상에 필요한 정보와 도구를 제공합니다. 계산 결과와 안내 내용은 참고용이며, 의료·법률·세무·투자 등 전문적인 판단을 대신하지 않습니다. 최종 결정 전에는 원문 공지나 해당 분야 전문가의 안내를 확인하시기 바랍니다.
         {% endif %}
       </p>
     </div>

@@ -324,21 +324,40 @@ body {
   color: var(--text-muted);
 }
 
-/* Footer */
+/* Footer — 쓸모있는 모음.zip 그레이 팔레트 (메인 히어로 #27272a 계열과 통일) */
 .site-footer {
-  background: var(--bg-card);
-  border-top: 1px solid var(--border);
-  padding: 36px 0;
+  background: #18181b;
+  border-top: 1px solid #27272a;
+  padding: 34px 0 40px;
   font-size: 0.88rem;
-  color: var(--text-muted);
+  color: #a1a1aa;
   text-align: center;
 }
 
 .footer-inner {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
   align-items: center;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-brand__name {
+  color: #fafafa;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.footer-brand__tagline {
+  color: #71717a;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 
 .footer-links {
@@ -350,21 +369,33 @@ body {
 }
 
 .footer-links a {
-  color: var(--text-muted);
+  color: #d4d4d8;
   text-decoration: none;
   transition: color 0.15s;
 }
 
 .footer-links a:hover {
-  color: var(--primary);
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.footer-links span {
+  color: #3f3f46;
+}
+
+.footer-copy {
+  color: #a1a1aa;
+  font-size: 0.84rem;
+  letter-spacing: 0.01em;
 }
 
 .footer-disclaimer {
-  max-width: 640px;
+  max-width: 680px;
   font-size: 0.78rem;
-  line-height: 1.6;
-  color: #94a3b8;
-  margin-top: 4px;
+  line-height: 1.7;
+  color: #71717a;
+  margin-top: 2px;
   word-break: keep-all;
 }
 
@@ -385,9 +416,15 @@ body {
     color: var(--text-main);
   }
 
-  .site-header, .site-footer, .post-article, .post-card {
+  .site-header, .post-article, .post-card {
     background-color: var(--bg-card);
     border-color: var(--border);
+  }
+
+  /* 푸터는 라이트·다크 모두 같은 그레이 팔레트를 유지한다 */
+  .site-footer {
+    background: #18181b;
+    border-top-color: #27272a;
   }
 
   .site-logo {
@@ -437,7 +474,7 @@ body {
   }
 
   .footer-disclaimer {
-    color: #64748b;
+    color: #8a8a93;
   }
 }
 
@@ -690,6 +727,306 @@ body {
 .living-guide__footer-links { display: flex; flex-wrap: wrap; gap: 8px 18px; margin-top: 10px; }
 .living-guide__footer-links a { color: var(--guide-navy-600); font-size: .88rem; font-weight: 700; text-decoration: none; }
 .living-guide__footer-links a:hover { color: var(--guide-blue); text-decoration: underline; }
+
+/* ── 안내·정책 페이지 (사이트 소개·콘텐츠 작성 원칙·개인정보처리방침·문의) ──
+   메인(쓸모있는 모음.zip)과 같은 그레이·화이트 팔레트, 같은 라운드·보더·그림자 톤을 쓴다. */
+.guide-page {
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.guide-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 2px 2px 0;
+}
+
+.guide-topbar__brand {
+  color: var(--guide-navy);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  text-decoration: none;
+}
+
+.guide-topbar__nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+}
+
+.guide-topbar__nav a {
+  color: var(--guide-navy-600);
+  font-size: .87rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guide-topbar__nav a:hover {
+  color: #18181b;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.guide-page__hero {
+  padding: 26px 26px 24px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #52525b 0%, #3f3f46 72%, #27272a 100%);
+  box-shadow: var(--guide-shadow);
+  color: #fff;
+}
+
+.guide-page__eyebrow {
+  margin: 0 0 6px;
+  color: #d4d4d8;
+  font-size: .74rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  line-height: 1.5;
+}
+
+.guide-page__title {
+  color: #fff;
+  font-size: clamp(1.55rem, 3.4vw, 2.05rem);
+  font-weight: 700;
+  letter-spacing: -.03em;
+  line-height: 1.34;
+}
+
+.guide-page__lead {
+  margin-top: 8px;
+  color: #e4e4e7;
+  font-size: .96rem;
+  line-height: 1.72;
+}
+
+.guide-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 13px;
+  color: #a1a1aa;
+  font-size: .8rem;
+}
+
+.guide-page__meta span + span::before {
+  content: "·";
+  margin-right: 12px;
+  color: #52525b;
+}
+
+.guide-card {
+  padding: 22px 24px;
+  border: 1px solid var(--guide-line);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(24, 24, 27, .04);
+}
+
+.guide-card h2 {
+  margin: 0 0 10px;
+  color: var(--guide-navy);
+  font-size: 1.14rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  line-height: 1.42;
+}
+
+.guide-card h3 {
+  margin: 18px 0 6px;
+  color: #3f3f46;
+  font-size: .99rem;
+  font-weight: 800;
+  letter-spacing: -.01em;
+}
+
+.guide-card h3:first-child { margin-top: 0; }
+
+.guide-card p {
+  margin: 0 0 10px;
+  color: #3f3f46;
+  font-size: .93rem;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+.guide-card p:last-child { margin-bottom: 0; }
+
+.guide-card ul,
+.guide-card ol {
+  margin: 0 0 10px;
+  padding-left: 1.15em;
+}
+
+.guide-card li {
+  margin-bottom: 6px;
+  color: #3f3f46;
+  font-size: .93rem;
+  line-height: 1.78;
+  word-break: keep-all;
+}
+
+.guide-card li:last-child { margin-bottom: 0; }
+
+.guide-card li::marker { color: #a1a1aa; }
+
+.guide-card strong { color: #18181b; font-weight: 700; }
+
+.guide-card a {
+  color: #3f3f46;
+  text-decoration: underline;
+  text-decoration-color: #d4d4d8;
+  text-underline-offset: 3px;
+}
+
+.guide-card a:hover {
+  color: #18181b;
+  text-decoration-color: #71717a;
+}
+
+.guide-card code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: #f4f4f5;
+  color: #3f3f46;
+  font-size: .86em;
+}
+
+.guide-note {
+  margin: 14px 0 0;
+  padding: 13px 15px;
+  border: 1px solid #e4e4e7;
+  border-radius: 12px;
+  background: #fafafa;
+  color: #52525b;
+  font-size: .88rem;
+  line-height: 1.72;
+  word-break: keep-all;
+}
+
+.guide-note strong { color: var(--guide-navy); }
+
+.guide-services {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 2px 0 0;
+}
+
+.guide-service {
+  display: flex;
+  gap: 11px;
+  padding: 13px 14px;
+  border: 1px solid #e4e4e7;
+  border-radius: 12px;
+  background: #fff;
+  color: #3f3f46 !important;
+  text-decoration: none !important;
+  transition: border-color .15s ease, background .15s ease;
+}
+
+.guide-service:hover {
+  border-color: #a1a1aa;
+  background: #fafafa;
+}
+
+.guide-service__icon {
+  flex: 0 0 auto;
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+.guide-service__name {
+  display: block;
+  color: #18181b;
+  font-size: .95rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+
+.guide-service__desc {
+  display: block;
+  margin-top: 2px;
+  color: #71717a;
+  font-size: .83rem;
+  line-height: 1.55;
+}
+
+.guide-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.guide-toc a {
+  padding: 6px 12px;
+  border: 1px solid #e4e4e7;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--guide-navy-600);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none !important;
+}
+
+.guide-toc a:hover {
+  border-color: #a1a1aa;
+  color: #18181b;
+}
+
+.guide-page__footnav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  padding: 2px 0 0;
+}
+
+.guide-page__footnav a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border: 1px solid #d4d4d8;
+  border-radius: 999px;
+  background: #fff;
+  color: #3f3f46;
+  font-size: .88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.guide-page__footnav a:hover {
+  border-color: #71717a;
+  color: #18181b;
+}
+
+.guide-page__footnav a.is-primary {
+  border-color: var(--guide-navy);
+  background: var(--guide-navy);
+  color: #fff;
+}
+
+.guide-page__footnav a.is-primary:hover {
+  border-color: #18181b;
+  background: #18181b;
+  color: #fff;
+}
+
+@media (max-width: 720px) {
+  .guide-page { gap: 13px; }
+  .guide-page__hero { padding: 20px 18px 19px; border-radius: 16px; }
+  .guide-page__lead { font-size: .91rem; }
+  .guide-card { padding: 17px 16px; border-radius: 12px; }
+  .guide-card h2 { font-size: 1.06rem; }
+  .guide-services { grid-template-columns: 1fr; }
+  .guide-topbar { padding-bottom: 2px; }
+}
 
 .blog-home__intro { margin-bottom: 22px; }
 .blog-home__eyebrow { margin-bottom: 5px; color: #64748b; font-size: .76rem; font-weight: 800; letter-spacing: .08em; }
