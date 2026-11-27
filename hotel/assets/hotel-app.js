@@ -748,7 +748,7 @@
     var today = kstToday();
     var p = parts(today);
     var html = "";
-    for (var i = 0; i < 5; i++) {          // 이번 달 포함 5개월 → 내년 2월 주말까지
+    for (var i = 0; i < 12; i++) {         // 이번 달 포함 12개월 — 날짜 범위 제한 없이 선택
       var m = p.m + i, y = p.y;
       while (m > 12) { m -= 12; y += 1; }
       html += weekendMonth(y, m, today);
