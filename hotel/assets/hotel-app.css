@@ -454,13 +454,13 @@ img { max-width: 100%; }
 
 /* --------------------------------------------------------------- hcard */
 
-.cards--single { grid-template-columns: minmax(0, 560px); justify-content: center; }
-
 .cards {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
+
+.cards.cards--single { grid-template-columns: minmax(0, 560px); justify-content: center; }
 
 .hcard {
   position: relative;
