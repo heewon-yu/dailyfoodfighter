@@ -11,6 +11,7 @@ Allow: /air/
 Allow: /cal/
 Allow: /games/
 Allow: /benefits/
+Allow: /hotel/
 
 # Major Search Engine Crawlers
 User-agent: Googlebot

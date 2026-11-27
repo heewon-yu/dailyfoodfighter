@@ -9,6 +9,12 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
+/hotel/assets/*
+  Cache-Control: public, max-age=604800
+
+/hotel/data/*
+  Cache-Control: public, max-age=1800
+
 /robots.txt
   Cache-Control: public, max-age=86400
 
