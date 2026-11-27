@@ -350,9 +350,9 @@ python3 hotel/scripts/build_hotel_data.py
 
 집계: STANDARD 104 · PREMIUM 11 · SOLD_OUT 3 · COMING_SOON 2(개관예정 호텔) · NO_POINTS 1 — 영업 중 119곳 전수, 미관측 0
 
-### 5-3. 앱 데이터 `hotel/data/hotels.json` — 119 + 119 + 94 도시
+### 5-3. 앱 데이터 `hotel/data/hotels.json` — 124건(영업 중 119 관측) + 94 도시
 
-`meta`(카운트·환율·관측 기준·API 설정) + `hotels[]`(119건, 전부 `points`/`cashKrw`/`valuePerPoint` 채움) + `cities[]`(94개).
+`meta`(카운트·환율·관측 기준·API 설정) + `hotels[]`(**124건** = 영업 중 119 + 개관예정 4 + 레지던스 1 · 영업 중 119건은 `points`/`cashKrw`/`valuePerPoint` 채움) + `cities[]`(94개). 앱 스탯의 119·104는 `meta.counts` 기준이다.
 
 ---
 

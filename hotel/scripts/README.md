@@ -41,7 +41,7 @@ python3 hotel/scripts/collect_locations.py --attach http://127.0.0.1:9222 \
 # 3) 앱 데이터 빌드 (파이썬만)
 python3 hotel/scripts/build_hotel_data.py --observed hotel/scripts/data/observed_locations.json
 
-# 4) 확인 — 영업 중 119 · Standard 104 · 미관측 0
+# 4) 확인 — counts {'open':119,'standard':104,'premium':11,'other':4} · hotels 124(영업 중 119 관측 + 개관예정·레지던스 5) · cities 94
 python3 -c "import json;d=json.load(open('hotel/data/hotels.json'));print(d['meta']['counts'],len(d['hotels']),len(d['cities']))"
 ```
 
