@@ -15,18 +15,21 @@ p{margin:0 0 6px}
 <script>
 function jump(id, sel){
   var f=document.getElementById(id);
-  f.addEventListener('load', function(){
+  function go(){
     setTimeout(function(){
       try{
-        var d=f.contentDocument, el=sel&&d.querySelector(sel);
-        var w=f.contentWindow;
-        if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 10); }
-        else { w.scrollTo(0, Number(sel)||0); }
+        var d=f.contentDocument, w=f.contentWindow;
+        if(!d) return;
+        if(typeof sel==='number'){ w.scrollTo(0, sel); return; }
+        var el=d.querySelector(sel);
+        if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 8); }
       }catch(e){}
-    }, 400);
-  });
+    }, 300);
+  }
+  go();
+  f.addEventListener('load', go);
 }
-jump('m1', '.air-table-wrap');
+jump('m1', 980);
 jump('m2', '#type-detail');
 jump('m3', '#type-detail');
 </script>
