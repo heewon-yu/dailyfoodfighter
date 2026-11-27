@@ -166,7 +166,7 @@
       setValue("v-fed", nf(m.low, 2) + " ~ " + nf(m.high, 2), "%");
     }
     var sub = m.effr != null ? "실효금리(EFFR) " + nf(m.effr, 2) + "%" : "";
-    set("d-fed", sub + (fomcNext ? ' <span style="color:var(--ink-3);font-weight:600">· 다음 FOMC ' + kstDate(fomcNext) + "</span>" : ""));
+    set("d-fed", sub + (fomcNext ? ' <span style="color:var(--ink-3);font-weight:600;white-space:nowrap">· 다음 FOMC ' + kstDate(fomcNext) + "</span>" : ""));
     setText("s-fed", "뉴욕 연은 · " + (kstDate(m.date) || "–") + " 기준");
   }
 
