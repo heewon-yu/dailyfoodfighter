@@ -190,7 +190,7 @@ def main():
 
     meta = {
         "title": "힐튼포숙지도",
-        "generatedAt": "2026-11-27T15:45:00+09:00",
+        "generatedAt": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
         "observedAt": "2026-11-27 14:41 · 15:39 KST",
         "observedBasis": "hilton.com 브랜드별 Locations 디렉터리 · Use Points 체크 · 향후 30일 현재 재고 최저 포인트",
         "observedScope": "영업 중 118곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳)",

@@ -1,7 +1,7 @@
 {
  "meta": {
   "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 테스트용 대표 샘플",
-  "generatedAt": "2026-11-27T15:45:00+09:00",
+  "generatedAt": "2026-11-27T15:47:39+09:00",
   "observedAt": "2026-11-27 14:41 · 15:39 KST",
   "sampleNote": "전수 118곳 스캔 대신 대표 샘플만 관측(사용자 확정). 나머지는 master 목록에 두고 추후 D1 실시간 조회로 채운다.",
   "method": "브랜드별 /en/locations/ 디렉터리에서 Use Points 체크 후 카드의 Points/night + Standard Room Reward / Premium Room Rewards 라벨, From* 현금가 판독",
@@ -1941,7 +1941,7 @@
    "cashKrw": 180611,
    "valuePerPoint": 4.41,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -1971,7 +1971,7 @@
    "cashKrw": 569696,
    "valuePerPoint": 2.79,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2031,7 +2031,7 @@
    "cashKrw": 210286,
    "valuePerPoint": 4.29,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2061,7 +2061,7 @@
    "cashKrw": 257805,
    "valuePerPoint": 5.73,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2091,7 +2091,7 @@
    "cashKrw": 749986,
    "valuePerPoint": 6.82,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2151,7 +2151,7 @@
    "cashKrw": 429850,
    "valuePerPoint": 6.14,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2181,7 +2181,7 @@
    "cashKrw": 369763,
    "valuePerPoint": 5.28,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2211,7 +2211,7 @@
    "cashKrw": 214287,
    "valuePerPoint": 4.29,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2241,7 +2241,7 @@
    "cashKrw": 177442,
    "valuePerPoint": 4.55,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2271,7 +2271,7 @@
    "cashKrw": 182075,
    "valuePerPoint": 4.34,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2301,7 +2301,7 @@
    "cashKrw": 1289430,
    "valuePerPoint": 7.58,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2331,7 +2331,7 @@
    "cashKrw": 204780,
    "valuePerPoint": 3.79,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2361,7 +2361,7 @@
    "cashKrw": 261524,
    "valuePerPoint": 3.74,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2391,7 +2391,7 @@
    "cashKrw": 260880,
    "valuePerPoint": 3.57,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2421,7 +2421,7 @@
    "cashKrw": 343431,
    "valuePerPoint": 3.82,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2451,7 +2451,7 @@
    "cashKrw": 223914,
    "valuePerPoint": 4.15,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2481,7 +2481,7 @@
    "cashKrw": 371226,
    "valuePerPoint": 4.95,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },
@@ -2511,7 +2511,7 @@
    "cashKrw": 254663,
    "valuePerPoint": 3.8,
    "observedAt": "2026-11-27T14:41:00+09:00",
-   "observedAtLabel": "2026-11-27 14:41 KST",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST",
    "excluded": false,
    "exclusionNote": ""
   },

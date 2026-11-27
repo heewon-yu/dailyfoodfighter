@@ -10,7 +10,7 @@
    "https://www.hilton.com/en/locations/lxr-hotels/ (1~2페이지 · 21곳)"
   ],
   "cashNote": "현금가는 디렉터리 카드의 From* 최저 요금(향후 30일 기준). 1차 80곳은 호텔 통화 그대로, 2차 40곳은 KRW 표시로 판독했다. 세금·봉사료 포함 여부·객실 타입은 공식 예약 화면에서 확인 필요.",
-  "batchNote": "2차(15:37~15:39 KST): 1차에서 읽지 않은 4페이지(WA 2~3p 25장 · Conrad 3p 18장 · LXR 2p 1장)를 Select currency=KRW 상태에서 현금 모드 판독 후 Use Points 체크 판독. 영업 중 40곳 추가 → 영업 중 118곳 전수 관측. 3차(15:53 KST): 1차에서 현금가가 비어 있던 Conrad 2페이지 18곳의 현금가만 KRW로 보충(포인트·등급은 1차 값 유지)."
+  "batchNote": "2차(15:37~15:39 KST): 1차에서 읽지 않은 4페이지(WA 2~3p 25장 · Conrad 3p 18장 · LXR 2p 1장)를 Select currency=KRW 상태에서 현금 모드 판독 후 Use Points 체크 판독. 영업 중 40곳 추가 → 영업 중 118곳 전수 관측. 3차(15:46 KST): 1차에서 현금가가 비어 있던 Conrad 2페이지 18곳의 현금가만 KRW로 보충(포인트·등급은 1차 값 유지)."
  },
  "records": [
   {
@@ -381,8 +381,10 @@
    "cashAmount": 180611,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Altay Hemu",
@@ -392,8 +394,10 @@
    "cashAmount": 569696,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Bangkok",
@@ -403,8 +407,10 @@
    "cashAmount": 257805,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Bangkok Residences",
@@ -414,8 +420,10 @@
    "cashAmount": 210286,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Koh Samui",
@@ -425,8 +433,10 @@
    "cashAmount": 749986,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Singapore Marina Bay",
@@ -436,8 +446,10 @@
    "cashAmount": 429850,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Singapore Orchard",
@@ -447,8 +459,10 @@
    "cashAmount": 369763,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Bali",
@@ -458,8 +472,10 @@
    "cashAmount": 214287,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Pune",
@@ -469,8 +485,10 @@
    "cashAmount": 177442,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Bengaluru",
@@ -480,8 +498,10 @@
    "cashAmount": 182075,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Maldives Rangali Island",
@@ -491,8 +511,10 @@
    "cashAmount": 1289430,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Dubai",
@@ -502,8 +524,10 @@
    "cashAmount": 204780,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Abu Dhabi Etihad Towers",
@@ -513,8 +537,10 @@
    "cashAmount": 261524,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Bahrain Financial Harbour",
@@ -524,8 +550,10 @@
    "cashAmount": 260880,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Riyadh Laysen Valley",
@@ -535,8 +563,10 @@
    "cashAmount": 343431,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Istanbul Bosphorus",
@@ -546,8 +576,10 @@
    "cashAmount": 223914,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Hamburg",
@@ -557,8 +589,10 @@
    "cashAmount": 371226,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "Conrad Jabal Omar Makkah",
@@ -568,8 +602,10 @@
    "cashAmount": 254663,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
-   "cashObservedAt": "2026-11-27T15:53:00+09:00",
-   "cashObservedAtLabel": "2026-11-27 15:53 KST"
+   "cashObservedAt": "2026-11-27T15:46:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:46 KST",
+   "observedAt": "2026-11-27T14:41:00+09:00",
+   "observedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
    "name": "ROKU KYOTO, LXR Hotels & Resorts",
