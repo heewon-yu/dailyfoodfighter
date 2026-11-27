@@ -1,0 +1,28 @@
+{
+  "name": "policy-benefit-matcher",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev",
+    "build": "npm run check && vite build",
+    "preview": "vite preview",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "node --test tests/*.test.mjs",
+    "build:blog": "EMBED_BENEFITS=1 npm run check && EMBED_BENEFITS=1 vite build && node scripts/verify-blog-build.mjs && node scripts/inject-head-jsonld.mjs",
+    "build:blog:static": "EMBED_BENEFITS=1 vite build && node scripts/verify-blog-build.mjs && node scripts/inject-head-jsonld.mjs"
+  },
+  "dependencies": {
+    "@sveltejs/kit": "^2.0.0",
+    "lucide-svelte": "^0.460.0",
+    "svelte": "^5.0.0"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-cloudflare": "^7.0.0",
+    "@sveltejs/vite-plugin-svelte": "^6.0.0",
+    "svelte-check": "^4.0.0",
+    "typescript": "^5.6.0",
+    "vite": "^7.0.0",
+    "@sveltejs/adapter-auto": "^6.0.0",
+    "@sveltejs/adapter-static": "^3.0.0"
+  }
+}

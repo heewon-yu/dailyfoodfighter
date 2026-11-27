@@ -1,0 +1,15 @@
+name = "policy-benefit-api"
+main = "src/index.ts"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "policy-benefit-db"
+database_id = "d9a6e41a-83a3-4647-ab63-48b610dd89d4"
+migrations_dir = "../migrations"
+
+# Cloudflare-native expiry PURGE at 00:00 KST plus 10,12,14,16,18 KST.
+# Midnight is deletion-only: the collector never refreshes official APIs at midnight.
+# No GitHub Actions or local machine required for this purge.
+[triggers]
+crons = ["0 15 * * *", "0 1,3,5,7,9 * * *"]

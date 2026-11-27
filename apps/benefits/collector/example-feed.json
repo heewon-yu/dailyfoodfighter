@@ -1,0 +1,17 @@
+[
+  {
+    "source": "EXAMPLE_ONLY",
+    "source_id": "not-real-001",
+    "category": "FUND",
+    "title": "샘플 공고 — 실제 지원사업 아님",
+    "agency": "테스트",
+    "summary": "이 항목은 데이터 형식 확인용 예시입니다. 실제로 신청할 수 없습니다.",
+    "amount_type": "UNKNOWN",
+    "target_types": [],
+    "region_sido": "전국",
+    "application_type": "UNKNOWN",
+    "apply_url": "https://www.data.go.kr/",
+    "needs_review": true,
+    "status": "EXAMPLE"
+  }
+]

@@ -1,0 +1,37 @@
+services:
+  collector:
+    image: python:3.12-slim
+    working_dir: /app
+    volumes:
+      - ./collector:/app:ro
+      - collector-state:/state
+    environment:
+      TZ: Asia/Seoul
+      STATE_DIR: /state
+      COLLECTOR_SOURCE: ${COLLECTOR_SOURCE:-all}
+      SOURCE_FEED_URL: ${SOURCE_FEED_URL:-}
+      BIZINFO_API_KEY: ${BIZINFO_API_KEY:-}
+      GOV24_API_KEY: ${GOV24_API_KEY:-}
+      GOV24_APPROVED_DAILY_CALLS: ${GOV24_APPROVED_DAILY_CALLS:-10000}
+      BIZINFO_APPROVED_DAILY_CALLS: ${BIZINFO_APPROVED_DAILY_CALLS:-1000}
+      API_BUDGET_PERCENT: ${API_BUDGET_PERCENT:-100}
+      GOV24_MAX_PAGES: ${GOV24_MAX_PAGES:-1}
+      GOV24_PER_PAGE: ${GOV24_PER_PAGE:-10}
+      GOV24_DETAIL_LIMIT: ${GOV24_DETAIL_LIMIT:-20}
+      GOV24_BACKFILL_ENABLED: ${GOV24_BACKFILL_ENABLED:-YES}
+      BIZINFO_MAX_PAGES: ${BIZINFO_MAX_PAGES:-50}
+      GOV24_INCREMENTAL_ENABLED: ${GOV24_INCREMENTAL_ENABLED:-YES}
+      GOV24_DAILY_FULL_CATALOG: ${GOV24_DAILY_FULL_CATALOG:-YES}
+      CONFIRM_GOV24_BULK_QUOTA: ${CONFIRM_GOV24_BULK_QUOTA:-YES}
+      OLLAMA_MAX_RECORDS: ${OLLAMA_MAX_RECORDS:-0}
+      OLLAMA_BASE_URL: ${OLLAMA_BASE_URL:-http://host.docker.internal:11434}
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-}
+      INGEST_URL: ${INGEST_URL:-}
+      INGEST_TOKEN: ${INGEST_TOKEN:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: ["python", "-u", "scheduler.py"]
+    restart: unless-stopped
+
+volumes:
+  collector-state:

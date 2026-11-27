@@ -25,6 +25,13 @@ include:
   - _headers
   - _redirects
 
+# SvelteKit 소스(apps/benefits)는 Jekyll이 건드리면 안 된다.
+# apps/ 안의 package.json·*.ts·.svelte-kit 등이 _site로 복사되거나 깨지지 않도록 제외한다.
+# 실서버에 나가는 것은 apps/benefits 빌드 산출물을 복사한 benefits/ 폴더뿐이다.
+exclude:
+  - apps/
+  - node_modules/
+
 # Collections / Categories
 collections:
   posts:

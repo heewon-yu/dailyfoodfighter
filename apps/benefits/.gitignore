@@ -1,0 +1,16 @@
+node_modules
+.svelte-kit
+build
+dist
+.wrangler
+.env
+.env.*
+!.env.example
+.dev.vars
+*.log
+.DS_Store
+__pycache__/
+*.pyc
+
+# Local D1 exports and audit baselines: do not commit
+audit-artifacts/
