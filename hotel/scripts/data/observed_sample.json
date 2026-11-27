@@ -1,0 +1,670 @@
+{
+ "meta": {
+  "observedAt": "2026-11-27T14:41:00+09:00",
+  "observedAtLabel": "2026-11-27 14:41 KST",
+  "method": "비로그인 Chrome 원격 브라우저 · 브랜드별 /en/locations/ 디렉터리에서 'Use Points' 체크 후 카드 텍스트 판독",
+  "pageNote": "표시 값은 힐튼 디렉터리 기준 '향후 30일 현재 재고 최저 포인트'이며 특정 날짜 값이 아니다.",
+  "sources": [
+   "https://www.hilton.com/en/locations/waldorf-astoria/ (1페이지)",
+   "https://www.hilton.com/en/locations/conrad-hotels/ (1~2페이지)",
+   "https://www.hilton.com/en/locations/lxr-hotels/ (1페이지)"
+  ],
+  "cashNote": "현금가는 같은 디렉터리 카드의 From* 최저 요금(향후 30일 기준). 세금·봉사료 포함 여부·객실 타입은 공식 예약 화면에서 확인 필요."
+ },
+ "records": [
+  {
+   "name": "Waldorf Astoria Osaka",
+   "brand": "wa",
+   "points": 120000,
+   "rewardType": "STANDARD",
+   "cashAmount": 80627,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Shanghai on the Bund",
+   "brand": "wa",
+   "points": 298000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 2854,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Shanghai Qiantan",
+   "brand": "wa",
+   "points": 80000,
+   "rewardType": "STANDARD",
+   "cashAmount": 2524,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Beijing",
+   "brand": "wa",
+   "points": 100000,
+   "rewardType": "STANDARD",
+   "cashAmount": 2447,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Xiamen",
+   "brand": "wa",
+   "points": 63000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1596,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Chengdu",
+   "brand": "wa",
+   "points": 44000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1135,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Bangkok",
+   "brand": "wa",
+   "points": 85000,
+   "rewardType": "STANDARD",
+   "cashAmount": 9900,
+   "cashCurrency": "THB",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Kuala Lumpur",
+   "brand": "wa",
+   "points": 100000,
+   "rewardType": "STANDARD",
+   "cashAmount": 2818,
+   "cashCurrency": "MYR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Maldives Ithaafushi",
+   "brand": "wa",
+   "points": 250000,
+   "rewardType": "STANDARD",
+   "cashAmount": 2574,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Al Husn Hotel Muscat",
+   "brand": "wa",
+   "points": 90000,
+   "rewardType": "STANDARD",
+   "cashAmount": 108,
+   "cashCurrency": "OMR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Ras Al Khaimah",
+   "brand": "wa",
+   "points": 64000,
+   "rewardType": "STANDARD",
+   "cashAmount": 758,
+   "cashCurrency": "AED",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Dubai International Financial Centre",
+   "brand": "wa",
+   "points": 100000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1120,
+   "cashCurrency": "AED",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Dubai Palm Jumeirah",
+   "brand": "wa",
+   "points": 100000,
+   "rewardType": "STANDARD",
+   "cashAmount": 864,
+   "cashCurrency": "AED",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Helsinki",
+   "brand": "wa",
+   "points": 110000,
+   "rewardType": "STANDARD",
+   "cashAmount": 348,
+   "cashCurrency": "EUR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Doha Lusail",
+   "brand": "wa",
+   "points": 80000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1120,
+   "cashCurrency": "QAR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Doha West Bay",
+   "brand": "wa",
+   "points": 66000,
+   "rewardType": "STANDARD",
+   "cashAmount": 640,
+   "cashCurrency": "QAR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Kuwait",
+   "brand": "wa",
+   "points": 95000,
+   "rewardType": "STANDARD",
+   "cashAmount": 142,
+   "cashCurrency": "KWD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Waldorf Astoria Minsk",
+   "brand": "wa",
+   "points": 60000,
+   "rewardType": "STANDARD",
+   "cashAmount": 351,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Grand Wailea, A Waldorf Astoria Resort",
+   "brand": "wa",
+   "points": 130000,
+   "rewardType": "STANDARD",
+   "cashAmount": 708,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Ho'olei at Grand Wailea",
+   "brand": "wa",
+   "points": 606000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 1842,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Seoul",
+   "brand": "co",
+   "points": 80000,
+   "rewardType": "STANDARD",
+   "cashAmount": 512706,
+   "cashCurrency": "KRW",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Dalian",
+   "brand": "co",
+   "points": 33000,
+   "rewardType": "STANDARD",
+   "cashAmount": 731,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Shenyang",
+   "brand": "co",
+   "points": 37000,
+   "rewardType": "STANDARD",
+   "cashAmount": 932,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Osaka",
+   "brand": "co",
+   "points": 95000,
+   "rewardType": "STANDARD",
+   "cashAmount": 61987,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Shanghai",
+   "brand": "co",
+   "points": 60000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1251,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Tianjin",
+   "brand": "co",
+   "points": 33000,
+   "rewardType": "STANDARD",
+   "cashAmount": 841,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Nagoya",
+   "brand": "co",
+   "points": 70000,
+   "rewardType": "STANDARD",
+   "cashAmount": 60361,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Beijing",
+   "brand": "co",
+   "points": 51000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1299,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Hangzhou",
+   "brand": "co",
+   "points": 52000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1076,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Hangzhou Tonglu",
+   "brand": "co",
+   "points": 81000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1683,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Tokyo",
+   "brand": "co",
+   "points": 130000,
+   "rewardType": "STANDARD",
+   "cashAmount": 86634,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Xiamen",
+   "brand": "co",
+   "points": 59000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1489,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Guangzhou",
+   "brand": "co",
+   "points": 60000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1525,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Chongqing",
+   "brand": "co",
+   "points": 43000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1098,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Shenzhen",
+   "brand": "co",
+   "points": 127000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 2062,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Hong Kong",
+   "brand": "co",
+   "points": 85000,
+   "rewardType": "STANDARD",
+   "cashAmount": 2982,
+   "cashCurrency": "HKD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Macao",
+   "brand": "co",
+   "points": 54000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1211,
+   "cashCurrency": "MOP",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Jiuzhaigou",
+   "brand": "co",
+   "points": 57000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1378,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Manila",
+   "brand": "co",
+   "points": 50000,
+   "rewardType": "STANDARD",
+   "cashAmount": 9858,
+   "cashCurrency": "PHP",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Sunshine Yi Hotel Haitang Bay, Sanya",
+   "brand": "co",
+   "points": 42000,
+   "rewardType": "STANDARD",
+   "cashAmount": 685,
+   "cashCurrency": "CNY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Conrad Urumqi",
+   "brand": "co",
+   "points": 41000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Altay Hemu",
+   "brand": "co",
+   "points": 204000,
+   "rewardType": "PREMIUM"
+  },
+  {
+   "name": "Conrad Bangkok",
+   "brand": "co",
+   "points": 45000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Bangkok Residences",
+   "brand": "co",
+   "points": 49000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Koh Samui",
+   "brand": "co",
+   "points": 110000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Singapore Marina Bay",
+   "brand": "co",
+   "points": 70000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Singapore Orchard",
+   "brand": "co",
+   "points": 70000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Bali",
+   "brand": "co",
+   "points": 50000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Pune",
+   "brand": "co",
+   "points": 39000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Bengaluru",
+   "brand": "co",
+   "points": 42000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Maldives Rangali Island",
+   "brand": "co",
+   "points": 170000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Dubai",
+   "brand": "co",
+   "points": 54000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Abu Dhabi Etihad Towers",
+   "brand": "co",
+   "points": 70000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Bahrain Financial Harbour",
+   "brand": "co",
+   "points": 73000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Riyadh Laysen Valley",
+   "brand": "co",
+   "points": 90000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Istanbul Bosphorus",
+   "brand": "co",
+   "points": 54000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Hamburg",
+   "brand": "co",
+   "points": 75000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "Conrad Jabal Omar Makkah",
+   "brand": "co",
+   "points": 67000,
+   "rewardType": "STANDARD"
+  },
+  {
+   "name": "ROKU KYOTO, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 140000,
+   "rewardType": "STANDARD",
+   "cashAmount": 98544,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Umana Bali, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 95000,
+   "rewardType": "STANDARD",
+   "cashAmount": 10659000,
+   "cashCurrency": "IDR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "The Den Bengaluru, LXR Hotels and Resorts",
+   "brand": "lx",
+   "points": 46000,
+   "rewardType": "STANDARD",
+   "cashAmount": 14523,
+   "cashCurrency": "INR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "The Mangroves Abu Dhabi, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 70000,
+   "rewardType": "STANDARD",
+   "cashAmount": 840,
+   "cashCurrency": "AED",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Katara Hills Doha, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 150000,
+   "rewardType": "STANDARD",
+   "cashAmount": 3200,
+   "cashCurrency": "QAR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "The Plaza Doha, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 46000,
+   "rewardType": "STANDARD",
+   "cashAmount": 565,
+   "cashCurrency": "QAR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Maysan Doha, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 140000,
+   "rewardType": "STANDARD",
+   "cashAmount": 1960,
+   "cashCurrency": "QAR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Ka La'i Waikiki Beach, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 222000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 479,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Imperial Hotel Gold Coast",
+   "brand": "lx",
+   "points": 44000,
+   "rewardType": "STANDARD",
+   "cashAmount": 238,
+   "cashCurrency": "AUD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Mango House Seychelles, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 120000,
+   "rewardType": "STANDARD",
+   "cashAmount": 500,
+   "cashCurrency": "EUR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Sax Paris, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 120000,
+   "rewardType": "STANDARD",
+   "cashAmount": 550,
+   "cashCurrency": "EUR",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Oceana Santa Monica, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 105000,
+   "rewardType": "STANDARD",
+   "cashAmount": 635,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Cameo Beverly Hills, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 90000,
+   "rewardType": "STANDARD",
+   "cashAmount": 286,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Crockfords Las Vegas, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 110000,
+   "rewardType": "STANDARD",
+   "cashAmount": 287,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Beach Village at The Del, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 446000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 770,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Shore House at The Del, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 320000,
+   "rewardType": "PREMIUM",
+   "cashAmount": 716,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Arizona Biltmore, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": 90000,
+   "rewardType": "STANDARD",
+   "cashAmount": 426,
+   "cashCurrency": "USD",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Gajoen Tokyo",
+   "brand": "lx",
+   "points": null,
+   "rewardType": "NO_POINTS",
+   "cashAmount": 96991,
+   "cashCurrency": "JPY",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)"
+  },
+  {
+   "name": "Susona Bodrum, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": null,
+   "rewardType": "SOLD_OUT"
+  },
+  {
+   "name": "Sandblu Santorini, LXR Hotels & Resorts",
+   "brand": "lx",
+   "points": null,
+   "rewardType": "SOLD_OUT"
+  },
+  {
+   "name": "Conrad Bangkok Sukhumvit Queen's Park",
+   "brand": "co",
+   "points": null,
+   "rewardType": "COMING_SOON"
+  },
+  {
+   "name": "Conrad Kuala Lumpur",
+   "brand": "co",
+   "points": null,
+   "rewardType": "COMING_SOON"
+  }
+ ]
+}
