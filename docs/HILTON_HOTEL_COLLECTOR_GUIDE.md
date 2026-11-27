@@ -528,3 +528,25 @@ functions/api/hotel/schema.sql            ← D1 스키마
 functions/api/hotel/rates.js              ← GET /api/hotel/rates
 hotel/assets/hotel-api.js                 ← mode: static | live
 ```
+
+---
+
+## 10. 날짜 지정(12월·1월·2월) 실측 결과 — 2026-11-27
+
+'향후 30일' 밖(2026-12 ~ 2027-02) 값을 자동 수집으로 넓힐 수 있는지 실측한 기록. **결론: 안전 경로로는 불가.**
+
+| 시도 | 결과 |
+|---|---|
+| `/en/locations/waldorf-astoria/?arrivalDate=2026-12-11&departureDate=2026-12-12` | 날짜 **무시**. 버튼은 여전히 `Add dates`, 각주도 `*Prices are based on current availability over the next 30 days...`, 카드가도 30일 최저값 그대로(오사카 WA ¥80,627). |
+| 디렉터리 날짜 피커(2026-12-11~12-12) | `Update` 가 **목적지 입력 전에는 비활성**. `Seoul, South Korea` 입력 후 활성 → 아래 `/en/search/` 로 이동. |
+| 이동한 주소 | `https://www.hilton.com/en/search/waldorf-astoria/?query=Seoul%2C%20South%20Korea&arrivalDate=2026-12-11&departureDate=2026-12-12&flexibleDates=false&numRooms=1&numAdults=1&numChildren=0&room1ChildAges=&room1AdultAges=&specialRateTokens=&sortBy=DISTANCE&f-brandCodes=WA` |
+| 그 화면의 값 | 날짜 기준 실값이 나온다. 콘래드 서울 2026-12-11~12 = **₩668,382**(Honors Discount Advance Purchase) vs 디렉터리 30일 최저 **₩512,706**(+30%). `Use Points` 체크박스·`Points: low-high` 정렬도 이 화면에 있다. |
+| robots.txt | `User-agent: *` 아래 `Disallow: /search/`·`/book/`·`/find-hotels/`. → 날짜별 값이 있는 화면은 **수집 금지 경로**다. |
+| 차단 양상 | 이 과정에서 403·캡차·Access Denied는 없었다(`/en/locations/`·`/en/hotels/{code}/` 모두 정상). 문제는 차단이 아니라 **robots 정책**이다. |
+
+### 결정 (사용자 확정: 2026-11-27)
+1. 데이터는 **향후 30일 최저 스냅샷 유지**. 화면에는 관측 창을 `향후 30일(2026.11.27~2026.12.27)`처럼 **날짜로 명시**한다.
+2. 12월~2027년 2월은 **링크로 넘긴다**. 디렉터리 탭의 `날짜 지정`(체크인·체크아웃·성인, 12월/1월/2월 둘째 주말 원터치)을 켜면
+   - 카드 `공식 날짜 조회` → `https://www.hilton.com/en/book/reservation/rooms/?ctyhocn={code}&arrivalDate=…&departureDate=…&redeemPts=true&room1NumAdults=…`
+   - 카드 `같은 도시 날짜 목록` → `https://www.hilton.com/en/search/{brand-slug}/?query={도시}, {국가}&arrivalDate=…&…&f-brandCodes={WA|CO|LX}` (위 실측 주소 형식 그대로)
+3. `collect_locations.py --checkin/--checkout` 은 **의도적으로 미지원**(지정하면 이유를 출력하고 exit 2). 날짜별 자동 수집을 다시 시도하려면 먼저 robots·약관 판단을 새로 세울 것.

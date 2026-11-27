@@ -28,7 +28,12 @@ functions/api/hotel/
   `scripts/data/observed_sample.json`(2026-11-27 디렉터리 관측 영업 중 119곳 전수 · 미관측 0)으로 만든다.
 - 포인트·현금가는 힐튼 브랜드별 Locations 디렉터리의 **"향후 30일 최저"** 값이며 특정 날짜 요금이 아니다.
   앱은 이 점을 결과 화면에 명시하고, 날짜별 실제 값은 `공식 날짜 조회`(hilton.com `/book/`) 버튼으로 넘긴다.
-- 힐튼 robots.txt 가 `/book/` 을 Disallow 하므로 날짜별 요금은 서버에서 대량 수집하지 않는다.
+- 힐튼 robots.txt 는 `/search/`·`/book/`·`/find-hotels/` 를 Disallow 한다. 디렉터리는 날짜 파라미터를 무시하고(항상 30일 최저)
+  날짜를 고르면 `/en/search/` 로 넘어가므로, **날짜별(12월~2027년 2월) 요금은 수집하지 않는다.**
+- 대신 디렉터리 탭의 `날짜 지정`(체크인·체크아웃·성인 + 12월/1월/2월 둘째 주말 원터치)으로 카드의
+  `공식 날짜 조회`(`/book/…?ctyhocn=…&arrivalDate=…`)·`같은 도시 날짜 목록`(`/en/search/{brand}/?query=…&arrivalDate=…`)을
+  사용자가 직접 연다. 화면에는 관측 창을 `향후 30일(2026.11.27~2026.12.27)`처럼 날짜로 표시한다.
+  실측 근거: `docs/HILTON_HOTEL_COLLECTOR_GUIDE.md` 10절.
 
 ## 데이터 갱신 (파이썬만으로 — 권장)
 

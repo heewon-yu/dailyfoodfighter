@@ -21,7 +21,9 @@
     tab: "points",
     points: { region: "한국", city: "Seoul", checkIn: "", checkOut: "", adults: "2" },
     weekend: { region: "한국", city: "Seoul", date: "", adults: "2" },
-    dir: { brand: "", region: "", q: "", standardOnly: false, sort: "points-asc", limit: 24 },
+    dir: { brand: "", region: "", q: "", standardOnly: false, sort: "points-asc", limit: 24,
+           checkIn: "", checkOut: "", adults: "2" },
+    obs: { start: "", end: "" },
     live: {}
   };
 
@@ -76,6 +78,22 @@
     if (!iso) return "";
     var p = parts(iso);
     return p.m + "월 " + p.d + "일(" + WEEKDAY_KO[weekday(iso)] + ")";
+  }
+
+  /* 카드·힌트용 짧은 날짜: 올해면 12/27, 다른 해면 2027.2.13 */
+  function shortDate(iso) {
+    if (!iso) return "";
+    var p = parts(iso);
+    var thisYear = Number(kstToday().slice(0, 4));
+    return p.y === thisYear ? p.m + "/" + p.d : p.y + "." + p.m + "." + p.d;
+  }
+
+  /* 관측일 기준 30일 창 — 디렉터리 카드가 보장하는 범위.
+     예) 2026-11-27 관측 → 2026-11-27~2026-12-27 */
+  function obsWindow(meta) {
+    var start = String((meta && meta.observedAt) || "").slice(0, 10);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(start)) return { start: "", end: "" };
+    return { start: start, end: addDays(start, 30) };
   }
 
   function isWeekend(iso) {
@@ -209,12 +227,23 @@
       ? '<p class="hcard__vpp">≈ ' + h.valuePerPoint.toFixed(2) + "원/P</p>"
       : "";
 
-    var officialHref = (ctx === "points" || ctx === "weekend") && state.points.checkIn
-      ? HotelApi.officialUrl(h.code, state.points.checkIn, state.points.checkOut, state.points.adults)
-      : h.url;
+    var officialHref = h.url;
+    var officialText = "호텔 페이지 ↗";
+    if (ctx === "points" && state.points.checkIn) {
+      officialHref = HotelApi.officialUrl(h.code, state.points.checkIn, state.points.checkOut, state.points.adults);
+      officialText = "공식 날짜 조회 ↗";
+    }
     if (ctx === "weekend") {
       officialHref = HotelApi.officialUrl(h.code, state.weekend.date, addDays(state.weekend.date, 1), state.weekend.adults);
+      officialText = "공식 날짜 조회 ↗";
     }
+    if (ctx === "dir" && state.dir.checkIn && state.dir.checkOut) {
+      officialHref = HotelApi.officialUrl(h.code, state.dir.checkIn, state.dir.checkOut, state.dir.adults);
+      officialText = "공식 날짜 조회 ↗";
+    }
+    var cityHref = (ctx === "dir" && state.dir.checkIn && state.dir.checkOut && h.city)
+      ? HotelApi.searchUrl(h.brand, h.city, h.country, state.dir.checkIn, state.dir.checkOut, state.dir.adults)
+      : "";
 
     var saveLine = "";
     if (ctx === "weekend" && h.standardAvailable) {
@@ -224,7 +253,7 @@
     }
 
     var obs = h.observedAtLabel
-      ? "향후 30일 최저 · " + h.observedAtLabel + " 관측"
+      ? "향후 30일 최저" + (state.obs.end ? "(" + shortDate(state.obs.end) + "까지)" : "") + " · " + h.observedAtLabel + " 관측"
       : "이 호텔은 아직 포인트를 조회하지 않았습니다";
 
     var noteBits = [obs];
@@ -246,7 +275,8 @@
         saveLine +
         '<p class="hcard__note">' + esc(noteBits.join(" · ")) + "</p>" +
         '<div class="hcard__actions">' +
-          '<a class="btn btn--sm" href="' + esc(officialHref) + '" target="_blank" rel="noopener noreferrer">공식 날짜 조회 ↗</a>' +
+          '<a class="btn btn--sm" href="' + esc(officialHref) + '" target="_blank" rel="noopener noreferrer">' + officialText + "</a>" +
+          (cityHref ? '<a class="btn btn--ghost btn--sm" href="' + esc(cityHref) + '" target="_blank" rel="noopener noreferrer">같은 도시 날짜 목록 ↗</a>' : "") +
           '<button type="button" class="btn btn--ghost btn--sm" data-calc="' + esc(h.code) + '">가치 계산</button>' +
         "</div>" +
         calcBlock(h, ctx) +
@@ -503,6 +533,57 @@
     $("#dir-more").addEventListener("click", function () {
       state.dir.limit += 24; renderDirectory();
     });
+
+    /* 날짜를 고르면 디렉터리 카드의 '공식 날짜 조회'가 그 날짜의 예약 화면으로 바뀐다. */
+    var ci = $("#dir-checkin");
+    var co = $("#dir-checkout");
+    if (ci && co) {
+      var today = kstToday();
+      ci.min = today;
+      co.min = addDays(today, 1);
+      ci.addEventListener("change", function () {
+        co.min = this.value ? addDays(this.value, 1) : addDays(today, 1);
+        if (this.value && (!co.value || co.value <= this.value)) co.value = addDays(this.value, 1);
+        state.dir.checkIn = this.value;
+        state.dir.checkOut = co.value;
+        renderDirectory();
+      });
+      co.addEventListener("change", function () {
+        state.dir.checkIn = ci.value;
+        state.dir.checkOut = this.value;
+        renderDirectory();
+      });
+      $("#dir-adults").addEventListener("change", function () {
+        state.dir.adults = this.value; renderDirectory();
+      });
+      $("#dir-date-clear").addEventListener("click", function () {
+        ci.value = ""; co.value = "";
+        state.dir.checkIn = ""; state.dir.checkOut = "";
+        renderDirectory();
+      });
+    }
+
+    /* 12월·1월·2월 대표 주말(둘째 금요일 1박) 원터치 */
+    $$("[data-dir-month]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var v = btn.getAttribute("data-dir-month").split("-");
+        var d = secondFriday(Number(v[0]), Number(v[1]));
+        while (d < kstToday()) d = addDays(d, 7);   // 이미 지난 달→ 그 주 금요일로 넘긴다
+        ci.value = d;
+        co.value = addDays(d, 1);
+        co.min = co.value;
+        state.dir.checkIn = ci.value;
+        state.dir.checkOut = co.value;
+        renderDirectory();
+      });
+    });
+  }
+
+  function secondFriday(year, month) {
+    var d = "" + year + "-" + HotelApi.pad(month) + "-01";
+    while (weekday(d) !== 5) d = addDays(d, 1);   // 첫 금요일
+    var second = addDays(d, 7);                   // 둘째 금요일
+    return second;
   }
 
   /* -------------------------------------------------------------- calc */
@@ -706,6 +787,16 @@
       '<li><b>' + esc(state.meta.observedAt || "") + "</b> 기준</li>";
   }
 
+  /* 관측 창(30일) 표기 — '향후 30일'이 어느 날짜까지인지 화면에 명시한다. */
+  function fillObsWindow() {
+    var o = state.obs || { start: "", end: "" };
+    if (!o.start) return;
+    var range = o.start.replace(/-/g, ".") + "~" + o.end.replace(/-/g, ".");
+    $$("[data-obs-window]").forEach(function (el) { el.textContent = "향후 30일(" + range + ")"; });
+    $$("[data-obs-end]").forEach(function (el) { el.textContent = shortDate(o.end); });
+    $$("[data-obs-start]").forEach(function (el) { el.textContent = shortDate(o.start); });
+  }
+
   function init() {
     setDefaults();
     bindTabs();
@@ -726,6 +817,8 @@
       state.cities = data.cities || [];
 
       renderHeroStats();
+      state.obs = obsWindow(state.meta);
+      fillObsWindow();
       fillRegions($("#p-region"), "한국");
       fillRegions($("#w-region"), "한국");
       fillRegions($("#dir-region"), "");
