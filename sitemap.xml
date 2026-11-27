@@ -8,6 +8,12 @@ layout: null
     <loc>{{ site.url }}{{ site.baseurl }}/</loc>
   </url>
   <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/blog/</loc>
+  </url>
+  <url>
+    <loc>{{ site.url }}{{ site.baseurl }}/editorial-policy/</loc>
+  </url>
+  <url>
     <loc>{{ site.url }}{{ site.baseurl }}/en/</loc>
   </url>
   <url>
@@ -46,6 +52,7 @@ layout: null
   <url><loc>{{ site.url }}{{ site.baseurl }}/air/new/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/air/guide/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/cal/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc></url>
