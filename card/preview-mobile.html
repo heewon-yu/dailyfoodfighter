@@ -5,32 +5,11 @@ body{margin:0;background:#222;font:12px/1.4 sans-serif;color:#fff;display:flex;g
 .panel{width:390px}
 .panel--412{width:412px}
 .clip{width:100%;height:900px;overflow:hidden;background:#fff;border-radius:8px}
-.clip iframe{width:100%;height:4000px;border:0;display:block}
+.clip iframe{width:100%;height:1200px;border:0;display:block}
 p{margin:0 0 6px}
 </style></head>
 <body>
-<div class="panel"><p>390 · 발급 혜택 표</p><div class="clip"><iframe id="m1" src="/card/"></iframe></div></div>
-<div class="panel"><p>390 · 유형 3×3 + 여행 TOP5</p><div class="clip"><iframe id="m2" src="/card/?tab=top&amp;type=travel"></iframe></div></div>
-<div class="panel--412"><p>412 · 통신·관리비 TOP5</p><div class="clip"><iframe id="m3" src="/card/?tab=top&amp;type=utility"></iframe></div></div>
-<script>
-function jump(id, sel){
-  var f=document.getElementById(id), tries=0;
-  function go(){
-    tries++;
-    try{
-      var d=f.contentDocument, w=f.contentWindow;
-      if(d && d.readyState==='complete' && d.body && d.body.scrollHeight>2500){
-        if(typeof sel==='number'){ w.scrollTo(0, sel); }
-        else { var el=d.querySelector(sel); if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 8); } }
-        if(tries<10){ setTimeout(go, 400); return; }
-      }
-    }catch(e){}
-    if(tries<20){ setTimeout(go, 400); }
-  }
-  go();
-}
-jump('m1', 980);
-jump('m2', '#type-detail');
-jump('m3', '#type-detail');
-</script>
+<div class="panel"><p>390 · 카드사별 채널 표</p><div class="clip"><iframe src="/card/#rate-matrix"></iframe></div></div>
+<div class="panel"><p>390 · 유형 3×3 + 여행 TOP5</p><div class="clip"><iframe src="/card/?tab=top&amp;type=travel#type-detail"></iframe></div></div>
+<div class="panel--412"><p>412 · 통신·관리비 TOP5</p><div class="clip"><iframe src="/card/?tab=top&amp;type=utility#type-detail"></iframe></div></div>
 </body></html>
