@@ -8,7 +8,7 @@ layout: null
     정적 서비스·신뢰 페이지는 내용이 바뀔 때 아래 static_lastmod를 함께 갱신한다.
     블로그 글은 각 글의 last_modified_at / date를 그대로 쓴다.
   {%- endcomment -%}
-  {%- assign static_lastmod = '2026-11-27T15:55:00+09:00' -%}
+  {%- assign static_lastmod = '2026-11-27T15:38:00+09:00' -%}
   <url><loc>{{ site.url }}{{ site.baseurl }}/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/blog/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/editorial-policy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
