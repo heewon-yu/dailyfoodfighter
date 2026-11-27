@@ -76,6 +76,10 @@ EXCLUDED = {"CUNCICI": "올인클루시브 리조트 — 힐튼 숙박권(Free N
 CAUTION = {"OGGHOWA": "HGV(휴가지 소유)가 운영하는 레지던스형 숙소 — 숙박권 사용 가능 여부를 공식 예약 화면에서 확인하세요."}
 
 
+DEFAULT_OBS = "2026-11-27T14:41:00+09:00"
+DEFAULT_OBS_LABEL = "2026-11-27 14:41 KST"
+
+
 def norm(s):
     s = unicodedata.normalize("NFKD", s).lower()
     s = re.sub(r"[,\.']", "", s)
@@ -90,11 +94,12 @@ def main():
     by_name = {}
     for h in master["hotels"]:
         by_name[(h["brand"], norm(h["name"]))] = h
+    by_code = {h["code"].upper(): h for h in master["hotels"]}
 
     observed = {}
     for r in obs["records"]:
         n = norm(r["name"])
-        h = by_name.get((r["brand"], n))
+        h = by_code.get((r.get("code") or "").upper()) or by_name.get((r["brand"], n))
         if not h:
             cands = [v for (b, k), v in by_name.items() if b == r["brand"] and (k.startswith(n) or n.startswith(k))]
             assert len(cands) == 1, r["name"]
@@ -146,8 +151,8 @@ def main():
             "cashCurrency": cash_cur,
             "cashKrw": cash_krw,
             "valuePerPoint": vpp,
-            "observedAt": "2026-11-27T14:41:00+09:00" if o else None,
-            "observedAtLabel": "2026-11-27 14:41 KST" if o else None,
+            "observedAt": (o.get("observedAt") or DEFAULT_OBS) if o else None,
+            "observedAtLabel": (o.get("observedAtLabel") or DEFAULT_OBS_LABEL) if o else None,
             "excluded": code in EXCLUDED,
             "exclusionNote": EXCLUDED.get(code) or CAUTION.get(code, ""),
         }
@@ -185,9 +190,10 @@ def main():
 
     meta = {
         "title": "힐튼포숙지도",
-        "generatedAt": "2026-11-27T14:50:00+09:00",
-        "observedAt": "2026-11-27 14:41 KST",
+        "generatedAt": "2026-11-27T15:45:00+09:00",
+        "observedAt": "2026-11-27 14:41 · 15:39 KST",
         "observedBasis": "hilton.com 브랜드별 Locations 디렉터리 · Use Points 체크 · 향후 30일 현재 재고 최저 포인트",
+        "observedScope": "영업 중 118곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳)",
         "notice": "표시 포인트·현금가는 관측 시점의 디렉터리 '향후 30일 최저' 값이며, 선택한 날짜의 실시간 요금이 아닙니다.",
         "masterCount": sum(1 for r in hotels if r["status"] == "open"),
         "directoryCount": len(hotels),
