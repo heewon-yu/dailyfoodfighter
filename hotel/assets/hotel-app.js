@@ -297,9 +297,12 @@
         (minP != null ? '<span class="sum-chip">최저 <b>' + num(minP) + "P</b></span>" : "") +
       "</div>" +
       '<div class="notice notice--amber"><span class="notice__icon" aria-hidden="true">!</span><div>' +
-        "<strong>선택하신 날짜의 실시간 요금이 아닙니다.</strong> 표시 값은 2026-11-27 비로그인 디렉터리에서 관측한 " +
-        "'향후 30일 최저' 스냅샷입니다. 카드의 <b>공식 날짜 조회</b>로 그 날짜의 실제 포인트·현금을 확인하고, " +
-        "확인한 금액을 <b>가치 계산</b>에 넣어 원/P를 비교하세요.</div></div>" +
+        "<strong>카드 값이 선택하신 날짜의 실시간 요금이 아닐 수 있습니다.</strong> D1에 해당 날짜의 실측 기록이 있으면 " +
+        "그 날짜의 실측값을, 없으면 2026-11-27 비로그인 디렉터리에서 관측한 <b>'향후 30일 최저' 스냅샷</b>을 보여줍니다. " +
+        "스냅샷은 다른 날짜 기준이므로 <b>선택하신 날짜에는 스탠다드룸이 매진돼 Premium만 남아 있을 수 있습니다.</b> " +
+        "또 <b>'현금가 미관측'은 방이 없는(매진) 상태가 아니라</b> 디렉터리에 최저 현금가가 노출되지 않은 경우이며, " +
+        "매진 호텔은 '매진'으로 따로 표기합니다. 정확한 객실·금액은 카드의 <b>공식 날짜 조회</b>로 확인한 뒤 " +
+        "<b>가치 계산</b>에 입력해 비교하세요.</div></div>" +
       '<div class="cards' + (list.length === 1 ? " cards--single" : "") + '" id="points-cards">' +
         (list.length ? list.map(function (h) { return card(h, "points"); }).join("")
           : '<div class="empty"><b>이 도시에는 등록된 하이엔드 호텔이 없습니다.</b>다른 도시를 선택해 주세요.</div>') +
