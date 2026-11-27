@@ -1,0 +1,235 @@
+{
+  "generatedAt": "2026-11-27T06:15:45.071Z",
+  "marketAsOf": "2026-11-27T06:15:31.521Z",
+  "metrics": {
+    "fear_greed": {
+      "score": 14.9967450271248,
+      "rating": "extreme fear",
+      "prevClose": 15.2253164556962,
+      "prevWeek": 15.8676691729323,
+      "prevMonth": 29.8285714285714,
+      "prevYear": 17.657142857142862,
+      "asOf": "2026-11-26T01:59:59+00:00"
+    },
+    "vix": {
+      "symbol": "^VIX",
+      "price": 26.8,
+      "prev": 28.290000915527344,
+      "monthAgo": 17.200000762939453,
+      "changePct": -5.266881821518557,
+      "monthPct": 55.81394657694144,
+      "asOf": "2026-11-26T16:30:00.000Z",
+      "timezone": "America/Chicago",
+      "currency": "USD"
+    },
+    "yield10": {
+      "value": 4.85,
+      "prev": 4.91,
+      "date": "2026-11-25"
+    },
+    "yield2": {
+      "value": 4.61,
+      "prev": 4.63,
+      "date": "2026-11-25"
+    },
+    "spread": {
+      "value": 0.24,
+      "prev": 0.28,
+      "date": "2026-11-25"
+    },
+    "hy_oas": {
+      "value": 3.72,
+      "prev": 3.63,
+      "prevMonth": 3.3,
+      "date": "2026-11-24",
+      "via": "FRED (Internet Archive 스냅샷)"
+    },
+    "fed": {
+      "low": 3.75,
+      "high": 4,
+      "effr": 3.88,
+      "date": "2026-11-24"
+    },
+    "prices": {
+      "cpi": {
+        "yoy": null,
+        "refMonth": "2026-10",
+        "index": 337.511
+      },
+      "core": {
+        "yoy": null,
+        "refMonth": "2026-10"
+      },
+      "ppi": {
+        "yoy": 6.52,
+        "refMonth": "2026-10",
+        "index": 160.248
+      }
+    },
+    "buffett": {
+      "ratioPct": 213.1,
+      "spCapUsd": 65580000000000,
+      "gdpUsd": 30769700000000,
+      "gdpYear": "2025",
+      "asOf": "2026-11-27"
+    },
+    "sp500": {
+      "symbol": "^GSPC",
+      "price": 7182.78,
+      "prev": 7201.08984375,
+      "monthAgo": 7743.97998046875,
+      "changePct": -0.25426489805417174,
+      "monthPct": -7.246919308729674,
+      "asOf": "2026-11-25T21:32:06.000Z",
+      "timezone": "America/New_York",
+      "currency": "USD"
+    },
+    "nasdaq": {
+      "symbol": "^IXIC",
+      "price": 23585.803,
+      "prev": 23733.5390625,
+      "monthAgo": 26549.849609375,
+      "changePct": -0.6224780135442564,
+      "monthPct": -11.164080599267754,
+      "asOf": "2026-11-25T22:15:59.000Z",
+      "timezone": "America/New_York",
+      "currency": "USD"
+    },
+    "kospi": {
+      "symbol": "^KS11",
+      "price": 4904.81,
+      "prev": 4711.2099609375,
+      "monthAgo": 5730.740234375,
+      "changePct": 4.109348567941456,
+      "monthPct": -14.412278354910924,
+      "asOf": "2026-11-27T05:55:30.000Z",
+      "timezone": "Asia/Seoul",
+      "currency": "KRW"
+    },
+    "kosdaq": {
+      "symbol": "^KQ11",
+      "price": 710.16,
+      "prev": 655.7100219726562,
+      "monthAgo": 724.3800048828125,
+      "changePct": 8.303972213743949,
+      "monthPct": -1.9630587242828426,
+      "asOf": "2026-11-27T05:55:30.000Z",
+      "timezone": "Asia/Seoul",
+      "currency": "KRW"
+    },
+    "usdkrw": {
+      "symbol": "KRW=X",
+      "price": 1339.32,
+      "prev": 1342.969970703125,
+      "monthAgo": 1337.97998046875,
+      "changePct": -0.2717834935068642,
+      "monthPct": 0.10015243507458697,
+      "asOf": "2026-11-27T06:15:09.000Z",
+      "timezone": "Europe/London",
+      "currency": "KRW"
+    },
+    "dxy": {
+      "symbol": "DX-Y.NYB",
+      "price": 103.705,
+      "prev": 103.66999816894531,
+      "monthAgo": 102.04000091552734,
+      "changePct": 0.03376273914623325,
+      "monthPct": 1.6317121418403406,
+      "asOf": "2026-11-27T06:05:31.000Z",
+      "timezone": "America/New_York",
+      "currency": "USD"
+    },
+    "wti": {
+      "symbol": "CL=F",
+      "price": 86.24,
+      "prev": 83.68000030517578,
+      "monthAgo": 102,
+      "changePct": 3.0592730467113447,
+      "monthPct": -15.450980392156868,
+      "asOf": "2026-11-27T06:05:21.000Z",
+      "timezone": "America/New_York",
+      "currency": "USD"
+    },
+    "gold": {
+      "symbol": "GC=F",
+      "price": 3671.9,
+      "prev": 3535.800048828125,
+      "monthAgo": 4031.39990234375,
+      "changePct": 3.8491981812428246,
+      "monthPct": -8.917495437124611,
+      "asOf": "2026-11-27T06:05:26.000Z",
+      "timezone": "America/New_York",
+      "currency": "USD"
+    },
+    "btc": {
+      "krw": 83857000,
+      "prevKrw": 82226000,
+      "changePct": 1.9835575099999998,
+      "high52": null,
+      "asOf": "2026-11-27T06:15:31.521Z",
+      "usd": 61786.195,
+      "usdSource": "Coinbase",
+      "fairKrw": 82751487,
+      "kimchiPct": 1.34,
+      "fxUsed": 1339.32
+    }
+  },
+  "sources": {
+    "fearGreed": "ok",
+    "vix": "ok",
+    "yields": "ok",
+    "hyOas": "ok",
+    "fed": "ok",
+    "bls": "ok",
+    "spCap": "ok",
+    "gdp": "ok",
+    "btcKrw": "ok",
+    "btcUsd": "ok",
+    "sp500": "ok",
+    "nasdaq": "ok",
+    "kospi": "ok",
+    "kosdaq": "ok",
+    "usdkrw": "ok",
+    "dxy": "ok",
+    "wti": "ok",
+    "gold": "ok"
+  },
+  "calendar": {
+    "cpi": {
+      "released": "2026-11-11",
+      "releasedRaw": "2026-11-11",
+      "next": "2026-12-11",
+      "nextRaw": "2026-12-11",
+      "mom": 0.4,
+      "momCons": 0.3,
+      "momPrev": 0.6,
+      "yoy": 3.7,
+      "yoyCons": null,
+      "coreMom": 0.3,
+      "coreMomCons": 0.2,
+      "coreYoy": 2.6,
+      "coreYoyCons": null,
+      "refMonth": "2026-10"
+    },
+    "ppi": {
+      "released": "2026-11-13",
+      "releasedRaw": "2026-11-14",
+      "next": "2026-12-16",
+      "nextRaw": "2026-12-16",
+      "mom": 0.3,
+      "momCons": 0.4,
+      "momPrev": 1.4,
+      "yoy": 6.52,
+      "yoyCons": 6.6,
+      "coreMom": 0.3,
+      "coreMomCons": 0.3,
+      "coreYoy": 5,
+      "coreYoyCons": 5,
+      "refMonth": "2026-10"
+    },
+    "fomcNext": "2026-12-10",
+    "scannedFrom": "2026-10-08",
+    "scannedTo": "2027-01-16"
+  },
+  "snapshotBuiltAt": "2026-11-27T06:15:45.071Z"
+}

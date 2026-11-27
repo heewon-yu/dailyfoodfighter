@@ -57,6 +57,7 @@ layout: null
   <url><loc>{{ site.url }}{{ site.baseurl }}/cal/{{ pair[0] }}/</loc></url>
   {% endfor %}
   <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/macro/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc></url>
   <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc></url>

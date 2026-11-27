@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index, follow">
+<title>경제지표지도 | 공포·탐욕지수·금리·물가·환율 한눈에</title>
+<meta name="description" content="CNN 공포·탐욕지수, VIX, 미국 10년·2년물 금리와 장단기 금리차, 하이일드 스프레드, CPI·PPI 발표치와 예상치, 코스피·나스닥·환율·금·유가·비트코인 김치프리미엄까지 한 화면에서 확인하는 경제지표 대시보드입니다.">
+<meta name="theme-color" content="#0f766e">
+<link rel="canonical" href="https://dailyfoodfighter.com/macro/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:site_name" content="경제지표지도">
+<meta property="og:url" content="https://dailyfoodfighter.com/macro/">
+<meta property="og:title" content="경제지표지도 | 공포·탐욕지수·금리·물가·환율 한눈에">
+<meta property="og:description" content="공포·탐욕지수부터 VIX, 장단기 금리차, 하이일드 스프레드, CPI·PPI 예상 대비 실제, 코스피·환율·금·유가·김치프리미엄까지 한 화면에 모았습니다.">
+<meta property="og:image" content="https://dailyfoodfighter.com/macro/og-macro.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="경제지표지도 — 시장 심리, 금리, 물가, 환율과 코인을 한눈에 보는 대시보드 일러스트">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="경제지표지도 | 공포·탐욕지수·금리·물가·환율 한눈에">
+<meta name="twitter:description" content="공포·탐욕지수, VIX, 장단기 금리차, CPI·PPI 예상 대비 실제, 코스피·환율·김치프리미엄을 한 화면에서.">
+<meta name="twitter:image" content="https://dailyfoodfighter.com/macro/og-macro.jpg">
+<link rel="stylesheet" href="/macro/assets/macro.css?v=1">
+</head>
+<body class="macro-page">
+
+<main class="wrap">
+
+  <header class="topbar">
+    <a class="topbar__brand" href="/macro/">
+      <span class="topbar__logo" aria-hidden="true">📊</span>
+      <span>경제지표지도</span>
+    </a>
+    <div class="topbar__right">
+      <span class="topbar__stamp" id="stamp">불러오는 중…</span>
+      <button type="button" class="btn" id="refresh" aria-label="지표 새로고침">↻ 새로고침</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <p class="hero__eyebrow">DAILY MACRO · 오늘의 경제 온도</p>
+    <h1>경제지표지도</h1>
+    <p class="hero__desc">시장이 공포에 젖었는지, 금리와 물가가 어디로 가는지, 환율·원자재·코인이 어떻게 움직이는지 — 흩어진 경제지표를 한 화면에 모았습니다.</p>
+    <ul class="hero__meta">
+      <li>실시간 시세 + 공식 통계</li>
+      <li>5분마다 자동 갱신</li>
+      <li>투자 권유 아님 · 참고용</li>
+    </ul>
+  </section>
+
+  <!-- 요약 바 -->
+  <section class="summary" aria-label="핵심 지표 요약">
+    <div class="summary__item">
+      <span class="summary__label">😱 공포·탐욕</span>
+      <strong class="summary__value" id="sum-fg">–</strong>
+      <span class="summary__sub" id="sum-fg-sub">–</span>
+    </div>
+    <div class="summary__item">
+      <span class="summary__label">😰 VIX</span>
+      <strong class="summary__value" id="sum-vix">–</strong>
+      <span class="summary__sub" id="sum-vix-sub">–</span>
+    </div>
+    <div class="summary__item">
+      <span class="summary__label">📐 장단기 금리차</span>
+      <strong class="summary__value" id="sum-spread">–</strong>
+      <span class="summary__sub" id="sum-spread-sub">–</span>
+    </div>
+    <div class="summary__item">
+      <span class="summary__label">₿ 김치프리미엄</span>
+      <strong class="summary__value" id="sum-kimchi">–</strong>
+      <span class="summary__sub" id="sum-kimchi-sub">–</span>
+    </div>
+  </section>
+
+  <p class="notice" id="notice" hidden></p>
+
+  <!-- 1. 시장 심리 -->
+  <section class="group" aria-labelledby="g-sentiment">
+    <h2 class="group__title" id="g-sentiment"><span aria-hidden="true">🧭</span> 시장 심리</h2>
+    <p class="group__desc">투자자들이 지금 얼마나 겁을 먹고, 얼마나 들떠 있는지 보는 지표입니다.</p>
+    <div class="grid">
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">😱</span>
+          <h3 class="mc__t">CNN 공포·탐욕지수</h3>
+          <span class="badge" id="b-fear_greed">–</span>
+        </header>
+        <p class="mc__v" id="v-fear_greed">–</p>
+        <p class="mc__d" id="d-fear_greed"></p>
+        <p class="mc__h">0에 가까울수록 공포, 100에 가까울수록 탐욕입니다. 25 미만은 ‘극단적 공포’, 75 초과는 ‘극단적 탐욕’ 구간입니다.</p>
+        <footer class="mc__s" id="s-fear_greed">CNN</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">😰</span>
+          <h3 class="mc__t">VIX 변동성 지수</h3>
+        </header>
+        <p class="mc__v" id="v-vix">–</p>
+        <p class="mc__d" id="d-vix"></p>
+        <p class="mc__h">S&amp;P500 옵션으로 계산한 ‘시장의 놀람 정도’입니다. 20 아래면 안정, 30을 넘으면 크게 흔들리는 구간입니다.</p>
+        <footer class="mc__s" id="s-vix">Yahoo Finance</footer>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 2. 금리·신용·밸류에이션 -->
+  <section class="group" aria-labelledby="g-rates">
+    <h2 class="group__title" id="g-rates"><span aria-hidden="true">🏦</span> 금리·신용·밸류에이션</h2>
+    <p class="group__desc">돈의 값(금리)과 빚을 갚을 능력(신용), 주식시장이 비싼지(밸류에이션)를 보는 지표입니다.</p>
+    <div class="grid">
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🏛️</span>
+          <h3 class="mc__t">미국 10년물 금리</h3>
+        </header>
+        <p class="mc__v" id="v-yield10">–</p>
+        <p class="mc__d" id="d-yield10"></p>
+        <p class="mc__h">미국 정부가 10년 빌릴 때 주는 이자율입니다. 주택담보대출·기업 자금조달의 기준이 됩니다.</p>
+        <footer class="mc__s" id="s-yield10">미 재무부</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🏦</span>
+          <h3 class="mc__t">미국 2년물 금리</h3>
+        </header>
+        <p class="mc__v" id="v-yield2">–</p>
+        <p class="mc__d" id="d-yield2"></p>
+        <p class="mc__h">앞으로 2년간의 기준금리 전망을 가장 민감하게 반영합니다.</p>
+        <footer class="mc__s" id="s-yield2">미 재무부</footer>
+      </article>
+
+      <article class="mc mc--wide">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">📐</span>
+          <h3 class="mc__t">장단기 금리차 (10Y−2Y)</h3>
+          <span class="badge" id="b-spread">–</span>
+        </header>
+        <p class="mc__v" id="v-spread">–</p>
+        <p class="mc__d" id="d-spread"></p>
+        <p class="mc__h">10년물에서 2년물을 뺀 값입니다. 0 아래로 내려가면 ‘장단기 금리 역전’으로, 역사적으로 경기침체 전조로 불렸습니다.</p>
+        <footer class="mc__s" id="s-spread">미 재무부</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🧨</span>
+          <h3 class="mc__t">하이일드 스프레드</h3>
+          <span class="badge" id="b-hy_oas">–</span>
+        </header>
+        <p class="mc__v" id="v-hy_oas">–</p>
+        <p class="mc__d" id="d-hy_oas"></p>
+        <p class="mc__h">신용등급이 낮은 기업이 국채 대비 얼마나 더 높은 이자를 내는지입니다. 벌어질수록 시장이 부실을 걱정한다는 뜻입니다.</p>
+        <footer class="mc__s" id="s-hy_oas">FRED (ICE BofA)</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🎯</span>
+          <h3 class="mc__t">미국 기준금리</h3>
+        </header>
+        <p class="mc__v" id="v-fed">–</p>
+        <p class="mc__d" id="d-fed"></p>
+        <p class="mc__h">연준(Fed)이 정한 목표 금리 범위입니다. 실효금리(EFFR)는 그 안에서 실제로 거래된 금리입니다.</p>
+        <footer class="mc__s" id="s-fed">뉴욕 연은</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🍔</span>
+          <h3 class="mc__t">버핏지수</h3>
+          <span class="badge" id="b-buffett">–</span>
+        </header>
+        <p class="mc__v" id="v-buffett">–</p>
+        <p class="mc__d" id="d-buffett"></p>
+        <p class="mc__h">주식시장 시가총액이 경제 규모(GDP)의 몇 배인지 보는 값입니다. 100%를 크게 넘으면 ‘시장이 비싸다’는 신호로 읽습니다.</p>
+        <footer class="mc__s" id="s-buffett">StockAnalysis · 세계은행</footer>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 3. 물가 -->
+  <section class="group" aria-labelledby="g-prices">
+    <h2 class="group__title" id="g-prices"><span aria-hidden="true">🛒</span> 물가 — 예상 vs 실제</h2>
+    <p class="group__desc">발표 전 예상치(컨센서스)보다 높게 나오면 금리 인상 압력, 낮게 나오면 안도 요인으로 읽힙니다.</p>
+    <div class="grid">
+
+      <article class="mc mc--wide">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🛒</span>
+          <h3 class="mc__t">미국 CPI (소비자물가)</h3>
+          <span class="badge" id="b-cpi">–</span>
+        </header>
+        <p class="mc__v" id="v-cpi">–</p>
+        <p class="mc__d" id="d-cpi"></p>
+        <div class="meter">
+          <div><span>발표(전월비)</span><strong id="cpi-mom">–</strong></div>
+          <div><span>예상</span><strong id="cpi-momcons">–</strong></div>
+          <div><span>근원 발표</span><strong id="cpi-coremom">–</strong></div>
+          <div><span>근원 예상</span><strong id="cpi-coremomcons">–</strong></div>
+        </div>
+        <p class="mc__h">전년동월비가 물가상승률로 뉴스에 나오는 숫자입니다. 근원(Core)은 변동이 큰 식품·에너지를 뺀 값입니다.</p>
+        <footer class="mc__s" id="s-cpi">BLS · 나스닥 경제캘린더</footer>
+      </article>
+
+      <article class="mc mc--wide">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">🏭</span>
+          <h3 class="mc__t">미국 PPI (생산자물가)</h3>
+          <span class="badge" id="b-ppi">–</span>
+        </header>
+        <p class="mc__v" id="v-ppi">–</p>
+        <p class="mc__d" id="d-ppi"></p>
+        <div class="meter">
+          <div><span>발표(전월비)</span><strong id="ppi-mom">–</strong></div>
+          <div><span>예상</span><strong id="ppi-momcons">–</strong></div>
+          <div><span>근원 발표</span><strong id="ppi-coreyoy">–</strong></div>
+          <div><span>근원 예상</span><strong id="ppi-coreyoycons">–</strong></div>
+        </div>
+        <p class="mc__h">공장·도매 단계의 물가라서 소비자물가(CPI)보다 먼저 움직이는 경우가 많습니다.</p>
+        <footer class="mc__s" id="s-ppi">BLS · 나스닥 경제캘린더</footer>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- 4. 지수·환율·원자재·코인 -->
+  <section class="group" aria-labelledby="g-markets">
+    <h2 class="group__title" id="g-markets"><span aria-hidden="true">📈</span> 지수 · 환율 · 원자재 · 코인</h2>
+    <p class="group__desc">오늘 시장이 실제로 어디로 움직였는지 보는 지표입니다.</p>
+    <div class="grid">
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🇺🇸</span><h3 class="mc__t">S&amp;P 500</h3></header>
+        <p class="mc__v" id="v-sp500">–</p>
+        <p class="mc__d" id="d-sp500"></p>
+        <p class="mc__h">미국 대표 500개 기업의 주가를 모은 지수입니다. 전 세계 증시의 기준점입니다.</p>
+        <footer class="mc__s" id="s-sp500">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">💻</span><h3 class="mc__t">나스닥</h3></header>
+        <p class="mc__v" id="v-nasdaq">–</p>
+        <p class="mc__d" id="d-nasdaq"></p>
+        <p class="mc__h">기술주 중심 지수입니다. 금리에 민감해서 금리가 오르면 흔들리는 폭이 큽니다.</p>
+        <footer class="mc__s" id="s-nasdaq">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🇰🇷</span><h3 class="mc__t">코스피</h3></header>
+        <p class="mc__v" id="v-kospi">–</p>
+        <p class="mc__d" id="d-kospi"></p>
+        <p class="mc__h">한국 유가증권시장 종합지수입니다. 원·달러 환율과 외국인 수급에 크게 흔들립니다.</p>
+        <footer class="mc__s" id="s-kospi">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🧪</span><h3 class="mc__t">코스닥</h3></header>
+        <p class="mc__v" id="v-kosdaq">–</p>
+        <p class="mc__d" id="d-kosdaq"></p>
+        <p class="mc__h">중소·벤처기업 중심 시장입니다. 코스피보다 변동성이 큰 편입니다.</p>
+        <footer class="mc__s" id="s-kosdaq">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">💱</span><h3 class="mc__t">원/달러 환율</h3></header>
+        <p class="mc__v" id="v-usdkrw">–</p>
+        <p class="mc__d" id="d-usdkrw"></p>
+        <p class="mc__h">1달러를 사는 데 필요한 원화입니다. 숫자가 오르면 원화 가치가 떨어진 것입니다.</p>
+        <footer class="mc__s" id="s-usdkrw">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">💵</span><h3 class="mc__t">달러 인덱스 (DXY)</h3></header>
+        <p class="mc__v" id="v-dxy">–</p>
+        <p class="mc__d" id="d-dxy"></p>
+        <p class="mc__h">달러가 주요 통화 대비 얼마나 강한지 보는 지수입니다. 오르면 신흥국·원자재에 부담입니다.</p>
+        <footer class="mc__s" id="s-dxy">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🛢️</span><h3 class="mc__t">WTI 유가</h3></header>
+        <p class="mc__v" id="v-wti">–</p>
+        <p class="mc__d" id="d-wti"></p>
+        <p class="mc__h">미국산 원유 1배럴 가격입니다. 오르면 물가와 운송비를 끌어올립니다.</p>
+        <footer class="mc__s" id="s-wti">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc">
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🥇</span><h3 class="mc__t">국제 금</h3></header>
+        <p class="mc__v" id="v-gold">–</p>
+        <p class="mc__d" id="d-gold"></p>
+        <p class="mc__h">온스당 금 가격입니다. 불안이 커질 때 대표적인 피난처로 움직입니다.</p>
+        <footer class="mc__s" id="s-gold">Yahoo Finance</footer>
+      </article>
+
+      <article class="mc mc--wide">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">₿</span>
+          <h3 class="mc__t">비트코인 · 김치프리미엄</h3>
+          <span class="badge" id="b-btc">–</span>
+        </header>
+        <p class="mc__v" id="v-btc">–</p>
+        <p class="mc__d" id="d-btc"></p>
+        <div class="meter">
+          <div><span>해외(BTC/USD)</span><strong id="btc-usd">–</strong></div>
+          <div><span>환산 원화가</span><strong id="btc-fair">–</strong></div>
+          <div><span>업비트 원화가</span><strong id="btc-krw">–</strong></div>
+          <div><span>김치프리미엄</span><strong id="btc-kimchi">–</strong></div>
+        </div>
+        <p class="mc__h">김치프리미엄은 국내 가격이 해외 가격(달러 시세 × 환율)보다 얼마나 비싼지를 나타냅니다. 플러스면 국내가 더 비싼 상태입니다.</p>
+        <footer class="mc__s" id="s-btc">업비트 · Coinbase · Yahoo Finance(환율)</footer>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="about">
+    <h2>이 지도는 어떻게 갱신되나요?</h2>
+    <p>화면을 열 때마다 <code>/api/macro</code>가 공개 데이터를 새로 확인합니다. 시세·금리는 5분 단위로 캐시되고, CPI·PPI 발표 일정과 예상치는 발표일 기준으로 정리해 폴백 스냅샷에 담아 둡니다. 외부 사이트가 잠시 막히면 마지막으로 확인된 값을 그대로 보여주고, 값 아래에 기준일을 함께 표시합니다.</p>
+    <p class="about__src">데이터 출처: CNN Fear &amp; Greed · 미 재무부 국채 수익률 곡선 · FRED(ICE BofA US High Yield OAS, 인터넷 아카이브 스냅샷 포함) · 뉴욕 연은 EFFR · 미국 노동통계국(BLS) · 나스닥 경제캘린더 · StockAnalysis(S&amp;P500 시가총액) · 세계은행(GDP) · Yahoo Finance(지수·환율·원자재) · 업비트·Coinbase(비트코인)</p>
+    <p class="about__warn">이 페이지의 수치는 공개 데이터를 그대로 보여주는 참고 자료이며, 투자 권유나 매매 판단의 근거로 제공되지 않습니다. 표시 시각과 실제 시장 시각은 다를 수 있습니다.</p>
+    <p class="about__home"><a href="/">← 쓸모있는 모음.zip 처음으로</a></p>
+  </section>
+
+  <noscript><p class="notice">이 페이지는 최신 지표를 불러오기 위해 JavaScript를 사용합니다. 켜 주시면 모든 지표가 표시됩니다.</p></noscript>
+
+</main>
+
+<script src="/macro/assets/macro.js?v=1" defer></script>
+</body>
+</html>
