@@ -1,8 +1,33 @@
 <!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow"><title>card preview</title>
-<style>body{margin:0;background:#222;display:flex;gap:16px;padding:16px;align-items:flex-start}.ph{background:#fff}.lbl{color:#fff;font:12px/1.4 sans-serif;margin:0 0 6px}</style></head>
+<style>
+body{margin:0;background:#222;font:12px/1.4 sans-serif;color:#fff;display:flex;gap:14px;padding:14px;align-items:flex-start;flex-wrap:wrap}
+.panel{width:390px}
+.panel--412{width:412px}
+.clip{width:100%;height:900px;overflow:hidden;background:#fff;border-radius:8px}
+.clip iframe{width:100%;height:4000px;border:0;display:block}
+p{margin:0 0 6px}
+</style></head>
 <body>
-<div><p class="lbl">390 × 2400 (mobile)</p><iframe class="ph" src="/card/" width="390" height="2400" style="border:0"></iframe></div>
-<div><p class="lbl">412 × 2400 (mobile)</p><iframe class="ph" src="/card/" width="412" height="2400" style="border:0"></iframe></div>
-<div><p class="lbl">768 × 1400 (tablet)</p><iframe class="ph" src="/card/" width="768" height="1400" style="border:0"></iframe></div>
+<div class="panel"><p>390 · 발급 혜택 표</p><div class="clip"><iframe id="m1" src="/card/"></iframe></div></div>
+<div class="panel"><p>390 · 유형 3×3 + 여행 TOP5</p><div class="clip"><iframe id="m2" src="/card/?tab=top&amp;type=travel"></iframe></div></div>
+<div class="panel--412"><p>412 · 통신·관리비 TOP5</p><div class="clip"><iframe id="m3" src="/card/?tab=top&amp;type=utility"></iframe></div></div>
+<script>
+function jump(id, sel){
+  var f=document.getElementById(id);
+  f.addEventListener('load', function(){
+    setTimeout(function(){
+      try{
+        var d=f.contentDocument, el=sel&&d.querySelector(sel);
+        var w=f.contentWindow;
+        if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 10); }
+        else { w.scrollTo(0, Number(sel)||0); }
+      }catch(e){}
+    }, 400);
+  });
+}
+jump('m1', '.air-table-wrap');
+jump('m2', '#type-detail');
+jump('m3', '#type-detail');
+</script>
 </body></html>
