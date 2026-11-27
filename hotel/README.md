@@ -15,7 +15,7 @@ hotel/
   assets/hotel-api.js        # 데이터 접근 계층 (static ↔ live 전환점)
   assets/hotel-app.js        # 화면 로직 (조회·주말 판정·가치 계산기)
   data/hotels.json           # 119곳 영업 중 마스터 + 전수 관측 스냅샷 + 도시 목록 + 환율
-  scripts/                   # 마스터·앱 데이터 생성 + 브라우저 판독 스니펫 (아래)
+  scripts/                   # 파이썬 원샷 수집기 + 마스터·앱 데이터 생성 + 브라우저 판독 스니펫 (아래)
 functions/api/hotel/
   rates.js                   # GET /api/hotel/rates — D1 조회 Pages Function
   schema.sql                 # D1 테이블 (HOTEL_DB 바인딩)
@@ -30,22 +30,36 @@ functions/api/hotel/
   앱은 이 점을 결과 화면에 명시하고, 날짜별 실제 값은 `공식 날짜 조회`(hilton.com `/book/`) 버튼으로 넘긴다.
 - 힐튼 robots.txt 가 `/book/` 을 Disallow 하므로 날짜별 요금은 서버에서 대량 수집하지 않는다.
 
-## 데이터 갱신 (브라우저 판독 → 빌드)
+## 데이터 갱신 (파이썬만으로 — 권장)
 
-`curl`·스크립트 직접 요청은 Akamai가 403으로 막는다. **비로그인 브라우저 사람 동선**으로만 읽는다.
+`curl`·직링크·번들 Chromium·headless는 Akamai가 403으로 막는다. **실제 Chrome 세션**으로만 읽는다.
+그 브라우저 조작까지 파이썬이 한다.
 
-1. `/en/locations/{brand}/` → 쿠키 배너 처리 → **`Use Points` 체크** → `scripts/browser/locations_use_points.js`
-   (현금가는 `Use Points` 해제 후 같은 스니펫 한 번 더. 통화는 `KRW`로 두면 원화로 바로 읽힌다.)
-2. 관측 결과를 `scripts/data/observed_sample.json` 형식으로 저장한다.
-3. `python3 scripts/build_luxury.py` → `python3 scripts/build_hotel_data.py`
+```bash
+open -na "Google Chrome" --args --remote-debugging-port=9222 --user-data-dir="$HOME/.hilton-chrome"
+python3 hotel/scripts/collect_locations.py --attach http://127.0.0.1:9222 \
+  --out hotel/scripts/data/observed_locations.json --merge-existing hotel/scripts/data/observed_sample.json
+python3 hotel/scripts/build_hotel_data.py --observed hotel/scripts/data/observed_locations.json
+```
+
+`collect_locations.py` 가 하는 일: `/en/locations/{brand}/` 8페이지(Waldorf 3 + Conrad 3 + LXR 2)를
+순회하며 `Select currency=KRW` → `Use Points` 토글 → 카드별 `포인트 · Standard/Premium 라벨 · Sold Out · 현금가`를 읽는다.
+**403/429·차단 문구·카드 0장이면 그 자리에서 중단**하고 받은 페이지까지 저장한다(exit 3). 캡차는 우회하지 않는다.
+
+사람이 콘솔에서 읽는 구버전 동선은 `scripts/README.md` 의 '브라우저 스니펫 실행법' 에 남아 있다
+(`scripts/browser/locations_use_points.js`). 마스터는 `python3 scripts/build_luxury.py` 로 재생성한다.
 
 자세한 판독 함정(1단계 포인트에는 Standard/Premium 라벨이 없음, 포인트 없는 호텔은 현금가가 남음 등)과
 단건 날짜 조회 동선은 가이드 2~4절 참고.
 
-## D1 실시간 조회로 전환
+## D1 실시간 조회로 전환 (**연결은 완료 · 지금은 `static` 유지**)
 
-1. D1 생성 후 바인딩 이름 `HOTEL_DB` 로 Pages 프로젝트에 연결한다.
-2. `wrangler d1 execute HOTEL_DB --file=functions/api/hotel/schema.sql --remote`
+> 2026-11-27 기준: D1 `hotel-db`(UUID `fed061e3-2ce9-455b-bcb6-b6c754db183c`)가 생성돼
+> Pages **Production·Preview** 양쪽에 `HOTEL_DB` 로 바인딩됐고, 스키마·시드 적재와 `/api/hotel/rates` HTTP 200 까지 확인했다.
+> 프론트는 `mode: "static"` 그대로다(사용자 결정: 연결만 해두고 지금은 스냅샷 사용). 아래 3~4단계가 전환 시점의 일이다.
+
+1. D1 생성 후 바인딩 이름 `HOTEL_DB` 로 Pages 프로젝트에 연결한다. *(완료)*
+2. `wrangler d1 execute HOTEL_DB --file=functions/api/hotel/schema.sql --remote` *(완료)*
 3. 수집된 레코드를 `hotel_rate_observations` 에 upsert 한다 (PK: 호텔·체크인·체크아웃·인원·객실수·reward_type).
    같은 날짜의 Standard/Premium은 **두 행**으로 저장한다.
 4. `assets/hotel-api.js` 의 `HOTEL_API_CONFIG.mode` 를 `"live"` 로 바꾼다. 끝.

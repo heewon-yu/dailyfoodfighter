@@ -6,7 +6,7 @@
 - 수집 방식: **비로그인 브라우저 사람 동선**. 서버·스크립트 직접 요청은 Akamai가 403으로 막는다(2절).
 - 현재 배포 데이터: 디렉터리에서 판독한 **영업 중 119곳 전수** 스냅샷(2026-11-27 14:41·15:39 KST · 미관측 0) + 마스터 119곳
 - 검증 기록: [`docs/hilton/measurement-2026-11-27.md`](hilton/measurement-2026-11-27.md) · 스크린샷 [`docs/hilton/screens/`](hilton/screens/)
-- 코드: [`hotel/scripts/`](../hotel/scripts/) (빌드 2개 + 브라우저 판독 스니펫 3개)
+- 코드: [`hotel/scripts/`](../hotel/scripts/) (빌드 2개 + 브라우저 판독 스니펫 3개 + **파이썬 원샷 수집기 `collect_locations.py`**)
 
 ---
 
@@ -206,7 +206,80 @@ const premiumOnly       = !standardAvailable && rewards.some((r) => r.label === 
 
 검증: 콘래드 서울 2026-12-15~16 · 1 King Bed Deluxe → `Standard Room Reward 80,000`, 현금 9개 요금제(최저 ₩548,218), `Prices include all taxes and fees in South Korean Won.`, `Sign in to pay with Points` → **₩6.85/P** 계산 일치.
 
-### 4-4. 빌드 스크립트
+### 4-4. 파이썬 원샷 수집기 — `hotel/scripts/collect_locations.py` (사람 손 없이 8페이지)
+
+사람이 DevTools 콘솔에 스니펫을 붙이던 4-1~4-3을 **파이썬(Playwright) 한 번 실행**으로 대체한 버전이다.
+수집 → 관측 JSON → `build_hotel_data.py` → `hotel/data/hotels.json` 까지 **파이썬만으로** 이어진다.
+(Akamai 때문에 브라우저는 여전히 필요하다 — 아래 '왜 실제 Chrome인가'를 지킨다.)
+
+```bash
+# 0) 실제 Chrome을 CDP로 띄운다 (headed · 번들 Chromium/headless 금지)
+open -na "Google Chrome" --args --remote-debugging-port=9222 --user-data-dir="$HOME/.hilton-chrome"
+curl -s http://127.0.0.1:9222/json/version | head -c 120
+
+# 1) 오프라인 자기검증(브라우저·네트워크 불필요) — 카드 판독 13규칙
+python3 hotel/scripts/collect_locations.py --self-test
+
+# 2) 8페이지 수집 (Waldorf 3 + Conrad 3 + LXR 2)
+python3 hotel/scripts/collect_locations.py --attach http://127.0.0.1:9222 \
+  --out hotel/scripts/data/observed_locations.json \
+  --merge-existing hotel/scripts/data/observed_sample.json
+
+# 3) 앱 데이터 빌드
+python3 hotel/scripts/build_hotel_data.py --observed hotel/scripts/data/observed_locations.json
+```
+
+| 옵션 | 뜻 |
+|---|---|
+| `--attach http://127.0.0.1:9222` | **권장.** 사람이 한 번 열어 둔 실제 Chrome에 붙는다(쿠키·Akamai 센서 재사용) |
+| `--launch` | 스크립트가 직접 실제 Chrome(`channel="chrome"`, headed)을 띄운다. 첫 실행에서 쿠키 배너 자동 처리 |
+| `--brands waldorf-astoria conrad-hotels lxr-hotels` | 일부 브랜드만 |
+| `--max-pages 3` | 브랜드당 최대 페이지(기본 3) |
+| `--sleep 3` | 페이지·조작 사이 간격(초) |
+| `--out` | 결과 JSON(기본 `data/observed_locations.json`) |
+| `--merge-existing` | 기존 관측 JSON — 이번에 못 읽은 호텔 레코드를 유지(미관측 0 유지) |
+
+**페이지 1장에서 하는 일 (재로드 없음)**
+
+1. `Select currency` → **KRW - South Korean Won** (네이티브 `select`면 `select_option`, 아니면 버튼→검색→옵션 클릭)
+2. **현금 모드** 판독 — `Use Points` 가 꺼진 상태의 `From*` 다음 줄(₩638,000)
+3. **`Use Points` 체크** → 1.2~1.8초 대기 → **포인트 모드** 판독(`Points/night` 앞 줄 + `Standard Room Reward`/`Premium Room Rewards`)
+4. 두 판독을 **카드 코드(`data-testid="hotel-card-XXXXXXX"`)** 로 합친다 → `rewardType` 결정
+5. `rel=next`/`Next` 클릭 → 다음 페이지. 카드가 0장이면 즉시 중단
+
+**중단 규칙(그 자리에서 멈추는 것이 맞다)**
+
+| 감지 | 행동 |
+|---|---|
+| 문서 응답 401/403/429 | `Halt("HTTP_403")` — 즉시 중단, 받은 페이지까지 저장, exit 3 |
+| `Something went wrong` · `Reference No.` · `Access Denied` · `Pardon Our Interruption` · 캡차 문구 | `Halt("BLOCKED_PAGE")` — 즉시 중단 |
+| 카드 0장(`PAGE_EMPTY`) | 그 페이지에서 중단(구조 변경·차단) |
+
+중단 뒤에는 **재시도하지 않는다.** 45~60분 뒤 새 세션으로 1페이지만 시험하고, 캡차는 우회하지 않고 사람에게 넘긴다.
+
+**출력 규격** — `observed_sample.json` 과 같은 레코드 모양이라 `--merge-existing` 로 그대로 이어 쓸 수 있다.
+
+```json
+{ "meta": { "collectedAt": "2026-11-27T17:00:00+09:00", "method": "실제 Chrome(CDP) · /en/locations/ · Select currency=KRW · Use Points",
+            "pages": [{"brand":"wa","page":1,"cards":20,"kept":19,"currency":"South Korean Won"}], "halted": null },
+  "records": [{ "name":"Conrad Seoul","brand":"co","code":"SELCICI","points":80000,"rewardType":"STANDARD",
+                "cashAmount":638000,"cashCurrency":"KRW","cashBasis":"디렉터리 최저 현금가(…KRW 표시로 판독)",
+                "observedAt":"2026-11-27T17:00:00+09:00","observedAtLabel":"2026-11-27 17:00 KST" }] }
+```
+
+> 판독 규칙은 4-1 스니펫과 동일하며 `--self-test` 가 오프라인으로 검증한다:
+> 포인트 모드의 `From*` 는 현금가가 아니고(`Points/night` 가 뒤따르면 건너뜀), 라벨이 없으면 저장하지 않으며,
+> `Sold Out` 은 `SOLD_OUT`, 포인트 없이 금액만 있으면 `NO_POINTS` 다.
+>
+> `hotel/scripts/test_collect_locations.py` 는 가짜 디렉터리 HTML을 로컬 서버로 띄워
+> **현금 판독 → Use Points 토글 → 포인트 판독 → 다음 페이지 → 병합 → 파싱**을 실제 Chromium으로 확인한다
+> (`python3 -m playwright install chromium` 필요).
+
+**왜 실제 Chrome인가 (Akamai)** — 1절 실측 그대로다. `curl`·직링크·번들 Chromium·headless 는
+`Hilton Page Reference Code` 403 이고, `/book/` 직행도 세션에 stay 문맥이 없으면 403 이다.
+`/en/locations/`(robots 허용)를 실제 Chrome 세션으로 2~3초 간격으로 8페이지만 읽는 것이 현재 결정과 맞는다.
+
+### 4-5. 빌드 스크립트
 
 ```bash
 # 1) 마스터(124건) 생성 — 브랜드 디렉터리 실측 목록을 RAW 테이블로 고정
@@ -228,7 +301,7 @@ python3 hotel/scripts/build_hotel_data.py
 5. **도시 집계** — 영업 중 호텔만 묶어 `cities[]`(도시별 총계·Standard 수·관측 수) 생성.
 6. **제외/주의 플래그** — `CUNCICI`·`CUNWAWA`(올인클루시브) `excluded`, `OGGHOWA`(HGV 레지던스) `caution`.
 
-### 4-5. 가치 계산식
+### 4-6. 가치 계산식
 
 ```
 1포인트 가치(원/P) = (세금 포함 현금가 − 포인트 결제 추가비용) / 필요 포인트
@@ -287,6 +360,21 @@ python3 hotel/scripts/build_hotel_data.py
 
 지금은 `mode: "static"`(스냅샷)이고, D1을 붙이면 **`hotel/assets/hotel-api.js`의 한 줄**로 실시간으로 바뀐다.
 
+### 6-0. 지금 상태 — **연결 완료 · `mode: "static"` 유지** (2026-11-27 실측)
+
+| 항목 | 값 |
+|---|---|
+| D1 데이터베이스 | **`hotel-db`** · UUID **`fed061e3-2ce9-455b-bcb6-b6c754db183c`** · APAC/ICN · 2026-11-27 15:23 KST 생성 |
+| Pages 바인딩 | **Production·Preview 모두 `HOTEL_DB` → `hotel-db`** (기존 `DB`·`SCALPING_KING_DB` 유지) |
+| 스키마 | `functions/api/hotel/schema.sql` 그대로 적용 — `hotel_rate_observations`(PK 호텔·체크인·체크아웃·인원·객실·등급) + `hotel_master` |
+| 적재 | `hotel_master` **124행**(`hotel/data/hotels.json` 전량) · `hotel_rate_observations` **5행**(SELCICI Standard/Premium, TYOCICI Premium, BKKWAWA Standard, CUNWAWA SOLD_OUT — 2026-12-15~16 실측 시드) |
+| API 실측 | `GET /api/hotel/rates?…` **HTTP 200** (D1 응답) |
+| 프론트 | `hotel/assets/hotel-api.js` → **`mode: "static"` 유지**(사용자 결정: 연결만 해두고 지금은 스냅샷 사용) |
+
+> `hotel_master`에는 `status` 컬럼이 없다(code·name·brand·city·country·region·url·excluded·exclusion_note).
+> 그래서 호텔의 영업 상태(칸쿤 `CUNWAWA` open 등)는 **마스터 JSON·앱 데이터**가 기준이고, D1 쪽에 맞출 값은 `excluded`·`exclusion_note` 뿐이다.
+> `mode:"live"` 로 바꾸는 날에는 6-2절 3단계(관측 레코드 upsert)가 먼저다.
+
 ### 6-1. 구성
 
 | 파일 | 역할 |
@@ -299,11 +387,12 @@ python3 hotel/scripts/build_hotel_data.py
 ### 6-2. 전환 절차
 
 ```bash
-# 1) D1 생성 후 Pages 프로젝트에 바인딩 이름 HOTEL_DB 로 연결
+# 1) D1 생성 + Pages 바인딩 — **완료**(2026-11-27, database hotel-db / UUID fed061e3-2ce9-455b-bcb6-b6c754db183c)
+#    새 환경에서 처음부터 할 때만:
 wrangler d1 create hotel-db
 #   wrangler.toml / Pages 설정:  [[d1_databases]] binding = "HOTEL_DB"  database_name = "hotel-db"
 
-# 2) 스키마 적용
+# 2) 스키마 적용 — **완료**
 wrangler d1 execute HOTEL_DB --file=functions/api/hotel/schema.sql --remote
 
 # 3) 수집 레코드 upsert (PK: 호텔·체크인·체크아웃·인원·객실수·reward_type)
@@ -426,6 +515,8 @@ hotel/README.md                           ← 서비스 개요·D1 전환 요약
 hotel/scripts/README.md                   ← 스크립트·스니펫 실행법
 hotel/scripts/build_luxury.py             ← 마스터 124건 생성
 hotel/scripts/build_hotel_data.py         ← 관측+마스터 → hotel/data/hotels.json
+hotel/scripts/collect_locations.py          ← 파이썬 원샷 수집기(8페이지·KRW·Use Points·403 가드)
+hotel/scripts/test_collect_locations.py     ← 가짜 디렉터리로 수집기 동작 검증(Chromium 필요)
 hotel/scripts/browser/locations_use_points.js
 hotel/scripts/browser/rooms_page.js
 hotel/scripts/browser/rates_page.js

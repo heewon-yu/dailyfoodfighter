@@ -8,7 +8,7 @@
 
 실행: python3 hotel/scripts/build_hotel_data.py
 """
-import json, re, unicodedata, collections, datetime, pathlib
+import argparse, json, re, unicodedata, collections, datetime, pathlib
 
 ROOT = pathlib.Path(__file__).resolve().parent          # hotel/scripts
 OUT_APP = ROOT.parent / "data" / "hotels.json"           # hotel/data/hotels.json
@@ -91,8 +91,13 @@ def norm(s):
 
 
 def main():
+    ap = argparse.ArgumentParser(description="관측 JSON + 마스터 → hotel/data/hotels.json")
+    ap.add_argument("--observed", default=str(DATA / "observed_sample.json"),
+                    help="관측 레코드 JSON(collect_locations.py --out 결과). 기본: data/observed_sample.json")
+    args = ap.parse_args()
+
     master = json.load(open(DATA / "hotels_luxury.json"))
-    obs = json.load(open(DATA / "observed_sample.json"))
+    obs = json.load(open(args.observed))
 
     by_name = {}
     for h in master["hotels"]:
@@ -191,12 +196,13 @@ def main():
 
     city_list = sorted(cities.values(), key=lambda c: (-c["count"], c["cityKo"]))
 
+    obs_meta = obs.get("meta") or {}
     meta = {
         "title": "힐튼포숙지도",
         "generatedAt": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
-        "observedAt": "2026-11-27 14:41 · 15:39 KST",
+        "observedAt": obs_meta.get("observedAtLabel") or DEFAULT_OBS_LABEL,
         "observedBasis": "hilton.com 브랜드별 Locations 디렉터리 · Use Points 체크 · 향후 30일 현재 재고 최저 포인트",
-        "observedScope": "영업 중 119곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳 + 재확인 1곳)",
+        "observedScope": obs_meta.get("observedScope") or "영업 중 119곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳 + 재확인 1곳)",
         "notice": "표시 포인트·현금가는 관측 시점의 디렉터리 '향후 30일 최저' 값이며, 선택한 날짜의 실시간 요금이 아닙니다.",
         "masterCount": sum(1 for r in hotels if r["status"] == "open"),
         "directoryCount": len(hotels),
@@ -204,7 +210,7 @@ def main():
         "fx": {"base": "KRW", "date": FX_DATE, "source": FX_SOURCE,
                "rates": {k: v for k, v in FX.items() if k != "KRW"}},
         "regions": REGION_ORDER,
-        "sources": obs["meta"]["sources"],
+        "sources": obs_meta.get("sources") or ["https://www.hilton.com/en/locations/ (브랜드 디렉터리 8페이지)"],
         "api": {
             "mode": "static",
             "ratesEndpoint": "/api/hotel/rates",
