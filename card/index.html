@@ -24,7 +24,7 @@
 <meta name="twitter:title" content="이달의 카드지도 | 카드 발급 캐시백·마일리지·호텔·라운지·관리비 추천 TOP 5">
 <meta name="twitter:description" content="이번 달 실제 진행 중인 카드 발급 캐시백을 4개 플랫폼에서 비교하고, 용도별 추천 카드 TOP 5의 연회비·전월실적·혜택을 한눈에 확인하세요.">
 <meta name="twitter:image" content="https://dailyfoodfighter.com/card/og-card.jpg">
-<link rel="stylesheet" href="/air/assets/milemap-app.css?v=11">
+<link rel="stylesheet" href="/air/assets/milemap-app.css?v=12">
 <style>
 /* 이달의 카드지도 전용 팔레트 — 딥 앰버/골드. 공용 /air 스타일은 건드리지 않는다. */
 body{
@@ -60,7 +60,7 @@ body{
 .sec-title h2{font-size:18px;margin:0;color:var(--navy)}
 .sec-title h3{font-size:16px;margin:0;color:var(--navy)}
 .sec-title span{font-size:12.5px;color:var(--ink-3)}
-.plat-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.plat-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
 .plat-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:6px;min-width:0}
 .plat-card__name{font-weight:800;color:var(--navy);font-size:15px;display:flex;align-items:center;gap:6px}
 .plat-card__rank{font-size:12px;color:var(--ink-3);font-weight:700}
@@ -83,6 +83,19 @@ body{
 .card-item__meta > div.wide{grid-column:1/-1}
 .card-item__meta dt{font-size:11.5px;font-weight:800;color:var(--gold-700);letter-spacing:.02em}
 .card-item__meta dd{margin:2px 0 0;font-size:13px;color:var(--ink);line-height:1.55;font-weight:600}
+.card-item__meta .perf{display:flex;flex-direction:column;gap:5px}
+.perf-row{display:flex;gap:7px;align-items:flex-start}
+.perf-row > span:last-child{min-width:0;font-weight:600;font-size:12.8px;line-height:1.55}
+.perf-tag{flex:none;display:inline-block;min-width:88px;padding:2px 7px;border-radius:6px;font-size:11px;font-weight:900;text-align:center;white-space:nowrap;line-height:1.5}
+.perf-row--in .perf-tag{background:#e7f6ec;color:#166534;border:1px solid #bfe4cc}
+.perf-row--out .perf-tag{background:#fdecea;color:#a12622;border:1px solid #f3cfcd}
+.perf-row--hl .perf-tag{background:#fff2d6;color:#8a4b00;border:1px solid #f0d9ae}
+.perf-row--none .perf-tag{background:#eef2f7;color:#334155;border:1px solid #d6dee8}
+.perf-row--hl b{font-weight:900}
+.perf-row--in b{color:#166534}
+.perf-row--out b{color:#a12622}
+.perf-legend{display:flex;flex-wrap:wrap;gap:8px 16px;margin:12px 0 0;padding:11px 13px;border:1px solid var(--gold-line);border-radius:12px;background:var(--gold-soft);font-size:12.5px;color:var(--ink-2);line-height:1.55}
+.perf-legend b{color:var(--gold-700)}
 .card-item__benefits{margin:12px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.65}
 .card-item__benefits li{margin-bottom:3px}
 .card-item__badges{display:flex;flex-wrap:wrap;gap:6px;margin:12px 0 0}
@@ -116,7 +129,7 @@ body{
 .warn-list{margin:10px 0 0;padding-left:18px;font-size:13.5px;color:var(--ink-2);line-height:1.7}
 .warn-list li{margin-bottom:4px}
 @media(max-width:900px){
-  .plat-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .plat-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .type-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(max-width:640px){
@@ -135,6 +148,9 @@ body{
   .card-item h4{font-size:15px}
   .card-item__meta{grid-template-columns:1fr 1fr;gap:8px 10px;padding:10px}
   .card-item__meta > div.wide{grid-column:1/-1}
+  .perf-tag{min-width:74px;font-size:10.5px;padding:2px 5px}
+  .perf-row > span:last-child{font-size:12.5px}
+  .perf-legend{flex-direction:column;gap:4px;font-size:12px}
   .card-item__benefits{font-size:13px}
   .sec-title h2{font-size:16.5px}
   .sec-title{flex-direction:column;align-items:flex-start;gap:2px}
@@ -226,6 +242,13 @@ body{
         <p class="plat-card__line">대상 121장 · 카드사 최대 삼성 118만원</p>
         <a class="plat-card__link" href="https://www.card-gorilla.com/contents/detail/4351" target="_blank" rel="noopener nofollow">11월 캐시백 비교글 ↗</a>
       </article>
+      <article class="plat-card">
+        <p class="plat-card__name">🥗 뱅크샐러드</p>
+        <p class="plat-card__big">21만원<small>실수령</small></p>
+        <p class="plat-card__line">신한카드 Deep Oil<br>26만원 이상 결제 → 22만원 (연회비 1만원)</p>
+        <p class="plat-card__line">대상 60장 · 카드사 최고 신한 21 / 롯데 20 / KB 19.5</p>
+        <a class="plat-card__link" href="https://www.banksalad.com/card" target="_blank" rel="noopener nofollow">뱅크샐러드 카드 혜택 확인 ↗</a>
+      </article>
     </div>
 
     <div class="sec-title">
@@ -236,24 +259,24 @@ body{
       <table class="air-table rate-table">
         <caption class="air-inline-note" style="text-align:left;padding:0 0 8px">2026년 11월 신규 발급 캐시백을 플랫폼별 실수령 기준으로 비교했습니다. 카드·브랜드·이용금액 조건에 따라 금액이 달라집니다.</caption>
         <thead>
-          <tr><th scope="col">카드사</th><th scope="col" class="num">네이버페이</th><th scope="col" class="num">카카오페이</th><th scope="col" class="num">아정당</th><th scope="col" class="num">카드고릴라</th><th scope="col">이번 달 최고</th></tr>
+          <tr><th scope="col">카드사</th><th scope="col" class="num">네이버페이</th><th scope="col" class="num">카카오페이</th><th scope="col" class="num">아정당</th><th scope="col" class="num">카드고릴라</th><th scope="col" class="num">뱅크샐러드</th><th scope="col">이번 달 최고</th></tr>
         </thead>
         <tbody>
-          <tr><th scope="row">신한</th><td class="num best">21</td><td class="num">20.1</td><td class="num">19</td><td class="num">18</td><td>네이버페이 · 라인프렌즈 신한</td></tr>
-          <tr><th scope="row">삼성</th><td class="num">13.5</td><td class="num">15</td><td class="num">16</td><td class="num best">19.5</td><td>카드고릴라 · 모니모페이/iD SELECT UP</td></tr>
-          <tr><th scope="row">현대</th><td class="num best">19.5</td><td class="num">14.5</td><td class="num">12</td><td class="num">14.5</td><td>네이버페이 · ZERO Edition3</td></tr>
-          <tr><th scope="row">KB국민</th><td class="num">19.5</td><td class="num best">21.5</td><td class="num">19.5</td><td class="num">19.5</td><td>카카오페이 · 굿데이카드</td></tr>
-          <tr><th scope="row">하나</th><td class="num">16</td><td class="num best">18</td><td class="num best">18</td><td class="num">17</td><td>카카오페이·아정당 · MOVING</td></tr>
-          <tr><th scope="row">NH농협</th><td class="num best">17</td><td class="num">10.5</td><td class="num">14.5</td><td class="num">13.5</td><td>네이버페이 · 국민행복/올바른 FLEX</td></tr>
-          <tr><th scope="row">롯데</th><td class="num best">20</td><td class="num best">20</td><td class="num best">20</td><td class="num best">20</td><td>4개 플랫폼 동일 · LOCA LIKIT 1.5</td></tr>
-          <tr><th scope="row">BC 바로</th><td class="num">–</td><td class="num">10.5</td><td class="num">–</td><td class="num best">20.5</td><td>카드고릴라 · 케이뱅크 히든카드</td></tr>
-          <tr><th scope="row">우리</th><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td>연회비 100% 캐시백형만 운영</td></tr>
-          <tr><th scope="row">IBK기업</th><td class="num">9</td><td class="num best">9.8</td><td class="num">–</td><td class="num">8.8</td><td>카카오페이 · K-패스(신용)</td></tr>
+          <tr><th scope="row">신한</th><td class="num best">21</td><td class="num">20.1</td><td class="num">19</td><td class="num">18</td><td class="num best">21</td><td>네이버페이·뱅크샐러드 · 라인프렌즈 신한/Deep Oil</td></tr>
+          <tr><th scope="row">삼성</th><td class="num">13.5</td><td class="num">15</td><td class="num">16</td><td class="num best">19.5</td><td class="num">17</td><td>카드고릴라 · 모니모페이/iD SELECT UP</td></tr>
+          <tr><th scope="row">현대</th><td class="num best">19.5</td><td class="num">14.5</td><td class="num">12</td><td class="num">14.5</td><td class="num">18</td><td>네이버페이 · ZERO Edition3</td></tr>
+          <tr><th scope="row">KB국민</th><td class="num">19.5</td><td class="num best">21.5</td><td class="num">19.5</td><td class="num">19.5</td><td class="num">19.5</td><td>카카오페이 · 굿데이카드</td></tr>
+          <tr><th scope="row">하나</th><td class="num">16</td><td class="num best">18</td><td class="num best">18</td><td class="num">17</td><td class="num">–</td><td>카카오페이·아정당 · MOVING</td></tr>
+          <tr><th scope="row">NH농협</th><td class="num best">17</td><td class="num">10.5</td><td class="num">14.5</td><td class="num">13.5</td><td class="num">13.5</td><td>네이버페이 · 국민행복/올바른 FLEX</td></tr>
+          <tr><th scope="row">롯데</th><td class="num best">20</td><td class="num best">20</td><td class="num best">20</td><td class="num best">20</td><td class="num best">20</td><td>5개 플랫폼 동일 · LOCA LIKIT</td></tr>
+          <tr><th scope="row">BC 바로</th><td class="num">–</td><td class="num">10.5</td><td class="num">–</td><td class="num best">20.5</td><td class="num">–</td><td>카드고릴라 · 케이뱅크 히든카드</td></tr>
+          <tr><th scope="row">우리</th><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td class="num">–</td><td>연회비 100% 캐시백형만 운영</td></tr>
+          <tr><th scope="row">IBK기업</th><td class="num">9</td><td class="num">9.8</td><td class="num">–</td><td class="num">8.8</td><td class="num best">11.8</td><td>뱅크샐러드 · K-패스(신용)</td></tr>
         </tbody>
       </table>
     </div>
     <p class="rate-legend">
-      ‘–’는 해당 플랫폼에서 확인된 신규 발급 캐시백이 없다는 뜻입니다. 금액은 2026년 11월 27일 기준 각 플랫폼 이벤트 페이지와 카드사 공지, 카드 비교 집계를 대조한 값이며, 최대 혜택에는 해외결제·자동납부·리볼빙 같은 추가 조건이 붙는 경우가 많아 실수령은 기본 혜택 기준입니다.
+      ‘–’는 해당 플랫폼에서 확인된 신규 발급 캐시백이 없다는 뜻입니다. 금액은 2026년 11월 27일 기준 네이버페이·카카오페이·아정당·카드고릴라 이벤트 페이지와 뱅크샐러드 발급 캐시백 집계, 카드사 공지를 교차 대조한 값이며, 최대 혜택에는 해외결제·자동납부·리볼빙 같은 추가 조건이 붙는 경우가 많아 실수령은 기본 혜택 기준입니다.
     </p>
 
     <div class="sec-title">
@@ -293,6 +316,7 @@ body{
       <a href="https://card-hub.kakaopay.com/events" target="_blank" rel="noopener nofollow">카카오페이 카드연구소 ↗</a>
       <a href="https://www.ajd.co.kr/card/event/list" target="_blank" rel="noopener nofollow">아정당 카드 이벤트 ↗</a>
       <a href="https://www.card-gorilla.com/contents/detail/4351" target="_blank" rel="noopener nofollow">카드고릴라 11월 캐시백 비교 ↗</a>
+      <a href="https://www.banksalad.com/card" target="_blank" rel="noopener nofollow">뱅크샐러드 카드 발급 캐시백 ↗</a>
     </div>
   </section>
 
@@ -302,6 +326,11 @@ body{
       <h2>유형을 고르면 추천 카드 TOP 5</h2>
       <span>연회비·전월실적·핵심 혜택 · 2026-11-27 확인</span>
     </div>
+    <p class="perf-legend">
+      <span><b>실적 포함</b> — 전월실적에 합산되는 결제</span>
+      <span><b>실적 제외</b> — 합산되지 않는 결제</span>
+      <span><b>할인·적립 결제건</b> — 혜택 받은 건이 실적에 들어가는지 카드별 표기</span>
+    </p>
 
     <div class="type-grid" id="top-types" role="group" aria-label="카드 유형 선택">
       <button type="button" class="type-card" data-type="mileage" aria-pressed="true">
@@ -358,8 +387,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 47,000원 / 해외 49,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건이 없어 산정하지 않음 — 이용금액 전체가 적립 대상(상품권·선불충전 등 기본 적립 제외 항목은 별도)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>이용금액 전체가 마일리지 적립 대상 — 적립에서만 상품권·선불충전·세금·공과금이 빠집니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>대한항공 국내외 가맹점 1,000원당 1마일 기본 적립</li>
             <li>국내형·해외형 택1 특별적립: 백화점·주유·카페·편의점·택시(국내형) 또는 해외 가맹점·해외직구(해외형) 1,000원당 1마일 추가</li>
@@ -373,8 +401,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 49,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 공과금·통신요금 납부 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인은 청구할인이라 <b>승인금액 전체</b>가 실적에 잡힙니다(신한카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>국내/해외 이용금액 1,000원당 1마일 적립</li>
             <li>항공·면세점 2배, 해외 이용 2배 적립</li>
@@ -389,8 +416,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 45,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 공과금·통신요금 납부 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 적립 받은 결제건도 <b>승인금액 기준</b>으로 실적에 포함됩니다(하나카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>국내 이용금액 1,000원당 1마일, 해외 이용금액 1,000원당 2마일 적립</li>
             <li>해외 비중이 높다면 실적 50만원 구간에서 적립 효율이 좋은 편</li>
@@ -404,8 +430,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 48,000원 / 해외 48,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 적립 한도·제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건이 없어 적립 한도·제외 가맹점만 확인하면 됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>1,500원당 1마일 대한항공 마일리지 적립</li>
             <li>해외 가맹점 이용수수료·해외 ATM 인출 수수료 면제</li>
@@ -420,8 +445,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 245,000원 / 해외 250,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 공과금·통신요금 납부 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 대중교통·택시, 상품권·선불충전</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 마일리지 적립 건도 <b>승인금액 기준</b>으로 실적에 포함됩니다(삼성 적립형).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>1,000원당 최대 2마일리지 적립</li>
             <li>기프트 옵션 15만원 상당 서비스(택1), 인천공항 주차요금 1만원 할인</li>
@@ -442,8 +466,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 150,000원 / 해외 150,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — ALL 리워드 적립 한도와 제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건이 없는 대신 ALL 리워드 적립 한도·제외 가맹점만 확인하면 됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>3,000원당 최대 3 ALL 리워드 포인트 적립, 가입 시 4,000포인트 제공</li>
             <li>ALL 회원 SILVER 등급 부여 — 아코르 호텔 예약·포인트 사용과 연동</li>
@@ -458,8 +481,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 264,000원 / 해외 267,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 포인트 적립 제외 가맹점·한도는 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 포인트가 적립됩니다(적립 제외 가맹점은 별도).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>메리어트 참여호텔 무료숙박권 제공(연 1회)</li>
             <li>참여호텔 이용 시 1,000원당 5포인트 적립, 본보이 골드 엘리트 등급</li>
@@ -473,8 +495,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 1,000,000원 / 해외 1,000,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 포인트 적립·숙박권 조건은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 포인트·숙박권 혜택이 제공됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>메리어트 참여호텔 1회 숙박권 제공</li>
             <li>본보이 포인트 최대 6포인트 적립, 엘리트 등급 부여</li>
@@ -488,8 +509,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 247,000원 / 해외 250,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 숙박권·등급 조건은 롯데카드 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 숙박권·등급 혜택이 제공됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>전세계 힐튼 호텔 주말 숙박권 제공</li>
             <li>1,500원당 최대 4 힐튼 포인트 적립 (프리미엄 50만원권은 최대 8P)</li>
@@ -503,8 +523,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 115,000원 / 해외 120,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 호텔·다이닝 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 청구할인 건도 <b>승인금액 기준</b>으로 실적에 포함됩니다(하나카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>10만원 상당 바우처 제공(호텔 다이닝·신세계상품권 등 택1)</li>
             <li>전세계 공항라운지 연 3회 무료, 국내외 가맹점 1% 하나머니 적립</li>
@@ -517,17 +536,62 @@ body{
 
       <!-- 3 여행 · 해외결제 · 해외직구 -->
       <div class="type-panel" id="type-travel" hidden>
-        <div class="type-detail__head"><h2>🧳 여행 · 해외결제 · 해외직구 TOP 5</h2><span class="badge badge--gold">해외수수료 면제·적립</span></div>
-        <p class="type-detail__desc">해외결제·해외직구·환전 수수료를 줄이거나, 해외 이용금액에 더 높은 적립률을 주는 카드를 모았습니다. 환전·해외결제 수수료 혜택을 앞세운 카드가 여기에 자연스럽게 포함되며, 공항라운지 무료 이용은 별도 카테고리가 아니라 각 카드의 배지로 표시했습니다.</p>
+        <div class="type-detail__head"><h2>🧳 여행 · 해외결제 · 해외직구 TOP 5</h2><span class="badge badge--gold">해외 적립·할인률 기준</span></div>
+        <p class="type-detail__desc">해외결제·해외직구에서 적립·할인률이 높은 <strong>신용카드</strong>를 중심으로 모았습니다. 해외 결제에는 국제브랜드 수수료 1%와 해외이용수수료 0.2%가 붙으므로, <strong>1.2%를 넘는 적립·할인</strong>이 되는지를 기준으로 고르세요. 트래블카드(환전·수수료 면제)는 필요한 경우를 위해 1장만 남겼습니다.</p>
         <div class="type-detail__links"><a href="/air/">✈ 마일지도(해외 노선)</a><a href="/hotel/">🏨 힐튼포숙지도</a></div>
 
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">1</span><div><h4>트래블로그 신용카드</h4><p class="card-item__issuer">하나카드 · 트래블 특화</p></div><span class="badge badge--gold">전월실적 없음</span></div>
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">1</span><div><h4>삼성 iD GLOBAL 카드</h4><p class="card-item__issuer">삼성카드 · 해외결제 할인</p></div><span class="badge badge--gold">전월 50만원</span></div>
+          <dl class="card-item__meta">
+            <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
+            <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>국내 일시불·할부 — <b>해외 이용금액은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>해외 전체 이용금액, 국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 대중교통·택시, 상품권·선불충전</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인 적용 건도 실적에 포함되지만, <b>해외 결제는 금액 전체가 실적에서 빠집니다</b>(삼성 iD GLOBAL 약관).</span></span></dd></div></dl>
+          <ul class="card-item__benefits">
+            <li>해외 이용 2% 할인, 삼성페이 해외 오프라인 5% 할인</li>
+            <li>해외 수수료 할인, 디지털콘텐츠·멤버십 50% 할인</li>
+          </ul>
+          <p class="card-item__badges"><span class="badge">해외 2%</span><span class="badge">더라운지 연 2회</span></p>
+          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2676" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
+        </article>
+
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">2</span><div><h4>IBK포인트3.8 (신용)</h4><p class="card-item__issuer">IBK기업은행 · 해외 5% 적립</p></div><span class="badge badge--gold">전월 50만원</span></div>
+          <dl class="card-item__meta">
+            <div><dt>연회비</dt><dd>국내 37,000원 / 해외 38,000원</dd></div>
+            <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 공과금·통신요금 납부 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금(전기·도시가스·수도), 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 적립 받은 결제건도 실적에 그대로 인정됩니다. 적립과 실적을 한 번에 챙기는 구조(IBK 공식 안내).</span></span></dd></div>
+          </dl>
+          <ul class="card-item__benefits">
+            <li>해외 가맹점 5% IBK포인트 적립(월 1만5천 포인트 한도)</li>
+            <li>국내외 모든 가맹점 1.5% 적립(한도 없음) — 해외 결제는 최대 6.5%</li>
+            <li>쿠팡·G마켓·옥션·11번가 0.5% 추가 적립(월 1만 포인트)</li>
+          </ul>
+          <p class="card-item__badges"><span class="badge">해외 5% 적립</span><span class="badge">국내 1.5%</span><span class="badge">적립 무한도</span></p>
+          <p class="card-item__links"><a href="https://www.ibk.co.kr/cardbiz/detailBizNew.ibk?PDCD=0003&amp;PDGR_CD=11&amp;PDLN_CD=12&amp;PDTM_CD=347&amp;ad_cd=cashback" target="_blank" rel="noopener nofollow">IBK 공식 상품 안내 ↗</a></p>
+        </article>
+
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">3</span><div><h4>알파벳카드T</h4><p class="card-item__issuer">현대카드 · 무실적 해외 할인</p></div><span class="badge badge--gold">전월실적 없음</span></div>
+          <dl class="card-item__meta">
+            <div><dt>연회비</dt><dd>국내외 15,000원</dd></div>
+            <div><dt>전월실적</dt><dd>없음</dd></div>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>전월실적을 산정하지 않아 세금·관리비를 결제해도 실적 부담이 없습니다. 대신 그 결제는 할인 대상에서 빠집니다.</span></span></dd></div>
+          </dl>
+          <ul class="card-item__benefits">
+            <li>해외 온·오프라인 가맹점 2% 청구할인(실적·한도 조건 없음)</li>
+            <li>국내 가맹점 0.7% 청구할인 — 해외직구·알리·테무·해외 AI 구독에 유리</li>
+            <li>해외 국제브랜드 수수료 1.1% + 해외서비스 수수료 0.2% 전액 할인</li>
+          </ul>
+          <p class="card-item__badges"><span class="badge">해외 2%</span><span class="badge">수수료 1.3% 면제</span><span class="badge">무실적</span></p>
+          <p class="card-item__links"><a href="https://www.hyundaicard.com/docfiles/resources/pc/html/carDtl/HCT_PC.html" target="_blank" rel="noopener nofollow">현대카드 공식 상품 안내 ↗</a></p>
+        </article>
+
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">4</span><div><h4>트래블로그 신용카드</h4><p class="card-item__issuer">하나카드 · 트래블 특화</p></div><span class="badge badge--gold">전월실적 없음</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 해외 적립 월 5만 하나머니 한도, 제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적과 관계없이 적립됩니다 — 해외 적립 월 5만 하나머니 한도만 확인하세요.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>해외 가맹점 3% 하나머니 적립(월 5만 한도), 국내외 1% 기본 적립</li>
             <li>항공권·면세점·온라인 여행사 3% 적립</li>
@@ -537,64 +601,18 @@ body{
           <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2529" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
         </article>
 
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">2</span><div><h4>신한카드 SOL트래블</h4><p class="card-item__issuer">신한카드 · 트래블 특화</p></div><span class="badge badge--gold">전월 40만원</span></div>
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">5</span><div><h4>신한카드 SOL트래블</h4><p class="card-item__issuer">신한카드 · 트래블 특화</p></div><span class="badge badge--gold">전월 40만원</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 27,000원 / 해외 30,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 해외 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인·적립 받은 결제건도 실적에 포함됩니다(신한카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>해외 이용·해외 ATM 인출 수수료 면제, 해외 결제 환율 100% 우대</li>
             <li>국내 이용금액 최대 2% 적립</li>
           </ul>
           <p class="card-item__badges"><span class="badge">수수료 면제</span><span class="badge">환율 100% 우대</span><span class="badge">공항라운지 서비스</span></p>
           <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2722" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
-        </article>
-
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">3</span><div><h4>트래블월렛 우리카드</h4><p class="card-item__issuer">우리카드 · 트래블 특화</p></div><span class="badge badge--gold">전월 40만원</span></div>
-          <dl class="card-item__meta">
-            <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
-            <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
-          <ul class="card-item__benefits">
-            <li>트래블 포인트 최대 2.0% 적립</li>
-            <li>해외 이용 수수료 면제 서비스</li>
-          </ul>
-          <p class="card-item__badges"><span class="badge">수수료 면제</span><span class="badge">트래블 포인트</span></p>
-          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2569" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
-        </article>
-
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">4</span><div><h4>삼성 iD GLOBAL 카드</h4><p class="card-item__issuer">삼성카드 · 해외결제 할인</p></div><span class="badge badge--gold">전월 50만원</span></div>
-          <dl class="card-item__meta">
-            <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
-            <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 국세·지방세·공과금·아파트관리비·대학등록금·대중교통·택시·상품권·선불충전(삼성카드 공통 기준)</dd></div>
-          </dl>
-          <ul class="card-item__benefits">
-            <li>해외 이용 2% 할인, 삼성페이 해외 오프라인 5% 할인</li>
-            <li>해외 수수료 할인, 디지털콘텐츠·멤버십 50% 할인</li>
-          </ul>
-          <p class="card-item__badges"><span class="badge">해외 2%</span><span class="badge">더라운지 연 2회</span></p>
-          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2676" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
-        </article>
-
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">5</span><div><h4>트래블로그 PRESTIGE 신용카드</h4><p class="card-item__issuer">하나카드 · 프리미엄 트래블</p></div><span class="badge badge--gold">전월 50만원</span></div>
-          <dl class="card-item__meta">
-            <div><dt>연회비</dt><dd>국내 150,000원 / 해외 150,000원</dd></div>
-            <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
-          <ul class="card-item__benefits">
-            <li>1,500원당 1마일 적립</li>
-            <li>프리미엄 바우처 1가지 선택, 해외 가맹점 이용수수료 면제</li>
-          </ul>
-          <p class="card-item__badges"><span class="badge">1마일 적립</span><span class="badge">수수료 면제</span><span class="badge">바우처</span></p>
-          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2730" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
         </article>
       </div>
 
@@ -608,8 +626,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 주유·정비·세금·공과금·관리비 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인 받은 주유·정비 결제도 <b>승인금액 기준</b>으로 실적에 포함됩니다(신한 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>4개 정유사 주유 10% 할인, 차량서비스 10% 할인</li>
             <li>편의점·커피·택시 5% 할인</li>
@@ -623,8 +640,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 5,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 주유·생활 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금(전기·수도·도시가스), 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 이 카드의 할인을 받은 매출은 <b>실적에서 제외</b>됩니다(KB 할인형 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>주유 리터당 60원 할인</li>
             <li>통신요금 10% 할인, 커피 10% 할인</li>
@@ -639,8 +655,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 2,000원 / 해외 4,000원</dd></div>
             <div><dt>전월실적</dt><dd>20만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 대중교통·일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 — <b>후불교통 이용금액은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>후불교통 이용금액, 국세·지방세·공과금(전기·도시가스·수도), 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인·적립 받은 결제건도 실적에 포함됩니다(IBK 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>대중교통 K-패스 환급 최대 300원, 주유 리터당 40원 할인</li>
             <li>통신 3% 할인</li>
@@ -654,8 +669,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 주유·충전 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 이 카드 혜택이 적용된 결제건은 <b>전체 금액이 실적에서 제외</b>됩니다(현대 할인형 공통).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>GS칼텍스 반경 5km 최저가 주유 보장</li>
             <li>에너지플러스 앱 ‘바로주유’ 결제 시 추가 5% 청구 할인</li>
@@ -670,8 +684,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 70,000원 / 해외 70,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 차량 유지비·주유 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 적립 받은 결제건은 승인금액 기준 실적에 포함됩니다(현대 적립형).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>차량유지관리 업종 최대 4.5% 적립</li>
             <li>대중교통·쏘카·타다 최대 3% 적립</li>
@@ -691,8 +704,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 15,000원 / 해외 15,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 쇼핑·마트 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 쇼핑·마트 할인을 받은 결제건은 <b>전체 금액이 실적에서 제외</b>됩니다(현대 할인형).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>온라인몰·대형마트·슈퍼마켓 10% 청구 할인</li>
             <li>백화점·프리미엄 아울렛 10% 청구 할인</li>
@@ -707,8 +719,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 백화점 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 청구할인 건도 승인금액 기준 실적에 포함됩니다(BC 바로카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>신세계백화점 7% 할인</li>
             <li>간편결제 7% 할인, 카페 7% 할인</li>
@@ -722,8 +733,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 13,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 마트·편의점 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인 받은 결제건도 승인금액 기준 실적에 포함됩니다(신한 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>생활쇼핑 가맹점 최대 15% 결제일 할인</li>
             <li>커피전문점·제과점 10%, 주말 복합쇼핑몰·대형마트 10% 할인</li>
@@ -737,8 +747,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — NOL·쇼핑 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 적립 받은 결제건은 승인금액 기준 실적에 포함됩니다(현대 적립형).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>NOL포인트 10% 적립</li>
             <li>해외결제 10% 적립 — 여행·쇼핑을 NOL 포인트로 모으는 구조</li>
@@ -752,8 +761,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 쿠팡캐시 적립 한도·종료일은 카드사 공지 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 쿠팡캐시가 적립됩니다(적립 한도·종료일 확인).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>쿠팡에서 월 최대 3.5만원 쿠팡캐시 적립(2027년 4월 30일까지)</li>
             <li>쿠팡 밖 이용 시 월 최대 4만원 쿠팡캐시 적립</li>
@@ -773,8 +781,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 30,000원 / 해외 30,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 국내외 가맹점 2% 할인 한도·제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적·한도 조건 없이 2% 할인이 적용됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>국내외 가맹점 2% 할인(실적·한도 조건 없이 설계된 무실적형)</li>
             <li>해외 이용 수수료 면제, 2~3개월 무이자 할부</li>
@@ -788,8 +795,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 18,000원 / 해외 18,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 선택 옵션별 할인 한도·제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 선택한 영역 할인이 적용됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>선택 옵션에 따른 할인 혜택(택1), 쇼핑 1%·국내 가맹점 0.5% 할인</li>
             <li>이번 달 카드사 다이렉트 발급 캐시백 22만원 조건 대상(30만원 이용)</li>
@@ -803,8 +809,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 카카오페이 포인트 적립 한도·제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 카카오페이 결제 혜택이 적용됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>카카오페이포인트 최대 3% 적립</li>
             <li>이동통신요금 3,000포인트 적립, 스트리밍 10% 적립</li>
@@ -818,8 +823,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 7,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 네이버페이 포인트 적립 제외 가맹점은 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적 조건 없이 네이버페이 포인트가 적립됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>네이버페이 결제 시 2% 적립, 네이버 외 가맹점 0.5% 적립</li>
             <li>이번 달 네이버페이 발급 캐시백 19만 포인트 조건 대상(25만원 이용, VISA 3만 추가)</li>
@@ -833,8 +837,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 해외 가맹점 1.5% 할인은 브랜드(AMEX 등) 확인 필요</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>실적·한도 조건 없이 기본 할인이 적용됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>국내 가맹점 0.8% 할인, 해외 가맹점 1.5% 할인</li>
             <li>4개 플랫폼 모두 이번 달 발급 캐시백 20만원 실수령 구간</li>
@@ -854,8 +857,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 일시불·할부 / 제외: 국세·지방세·공과금·아파트관리비·대학등록금·대중교통·택시·상품권·선불충전(삼성카드 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 단, <b>대중교통·택시·이동통신 할인 적용분은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>할인 혜택이 적용된 이용금액(할인 포함 총액), 국세·지방세·공과금, 아파트관리비, 등록금, 대중교통·택시, 상품권·선불충전</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 교통·통신·영화 할인을 받은 결제는 <b>할인 포함 총액이 실적에서 빠집니다</b>(삼성 taptap O 약관). 실적은 다른 결제로 채워야 합니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>스타벅스 50% 할인(월 한도 내), 대중교통 10% 할인</li>
             <li>CGV·롯데시네마 5,000원 할인</li>
@@ -870,8 +872,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 3일 연속 이용 조건과 적립 한도는 카드사 이용조건 확인</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--none"><span class="perf-tag">실적 조건 없음</span><span>ALLDAY 모드는 실적 조건이 없습니다. PLAY·LIFE 모드는 전월 50만원이 필요하고, <b>그 모드에서 적립 받은 매출은 실적에서 제외</b>됩니다(ALLDAY·ONLINE·GLOBAL은 포함).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>3일 연속 이용 시 1.0~2.0% 하나머니 적립</li>
             <li>대중교통·택시 3.0%, 쇼핑·딜리버리 2.0% 적립</li>
@@ -885,8 +886,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 10,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 대중교통·일시불·할부 / 제외: 국세·지방세·공과금·아파트관리비·상품권·선불충전(삼성카드 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 단, <b>대중교통·택시는 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 대중교통·택시, 상품권·선불충전</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 교통 할인을 받은 대중교통 결제는 삼성카드 공통 기준으로 <b>실적에서 제외</b>됩니다. 교통비로는 40만원 실적을 채울 수 없습니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>K-패스 대중교통 환급(이용금액의 일정 비율) 대상 카드</li>
             <li>교통비 비중이 큰 직장인·학생의 기본 카드</li>
@@ -900,8 +900,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 10,000원 / 해외 12,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 대학등록금·세금·공과금·상품권·선불카드 충전·도시가스·전기요금·현금서비스(농협카드 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 단, <b>할인 받은 매출은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>할인 적용된 이용금액(전체), 국세·지방세·공과금, 전기·도시가스, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 스타벅스·교통·통신 등 할인을 받은 결제는 <b>할인 포함 총액이 실적에서 빠집니다</b>(NH 올바른 FLEX 약관).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>커피 50% 할인, 스트리밍 20% 할인, 영화 30% 할인</li>
             <li>이번 달 네이버페이 발급 캐시백 10만 포인트 조건 대상(11만원 이용)</li>
@@ -915,8 +914,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 15,000원 / 해외 18,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 통신·구독 정기결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인·적립 받은 통신·구독 결제도 <b>승인금액 기준</b>으로 실적에 포함됩니다(신한 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>음식·생활·패션 5% 적립, 통신·구독·멤버십 최대 20% 적립</li>
             <li>소비관리 보너스 매월 최대 1만 포인트</li>
@@ -929,15 +927,14 @@ body{
       <!-- 8 프리미엄 -->
       <div class="type-panel" id="type-premium" hidden>
         <div class="type-detail__head"><h2>👑 프리미엄 TOP 5</h2><span class="badge badge--gold">연회비 50만원 이상</span></div>
-        <p class="type-detail__desc">연회비 50만원 이상으로 실제 발급 중인 카드입니다. 연회비가 큰 만큼 바우처·라운지·호텔 등급 같은 '현금 대체' 혜택을 1년에 얼마나 쓰는지로 판단해야 합니다.</p>
+        <p class="type-detail__desc">연회비 50만원 이상이면서 <strong>누구나 신청할 수 있는</strong> 카드만 넣었습니다. 초대·별도 자격 심사가 필요한 카드(현대 the black, KB HERITAGE Exclusive 등)와 다른 유형에 이미 들어간 제휴 카드는 제외했습니다. 연회비가 큰 만큼 바우처·라운지·호텔 등급을 1년에 얼마나 쓰는지로 판단하세요.</p>
 
-        <article class="card-item">
+<article class="card-item">
           <div class="card-item__head"><span class="card-item__rank">1</span><div><h4>American Express The Platinum Card® Edition2</h4><p class="card-item__issuer">현대카드 · 아멕스 플래티넘</p></div><span class="badge badge--gold">전월 50만원</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 1,000,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 해외 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 마일리지 적립 건은 실적에 포함됩니다. 현대카드 할인 서비스 적용 건은 별도로 빠질 수 있습니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>매년 연간 스페셜 10만 MR 적립(약 100만원 상당)</li>
             <li>공항 라운지·발렛파킹 무료, 아멕스 플래티넘 등급 서비스</li>
@@ -946,13 +943,12 @@ body{
           <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2664" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
         </article>
 
-        <article class="card-item">
+<article class="card-item">
           <div class="card-item__head"><span class="card-item__rank">2</span><div><h4>JADE First</h4><p class="card-item__issuer">하나카드 · 마스터카드 월드</p></div><span class="badge badge--gold">전월 50만원</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 595,000원 / 해외 600,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 호텔·다이닝 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 청구할인 건도 승인금액 기준 실적에 포함됩니다(하나카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>30만원 상당 바우처 제공</li>
             <li>전 세계 공항라운지 연 8회(일 3회) 무료, 국내 가맹점 최대 1.5% 하나머니 적립</li>
@@ -961,13 +957,12 @@ body{
           <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2704" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
         </article>
 
-        <article class="card-item">
+<article class="card-item">
           <div class="card-item__head"><span class="card-item__rank">3</span><div><h4>JADE First Centum</h4><p class="card-item__issuer">하나카드 · 최상위 라인</p></div><span class="badge badge--gold">전월 50만원</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 995,000원 / 해외 1,000,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 해외·호텔 결제 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 청구할인 건도 승인금액 기준 실적에 포함됩니다(하나카드 기준).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>60만원 상당 바우처 제공</li>
             <li>전 세계 공항라운지 연 10회(일 3회) 무료, 최대 1.5% 하나머니 적립</li>
@@ -976,49 +971,50 @@ body{
           <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2705" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
         </article>
 
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">4</span><div><h4>the black</h4><p class="card-item__issuer">현대카드 · 초청형 VVIP</p></div><span class="badge badge--gold">전월 50만원</span></div>
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">4</span><div><h4>현대카드 the Purple</h4><p class="card-item__issuer">현대카드 · 럭셔리·고메</p></div><span class="badge badge--gold">전월 50만원</span></div>
           <dl class="card-item__meta">
-            <div><dt>연회비</dt><dd>국내 3,000,000원 / 해외 3,000,000원</dd></div>
+            <div><dt>연회비</dt><dd>1,000,000원 (VISA Infinite)</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>포함: 국내외 일시불·할부 / 제외: 세금·공과금·상품권·선불충전·현금서비스·연회비(카드사 공통 기준)</dd></div>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — <b>아파트관리비·전기·도시가스 포함</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·관세·지방세·공과금(상하수도·과태료 등), 상품권·선불충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 마일리지·M포인트 적립 건도 승인금액 기준으로 실적에 포함됩니다.</span></span></dd></div>
           </dl>
           <ul class="card-item__benefits">
-            <li>단 1,000명에게만 발급하는 VVIP 카드(초청·심사 기준 별도)</li>
-            <li>200만원 상당 바우처, 마티나 골드 라운지 등 전용 서비스</li>
+            <li>대한항공 1,000원당 1마일 또는 M포인트 1.5% 적립(택1, 한도 없음)</li>
+            <li>연 1회 럭셔리·고메 10만원권 바우처 7매(70만원 상당)</li>
+            <li>Priority Pass·인천공항 라운지, 공항·특급호텔 발레파킹</li>
           </ul>
-          <p class="card-item__badges"><span class="badge">VVIP 1,000명</span><span class="badge">바우처 200만</span><span class="badge">연회비 300만</span></p>
-          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/2757" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a></p>
+          <p class="card-item__badges"><span class="badge">바우처 70만</span><span class="badge">1마일 적립</span><span class="badge">VISA Infinite</span></p>
+          <p class="card-item__links"><a href="https://www.hyundaicard.com/mdm/thepurple/m_dm_purple_2512.html" target="_blank" rel="noopener nofollow">현대카드 공식 상품 안내 ↗</a></p>
         </article>
 
-        <article class="card-item">
-          <div class="card-item__head"><span class="card-item__rank">5</span><div><h4>메리어트 본보이 더 프레스티지™ 삼성카드</h4><p class="card-item__issuer">삼성카드 · 호텔 프리미엄</p></div><span class="badge badge--gold">전월실적 없음</span></div>
+<article class="card-item">
+          <div class="card-item__head"><span class="card-item__rank">5</span><div><h4>신한카드 The ACE BLUE LABEL</h4><p class="card-item__issuer">신한카드 · 마일리지·호텔 프리미엄</p></div><span class="badge badge--gold">전월 50만원</span></div>
           <dl class="card-item__meta">
-            <div><dt>연회비</dt><dd>국내 1,000,000원 / 해외 1,000,000원</dd></div>
-            <div><dt>전월실적</dt><dd>없음</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>실적 조건 없음 — 호텔 숙박권·포인트 적립 조건은 카드사 이용조건 확인</dd></div>
+            <div><dt>연회비</dt><dd>VISA 705,000원 / UPI 700,000원</dd></div>
+            <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 공과금·통신요금 납부 포함</span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 청구할인 건도 승인금액 기준으로 실적에 포함됩니다(수수료·이자·거래취소만 제외).</span></span></dd></div>
           </dl>
           <ul class="card-item__benefits">
-            <li>메리어트 참여호텔 1회 숙박권, 본보이 포인트 최대 6P 적립</li>
-            <li>엘리트 등급 부여 — 호텔 숙박이 많은 해에 연회비 회수 구조</li>
+            <li>대한항공 1,500원당 1마일 / 아시아나 1,000원당 1마일(택1)</li>
+            <li>연 1회 Gift Option — 특급호텔 멤버십·동반자 무료 항공권·해외호텔 2박 중 선택</li>
+            <li>Priority Pass 라운지, 의료업종 10% 결제일할인(월 3만·연 20만)</li>
           </ul>
-          <p class="card-item__badges"><span class="badge">숙박권</span><span class="badge">최대 6P</span></p>
-          <p class="card-item__links"><a href="https://www.card-gorilla.com/card/detail/3098" target="_blank" rel="noopener nofollow">카드 상세·이용조건 ↗</a><a href="/hotel/">힐튼포숙지도 ↗</a></p>
+          <p class="card-item__badges"><span class="badge">Gift Option</span><span class="badge">1마일 적립</span><span class="badge">라운지</span></p>
+          <p class="card-item__links"><a href="https://www.shinhancard.com/pconts/html/card/apply/premium/1188283_2205.html" target="_blank" rel="noopener nofollow">신한카드 공식 상품 안내 ↗</a></p>
         </article>
       </div>
 
       <!-- 9 통신비·아파트관리비·공과금 -->
       <div class="type-panel" id="type-utility" hidden>
         <div class="type-detail__head"><h2>📱 통신비·아파트관리비·공과금 TOP 5</h2><span class="badge badge--gold">전월실적 인정/제외 확인</span></div>
-        <p class="type-detail__desc">매달 자동으로 빠져나가는 통신비·관리비·전기·가스요금을 할인받는 카드입니다. <strong>할인 대상과 전월실적 인정은 다릅니다.</strong> 공과금·아파트관리비는 할인은 되지만 전월실적에는 대부분 포함되지 않고, <strong>이 카드로 할인·적립을 받은 결제건도 전월실적에서 빼는 카드사가 많습니다</strong>. 실적을 채울 다른 결제가 함께 필요합니다.</p>
+        <p class="type-detail__desc">매달 빠져나가는 통신비·아파트관리비·전기·가스요금을 할인받는 카드입니다. <strong>‘할인 대상’과 ‘전월실적 인정’은 다르고, 카드마다 갈립니다.</strong> 신한 Mr.Life·롯데 LOCA 365는 할인받은 공과금·통신요금도 실적에 포함하지만, KB YOU Prime·현대 알파벳R·NH 올바른 FLEX는 할인 적용 매출이 실적에서 빠집니다. 아래 카드별 <strong>할인·적립 결제건</strong> 줄을 먼저 확인하세요.</p>
 
         <article class="card-item">
           <div class="card-item__head"><span class="card-item__rank">1</span><div><h4>신한카드 Mr.Life</h4><p class="card-item__issuer">신한카드 · 생활요금 특화</p></div><span class="badge badge--gold">전월 30만원</span></div>
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>해외겸용 15,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>할인 대상: 공과금·마트·편의점·식음료 10% / 전월실적: 세금·공과금·아파트관리비·상품권·선불충전·현금서비스 제외 — 공과금으로 실적을 채울 수 없음</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — <b>공과금·통신요금 자동납부 포함</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 초중고·대학 등록금, 공공임대료·부동산임대료, 상품권·선불카드 충전, 현금서비스·카드론, 연회비·수수료</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 신한카드 약관 원문에 <b>‘전월 할인거래 실적 포함’</b> — 공과금·통신 할인을 받은 달도 실적이 그대로 인정됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>공과금 10% 할인, 마트·편의점 10% 할인, 식음료 10% 할인</li>
             <li>생활요금 자동납부와 함께 쓰는 무난한 생활 카드</li>
@@ -1032,8 +1028,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 20,000원 / 해외 20,000원</dd></div>
             <div><dt>전월실적</dt><dd>50만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>할인 대상: 아파트관리비·공과금·교통·통신·배달 10% / 전월실적: 세금·공과금·아파트관리비·상품권·선불충전 제외(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — <b>아파트관리비·공과금·통신요금 포함</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·4대보험, 등록금, 공공임대료·부동산임대료, 상품권·선불충전, 택시·고속버스·통행료, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인 받은 관리비·공과금·통신도 <b>실적에 포함</b>됩니다(롯데 약관 원문). 단 <b>택시·고속버스·통행료는 제외</b>입니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>아파트관리비·공과금 10% 할인</li>
             <li>교통·통신·배달앱 10% 할인, 스트리밍 1,500원 할인</li>
@@ -1047,8 +1042,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 15,000원 / 해외 15,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>할인 대상: 생활요금·이동통신·디지털 구독 10% / 전월실적: 세금·공과금·상품권·선불충전·현금서비스 제외(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 단, <b>이 카드 혜택 적용 결제건은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>이 카드의 기본·추가 혜택이 적용된 결제건 전체, 국세·관세·지방세, 전기·도시가스·TV수신료, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 고속도로·고속버스, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — 통신·관리비·도시가스·구독 할인을 받은 결제는 <b>전체 금액이 실적에서 빠집니다</b>(현대 알파벳카드R 약관 원문). 할인 대상이 아닌 통신요금은 포함됩니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>생활 요금·이동통신 요금 10% 청구 할인</li>
             <li>디지털 콘텐츠·온라인쇼핑 멤버십 10%, 커피·편의점·대중교통 5% 할인</li>
@@ -1062,8 +1056,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 30,000원 / 해외 30,000원</dd></div>
             <div><dt>전월실적</dt><dd>40만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>할인 대상: 주유·배달·통신·생활요금·온라인장보기 10% / 전월실적: 세금·공과금·상품권·선불충전·현금서비스 제외(카드사 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — 단, <b>이 카드 할인 매출은 실적 제외</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>KB YOU Prime 할인 적용 매출(일상팩·가족팩), 국세·지방세·공과금(전기·수도·도시가스), 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 제외</b> — KB 약관 원문에 <b>‘이 카드로 할인 적용 받은 매출’이 실적 제외</b>로 명시 — 관리비·전기·도시가스는 애초에 제외 항목입니다.</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>[일상팩] 주유·배달·통신 10% 할인</li>
             <li>[가족팩] 생활요금·온라인장보기·일상케어 10% 할인, 해외 이용 수수료 면제</li>
@@ -1077,8 +1070,7 @@ body{
           <dl class="card-item__meta">
             <div><dt>연회비</dt><dd>국내 12,000원 / 해외 14,000원</dd></div>
             <div><dt>전월실적</dt><dd>30만원 이상</dd></div>
-            <div class="wide"><dt>전월실적 포함/제외</dt><dd>할인 대상: 쇼핑·통신·커피 / 전월실적: 대학등록금·세금·공과금·상품권·선불카드 충전·도시가스·전기요금 제외(농협카드 공통 기준)</dd></div>
-          </dl>
+            <div class="wide"><dt>전월실적 포함 / 제외</dt><dd class="perf"><span class="perf-row perf-row--in"><span class="perf-tag">실적 포함</span><span>일시불·할부 전체 — <b>통신요금 자동납부 포함</b></span></span><span class="perf-row perf-row--out"><span class="perf-tag">실적 제외</span><span>국세·지방세·공과금, 전기·도시가스, 아파트관리비, 4대보험, 등록금, 상품권·선불충전, 무이자할부</span></span><span class="perf-row perf-row--hl"><span class="perf-tag">할인·적립 결제건</span><span><b>실적 포함</b> — 할인 받은 통신·커피·편의점 결제도 <b>승인금액 기준</b>으로 실적에 포함됩니다(NH 별다줄 — 할인 매출 제외 문구 없음).</span></span></dd></div></dl>
           <ul class="card-item__benefits">
             <li>쇼핑 최대 14% 할인, 통신 5% 할인, 커피 5% 할인</li>
             <li>연회비 1만원대 — 통신·쇼핑을 함께 쓰는 실속형</li>
@@ -1093,7 +1085,7 @@ body{
 
   <footer class="card-foot">
     <p><strong>이달의 카드지도</strong>는 카드사·플랫폼 공지와 카드 비교 정보를 정리한 무료 참고 도구입니다. 카드 발급을 대행하거나 수수료를 받지 않으며, 특정 카드사를 우대하지 않습니다.</p>
-    <p>연회비·전월실적·혜택은 2026년 11월 27일 확인 기준이며, 카드사 사정으로 예고 없이 바뀔 수 있습니다. 전월실적 포함·제외 항목은 카드사 공통 기준을 요약한 것으로 카드별 예외가 있으니, 신청 전 카드사 공식 홈페이지의 상품 설명서·이용약관을 확인하세요. 카드 발급 심사와 혜택 지급 여부는 카드사의 결정입니다.</p>
+    <p>연회비·전월실적·혜택은 2026년 11월 27일 확인 기준이며, 카드사 사정으로 예고 없이 바뀔 수 있습니다. 전월실적 포함·제외는 카드사 상품설명서 원문과 카드고릴라·뱅크샐러드 공시를 대조해 카드별로 표기했으며, 표기 기준일은 2026년 11월 27일입니다. 카드사가 약관을 바꾸면 달라질 수 있으니 신청 전 카드사 공식 홈페이지의 상품 설명서·이용약관을 확인하세요. 카드 발급 심사와 혜택 지급 여부는 카드사의 결정입니다.</p>
     <p>각 카드의 ‘카드 상세·이용조건’ 링크는 카드사 공시를 정리한 카드고릴라 상품 페이지이며, 해당 페이지의 ‘카드사 바로가기’를 통해 카드사 공식 발급 페이지로 이동할 수 있습니다. 이 페이지는 카드 신청서를 받지 않습니다.</p>
     <p>관련 서비스: <a href="/air/">✈ 마일지도</a> · <a href="/hotel/">🏨 힐튼포숙지도</a> · <a href="/cal/">🧮 한번에 계산기</a> · <a href="/macro/">📊 경제지표지도</a></p>
     <p><strong>쓸모있는 모음.zip</strong> · <a href="/about/">사이트 소개</a> · <a href="/editorial-policy/">콘텐츠 작성 원칙</a> · <a href="/contact/">문의·오류 제보</a> · <a href="/privacy/">개인정보처리방침</a></p>
