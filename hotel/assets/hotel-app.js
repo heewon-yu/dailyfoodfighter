@@ -557,28 +557,6 @@
         renderDirectory();
       });
     }
-
-    /* 12월·1월·2월 대표 주말(둘째 금요일 1박) 원터치 */
-    $$("[data-dir-month]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var v = btn.getAttribute("data-dir-month").split("-");
-        var d = secondFriday(Number(v[0]), Number(v[1]));
-        while (d < kstToday()) d = addDays(d, 7);   // 이미 지난 달→ 그 주 금요일로 넘긴다
-        ci.value = d;
-        co.value = addDays(d, 1);
-        co.min = co.value;
-        state.dir.checkIn = ci.value;
-        state.dir.checkOut = co.value;
-        renderDirectory();
-      });
-    });
-  }
-
-  function secondFriday(year, month) {
-    var d = "" + year + "-" + HotelApi.pad(month) + "-01";
-    while (weekday(d) !== 5) d = addDays(d, 1);   // 첫 금요일
-    var second = addDays(d, 7);                   // 둘째 금요일
-    return second;
   }
 
   /* -------------------------------------------------------------- calc */
@@ -872,6 +850,7 @@
     if (!o.start) return;
     var range = o.start.replace(/-/g, ".") + "~" + o.end.replace(/-/g, ".");
     $$("[data-obs-window]").forEach(function (el) { el.textContent = "향후 30일(" + range + ")"; });
+    $$("[data-obs-range]").forEach(function (el) { el.textContent = range; });
     $$("[data-obs-end]").forEach(function (el) { el.textContent = shortDate(o.end); });
     $$("[data-obs-start]").forEach(function (el) { el.textContent = shortDate(o.start); });
   }
