@@ -137,7 +137,7 @@
     if (h.rewardType === "PREMIUM") return { cls: "badge--premium", text: "Premium만" };
     if (h.soldOut) return { cls: "badge--soldout", text: "매진" };
     if (h.rewardType === "NO_POINTS") return { cls: "badge--unknown", text: "포인트 없음" };
-    return { cls: "badge--unknown", text: "포인트 미조회" };
+    return { cls: "badge--unknown", text: "포인트 정보 없음" };
   }
 
   /* --------------------------------------------------------------- data */
@@ -218,11 +218,11 @@
     var loc = (h.cityKo || h.city) + " · " + (h.countryKo || h.country);
     var pointsLine = h.points != null
       ? '<p class="hcard__points">' + num(h.points) + "<small>P</small></p>"
-      : '<p class="hcard__points hcard__points--none">포인트 미조회</p>';
+      : '<p class="hcard__points hcard__points--none">포인트 정보 없음</p>';
     var cashLine = h.cashAmount != null
       ? '<p class="hcard__cash">최저 현금가 ' + esc(cashText(h.cashAmount, h.cashCurrency)) +
         (h.cashKrw && h.cashCurrency !== "KRW" ? " ≈ " + won(h.cashKrw) : "") + "</p>"
-      : '<p class="hcard__cash">현금가 미관측</p>';
+      : '<p class="hcard__cash">현금가 미표시</p>';
     var vppLine = h.valuePerPoint != null
       ? '<p class="hcard__vpp">≈ ' + h.valuePerPoint.toFixed(2) + "원/P</p>"
       : "";
@@ -234,7 +234,8 @@
       officialText = "공식 날짜 조회 ↗";
     }
     if (ctx === "weekend") {
-      officialHref = HotelApi.officialUrl(h.code, state.weekend.date, addDays(state.weekend.date, 1), state.weekend.adults);
+      officialHref = HotelApi.officialUrl(h.code, state.weekend.date,
+        state.weekend.checkOut || addDays(state.weekend.date, 1), state.weekend.adults);
       officialText = "공식 날짜 조회 ↗";
     }
     if (ctx === "dir" && state.dir.checkIn && state.dir.checkOut) {
@@ -253,8 +254,8 @@
     }
 
     var obs = h.observedAtLabel
-      ? "향후 30일 최저" + (state.obs.end ? "(" + shortDate(state.obs.end) + "까지)" : "") + " · " + h.observedAtLabel + " 관측"
-      : "이 호텔은 아직 포인트를 조회하지 않았습니다";
+      ? "향후 30일 최저" + (state.obs.end ? "(" + shortDate(state.obs.end) + "까지)" : "")
+      : "포인트 정보가 아직 없어요";
 
     var noteBits = [obs];
     if (h.note) noteBits.push(h.note);
@@ -327,12 +328,8 @@
         (minP != null ? '<span class="sum-chip">최저 <b>' + num(minP) + "P</b></span>" : "") +
       "</div>" +
       '<div class="notice notice--amber"><span class="notice__icon" aria-hidden="true">!</span><div>' +
-        "<strong>카드 값이 선택하신 날짜의 실시간 요금이 아닐 수 있습니다.</strong> D1에 해당 날짜의 실측 기록이 있으면 " +
-        "그 날짜의 실측값을, 없으면 2026-11-27 비로그인 디렉터리에서 관측한 <b>'향후 30일 최저' 스냅샷</b>을 보여줍니다. " +
-        "스냅샷은 다른 날짜 기준이므로 <b>선택하신 날짜에는 스탠다드룸이 매진돼 Premium만 남아 있을 수 있습니다.</b> " +
-        "또 <b>'현금가 미관측'은 방이 없는(매진) 상태가 아니라</b> 디렉터리에 최저 현금가가 노출되지 않은 경우이며, " +
-        "매진 호텔은 '매진'으로 따로 표기합니다. 정확한 객실·금액은 카드의 <b>공식 날짜 조회</b>로 확인한 뒤 " +
-        "<b>가치 계산</b>에 입력해 비교하세요.</div></div>" +
+        "스탠다드룸 매진 시 프리미엄·매진으로 표시되며, 현금가 미표시는 별도 조회가 필요한 상태예요." +
+      "</div></div>" +
       '<div class="cards' + (list.length === 1 ? " cards--single" : "") + '" id="points-cards">' +
         (list.length ? list.map(function (h) { return card(h, "points"); }).join("")
           : '<div class="empty"><b>이 도시에는 등록된 하이엔드 호텔이 없습니다.</b>다른 도시를 선택해 주세요.</div>') +
@@ -360,16 +357,14 @@
     var f = state.weekend;
     f.region = $("#w-region").value;
     f.city = $("#w-city").value;
-    f.date = $("#w-date").value;
     f.adults = $("#w-adults").value;
 
     if (!f.city) return showError(err, "도시를 선택해 주세요.");
-    if (!f.date) return showError(err, "숙박 날짜를 선택해 주세요.");
+    if (!f.date) return showError(err, "달력에서 금·토·일 날짜를 선택해 주세요.");
     if (!isWeekend(f.date)) {
-      var nw = nextWeekend(f.date);
-      return showError(err, "주말숙박권은 " + WEEKEND_LABEL + " 숙박에만 사용할 수 있습니다. 선택한 날짜는 " +
-        WEEKDAY_KO[weekday(f.date)] + "요일입니다. 가장 가까운 주말은 " + dateLabel(nw) + "입니다.");
+      return showError(err, "주말숙박권은 " + WEEKEND_LABEL + " 숙박에만 사용할 수 있습니다.");
     }
+    if (!f.checkOut || f.checkOut <= f.date) f.checkOut = addDays(f.date, 1);
 
     var all = hotelsInCity(f.city);
     var usable = all.filter(function (h) { return h.standardAvailable && !h.excluded; });
@@ -388,8 +383,8 @@
     $("#weekend-result").innerHTML = '' +
       '<div class="result__head">' +
         '<h2 class="result__title">' + esc(cityName(f.city)) + " 주말숙박권</h2>" +
-        '<p class="result__meta">' + esc(dateLabel(f.date)) + " 체크인 · " + esc(dateLabel(addDays(f.date, 1))) +
-          " 체크아웃 · 성인 " + esc(f.adults) + "명</p>" +
+        '<p class="result__meta">' + esc(dateLabel(f.date)) + " 체크인 · " + esc(dateLabel(f.checkOut)) +
+          " 체크아웃 · " + nightCount(f.date, f.checkOut) + "박 · 성인 " + esc(f.adults) + "명</p>" +
       "</div>" +
       '<div class="result__summary">' +
         '<span class="sum-chip">사용 가능 <b>' + usable.length + "</b>곳</span>" +
@@ -405,14 +400,14 @@
       (excluded.length
         ? '<p class="hint">올인클루시브 등 숙박권 제외 유형 ' + excluded.length + "곳은 목록에서 제외했습니다.</p>"
         : "") +
-      '<p class="hint">절약액은 관측된 최저 현금가 기준입니다. 리조트피·도시세 등 숙박권에 포함되지 않는 비용은 별도입니다.</p>';
+      '<p class="hint">절약액은 30일 최저 현금가 기준이에요. 리조트피·도시세는 별도입니다.</p>';
 
     hydrateCalcs($("#weekend-result"));
     if (e) $("#weekend-result").scrollIntoView({ behavior: "smooth", block: "start" });
 
     if (HotelApi.config.mode === "live") {
       HotelApi.queryRates({
-        city: f.city, checkIn: f.date, checkOut: addDays(f.date, 1),
+        city: f.city, checkIn: f.date, checkOut: f.checkOut || addDays(f.date, 1),
         adults: f.adults, rooms: 1, weekendOnly: 1
       }).then(function (res) {
         if (!res.ok || !res.records.length) return;
@@ -733,9 +728,106 @@
     });
 
     var wd = nextWeekend(today);
-    $("#w-date").value = wd;
-    $("#w-date").min = today;
-    $("#w-day").textContent = WEEKDAY_KO[weekday(wd)] + "요일";
+    if (weekday(wd) === 0) wd = addDays(wd, 5);   // 일요일이면 다음 금요일로
+    if (wd < today) wd = nextWeekend(today);
+    setWeekendDate(wd);
+    syncWeekendInputs();
+    renderWeekendCalendar();
+  }
+
+  /* --------------------------------------------------- weekend calendar */
+  /* 금·토·일만 고를 수 있는 달력. 체크아웃은 금→일(2박)·금→토·토→일·일→월만 허용. */
+  function maxCheckout(iso) {
+    var w = weekday(iso);
+    if (w === 5) return addDays(iso, 2);   // 금 → 일요일 체크아웃(2박)
+    return addDays(iso, 1);                // 토 → 일, 일 → 월
+  }
+
+  function setWeekendDate(iso) {
+    if (!iso || !isWeekend(iso)) return;
+    state.weekend.date = iso;
+    state.weekend.checkOut = addDays(iso, 1);
+  }
+
+  function syncWeekendInputs() {
+    var d = $("#w-date");
+    var c = $("#w-checkout");
+    if (d) d.value = state.weekend.date || "";
+    if (c) c.value = state.weekend.checkOut || "";
+  }
+
+  function updateWeekendPicked() {
+    var el = $("#w-picked");
+    if (!el) return;
+    var f = state.weekend;
+    if (!f.date) { el.textContent = "날짜를 선택하세요"; return; }
+    el.textContent = dateLabel(f.date) + " → " + dateLabel(f.checkOut) + " · " + nightCount(f.date, f.checkOut) + "박";
+  }
+
+  function renderWeekendCalendar() {
+    var box = $("#w-cal-months");
+    if (!box) return;
+    var today = kstToday();
+    var p = parts(today);
+    var html = "";
+    for (var i = 0; i < 3; i++) {
+      var m = p.m + i, y = p.y;
+      while (m > 12) { m -= 12; y += 1; }
+      html += weekendMonth(y, m, today);
+    }
+    box.innerHTML = html;
+    updateWeekendPicked();
+  }
+
+  function weekendMonth(y, m, today) {
+    var first = isoOf(Date.UTC(y, m - 1, 1));
+    var pad = weekday(first);                       // 0=일 … 6=토
+    var days = new Date(Date.UTC(y, m, 0)).getUTCDate();
+    var f = state.weekend;
+    var cells = "";
+    for (var i = 0; i < pad; i++) cells += '<span class="wcal__cell is-blank"></span>';
+    for (var d = 1; d <= days; d++) {
+      var iso = isoOf(Date.UTC(y, m - 1, d));
+      var w = weekday(iso);
+      var ok = (w === 5 || w === 6 || w === 0) && iso >= today;
+      var cls = "wcal__cell" + (ok ? " is-weekend" : "") +
+        (iso === f.date ? " is-on" : "") +
+        (iso === f.checkOut ? " is-out" : "") +
+        (f.date && iso > f.date && iso < (f.checkOut || "") ? " is-range" : "");
+      cells += ok
+        ? '<button type="button" class="' + cls + '" data-wday="' + iso + '" aria-label="' +
+            m + "월 " + d + "일(" + WEEKDAY_KO[w] + ')">' + d + "</button>"
+        : '<span class="' + cls + '">' + d + "</span>";
+    }
+    return '<div class="wcal__month">' +
+      '<div class="wcal__mname">' + y + "년 " + m + "월</div>" +
+      '<div class="wcal__grid">' +
+        ["일", "월", "화", "수", "목", "금", "토"].map(function (n) {
+          return '<span class="wcal__dow">' + n + "</span>";
+        }).join("") +
+        cells +
+      "</div></div>";
+  }
+
+  function bindWeekendCalendar() {
+    var box = $("#w-cal-months");
+    if (!box) return;
+    box.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-wday]");
+      if (!btn) return;
+      var iso = btn.getAttribute("data-wday");
+      var f = state.weekend;
+      // 이미 체크인을 고른 뒤 그 범위 안의 날짜를 누르면 체크아웃 변경
+      if (f.date && iso > f.date && iso <= maxCheckout(f.date)) {
+        f.checkOut = iso;
+      } else {
+        setWeekendDate(iso);
+      }
+      syncWeekendInputs();
+      renderWeekendCalendar();
+      var err = $("#weekend-error");
+      if (err) err.hidden = true;
+    });
   }
 
   function bindForms() {
@@ -751,28 +843,15 @@
       $("#w-city").value = $("#w-city").options.length > 1 ? $("#w-city").options[1].value : "";
     });
     $("#w-city").addEventListener("change", function () {
-      // 도시를 바꾸면 그 도시의 '다음 주말'로 날짜를 다시 맞춘다.
-      var wd = nextWeekend(kstToday());
-      $("#w-date").value = wd;
-      $("#w-day").textContent = WEEKDAY_KO[weekday(wd)] + "요일";
-    });
-    $("#w-date").addEventListener("change", function () {
-      if (!this.value) return;
-      $("#w-day").textContent = WEEKDAY_KO[weekday(this.value)] + "요일" +
-        (isWeekend(this.value) ? "" : " (주말 아님)");
-    });
-
-    $$("[data-weekend-jump]").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var day = Number(btn.getAttribute("data-weekend-jump")); // 5 금, 6 토, 0 일
-        var d = kstToday();
-        for (var i = 0; i < 14; i++) {
-          if (weekday(d) === day) break;
-          d = addDays(d, 1);
-        }
-        $("#w-date").value = d;
-        $("#w-day").textContent = WEEKDAY_KO[weekday(d)] + "요일";
-      });
+      // 도시를 바꾸면 가장 가까운 금요일로 다시 맞춘다
+      var d = kstToday();
+      for (var i = 0; i < 8; i++) {
+        if (weekday(d) === 5) break;
+        d = addDays(d, 1);
+      }
+      setWeekendDate(d);
+      syncWeekendInputs();
+      renderWeekendCalendar();
     });
   }
 
@@ -782,7 +861,7 @@
     if (!el) return;
     el.innerHTML = '' +
       '<li><b>' + num(state.meta.masterCount || 119) + "</b>곳 하이엔드</li>" +
-      '<li><b>' + num((c.standard || 0) + (c.premium || 0) + (c.other || 0)) + "</b>곳 포인트 관측</li>" +
+      '<li><b>' + num((c.standard || 0) + (c.premium || 0) + (c.other || 0)) + "</b>곳 포인트 확인</li>" +
       '<li><b>' + num(c.standard || 0) + "</b>곳 숙박권 가능</li>" +
       '<li><b>' + esc(state.meta.observedAt || "") + "</b> 기준</li>";
   }
@@ -802,6 +881,7 @@
     bindTabs();
     bindForms();
     bindDirectory();
+    bindWeekendCalendar();
     bindCalcToggles();
 
     var hash = (location.hash || "").replace("#", "");
@@ -827,7 +907,7 @@
       if (!$("#p-city").value && $("#p-city").options.length > 1) $("#p-city").selectedIndex = 1;
       if (!$("#w-city").value && $("#w-city").options.length > 1) $("#w-city").selectedIndex = 1;
       renderDirectory();
-      $("#data-status").textContent = "데이터 준비 완료 · " + state.meta.observedAt + " 관측";
+      $("#data-status").textContent = (state.meta.observedAt ? String(state.meta.observedAt).slice(0, 10) : "") + " 기준";
 
       if (state.tab === "points") runPointsQuery();
       if (state.tab === "weekend") runWeekendQuery();
