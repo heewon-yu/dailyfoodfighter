@@ -708,6 +708,9 @@ body {
 .living-card:hover { transform: translateY(-2px); border-color: #b8c5d6; box-shadow: var(--guide-shadow); color: var(--guide-ink); }
 .living-card:focus-visible { outline: 3px solid rgba(39, 39, 42, .42); outline-offset: 3px; }
 .living-card__icon { display: grid; width: 60px; height: 60px; place-items: center; margin-bottom: 16px; border: 1px solid #ececef; border-radius: 16px; background: linear-gradient(180deg, #fafafa 0%, #f1f1f3 100%); font-size: 2.1rem; line-height: 1; }
+.living-card--card { border-color: #f0d9ae; }
+.living-card--card:hover { border-color: #d97706; }
+.living-card__icon--gold { border-color: #f0d9ae; background: linear-gradient(180deg, #fffaf2 0%, #ffeccf 100%); }
 .living-card__title { padding-right: 28px; color: var(--guide-navy); font-size: 1.34rem; font-weight: 800; line-height: 1.4; letter-spacing: -.03em; }
 .living-card__description { margin-top: 9px; color: #3f3f46; font-size: 1.02rem; line-height: 1.65; }
 .living-card__arrow { position: absolute; top: 24px; right: 22px; color: #71717a; font-size: 1.15rem; font-weight: 700; }
