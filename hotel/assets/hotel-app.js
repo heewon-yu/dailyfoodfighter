@@ -770,7 +770,7 @@
     var today = kstToday();
     var p = parts(today);
     var html = "";
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < 5; i++) {          // 이번 달 포함 5개월 → 내년 2월 주말까지
       var m = p.m + i, y = p.y;
       while (m > 12) { m -= 12; y += 1; }
       html += weekendMonth(y, m, today);
@@ -863,7 +863,7 @@
       '<li><b>' + num(state.meta.masterCount || 119) + "</b>곳 하이엔드</li>" +
       '<li><b>' + num((c.standard || 0) + (c.premium || 0) + (c.other || 0)) + "</b>곳 포인트 확인</li>" +
       '<li><b>' + num(c.standard || 0) + "</b>곳 숙박권 가능</li>" +
-      '<li><b>' + esc(state.meta.observedAt || "") + "</b> 기준</li>";
+      '<li><b>' + esc(String(state.meta.observedAt || "").slice(0, 10)) + "</b> 기준</li>";
   }
 
   /* 관측 창(30일) 표기 — '향후 30일'이 어느 날짜까지인지 화면에 명시한다. */
