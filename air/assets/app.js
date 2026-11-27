@@ -711,22 +711,24 @@
     const skip = el("a", { class: "skip-link", href: "#air-main", text: "본문으로 바로 가기" });
     document.body.prepend(skip);
 
+    /* /hotel/과 동일한 상단: 왼쪽 배지+이름/부제, 오른쪽 탭(하위 메뉴) 한 줄 */
     const header = el("header", { class: "air-header" }, [
       el("div", { class: "air-header__inner" }, [
         el("a", { class: "air-logo", href: ROOT, "aria-label": "마일지도 홈" }, [
-          el("b", { "aria-hidden": "true", text: "✈" }),
-          el("span", { text: "마일지도" })
+          el("span", { class: "air-logo__badge", "aria-hidden": "true", text: "✈" }),
+          el("span", null, [
+            el("b", { text: "마일지도" }),
+            el("small", { text: "대한항공 SKYPASS 국제선" })
+          ])
         ]),
-        el("span", { class: "air-header__scope", text: "대한항공 SKYPASS 국제선 전용" }),
-        el("p", { class: "air-header__updated", id: "air-updated" }, "갱신 정보 확인 중")
-      ]),
-      el("nav", { class: "air-nav", "aria-label": "주요 메뉴" },
-        NAV.map(item => el("a", {
-          href: viewLink(item.href),
-          "aria-current": item.key === key ? "page" : null,
-          text: item.label
-        }))
-      )
+        el("nav", { class: "air-nav", "aria-label": "주요 메뉴" },
+          NAV.map(item => el("a", {
+            href: viewLink(item.href),
+            "aria-current": item.key === key ? "page" : null,
+            text: item.label
+          }))
+        )
+      ])
     ]);
 
     const main = document.getElementById("air-main");

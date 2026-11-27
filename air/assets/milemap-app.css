@@ -91,18 +91,18 @@ img { max-width: 100%; }
 .air-header {
   position: sticky; top: 0; z-index: 40;
   background: rgba(255, 255, 255, .96);
-  backdrop-filter: saturate(180%) blur(8px);
+  backdrop-filter: saturate(180%) blur(10px);
   border-bottom: 1px solid var(--line);
 }
 
+/* /hotel/과 같은 상단 구성: 배지 + 이름/부제 + 탭(네비)을 한 줄에 */
 .air-header__inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 12px 20px 10px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .air-logo {
@@ -110,43 +110,69 @@ img { max-width: 100%; }
   align-items: center;
   gap: 10px;
   text-decoration: none;
-  color: var(--navy);
-  font-weight: 900;
-  font-size: 1.35rem;
-  letter-spacing: -.06em;
-  line-height: 1.13;
+  color: var(--ink);
+  flex: none;
 }
-.air-logo:hover { color: var(--navy); }
-/* 한입지도(.brand)와 같은 배지형 심볼: 둥근 사각 배지 + 타이틀 */
+.air-logo:hover { color: var(--ink); }
+
+.air-logo__badge {
+  width: 38px; height: 38px;
+  display: grid; place-items: center;
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--navy-600), var(--navy));
+  color: #fff;
+  font-weight: 900;
+  font-size: 1.05rem;
+  letter-spacing: -.04em;
+  box-shadow: 0 6px 14px -8px rgba(15, 35, 64, .9);
+}
+
 .air-logo b {
+  display: block;
+  font-size: 1.16rem;
+  font-weight: 900;
+  letter-spacing: -.06em;
+  line-height: 1.2;
+  color: var(--navy);
+}
+
+.air-logo small {
+  display: block;
+  color: var(--ink-3);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.air-nav {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 3px;
+}
+.air-nav::-webkit-scrollbar { display: none; }
+
+.air-nav a {
+  flex: none;
+  padding: 9px 14px;
+  border-radius: 999px;
+  font-size: .93rem;
+  font-weight: 800;
+  letter-spacing: -.02em;
+  color: var(--ink-2);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background .15s, color .15s;
+}
+.air-nav a:hover { background: var(--blue-50); color: var(--navy); }
+.air-nav a[aria-current="page"] {
   background: var(--navy);
   color: #fff;
-  border-radius: 12px;
-  padding: 4px 10px;
-  font-size: 1.05rem;
-  font-weight: 900;
-  line-height: 1.2;
-  letter-spacing: 0;
+  box-shadow: 0 8px 18px -12px rgba(15, 35, 64, .9);
 }
-
-.air-header__scope {
-  font-size: 12.5px;
-  color: var(--ink-3);
-  font-weight: 600;
-  padding-left: 14px;
-  border-left: 1px solid var(--line);
-}
-
-.air-header__updated {
-  margin-left: auto;
-  font-size: 12.5px;
-  color: var(--ink-2);
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  white-space: nowrap;
-}
-.air-header__updated strong { font-weight: 700; color: var(--navy); }
 
 .air-dot {
   width: 8px; height: 8px; border-radius: 50%;
@@ -156,39 +182,24 @@ img { max-width: 100%; }
 .air-dot--stale { background: #f59e0b; box-shadow: 0 0 0 3px rgba(245, 158, 11, .18); }
 .air-dot--error { background: #dc2626; box-shadow: 0 0 0 3px rgba(220, 38, 38, .15); }
 
-.air-nav {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 12px 8px;
+/* 검색 영역 아래 안내에 붙는 데이터 확인 일자 */
+.air-data-note {
   display: flex;
-  gap: 2px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-.air-nav::-webkit-scrollbar { display: none; }
-
-.air-nav a {
-  flex: 0 0 auto;
-  padding: 7px 12px;
-  border-radius: 999px;
-  font-size: 13.5px;
-  font-weight: 700;
+  align-items: center;
+  gap: 7px;
+  margin: 12px 2px 0;
+  font-size: 12.5px;
   color: var(--ink-2);
-  text-decoration: none;
-  white-space: nowrap;
+  line-height: 1.5;
 }
-.air-nav a:hover { background: var(--line-2); color: var(--navy); }
-.air-nav a[aria-current="page"] {
-  background: var(--navy);
-  color: #fff;
-}
+.air-data-note strong { font-weight: 700; color: var(--navy); }
 
 /* -------------------------------------------------------------------- main */
 
 .air-main {
   max-width: var(--max);
   margin: 0 auto;
-  padding: 22px 20px 64px;
+  padding: 26px 20px 60px;
 }
 
 .air-hero {
@@ -1395,13 +1406,13 @@ img { max-width: 100%; }
 
 @media (max-width: 720px) {
   body { font-size: 15px; }
-  .air-main { padding: 16px 14px 52px; }
-  .air-header__inner { padding: 10px 14px 8px; gap: 8px; }
-  .air-header__scope { display: none; }
-  .air-header__updated { margin-left: 0; width: 100%; font-size: 12px; padding-top: 2px; }
-  .air-logo { font-size: 19px; }
-  .air-nav { flex-wrap: wrap; overflow-x: visible; padding: 0 10px 8px; gap: 4px; }
-  .air-nav a { padding: 6px 10px; font-size: 12.5px; }
+  .air-main { padding: 16px 14px 44px; }
+  .air-header__inner { flex-wrap: wrap; padding: 9px 14px 7px; gap: 8px; }
+  .air-logo b { font-size: 1.06rem; }
+  .air-logo small { font-size: .66rem; }
+  .air-logo__badge { width: 34px; height: 34px; border-radius: 11px; font-size: .95rem; }
+  .air-nav { width: 100%; margin-left: 0; padding: 0 0 3px; gap: 2px; }
+  .air-nav a { padding: 8px 10px; font-size: .84rem; }
   .air-table { min-width: 0; font-size: 12.5px; }
   .air-table th, .air-table td { padding: 8px; }
   .air-table th { font-size: 11.5px; white-space: normal; }
@@ -1583,7 +1594,7 @@ img { max-width: 100%; }
 /* ------------------------------------------------------- home back link (all /air/ pages) */
 .dff-home-back {
   display: inline-flex; align-items: center; gap: 7px;
-  margin: 0 0 12px; padding: 6px 13px;
+  margin: 0 0 14px; padding: 6px 13px;
   border: 1px solid var(--blue-100); border-radius: 999px;
   background: var(--blue-50); color: var(--blue-700);
   font-size: 12.5px; font-weight: 800; line-height: 1.3;
@@ -1593,5 +1604,5 @@ img { max-width: 100%; }
 .dff-home-back:hover { background: var(--blue-100); border-color: #b9cffb; color: var(--navy); }
 .dff-home-back:focus-visible { outline: 3px solid rgba(37, 99, 235, .45); outline-offset: 2px; }
 @media (max-width: 480px) {
-  .dff-home-back { font-size: 12px; padding: 5px 11px; margin-bottom: 10px; }
+  .dff-home-back { font-size: 12px; padding: 5px 11px; margin-bottom: 11px; }
 }

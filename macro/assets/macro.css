@@ -36,6 +36,12 @@ body.macro-page{
 }
 .wrap{max-width:1180px;margin:0 auto;padding:18px 20px 64px}
 
+/* 홈 뒤로가기 — /hotel/과 같은 자리(본문 첫 요소)·같은 모양, 틸 팔레트 */
+.dff-home-back{display:inline-flex;align-items:center;gap:7px;margin:0 0 14px;padding:6px 13px;border:1px solid #cfe3df;border-radius:999px;background:#eef7f5;color:var(--brand-700);font-size:12.5px;font-weight:800;line-height:1.3;letter-spacing:-.01em;text-decoration:none;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.dff-home-back:hover{background:#dcefe9;border-color:#9ccfc8;color:var(--brand-900)}
+.dff-home-back:focus-visible{outline:3px solid rgba(15,118,110,.45);outline-offset:2px}
+@media(max-width:480px){.dff-home-back{font-size:12px;padding:5px 11px;margin-bottom:11px}}
+
 /* topbar */
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:6px 0 14px}
 .topbar__brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--brand-900);font-weight:800;font-size:16px;letter-spacing:-.01em}
