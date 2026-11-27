@@ -53,7 +53,7 @@ PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><title>fake director
     <option value="KRW">KRW - South Korean Won</option>
   </select>
 </label>
-<p>Prices include all taxes and fees in US Dollar.</p>
+<p id="taxNotice">Prices include all taxes and fees in US Dollar.</p>
 <ul>{cards}</ul>
 {next}
 <script>
@@ -68,9 +68,10 @@ PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><title>fake director
     document.querySelectorAll('.cash').forEach(function (el) {
       if (cur.value === 'KRW') el.innerHTML = 'From*<br>₩638,000';
     });
-    document.body.innerHTML = document.body.innerHTML
-      .replace(/Prices include all taxes and fees in [^.]+\./,
-               'Prices include all taxes and fees in ' + (cur.value === 'KRW' ? 'South Korean Won.' : 'US Dollar.'));
+    // body.innerHTML 전체 교체는 Use Points 이벤트 리스너까지 제거한다.
+    // 실제 사이트처럼 통화 안내 문구만 갱신한다.
+    document.getElementById('taxNotice').textContent =
+      'Prices include all taxes and fees in ' + (cur.value === 'KRW' ? 'South Korean Won.' : 'US Dollar.');
   });
 </script>
 </body></html>"""
@@ -90,7 +91,8 @@ def page_html(n: int) -> str:
                     city="Bangkok, Thailand", cash="฿9,900", points="85,000", label="Standard Room Reward"),
     ])
     nxt = '<a rel="next" href="?page=2">Next</a>' if n == 1 else ""
-    return PAGE.format(cards=cards, next=nxt)
+    # PAGE 안의 JavaScript 중괄호는 str.format 자리표시자가 아니다.
+    return PAGE.replace("{cards}", cards).replace("{next}", nxt)
 
 
 class Handler(BaseHTTPRequestHandler):
