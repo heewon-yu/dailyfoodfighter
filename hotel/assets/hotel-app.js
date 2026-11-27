@@ -479,6 +479,17 @@
         if (b.points == null) return -1;
         return d.sort === "points-asc" ? a.points - b.points : b.points - a.points;
       }
+      if (d.sort === "value-desc") {
+        var av = a.valuePerPoint, bv = b.valuePerPoint;
+        if (av == null && bv == null) return a.name.localeCompare(b.name);
+        if (av == null) return 1;      // 미계산·Premium 전용·매진은 뒤로
+        if (bv == null) return -1;
+        if (bv !== av) return bv - av;
+        if (a.points == null && b.points == null) return 0;
+        if (a.points == null) return 1;
+        if (b.points == null) return -1;
+        return a.points - b.points;
+      }
       if (d.sort === "name") return a.name.localeCompare(b.name);
       if (d.sort === "region") {
         var ri = (state.meta.regions || []).indexOf(a.region) - (state.meta.regions || []).indexOf(b.region);
