@@ -26,3 +26,7 @@
 /en/category/vegetables  /en/category/ingredients/   301
 /en/category/meat        /en/category/ingredients/   301
 /en/category/seafood     /en/category/ingredients/   301
+
+# 검증용 임시 프리뷰 정리(2026-11-27)
+/card/preview-mobile        /card/   301
+/card/preview-mobile.html   /card/   301
