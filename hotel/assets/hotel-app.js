@@ -1,7 +1,7 @@
 /* ==========================================================================
    힐튼포숙지도 (/hotel/) — 화면 로직
    탭1 포인트 숙박 조회 · 탭2 주말숙박권 조회 · 탭3 호텔 디렉터리 · 탭4 가이드
-   데이터: /hotel/data/hotels.json (2026-11-27 디렉터리 관측 스냅샷)
+   데이터: /hotel/data/hotels.json (매일 디렉터리 관측 스냅샷)
    ========================================================================== */
 (function () {
   "use strict";
@@ -89,7 +89,7 @@
   }
 
   /* 관측일 기준 30일 창 — 디렉터리 카드가 보장하는 범위.
-     예) 2026-11-27 관측 → 2026-11-27~2026-12-27 */
+     예) 2026-11-28 관측 → 2026-11-28~2026-12-28 */
   function obsWindow(meta) {
     var start = String((meta && meta.observedAt) || "").slice(0, 10);
     if (!/^\d{4}-\d{2}-\d{2}$/.test(start)) return { start: "", end: "" };
@@ -918,6 +918,7 @@
     $$("[data-obs-range]").forEach(function (el) { el.textContent = range; });
     $$("[data-obs-end]").forEach(function (el) { el.textContent = shortDate(o.end); });
     $$("[data-obs-start]").forEach(function (el) { el.textContent = shortDate(o.start); });
+    $$("[data-observed-date]").forEach(function (el) { el.textContent = o.start; });
   }
 
   function init() {

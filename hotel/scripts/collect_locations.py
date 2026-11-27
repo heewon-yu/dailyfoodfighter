@@ -280,6 +280,18 @@ def accept_cookies(page, log):
 
 def set_currency_krw(page, log) -> bool:
     """Select currency → KRW. 실패해도 수집은 계속(현금 통화는 화면 표기에서 판별)."""
+    # 현재 Locations는 명시적인 native select를 제공한다. DOM 탐색보다 이 경로를
+    # 먼저 써야 React 재렌더링 중 다른 select(Sort by)를 잘못 잡지 않는다.
+    try:
+        currency = page.locator("#selectCurrencyConverter")
+        if currency.count():
+            currency.select_option(value="KRW", timeout=5000)
+            page.wait_for_timeout(1800)
+            log.append("currency: select KRW - South Korean Won")
+            return True
+    except Exception:
+        pass
+
     try:
         info = page.evaluate(CURRENCY_JS)
     except Exception:
@@ -289,7 +301,7 @@ def set_currency_krw(page, log) -> bool:
         for opt in options:
             if re.search(r"\bKRW\b|South Korean Won", opt.get("label", ""), re.I):
                 try:
-                    page.select_option("select", label=opt["label"])
+                    page.locator("#selectCurrencyConverter").select_option(value=opt.get("value") or "KRW")
                     page.wait_for_timeout(1500)
                     log.append(f"currency: select {opt['label']}")
                     return True
@@ -367,57 +379,108 @@ def read_page(page):
     return data.get("cards") or [], data.get("currencyLabel")
 
 
-def next_page(page) -> bool:
-    """페이지네이션 '다음' 클릭. 같은 내용이면 False."""
-    candidates = (
-        'a[rel="next"]',
-        'button[aria-label*="Next" i]',
-        'a[aria-label*="Next" i]',
+def wait_for_real_cards(page, timeout=30000):
+    """React 로딩용 hotel-card-skeleton이 실제 호텔 카드로 바뀔 때까지 대기."""
+    page.wait_for_function(
+        "sel => { const cards = [...document.querySelectorAll(sel)]; "
+        "return cards.length > 0 && cards.every((el) => "
+        "!((el.getAttribute('data-testid') || '').includes('skeleton'))); }",
+        arg=CARD_SEL, timeout=timeout,
     )
-    for sel in candidates:
-        try:
-            el = page.locator(sel).first
-            if el.is_visible(timeout=1200) and el.is_enabled():
-                el.click(timeout=3000)
-                page.wait_for_timeout(2500)
-                return True
-        except Exception:
-            continue
+
+
+def next_page(page) -> bool:
+    """페이지네이션 '다음' 클릭 후 첫 호텔 카드가 바뀌었는지 확인."""
     try:
-        el = page.get_by_role("link", name=re.compile(r"^Next\b", re.I)).first
-        if el.is_visible(timeout=1200):
-            el.click(timeout=3000)
+        before = page.locator(CARD_SEL).first.get_attribute("data-testid")
+    except Exception:
+        before = None
+
+    def click_and_verify(el) -> bool:
+        try:
+            if not el.is_visible(timeout=1500) or not el.is_enabled():
+                return False
+            label = (el.inner_text(timeout=1000) or "").strip()
+            print(json.dumps({"event": "pagination_click", "label": label, "before": before}, ensure_ascii=False), flush=True)
+            el.click(timeout=4000)
+        except Exception:
+            return False
+        if not before:
             page.wait_for_timeout(2500)
             return True
-    except Exception:
-        pass
+        # SPA 교체와 실제 URL 이동을 모두 처리한다. navigation 도중 JS context가
+        # 사라질 수 있으므로 wait_for_function 대신 새 locator를 반복 확인한다.
+        for _ in range(30):
+            try:
+                page.wait_for_timeout(500)
+                current = page.locator(CARD_SEL).first.get_attribute("data-testid", timeout=1000)
+                if current and current != before:
+                    print(json.dumps({"event": "pagination_changed", "before": before, "after": current}, ensure_ascii=False), flush=True)
+                    return True
+            except Exception:
+                continue
+        print(json.dumps({"event": "pagination_unchanged", "before": before}, ensure_ascii=False), flush=True)
+        return False
+
+    candidates = (
+        'a[rel="next"]',
+        'button[aria-label^="Next Page" i]',
+        'a[aria-label^="Next Page" i]',
+    )
+    # 현재 Hilton은 목록 하단을 여러 번 렌더링한 뒤 페이지 버튼을 붙이는 경우가 있다.
+    for attempt in range(1, 7):
+        try:
+            page.evaluate("() => window.scrollTo(0, document.body.scrollHeight)")
+            page.wait_for_timeout(1500)
+        except Exception:
+            pass
+        for sel in candidates:
+            if click_and_verify(page.locator(sel).first):
+                return True
+        for role, pattern in (("button", r"^Next Page\b"), ("link", r"^Next(?:\s+Page)?$")):
+            name_re = re.compile(pattern, re.I)
+            el = page.get_by_role(role, name=name_re).first
+            try:
+                count = page.get_by_role(role, name=name_re).count()
+            except Exception:
+                count = 0
+            print(json.dumps({"event": "pagination_probe", "attempt": attempt, "role": role, "count": count}, ensure_ascii=False), flush=True)
+            if click_and_verify(el):
+                return True
     return False
 
 
 def collect_brand(page, brand_dir: str, cfg: dict, max_pages: int, sleep_s: float, log, pages_out):
     brand = cfg["brand"]
     rows = []
-    for page_no in range(1, max_pages + 1):
+    page_limit = min(max_pages, cfg["pages"])
+    print(json.dumps({"event": "brand_start", "brand": brand_dir}, ensure_ascii=False), flush=True)
+    for page_no in range(1, page_limit + 1):
         url = f"{BASE}/{brand_dir}/" if page_no == 1 else None
         if url:
             resp = page.goto(url, wait_until="domcontentloaded", timeout=60000)
             check_halt(page, resp.status if resp else None, f"{brand_dir} p{page_no}")
             accept_cookies(page, log)
-            set_currency_krw(page, log)
             page.wait_for_timeout(int(sleep_s * 1000))
 
         try:
             page.wait_for_selector(CARD_SEL, timeout=30000)
+            wait_for_real_cards(page)
         except Exception:
             raise Halt("PAGE_EMPTY", f"{brand_dir} p{page_no} 카드 0장")
 
+        # 페이지 이동 시 Hilton이 통화를 호텔 기본값으로 되돌릴 수 있어 매 페이지 재설정한다.
+        set_currency_krw(page, log)
+        wait_for_real_cards(page)
+
         # 1) 현금 모드 판독(Use Points 꺼짐)
         uncheck_use_points(page, log)
+        wait_for_real_cards(page)
         cash_cards, currency_label = read_page(page)
 
         # 2) 포인트 모드 판독(Use Points 켬) — 같은 페이지에서 토글 2회, 재로드 없음
         if toggle_use_points(page, log):
-            page.wait_for_timeout(1200)
+            wait_for_real_cards(page)
             point_cards, currency_label2 = read_page(page)
             currency_label = currency_label2 or currency_label
         else:
@@ -445,11 +508,19 @@ def collect_brand(page, brand_dir: str, cfg: dict, max_pages: int, sleep_s: floa
             "kept": len(kept), "currency": currency_label,
         })
         log.append(f"{brand_dir} p{page_no}: 카드 {len(point_cards)} · 저장 {len(kept)}")
+        print(json.dumps({
+            "event": "page_complete", "brand": brand_dir, "page": page_no,
+            "expectedPages": cfg["pages"], "cards": len(point_cards), "kept": len(kept),
+            "totalKept": len(rows), "currency": currency_label,
+        }, ensure_ascii=False), flush=True)
 
-        if page_no >= cfg["pages"] and max_pages == cfg["pages"]:
+        if page_no >= page_limit:
             break
+        print(json.dumps({"event": "next_page", "brand": brand_dir, "from": page_no}, ensure_ascii=False), flush=True)
         if not next_page(page):
+            print(json.dumps({"event": "next_page_missing", "brand": brand_dir, "from": page_no}, ensure_ascii=False), flush=True)
             break
+    print(json.dumps({"event": "brand_complete", "brand": brand_dir, "pages": len([p for p in pages_out if p["brand"] == brand]), "kept": len(rows)}, ensure_ascii=False), flush=True)
     return rows
 
 
@@ -468,7 +539,6 @@ def run_collect(args) -> int:
         else:
             context = p.chromium.launch_persistent_context(
                 args.user_data_dir, channel=args.channel, headless=False,
-                args=["--disable-blink-features=AutomationControlled"],
                 viewport={"width": 1440, "height": 900},
             )
             page = context.pages[0] if context.pages else context.new_page()

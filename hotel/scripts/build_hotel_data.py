@@ -197,6 +197,7 @@ def main():
     city_list = sorted(cities.values(), key=lambda c: (-c["count"], c["cityKo"]))
 
     obs_meta = obs.get("meta") or {}
+    observed_date = str(obs_meta.get("observedAt") or DEFAULT_OBS)[:10]
     meta = {
         "title": "힐튼포숙지도",
         "generatedAt": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
@@ -230,7 +231,7 @@ def main():
             "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 영업 중 119곳 전수 관측",
             "generatedAt": meta["generatedAt"],
             "observedAt": meta["observedAt"],
-            "sampleNote": "영업 중 119곳 전수 관측 스냅샷(2026-11-27). 날짜별 실시간 값은 D1 조회로 채운다.",
+            "sampleNote": f"영업 중 119곳 전수 관측 스냅샷({observed_date}). 매일 새 정적 스냅샷으로 교체한다.",
             "method": "브랜드별 /en/locations/ 디렉터리에서 Use Points 체크 후 카드의 Points/night + Standard Room Reward / Premium Room Rewards 라벨, From* 현금가 판독",
             "valueMeaning": "향후 30일 현재 재고 기준 최저 포인트·최저 현금가(특정 날짜 값 아님)",
             "fx": meta["fx"],

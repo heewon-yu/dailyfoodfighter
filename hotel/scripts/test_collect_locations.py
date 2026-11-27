@@ -48,7 +48,7 @@ PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><title>fake director
 <h1>Hotels</h1>
 <label><input type="checkbox" id="usePoints"> Use Points</label>
 <label>Select currency
-  <select id="currency">
+  <select id="selectCurrencyConverter">
     <option value="USD">USD - US Dollar</option>
     <option value="KRW">KRW - South Korean Won</option>
   </select>
@@ -62,7 +62,7 @@ PAGE = r"""<!doctype html><html><head><meta charset="utf-8"><title>fake director
     document.querySelectorAll('.pts').forEach(function (el) { el.hidden = !box.checked; });
     document.querySelectorAll('.cash').forEach(function (el) { el.hidden = box.checked; });
   });
-  var cur = document.getElementById('currency');
+  var cur = document.getElementById('selectCurrencyConverter');
   cur.addEventListener('change', function () {
     // 실제 사이트처럼 통화 변경 시 금액 다시 그리기(KRW면 ₩ 표기)
     document.querySelectorAll('.cash').forEach(function (el) {
@@ -90,7 +90,7 @@ def page_html(n: int) -> str:
         CARD.format(code="BKKWAWA", slug="waldorf-astoria-bangkok", name="Waldorf Astoria Bangkok",
                     city="Bangkok, Thailand", cash="฿9,900", points="85,000", label="Standard Room Reward"),
     ])
-    nxt = '<a rel="next" href="?page=2">Next</a>' if n == 1 else ""
+    nxt = '<button type="button" onclick="location.href=\'?page=2\'">Next Page, 2 of 2</button>' if n == 1 else ""
     # PAGE 안의 JavaScript 중괄호는 str.format 자리표시자가 아니다.
     return PAGE.replace("{cards}", cards).replace("{next}", nxt)
 
