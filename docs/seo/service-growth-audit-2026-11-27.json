@@ -1,0 +1,395 @@
+{
+  "date": "2026-11-27T04:34:23.793Z",
+  "sitemapStatus": 200,
+  "total": 178,
+  "unique": 178,
+  "problems": [
+    {
+      "url": "https://dailyfoodfighter.com/benefits/privacy/",
+      "status": 200,
+      "title": "개인정보 처리방침 초안 | 혜택찾기",
+      "description": true,
+      "h1": 1,
+      "noindex": false
+    }
+  ],
+  "services": [
+    {
+      "url": "https://dailyfoodfighter.com/",
+      "status": 200,
+      "title": "생활지도 | 생활 계산기·맛집 지도·여행·복지 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/en/about/",
+      "status": 200,
+      "title": "About DailyFoodFighter & Editorial Standards | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/en/about/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/en/",
+      "status": 200,
+      "title": "Food Nutrition Facts, Calories & Cooking Guide | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/en/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/editorial-policy/",
+      "status": 200,
+      "title": "콘텐츠 작성 및 검증 원칙 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/editorial-policy/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/blog/",
+      "status": 200,
+      "title": "영양학 블로그 | 식재료 영양성분과 건강한 식생활 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/blog/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/about/",
+      "status": 200,
+      "title": "데일리푸드파이터 소개 및 콘텐츠 작성 기준 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/about/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/privacy/",
+      "status": 200,
+      "title": "개인정보처리방침 (Privacy Policy) | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/privacy/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/en/privacy/",
+      "status": 200,
+      "title": "Privacy Policy | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/en/privacy/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/en/contact/",
+      "status": 200,
+      "title": "Contact and Report an Error | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/en/contact/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/contact/",
+      "status": 200,
+      "title": "문의 및 오류 제보 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/contact/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/",
+      "status": 200,
+      "title": "마일지도 | 대한항공 SKYPASS 보너스 좌석 검색",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/calendar/",
+      "status": 200,
+      "title": "달력/지도 | 마일지도 대한항공 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/calendar/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/map/",
+      "status": 200,
+      "title": "한입지도 · 한밤지도 · 해외지도",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/map/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/first/",
+      "status": 200,
+      "title": "일등석 전용 | 마일지도 대한항공 일등석 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/first/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/nutrition-calculator/",
+      "status": 200,
+      "title": "식재료 칼로리·단백질 계산기 | 55종 중량별 비교 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/nutrition-calculator/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/en/nutrition-calculator/",
+      "status": 200,
+      "title": "Food Calories & Protein Calculator: 55 Foods by Weight | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/en/nutrition-calculator/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/route/",
+      "status": 200,
+      "title": "노선 상세 | 마일지도 대한항공 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/route/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/new/",
+      "status": 200,
+      "title": "신규 좌석 | 마일지도 대한항공 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/new/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/guide/",
+      "status": 200,
+      "title": "이용안내·FAQ | 마일지도 대한항공 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/guide/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/air/mileage/",
+      "status": 200,
+      "title": "공제표 | 마일지도 대한항공 보너스 좌석",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/air/mileage/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/",
+      "status": 200,
+      "title": "한번에 계산기 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/guides/",
+      "status": 200,
+      "title": "계산기별 사용법과 안내 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/guides/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/miles/",
+      "status": 200,
+      "title": "대한항공 마일리지 가치 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/miles/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/time/",
+      "status": 200,
+      "title": "시간 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/time/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/basic/",
+      "status": 200,
+      "title": "기본·공학용 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/basic/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/hotel/",
+      "status": 200,
+      "title": "호텔 포인트 가치 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/hotel/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/date/",
+      "status": 200,
+      "title": "날짜·디데이 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/date/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/estate/",
+      "status": 200,
+      "title": "부동산 세금·비용 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/estate/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/interest/",
+      "status": 200,
+      "title": "예금·적금·대출 이자 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/interest/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/salary/",
+      "status": 200,
+      "title": "급여·퇴직·실업급여 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/salary/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/health/",
+      "status": 200,
+      "title": "건강·체중 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/health/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/fx/",
+      "status": 200,
+      "title": "환율 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/fx/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/age/",
+      "status": 200,
+      "title": "나이 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/age/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/cal/unit/",
+      "status": 200,
+      "title": "단위 변환 계산기 사용법 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/cal/unit/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/games/scalping-king/",
+      "status": 200,
+      "title": "5분 단타왕 | 모의거래 게임",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/games/scalping-king/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/games/hormuz/",
+      "status": 200,
+      "title": "호르무즈 해협 탈출하기",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/games/hormuz/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/games/rhythm-classic/",
+      "status": 200,
+      "title": "비트 클래식 (Beat Classic) | 3D 아케이드 리듬게임",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/games/rhythm-classic/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/games/",
+      "status": 200,
+      "title": "웹게임 4종 | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/games/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/games/300-seconds/",
+      "status": 200,
+      "title": "300초 추리게임",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/games/300-seconds/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/hotel/",
+      "status": 200,
+      "title": "힐튼 포인트 숙박 비교 | StayPoint | DailyFoodFighter",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/hotel/",
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/benefits/privacy/",
+      "status": 200,
+      "title": "개인정보 처리방침 초안 | 혜택찾기",
+      "description": true,
+      "h1": 1,
+      "noindex": false
+    },
+    {
+      "url": "https://dailyfoodfighter.com/benefits/",
+      "status": 200,
+      "title": "혜택찾기 | 내 삶에 필요한 지원을 한눈에",
+      "description": true,
+      "canonical": "https://dailyfoodfighter.com/benefits/",
+      "h1": 1,
+      "noindex": false
+    }
+  ]
+}
