@@ -164,6 +164,9 @@ body.macro-page{
 .about__home{margin:10px 0 0!important;font-size:13px!important}
 .about__home a{color:var(--brand-700);font-weight:700;text-decoration:none}
 .about__home a:hover{text-decoration:underline}
+.about__trust a{color:var(--brand-700)!important;text-decoration:none;font-weight:600}
+.about__trust a:hover{text-decoration:underline}
+.about__trust span{color:var(--line)}
 code{background:#eef4f2;border:1px solid var(--line);border-radius:6px;padding:1px 5px;font-size:12px}
 
 /* 반응형 */
