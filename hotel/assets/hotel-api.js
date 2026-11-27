@@ -45,6 +45,11 @@
 
   function pad(n) { return (n < 10 ? "0" : "") + n; }
 
+  var BRAND_SLUG = { wa: "waldorf-astoria", co: "conrad-hotels", lx: "lxr-hotels" };
+  var BRAND_CODE = { wa: "WA", co: "CO", lx: "LX" };
+
+  /* 특정 호텔·특정 날짜의 힐튼 예약(객실·포인트) 화면 — 사용자가 클릭하는 링크.
+     디렉터리는 '향후 30일 최저'만 주므로, 12월~2027년 2월 값은 이 링크로 확인한다. */
   function officialUrl(hotelCode, checkIn, checkOut, adults) {
     var code = String(hotelCode || "").toUpperCase();
     var q = "ctyhocn=" + encodeURIComponent(code) +
@@ -53,6 +58,28 @@
       "&redeemPts=true" +
       "&room1NumAdults=" + encodeURIComponent(adults || 2);
     return "https://www.hilton.com/en/book/reservation/rooms/?" + q;
+  }
+
+  /* 같은 브랜드의 '도시 날짜별' 공식 검색 결과 — 브랜드 디렉터리에서 날짜를 고르고
+     Update를 누르면 실제로 이동하는 주소 형식(2026-11-27 실측).
+     예) /en/search/waldorf-astoria/?query=Seoul%2C%20South%20Korea&arrivalDate=2026-12-11&... */
+  function searchUrl(brand, city, country, checkIn, checkOut, adults) {
+    var slug = BRAND_SLUG[brand] || BRAND_SLUG.wa;
+    var qs = [
+      "query=" + encodeURIComponent([city, country].filter(Boolean).join(", ")),
+      "arrivalDate=" + encodeURIComponent(checkIn || ""),
+      "departureDate=" + encodeURIComponent(checkOut || ""),
+      "flexibleDates=false",
+      "numRooms=1",
+      "numAdults=" + encodeURIComponent(adults || 2),
+      "numChildren=0",
+      "room1ChildAges=",
+      "room1AdultAges=",
+      "specialRateTokens=",
+      "sortBy=DISTANCE",
+      "f-brandCodes=" + encodeURIComponent(BRAND_CODE[brand] || BRAND_CODE.wa)
+    ];
+    return "https://www.hilton.com/en/search/" + slug + "/?" + qs.join("&");
   }
 
   function isStale(observedAt, now) {
@@ -160,6 +187,8 @@
     queryRates: queryRates,
     normalizeRecord: normalizeRecord,
     officialUrl: officialUrl,
+    searchUrl: searchUrl,
+    BRAND_SLUG: BRAND_SLUG,
     isStale: isStale,
     pad: pad
   };

@@ -13,6 +13,14 @@ hilton.com 공개 디렉터리 `/en/locations/{brand}/` 8페이지를 **실제 C
   그래서 이 스크립트는 (1) 실제 Chrome + headed, (2) `/en/locations/`(robots 허용 경로)만,
   (3) 페이지당 1회 로드 · 2~3초 간격, (4) 403/429/캡차 감지 시 **즉시 중단** 만 한다.
 
+■ 날짜별(3개월) 수집은 하지 않는다 — 2026-11-27 실측
+  - `/en/locations/{brand}/?arrivalDate=…&departureDate=…` 는 **날짜를 무시한다**(카드가 계속 '향후 30일 최저',
+    각주도 "*Prices are based on current availability over the next 30 days" 그대로).
+  - 디렉터리의 날짜 선택은 목적지 입력이 필수이고, Update 를 누르면 `/en/search/{brand}/?query=…&arrivalDate=…` 로
+    넘어간다. 이 경로는 robots.txt `User-agent: *` 아래 **`/search/` Disallow**(`/book/`·`/find-hotels/`와 같은 등급)다.
+  - 따라서 12월·1월·2월 값은 수집하지 않고, 앱이 카드별 '공식 날짜 조회'(예약 화면)·'같은 도시 날짜 목록'
+    링크로 사용자가 직접 확인하게 둔다. `--checkin/--checkout` 은 이 이유로 **의도적으로 미지원**이다(지정 시 안내 후 종료).
+
 ■ 실행 (권장: 사람이 한 번 열어 둔 Chrome 에 붙는다)
 
     # 0) 실제 Chrome 을 CDP 로 띄운다 (macOS)
@@ -616,7 +624,20 @@ def main() -> int:
     ap.add_argument("--out", default=str(DATA / "observed_locations.json"))
     ap.add_argument("--merge-existing", default=None, help="기존 observed_sample.json — 새 관측에 없는 레코드 유지")
     ap.add_argument("--self-test", action="store_true", help="브라우저·네트워크 없이 카드 판독 규칙 검증")
+    ap.add_argument("--checkin", default=None, help="[미지원] 디렉터리는 날짜를 받지 않는다 — 지정하면 안내 후 종료")
+    ap.add_argument("--checkout", default=None, help="[미지원] 위와 같음")
     args = ap.parse_args()
+
+    if args.checkin or args.checkout:
+        print(
+            "--checkin/--checkout 은 지원하지 않는다. 2026-11-27 실측:\n"
+            "  · /en/locations/{brand}/ 는 arrivalDate·departureDate 쿼리를 무시하고 항상 '향후 30일 최저'를 준다.\n"
+            "  · 날짜를 고르면 목적지 입력 후 /en/search/{brand}/?query=…&arrivalDate=… 로 이동하며,\n"
+            "    /search/ 는 hilton.com robots.txt 에서 User-agent: * Disallow (/book/·/find-hotels/ 와 동급)다.\n"
+            "  → 12월·1월·2월 값은 수집하지 않는다. 앱의 '공식 날짜 조회'·'같은 도시 날짜 목록' 링크로 사람이 확인한다.",
+            file=sys.stderr,
+        )
+        return 2
 
     if args.self_test:
         return self_test()
