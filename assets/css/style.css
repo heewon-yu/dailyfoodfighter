@@ -689,6 +689,9 @@ body {
 .living-guide__section-heading h2 { color: var(--guide-navy); font-size: 1.35rem; }
 .living-guide__text-link { flex: 0 0 auto; color: var(--guide-navy-600); font-size: .9rem; font-weight: 700; text-decoration: none; }
 .living-guide__text-link:hover { color: var(--guide-blue); text-decoration: underline; text-underline-offset: 3px; }
+.living-guide__intent-links { display: flex; flex-wrap: wrap; gap: 9px; }
+.living-guide__intent-links a { padding: 8px 12px; border: 1px solid var(--guide-line); border-radius: 999px; background: #fff; color: var(--guide-navy-600); font-size: .86rem; font-weight: 700; line-height: 1.35; text-decoration: none; }
+.living-guide__intent-links a:hover { border-color: #a1a1aa; background: #fafafa; color: var(--guide-navy); }
 
 .living-guide__grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
 .living-card {

@@ -1669,14 +1669,17 @@ function setView(next) {
 }
 function changeView(next) {
   if (activeView === next) return;
-  history.pushState({mapView:next},'');
+  const url = new URL(location.href);
+  url.searchParams.set('view', next);
+  history.pushState({mapView:next},'',url.pathname + url.search + url.hash);
   setView(next);
 }
 $('food-view').onclick = () => changeView('food');
 $('stay-view').onclick = () => changeView('stay');
 $('abroad-view').onclick = () => changeView('abroad');
 const viewName = value => (value === 'stay' || value === 'abroad') ? value : 'food';
-window.addEventListener('popstate',event=>setView(viewName(event.state?.mapView)));
-setView(viewName(history.state?.mapView));
+const initialView = viewName(new URLSearchParams(location.search).get('view') || history.state?.mapView);
+window.addEventListener('popstate',event=>setView(viewName(new URLSearchParams(location.search).get('view') || event.state?.mapView)));
+setView(initialView);
 verifyVideoAvailability();
 </script><script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a5dfcc0a0a605012',t:'MTc5NTI2NTE4NA=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a5dfcc0a0a605012',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body></html>
