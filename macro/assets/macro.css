@@ -107,6 +107,7 @@ body.macro-page{
 }
 .mc:hover{border-color:#c9e2dc;box-shadow:0 2px 4px rgba(16,58,54,.06),0 12px 26px rgba(16,58,54,.08)}
 .mc--wide{grid-column:span 2}
+.mc--tip{background:linear-gradient(160deg,#f7fbfa,#eef7f4);border-style:dashed}
 .mc__top{display:flex;align-items:center;gap:9px;flex-wrap:nowrap}
 .mc__ico{
   display:grid;place-items:center;flex:0 0 38px;width:38px;height:38px;border-radius:12px;
@@ -124,9 +125,9 @@ body.macro-page{
 .mc__d.up{color:var(--up)}
 .mc__d.down{color:var(--down)}
 .mc__d.flat{color:var(--ink-3)}
-.mc__h{margin:2px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.55;flex:1}
+.mc__h{margin:2px 0 0;font-size:12.5px;color:var(--ink-2);line-height:1.55}
 .mc__s{
-  margin:4px 0 0;padding-top:8px;border-top:1px dashed var(--line-2);
+  margin:auto 0 0;padding-top:8px;border-top:1px dashed var(--line-2);
   font-size:11.5px;color:var(--ink-3);line-height:1.45;
 }
 
@@ -149,6 +150,11 @@ body.macro-page{
 .meter span{font-size:11px;color:var(--ink-3);font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .meter strong{font-size:14.5px;font-weight:800;color:var(--brand-900);font-variant-numeric:tabular-nums}
 
+.tips{margin:4px 0 0;padding-left:2px;list-style:none;display:grid;gap:6px}
+.tips li{position:relative;padding-left:16px;font-size:12.5px;color:var(--ink-2);line-height:1.55}
+.tips li::before{content:'';position:absolute;left:2px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--brand)}
+.tips b{color:var(--brand-900);font-weight:800}
+
 /* about */
 .about{margin-top:40px;padding:22px 22px 20px;border:1px solid var(--line);border-radius:18px;background:#fbfdfc}
 .about h2{margin:0 0 8px;font-size:16px;color:var(--brand-900)}
@@ -164,6 +170,7 @@ code{background:#eef4f2;border:1px solid var(--line);border-radius:6px;padding:1
 @media (max-width:1024px){
   .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
   .mc--wide{grid-column:span 2}
+.mc--tip{background:linear-gradient(160deg,#f7fbfa,#eef7f4);border-style:dashed}
   .summary{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media (max-width:760px){

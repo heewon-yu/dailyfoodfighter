@@ -22,7 +22,7 @@
 <meta name="twitter:title" content="경제지표지도 | 공포·탐욕지수·금리·물가·환율 한눈에">
 <meta name="twitter:description" content="공포·탐욕지수, VIX, 장단기 금리차, CPI·PPI 예상 대비 실제, 코스피·환율·김치프리미엄을 한 화면에서.">
 <meta name="twitter:image" content="https://dailyfoodfighter.com/macro/og-macro.jpg">
-<link rel="stylesheet" href="/macro/assets/macro.css?v=2">
+<link rel="stylesheet" href="/macro/assets/macro.css?v=3">
 </head>
 <body class="macro-page">
 
@@ -82,7 +82,7 @@
     <p class="group__desc">투자자들이 지금 얼마나 겁을 먹고, 얼마나 들떠 있는지 보는 지표입니다.</p>
     <div class="grid">
 
-      <article class="mc">
+      <article class="mc mc--wide">
         <header class="mc__top">
           <span class="mc__ico" aria-hidden="true">😱</span>
           <h3 class="mc__t">CNN 공포·탐욕지수</h3>
@@ -94,7 +94,7 @@
         <footer class="mc__s" id="s-fear_greed">CNN</footer>
       </article>
 
-      <article class="mc">
+      <article class="mc mc--wide">
         <header class="mc__top">
           <span class="mc__ico" aria-hidden="true">😰</span>
           <h3 class="mc__t">VIX 변동성 지수</h3>
@@ -238,7 +238,7 @@
     <div class="grid">
 
       <article class="mc">
-        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🇺🇸</span><h3 class="mc__t">S&amp;P 500</h3></header>
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🗽</span><h3 class="mc__t">S&amp;P 500</h3></header>
         <p class="mc__v" id="v-sp500">–</p>
         <p class="mc__d" id="d-sp500"></p>
         <p class="mc__h">미국 대표 500개 기업의 주가를 모은 지수입니다. 전 세계 증시의 기준점입니다.</p>
@@ -254,7 +254,7 @@
       </article>
 
       <article class="mc">
-        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🇰🇷</span><h3 class="mc__t">코스피</h3></header>
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🏙️</span><h3 class="mc__t">코스피</h3></header>
         <p class="mc__v" id="v-kospi">–</p>
         <p class="mc__d" id="d-kospi"></p>
         <p class="mc__h">한국 유가증권시장 종합지수입니다. 원·달러 환율과 외국인 수급에 크게 흔들립니다.</p>
@@ -262,7 +262,7 @@
       </article>
 
       <article class="mc">
-        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🧪</span><h3 class="mc__t">코스닥</h3></header>
+        <header class="mc__top"><span class="mc__ico" aria-hidden="true">🌱</span><h3 class="mc__t">코스닥</h3></header>
         <p class="mc__v" id="v-kosdaq">–</p>
         <p class="mc__d" id="d-kosdaq"></p>
         <p class="mc__h">중소·벤처기업 중심 시장입니다. 코스피보다 변동성이 큰 편입니다.</p>
@@ -319,6 +319,19 @@
         <footer class="mc__s" id="s-btc">업비트 · Coinbase · Yahoo Finance(환율)</footer>
       </article>
 
+      <article class="mc mc--wide mc--tip">
+        <header class="mc__top">
+          <span class="mc__ico" aria-hidden="true">💡</span>
+          <h3 class="mc__t">이 지도 읽는 법</h3>
+        </header>
+        <ul class="tips">
+          <li><b>공포·탐욕 25 미만</b>은 ‘극단적 공포’, 75 초과는 ‘극단적 탐욕’ 구간입니다.</li>
+          <li><b>10Y−2Y가 0 아래</b>면 장단기 금리 역전. 역사적으로 경기침체 전조로 불렸습니다.</li>
+          <li><b>김치프리미엄이 +</b>면 같은 비트코인이 국내에서 더 비싸게 거래된다는 뜻입니다.</li>
+          <li><b>CPI·PPI가 예상보다 높게</b> 나오면 금리 부담이 커지고, 낮게 나오면 안도 요인입니다.</li>
+        </ul>
+      </article>
+
     </div>
   </section>
 
@@ -334,6 +347,6 @@
 
 </main>
 
-<script src="/macro/assets/macro.js?v=2" defer></script>
+<script src="/macro/assets/macro.js?v=3" defer></script>
 </body>
 </html>
