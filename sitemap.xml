@@ -4,71 +4,53 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/blog/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/editorial-policy/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/en/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/about/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/en/about/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/privacy/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/en/privacy/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/tags/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/en/tags/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/contact/</loc>
-  </url>
-  <url>
-    <loc>{{ site.url }}{{ site.baseurl }}/en/contact/</loc>
-  </url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/nutrition-calculator/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/en/nutrition-calculator/</loc></url>
+  {%- comment -%}
+    정적 서비스·신뢰 페이지는 내용이 바뀔 때 아래 static_lastmod를 함께 갱신한다.
+    블로그 글은 각 글의 last_modified_at / date를 그대로 쓴다.
+  {%- endcomment -%}
+  {%- assign static_lastmod = '2026-11-27T16:30:00+09:00' -%}
+  <url><loc>{{ site.url }}{{ site.baseurl }}/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/blog/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/editorial-policy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/about/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/about/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/privacy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/privacy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/tags/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/tags/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/contact/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/contact/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/nutrition-calculator/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/en/nutrition-calculator/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   <!-- 서브앱 — 2026-11-27 색인 허용 -->
-  <url><loc>{{ site.url }}{{ site.baseurl }}/map/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/calendar/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/first/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/mileage/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/route/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/new/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/air/guide/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/guides/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/map/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/calendar/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/first/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/mileage/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/route/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/new/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/air/guide/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/guides/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   {% for pair in site.data.calculator_guides %}
-  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/{{ pair[0] }}/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/cal/{{ pair[0] }}/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   {% endfor %}
-  <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/macro/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/games/rhythm-classic/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/games/hormuz/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/</loc></url>
-  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/privacy/</loc></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/hotel/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/macro/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/300-seconds/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/scalping-king/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/rhythm-classic/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/games/hormuz/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ site.url }}{{ site.baseurl }}/benefits/privacy/</loc><lastmod>{{ static_lastmod }}</lastmod></url>
   {% for page in site.pages %}
   {% if page.url contains '/category/' and page.noindex != true %}
   <url>
     <loc>{{ page.url | absolute_url | uri_escape | xml_escape }}</loc>
+    <lastmod>{{ static_lastmod }}</lastmod>
   </url>
   {% endif %}
   {% endfor %}

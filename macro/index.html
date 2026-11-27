@@ -23,6 +23,41 @@
 <meta name="twitter:description" content="공포·탐욕지수, VIX, 장단기 금리차, CPI·PPI 예상 대비 실제, 코스피·환율·김치프리미엄을 한 화면에서.">
 <meta name="twitter:image" content="https://dailyfoodfighter.com/macro/og-macro.jpg">
 <link rel="stylesheet" href="/macro/assets/macro.css?v=4">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "@id": "https://dailyfoodfighter.com/macro/#app",
+      "name": "경제지표지도",
+      "alternateName": "쓸모있는 모음.zip 경제지표지도",
+      "url": "https://dailyfoodfighter.com/macro/",
+      "description": "CNN 공포·탐욕지수, VIX, 미국 10년·2년물 금리와 장단기 금리차, 하이일드 스프레드, CPI·PPI 발표치와 예상치, 주요 지수·환율·금·유가·비트코인 김치프리미엄을 한 화면에 모아 보여주는 경제지표 대시보드입니다.",
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "Any (웹 브라우저)",
+      "browserRequirements": "JavaScript 지원 브라우저",
+      "inLanguage": "ko",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+      "isPartOf": { "@type": "WebSite", "name": "쓸모있는 모음.zip", "url": "https://dailyfoodfighter.com/" },
+      "publisher": {
+        "@type": "Organization",
+        "name": "쓸모있는 모음.zip",
+        "url": "https://dailyfoodfighter.com/",
+        "sameAs": ["https://x.com/Dailyfoodfff"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "쓸모있는 모음.zip", "item": "https://dailyfoodfighter.com/" },
+        { "@type": "ListItem", "position": 2, "name": "경제지표지도", "item": "https://dailyfoodfighter.com/macro/" }
+      ]
+    }
+  ]
+}
+</script>
 </head>
 <body class="macro-page">
 
@@ -341,8 +376,14 @@
     <h2>이 지도는 어떻게 갱신되나요?</h2>
     <p>화면을 열 때마다 <code>/api/macro</code>가 공개 데이터를 새로 확인합니다. 시세·금리는 5분 단위로 캐시되고, CPI·PPI 발표 일정과 예상치는 발표일 기준으로 정리해 폴백 스냅샷에 담아 둡니다. 외부 사이트가 잠시 막히면 마지막으로 확인된 값을 그대로 보여주고, 값 아래에 기준일을 함께 표시합니다.</p>
     <p class="about__src">데이터 출처: CNN Fear &amp; Greed · 미 재무부 국채 수익률 곡선 · FRED(ICE BofA US High Yield OAS, 인터넷 아카이브 스냅샷 포함) · 뉴욕 연은 EFFR · 미국 노동통계국(BLS) · 나스닥 경제캘린더 · StockAnalysis(S&amp;P500 시가총액) · 세계은행(GDP) · Yahoo Finance(지수·환율·원자재) · 업비트·Coinbase(비트코인)</p>
-    <p class="about__warn">이 페이지의 수치는 공개 데이터를 그대로 보여주는 참고 자료이며, 투자 권유나 매매 판단의 근거로 제공되지 않습니다. 표시 시각과 실제 시장 시각은 다를 수 있습니다.</p>
+    <p class="about__warn">이 페이지의 수치는 공개 데이터를 그대로 보여주는 참고 자료이며, 투자 권유나 매매 판단의 근거로 제공되지 않습니다. 화면에 표시되는 시각과 실제 시장 시각은 다를 수 있으므로, 중요한 판단 전에는 원본 지표(CNN·미 재무부·FRED·BLS·거래소)를 함께 확인하세요.</p>
     <p class="about__home"><a href="/">← 쓸모있는 모음.zip 처음으로</a></p>
+    <nav class="about__trust" aria-label="쓸모있는 모음.zip 안내" style="margin-top:10px;font-size:.85rem;color:#5b6b66;display:flex;flex-wrap:wrap;gap:10px">
+      <a href="/about/">사이트 소개</a><span aria-hidden="true">·</span>
+      <a href="/editorial-policy/">콘텐츠 작성 원칙</a><span aria-hidden="true">·</span>
+      <a href="/contact/">문의·오류 제보</a><span aria-hidden="true">·</span>
+      <a href="/privacy/">개인정보처리방침</a>
+    </nav>
   </section>
 
   <noscript><p class="notice">이 페이지는 최신 지표를 불러오기 위해 JavaScript를 사용합니다. 켜 주시면 모든 지표가 표시됩니다.</p></noscript>
