@@ -10,7 +10,9 @@
 scripts/
   collect_locations.py          ★ 파이썬 원샷 수집기 — /en/locations/ 8페이지 자동 순회
                                   (Select currency=KRW · Use Points 토글 · 403/캡차 즉시 중단)
+  daily_locations_update.py    매일 전수 검증 후 정적 JSON 커밋·푸시(LLM/API 호출 없음)
   test_collect_locations.py     가짜 디렉터리 HTML로 수집 동작 검증(실제 Chromium 필요)
+  test_daily_locations_update.py 일일 갱신의 부분수집·이전결과 잔류 차단 테스트
   build_luxury.py               마스터 124건(영업 중 119) 생성 — 브랜드 디렉터리 실측 목록(RAW 테이블)
   build_hotel_data.py           관측 JSON + 마스터 → hotel/data/hotels.json (앱 데이터)
   data/
@@ -24,7 +26,7 @@ scripts/
     rates_page.js               /book/reservation/rates/ Standard/Premium 라벨·현금·원/P
 ```
 
-## 파이썬만으로 끝까지 (권장 · 2026-11-27 추가)
+## 파이썬만으로 끝까지 (권장 · 2026-11-28 추가)
 
 ```bash
 # 0) 실제 Chrome을 CDP로 띄운다 (headed · 이 세션의 쿠키·Akamai 센서를 그대로 쓴다)
@@ -58,6 +60,27 @@ python3 -c "import json;d=json.load(open('hotel/data/hotels.json'));print(d['met
 | 카드 0장 | 그 페이지에서 중단(`PAGE_EMPTY`) |
 
 중단 뒤 재시도 금지 → 45~60분 뒤 새 세션으로 1페이지만 시험. **캡차는 우회하지 않고 사람에게 넘긴다.**
+
+## 매일 자동 갱신(LLM·Codex 토큰 없음)
+
+`daily_locations_update.py`를 사용자 Mac의 `LaunchAgent`에서 하루 한 번 실행한다.
+ChatGPT 예약이나 AI API는 호출하지 않으며, 실제 Chrome과 Python/Git만 사용한다.
+
+```bash
+python3 hotel/scripts/daily_locations_update.py \
+  --runtime-dir "$HOME/Library/Application Support/DailyFoodFighter Hilton Collector/runtime"
+```
+
+다음 조건을 모두 만족할 때만 `main`에 커밋·푸시한다.
+
+1. 브랜드 디렉터리 8페이지를 모두 읽음
+2. 마스터의 영업 중 호텔 119곳이 모두 이번 실행 시각으로 관측됨
+3. 401/403/429·캡차·구조 변경·브랜드 오류가 없음
+4. 빌드 후 영업 중 119곳에 미관측 레코드가 없음
+5. 변경 파일이 세 개의 정적 JSON으로만 제한됨
+
+실패하면 이전 정상 JSON과 GitHub를 유지하고 `last-status.json`에 원인을 기록한다.
+일별 원본은 Git 저장소 밖 `runtime/snapshots/YYYY-MM-DD.json`에 보존한다.
 
 ### 수집기가 지키는 판독 규칙
 
