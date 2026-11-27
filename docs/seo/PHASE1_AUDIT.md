@@ -20,7 +20,14 @@ Search Console, Naver Search Advisor, Bing Webmaster Tools, GA4 및 Cloudflare �
 
 ## 구현 검증 제한
 
-현재 실행 환경에는 Jekyll gem이 설치되어 있지 않고 저장소에도 Gemfile이 없다. 따라서 이 작업에서 Jekyll 빌드는 실행하지 못했다. 변경사항의 Git 공백 검사는 통과했다. 운영 배포 전 Jekyll 빌드 및 실제 페이지 검증이 필요하다.
+로컬 실행 환경에는 Jekyll gem이 없지만 PR에 자동 연결된 기존 검증 워크플로에서 `jekyll build`와 사이트맵·게시글 구조화 데이터 검사가 성공했다. Cloudflare Pages 미리보기도 성공적으로 배포됐다. 모바일 뷰포트 320·360·375·390·430px과 태블릿·데스크톱 768·1024·1280·1440·1920px에서 생활지도 카드 배치와 페이지 가로 넘침을 확인했다.
+
+미리보기: https://codex-living-guide.dailyfoodfighter.pages.dev/
+Cloudflare 상태: 성공 (`45ed4eb`)
+
+생활지도 카드 8개와 블로그·정책·호텔 경로 모두 HTTP 200을 반환했다. `/blog/` canonical과 ko/en hreflang, 색인 허용 상태를 확인했다. 기존 게시글 URL `/posts/octopus-nutrition-benefits/`도 200을 반환했다. 블로그 검색에서 `문어`를 입력하면 해당 글 1개가 표시되고, `/hotel/` 안내 버튼은 기존 `/cal/#hotel` 상세 계산기를 열었다.
+
+미리보기 생활지도에서 확인된 브라우저 오류는 저장소에 favicon 파일이 없어 `/favicon.ico` 요청이 404를 반환한 건이다. 생활지도 코드와 계산기 이동 중 다른 콘솔 오류는 관찰되지 않았다.
 
 ## 진행 중인 URL 확인
 

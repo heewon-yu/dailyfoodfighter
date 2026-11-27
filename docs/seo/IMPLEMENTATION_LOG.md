@@ -16,5 +16,9 @@
 
 - `git diff --check`: 통과.
 - 저장소의 핵심 서비스 경로 파일 존재 확인: 통과.
-- Jekyll 빌드: 실행 환경에 Jekyll gem이 없어 실행 불가.
-- 모바일/데스크톱 화면 및 운영 URL: 배포 전 미검증.
+- 기존 PR 자동 검증 워크플로의 Jekyll 빌드와 SEO 검사: 성공. PR 이벤트이므로 IndexNow 제출 단계는 건너뜀.
+- Cloudflare Pages 미리보기: 성공 (`https://codex-living-guide.dailyfoodfighter.pages.dev/`).
+- 반응형 뷰포트 10종, 서비스 카드 URL 8개 및 관련 안내 URL HTTP 200: 확인.
+- `/blog/` 검색·canonical·hreflang, 기존 게시글 URL, `/hotel/`에서 `/cal/#hotel` 이동: 확인.
+- 생활지도 미리보기에서 누락된 favicon 요청 404 한 건 확인. 페이지 및 계산기 상호작용 관련 콘솔 오류는 없음.
+- 프로덕션 배포 및 실제 검색·방문자 지표: 미진행.
