@@ -30,7 +30,10 @@ async function loadSnapshot(request) {
   return await res.json();
 }
 
-const SLOW_KEYS = ["calendar"];
+const METRIC_IDS = [
+  "fear_greed", "vix", "yield10", "yield2", "spread", "hy_oas", "fed", "buffett",
+  "sp500", "nasdaq", "kospi", "kosdaq", "usdkrw", "dxy", "wti", "gold", "btc",
+];
 
 export async function onRequest(context) {
   if (context.request.method !== "GET") {
@@ -88,7 +91,13 @@ async function handleGet(context) {
     }
     for (const [key, value] of Object.entries(live.sources)) {
       sources[key] = value;
-      if (value === "fail" && base.metrics && base.metrics[key]) stale.push(key);
+    }
+    // 실시간 수집이 비어 스냅샷 값을 그대로 쓰는 지표를 표시한다.
+    for (const id of METRIC_IDS) {
+      const liveValue = live.metrics[id];
+      if (base.metrics && base.metrics[id] && (liveValue === null || liveValue === undefined)) {
+        stale.push(id);
+      }
     }
   }
 
