@@ -51,7 +51,7 @@ dcawawa|Waldorf Astoria Washington DC|wa|Washington, DC|USA|US|미주|open
 atlwawa|Waldorf Astoria Atlanta Buckhead|wa|Atlanta, Georgia|USA|US|미주|open
 msyrhwa|The Roosevelt New Orleans, A Waldorf Astoria Hotel|wa|New Orleans, Louisiana|USA|US|미주|open
 orlbcwa|Waldorf Astoria Orlando - An Official Walt Disney World Hotel|wa|Orlando, Florida|USA|US|미주|open
-cunwawa|Waldorf Astoria Riviera Maya, an All-Inclusive Experience|wa|Cancún (Riviera Maya)|Mexico|MX|미주|pre_opening
+cunwawa|Waldorf Astoria Riviera Maya, an All-Inclusive Experience|wa|Cancún (Riviera Maya)|Mexico|MX|미주|open
 lirguwa|Waldorf Astoria Costa Rica Punta Cacique|wa|Guanacaste|Costa Rica|CR|미주|open
 lirrswa|Waldorf Astoria Residences Costa Rica Punta Cacique|wa|Guanacaste|Costa Rica|CR|미주|residence_only
 ptytpwa|Waldorf Astoria Panama|wa|Panama City|Panama|PA|미주|open
@@ -149,7 +149,6 @@ STATUS_NOTE = {
     "bkkqpci": "Conrad Bangkok Sukhumvit Queen's Park, 개관 예정(Coming Soon 표기)",
     "kulskci": "Conrad Kuala Lumpur, 2027-02-01부터 예약 접수(Coming Soon)",
     "cfumoci": "Conrad Corfu, 2027-05-15 개관 예정(Coming Soon)",
-    "cunwawa": "Waldorf Astoria Riviera Maya(올인클루시브), 2027-01 개관 예정 — 2026-12-15 조회 시 '객실 없음'",
     "lirrswa": "Waldorf Astoria Residences Costa Rica — 분양 레지던스, 숙박 예약 대상 아님",
     "bkkreci": "Conrad Bangkok Residences — 레지던스형 객실, 힐튼 예약 대상",
     "syxsaci": "Conrad 브랜드로 힐튼 디렉터리에 등재된 파트너 호텔(쓰야오지 시그니처)",
@@ -208,7 +207,8 @@ out = {
         },
         "notes": [
             "힐튼 디렉터리 표기 수: Waldorf 45 / Conrad 58 / LXR 21 = 124건. 브리프 예상(80~90곳)보다 많은 것은 힐튼이 개관 예정·레지던스까지 디렉터리에 넣기 때문.",
-            "실제 '영업 중' 호텔은 118건. 제외 6건: 개관예정 4(lonenwa·bkkqpci·kulskci·cfumoci), 프리오프닝 1(cunwawa), 레지던스 1(lirrswa).",
+            "실제 '영업 중' 호텔은 119건. 제외 5건: 개관예정 4(lonenwa·bkkqpci·kulskci·cfumoci), 레지던스 1(lirrswa).",
+            "2026-11-27 15:39 KST 재확인: Waldorf Astoria Riviera Maya(cunwawa, 올인클루시브)는 당초 2027-01 개관 예정으로 두었으나, 힐튼 디렉터리 카드에 140,000P Standard Room Reward·₩988,254가 표시되고 리뷰 1,189건이 쌓여 있어 영업 중으로 전환했다(사용자 확인).",
             "권역 구분은 브리프의 한국·일본·중국/동남아·미주·유럽/중동 틀을 8개(한국/일본/중국·동남아/남아시아·몰디브/중동·아프리카/유럽/미주/오세아니아·카리브)로 세분.",
             "브랜드 표기가 회사명과 다른 호텔 포함: Al Husn Hotel Muscat(WA), Grand Wailea·Ho'olei(WA), The Roosevelt New Orleans(WA), Rome Cavalieri(WA), Gajoen Tokyo·Imperial Hotel Gold Coast(LXR), Sunshine Yi Hotel Haitang Bay(Conrad).",
             "호텔 코드는 hilton.com URL의 7자리 코드(대문자 변환 시 ctyhocn). 예: SELCICI, BKKWAWA, ITMOLOL.",

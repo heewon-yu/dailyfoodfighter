@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """hotel/scripts → dailyfoodfighter/hotel/data/hotels.json 빌드.
 
-입력: scripts/data/hotels_luxury.json (124건 마스터 · 영업 중 118곳)
-      scripts/data/observed_sample.json (디렉터리에서 판독한 대표 80곳)
+입력: scripts/data/hotels_luxury.json (124건 마스터 · 영업 중 119곳)
+      scripts/data/observed_sample.json (디렉터리에서 판독한 영업 중 119곳 전수)
 출력: scripts/data/hotels_points_summary.json (관측 요약 · 감사용)
       hotel/data/hotels.json (앱이 실제로 읽는 데이터)
 
@@ -43,7 +43,7 @@ CITY_KO = {
     "Helsinki": "헬싱키", "Dublin": "더블린", "Almancil (Algarve)": "알가르브", "Minsk": "민스크",
     "Jerusalem": "예루살렘", "Rabat-Salé": "라바트", "Harhoura (Rabat)": "라바트(하르후라)",
     "Mahé": "마헤", "Platte Island": "플라트섬", "Bora Bora": "보라보라", "Guanacaste": "과나카스테",
-    "Panama City": "파나마시티", "Cabo San Lucas": "카보산루카스", "Punta de Mita": "푼타데미타",
+    "Panama City": "파나마시티", "Cabo San Lucas": "카보산루카스", "Punta de Mita": "푼타데미타", "Cancún (Riviera Maya)": "칸쿤(리비에라 마야)",
     "Tulum": "툴룸", "West Indies (Anguilla)": "앵귈라", "Gold Coast": "골드코스트",
     "Honolulu, Hawaii": "호놀룰루", "Wailea, Hawaii": "와일레아", "Las Vegas, Nevada": "라스베이거스",
     "Los Angeles, California": "로스앤젤레스", "Beverly Hills, California": "비벌리힐스",
@@ -72,7 +72,10 @@ BRAND = {"wa": ("Waldorf Astoria", "월도프 아스토리아"), "co": ("Conrad"
 
 REGION_ORDER = ["한국", "일본", "중국·동남아", "남아시아·몰디브", "중동·아프리카", "유럽", "미주", "오세아니아·카리브"]
 
-EXCLUDED = {"CUNCICI": "올인클루시브 리조트 — 힐튼 숙박권(Free Night Reward) 사용 제외 대상에 해당하는 유형입니다."}
+EXCLUDED = {
+    "CUNCICI": "올인클루시브 리조트 — 힐튼 숙박권(Free Night Reward) 사용 제외 대상에 해당하는 유형입니다.",
+    "CUNWAWA": "올인클루시브 리조트 — 힐튼 숙박권(Free Night Reward) 사용 제외 대상에 해당하는 유형입니다.",
+}
 CAUTION = {"OGGHOWA": "HGV(휴가지 소유)가 운영하는 레지던스형 숙소 — 숙박권 사용 가능 여부를 공식 예약 화면에서 확인하세요."}
 
 
@@ -193,7 +196,7 @@ def main():
         "generatedAt": datetime.datetime.now().astimezone().isoformat(timespec="seconds"),
         "observedAt": "2026-11-27 14:41 · 15:39 KST",
         "observedBasis": "hilton.com 브랜드별 Locations 디렉터리 · Use Points 체크 · 향후 30일 현재 재고 최저 포인트",
-        "observedScope": "영업 중 118곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳)",
+        "observedScope": "영업 중 119곳 전수(1차 80곳 + 2차 잔여 4페이지 40곳 + 재확인 1곳)",
         "notice": "표시 포인트·현금가는 관측 시점의 디렉터리 '향후 30일 최저' 값이며, 선택한 날짜의 실시간 요금이 아닙니다.",
         "masterCount": sum(1 for r in hotels if r["status"] == "open"),
         "directoryCount": len(hotels),
@@ -218,10 +221,10 @@ def main():
     # 프로젝트 기록용 요약 (관측 호텔만)
     summary = {
         "meta": {
-            "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 테스트용 대표 샘플",
+            "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 영업 중 119곳 전수 관측",
             "generatedAt": meta["generatedAt"],
             "observedAt": meta["observedAt"],
-            "sampleNote": "전수 118곳 스캔 대신 대표 샘플만 관측(사용자 확정). 나머지는 master 목록에 두고 추후 D1 실시간 조회로 채운다.",
+            "sampleNote": "영업 중 119곳 전수 관측 스냅샷(2026-11-27). 날짜별 실시간 값은 D1 조회로 채운다.",
             "method": "브랜드별 /en/locations/ 디렉터리에서 Use Points 체크 후 카드의 Points/night + Standard Room Reward / Premium Room Rewards 라벨, From* 현금가 판독",
             "valueMeaning": "향후 30일 현재 재고 기준 최저 포인트·최저 현금가(특정 날짜 값 아님)",
             "fx": meta["fx"],

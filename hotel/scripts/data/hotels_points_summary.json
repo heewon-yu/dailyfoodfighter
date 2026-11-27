@@ -1,9 +1,9 @@
 {
  "meta": {
-  "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 테스트용 대표 샘플",
-  "generatedAt": "2026-11-27T15:47:39+09:00",
+  "project": "힐튼포숙지도 (/hotel/) 포인트 요약 — 영업 중 119곳 전수 관측",
+  "generatedAt": "2026-11-27T16:12:50+09:00",
   "observedAt": "2026-11-27 14:41 · 15:39 KST",
-  "sampleNote": "전수 118곳 스캔 대신 대표 샘플만 관측(사용자 확정). 나머지는 master 목록에 두고 추후 D1 실시간 조회로 채운다.",
+  "sampleNote": "영업 중 119곳 전수 관측 스냅샷(2026-11-27). 날짜별 실시간 값은 D1 조회로 채운다.",
   "method": "브랜드별 /en/locations/ 디렉터리에서 Use Points 체크 후 카드의 Points/night + Standard Room Reward / Premium Room Rewards 라벨, From* 현금가 판독",
   "valueMeaning": "향후 30일 현재 재고 기준 최저 포인트·최저 현금가(특정 날짜 값 아님)",
   "fx": {
@@ -42,9 +42,9 @@
    "https://www.hilton.com/en/locations/lxr-hotels/ (1~2페이지 · 21곳)"
   ],
   "counts": {
-   "masterOpen": 118,
-   "observed": 120,
-   "standard": 103,
+   "masterOpen": 119,
+   "observed": 121,
+   "standard": 104,
    "premiumOnly": 11,
    "soldOut": 3,
    "unobserved": 0
@@ -1254,6 +1254,36 @@
    "observedAtLabel": "2026-11-27 15:39 KST",
    "excluded": false,
    "exclusionNote": ""
+  },
+  {
+   "code": "CUNWAWA",
+   "codeLower": "cunwawa",
+   "name": "Waldorf Astoria Riviera Maya, an All-Inclusive Experience",
+   "brand": "wa",
+   "brandLabel": "Waldorf Astoria",
+   "brandKo": "월도프 아스토리아",
+   "city": "Cancún (Riviera Maya)",
+   "cityKo": "칸쿤(리비에라 마야)",
+   "country": "Mexico",
+   "countryKo": "멕시코",
+   "region": "미주",
+   "status": "open",
+   "statusLabel": "영업 중",
+   "url": "https://www.hilton.com/en/hotels/cunwawa/",
+   "points": 140000,
+   "rewardType": "STANDARD",
+   "standardAvailable": true,
+   "premiumOnly": false,
+   "soldOut": false,
+   "note": "",
+   "cashAmount": 988254,
+   "cashCurrency": "KRW",
+   "cashKrw": 988254,
+   "valuePerPoint": 7.06,
+   "observedAt": "2026-11-27T15:39:00+09:00",
+   "observedAtLabel": "2026-11-27 15:39 KST",
+   "excluded": true,
+   "exclusionNote": "올인클루시브 리조트 — 힐튼 숙박권(Free Night Reward) 사용 제외 대상에 해당하는 유형입니다."
   },
   {
    "code": "LIRGUWA",

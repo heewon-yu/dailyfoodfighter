@@ -8,11 +8,11 @@
 
 ```
 scripts/
-  build_luxury.py               마스터 124건(영업 중 118) 생성 — 브랜드 디렉터리 실측 목록(RAW 테이블)
-  build_hotel_data.py           관측 80곳 + 마스터 → hotel/data/hotels.json (앱 데이터)
+  build_luxury.py               마스터 124건(영업 중 119) 생성 — 브랜드 디렉터리 실측 목록(RAW 테이블)
+  build_hotel_data.py           관측 119곳 + 마스터 → hotel/data/hotels.json (앱 데이터)
   data/
     hotels_luxury.json          마스터(코드·이름·브랜드·도시·국가·권역·상태)
-    observed_sample.json        디렉터리 관측 80곳(포인트·Standard/Premium·현금·통화)
+    observed_sample.json        디렉터리 관측 영업 중 119곳 전수(포인트·Standard/Premium·현금·통화)
     hotels_points_summary.json  관측 요약(감사용, build_hotel_data.py가 함께 갱신)
   browser/
     locations_use_points.js     /en/locations/{brand}/ 카드 20장 판독 (포인트/라벨/현금)

@@ -10,7 +10,7 @@
    "https://www.hilton.com/en/locations/lxr-hotels/ (1~2페이지 · 21곳)"
   ],
   "cashNote": "현금가는 디렉터리 카드의 From* 최저 요금(향후 30일 기준). 1차 80곳은 호텔 통화 그대로, 2차 40곳은 KRW 표시로 판독했다. 세금·봉사료 포함 여부·객실 타입은 공식 예약 화면에서 확인 필요.",
-  "batchNote": "2차(15:37~15:39 KST): 1차에서 읽지 않은 4페이지(WA 2~3p 25장 · Conrad 3p 18장 · LXR 2p 1장)를 Select currency=KRW 상태에서 현금 모드 판독 후 Use Points 체크 판독. 영업 중 40곳 추가 → 영업 중 118곳 전수 관측. 3차(15:46 KST): 1차에서 현금가가 비어 있던 Conrad 2페이지 18곳의 현금가만 KRW로 보충(포인트·등급은 1차 값 유지)."
+  "batchNote": "2차(15:37~15:39 KST): 1차에서 읽지 않은 4페이지(WA 2~3p 25장 · Conrad 3p 18장 · LXR 2p 1장)를 Select currency=KRW 상태에서 현금 모드 판독 후 Use Points 체크 판독. 영업 중 40곳 추가 → 영업 중 118곳 전수 관측. 3차(15:46 KST): 1차에서 현금가가 비어 있던 Conrad 2페이지 18곳의 현금가만 KRW로 보충(포인트·등급은 1차 값 유지). 4차(15:39 KST): 프리오프닝으로 두었던 Waldorf Astoria Riviera Maya(CUNWAWA, 올인클루시브)가 디렉터리에 140,000P Standard Room Reward·₩988,254로 영업 중 표시되어 관측 레코드에 추가(영업 중 119곳 전수)."
  },
  "records": [
   {
@@ -1028,6 +1028,18 @@
    "points": 90000,
    "rewardType": "STANDARD",
    "cashAmount": 479625,
+   "cashCurrency": "KRW",
+   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
+   "observedAt": "2026-11-27T15:39:00+09:00",
+   "observedAtLabel": "2026-11-27 15:39 KST"
+  },
+  {
+   "code": "CUNWAWA",
+   "name": "Waldorf Astoria Riviera Maya, an All-Inclusive Experience",
+   "brand": "wa",
+   "points": 140000,
+   "rewardType": "STANDARD",
+   "cashAmount": 988254,
    "cashCurrency": "KRW",
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)",
    "observedAt": "2026-11-27T15:39:00+09:00",

@@ -2,9 +2,9 @@
 
 `dailyfoodfighter.com/hotel/`(힐튼포숙지도)의 데이터가 어떻게 만들어졌는지, 그리고 나중에 D1 실시간 조회로 넘어갈 때 무엇을 어떤 규격으로 넣으면 되는지를 한 문서로 정리한 인계서다.
 
-- 대상 호텔: **Waldorf Astoria · Conrad · LXR**(힐튼 하이엔드 3브랜드) 디렉터리 124건 = 영업 중 **118곳**
+- 대상 호텔: **Waldorf Astoria · Conrad · LXR**(힐튼 하이엔드 3브랜드) 디렉터리 124건 = 영업 중 **119곳**
 - 수집 방식: **비로그인 브라우저 사람 동선**. 서버·스크립트 직접 요청은 Akamai가 403으로 막는다(2절).
-- 현재 배포 데이터: 디렉터리에서 판독한 **80곳** 스냅샷(2026-11-27 14:41 KST) + 마스터 118곳
+- 현재 배포 데이터: 디렉터리에서 판독한 **영업 중 119곳 전수** 스냅샷(2026-11-27 14:41·15:39 KST · 미관측 0) + 마스터 119곳
 - 검증 기록: [`docs/hilton/measurement-2026-11-27.md`](hilton/measurement-2026-11-27.md) · 스크린샷 [`docs/hilton/screens/`](hilton/screens/)
 - 코드: [`hotel/scripts/`](../hotel/scripts/) (빌드 2개 + 브라우저 판독 스니펫 3개)
 
@@ -18,7 +18,7 @@
 | 브라우저 최초 진입(홈·예약 딥링크 직행) | **403** `Something went wrong`(Reference No.) — 세션·쿠키 없이 `/book/`로 바로 들어가면 막힘 |
 | 브랜드 디렉터리 `/en/locations/{brand}/` | **정상**. `Use Points` 체크만 하면 카드마다 `포인트 + Standard/Premium 라벨`이 그대로 나온다 |
 | 호텔 상세 `/en/hotels/{7자리코드}/` → Check rooms & prices → Use Points & Money → More Rates | **정상**. 캡차 없이 15회 이상 연속 조회 가능 |
-| 확보 규모 | 3개 디렉터리 **4페이지 로드 = 20장×4 = 80곳**(WA 1p · Conrad 1~2p · LXR 1p). 전 지점 124건은 **8페이지** |
+| 확보 규모 | 3개 디렉터리 **8페이지 로드 = 124건**(WA 3p · Conrad 3p · LXR 2p) → 영업 중 **119곳 전수**. 1차는 4페이지 80곳, 2차에서 잔여 4페이지 44장을 더 읽었다 |
 | 주말숙박권 판정 | **More Rates(2단계) 안의 `Standard Room Reward` / `Premium Room Rewards` 텍스트**만이 정답. 1단계 객실 목록의 포인트 숫자로는 구분 불가 |
 | robots.txt | `/book/`·`/find-hotels/`·`/search/` **Disallow(User-agent: \*)**, `/locations/`·`/en/hotels/`는 허용 |
 | 현재 운영 결정 | **안전형** — 디렉터리(허용 경로) 요약 + 날짜 지정은 공식 링크/사람 조회. `/book/` **대량 자동 수집 금지** |
@@ -70,8 +70,8 @@ https://www.hilton.com/en/locations/lxr-hotels/
 
 실측 결과(2026-11-27):
 
-- **4페이지 로드(80장)로 80곳 확보** — Waldorf 1p(20) · Conrad 1~2p(40) · LXR 1p(20)
-- 그중 **Standard 68 · Premium만 7 · Sold Out 2 · 포인트 없음(현금만) 1 · 개관예정 2**
+- 1차 **4페이지(80장)로 80곳**, 2차 잔여 **4페이지(44장)** 판독 → 디렉터리 124건 전수 확인. 영업 중 **119곳 전부 관측**(미관측 0)
+- 1차 80곳 집계는 **Standard 68 · Premium만 7 · Sold Out 2 · 포인트 없음(현금만) 1 · 개관예정 2**. 2차까지 합친 현재 집계는 **Standard 104 · Premium만 11 · Sold Out 3 · 포인트 없음 1**(개관예정·레지던스 제외)
 - Premium만 있는 곳: Waldorf Shanghai on the Bund 298,000 / Ho'olei 606,000 / Conrad Shenzhen 127,000 / Conrad Altay Hemu 204,000 / Ka La'i Waikiki 222,000 / Beach Village at The Del 446,000 / Shore House at The Del 320,000
 - Sold Out: Susona Bodrum, Sandblu Santorini / 현금만: Gajoen Tokyo / 개관예정: Conrad Bangkok Sukhumvit Queen's Park, Conrad Kuala Lumpur
 
@@ -213,7 +213,7 @@ const premiumOnly       = !standardAvailable && rewards.some((r) => r.label === 
 python3 hotel/scripts/build_luxury.py
 #   → hotel/scripts/data/hotels_luxury.json
 
-# 2) 관측 80곳 + 마스터 → 앱 데이터
+# 2) 관측 119곳 + 마스터 → 앱 데이터
 python3 hotel/scripts/build_hotel_data.py
 #   → hotel/data/hotels.json  (앱이 읽는 파일)
 #   → hotel/scripts/data/hotels_points_summary.json (감사용 요약)
@@ -226,7 +226,7 @@ python3 hotel/scripts/build_hotel_data.py
 3. **원화 환산** — 관측 통화가 KRW가 아니면 `FX` 표(2026-11-27 exchangerate-api)로 곱한다. *(대안: 브라우저에서 통화를 KRW로 바꿔 읽으면 환율표 없이 원화값을 얻는다 — 2-3절)*
 4. **1포인트 가치** — `valuePerPoint = cashKrw / points` (반올림 2자리).
 5. **도시 집계** — 영업 중 호텔만 묶어 `cities[]`(도시별 총계·Standard 수·관측 수) 생성.
-6. **제외/주의 플래그** — `CUNCICI`(올인클루시브) `excluded`, `OGGHOWA`(HGV 레지던스) `caution`.
+6. **제외/주의 플래그** — `CUNCICI`·`CUNWAWA`(올인클루시브) `excluded`, `OGGHOWA`(HGV 레지던스) `caution`.
 
 ### 4-5. 가치 계산식
 
@@ -251,7 +251,7 @@ python3 hotel/scripts/build_hotel_data.py
 
 ## 5. 데이터 구조
 
-### 5-1. 마스터 `hotel/scripts/data/hotels_luxury.json` — 124건 / 영업 중 118곳
+### 5-1. 마스터 `hotel/scripts/data/hotels_luxury.json` — 124건 / 영업 중 119곳
 
 ```json
 {
@@ -263,11 +263,11 @@ python3 hotel/scripts/build_hotel_data.py
 }
 ```
 
-- 브랜드: `wa` 45 / `co` 58 / `lx` 21 (영업 중 42 / 55 / 21)
-- 상태: `open` 118 · `coming_soon` 4 · `pre_opening` 1 · `residence_only` 1
+- 브랜드: `wa` 45 / `co` 58 / `lx` 21 (영업 중 43 / 55 / 21)
+- 상태: `open` 119 · `coming_soon` 4 · `residence_only` 1
 - 권역 8구분: 한국 · 일본 · 중국·동남아 · 남아시아·몰디브 · 중동·아프리카 · 유럽 · 미주 · 오세아니아·카리브
 
-### 5-2. 관측 `hotel/scripts/data/observed_sample.json` — 80곳
+### 5-2. 관측 `hotel/scripts/data/observed_sample.json` — 영업 중 119곳 전수
 
 ```json
 { "name": "Waldorf Astoria Osaka", "brand": "wa", "points": 120000,
@@ -275,11 +275,11 @@ python3 hotel/scripts/build_hotel_data.py
   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금)" }
 ```
 
-집계: STANDARD 68 · PREMIUM 7 · SOLD_OUT 2 · COMING_SOON 2 · NO_POINTS 1
+집계: STANDARD 104 · PREMIUM 11 · SOLD_OUT 3 · COMING_SOON 2(개관예정 호텔) · NO_POINTS 1 — 영업 중 119곳 전수, 미관측 0
 
-### 5-3. 앱 데이터 `hotel/data/hotels.json` — 118 + 80 + 93 도시
+### 5-3. 앱 데이터 `hotel/data/hotels.json` — 119 + 119 + 94 도시
 
-`meta`(카운트·환율·관측 기준·API 설정) + `hotels[]`(118건, 관측된 곳만 `points`/`cashKrw`/`valuePerPoint` 채움) + `cities[]`(93개).
+`meta`(카운트·환율·관측 기준·API 설정) + `hotels[]`(119건, 전부 `points`/`cashKrw`/`valuePerPoint` 채움) + `cities[]`(94개).
 
 ---
 

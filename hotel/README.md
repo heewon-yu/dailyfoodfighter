@@ -14,7 +14,7 @@ hotel/
   assets/hotel-app.css       # 퍼플 디자인 시스템 (#6d28d9 / #7c3aed / #f5f3ff)
   assets/hotel-api.js        # 데이터 접근 계층 (static ↔ live 전환점)
   assets/hotel-app.js        # 화면 로직 (조회·주말 판정·가치 계산기)
-  data/hotels.json           # 118곳 마스터 + 대표 80곳 관측 스냅샷 + 도시 목록 + 환율
+  data/hotels.json           # 119곳 영업 중 마스터 + 전수 관측 스냅샷 + 도시 목록 + 환율
   scripts/                   # 마스터·앱 데이터 생성 + 브라우저 판독 스니펫 (아래)
 functions/api/hotel/
   rates.js                   # GET /api/hotel/rates — D1 조회 Pages Function
@@ -24,8 +24,8 @@ functions/api/hotel/
 ## 데이터
 
 - `data/hotels.json` 은 `scripts/build_hotel_data.py` 가
-  `scripts/data/hotels_luxury.json`(124건 마스터 · 영업 중 118곳)과
-  `scripts/data/observed_sample.json`(2026-11-27 디렉터리 관측 80곳)으로 만든다.
+  `scripts/data/hotels_luxury.json`(124건 마스터 · 영업 중 119곳)과
+  `scripts/data/observed_sample.json`(2026-11-27 디렉터리 관측 영업 중 119곳 전수 · 미관측 0)으로 만든다.
 - 포인트·현금가는 힐튼 브랜드별 Locations 디렉터리의 **"향후 30일 최저"** 값이며 특정 날짜 요금이 아니다.
   앱은 이 점을 결과 화면에 명시하고, 날짜별 실제 값은 `공식 날짜 조회`(hilton.com `/book/`) 버튼으로 넘긴다.
 - 힐튼 robots.txt 가 `/book/` 을 Disallow 하므로 날짜별 요금은 서버에서 대량 수집하지 않는다.
@@ -59,6 +59,6 @@ functions/api/hotel/
 - `standardRewardAvailable` = `Standard Room Reward` 라벨이 있는 경우 → 주말숙박권 사용 가능.
   디렉터리 카드에도 라벨이 나오지만, 날짜별 정확한 판정은 **More Rates(2단계 Select a Rate)** 화면의 라벨로 한다.
 - `premiumOnly` = `Premium Room Rewards` 만 있는 경우 → 숙박권 사용 불가.
-- `excluded` = 올인클루시브 등 숙박권 제외 유형(현재 Conrad Tulum Riviera Maya). HGV 레지던스(`OGGHOWA`)는 주의 표시.
+- `excluded` = 올인클루시브 등 숙박권 제외 유형(현재 Conrad Tulum Riviera Maya `CUNCICI` · Waldorf Astoria Riviera Maya `CUNWAWA`). HGV 레지던스(`OGGHOWA`)는 주의 표시.
 - 주말숙박권은 **금·토·일 체크인**만 조회한다(국내 제휴카드 기준. 힐튼 글로벌 규정은 2022년부터 요일 제한 없음).
   금·토·일이 아니면 조회를 막고 가장 가까운 주말을 안내한다.

@@ -700,7 +700,7 @@
     var el = $("#hero-stats");
     if (!el) return;
     el.innerHTML = '' +
-      '<li><b>' + num(state.meta.masterCount || 118) + "</b>곳 하이엔드</li>" +
+      '<li><b>' + num(state.meta.masterCount || 119) + "</b>곳 하이엔드</li>" +
       '<li><b>' + num((c.standard || 0) + (c.premium || 0) + (c.other || 0)) + "</b>곳 포인트 관측</li>" +
       '<li><b>' + num(c.standard || 0) + "</b>곳 숙박권 가능</li>" +
       '<li><b>' + esc(state.meta.observedAt || "") + "</b> 기준</li>";
