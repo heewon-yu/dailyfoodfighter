@@ -1,6 +1,7 @@
 /* ==========================================================================
    마일지도(MILEMAP) AIR — 공통 모듈
-   - 데이터: /air/data/preview/index.json 매니페스트 + 월별 JSON 지연 로딩
+   - 데이터: Cloudflare D1 API(/api/air/manifest + /api/air/routes) 우선,
+             실패하면 정적 매니페스트(/air/data/preview/index.json + snapshots) 폴백
    - 화면: 공통 헤더/푸터, 필터 상태(URL), 공항 자동완성, 공제 마일 표시 규칙
    - 원칙: 대한항공(KE)만, 프레스티지석(P)·일등석(F) 두 등급만 표시(일반석 E·프리미엄석 R 제외),
            R(프리미엄석)·G/U(승급 전용) 제외, 좌석 수는 제공하지 않음,
@@ -14,6 +15,13 @@
 
   /* 운영 전환 시 이 한 줄만 ../data/ 로 바꾼다. */
   const DATA_ROOT = ROOT + "data/preview/";
+
+  /* D1 API (functions/api/air/*). 행 데이터·월 목록을 여기서 읽는다.
+     ?data=static 을 붙이면 정적 스냅샷으로 강제 폴백한다(점검용). */
+  const API_ROOT = "/api/air/";
+  const D1_PAGE_LIMIT = 20000;   // GET /api/air/routes 의 1회 상한
+  const D1_MAX_PAGES = 40;       // 안전장치(20,000행 × 40 = 80만행)
+
 
   const FRESH_HOURS = 26;
 
@@ -178,11 +186,13 @@
     airports: null,
     airportPromise: null,
     catalog: null,
-    catalogPromise: null
+    catalogPromise: null,
+    /* "d1" | "static" — 지금 실제로 읽고 있는 데이터 출처 */
+    source: null
   };
 
-  async function fetchJson(url) {
-    const response = await fetch(url, { cache: "no-store" });
+  async function fetchJson(url, cacheMode) {
+    const response = await fetch(url, cacheMode ? { cache: cacheMode } : { cache: "no-store" });
     if (!response.ok) {
       const error = new Error(`HTTP ${response.status}`);
       error.status = response.status;
@@ -191,18 +201,76 @@
     return response.json();
   }
 
+  function sourceOverride() {
+    const value = params().get("data");
+    return value === "static" || value === "d1" ? value : null;
+  }
+
+  /** D1 매니페스트(/api/air/manifest) → 정적 index.json 과 같은 모양으로 맞춘다. */
+  async function d1Manifest() {
+    const payload = await fetchJson(API_ROOT + "manifest", "default");
+
+    if (!payload || payload.ok !== true) throw new Error("D1_MANIFEST_UNAVAILABLE");
+    if (!Array.isArray(payload.files) || !payload.files.length) throw new Error("D1_MANIFEST_EMPTY");
+
+    return {
+      mode: payload.mode === "test" ? "test" : "production",
+      schema_version: payload.schema_version || 3,
+      generated_at: payload.generated_at || null,
+      updated_at: payload.updated_at || null,
+      total: Number.isFinite(payload.total) ? payload.total : null,
+      snapshot: payload.snapshot || "d1",
+      files: payload.files.map(file => ({ month: file.month, total: file.total, source: "d1" })),
+      source: payload.source_name || null,
+      source_url: payload.source_url || null,
+      source_updated_at: payload.source_updated_at || null,
+      collection: payload.collection || { method: "D1", logged_in: false, routes: [], months: payload.months || [] },
+      last_success_at: payload.last_success_at || payload.generated_at || null,
+      last_error: payload.last_error || null,
+      data_source: "d1"
+    };
+  }
+
+  /** 정적 스냅샷 매니페스트(폴백) */
+  async function staticManifest() {
+    const manifest = await fetchJson(DATA_ROOT + "index.json");
+
+    if (manifest.mode !== "test" && manifest.mode !== "production") {
+      throw new Error("INVALID_MANIFEST_MODE");
+    }
+    if (!Array.isArray(manifest.files) || !manifest.files.length) {
+      throw new Error("INVALID_MANIFEST_FILES");
+    }
+
+    return Object.assign({}, manifest, { data_source: "static" });
+  }
+
+  /**
+   * 매니페스트: D1 우선, 실패하면 정적 JSON.
+   * (?data=static 이면 정적, ?data=d1 이면 D1 실패 시 폴백 없이 에러)
+   */
   function getManifest() {
     if (state.manifest) return Promise.resolve(state.manifest);
 
     if (!state.manifestPromise) {
-      state.manifestPromise = fetchJson(DATA_ROOT + "index.json")
+      const override = sourceOverride();
+
+      state.manifestPromise = (async () => {
+        if (override !== "static") {
+          try {
+            const manifest = await d1Manifest();
+            state.source = "d1";
+            return manifest;
+          } catch (error) {
+            if (override === "d1") throw error;
+          }
+        }
+
+        const manifest = await staticManifest();
+        state.source = "static";
+        return manifest;
+      })()
         .then(manifest => {
-          if (manifest.mode !== "test" && manifest.mode !== "production") {
-            throw new Error("INVALID_MANIFEST_MODE");
-          }
-          if (!Array.isArray(manifest.files) || !manifest.files.length) {
-            throw new Error("INVALID_MANIFEST_FILES");
-          }
           state.manifest = manifest;
           return manifest;
         })
@@ -226,33 +294,81 @@
     return url.href;
   }
 
+  /** D1 한 달 전체 행 — 20,000행 상한을 넘으면 offset 으로 이어 읽는다. */
+  async function loadD1Month(month) {
+    const items = [];
+
+    for (let page = 0; page < D1_MAX_PAGES; page += 1) {
+      const offset = page * D1_PAGE_LIMIT;
+      const url = `${API_ROOT}routes?month=${encodeURIComponent(month)}` +
+        `&limit=${D1_PAGE_LIMIT}&offset=${offset}`;
+      const payload = await fetchJson(url, "default");
+
+      if (!payload || payload.ok !== true || !Array.isArray(payload.items)) {
+        throw new Error("D1_ROUTES_UNAVAILABLE");
+      }
+
+      items.push(...payload.items);
+
+      const total = Number.isFinite(payload.total) ? payload.total : items.length;
+      if (!payload.items.length || items.length >= total) break;
+    }
+
+    return items;
+  }
+
   async function loadPart(file) {
-    if (state.parts.has(file.path)) return state.parts.get(file.path);
+    const key = file.source === "d1" ? `d1:${file.month}` : file.path;
+    if (state.parts.has(key)) return state.parts.get(key);
 
-    const promise = fetchJson(safePath(file.path)).then(part => {
-      if (!Array.isArray(part.items)) throw new Error("INVALID_DATA_PART");
-      return part.items;
-    }).catch(error => {
-      state.parts.delete(file.path);
-      throw error;
-    });
+    const promise = (file.source === "d1"
+      ? loadD1Month(file.month)
+      : fetchJson(safePath(file.path)).then(part => {
+          if (!Array.isArray(part.items)) throw new Error("INVALID_DATA_PART");
+          return part.items;
+        }))
+      .catch(error => {
+        state.parts.delete(key);
+        throw error;
+      });
 
-    state.parts.set(file.path, promise);
+    state.parts.set(key, promise);
     return promise;
   }
 
   function fileMatches(file, filter) {
-    if (filter.region && file.region !== filter.region) return false;
+    /* D1 파일은 월 단위이고 권역 정보가 없다 — 권역 필터는 정적 파일에만 쓴다. */
+    if (file.source !== "d1" && filter.region && file.region !== filter.region) return false;
     if (filter.month && file.month !== filter.month) return false;
     return true;
   }
 
   /**
    * 필터(지역/월)에 해당하는 지역·월 파일만 읽어 정규화된 행을 돌려준다.
+   * D1 읽기가 중간에 실패하면 정적 스냅샷으로 한 번 폴백한다.
    * @returns {Promise<{rows:Array, stats:Object}>}
    */
   async function loadRows(filter = {}) {
     const manifest = await getManifest();
+
+    try {
+      return await assembleRows(manifest, filter);
+    } catch (error) {
+      if (manifest.data_source !== "d1" || sourceOverride() === "d1") throw error;
+
+      /* D1(API·D1 장애) 폴백 — 한 번만 정적 스냅샷으로 다시 읽는다. */
+      state.manifest = null;
+      state.manifestPromise = null;
+      state.parts.clear();
+      state.source = "static";
+      const fallback = await staticManifest();
+      state.manifest = fallback;
+      state.manifestPromise = Promise.resolve(fallback);
+      return assembleRows(fallback, filter);
+    }
+  }
+
+  async function assembleRows(manifest, filter) {
     const files = manifest.files.filter(file => fileMatches(file, filter));
 
     const parts = await Promise.all(files.map(async file => ({
@@ -406,9 +522,10 @@
       ageHours,
       ageLabel: fmtAge(generatedAt),
       stale,
-      regions: [...new Set(manifest.files.map(f => f.region))].sort(),
-      months: [...new Set(manifest.files.map(f => f.month))].sort(),
+      regions: [...new Set(manifest.files.map(f => f.region).filter(Boolean))].sort(),
+      months: [...new Set(manifest.files.map(f => f.month).filter(Boolean))].sort(),
       files: manifest.files,
+      dataSource: manifest.data_source || "static",
       snapshot: manifest.snapshot || null,
       total: manifest.total || null,
       lastSuccess: manifest.last_success_at || null,
@@ -1244,7 +1361,7 @@
   /* ------------------------------------------------------------- 공개 API */
 
   window.Air = {
-    ROOT, DATA_ROOT, FRESH_HOURS, PROGRAM, PROGRAM_LABEL,
+    ROOT, DATA_ROOT, API_ROOT, FRESH_HOURS, PROGRAM, PROGRAM_LABEL,
     KE_AWARD_URL, KE_HOTPICK_URL,
     CABINS, CABIN_BY_KEY, CABIN_BY_LETTER, NAV, REGION_LABEL,
     el, fmtMiles, fmtDate, fmtMonth, fmtDateTime, fmtAge, hoursSince, todayKst,
@@ -1255,6 +1372,8 @@
     params, param, setParams, viewLink, onPopState,
     mountChrome, combobox, airportCombo, pageKey, renderHeaderUpdated,
     regionLabel(region) { return REGION_LABEL[region] || region; },
+    /* 지금 읽고 있는 데이터 출처("d1" | "static" | null) — 점검·디버그용 */
+    dataSource() { return state.source; },
     statusLabel(status) { return STATUS_LABEL[status] || status; }
   };
 })();

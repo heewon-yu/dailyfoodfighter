@@ -3,10 +3,11 @@
  *
  * GET  /api/air/routes?origin=ICN&destination=ORD&month=2026-12&cabin=business
  *      선택 필터: origin, destination, month(YYYY-MM), cabin(business|first),
- *                status, from(YYYY-MM-DD), to(YYYY-MM-DD), limit(기본 3000 / 최대 20000)
- *      응답: { ok:true, source:"d1", total, items:[ {program, origin, destination,
- *              departure_date, month, cabin, status, seat_count, points, first_combined,
- *              source_updated_at, collected_at, updated_at} ] }
+ *                status, from(YYYY-MM-DD), to(YYYY-MM-DD), limit(기본 3000 / 최대 20000),
+ *                offset(기본 0 — 20,000행을 넘는 달은 offset 으로 이어 읽는다)
+ *      응답: { ok:true, source:"d1", total, returned, limit, offset, items:[ {program, origin,
+ *              destination, departure_date, month, cabin, status, seat_count, points,
+ *              first_combined, source_updated_at, collected_at, updated_at} ] }
  *
  * POST /api/air/routes   (Authorization: Bearer $AIR_INGEST_TOKEN)
  *      body: { origin:"ICN", destination:"SIN", month:"2027-05",
@@ -149,6 +150,9 @@ export async function onRequestGet({ request, env }) {
   if (!Number.isFinite(limit) || limit < 1) limit = READ_LIMIT_DEFAULT;
   if (limit > READ_LIMIT_MAX) limit = READ_LIMIT_MAX;
 
+  let offset = Number.parseInt(url.searchParams.get('offset'), 10);
+  if (!Number.isFinite(offset) || offset < 0) offset = 0;
+
   const db = env.AIR_DB;
   if (!db) return json({ ok: false, error: 'database_unavailable' }, 503);
 
@@ -160,9 +164,9 @@ export async function onRequestGet({ request, env }) {
           `SELECT * FROM air_award_dates${clause}
            ORDER BY departure_date ASC, origin ASC, destination ASC,
                     CASE cabin WHEN 'business' THEN 0 ELSE 1 END
-           LIMIT ?`
+           LIMIT ? OFFSET ?`
         )
-        .bind(...args, limit)
+        .bind(...args, limit, offset)
         .all(),
       db.prepare(`SELECT COUNT(*) AS n FROM air_award_dates${clause}`).bind(...args).first()
     ]);
@@ -174,6 +178,7 @@ export async function onRequestGet({ request, env }) {
         total: countRow ? countRow.n : (results || []).length,
         returned: (results || []).length,
         limit,
+        offset,
         items: (results || []).map(rowToItem)
       },
       200,
