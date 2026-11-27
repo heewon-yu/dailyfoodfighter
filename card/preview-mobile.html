@@ -14,20 +14,20 @@ p{margin:0 0 6px}
 <div class="panel--412"><p>412 · 통신·관리비 TOP5</p><div class="clip"><iframe id="m3" src="/card/?tab=top&amp;type=utility"></iframe></div></div>
 <script>
 function jump(id, sel){
-  var f=document.getElementById(id);
+  var f=document.getElementById(id), tries=0;
   function go(){
-    setTimeout(function(){
-      try{
-        var d=f.contentDocument, w=f.contentWindow;
-        if(!d) return;
-        if(typeof sel==='number'){ w.scrollTo(0, sel); return; }
-        var el=d.querySelector(sel);
-        if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 8); }
-      }catch(e){}
-    }, 300);
+    tries++;
+    try{
+      var d=f.contentDocument, w=f.contentWindow;
+      if(d && d.readyState==='complete' && d.body && d.body.scrollHeight>2500){
+        if(typeof sel==='number'){ w.scrollTo(0, sel); }
+        else { var el=d.querySelector(sel); if(el){ w.scrollTo(0, el.getBoundingClientRect().top + w.scrollY - 8); } }
+        if(tries<10){ setTimeout(go, 400); return; }
+      }
+    }catch(e){}
+    if(tries<20){ setTimeout(go, 400); }
   }
   go();
-  f.addEventListener('load', go);
 }
 jump('m1', 980);
 jump('m2', '#type-detail');
