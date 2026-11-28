@@ -6,23 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
     <meta name="theme-color" content="#fcfcf9" />
     %sveltekit.head%
-    <!-- Naver Analytics (wcslog) -->
-    <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
-    <script type="text/javascript">
-      if(!wcs_add) var wcs_add = {};
-      wcs_add["wa"] = "1fdda5e32ec26f0";
-      if(window.wcs) {
-        wcs_do();
-      }
-    </script>
-    <!-- Google Analytics 4 (GA4) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBV8HQ5J6Z"></script>
+    <!-- ANALYTICS-START: 네이버 애널리틱스 + GA4 (실서버 도메인에서만 로드·전송) -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-KBV8HQ5J6Z');
+      (function () {
+        var host = location.hostname;
+        if (host !== 'dailyfoodfighter.com' && host !== 'www.dailyfoodfighter.com') return;
+
+        /* 네이버 애널리틱스 (wcslog) */
+        if (!window.wcs_add) window.wcs_add = {};
+        window.wcs_add["wa"] = "1fdda5e32ec26f0";
+        var naverScript = document.createElement('script');
+        naverScript.type = 'text/javascript';
+        naverScript.src = '//wcs.pstatic.net/wcslog.js';
+        naverScript.onload = function () {
+          if (window.wcs && typeof window.wcs_do === 'function') { window.wcs_do(); }
+        };
+        (document.head || document.documentElement).appendChild(naverScript);
+
+        /* Google Analytics 4 (GA4) */
+        window.dataLayer = window.dataLayer || [];
+        window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-KBV8HQ5J6Z';
+        (document.head || document.documentElement).appendChild(gaScript);
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-KBV8HQ5J6Z');
+      })();
     </script>
+    <!-- ANALYTICS-END -->
   </head>
   <body data-sveltekit-preload-data="hover"><div style="display: contents">%sveltekit.body%</div></body>
 </html>

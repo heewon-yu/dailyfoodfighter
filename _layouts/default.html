@@ -232,28 +232,8 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}?v={{ site.time | date: '%s' }}">
   
-  <!-- Google Analytics 4 (GA4) -->
-  {% if site.google_analytics and site.google_analytics != "" %}
-  <script async src="https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '{{ site.google_analytics }}');
-  </script>
-  {% endif %}
-
-  <!-- Naver Analytics (wcslog) -->
-  {% if site.naver_analytics and site.naver_analytics != "" %}
-  <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
-  <script type="text/javascript">
-  if(!wcs_add) var wcs_add = {};
-  wcs_add["wa"] = "{{ site.naver_analytics }}";
-  if(window.wcs) {
-    wcs_do();
-  }
-  </script>
-  {% endif %}
+  <!-- Google Analytics 4 (GA4) + 네이버 애널리틱스 — 실서버 도메인에서만 로드·전송 -->
+  {% include analytics.html %}
 
   <!-- Google AdSense (발급 후 site.adsense_client 입력 시 자동 적용) -->
   {% if site.adsense_client != "" %}

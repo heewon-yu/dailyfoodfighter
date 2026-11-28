@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
-"""네이버 애널리틱스 + GA4 스크립트를 독립 정적 HTML의 </head> 직전에 1회 삽입한다.
-이미 삽입된 파일은 건너뛴다(멱등).
+"""네이버 애널리틱스 + GA4 블록을 독립 정적 HTML에 1회 삽입/갱신한다.
+
+- `_includes/analytics.html`(Jekyll 공통 인클루드)을 정본으로 삼아 Liquid 변수를 실제 ID로 치환해 사용한다.
+- 실서버 도메인(dailyfoodfighter.com / www.dailyfoodfighter.com)에서만 스크립트를 로드한다.
+- 이미 ANALYTICS-START 블록이 있으면 그 블록만 교체(멱등), 이전 버전 블록이 있으면 그것도 교체.
 """
 import pathlib
 import sys
@@ -8,7 +11,11 @@ import sys
 NAVER = '1fdda5e32ec26f0'
 GA4 = 'G-KBV8HQ5J6Z'
 
-SNIPPET = """  <!-- Naver Analytics (wcslog) -->
+START = '<!-- ANALYTICS-START'
+END = '<!-- ANALYTICS-END -->'
+
+# 2026-11-28 1차 삽입본(도메인 가드 없음) — 갱신 대상
+LEGACY = """  <!-- Naver Analytics (wcslog) -->
   <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
   <script type="text/javascript">
   if(!wcs_add) var wcs_add = {};
@@ -44,6 +51,10 @@ TARGETS = [
 ]
 
 root = pathlib.Path(__file__).resolve().parent.parent
+snippet = (root / '_includes/analytics.html').read_text(encoding='utf-8')
+snippet = snippet.replace('{{ site.naver_analytics }}', NAVER).replace('{{ site.google_analytics }}', GA4)
+snippet = snippet.rstrip('\n') + '\n'
+
 changed, skipped, errors = [], [], []
 
 for rel in TARGETS:
@@ -52,24 +63,32 @@ for rel in TARGETS:
         errors.append(f'MISSING {rel}')
         continue
     html = p.read_text(encoding='utf-8')
-    if NAVER in html:
-        skipped.append(rel)
+
+    if START in html:
+        s = html.index(START)
+        e = html.index(END) + len(END)
+        new = html[:s].rstrip(' \t') + '\n' + snippet + html[e:].lstrip('\n')
+        if new == html:
+            skipped.append(rel)
+            continue
+        p.write_text(new, encoding='utf-8')
+        changed.append(rel)
         continue
-    if '</head>' not in html:
-        errors.append(f'NO_HEAD {rel}')
+
+    if LEGACY in html:
+        p.write_text(html.replace(LEGACY, snippet, 1), encoding='utf-8')
+        changed.append(rel)
         continue
-    if html.count('</head>') != 1:
-        errors.append(f'MULTI_HEAD {rel}')
+
+    if '</head>' not in html or html.count('</head>') != 1:
+        errors.append(f'HEAD {rel}')
         continue
-    html = html.replace('</head>', SNIPPET + '</head>', 1)
-    p.write_text(html, encoding='utf-8')
+    p.write_text(html.replace('</head>', snippet + '</head>', 1), encoding='utf-8')
     changed.append(rel)
 
-print(f'changed={len(changed)} skipped={len(skipped)} errors={len(errors)}')
+print(f'changed={len(changed)} unchanged={len(skipped)} errors={len(errors)}')
 for c in changed:
-    print('  +', c)
-for s in skipped:
-    print('  = already', s)
+    print('  ~', c)
 for e in errors:
     print('  !', e)
 sys.exit(1 if errors else 0)

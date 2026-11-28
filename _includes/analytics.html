@@ -1,0 +1,29 @@
+<!-- ANALYTICS-START: 네이버 애널리틱스 + GA4 (실서버 도메인에서만 로드·전송) -->
+<script>
+(function () {
+  var host = location.hostname;
+  if (host !== 'dailyfoodfighter.com' && host !== 'www.dailyfoodfighter.com') return;
+
+  /* 네이버 애널리틱스 (wcslog) */
+  if (!window.wcs_add) window.wcs_add = {};
+  window.wcs_add["wa"] = "{{ site.naver_analytics }}";
+  var naverScript = document.createElement('script');
+  naverScript.type = 'text/javascript';
+  naverScript.src = '//wcs.pstatic.net/wcslog.js';
+  naverScript.onload = function () {
+    if (window.wcs && typeof window.wcs_do === 'function') { window.wcs_do(); }
+  };
+  (document.head || document.documentElement).appendChild(naverScript);
+
+  /* Google Analytics 4 (GA4) */
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
+  var gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id={{ site.google_analytics }}';
+  (document.head || document.documentElement).appendChild(gaScript);
+  window.gtag('js', new Date());
+  window.gtag('config', '{{ site.google_analytics }}');
+})();
+</script>
+<!-- ANALYTICS-END -->
