@@ -1479,8 +1479,11 @@
     function paint() {
       const saved = refreshMemory.get(key) || null;
       const status = saved ? saved.status : null;
-      const queueState = status === "queued" || status === "pending" ? "queued" :
-        status === "deduped" || status === "processing" ? "processing" :
+      const itemStatus = saved && saved.item ? saved.item.status : null;
+      const waiting = itemStatus === "processing" ? "processing" : "queued";
+      const queueState = status === "queued" || status === "pending" ? waiting :
+        status === "deduped" ? waiting :
+        status === "processing" ? "processing" :
         status === "done" ? "done" :
         status === "failed" || status === "failed_cooldown" ? "failed" :
         status === "daily_limit_reached" || status === "rate_limited" ? "limited" :
