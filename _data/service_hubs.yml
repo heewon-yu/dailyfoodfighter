@@ -1,0 +1,73 @@
+# 서비스 허브 목록 — RSS 피드(feed-ko.xml·feed.xml)에 블로그 글과 함께 노출한다.
+# 네이버 서치어드바이저·다음 검색등록은 RSS로 새 URL을 수집하므로,
+# 글(.md)이 아닌 서비스·도구 페이지도 여기에 넣어 두면 피드로 함께 전달된다.
+# updated: 피드 pubDate로 쓰는 값. 허브 내용이 실제로 바뀔 때만 갱신한다.
+- url: /
+  updated: 2026-11-28
+  ko_title: 쓸모있는 모음.zip — 식재료 영양 가이드와 생활 도구 8종 허브
+  ko_description: "식재료 영양 가이드에 마일지도·힐튼포숙지도·경제지표지도·카드지도·한입지도·계산기·웹게임·혜택찾기를 한 화면에 모은 메인 허브입니다."
+  en_title: Sseulmojip — food nutrition guide hub with eight everyday tools
+  en_description: "The main hub for the evidence-based food guide plus eight everyday tools: award-seat map, Hilton point stays, macro dashboard, card map, restaurant map, calculators, web games and benefit finder."
+
+- url: /nutrition-calculator/
+  updated: 2026-11-28
+  ko_title: 식재료 칼로리·단백질 계산기 — 55종 중량별 비교
+  ko_description: "달걀·두부·닭가슴살·삼겹살·연어 등 55종 식재료의 가식부 중량별 칼로리와 단백질을 생것·익힌 것 기준으로 비교합니다. USDA FDC ID·농진청 식품코드를 함께 표기합니다."
+  en_title: Ingredient calorie and protein calculator — 55 foods by weight
+  en_description: "Compare calories and protein by edible weight for 55 ingredients such as eggs, tofu, chicken breast, pork belly and salmon, with raw and cooked basis plus USDA FDC IDs and Korean RDA food codes."
+
+- url: /air/
+  updated: 2026-11-28
+  ko_title: 마일지도 — 대한항공 직항 보너스 좌석 잔여 조회
+  ko_description: "로그인 없이 대한항공 직항 국제선의 프레스티지·일등석 보너스 좌석 잔여를 월 단위로 조회합니다. 노선·달력·마일 계산을 함께 제공합니다."
+  en_title: Milemap — Korean Air nonstop award seat availability
+  en_description: "Check remaining Korean Air nonstop award seats in Prestige and First class by month without signing in, with route, calendar and mileage tools."
+
+- url: /hotel/
+  updated: 2026-11-28
+  ko_title: 힐튼포숙지도 — 힐튼 포인트 가치·주말숙박권 비교
+  ko_description: "월도프 아스토리아·콘래드·LXR 등 힐튼 하이엔드 호텔의 포인트 숙박을 현금가와 비교하고 주말숙박권 사용 가능 여부를 조회합니다."
+  en_title: Hilton point stay map — point value and weekend night certificates
+  en_description: "Compare Hilton high-end stays (Waldorf Astoria, Conrad, LXR) in points against cash rates and check whether weekend night certificates apply."
+
+- url: /macro/
+  updated: 2026-11-28
+  ko_title: 경제지표지도 — 공포탐욕지수·VIX·미국채·버핏지수·김치프리미엄
+  ko_description: "VIX, 공포탐욕지수, 미국채 수익률, 하이일드 스프레드, 버핏지수, CPI/PPI, 주요 지수, 원자재, 비트코인, 김치프리미엄을 한 화면에서 봅니다."
+  en_title: Macro map — fear and greed, VIX, treasuries, Buffett indicator, kimchi premium
+  en_description: "A single dashboard for VIX, the fear and greed index, US treasury yields, high-yield spreads, the Buffett indicator, CPI/PPI, major indices, commodities, bitcoin and the kimchi premium."
+
+- url: /card/
+  updated: 2026-11-28
+  ko_title: 이달의 카드지도 — 유형별 카드 발급 혜택 TOP 5
+  ko_description: "캐시백·마일리지·호텔·라운지·관리비 등 9개 유형별 카드 발급 혜택을 전월실적과 함께 비교해 TOP 5로 정리합니다. 매월 갱신합니다."
+  en_title: Card map of the month — top five cards by benefit type
+  en_description: "Monthly top-five cards across nine benefit types (cashback, miles, hotel, lounge, utility bills) compared with minimum spend requirements."
+
+- url: /map/
+  updated: 2026-11-28
+  ko_title: 한입지도 — 유튜브 맛집·미슐랭·국내 숙소·해외 호텔 지도
+  ko_description: "유튜브 맛집과 미슐랭 레스토랑(한입지도), 국내 숙소(한밤지도), 해외 5대 체인·하이엔드 호텔(해외지도)을 지도에서 함께 찾습니다."
+  en_title: Hanip map — YouTube picks, Michelin, Korean stays, overseas hotels
+  en_description: "Find YouTube-recommended restaurants and Michelin picks, Korean stays, and overseas chain and high-end hotels on one map."
+
+- url: /cal/
+  updated: 2026-11-28
+  ko_title: 한번에 계산기 — 부동산·환율·급여·마일리지·건강 계산기 12종
+  ko_description: "부동산, 환율, 급여, 대한항공 마일리지, 건강 등 12종 계산기를 한 페이지에서 바로 씁니다."
+  en_title: All-in-one calculators — property, FX, salary, miles, health
+  en_description: "Twelve everyday calculators in one place: property, exchange rates, salary, Korean Air miles, health and more."
+
+- url: /games/
+  updated: 2026-11-28
+  ko_title: 무료 웹게임 4종 — 300초 추리게임·5분 단타왕·비트 클래식·호르무즈 탈출
+  ko_description: "설치 없이 브라우저에서 바로 하는 무료 웹게임 모음입니다. 일일 랭킹과 모바일·PC 화면을 모두 지원합니다."
+  en_title: Four free browser games — 300 Seconds, Scalping King, Beat Classic, Hormuz Escape
+  en_description: "Free browser games that run without installing anything, with daily rankings and both mobile and desktop layouts."
+
+- url: /benefits/
+  updated: 2026-11-28
+  ko_title: 혜택찾기 — 정부지원금·청년·주거·출산육아·창업 정책자금 맞춤 검색
+  ko_description: "회원가입이나 주민번호 입력 없이 정부24·기업마당 공고를 기준으로 조건에 맞는 정부지원금과 정책자금을 찾아 줍니다."
+  en_title: Benefit finder — Korean government grants and policy loans by profile
+  en_description: "Match government grants, youth and housing support, childcare benefits and policy loans from official Korean sources, without signing up or entering a resident number."

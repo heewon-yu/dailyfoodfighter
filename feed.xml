@@ -25,5 +25,21 @@ permalink: /feed.xml
         <category>{{ post.category | xml_escape }}</category>
       </item>
     {% endfor %}
+    {%- comment -%}
+      2026-11-28: 블로그 글(.md)이 아닌 서비스 허브도 피드로 내보낸다.
+      네이버 서치어드바이저·다음 검색등록은 RSS로 URL을 수집하므로,
+      도구·서비스 페이지가 피드에 없으면 색인 요청을 일일이 손으로 해야 한다.
+      목록은 _data/service_hubs.yml에서 관리한다.
+    {%- endcomment -%}
+    {% for hub in site.data.service_hubs %}
+      <item>
+        <title>{{ hub.en_title | xml_escape }}</title>
+        <description>{{ hub.en_description | xml_escape }}</description>
+        <pubDate>{{ hub.updated | date_to_rfc822 }}</pubDate>
+        <link>{{ hub.url | absolute_url }}</link>
+        <guid isPermaLink="true">{{ hub.url | absolute_url }}</guid>
+        <category>Service</category>
+      </item>
+    {% endfor %}
   </channel>
 </rss>

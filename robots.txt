@@ -29,6 +29,10 @@ Allow: /
 User-agent: Daum
 Allow: /
 
+# 다음·카카오 이미지/문서 수집 크롤러
+User-agent: Daumoa
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 

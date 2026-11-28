@@ -31,6 +31,36 @@ include:
 exclude:
   - apps/
   - node_modules/
+  # 2026-11-28 내부 문서·소스·보조 스크립트 웹 노출 차단.
+  # 공개 페이지(/, /air/, /hotel/, /macro/, /card/, /cal/, /map/, /benefits/, /games/,
+  # /nutrition-calculator/, /tags/, 블로그 글, 신뢰 4페이지, sitemap.xml·feed*.xml·robots.txt·
+  # ads.txt·app-ads.txt·IndexNow 키·검색 인증 파일)는 여기에 넣지 않는다.
+  - docs/
+  - data/
+  - scripts/
+  - tools/
+  - supabase/
+  - functions/
+  - scalping-king-android/
+  - README.md
+  - ingredients.md
+  - CLAUDE.md
+  - AGENTS.md
+  # 공개 서비스 폴더 안에 섞여 있던 내부 문서·수집 스크립트
+  - hotel/README.md
+  - hotel/scripts/
+  - map/README.md
+  - map/tests/
+  - macro/README.md
+  - games/hormuz/README.md
+  - games/scalping-king/CODEX_20261112_UX_RANKINGS_HANDOFF.md
+  - games/scalping-king/CODEX_V2_HANDOFF.md
+  - games/scalping-king/playstore-assets/README.md
+  - games/300-seconds/APP_RELEASE_HANDOFF.md
+  - games/300-seconds/ASSET_PROVENANCE.md
+  - games/300-seconds/BLIND_REVIEW.md
+  - games/300-seconds/DIFFICULTY.md
+  - games/300-seconds/QA_REPORT.md
 
 # Collections / Categories
 collections:
