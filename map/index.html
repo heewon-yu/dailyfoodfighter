@@ -61,6 +61,23 @@ dialog{max-height:90dvh}#place-dialog{overscroll-behavior:contain}.dialog-head{m
   ]
 }
 </script>
+  <!-- Naver Analytics (wcslog) -->
+  <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "1fdda5e32ec26f0";
+  if(window.wcs) {
+    wcs_do();
+  }
+  </script>
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KBV8HQ5J6Z"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KBV8HQ5J6Z');
+  </script>
 </head>
 <body><header><div class="top"><a class="brand" href="./"><b aria-hidden="true">●</b> <span id="brand-name">한입지도</span></a><nav class="map-switch" aria-label="지도 선택"><button class="tab" id="food-view" type="button" aria-pressed="true">한입지도</button><button class="tab" id="stay-view" type="button" aria-pressed="false">한밤지도</button><button class="tab" id="abroad-view" type="button" aria-pressed="false">해외지도</button></nav><button id="saved" class="tab" aria-pressed="false">☆ 저장한 장소</button></div></header>
 <main><a class="dff-home-back" href="/">← 쓸모있는 모음.zip</a>

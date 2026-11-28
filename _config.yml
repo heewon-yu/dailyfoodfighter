@@ -8,6 +8,8 @@ timezone: Asia/Seoul
 
 # Google Analytics & AdSense & SEO
 google_analytics: "G-KBV8HQ5J6Z"
+# 네이버 애널리틱스(analytics.naver.com) 사이트 ID — 모든 레이아웃 페이지의 헤드에 1회 출력
+naver_analytics: "1fdda5e32ec26f0"
 google_site_verification: "6yCtc2PFnJY8OHTOXxSchWsOM0L6kQAqDqyXYTaLisM"
 naver_site_verification: "1c2118c3fd26040e60b2680b40860e6862f5b5bb"
 indexnow_key: "c7438e83b8a14ec1a1961efce1d2f782"

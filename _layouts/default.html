@@ -243,6 +243,18 @@
   </script>
   {% endif %}
 
+  <!-- Naver Analytics (wcslog) -->
+  {% if site.naver_analytics and site.naver_analytics != "" %}
+  <script type="text/javascript" src="//wcs.pstatic.net/wcslog.js"></script>
+  <script type="text/javascript">
+  if(!wcs_add) var wcs_add = {};
+  wcs_add["wa"] = "{{ site.naver_analytics }}";
+  if(window.wcs) {
+    wcs_do();
+  }
+  </script>
+  {% endif %}
+
   <!-- Google AdSense (발급 후 site.adsense_client 입력 시 자동 적용) -->
   {% if site.adsense_client != "" %}
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={{ site.adsense_client }}" crossorigin="anonymous"></script>
