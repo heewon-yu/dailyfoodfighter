@@ -708,6 +708,20 @@ body {
 .living-card:hover { transform: translateY(-2px); border-color: #b8c5d6; box-shadow: var(--guide-shadow); color: var(--guide-ink); }
 .living-card:focus-visible { outline: 3px solid rgba(39, 39, 42, .42); outline-offset: 3px; }
 .living-card__icon { display: grid; width: 60px; height: 60px; place-items: center; margin-bottom: 16px; border: 1px solid #ececef; border-radius: 16px; background: linear-gradient(180deg, #fafafa 0%, #f1f1f3 100%); font-size: 2.1rem; line-height: 1; }
+/* 포털 메뉴 이모지: 1em 정사각 박스를 만들어 그 안에서 글리프 잉크의 가로·세로 무게중심이
+   박스 정중앙에 오도록 이모지별 배율(--emoji-scale)과 이동량(--emoji-x/y)을 맞춘다.
+   (Segoe UI Emoji는 이모지 글리프가 1.373em advance 왼쪽에 붙어 그려져, 글자만 가운데 정렬하면
+   잉크가 약 0.19em 왼쪽으로 치우친다. width:1em + text-align:left로 그 치우침을 상쇄한다.) */
+.living-card__emoji { display: block; width: 1em; line-height: 1; text-align: left; transform-origin: 50% 50%; transform: translate(var(--emoji-x, 0em), var(--emoji-y, 0em)) scale(var(--emoji-scale, 1)); }
+.living-card__emoji--blog { --emoji-scale: 1.139; --emoji-x: -.0057em; --emoji-y: -.0894em; }
+.living-card__emoji--cal { --emoji-scale: .979; --emoji-x: 0em; --emoji-y: -.0576em; }
+.living-card__emoji--map { --emoji-scale: 1.03; --emoji-x: .0104em; --emoji-y: -.047em; }
+.living-card__emoji--air { --emoji-scale: 1.005; --emoji-x: .0124em; --emoji-y: -.0504em; }
+.living-card__emoji--macro { --emoji-scale: 1.09; --emoji-x: .0022em; --emoji-y: -.0306em; }
+.living-card__emoji--hotel { --emoji-scale: 1; --emoji-x: -.0025em; --emoji-y: -.0528em; }
+.living-card__emoji--benefits { --emoji-scale: 1.045; --emoji-x: 0em; --emoji-y: .012em; }
+.living-card__emoji--games { --emoji-scale: 1.275; --emoji-x: .001em; --emoji-y: -.1153em; }
+.living-card__emoji--card { --emoji-scale: 1.254; --emoji-x: .0055em; --emoji-y: -.0697em; }
 .living-card--card { border-color: #f0d9ae; }
 .living-card--card:hover { border-color: #d97706; }
 .living-card__icon--gold { border-color: #f0d9ae; background: linear-gradient(180deg, #fffaf2 0%, #ffeccf 100%); }
