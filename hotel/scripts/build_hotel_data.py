@@ -159,6 +159,7 @@ def main():
             "cashCurrency": cash_cur,
             "cashKrw": cash_krw,
             "valuePerPoint": vpp,
+            "cashObservedAt": (o or {}).get("cashObservedAt"),
             "observedAt": (o.get("observedAt") or DEFAULT_OBS) if o else None,
             "observedAtLabel": (o.get("observedAtLabel") or DEFAULT_OBS_LABEL) if o else None,
             "excluded": code in EXCLUDED,
@@ -219,6 +220,8 @@ def main():
             "schema": "functions/api/hotel/schema.sql",
         },
     }
+    if obs_meta.get("cashRecovered"):
+        meta["cashRecovered"] = obs_meta["cashRecovered"]
 
     out = {"meta": meta, "hotels": hotels, "cities": city_list}
     OUT_APP.parent.mkdir(parents=True, exist_ok=True)

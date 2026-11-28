@@ -29,6 +29,10 @@ TRACKED_OUTPUTS = (
     Path("hotel/scripts/data/observed_locations.json"),
 )
 
+# 2026-11-28 #28 오염 재발 방지 가드
+CASH_POINT_TOL = 10      # |cashAmount - points| 가 이보다 작으면 오염으로 본다
+CASH_COVERAGE_MIN = 0.9  # 포인트가 관측된 호텔 중 현금가까지 읽힌 비율의 하한
+
 
 class UpdateError(RuntimeError):
     pass
@@ -94,6 +98,40 @@ def atomic_write_json(path: Path, payload: dict) -> None:
         raise
 
 
+def find_cash_point_collisions(records, tol: int = CASH_POINT_TOL) -> list[tuple[str, int, int]]:
+    """현금가가 포인트와 같아진 레코드(2026-11-28 #28 오염) 목록."""
+    hits: list[tuple[str, int, int]] = []
+    for r in records or []:
+        points, cash = r.get("points"), r.get("cashAmount")
+        try:
+            if points and cash and abs(int(cash) - int(points)) < tol:
+                hits.append((str(r.get("code") or r.get("name") or "?"), int(points), int(cash)))
+        except (TypeError, ValueError):
+            continue
+    return hits
+
+
+def assert_no_cash_point_collision(records) -> None:
+    """한 건이라도 현금가=포인트면 실패 — 오염된 스냅숏은 절대 배포하지 않는다."""
+    hits = find_cash_point_collisions(records)
+    if hits:
+        detail = ", ".join(f"{code}:points={pts},cash={cash}" for code, pts, cash in hits[:8])
+        raise UpdateError(f"현금가 오염 의심 {len(hits)}건 — points와 cashAmount가 같음({detail})")
+
+
+def assert_cash_coverage(records, minimum: float = CASH_COVERAGE_MIN) -> None:
+    """포인트가 읽힌 호텔의 현금가가 대부분 같이 읽혔는지 확인한다(전면 미판독 스냅숏 방지)."""
+    with_points = [r for r in records if r.get("points")]
+    with_cash = [r for r in with_points if r.get("cashAmount")]
+    if not with_points:
+        return
+    ratio = len(with_cash) / len(with_points)
+    if ratio < minimum:
+        raise UpdateError(
+            f"현금가 판독률 저조로 중단: {len(with_cash)}/{len(with_points)} ({ratio:.0%}) < {minimum:.0%}"
+        )
+
+
 def validate_observation(path: Path, expected: set[str], known=None) -> dict:
     payload = load_json(path)
     meta = payload.get("meta") or {}
@@ -119,6 +157,8 @@ def validate_observation(path: Path, expected: set[str], known=None) -> dict:
     records = [r for r in records if str(r.get("code") or "").upper() in expected]
     if len(records) != len(expected):
         raise UpdateError(f"영업 호텔 레코드 수 불일치: {len(records)}/{len(expected)}")
+    assert_no_cash_point_collision(records)
+    assert_cash_coverage(records)
     payload["records"] = records
     payload["meta"]["observedScope"] = f"브랜드 디렉터리 8페이지 자동 순회로 영업 중 {len(records)}곳 전수 관측"
     observed = {r.get("observedAt") for r in records}
@@ -138,20 +178,43 @@ def validate_app_data(path: Path, expected: set[str]) -> None:
     hotels = [h for h in payload.get("hotels", []) if h.get("status") == "open"]
     if len(hotels) != len(expected) or any(not h.get("observedAt") for h in hotels):
         raise UpdateError("앱 데이터에 미관측 영업 호텔이 있음")
+    assert_no_cash_point_collision(hotels)
 
 
-def ensure_clean_main() -> None:
-    status = run(["git", "status", "--porcelain"]).stdout.strip()
+def ensure_clean_main(repo: Path = REPO) -> None:
+    """전용 체크아웃이 깨끗한 main 인지 확인한다(수집 전 필수 조건)."""
+    status = run(["git", "status", "--porcelain"], cwd=repo).stdout.strip()
     if status:
         raise UpdateError("전용 체크아웃이 깨끗하지 않아 중단: " + status[:500])
-    branch = run(["git", "branch", "--show-current"]).stdout.strip()
+    branch = run(["git", "branch", "--show-current"], cwd=repo).stdout.strip()
     if branch != "main":
-        raise UpdateError(f"main 브랜치가 아님: {branch}")
-    run(["git", "fetch", "origin", "main"])
-    local = run(["git", "rev-parse", "HEAD"]).stdout.strip()
-    remote = run(["git", "rev-parse", "origin/main"]).stdout.strip()
-    if local != remote:
-        run(["git", "merge", "--ff-only", "origin/main"])
+        raise UpdateError(f"main 브랜치가 아님: {branch or '(detached HEAD)'}")
+
+
+def pull_latest_main(repo: Path = REPO) -> dict:
+    """수집 시작 전에 GitHub `main` 최신 코드로 맞춘다(사실상 `git pull --ff-only origin main`).
+
+    로컬 작업트리가 깨끗하지 않거나, 브랜치가 main 이 아니거나, fetch·fast-forward 가 실패하면
+    `UpdateError` 로 중단하고 파일은 하나도 건드리지 않는다. 수정된 수집기가 아니라
+    구버전 코드로 하루치를 돌리는 사고를 막기 위한 장치다.
+    """
+    ensure_clean_main(repo)
+    before = run(["git", "rev-parse", "HEAD"], cwd=repo).stdout.strip()
+    try:
+        run(["git", "fetch", "origin", "main"], cwd=repo)
+    except UpdateError as exc:
+        raise UpdateError(f"git fetch 실패로 pull 중단: {exc}") from exc
+    remote = run(["git", "rev-parse", "origin/main"], cwd=repo).stdout.strip()
+    if before != remote:
+        proc = run(["git", "merge", "--ff-only", "origin/main"], cwd=repo, check=False)
+        if proc.returncode:
+            detail = (proc.stderr or proc.stdout or "").strip()[-800:]
+            raise UpdateError(f"git pull --ff-only origin main 실패로 중단: {detail}")
+    after = run(["git", "rev-parse", "HEAD"], cwd=repo).stdout.strip()
+    remote_after = run(["git", "rev-parse", "origin/main"], cwd=repo).stdout.strip()
+    if after != remote_after:
+        raise UpdateError(f"pull 후 HEAD({after[:7]})가 origin/main({remote_after[:7]})과 다름")
+    return {"updated": before != after, "before": before, "after": after}
 
 
 def changed_paths() -> set[Path]:
@@ -199,7 +262,9 @@ def main() -> int:
             return 4
 
         try:
-            ensure_clean_main()
+            # ① 수집 전에 항상 GitHub main 최신 코드로 맞춘다(깨끗한 main 인지도 여기서 확인).
+            pulled = pull_latest_main()
+            print(json.dumps({"event": "pull", **pulled}, ensure_ascii=False), flush=True)
             run([args.python, str(SCRIPT_DIR / "collect_locations.py"), "--self-test"])
             expected = expected_open_codes()
             known = master_codes()
@@ -234,14 +299,15 @@ def main() -> int:
             changed = changed_paths()
             allowed = set(TRACKED_OUTPUTS)
             if not changed:
-                write_status(status_path, {"ok": True, "startedAt": started, "result": "NO_CHANGE"})
+                write_status(status_path, {"ok": True, "startedAt": started, "result": "NO_CHANGE",
+                                           "pulled": pulled})
                 return 0
             if not changed <= allowed:
                 raise UpdateError(f"예상 밖 파일 변경: {sorted(map(str, changed - allowed))}")
             if args.no_push:
                 write_status(status_path, {
                     "ok": True, "startedAt": started, "result": "VALIDATED_NO_PUSH",
-                    "changed": sorted(map(str, changed)),
+                    "changed": sorted(map(str, changed)), "pulled": pulled,
                 })
                 return 0
 
@@ -251,7 +317,7 @@ def main() -> int:
             sha = run(["git", "rev-parse", "HEAD"]).stdout.strip()
             write_status(status_path, {
                 "ok": True, "startedAt": started, "finishedAt": datetime.now().astimezone().isoformat(timespec="seconds"),
-                "result": "PUSHED", "date": day, "commit": sha,
+                "result": "PUSHED", "date": day, "commit": sha, "pulled": pulled,
             })
             return 0
         except Exception as exc:

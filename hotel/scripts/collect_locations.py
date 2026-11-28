@@ -72,6 +72,7 @@ BRANDS = {
 }
 BASE = "https://www.hilton.com/en/locations"
 CARD_SEL = 'li[data-testid^="hotel-card-"]'
+CASH_MODE_WAIT_MS = 20000   # Use Points 해제 후 현금 표기로 바뀌기를 기다리는 최대 시간
 
 HALT_TEXT = (
     "Something went wrong",
@@ -82,6 +83,59 @@ HALT_TEXT = (
     "captcha",
 )
 CURRENCY_BASIS = "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+
+# 2026-11-28 오염(#28) 재발 방지 — 현금가는 '통화 표기'가 있는 값만 인정한다.
+# Use Points 를 끈 직후 React 가 아직 포인트 카드를 그려 두면 숫자만 남는데,
+# 그 숫자를 현금가로 읽으면 cashAmount == points(=1.0원/P) 가 된다.
+CURRENCY_MARKER = re.compile(
+    r"(\u20a9|US\$|\$|\u20ac|\u00a3|\u00a5|\u0e3f|\u20ba|\u20b9|\bKRW\b|\bUSD\b|\bEUR\b|\bJPY\b|"
+    r"\bGBP\b|\bTHB\b|\bCNY\b|\bHKD\b|\bSGD\b|\bAUD\b|\bAED\b|\bQAR\b)", re.I)
+POINTS_LINE = re.compile(r"^Points\s*/\s*night$", re.I)
+FROM_LINE = re.compile(r"^From\*?$", re.I)
+
+
+def has_currency_marker(text: str | None) -> bool:
+    return bool(text and CURRENCY_MARKER.search(text))
+
+
+def cash_from_card_text(text: str | None, currency_label: str | None = None) -> str | None:
+    """카드 텍스트에서 **현금가로 확신할 수 있는** 표기 1건만 고른다. 아니면 None.
+
+    - 카드에 `Points/night` 가 남아 있으면 그 카드는 포인트 모드다 → 현금가 없음(오염 방지 핵심).
+    - `From*` 다음 줄이 `Points/night` 로 이어지면 그 숫자는 포인트다 → 건너뛴다.
+    - 통화 표기(₩·$·€·¥·KRW …)가 없는 숫자는 화면 통화 안내(currency_label)가 확인된 경우에만 인정한다.
+    """
+    lines = [ln.strip() for ln in (text or "").split("\n") if ln.strip()]
+    if any(POINTS_LINE.match(ln) for ln in lines):
+        return None
+    candidates: list[str] = []
+    for i, ln in enumerate(lines):
+        if not FROM_LINE.match(ln):
+            continue
+        nxt = lines[i + 1] if i + 1 < len(lines) else None
+        after = lines[i + 2] if i + 2 < len(lines) else None
+        if nxt and not (after and POINTS_LINE.match(after)):
+            candidates.append(nxt)
+    candidates += [ln for ln in lines if has_currency_marker(ln) and to_int(ln) is not None]
+    for cand in candidates:
+        if to_int(cand) is None:
+            continue
+        if has_currency_marker(cand) or currency_label:
+            return cand
+    return None
+
+
+def find_cash_point_collisions(records, tol: int = 10) -> list[tuple[str, int, int]]:
+    """현금가가 포인트와 같아진 레코드(오염) 목록. 하나라도 있으면 스냅숏을 배포하면 안 된다."""
+    hits: list[tuple[str, int, int]] = []
+    for r in records or []:
+        points, cash = r.get("points"), r.get("cashAmount")
+        try:
+            if points and cash and abs(int(cash) - int(points)) < tol:
+                hits.append((str(r.get("code") or r.get("name") or "?"), int(points), int(cash)))
+        except (TypeError, ValueError):
+            continue
+    return hits
 
 # 카드 안에서 한 번에 뽑는 원자료. 해석은 파이썬(parse_card)이 한다 — 오프라인 테스트가 가능하도록.
 READ_JS = """
@@ -97,6 +151,18 @@ READ_JS = """
   const body = document.body ? document.body.innerText : '';
   const m = body.match(/Prices include all taxes and fees in ([^.\\n]+)\\./);
   return { cards, currencyLabel: m ? m[1].trim() : null, bodySample: body.slice(0, 4000) };
+}
+"""
+
+CASH_MODE_JS = """
+(sel) => {
+  const cards = [...document.querySelectorAll(sel)];
+  if (!cards.length) return false;
+  return cards.every((li) => {
+    const t = li.innerText || '';
+    if (/Points\\s*\\/\\s*night/i.test(t)) return false;
+    return /[\u20a9$\u20ac\u00a3\u00a5\u0e3f\u20ba\u20b9]/.test(t) || /Sold Out|Coming Soon/i.test(t);
+  });
 }
 """
 
@@ -140,19 +206,23 @@ def to_int(text: str | None):
 
 
 def currency_of(text: str | None, label: str | None):
-    """금액 표기 → 통화 코드. 화면의 'Prices include … in Korean Won' 문구를 우선한다."""
+    """금액 표기 → 통화 코드.
+
+    금액에 붙은 통화 기호·코드가 가장 확실한 증거이므로 그것을 먼저 믿고,
+    숫자만 남은 경우에만 화면의 'Prices include … in Korean Won' 문구로 판단한다.
+    """
+    if text:
+        t = text.strip()
+        if t.startswith("₩") or t.upper().startswith("KRW"):
+            return "KRW"
+        for sym, code in (("US$", "USD"), ("CN¥", "CNY"), ("HK$", "HKD"), ("S$", "SGD"),
+                          ("A$", "AUD"), ("JP¥", "JPY"), ("$", "USD"), ("¥", "JPY"), ("€", "EUR"),
+                          ("£", "GBP"), ("฿", "THB"), ("₺", "TRY"), ("₹", "INR"),
+                          ("AED", "AED"), ("QAR", "QAR")):
+            if t.startswith(sym) or (len(sym) >= 3 and sym in t.upper()[:5]):
+                return code
     if label and "korean won" in label.lower():
         return "KRW"
-    if not text:
-        return None
-    t = text.strip()
-    if t.startswith("₩") or t.upper().startswith("KRW"):
-        return "KRW"
-    for sym, code in (("US$", "USD"), ("$", "USD"), ("¥", "JPY"), ("JP¥", "JPY"), ("€", "EUR"),
-                      ("CN¥", "CNY"), ("HK$", "HKD"), ("S$", "SGD"), ("A$", "AUD"),
-                      ("£", "GBP"), ("฿", "THB"), ("₺", "TRY"), ("AED", "AED"), ("QAR", "QAR")):
-        if t.startswith(sym) or sym in t.upper()[:4]:
-            return code
     return None
 
 
@@ -171,6 +241,9 @@ def parse_card(card: dict, brand: str, currency_label: str | None) -> dict:
     href = card.get("href") or ""
     slug = re.sub(r"^https?://[^/]+", "", href) if href else None
 
+    # 카드 상단에 사진 캐러셀 카운터('1 / 12')가 먼저 오는 경우가 있다 — 호텔명이 아니다.
+    name_lines = [ln for ln in lines if not re.match(r"^\d+\s*/\s*\d+$", ln)] or lines
+    lines = name_lines
     name = lines[0] if lines else None
     if name and re.match(r"^(Sold Out|Coming Soon|Featured|New)$", name, re.I) and len(lines) > 1:
         name = lines[1]
@@ -181,21 +254,9 @@ def parse_card(card: dict, brand: str, currency_label: str | None) -> dict:
     reward = next((ln for ln in lines if re.match(r"^(Standard Room Reward|Premium Room Rewards)$", ln, re.I)), None)
     sold_out = any(re.match(r"^Sold Out$", ln, re.I) for ln in lines)
 
-    # 현금가: 현금 모드의 "From*" 다음 줄. 없으면 카드에 남은 금액 표기(포인트 재고 없는 호텔).
-    cash_text = None
-    for i, ln in enumerate(lines):
-        if not re.match(r"^From\*$", ln, re.I):
-            continue
-        nxt = lines[i + 1] if i + 1 < len(lines) else None
-        after = lines[i + 2] if i + 2 < len(lines) else None
-        # 포인트 모드의 "From* / 140,000 / Points/night" 는 현금가가 아니다 — 건너뛴다.
-        if after and re.match(r"^Points/night$", after, re.I):
-            continue
-        if to_int(nxt) is not None:
-            cash_text = nxt
-            break
-    if cash_text is None:
-        cash_text = next((ln for ln in lines if re.match(r"^([₩$€¥£฿]|US\$|KRW|KR\s?W)", ln)), None)
+    # 현금가: 현금 모드에서 확인된 값(cashHint) 우선, 없으면 카드 자체 텍스트에서 엄격 판독.
+    # 카드에 Points/night 가 남아 있으면 현금가 없음 — 포인트 숫자를 현금가로 쓰지 않는다.
+    cash_text = card.get("cashHint") or cash_from_card_text(text, currency_label)
 
     if points is not None:
         reward_type = "STANDARD" if reward and reward.lower().startswith("standard") else (
@@ -361,17 +422,57 @@ def toggle_use_points(page, log) -> bool:
         return False
 
 
-def uncheck_use_points(page, log):
+def points_box_checked(page) -> bool | None:
+    """Use Points 체크박스가 켜져 있는지. 판독 불가면 None."""
     try:
         boxes = page.evaluate(CHECKBOX_JS)
-        target = next((b for b in boxes if "point" in (b.get("label") or "").lower() and b.get("checked")), None)
-        if target:
-            sel = f'#{target["id"]}' if target.get("id") else f'input[name="{target["name"]}"]'
+    except Exception:
+        return None
+    return any("point" in (b.get("label") or "").lower() and b.get("checked") for b in boxes)
+
+
+def uncheck_use_points(page, log) -> bool:
+    """Use Points 를 끄고 **실제로 꺼졌는지 확인**한다. 확인되지 않으면 False."""
+    for _ in range(2):
+        checked = points_box_checked(page)
+        if checked is None:
+            log.append("usePoints: 체크박스 판독 실패")
+            return False
+        if not checked:
+            return True
+        try:
+            boxes = page.evaluate(CHECKBOX_JS)
+            target = next((b for b in boxes if "point" in (b.get("label") or "").lower() and b.get("checked")), None)
+            sel = f'#{target["id"]}' if target and target.get("id") else (
+                f'input[name="{target["name"]}"]' if target and target.get("name") else None)
+            if sel is None:
+                raise RuntimeError("selector 없음")
             page.uncheck(sel, timeout=3000)
             page.wait_for_timeout(1500)
             log.append("usePoints: 현금 모드로 해제")
+        except Exception:
+            try:
+                page.get_by_text(re.compile(r"^Use Points$", re.I)).first.click(timeout=3000)
+                page.wait_for_timeout(1500)
+                log.append("usePoints: 라벨 클릭으로 해제")
+            except Exception:
+                log.append("usePoints: 해제 실패")
+                return False
+    return points_box_checked(page) is False
+
+
+def wait_for_cash_cards(page, log, timeout: int | None = None) -> bool:
+    """Use Points 해제 후 카드가 실제로 **현금 표기**로 다시 그려질 때까지 기다린다.
+
+    모든 카드에서 `Points/night` 가 사라지고 통화 표기(또는 Sold Out)가 보여야 True.
+    False 면 그 페이지의 금액은 현금가로 쓰지 않는다(포인트 숫자를 현금가로 오독 방지).
+    """
+    try:
+        page.wait_for_function(CASH_MODE_JS, arg=CARD_SEL,
+                               timeout=CASH_MODE_WAIT_MS if timeout is None else timeout)
+        return True
     except Exception:
-        pass
+        return False
 
 
 def read_page(page):
@@ -473,10 +574,14 @@ def collect_brand(page, brand_dir: str, cfg: dict, max_pages: int, sleep_s: floa
         set_currency_krw(page, log)
         wait_for_real_cards(page)
 
-        # 1) 현금 모드 판독(Use Points 꺼짐)
-        uncheck_use_points(page, log)
-        wait_for_real_cards(page)
-        cash_cards, currency_label = read_page(page)
+        # 1) 현금 모드 판독(Use Points 꺼짐) — 해제 확인 + 실제 현금 표기로 재렌더 확인 후에만 읽는다.
+        cash_mode = uncheck_use_points(page, log) and wait_for_cash_cards(page, log)
+        if cash_mode:
+            wait_for_real_cards(page)
+            cash_cards, currency_label = read_page(page)
+        else:
+            cash_cards, currency_label = [], None
+            log.append(f"cashMode: {brand_dir} p{page_no} 현금 표기 확인 실패 — 현금가 판독하지 않음")
 
         # 2) 포인트 모드 판독(Use Points 켬) — 같은 페이지에서 토글 2회, 재로드 없음
         if toggle_use_points(page, log):
@@ -490,28 +595,22 @@ def collect_brand(page, brand_dir: str, cfg: dict, max_pages: int, sleep_s: floa
         merged = []
         for card in point_cards:
             cash = cash_by_code.get(card["testid"])
-            text = card.get("text") or ""
-            if cash:
-                # 포인트 모드에서 사라진 현금가를 현금 모드 판독값으로 채운다
-                cash_lines = [ln.strip() for ln in (cash.get("text") or "").split("\n") if ln.strip()]
-                f_idx = next((i for i, ln in enumerate(cash_lines) if re.match(r"^From\*$", ln, re.I)), None)
-                cash_text = cash_lines[f_idx + 1] if f_idx is not None and f_idx + 1 < len(cash_lines) else None
-                if cash_text and not re.search(r"^Points/night$", cash_text, re.I):
-                    text = text + "\nFrom*\n" + cash_text
-            merged.append({**card, "text": text})
+            # 현금 모드에서 확인된 카드에서만 현금가 후보를 떼어 온다(포인트 카드 숫자 재사용 금지).
+            hint = cash_from_card_text(cash.get("text") or "", currency_label) if (cash and cash_mode) else None
+            merged.append({**card, "cashHint": hint})
 
         parsed = [parse_card(c, brand, currency_label) for c in merged]
         kept = [p for p in parsed if p.get("rewardType")]
         rows.extend(kept)
         pages_out.append({
             "brand": brand, "page": page_no, "cards": len(point_cards),
-            "kept": len(kept), "currency": currency_label,
+            "kept": len(kept), "currency": currency_label, "cashMode": cash_mode,
         })
-        log.append(f"{brand_dir} p{page_no}: 카드 {len(point_cards)} · 저장 {len(kept)}")
+        log.append(f"{brand_dir} p{page_no}: 카드 {len(point_cards)} · 저장 {len(kept)} · cashMode={cash_mode}")
         print(json.dumps({
             "event": "page_complete", "brand": brand_dir, "page": page_no,
             "expectedPages": cfg["pages"], "cards": len(point_cards), "kept": len(kept),
-            "totalKept": len(rows), "currency": currency_label,
+            "totalKept": len(rows), "currency": currency_label, "cashMode": cash_mode,
         }, ensure_ascii=False), flush=True)
 
         if page_no >= page_limit:
@@ -577,6 +676,15 @@ def run_collect(args) -> int:
             records.append(rec)
             seen.add(rec["code"])
 
+    collisions = find_cash_point_collisions(records)
+    if collisions:
+        detail = ", ".join(f"{code}:points={p},cash={v}" for code, p, v in collisions[:8])
+        log.append(f"ERROR CASH_POINTS_COLLISION — 현금가=포인트 {len(collisions)}건 ({detail})")
+        if halted is None:
+            halted = Halt("CASH_POINTS_COLLISION", f"{len(collisions)}건 현금가가 포인트와 같음")
+        print(json.dumps({"event": "cash_points_collision", "count": len(collisions),
+                          "sample": collisions[:8]}, ensure_ascii=False), flush=True)
+
     if args.merge_existing and Path(args.merge_existing).exists():
         old = json.loads(Path(args.merge_existing).read_text(encoding="utf-8"))
         for rec in old.get("records", []):
@@ -638,6 +746,13 @@ FIXTURes = [
     # 포인트 없음(현금만)
     {"testid": "hotel-card-TYOGAJA", "href": "/en/hotels/gajoen-tokyo/",
      "text": "Hotel Gajoen Tokyo\nTokyo, Japan\nFrom*\n₩96,991\nHonors Discount Advance Purchase"},
+    # 2026-11-28 실측: 카드 innerText 가 사진 캐러셀 카운터('1 / 12')로 시작한다 — 호텔명이 아니다
+    {"testid": "hotel-card-BERWAWA", "href": "/en/hotels/waldorf-astoria-berlin/",
+     "text": "1 / 12\nWaldorf Astoria Berlin\nBerlin, Germany\nFrom*\n€285\nStandard Room Reward"},
+    # 2026-11-28 오염 재현 — Use Points 해제 직후 아직 포인트 카드가 남은 상태에서
+    # 현금 모드 판독값을 그대로 붙여 둔 경우(현금가 = 포인트 숫자). 현금가로 읽으면 안 된다.
+    {"testid": "hotel-card-JRSWAWA", "href": "/en/hotels/waldorf-astoria-jerusalem/",
+     "text": "1 / 12\nWaldorf Astoria Jerusalem\nJerusalem, Israel\nFrom*\n312,000\nPoints/night\nStandard Room Reward\nFrom*\n312,000"},
 ]
 
 
@@ -654,7 +769,7 @@ def self_test() -> int:
             print(f"  ok   {name}")
 
     rows = [parse_card(c, "co" if "CICI" in c["testid"] else "wa", "South Korean Won") for c in FIXTURes]
-    check("코드 추출", [r["code"] for r in rows], ["SELCICI", "TYOCICI", "BODWAWA", "TYOGAJA"])
+    check("코드 추출", [r["code"] for r in rows], ["SELCICI", "TYOCICI", "BODWAWA", "TYOGAJA", "BERWAWA", "JRSWAWA"])
     check("Standard 판정", rows[0]["rewardType"], "STANDARD")
     check("Standard 포인트", rows[0]["points"], 140000)
     check("Premium만 판정", rows[1]["rewardType"], "PREMIUM")
@@ -663,13 +778,38 @@ def self_test() -> int:
     check("현금만 판정", rows[3]["rewardType"], "NO_POINTS")
     check("현금 금액(₩)", rows[3]["cashAmount"], 96991)
     check("현금 통화", rows[3]["cashCurrency"], "KRW")
+    check("캐러셀 카운터는 호텔명이 아니다", rows[4]["name"], "Waldorf Astoria Berlin")
+    check("카운터 카드 현금가", rows[4]["cashAmount"], 285)
+    check("카운터 카드 통화", rows[4]["cashCurrency"], "EUR")
 
-    # 현금 모드에서 온 From* 줄을 포인트 카드에 덧붙였을 때 (collect_brand 병합 경로)
+    # 회귀(2026-11-28 #28): 포인트 카드가 남은 상태의 숫자를 현금가로 읽지 않는다
+    check("오염 재현 카드: 현금가 없음", rows[5]["cashAmount"], None)
+    check("오염 재현 카드: 포인트 유지", (rows[5]["points"], rows[5]["rewardType"]), (312000, "STANDARD"))
+    check("오염 재현 카드: 이름", rows[5]["name"], "Waldorf Astoria Jerusalem")
+    check("포인트 카드 텍스트 직접 판독", cash_from_card_text(FIXTURes[5]["text"], "South Korean Won"), None)
+    check("통화 표기 없는 숫자는 현금가 아님", cash_from_card_text("From*\n312,000", None), None)
+    check("통화 표기 숫자는 현금가", cash_from_card_text("From*\n₩312,000", None), "₩312,000")
+    check("현금 모드 From* 판독", cash_from_card_text(FIXTURes[3]["text"], None), "₩96,991")
+    check("현금가=포인트 충돌 감지",
+          find_cash_point_collisions([{"code": "JRSWAWA", "points": 312000, "cashAmount": 312000},
+                                      {"code": "OK1", "points": 80000, "cashAmount": 638000}]),
+          [("JRSWAWA", 312000, 312000)])
+    check("정상 레코드 충돌 없음",
+          find_cash_point_collisions([{"code": "OK1", "points": 80000, "cashAmount": 638000}]), [])
+
+    # collect_brand 병합 경로 — 현금 모드에서 확인한 값을 cashHint 로 넘긴 경우만 현금가로 인정
     merged = {"testid": "hotel-card-SELCICI", "href": "/en/hotels/conrad-seoul/",
-              "text": "Conrad Seoul\nSeoul, South Korea\nFrom*\n140,000\nPoints/night\nStandard Room Reward\nFrom*\n638,000"}
+              "text": "Conrad Seoul\nSeoul, South Korea\nFrom*\n140,000\nPoints/night\nStandard Room Reward",
+              "cashHint": "₩638,000"}
     m = parse_card(merged, "co", "South Korean Won")
     check("포인트+현금 병합", (m["points"], m["rewardType"]), (140000, "STANDARD"))
-    check("포인트 카드의 From*은 현금가가 아니다", m["cashAmount"], 638000)
+    check("cashHint 는 현금가로 인정", m["cashAmount"], 638000)
+
+    # 2026-11-28 이전 방식(포인트 카드 텍스트에 'From*\n<숫자>'를 덧붙이던 경로) — 이제 현금가 아님
+    legacy = {"testid": "hotel-card-SELCICI", "href": "/en/hotels/conrad-seoul/",
+              "text": "Conrad Seoul\nSeoul, South Korea\nFrom*\n140,000\nPoints/night\nStandard Room Reward\nFrom*\n140,000"}
+    lm = parse_card(legacy, "co", "South Korean Won")
+    check("옛 병합 경로는 현금가 없음", lm["cashAmount"], None)
     check("현금가 없는 포인트 카드", rows[0]["cashAmount"], None)
 
     rec = to_record(rows[0], "2026-11-27T16:00:00+09:00", "2026-11-27 16:00 KST")

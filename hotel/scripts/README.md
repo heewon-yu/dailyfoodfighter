@@ -10,7 +10,8 @@
 scripts/
   collect_locations.py          ★ 파이썬 원샷 수집기 — /en/locations/ 8페이지 자동 순회
                                   (Select currency=KRW · Use Points 토글 · 403/캡차 즉시 중단)
-  daily_locations_update.py    매일 전수 검증 후 정적 JSON 커밋·푸시(LLM/API 호출 없음)
+  daily_locations_update.py    매일 전수 검증 후 정적 JSON 커밋·푸시(LLM/API 호출 없음 · 실행 전 git pull)
+  repair_cash_collision.py     현금가=포인트 오염 레코드를 직전 정상 커밋 현금가로 복원(2026-11-28 사고 복구)
   test_collect_locations.py     가짜 디렉터리 HTML로 수집 동작 검증(실제 Chromium 필요)
   test_daily_locations_update.py 일일 갱신의 부분수집·이전결과 잔류 차단 테스트
   build_luxury.py               마스터 124건(영업 중 119) 생성 — 브랜드 디렉터리 실측 목록(RAW 테이블)
@@ -71,13 +72,19 @@ python3 hotel/scripts/daily_locations_update.py \
   --runtime-dir "$HOME/Library/Application Support/DailyFoodFighter Hilton Collector/runtime"
 ```
 
+실행 순서: 잠금 → **`git pull --ff-only origin main`(최신 수집기 코드로 시작)** → `--self-test` → 수집 → 검증 → 빌드 → 커밋·푸시.
+작업트리에 미커밋 변경이 있거나 `main` 이 아니거나 fast-forward 가 안 되면 그 자리에서 `UpdateError` 로 멈추고
+파일·원격을 건드리지 않는다(`last-status.json` 에 원인 기록).
+
 다음 조건을 모두 만족할 때만 `main`에 커밋·푸시한다.
 
 1. 브랜드 디렉터리 8페이지를 모두 읽음
 2. 마스터의 영업 중 호텔 119곳이 모두 이번 실행 시각으로 관측됨
 3. 401/403/429·캡차·구조 변경·브랜드 오류가 없음
 4. 빌드 후 영업 중 119곳에 미관측 레코드가 없음
-5. 변경 파일이 세 개의 정적 JSON으로만 제한됨
+5. **현금가가 포인트와 같은 레코드가 0건**(`|cashAmount - points| < 10` → 즉시 실패)
+6. **포인트가 읽힌 호텔의 90% 이상에서 현금가도 읽힘**(전면 미판독 스냅숏 배포 방지)
+7. 변경 파일이 세 개의 정적 JSON으로만 제한됨
 
 실패하면 이전 정상 JSON과 GitHub를 유지하고 `last-status.json`에 원인을 기록한다.
 일별 원본은 Git 저장소 밖 `runtime/snapshots/YYYY-MM-DD.json`에 보존한다.
@@ -86,12 +93,32 @@ python3 hotel/scripts/daily_locations_update.py \
 
 1. 카드 코드는 `li[data-testid="hotel-card-XXXXXXX"]` 에서 읽는다(슬러그가 바뀌어도 안정적).
 2. 포인트 모드의 `From* 140,000 / Points/night` 는 **현금가가 아니다** — 뒤에 `Points/night` 가 오는 `From*` 는 건너뛴다.
-3. `Standard Room Reward` / `Premium Room Rewards` 텍스트만 등급 근거다. 라벨이 없으면 그 카드는 **저장하지 않는다**(추정 금지).
-4. `Sold Out` → `SOLD_OUT`, 포인트 없이 금액만 → `NO_POINTS`.
-5. 통화는 화면의 `Prices include all taxes and fees in …` 문구를 우선하고, 없으면 금액 기호로 판별한다.
+3. **현금가는 `Use Points` 를 끈 뒤 카드가 실제로 현금 표기로 다시 그려진 것을 확인하고서만 읽는다.**
+   - 모든 카드에서 `Points/night` 가 사라지고 통화 표기(또는 `Sold Out`)가 보일 때까지 기다린다(`CASH_MODE_WAIT_MS`, 기본 20초).
+   - 끝까지 바뀌지 않는 페이지는 현금가를 **비워 둔다** — 포인트 숫자를 현금가로 쓰지 않는다.
+   - 통화 표기 없이 숫자만 있는 값은 화면의 통화 안내가 확인된 경우에만 인정한다.
+4. `Standard Room Reward` / `Premium Room Rewards` 텍스트만 등급 근거다. 라벨이 없으면 그 카드는 **저장하지 않는다**(추정 금지).
+5. `Sold Out` → `SOLD_OUT`, 포인트 없이 금액만 → `NO_POINTS`.
+6. 통화는 금액에 붙은 기호·코드(₩·$·€·¥·KRW …)를 우선하고, 숫자만 있을 때 화면의
+   `Prices include all taxes and fees in …` 문구로 판단한다.
+7. 카드 텍스트가 사진 캐러셀 카운터(`1 / 12`)로 시작하면 호텔명에서 뺀다.
 
 `--self-test` 가 위 규칙을 오프라인으로 검증하고, `test_collect_locations.py` 가
 **현금 판독 → Use Points 토글 → 포인트 판독 → 다음 페이지 → 병합 → 파싱**을 실제 Chromium으로 확인한다.
+Use Points 해제 직후 카드가 늦게 바뀌는 경우(`delayed`)와 끝까지 안 바뀌는 경우(`stuck`)도 회귀 시나리오로 들어 있다.
+
+### 2026-11-28 현금가 오염(#28)과 복구
+
+`33e5175` 자동 수집이 `Use Points` 해제 직후 포인트 숫자를 현금가로 읽어 **58곳이 `cashAmount == points`(1.0원/P)** 로 저장됐다.
+수집기·검증 가드를 고친 뒤, 이미 배포된 스냅숏은 직전 정상 커밋의 현금가로 되돌린다.
+
+```bash
+python3 hotel/scripts/repair_cash_collision.py --from-ref 33e5175~1 --dry-run   # 계획만
+python3 hotel/scripts/repair_cash_collision.py --from-ref 33e5175~1             # 복원 + 빌드 + 0건 확인
+```
+
+복원 레코드는 `cashObservedAt`(현금가 관측 시각)과 `cashBasis`(복원 사유)를 남기고,
+`meta.cashRecovered` 에 대상 58곳과 출처를 기록한다. 다음 정상 수집에서 전면 교체된다.
 
 ## 빌드
 

@@ -98,11 +98,78 @@
    "lxr-hotels p2: 카드 1 · 저장 1"
   ],
   "halted": null,
-  "pageNote": "표시 값은 힐튼 디렉터리 기준 '향후 30일 현재 재고 최저 포인트'이며 특정 날짜 값이 아니다."
+  "pageNote": "표시 값은 힐튼 디렉터리 기준 '향후 30일 현재 재고 최저 포인트'이며 특정 날짜 값이 아니다.",
+  "cashRecovered": {
+   "count": 58,
+   "codes": [
+    "AATCICI",
+    "AMSWAWA",
+    "ATHGRCI",
+    "ATLWAWA",
+    "AUHETCI",
+    "AXAZBOL",
+    "BAHFHCI",
+    "BERWAWA",
+    "BKKCICI",
+    "BKKRECI",
+    "BLRKRCI",
+    "BNALECI",
+    "BPNCICI",
+    "CAIWEWA",
+    "CDGTPWA",
+    "CHIWAWA",
+    "CUNCICI",
+    "CUNWAWA",
+    "DCAWAWA",
+    "DUBHCCI",
+    "DXBCDCI",
+    "FAOAPCI",
+    "FLLCICI",
+    "HAMSHCI",
+    "INDCICI",
+    "ISTHCCI",
+    "JEDWAWA",
+    "JRSWAWA",
+    "LASCDCI",
+    "LASWDWA",
+    "LAXAVCI",
+    "LAXWAWA",
+    "LIRGUWA",
+    "LONCOCI",
+    "MAKCICI",
+    "MLEHICI",
+    "MSYRHWA",
+    "NYCCICI",
+    "NYCWAWA",
+    "ORLBCWA",
+    "ORLCICI",
+    "PNQCICI",
+    "PPTBNCI",
+    "PTYTPWA",
+    "PVRPMCI",
+    "RBACICI",
+    "RBARTWA",
+    "ROMHIWA",
+    "RUHSTCI",
+    "SEZPIWA",
+    "SINCICI",
+    "SINODCI",
+    "SJDWAWA",
+    "SLCDMWA",
+    "SNAMOWA",
+    "URCCICI",
+    "USMKSCI",
+    "WASCICI"
+   ],
+   "from": "33e5175~1 (hotel/data/hotels.json)",
+   "reason": "2026-11-28 06:51 자동 수집이 Use Points 해제 직후 포인트 숫자를 현금가로 읽어 58곳이 cashAmount=points(1.0원/P)로 오염",
+   "recoveredAt": "2026-11-28T11:24:23+09:00",
+   "note": "현금가는 직전 정상 스냅숏 값, 포인트·관측시각은 2026-11-28 수집값. 다음 정상 수집에서 전면 교체된다."
+  }
  },
  "records": [
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Shanghai on the Bund",
    "brand": "wa",
    "code": "SHAWAWA",
    "points": 90000,
@@ -114,7 +181,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Osaka",
    "brand": "wa",
    "code": "OSAWAWA",
    "points": 120000,
@@ -126,7 +193,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Shanghai Qiantan",
    "brand": "wa",
    "code": "SHAQTWA",
    "points": 80000,
@@ -138,7 +205,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Beijing",
    "brand": "wa",
    "code": "BJSWAWA",
    "points": 100000,
@@ -150,7 +217,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Xiamen",
    "brand": "wa",
    "code": "XMNWAWA",
    "points": 59000,
@@ -162,7 +229,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Chengdu",
    "brand": "wa",
    "code": "CTUWAWA",
    "points": 44000,
@@ -174,7 +241,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Bangkok",
    "brand": "wa",
    "code": "BKKWAWA",
    "points": 85000,
@@ -186,7 +253,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 10",
+   "name": "Waldorf Astoria Kuala Lumpur",
    "brand": "wa",
    "code": "KULWAWA",
    "points": 100000,
@@ -198,7 +265,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 13",
+   "name": "Waldorf Astoria Maldives Ithaafushi",
    "brand": "wa",
    "code": "MLEONWA",
    "points": 250000,
@@ -210,7 +277,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Al Husn Hotel Muscat",
    "brand": "wa",
    "code": "MCTAHWA",
    "points": 90000,
@@ -222,7 +289,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Ras Al Khaimah",
    "brand": "wa",
    "code": "RKTWAWA",
    "points": 64000,
@@ -234,7 +301,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Dubai International Financial Centre",
    "brand": "wa",
    "code": "DXBWAWA",
    "points": 100000,
@@ -246,7 +313,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 9",
+   "name": "Waldorf Astoria Dubai Palm Jumeirah",
    "brand": "wa",
    "code": "DXBPDWA",
    "points": 100000,
@@ -258,7 +325,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Helsinki",
    "brand": "wa",
    "code": "HELWCWA",
    "points": 110000,
@@ -270,7 +337,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Doha Lusail",
    "brand": "wa",
    "code": "DOHQTWA",
    "points": 80000,
@@ -282,7 +349,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Doha West Bay",
    "brand": "wa",
    "code": "DOHNZWA",
    "points": 65000,
@@ -294,7 +361,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Kuwait",
    "brand": "wa",
    "code": "KWIWAWA",
    "points": 95000,
@@ -306,7 +373,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 9",
+   "name": "Waldorf Astoria Minsk",
    "brand": "wa",
    "code": "MSQWAWA",
    "points": 60000,
@@ -318,7 +385,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 10",
+   "name": "Grand Wailea, A Waldorf Astoria Resort",
    "brand": "wa",
    "code": "JHMGWWA",
    "points": 130000,
@@ -330,7 +397,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Ho'olei at Grand Wailea",
    "brand": "wa",
    "code": "OGGHOWA",
    "points": 606000,
@@ -342,283 +409,329 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Jerusalem",
    "brand": "wa",
    "code": "JRSWAWA",
    "points": 312000,
    "rewardType": "PREMIUM",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 312000,
+   "cashAmount": 950577,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Berlin",
    "brand": "wa",
    "code": "BERWAWA",
    "points": 80000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 80000,
+   "cashAmount": 383015,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Jeddah - Qasr Al Sharq",
    "brand": "wa",
    "code": "JEDWAWA",
    "points": 106000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 106000,
+   "cashAmount": 407453,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Waldorf Astoria Cairo Heliopolis",
    "brand": "wa",
    "code": "CAIWEWA",
    "points": 70000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 70000,
+   "cashAmount": 300773,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Amsterdam",
    "brand": "wa",
    "code": "AMSWAWA",
    "points": 150000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 150000,
+   "cashAmount": 1130195,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Seychelles Platte Island",
    "brand": "wa",
    "code": "SEZPIWA",
    "points": 150000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 150000,
+   "cashAmount": 1944538,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Rome Cavalieri, A Waldorf Astoria Hotel",
    "brand": "wa",
    "code": "ROMHIWA",
    "points": 105000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 105000,
+   "cashAmount": 467286,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Versailles - Trianon Palace",
    "brand": "wa",
    "code": "CDGTPWA",
    "points": 54000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 54000,
+   "cashAmount": 294623,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Park City",
    "brand": "wa",
    "code": "SLCDMWA",
    "points": 110000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 110000,
+   "cashAmount": 576302,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Beverly Hills",
    "brand": "wa",
    "code": "LAXWAWA",
    "points": 120000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 120000,
+   "cashAmount": 1300253,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Las Vegas",
    "brand": "wa",
    "code": "LASWDWA",
    "points": 80000,
    "rewardType": "PREMIUM",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 80000,
+   "cashAmount": 374892,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Monarch Beach",
    "brand": "wa",
    "code": "SNAMOWA",
    "points": 95000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 95000,
+   "cashAmount": 960057,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Waldorf Astoria Chicago",
    "brand": "wa",
    "code": "CHIWAWA",
    "points": 95000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 95000,
+   "cashAmount": 617659,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Rabat Salé",
    "brand": "wa",
    "code": "RBARTWA",
    "points": 150000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 150000,
+   "cashAmount": 1030510,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 10",
+   "name": "Waldorf Astoria New York",
    "brand": "wa",
    "code": "NYCWAWA",
    "points": 522000,
    "rewardType": "PREMIUM",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 522000,
+   "cashAmount": 2328185,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 9",
+   "name": "Waldorf Astoria Los Cabos Pedregal",
    "brand": "wa",
    "code": "SJDWAWA",
    "points": 250000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 250000,
+   "cashAmount": 2570536,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Washington DC",
    "brand": "wa",
    "code": "DCAWAWA",
    "points": 110000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 110000,
+   "cashAmount": 762674,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Atlanta Buckhead",
    "brand": "wa",
    "code": "ATLWAWA",
    "points": 95000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 95000,
+   "cashAmount": 433972,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "The Roosevelt New Orleans, A Waldorf Astoria Hotel",
    "brand": "wa",
    "code": "MSYRHWA",
    "points": 71000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 71000,
+   "cashAmount": 317100,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Orlando - An Official Walt Disney World Hotel",
    "brand": "wa",
    "code": "ORLBCWA",
    "points": 90000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 90000,
+   "cashAmount": 479625,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Waldorf Astoria Riviera Maya, an All-Inclusive Experience",
    "brand": "wa",
    "code": "CUNWAWA",
    "points": 140000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 140000,
+   "cashAmount": 988254,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Costa Rica Punta Cacique",
    "brand": "wa",
    "code": "LIRGUWA",
    "points": 120000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 120000,
+   "cashAmount": 1032229,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Waldorf Astoria Panama",
    "brand": "wa",
    "code": "PTYTPWA",
    "points": 45000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 45000,
+   "cashAmount": 321249,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Seoul",
    "brand": "co",
    "code": "SELCICI",
    "points": 80000,
@@ -630,7 +743,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Dalian",
    "brand": "co",
    "code": "DLCZDCI",
    "points": 33000,
@@ -642,7 +755,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Shenyang",
    "brand": "co",
    "code": "SHEYACI",
    "points": 37000,
@@ -654,7 +767,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Shanghai",
    "brand": "co",
    "code": "SHAWSCI",
    "points": 60000,
@@ -666,7 +779,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Conrad Osaka",
    "brand": "co",
    "code": "OSACICI",
    "points": 95000,
@@ -678,7 +791,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Tianjin",
    "brand": "co",
    "code": "TSNTNCI",
    "points": 33000,
@@ -690,7 +803,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Beijing",
    "brand": "co",
    "code": "BJSCICI",
    "points": 51000,
@@ -702,7 +815,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Nagoya",
    "brand": "co",
    "code": "NGOCICI",
    "points": 70000,
@@ -714,7 +827,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Hangzhou",
    "brand": "co",
    "code": "HGHFRCI",
    "points": 52000,
@@ -726,7 +839,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Hangzhou Tonglu",
    "brand": "co",
    "code": "HGHYFCI",
    "points": 73000,
@@ -738,7 +851,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Tokyo",
    "brand": "co",
    "code": "TYOCICI",
    "points": 130000,
@@ -750,7 +863,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Xiamen",
    "brand": "co",
    "code": "XMNCICI",
    "points": 59000,
@@ -762,7 +875,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Guangzhou",
    "brand": "co",
    "code": "CANXWCI",
    "points": 60000,
@@ -774,7 +887,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Chongqing",
    "brand": "co",
    "code": "CKGCICI",
    "points": 43000,
@@ -786,7 +899,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Shenzhen",
    "brand": "co",
    "code": "SZXCICI",
    "points": 136000,
@@ -798,7 +911,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Hong Kong",
    "brand": "co",
    "code": "HKGHCCI",
    "points": 85000,
@@ -810,7 +923,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Macao",
    "brand": "co",
    "code": "MFMCSCI",
    "points": 54000,
@@ -822,7 +935,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Jiuzhaigou",
    "brand": "co",
    "code": "JZHCICI",
    "points": 57000,
@@ -834,7 +947,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Manila",
    "brand": "co",
    "code": "MNLMBCI",
    "points": 50000,
@@ -846,7 +959,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Sunshine Yi Hotel Haitang Bay, Sanya",
    "brand": "co",
    "code": "SYXSACI",
    "points": 42000,
@@ -858,259 +971,301 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Urumqi",
    "brand": "co",
    "code": "URCCICI",
    "points": 41000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 41000,
+   "cashAmount": 180611,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Altay Hemu",
    "brand": "co",
    "code": "AATCICI",
    "points": 203000,
    "rewardType": "PREMIUM",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 203000,
+   "cashAmount": 569696,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Bangkok Residences",
    "brand": "co",
    "code": "BKKRECI",
    "points": 48000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 48000,
+   "cashAmount": 210286,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Conrad Bangkok",
    "brand": "co",
    "code": "BKKCICI",
    "points": 45000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 45000,
+   "cashAmount": 257805,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Conrad Koh Samui",
    "brand": "co",
    "code": "USMKSCI",
    "points": 110000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 110000,
+   "cashAmount": 749986,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Singapore Marina Bay",
    "brand": "co",
    "code": "SINCICI",
    "points": 70000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 70000,
+   "cashAmount": 429850,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Singapore Orchard",
    "brand": "co",
    "code": "SINODCI",
    "points": 70000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 70000,
+   "cashAmount": 369763,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Bali",
    "brand": "co",
    "code": "BPNCICI",
    "points": 50000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 50000,
+   "cashAmount": 214287,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Pune",
    "brand": "co",
    "code": "PNQCICI",
    "points": 39000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 39000,
+   "cashAmount": 177442,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Bengaluru",
    "brand": "co",
    "code": "BLRKRCI",
    "points": 37000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 37000,
+   "cashAmount": 182075,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Maldives Rangali Island",
    "brand": "co",
    "code": "MLEHICI",
    "points": 170000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 170000,
+   "cashAmount": 1289430,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Conrad Dubai",
    "brand": "co",
    "code": "DXBCDCI",
    "points": 54000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 54000,
+   "cashAmount": 204780,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Abu Dhabi Etihad Towers",
    "brand": "co",
    "code": "AUHETCI",
    "points": 60000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 60000,
+   "cashAmount": 261524,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 14",
+   "name": "Conrad Bahrain Financial Harbour",
    "brand": "co",
    "code": "BAHFHCI",
    "points": 74000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 74000,
+   "cashAmount": 260880,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Riyadh Laysen Valley",
    "brand": "co",
    "code": "RUHSTCI",
    "points": 90000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 90000,
+   "cashAmount": 343431,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Conrad Istanbul Bosphorus",
    "brand": "co",
    "code": "ISTHCCI",
    "points": 54000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 54000,
+   "cashAmount": 223914,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Hamburg",
    "brand": "co",
    "code": "HAMSHCI",
    "points": 75000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 75000,
+   "cashAmount": 371226,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Jabal Omar Makkah",
    "brand": "co",
    "code": "MAKCICI",
    "points": 63000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 63000,
+   "cashAmount": 254663,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 14:41·15:46 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T14:41:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 14:41·15:46 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Athens The Ilisian",
    "brand": "co",
    "code": "ATHGRCI",
    "points": 103000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 103000,
+   "cashAmount": 506762,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 10",
+   "name": "Conrad London St. James",
    "brand": "co",
    "code": "LONCOCI",
    "points": 122000,
    "rewardType": "PREMIUM",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 122000,
+   "cashAmount": 498450,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 11",
+   "name": "Conrad Dublin",
    "brand": "co",
    "code": "DUBHCCI",
    "points": 65000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 65000,
+   "cashAmount": 375939,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Conrad Chia Laguna Sardinia",
    "brand": "co",
    "code": "OLBCLCI",
    "points": null,
@@ -1119,163 +1274,189 @@
    "observedAtLabel": "2026-11-28 06:51 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Los Angeles",
    "brand": "co",
    "code": "LAXAVCI",
    "points": 95000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 95000,
+   "cashAmount": 519384,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Las Vegas at Resorts World",
    "brand": "co",
    "code": "LASCDCI",
    "points": 62000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 62000,
+   "cashAmount": 181712,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Bora Bora Nui",
    "brand": "co",
    "code": "PPTBNCI",
    "points": 200000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 200000,
+   "cashAmount": 1904981,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Algarve",
    "brand": "co",
    "code": "FAOAPCI",
    "points": 64000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 64000,
+   "cashAmount": 269876,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Rabat Arzana",
    "brand": "co",
    "code": "RBACICI",
    "points": 64000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 64000,
+   "cashAmount": 281236,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 13",
+   "name": "Conrad Indianapolis",
    "brand": "co",
    "code": "INDCICI",
    "points": 61000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 61000,
+   "cashAmount": 294905,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad New York Downtown",
    "brand": "co",
    "code": "NYCCICI",
    "points": 105000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 105000,
+   "cashAmount": 764084,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Nashville",
    "brand": "co",
    "code": "BNALECI",
    "points": 75000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 75000,
+   "cashAmount": 367641,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Washington, DC",
    "brand": "co",
    "code": "WASCICI",
    "points": 85000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 85000,
+   "cashAmount": 461216,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Punta de Mita",
    "brand": "co",
    "code": "PVRPMCI",
    "points": 95000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 95000,
+   "cashAmount": 699646,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 9",
+   "name": "Conrad Orlando at Evermore",
    "brand": "co",
    "code": "ORLCICI",
    "points": 105000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 105000,
+   "cashAmount": 603157,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Fort Lauderdale Beach",
    "brand": "co",
    "code": "FLLCICI",
    "points": 102000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 102000,
+   "cashAmount": 436859,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Conrad Tulum Riviera Maya, an All-Inclusive Experience",
    "brand": "co",
    "code": "CUNCICI",
    "points": 135000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 135000,
+   "cashAmount": 722661,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "ROKU KYOTO, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "ITMOLOL",
    "points": 140000,
@@ -1287,7 +1468,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Gajoen Tokyo",
    "brand": "lx",
    "code": "TYOOLOL",
    "points": null,
@@ -1299,7 +1480,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Umana Bali, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "DPSOLOL",
    "points": 95000,
@@ -1311,7 +1492,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "The Den Bengaluru, LXR Hotels and Resorts",
    "brand": "lx",
    "code": "BLROLOL",
    "points": 46000,
@@ -1323,7 +1504,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "The Mangroves Abu Dhabi, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "AUHPTOL",
    "points": 70000,
@@ -1335,7 +1516,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Katara Hills Doha, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "DOHQKOL",
    "points": 150000,
@@ -1347,7 +1528,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 13",
+   "name": "The Plaza Doha, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "DOHTPOL",
    "points": 46000,
@@ -1359,7 +1540,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Maysan Doha, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "DOHPAOL",
    "points": 140000,
@@ -1371,7 +1552,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Ka La'i Waikiki Beach, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "HNLWIOL",
    "points": 222000,
@@ -1383,7 +1564,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Imperial Hotel Gold Coast",
    "brand": "lx",
    "code": "OOLOLOL",
    "points": 43000,
@@ -1395,7 +1576,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Susona Bodrum, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "BJVLXOL",
    "points": null,
@@ -1404,7 +1585,7 @@
    "observedAtLabel": "2026-11-28 06:51 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Sandblu Santorini, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "JTRBLOL",
    "points": null,
@@ -1413,7 +1594,7 @@
    "observedAtLabel": "2026-11-28 06:51 KST"
   },
   {
-   "name": "1 / 12",
+   "name": "Mango House Seychelles, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "SEZITOL",
    "points": 120000,
@@ -1425,7 +1606,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Sax Paris, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "PARETOL",
    "points": 120000,
@@ -1437,7 +1618,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Oceana Santa Monica, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "SMOOLOL",
    "points": 105000,
@@ -1449,7 +1630,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Cameo Beverly Hills, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "LAXMCOL",
    "points": 90000,
@@ -1461,7 +1642,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Crockfords Las Vegas, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "LASCFOL",
    "points": 110000,
@@ -1473,7 +1654,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 9",
+   "name": "Beach Village at The Del, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "SANCNOL",
    "points": 446000,
@@ -1485,7 +1666,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 11",
+   "name": "Shore House at The Del, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "SANRHOL",
    "points": 320000,
@@ -1497,7 +1678,7 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Arizona Biltmore, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "PHXBMOL",
    "points": 90000,
@@ -1509,16 +1690,18 @@
    "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
   },
   {
-   "name": "1 / 12",
+   "name": "Zemi Beach House, LXR Hotels & Resorts",
    "brand": "lx",
    "code": "AXAZBOL",
    "points": 130000,
    "rewardType": "STANDARD",
    "observedAt": "2026-11-28T06:51:58+09:00",
    "observedAtLabel": "2026-11-28 06:51 KST",
-   "cashAmount": 130000,
+   "cashAmount": 1081682,
    "cashCurrency": "KRW",
-   "cashBasis": "디렉터리 최저 현금가(향후 30일, Honors 할인 등 최저 요금 · KRW 표시로 판독)"
+   "cashBasis": "직전 정상 스냅숏(2026-11-27 15:39 KST) 현금가 복원 — 2026-11-28 자동 수집 오염분 대체",
+   "cashObservedAt": "2026-11-27T15:39:00+09:00",
+   "cashObservedAtLabel": "2026-11-27 15:39 KST"
   }
  ],
  "raw": [
