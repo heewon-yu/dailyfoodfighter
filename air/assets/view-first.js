@@ -16,12 +16,42 @@
     in: "한국 귀국"
   };
 
+  const SORT_LABEL = {
+    early: "출발일 빠른 순", late: "출발일 늦은 순",
+    low: "필요 마일리지 낮은 순", high: "필요 마일리지 높은 순",
+    region: "권역별 정렬", recent: "최근 조회 순"
+  };
+
+  function regionOf(row) {
+    return Air.priceOf(row).region || (row.region ? Air.regionLabel(row.region) : "권역 미확인");
+  }
+
+  function compareRows(a, b) {
+    const date = a.date.localeCompare(b.date);
+    const fallback = date || a.origin.localeCompare(b.origin) || a.destination.localeCompare(b.destination);
+    if (state.sort === "late") return -date || fallback;
+    if (state.sort === "region") return regionOf(a).localeCompare(regionOf(b), "ko") || fallback;
+    if (state.sort === "recent") {
+      const time = row => Date.parse(lastChecked(row)) || 0;
+      return time(b) - time(a) || fallback;
+    }
+    if (state.sort === "low" || state.sort === "high") {
+      const x = Air.payableMiles(a), y = Air.payableMiles(b);
+      const xOk = Number.isFinite(x), yOk = Number.isFinite(y);
+      if (xOk !== yOk) return xOk ? -1 : 1;
+      if (xOk && yOk) return (state.sort === "low" ? x - y : y - x) || fallback;
+    }
+    return fallback;
+  }
+
   const state = {
     rows: [],
     stats: null,
     meta: null,
     direction: "all",
-    airport: ""
+    airport: "",
+    region: "",
+    sort: "early"
   };
 
   /* ------------------------------------------------------------ 날짜 표기 */
@@ -80,10 +110,13 @@
     const direction = params.get("dir") || "all";
     state.direction = Object.prototype.hasOwnProperty.call(DIRECTION_LABEL, direction) ? direction : "all";
     state.airport = (params.get("airport") || "").toUpperCase();
+    state.region = params.get("region") || "";
+    const sort = params.get("sort") || "early";
+    state.sort = Object.prototype.hasOwnProperty.call(SORT_LABEL, sort) ? sort : "early";
   }
 
   function syncUrl() {
-    Air.setParams({ dir: state.direction, airport: state.airport });
+    Air.setParams({ dir: state.direction, airport: state.airport, region: state.region, sort: state.sort });
   }
 
   function directionOf(row) {
@@ -141,6 +174,14 @@
       render();
     });
 
+    const regionSelect = Air.el("select", { class: "air-select", id: "air-first-region" });
+    regionSelect.append(new Option("전체 권역", ""));
+    const regions = [...new Set(state.rows.map(regionOf))].sort((a,b) => a.localeCompare(b, "ko"));
+    for (const region of regions) regionSelect.append(new Option(region, region));
+    if (state.region && !regions.includes(state.region)) state.region = "";
+    regionSelect.value = state.region;
+    regionSelect.addEventListener("change", () => { state.region = regionSelect.value; render(); });
+
     root.append(Air.el("div", { class: "air-panel", style: "margin-bottom:16px" }, [
       Air.el("div", {
         class: "air-filters",
@@ -153,6 +194,9 @@
         Air.el("div", { class: "air-field" }, [
           Air.el("label", { for: "air-first-airport", text: "공항" }),
           select
+        ]),
+        Air.el("div", { class: "air-field" }, [
+          Air.el("label", { for: "air-first-region", text: "권역" }), regionSelect
         ])
       ])
     ]));
@@ -161,14 +205,7 @@
   /* --------------------------------------------------------------- 요약 */
 
   function summary(rows) {
-    const latest = rows
-      .map(row => lastChecked(row))
-      .filter(Boolean)
-      .sort((a, b) => new Date(b) - new Date(a))[0] || null;
-
     const routes = new Set(rows.map(row => `${row.origin}-${row.destination}`));
-
-    const marked = { style: "font-size:16px;line-height:1.3;letter-spacing:-.01em;word-break:keep-all" };
 
     const tile = (label, value, sub, props) => Air.el("div", { class: "air-tile" }, [
       Air.el("p", { class: "air-tile__label", text: label }),
@@ -178,11 +215,8 @@
 
     return Air.el("div", { class: "air-tiles", style: "margin-bottom:16px;grid-template-columns:repeat(auto-fit,minmax(150px,1fr))" }, [
       tile("일등석 예약 가능", `${rows.length}건`,
-        (state.direction !== "all" || state.airport) ? "선택 조건 기준" : "전체 수집 기준"),
-      tile("노선", `${routes.size}개`, "방향별 집계"),
-      tile("최종 조회 일자", stamp(latest) || "미확인", latest ? "한국 시간(KST)" : "", marked),
-      tile("데이터 생성", stamp(state.meta && state.meta.generatedAt) || "미확인",
-        state.meta && state.meta.ageLabel ? state.meta.ageLabel : "", marked)
+        (state.direction !== "all" || state.airport || state.region) ? "선택 조건 기준" : "전체 수집 기준"),
+      tile("노선", `${routes.size}개`, "방향별 집계")
     ]);
   }
 
@@ -226,9 +260,10 @@
       ? `가장 최근 조회 ${checked} KST · 티켓마다 조회 시각 표기`
       : "조회 시각 없음");
 
-    if (state.direction !== "all" || state.airport) {
+    if (state.direction !== "all" || state.airport || state.region) {
       const condition = [DIRECTION_LABEL[state.direction]];
       if (state.airport) condition.push(`${Air.airportShort(state.airport)}(${state.airport})`);
+      if (state.region) condition.push(state.region);
       lines.push(`조건 ${condition.join(" · ")}`);
     }
 
@@ -461,34 +496,38 @@
     if (!root) return;
 
     root.replaceChildren();
-    syncUrl();
-
     renderFilters(root);
+    syncUrl();
 
     const rows = state.rows
       .filter(row => state.direction === "all" ? true : directionOf(row) === state.direction)
       .filter(row => !state.airport ||
         row.origin === state.airport || row.destination === state.airport)
-      .sort((a, b) => a.date.localeCompare(b.date)
-        || a.origin.localeCompare(b.origin)
-        || a.destination.localeCompare(b.destination));
+      .filter(row => !state.region || regionOf(row) === state.region)
+      .sort(compareRows);
 
     root.append(summary(rows));
     root.append(shareBar(rows));
+
+    const sortSelect = Air.el("select", { class: "air-select", "aria-label": "좌석 정렬", style: "width:auto;max-width:100%;min-width:0" });
+    for (const [key, label] of Object.entries(SORT_LABEL)) sortSelect.append(new Option(label, key));
+    sortSelect.value = state.sort;
+    sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
 
     root.append(Air.el("div", { class: "air-results-head" }, [
       Air.el("h2", { text: "일등석 예약 가능" }),
       Air.el("p", { class: "air-results-summary" }, [
         Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"]),
         Air.el("span", { text: DIRECTION_LABEL[state.direction] + (state.airport ? ` · ${Air.airportShort(state.airport)} (${state.airport})` : "") }),
-        Air.el("span", { class: "air-results-summary__date", text: "출발일 빠른 순" })
+        state.region ? Air.el("span", { text: state.region }) : null,
+        sortSelect
       ])
     ]));
 
     if (!rows.length) {
       root.append(Air.emptyState(
         "해당 조건의 일등석 예약 가능 좌석이 없습니다",
-        "방향·공항 조건을 '전체'로 되돌리면 수집된 일등석 좌석을 모두 볼 수 있습니다. " +
+        "방향·공항·권역 조건을 '전체'로 되돌리면 수집된 일등석 좌석을 모두 볼 수 있습니다. " +
         "좌석이 없는 날짜와 아직 조회하지 않은 날짜는 이 화면에 표시하지 않습니다."
       ));
     } else {
