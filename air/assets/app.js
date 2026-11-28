@@ -1479,7 +1479,7 @@
     function paint() {
       const saved = refreshMemory.get(key) || null;
       const status = saved ? saved.status : null;
-      const queueState = status === "queued" ? "queued" :
+      const queueState = status === "queued" || status === "pending" ? "queued" :
         status === "deduped" || status === "processing" ? "processing" :
         status === "done" ? "done" :
         status === "failed" || status === "failed_cooldown" ? "failed" :
