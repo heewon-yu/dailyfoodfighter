@@ -60,3 +60,44 @@ CREATE TABLE IF NOT EXISTS air_ingest_runs (
 
 CREATE INDEX IF NOT EXISTS idx_air_ingest_runs_scope
   ON air_ingest_runs (origin, destination, month, received_at);
+
+-- ─────────────────────────────────────────────────────────────────────────
+-- 웹 재조회 요청 큐 (2026-11-28)
+--   /air/ 에서 사용자가 노선-월을 조회했을 때, 그 노선-월의 D1 collected_at 이
+--   2시간보다 오래됐거나 아직 조회 기록이 없으면 웹이 여기에 요청을 쌓는다.
+--   집 PC 의 queue_worker.py 가 GET /api/air/refresh-queue 로 pending 1건을 가져가
+--   (status → processing) 그 노선-월만 다시 수집·D1 업서트한 뒤
+--   POST /api/air/refresh-queue 로 done/failed 를 보고한다.
+--
+--   · status      : pending | processing | done | failed
+--   · requested_at/started_at/finished_at : ISO8601 UTC(Z) — 문자열 비교로 정렬·만료 판정
+--   · requester   : 요청자 구분값(웹은 IP 해시 앞 12자, 워커는 'worker') — 원본 IP 는 저장하지 않는다
+--   · note        : 보고 시 함께 남기는 짧은 메모(수집 시각·행 수 등)
+--   활성(pending/processing) 행은 노선-월당 하나만 존재하도록 부분 유니크 인덱스로 막는다.
+CREATE TABLE IF NOT EXISTS air_refresh_queue (
+  id           INTEGER PRIMARY KEY AUTOINCREMENT,
+  origin       TEXT    NOT NULL,
+  destination  TEXT    NOT NULL,
+  month        TEXT    NOT NULL,
+  status       TEXT    NOT NULL DEFAULT 'pending',
+  requested_at TEXT    NOT NULL,
+  started_at   TEXT,
+  finished_at  TEXT,
+  error_msg    TEXT,
+  attempts     INTEGER NOT NULL DEFAULT 0,
+  requester    TEXT,
+  note         TEXT
+);
+
+CREATE UNIQUE INDEX IF NOT EXISTS idx_air_refresh_queue_active
+  ON air_refresh_queue (origin, destination, month)
+  WHERE status IN ('pending', 'processing');
+
+CREATE INDEX IF NOT EXISTS idx_air_refresh_queue_pick
+  ON air_refresh_queue (status, requested_at);
+
+CREATE INDEX IF NOT EXISTS idx_air_refresh_queue_key
+  ON air_refresh_queue (origin, destination, month, requested_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_air_refresh_queue_requested
+  ON air_refresh_queue (requested_at);

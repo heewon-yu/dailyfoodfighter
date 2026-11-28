@@ -1358,6 +1358,263 @@
     ]);
   }
 
+  /* ------------------------------------------- 재조회 요청 큐 (2026-11-28)
+     사용자가 노선-월을 조회했을 때 그 노선-월의 D1 collected_at 이 2시간보다 오래됐거나
+     아직 기록이 없으면, 조용히 POST /api/air/refresh-request 로 큐에 한 번 넣고
+     상태 배지(대기/처리/완료)를 보여 준다. 집 PC 의 queue_worker.py 가 pending 을 가져가
+     그 노선-월만 다시 수집·D1 업서트하고 결과를 보고한다. 버튼으로 직접 요청할 수도 있다. */
+
+  const REFRESH = {
+    freshHours: 2,
+    pollMs: 20000,          /* 상태 확인 주기 */
+    pollTries: 9,           /* 최대 3분 */
+    sessionTtlMs: 30 * 60 * 1000  /* 같은 세션에서 같은 노선-월 자동 요청은 30분에 1회 */
+  };
+
+  /* key → { status, item, fresh } — 화면을 다시 그려도 상태를 유지한다. */
+  const refreshMemory = new Map();
+
+  function refreshKey(scope) {
+    return `${scope.origin}-${scope.destination}-${scope.month}`;
+  }
+
+  /** 노선-월의 마지막 수집 시각과 신선도(2시간 이내). 데이터가 없으면 fresh=false. */
+  function refreshFreshness(rows, origin, destination, month) {
+    let latest = null;
+    let count = 0;
+
+    for (const row of rows || []) {
+      if (row.origin !== origin || row.destination !== destination || row.month !== month) continue;
+      count += 1;
+      if (row.collectedAt) {
+        const at = new Date(row.collectedAt).getTime();
+        if (!Number.isNaN(at) && (latest === null || at > latest)) latest = at;
+      }
+    }
+
+    const hours = latest === null ? null : (Date.now() - latest) / 36e5;
+    return {
+      rows: count,
+      collectedAt: latest === null ? null : new Date(latest).toISOString(),
+      hours,
+      fresh: count > 0 && hours !== null && hours <= REFRESH.freshHours
+    };
+  }
+
+  function refreshAskedAt(key) {
+    try {
+      const value = Number(sessionStorage.getItem("milemap-refresh:" + key));
+      return Number.isFinite(value) ? value : 0;
+    } catch (error) {
+      return 0;
+    }
+  }
+
+  function refreshMarkAsked(key) {
+    try {
+      sessionStorage.setItem("milemap-refresh:" + key, String(Date.now()));
+    } catch (error) {
+      /* 사생활 보호 모드 등 저장소가 막혀도 요청 자체는 계속한다. */
+    }
+  }
+
+  async function refreshPost(scope) {
+    const response = await fetch(API_ROOT + "refresh-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(scope),
+      cache: "no-store"
+    });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  }
+
+  async function refreshGet(scope) {
+    const query = new URLSearchParams(scope).toString();
+    const response = await fetch(API_ROOT + "refresh-request?" + query, { cache: "no-store" });
+    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    return response.json();
+  }
+
+  /**
+   * 재조회 상태 줄 — [상태 점] 설명 [재조회 버튼].
+   * @param {{origin:string, dst?}} options
+   *   origin, destination, month, rows(지금 읽은 행), auto(자동 요청 여부, 기본 true)
+   */
+  function refreshBar(options) {
+    const scope = {
+      origin: String(options.origin || "").toUpperCase(),
+      destination: String(options.destination || "").toUpperCase(),
+      month: String(options.month || "")
+    };
+
+    if (!/^[A-Z]{3}$/.test(scope.origin) || !/^[A-Z]{3}$/.test(scope.destination) ||
+        !/^\d{4}-\d{2}$/.test(scope.month)) {
+      return null;
+    }
+
+    const key = refreshKey(scope);
+    const info = refreshFreshness(options.rows, scope.origin, scope.destination, scope.month);
+
+    const dot = el("span", { class: "air-refresh__dot", "aria-hidden": "true" });
+    const text = el("span", { class: "air-refresh__text" });
+    const button = el("button", {
+      type: "button",
+      class: "air-btn air-btn--ghost air-btn--sm air-refresh__btn"
+    });
+    const bar = el("div", { class: "air-refresh", role: "status", "aria-live": "polite" }, [
+      dot, text, button
+    ]);
+
+    let timer = null;
+    let tries = 0;
+
+    function stopPolling() {
+      if (timer) {
+        clearInterval(timer);
+        timer = null;
+      }
+    }
+
+    function paint() {
+      const saved = refreshMemory.get(key) || null;
+      const status = saved ? saved.status : null;
+      const queueState = status === "queued" ? "queued" :
+        status === "deduped" || status === "processing" ? "processing" :
+        status === "done" ? "done" :
+        status === "failed" || status === "failed_cooldown" ? "failed" :
+        status === "daily_limit_reached" || status === "rate_limited" ? "limited" :
+        info.fresh ? "fresh" : info.rows ? "stale" : "missing";
+
+      bar.dataset.state = queueState;
+      dot.dataset.state = queueState;
+
+      if (queueState === "fresh") {
+        text.textContent = `최근 ${REFRESH.freshHours}시간 내 최신 데이터 · ${fmtDateTime(info.collectedAt) || "방금"} 조회`;
+        button.textContent = "🔄 재조회 요청";
+        button.title = "이미 최근 데이터입니다. 눌러도 다시 수집하지 않습니다.";
+        button.disabled = false;
+      } else if (queueState === "stale") {
+        text.textContent = `${fmtAge(info.collectedAt) || "오래됨"} 조회 · ${fmtDateTime(info.collectedAt) || "시각 없음"}`;
+        button.textContent = "🔄 최신 좌석 재조회 요청";
+        button.title = "집 PC 수집기가 이 노선-월을 다시 조회해 좌석 데이터를 갱신합니다.";
+        button.disabled = false;
+      } else if (queueState === "missing") {
+        text.textContent = "이 노선·월은 아직 조회 기록이 없습니다";
+        button.textContent = "🔄 최신 좌석 재조회 요청";
+        button.title = "집 PC 수집기가 이 노선-월을 처음 조회합니다.";
+        button.disabled = false;
+      } else if (queueState === "queued") {
+        text.textContent = "실시간 재조회 대기 중 · 수집되면 자동으로 반영됩니다";
+        button.textContent = "요청됨";
+        button.disabled = true;
+      } else if (queueState === "processing") {
+        text.textContent = "실시간 재조회 중입니다…";
+        button.textContent = "진행 중";
+        button.disabled = true;
+      } else if (queueState === "done") {
+        text.textContent = "재조회 완료 · 새로고침하면 최신 좌석이 반영됩니다";
+        button.textContent = "새로고침";
+        button.disabled = false;
+      } else if (queueState === "failed") {
+        text.textContent = "재조회가 잠시 실패했습니다 · 잠시 후 다시 시도해 주세요";
+        button.textContent = "다시 요청";
+        button.disabled = false;
+      } else {
+        text.textContent = "오늘 재조회 요청이 많습니다 · 잠시 후 다시 시도해 주세요";
+        button.textContent = "잠시 후";
+        button.disabled = true;
+      }
+    }
+
+    function remember(payload) {
+      if (!payload || payload.ok !== true) return null;
+      const saved = { status: payload.status || "unknown", item: payload.item || null,
+        fresh: payload.fresh || null, queue: payload.queue || null };
+      refreshMemory.set(key, saved);
+      return saved;
+    }
+
+    function poll() {
+      stopPolling();
+      if (!refreshMemory.has(key)) return;
+      tries = 0;
+      timer = setInterval(async () => {
+        tries += 1;
+        if (tries > REFRESH.pollTries) {
+          stopPolling();
+          return;
+        }
+        try {
+          const payload = await refreshGet(scope);
+          if (!payload || payload.ok !== true) return;
+          refreshMemory.set(key, { status: payload.status, item: payload.item,
+            fresh: payload.fresh, queue: payload.queue });
+          paint();
+          if (!["pending", "processing"].includes(payload.status)) stopPolling();
+        } catch (error) {
+          /* 상태 확인 실패는 조용히 넘긴다 — 배지는 마지막 상태를 유지한다. */
+        }
+      }, REFRESH.pollMs);
+    }
+
+    async function ask(manual) {
+      if (button.disabled && !manual) return;
+      button.disabled = true;
+
+      if (manual && refreshMemory.get(key) && refreshMemory.get(key).status === "done") {
+        location.reload();
+        return;
+      }
+
+      try {
+        const payload = await refreshPost(scope);
+        const saved = remember(payload);
+        if (!saved) throw new Error("REFRESH_FAILED");
+        refreshMarkAsked(key);
+        paint();
+        if (["queued", "deduped"].includes(saved.status)) poll();
+      } catch (error) {
+        refreshMemory.delete(key);
+        paint();
+        text.textContent = "재조회 요청을 보내지 못했습니다 · 잠시 후 다시 시도해 주세요";
+      }
+    }
+
+    button.addEventListener("click", () => {
+      if (refreshMemory.get(key) && refreshMemory.get(key).status === "done") {
+        location.reload();
+        return;
+      }
+      ask(true);
+    });
+
+    paint();
+
+    if (!info.fresh) {
+      const saved = refreshMemory.get(key);
+      if (saved && ["queued", "deduped"].includes(saved.status)) {
+        poll();
+      } else if (!saved) {
+        /* 세션당 1회 자동 요청 — 이미 요청한 노선-월은 조용히 상태만 확인한다. */
+        if (Date.now() - refreshAskedAt(key) > REFRESH.sessionTtlMs && options.auto !== false) {
+          refreshMarkAsked(key);
+          ask(false);
+        } else {
+          refreshGet(scope).then(payload => {
+            if (!payload || payload.ok !== true) return;
+            refreshMemory.set(key, { status: payload.status, item: payload.item,
+              fresh: payload.fresh, queue: payload.queue });
+            paint();
+            if (["pending", "processing"].includes(payload.status)) poll();
+          }).catch(() => {});
+        }
+      }
+    }
+
+    return bar;
+  }
+
   /* ------------------------------------------------------------- 공개 API */
 
   window.Air = {
@@ -1371,6 +1628,7 @@
     airports, routeCatalog, airportLabel, airportShort, searchText, airport,
     params, param, setParams, viewLink, onPopState,
     mountChrome, combobox, airportCombo, pageKey, renderHeaderUpdated,
+    refreshBar, refreshFreshness, refreshPost, refreshGet,
     regionLabel(region) { return REGION_LABEL[region] || region; },
     /* 지금 읽고 있는 데이터 출처("d1" | "static" | null) — 점검·디버그용 */
     dataSource() { return state.source; },

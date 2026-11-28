@@ -48,3 +48,47 @@ Authorization: Bearer $AIR_INGEST_TOKEN
 - `status`: `business` 는 `prestigeAward` 가 true 면 `available`, 아니면 `unavailable`.
   `first` 는 `firstAward`/`firstAwardOrUpgrade` 가 true 면 `available`, 아니면 `unknown`.
 - `first_combined`: 일등석+업그레이드 통합 표기(`firstAwardOrUpgrade`)일 때 1.
+
+## 재조회 요청 큐 (`air_refresh_queue`)
+
+웹에서 오래된 노선-월을 조회하면 그 노선-월만 집 PC 수집기가 다시 조회하도록 요청을 쌓는 큐입니다.
+테이블·인덱스는 `schema.sql`(부분 유니크 인덱스 `idx_air_refresh_queue_active`)에 있습니다.
+
+### 요청 (공개 — `/air/` 프론트가 호출)
+
+```
+POST /api/air/refresh-request
+{ "origin":"ICN", "destination":"ORD", "month":"2026-12" }
+```
+
+응답 `status`:
+
+| status | 뜻 |
+|---|---|
+| `queued` | 새 요청을 큐에 넣었다 |
+| `fresh_enough` | 그 노선-월의 D1 `collected_at` 이 2시간 이내 — 넣지 않았다 |
+| `deduped` | 같은 노선-월이 이미 pending/processing — 새로 넣지 않았다 |
+| `failed_cooldown` | 30분 안에 실패한 요청이 있다 — `retry_after_seconds` 뒤에 다시 |
+| `daily_limit_reached` | 24시간 전체 40건 상한 |
+| `rate_limited` | 같은 요청자 10건 상한(요청자는 IP 해시 앞 12자만 저장) |
+
+```
+GET /api/air/refresh-request?origin=ICN&destination=ORD&month=2026-12
+```
+
+프론트 상태 배지용 공개 조회. `{ ok, status:"none|pending|processing|done|failed", item, fresh, queue }`.
+
+### 워커 (집 PC 전용 — `Authorization: Bearer $AIR_INGEST_TOKEN`)
+
+```
+GET  /api/air/refresh-queue            # pending 1건을 원자적으로 가져간다(processing, attempts+1)
+GET  /api/air/refresh-queue?peek=1&limit=5   # 상태를 바꾸지 않고 대기 목록만 본다
+POST /api/air/refresh-queue            # { "id":12, "status":"done"|"failed", "error_msg":"…", "note":"…" }
+```
+
+- 응답의 `fresh` 가 `true` 면 워커는 브라우저를 열지 않고 바로 `done` 을 보고해도 됩니다.
+- 30분 넘게 `processing` 인 행은 다음 `GET` 에서 자동으로 `pending` 으로 돌아옵니다(`stale_recovered`).
+- 토큰이 없으면 `401`, 틀리면 `403`, `AIR_INGEST_TOKEN` 미설정이면 `503`(fail‑closed).
+
+워커 구현·실행법: `heewon-yu/milemap-collector` 의 `scripts/live_dom_collector/queue_worker.py`,
+`docs/DAILY_INCREMENTAL_0905.md` 「웹 재조회 큐 워커」 절.

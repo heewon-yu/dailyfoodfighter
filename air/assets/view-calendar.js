@@ -361,6 +361,8 @@
     ]);
 
     return Air.el("div", null, [
+      Air.refreshBar({ origin: state.origin, destination: state.destination,
+        month, rows: state.rows }) || null,
       head,
       grid,
       legend,

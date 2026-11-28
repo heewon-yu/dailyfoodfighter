@@ -369,6 +369,26 @@
     return wrapper;
   }
 
+  /* 재조회 요청에 쓸 노선-월. 월을 고르지 않았으면(전체 기간) 다가오는 가장 이른 조회 월을 쓴다. */
+  function refreshScope(rows) {
+    if (!state.origin || !state.destination) return null;
+
+    let month = state.month;
+    if (!month && /^\d{4}-\d{2}-\d{2}$/.test(state.outDate || "")) month = state.outDate.slice(0, 7);
+
+    if (!month) {
+      const today = Air.todayKst().slice(0, 7);
+      const months = [...new Set((rows || [])
+        .filter(row => row.origin === state.origin && row.destination === state.destination)
+        .map(row => row.month))]
+        .filter(value => value >= today)
+        .sort();
+      month = months[0] || "";
+    }
+
+    return month ? { origin: state.origin, destination: state.destination, month } : null;
+  }
+
   async function renderResults() {
     const results = $("air-results");
     const summary = $("air-result-summary");
@@ -435,6 +455,13 @@
     state.page = Math.min(Math.max(1, state.page), pages);
     const pageRows = sorted.slice((state.page - 1) * PAGE_SIZE, state.page * PAGE_SIZE);
 
+    /* 이 노선-월이 2시간보다 오래됐거나 기록이 없으면 조용히 재조회를 요청하고 상태를 보여 준다. */
+    const scope = refreshScope(payload.rows);
+    const refresh = scope
+      ? Air.refreshBar({ origin: scope.origin, destination: scope.destination,
+          month: scope.month, rows: payload.rows })
+      : null;
+
     summary.replaceChildren(...[
       dateFilter ? Air.el("span", { class: "air-results-summary__date" }, [
         Air.el("b", { text: Air.fmtDate(dateFilter) }),
@@ -467,6 +494,8 @@
         scopeRows.length > 0 && scopeRows.every(row => row.status === "unknown");
 
       const box = Air.el("div", { class: "air-stack" });
+
+      if (refresh) box.append(refresh);
 
       box.append(Air.emptyState(
         pairMissing ? "이 노선의 좌석 데이터는 아직 수집되지 않았습니다" :
@@ -502,6 +531,7 @@
     }
 
     results.replaceChildren(
+      ...(refresh ? [refresh] : []),
       Air.el("div", { class: "air-result-grid" }, pageRows.map(card))
     );
 

@@ -1605,3 +1605,58 @@ img { max-width: 100%; }
 @media (max-width: 480px) {
   .dff-home-back { font-size: 12px; padding: 5px 11px; margin-bottom: 11px; }
 }
+
+/* ------------------------------------------- 재조회 요청 줄 (검색·달력 공통, 2026-11-28) */
+.air-refresh {
+  display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+  margin: 0 0 12px; padding: 8px 12px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: #fbfcfe; color: var(--ink-2);
+  font-size: 12.5px; line-height: 1.45;
+}
+.air-refresh__dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--ink-4); flex: none;
+}
+.air-refresh__text { flex: 1 1 220px; min-width: 0; }
+.air-refresh__btn { margin-left: auto; white-space: nowrap; }
+
+.air-refresh[data-state="fresh"] { border-color: #cdebd8; background: var(--green-50); }
+.air-refresh[data-state="fresh"] .air-refresh__dot { background: var(--green); }
+
+.air-refresh[data-state="stale"] { border-color: #f3dfc2; background: var(--amber-50); }
+.air-refresh[data-state="stale"] .air-refresh__dot { background: var(--amber); }
+.air-refresh[data-state="stale"] .air-refresh__text { color: #7c4a0b; font-weight: 600; }
+
+.air-refresh[data-state="missing"] { border-color: var(--blue-100); background: var(--blue-50); }
+.air-refresh[data-state="missing"] .air-refresh__dot { background: var(--blue); }
+
+.air-refresh[data-state="queued"],
+.air-refresh[data-state="processing"] { border-color: #c7d7fb; background: var(--blue-50); }
+.air-refresh[data-state="queued"] .air-refresh__dot,
+.air-refresh[data-state="processing"] .air-refresh__dot {
+  background: var(--blue);
+  animation: air-refresh-pulse 1.4s ease-in-out infinite;
+}
+
+.air-refresh[data-state="done"] { border-color: #cdebd8; background: var(--green-50); }
+.air-refresh[data-state="done"] .air-refresh__dot { background: var(--green); }
+
+.air-refresh[data-state="failed"] { border-color: #f6d5d1; background: var(--red-50); }
+.air-refresh[data-state="failed"] .air-refresh__dot { background: var(--red); }
+
+.air-refresh[data-state="limited"] { border-color: var(--line); background: #f8fafc; }
+
+@keyframes air-refresh-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: .35; transform: scale(.82); }
+}
+
+@media (max-width: 560px) {
+  .air-refresh { padding: 8px 10px; font-size: 12px; }
+  .air-refresh__btn { margin-left: 0; width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .air-refresh[data-state="queued"] .air-refresh__dot,
+  .air-refresh[data-state="processing"] .air-refresh__dot { animation: none; }
+}
