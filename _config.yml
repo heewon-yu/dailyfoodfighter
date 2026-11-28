@@ -43,6 +43,7 @@ exclude:
   - tools/
   - supabase/
   - functions/
+  - tests/
   - scalping-king-android/
   - README.md
   - ingredients.md

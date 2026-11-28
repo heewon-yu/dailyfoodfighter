@@ -16,11 +16,25 @@
   /* 운영 전환 시 이 한 줄만 ../data/ 로 바꾼다. */
   const DATA_ROOT = ROOT + "data/preview/";
 
-  /* D1 API (functions/api/air/*). 행 데이터·월 목록을 여기서 읽는다.
-     ?data=static 을 붙이면 정적 스냅샷으로 강제 폴백한다(점검용). */
+  /* D1 API (functions/api/air/*).
+     - 기본 데이터(행·월 목록)는 정적 스냅숏(air/data/preview/*)에서 읽는다 → D1 0행.
+     - D1 은 '스냅숏 이후 바뀐 노선-월'(/api/air/changes)과 그 행(/api/air/routes?scopes=)만
+       읽어 스냅숏 위에 겹쳐 그린다. 그래서 접속 1회당 D1 읽기가 수천 행 이하로 줄어든다.
+     - ?data=static 은 정적만, ?data=d1 은 D1 전체를 강제한다(점검용). */
   const API_ROOT = "/api/air/";
   const D1_PAGE_LIMIT = 20000;   // GET /api/air/routes 의 1회 상한
   const D1_MAX_PAGES = 40;       // 안전장치(20,000행 × 40 = 80만행)
+
+  /* 정적 스냅숏이 이보다 오래되면 신선도를 위해 D1 매니페스트·전체 조회를 먼저 쓴다. */
+  const STATIC_MAX_AGE_HOURS = 48;
+  /* 스냅숏 이후 D1 변경분을 다시 확인하는 간격(같은 페이지 안에서). */
+  const OVERLAY_TTL_MS = 5 * 60 * 1000;
+  /* 한 번에 겹쳐 그릴 변경 노선-월 상한 — 넘으면 D1 전체 조회로 되돌린다(정확성 우선). */
+  const OVERLAY_MAX_SCOPES = 200;
+  /* scopes= 요청 1회에 넣는 노선-월 수. */
+  const OVERLAY_SCOPE_CHUNK = 25;
+  /* 변경분이 상한을 넘었을 때 한 번 더 넓혀 보는 스캔 행 수. */
+  const OVERLAY_RETRY_SPAN = 8000;
 
 
   const FRESH_HOURS = 26;
@@ -188,7 +202,11 @@
     catalog: null,
     catalogPromise: null,
     /* "d1" | "static" — 지금 실제로 읽고 있는 데이터 출처 */
-    source: null
+    source: null,
+    /* 정적 스냅숏 위에 겹쳐 그릴 D1 변경분 { since, at, scopes:Map } */
+    overlay: null,
+    overlaySince: null,
+    overlayPromise: null
   };
 
   async function fetchJson(url, cacheMode) {
@@ -246,8 +264,8 @@
   }
 
   /**
-   * 매니페스트: D1 우선, 실패하면 정적 JSON.
-   * (?data=static 이면 정적, ?data=d1 이면 D1 실패 시 폴백 없이 에러)
+   * 매니페스트: 정적 스냅숏 우선(D1 0행), 스냅숏이 오래됐거나 없으면 D1.
+   * (?data=static 이면 정적만, ?data=d1 이면 D1 만)
    */
   function getManifest() {
     if (state.manifest) return Promise.resolve(state.manifest);
@@ -256,18 +274,42 @@
       const override = sourceOverride();
 
       state.manifestPromise = (async () => {
-        if (override !== "static") {
+        if (override === "static") {
+          const snapshot = await staticManifest();
+          state.source = "static";
+          return snapshot;
+        }
+
+        if (override === "d1") {
+          const manifest = await d1Manifest();
+          state.source = "d1";
+          return manifest;
+        }
+
+        try {
+          const snapshot = await staticManifest();
+
+          /* 스냅숏이 최신이면 그대로 쓴다 — D1 매니페스트(전체 GROUP BY)를 읽지 않는다. */
+          if (!isSnapshotStale(snapshot)) {
+            state.source = "static";
+            return snapshot;
+          }
+
+          /* 오래된 스냅숏 → D1 우선, 실패하면 스냅숏으로 버틴다. */
           try {
             const manifest = await d1Manifest();
             state.source = "d1";
             return manifest;
           } catch (error) {
-            if (override === "d1") throw error;
+            state.source = "static";
+            return snapshot;
           }
+        } catch (error) {
+          /* 정적 매니페스트 자체가 없으면 D1 으로 */
         }
 
-        const manifest = await staticManifest();
-        state.source = "static";
+        const manifest = await d1Manifest();
+        state.source = "d1";
         return manifest;
       })()
         .then(manifest => {
@@ -281,6 +323,12 @@
     }
 
     return state.manifestPromise;
+  }
+
+  /** 스냅숏이 신선도 기준(STATIC_MAX_AGE_HOURS)보다 오래됐는가. */
+  function isSnapshotStale(manifest) {
+    const hours = hoursSince(manifest && manifest.generated_at);
+    return hours !== null && hours > STATIC_MAX_AGE_HOURS;
   }
 
   function safePath(path) {
@@ -344,37 +392,212 @@
   }
 
   /**
-   * 필터(지역/월)에 해당하는 지역·월 파일만 읽어 정규화된 행을 돌려준다.
-   * D1 읽기가 중간에 실패하면 정적 스냅샷으로 한 번 폴백한다.
+   * 필터(지역/월)에 해당하는 정적 파일을 읽고, 그 위에 D1 변경분을 겹쳐
+   * 정규화된 행을 돌려준다.
+   */
+  /* --------------------------------------------------- D1 변경분 오버레이
+     정적 스냅숏은 수집 배치가 커밋될 때마다 갱신된다. 그 사이에 웹 재조회 큐가
+     D1 에만 다시 올린 노선-월이 있으면 /api/air/changes 가 알려 주고,
+     그 노선-월 행만 /api/air/routes?scopes= 로 읽어 스냅숏 행을 갈아 끼운다.
+     → 화면은 D1 처럼 최신이고, D1 읽기는 수십~수천 행에 그친다. */
+
+  function scopeKeyOf(origin, destination, month) {
+    return `${String(origin || "").toUpperCase()}-${String(destination || "").toUpperCase()}-${String(month || "").slice(0, 7)}`;
+  }
+
+  function rawScopeKey(raw) {
+    const date = String((raw && raw.departure_date) || "").slice(0, 10);
+    const month = (raw && raw.month) || date.slice(0, 7);
+    return scopeKeyOf(raw && raw.origin, raw && raw.destination, month);
+  }
+
+  async function fetchChanges(since, span) {
+    const query = `${API_ROOT}changes?since=${encodeURIComponent(since)}` +
+      `&limit=${OVERLAY_MAX_SCOPES + 1}` + (span ? `&span=${span}` : "");
+    return fetchJson(query, "default");
+  }
+
+  async function fetchScopeItems(entries) {
+    const items = [];
+
+    for (let i = 0; i < entries.length; i += OVERLAY_SCOPE_CHUNK) {
+      const chunk = entries.slice(i, i + OVERLAY_SCOPE_CHUNK);
+      const param = chunk.map(entry => `${entry.origin}-${entry.destination}-${entry.month}`).join(",");
+      const payload = await fetchJson(`${API_ROOT}routes?scopes=${encodeURIComponent(param)}`, "default");
+
+      if (!payload || payload.ok !== true || !Array.isArray(payload.items)) {
+        throw new Error("D1_OVERLAY_UNAVAILABLE");
+      }
+
+      items.push(...payload.items);
+    }
+
+    return items;
+  }
+
+  /**
+   * 스냅숏 이후 바뀐 노선-월 목록 → 각 노선-월의 D1 행.
+   * 실패하면 null(오버레이 없이 스냅숏만), 스냅숏보다 많은 변경이면 OVERLAY_TOO_MANY.
+   * @returns {Promise<{since:string, at:number, scopes:Map<string,{origin,destination,month,items:Array}>}|null>}
+   */
+  function getOverlay(manifest) {
+    const since = manifest && (manifest.generated_at || manifest.last_success_at);
+    if (!since || sourceOverride() === "static") return Promise.resolve(null);
+
+    const cached = state.overlay;
+    if (cached && cached.since === since && Date.now() - cached.at < OVERLAY_TTL_MS) {
+      return Promise.resolve(cached);
+    }
+
+    if (state.overlayPromise && state.overlaySince === since) return state.overlayPromise;
+    state.overlaySince = since;
+
+    state.overlayPromise = (async () => {
+      let payload = await fetchChanges(since, 0);
+
+      if (payload && payload.ok === true && payload.truncated) {
+        /* 변경이 한 번에 담기지 않았다 — 스캔 범위를 넓혀 한 번만 더 시도한다. */
+        payload = await fetchChanges(since, OVERLAY_RETRY_SPAN);
+      }
+
+      if (!payload || payload.ok !== true || !Array.isArray(payload.scopes)) {
+        throw new Error("D1_CHANGES_UNAVAILABLE");
+      }
+
+      if (payload.truncated || payload.scopes.length > OVERLAY_MAX_SCOPES) {
+        const error = new Error("D1_OVERLAY_TOO_MANY");
+        error.code = "OVERLAY_TOO_MANY";
+        throw error;
+      }
+
+      const entries = payload.scopes.filter(scope =>
+        /^[A-Z]{3}$/.test(String(scope.origin || "")) &&
+        /^[A-Z]{3}$/.test(String(scope.destination || "")) &&
+        /^\d{4}-\d{2}$/.test(String(scope.month || ""))
+      );
+
+      const scopes = new Map();
+      for (const entry of entries) {
+        scopes.set(scopeKeyOf(entry.origin, entry.destination, entry.month), {
+          origin: entry.origin,
+          destination: entry.destination,
+          month: entry.month,
+          items: []
+        });
+      }
+
+      if (entries.length) {
+        const items = await fetchScopeItems(
+          [...scopes.values()].map(entry => ({
+            origin: entry.origin, destination: entry.destination, month: entry.month
+          }))
+        );
+
+        for (const raw of items) {
+          const key = rawScopeKey(raw);
+          const entry = scopes.get(key);
+          if (entry) entry.items.push(raw);
+          else scopes.set(key, {
+            origin: raw.origin,
+            destination: raw.destination,
+            month: String(raw.month || raw.departure_date || "").slice(0, 7),
+            items: [raw]
+          });
+        }
+      }
+
+      const overlay = { since, at: Date.now(), scopes };
+      state.overlay = overlay;
+      return overlay;
+    })().catch(error => {
+      state.overlayPromise = null;
+      throw error;
+    });
+
+    return state.overlayPromise;
+  }
+
+  /**
+   * 필터(지역/월)에 해당하는 정적 파일 + D1 변경분을 합쳐 정규화된 행을 돌려준다.
+   * 정적 읽기가 실패하면 D1 전체 조회로 한 번 되돌아간다.
    * @returns {Promise<{rows:Array, stats:Object}>}
    */
   async function loadRows(filter = {}) {
     const manifest = await getManifest();
 
-    try {
-      return await assembleRows(manifest, filter);
-    } catch (error) {
-      if (manifest.data_source !== "d1" || sourceOverride() === "d1") throw error;
+    if (manifest.data_source === "d1") {
+      try {
+        return await assembleRows(manifest, filter, null);
+      } catch (error) {
+        if (sourceOverride() === "d1") throw error;
 
-      /* D1(API·D1 장애) 폴백 — 한 번만 정적 스냅샷으로 다시 읽는다. */
-      state.manifest = null;
-      state.manifestPromise = null;
+        /* D1(API·D1 장애) 폴백 — 한 번만 정적 스냅숏으로 다시 읽는다. */
+        state.manifest = null;
+        state.manifestPromise = null;
+        state.parts.clear();
+        state.source = "static";
+        const fallback = await staticManifest();
+        state.manifest = fallback;
+        state.manifestPromise = Promise.resolve(fallback);
+        return assembleRows(fallback, filter, null);
+      }
+    }
+
+    /* 정적 스냅숏 + D1 변경분 오버레이 */
+    let overlay = null;
+
+    try {
+      overlay = await getOverlay(manifest);
+    } catch (error) {
+      if (error && error.code === "OVERLAY_TOO_MANY") {
+        /* 스냅숏 이후 바뀐 노선-월이 너무 많다 — D1 에서 그 달만 다시 읽어 정확성을 지킨다. */
+        try {
+          const d1 = await d1Manifest();
+          state.manifest = d1;
+          state.manifestPromise = Promise.resolve(d1);
+          state.parts.clear();
+          state.source = "d1";
+          return await assembleRows(d1, filter, null);
+        } catch (d1Error) {
+          state.manifest = manifest;
+          state.manifestPromise = Promise.resolve(manifest);
+          state.source = "static";
+        }
+      }
+      overlay = null;
+    }
+
+    try {
+      return await assembleRows(manifest, filter, overlay);
+    } catch (error) {
+      if (sourceOverride() === "static") throw error;
+
+      /* 정적 파일 일부가 비었거나 CDN 오류 — D1 으로 한 번 더 시도한다. */
+      const d1 = await d1Manifest();
+      state.manifest = d1;
+      state.manifestPromise = Promise.resolve(d1);
       state.parts.clear();
-      state.source = "static";
-      const fallback = await staticManifest();
-      state.manifest = fallback;
-      state.manifestPromise = Promise.resolve(fallback);
-      return assembleRows(fallback, filter);
+      state.source = "d1";
+      return assembleRows(d1, filter, null);
     }
   }
 
-  async function assembleRows(manifest, filter) {
+  async function assembleRows(manifest, filter, overlay) {
     const files = manifest.files.filter(file => fileMatches(file, filter));
 
     const parts = await Promise.all(files.map(async file => ({
       file,
       items: await loadPart(file)
     })));
+
+    /* 겹쳐 그릴 노선-월 — 정적 행을 빼고 D1 행으로 갈아 끼운다. */
+    const replaceScopes = new Set();
+    if (overlay && overlay.scopes && overlay.scopes.size) {
+      for (const [key, entry] of overlay.scopes) {
+        if (filter.month && entry.month !== filter.month) continue;
+        replaceScopes.add(key);
+      }
+    }
 
     const rows = [];
     const stats = {
@@ -390,12 +613,30 @@
 
     for (const { file, items } of parts) {
       for (const raw of items) {
+        if (replaceScopes.size && replaceScopes.has(rawScopeKey(raw))) continue;
         const { row, reason } = normalize(raw, stats, file.region);
         if (row) rows.push(row);
         else if (reason) {
           if (reason === "program") stats.excludedProgram++;
           else if (reason === "cabin") stats.excludedCabin++;
           else stats.invalid++;
+        }
+      }
+    }
+
+    /* 스냅숏보다 새로운 노선-월은 D1 행으로 갈아 끼운다(지역 정보가 없어 빈 값). */
+    if (replaceScopes.size) {
+      for (const key of replaceScopes) {
+        const entry = overlay.scopes.get(key);
+        if (!entry) continue;
+        for (const raw of entry.items) {
+          const { row, reason } = normalize(raw, stats, "");
+          if (row) rows.push(row);
+          else if (reason) {
+            if (reason === "program") stats.excludedProgram++;
+            else if (reason === "cabin") stats.excludedCabin++;
+            else stats.invalid++;
+          }
         }
       }
     }

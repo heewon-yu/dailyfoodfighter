@@ -92,3 +92,57 @@ POST /api/air/refresh-queue            # { "id":12, "status":"done"|"failed", "e
 
 워커 구현·실행법: `heewon-yu/milemap-collector` 의 `scripts/live_dom_collector/queue_worker.py`,
 `docs/DAILY_INCREMENTAL_0905.md` 「웹 재조회 큐 워커」 절.
+
+---
+
+## D1 읽기 예산 (2026-11-28 — 무료 일일 500만 행 한도 대응)
+
+### 문제
+
+기존 `/air/` 는 접속할 때마다 ① 매니페스트(전체 GROUP BY ≈ 4만 행) ② 행 데이터(월별 전량)를
+D1 에서 읽었다. `GET /api/air/routes?month=…` 는 `month` 단독 인덱스가 없어 **한 달을 읽을 때마다
+테이블 전체를 두 번(SELECT + COUNT) 훑었기 때문에**, 페이지 한 번에 수십만 행이 나가
+무료 한도(500만 행/일)가 하루 몇 번의 방문으로 소진됐다.
+
+### 지금 구조 (정적 우선 + D1 변경분 오버레이)
+
+```
+/air/ 접속
+  ├─ air/data/preview/index.json + snapshots/**   ← 정적 CDN, D1 0행 (기본 데이터)
+  └─ GET /api/air/changes?since=<스냅숏 generated_at>
+        └─ 스냅숏 이후 D1 에 새로 올라온 노선-월만 (보통 0~수십 건)
+             └─ GET /api/air/routes?scopes=ICN-ORD-2026-12,…  ← 그 노선-월 행만(수십 행)
+```
+
+- 스냅숏은 수집 배치가 커밋될 때마다 갱신되므로, 평소 오버레이는 0건이다.
+- 웹 재조회 큐가 D1 에만 다시 올린 노선-월만 오버레이로 덮인다(그 노선-월 행만 교체).
+- 스냅숏이 `STATIC_MAX_AGE_HOURS`(48시간)보다 오래되면 지금처럼 D1 우선으로 되돌아간다.
+- D1 이 죽어도(한도 초과 포함) 화면은 스냅숏으로 그대로 뜬다.
+- 점검용: `?data=static`(정적만) / `?data=d1`(D1 만).
+
+### 엣지 캐시 (`functions/_lib/air-cache.js`)
+
+- `GET /api/air/manifest`, `/api/air/routes`(전체·scopes 모두), `/api/air/changes` 응답을
+  `caches.default` 에 캐시한다(매니페스트 1시간 · 노선 조회 5분 · 변경분 2분).
+- 캐시 키에는 **데이터 세대**가 들어간다. 세대 = `air_ingest_runs` 의 `MAX(id)` 로,
+  업로드가 한 건이라도 성공하면 값이 바뀌어 모든 캐시가 자동 무효화된다(별도 purge 불필요).
+  세대 확인은 1행 읽기다.
+- 세대를 읽지 못하면(D1 장애) 캐시를 쓰지 않고 원래 조회를 그대로 수행한다 — 낡은 데이터를
+  최신인 척 돌려주지 않는다.
+- `?fresh=1` 또는 `_=난수`(수집기 `upload_d1.py --verify` 가 붙이는 캐시버스터)면 캐시를 건너뛴다.
+  따라서 verify 는 항상 D1 실데이터를 본다.
+- 응답 헤더 `X-Air-Cache: HIT|MISS|BYPASS|NOGEN|OFF` 로 캐시 동작을 확인할 수 있다.
+
+### 계약(수집기) 호환
+
+- `POST /api/air/routes` 요청·응답 형식, `GET /api/air/manifest` 의 `files[].month/total`,
+  `GET /api/air/routes?origin&destination&month&limit=20000` 의 `total`·`items` 는 그대로다.
+  집 PC 의 `upload_d1.py`·`queue_worker.py` 는 수정할 필요가 없다.
+
+### 테스트
+
+```
+node tests/air-d1/test-api.mjs        # 엔드포인트·계약·캐시 무효화 (실제 SQLite)
+node tests/air-d1/test-frontend.mjs   # app.js 데이터 계층(정적 우선·오버레이·폴백)
+```
+

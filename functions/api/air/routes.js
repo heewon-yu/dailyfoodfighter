@@ -9,6 +9,15 @@
  *              destination, departure_date, month, cabin, status, seat_count, points,
  *              first_combined, source_updated_at, collected_at, updated_at} ] }
  *
+ * GET  /api/air/routes?scopes=ICN-ORD-2026-12,GMP-HND-2026-11
+ *      여러 노선-월을 한 번에(최대 50개) 읽는다. 프론트가 정적 스냅숏 위에
+ *      바뀐 노선-월만 겹쳐 그릴 때 쓴다. 행은 노선-월당 한 달 전체(수십 행)라
+ *      전체 4만 행을 긁지 않는다.
+ *
+ *      두 GET 모두 Cloudflare 엣지 캐시(caches.default, 데이터 세대별 키)로 감싼다.
+ *      같은 조회는 D1 에 닿지 않는다 — 자세한 규칙은 ../_lib/air-cache.js 참고.
+ *      `?fresh=1` 또는 `_=난수`(수집기 verify)는 캐시를 건너뛰고 D1 을 직접 읽는다.
+ *
  * POST /api/air/routes   (Authorization: Bearer $AIR_INGEST_TOKEN)
  *      body: { origin:"ICN", destination:"SIN", month:"2027-05",
  *              collected_at?: "2027-05-01T04:20:00+09:00",
@@ -22,12 +31,16 @@
  * 스키마는 같은 폴더의 schema.sql 참고.
  */
 
+import { withEdgeCache } from '../../_lib/air-cache.js';
+
 const PROGRAM_DEFAULT = 'KE_SKYPASS';
 const CABINS = new Set(['business', 'first']);
 const STATUSES = new Set(['available', 'unavailable', 'unknown']);
 const WRITE_LIMIT = 1000;
 const READ_LIMIT_DEFAULT = 3000;
 const READ_LIMIT_MAX = 20000;
+const SCOPES_MAX = 50;
+const SCOPES_ROW_LIMIT = 20000;
 
 function json(data, status = 200, cache = 'no-store') {
   return new Response(JSON.stringify(data), {
@@ -156,37 +169,113 @@ export async function onRequestGet({ request, env }) {
   const db = env.AIR_DB;
   if (!db) return json({ ok: false, error: 'database_unavailable' }, 503);
 
-  const clause = where.length ? ` WHERE ${where.join(' AND ')}` : '';
-  try {
-    const [{ results }, countRow] = await Promise.all([
-      db
-        .prepare(
-          `SELECT * FROM air_award_dates${clause}
-           ORDER BY departure_date ASC, origin ASC, destination ASC,
-                    CASE cabin WHEN 'business' THEN 0 ELSE 1 END
-           LIMIT ? OFFSET ?`
-        )
-        .bind(...args, limit, offset)
-        .all(),
-      db.prepare(`SELECT COUNT(*) AS n FROM air_award_dates${clause}`).bind(...args).first()
-    ]);
+  const scopesParam = url.searchParams.get('scopes');
+  if (scopesParam) return scopedGet(request, env, scopesParam);
 
-    return json(
-      {
-        ok: true,
-        source: 'd1',
-        total: countRow ? countRow.n : (results || []).length,
-        returned: (results || []).length,
-        limit,
-        offset,
-        items: (results || []).map(rowToItem)
-      },
-      200,
-      'public, max-age=60'
-    );
-  } catch (err) {
-    return json({ ok: false, error: 'query_failed', detail: String(err).slice(0, 200) }, 500);
+  const clause = where.length ? ` WHERE ${where.join(' AND ')}` : '';
+
+  return withEdgeCache(request, env, {
+    name: 'routes',
+    ttl: 300,
+    params: { origin, destination, month, cabin, status, program, from, to, limit, offset },
+    produce: async () => {
+      try {
+        const [{ results }, countRow] = await Promise.all([
+          db
+            .prepare(
+              `SELECT * FROM air_award_dates${clause}
+               ORDER BY departure_date ASC, origin ASC, destination ASC,
+                        CASE cabin WHEN 'business' THEN 0 ELSE 1 END
+               LIMIT ? OFFSET ?`
+            )
+            .bind(...args, limit, offset)
+            .all(),
+          db.prepare(`SELECT COUNT(*) AS n FROM air_award_dates${clause}`).bind(...args).first()
+        ]);
+
+        return json(
+          {
+            ok: true,
+            source: 'd1',
+            total: countRow ? countRow.n : (results || []).length,
+            returned: (results || []).length,
+            limit,
+            offset,
+            items: (results || []).map(rowToItem)
+          },
+          200,
+          'public, max-age=60'
+        );
+      } catch (err) {
+        return json({ ok: false, error: 'query_failed', detail: String(err).slice(0, 200) }, 500);
+      }
+    }
+  });
+}
+
+/** scopes=ICN-ORD-2026-12,GMP-HND-2026-11 — 여러 노선-월을 한 번에 읽는다. */
+function parseScopes(raw) {
+  const list = [];
+  for (const part of String(raw || '').split(',')) {
+    const value = part.trim().toUpperCase();
+    if (!value) continue;
+    const match = /^([A-Z]{3})-([A-Z]{3})-(\d{4}-(?:0[1-9]|1[0-2]))$/.exec(value);
+    if (!match) return { error: 'invalid_scopes', value: part };
+    if (match[1] === match[2]) return { error: 'invalid_scopes', value: part };
+    list.push({ origin: match[1], destination: match[2], month: match[3] });
   }
+  return { list };
+}
+
+function scopedGet(request, env, raw) {
+  const parsed = parseScopes(raw);
+  if (parsed.error) return json({ ok: false, error: 'invalid_scopes', value: parsed.value }, 400);
+  const scopes = parsed.list;
+  if (!scopes.length) return json({ ok: false, error: 'scopes_required' }, 400);
+  if (scopes.length > SCOPES_MAX) return json({ ok: false, error: 'too_many_scopes', limit: SCOPES_MAX }, 400);
+
+  const db = env.AIR_DB;
+  if (!db) return json({ ok: false, error: 'database_unavailable' }, 503);
+
+  const clause = scopes.map(() => '(origin = ? AND destination = ? AND month = ?)').join(' OR ');
+  const args = [];
+  for (const scope of scopes) args.push(scope.origin, scope.destination, scope.month);
+
+  return withEdgeCache(request, env, {
+    name: 'routes-scopes',
+    ttl: 300,
+    params: { scopes: scopes.map(scope => `${scope.origin}-${scope.destination}-${scope.month}`).join(',') },
+    produce: async () => {
+      try {
+        const { results } = await db
+          .prepare(
+            `SELECT * FROM air_award_dates
+              WHERE ${clause}
+              ORDER BY month ASC, origin ASC, destination ASC, departure_date ASC,
+                       CASE cabin WHEN 'business' THEN 0 ELSE 1 END
+              LIMIT ?`
+          )
+          .bind(...args, SCOPES_ROW_LIMIT)
+          .all();
+
+        const items = (results || []).map(rowToItem);
+        return json(
+          {
+            ok: true,
+            source: 'd1',
+            scopes: scopes.map(scope => `${scope.origin}-${scope.destination}-${scope.month}`),
+            total: items.length,
+            returned: items.length,
+            items
+          },
+          200,
+          'public, max-age=60'
+        );
+      } catch (err) {
+        return json({ ok: false, error: 'query_failed', detail: String(err).slice(0, 200) }, 500);
+      }
+    }
+  });
 }
 
 function bearer(request) {
