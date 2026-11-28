@@ -1,369 +1,375 @@
 {
   "mode": "production",
   "schema_version": 3,
-  "generated_at": "2026-11-28T07:42:31.094169+00:00",
-  "total": 54624,
-  "snapshot": "f05cfa58808a94c1",
+  "generated_at": "2026-11-28T08:16:19.457179+00:00",
+  "total": 56174,
+  "snapshot": "ee2bd2123e75ae31",
   "files": [
     {
       "region": "china",
       "month": "2026-11",
       "total": 112,
-      "path": "snapshots/f05cfa58808a94c1/china/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2026-11.json"
     },
     {
       "region": "china",
       "month": "2026-12",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2026-12.json"
     },
     {
       "region": "china",
       "month": "2027-01",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-01.json"
     },
     {
       "region": "china",
       "month": "2027-02",
       "total": 784,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-02.json"
     },
     {
       "region": "china",
       "month": "2027-03",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-03.json"
     },
     {
       "region": "china",
       "month": "2027-04",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-04.json"
     },
     {
       "region": "china",
       "month": "2027-05",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-05.json"
     },
     {
       "region": "china",
       "month": "2027-06",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-06.json"
     },
     {
       "region": "china",
       "month": "2027-07",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-07.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-07.json"
     },
     {
       "region": "china",
       "month": "2027-10",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-10.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-10.json"
     },
     {
       "region": "china",
       "month": "2027-11",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/china/2027-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/china/2027-11.json"
     },
     {
       "region": "europe",
       "month": "2026-11",
       "total": 192,
-      "path": "snapshots/f05cfa58808a94c1/europe/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2026-11.json"
     },
     {
       "region": "europe",
       "month": "2026-12",
       "total": 1488,
-      "path": "snapshots/f05cfa58808a94c1/europe/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2026-12.json"
     },
     {
       "region": "europe",
       "month": "2027-01",
       "total": 1488,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-01.json"
     },
     {
       "region": "europe",
       "month": "2027-02",
       "total": 1344,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-02.json"
     },
     {
       "region": "europe",
       "month": "2027-03",
       "total": 1488,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-03.json"
     },
     {
       "region": "europe",
       "month": "2027-04",
       "total": 1440,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-04.json"
     },
     {
       "region": "europe",
       "month": "2027-05",
       "total": 1488,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-05.json"
     },
     {
       "region": "europe",
       "month": "2027-06",
       "total": 1440,
-      "path": "snapshots/f05cfa58808a94c1/europe/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-06.json"
+    },
+    {
+      "region": "europe",
+      "month": "2027-07",
+      "total": 1364,
+      "path": "snapshots/ee2bd2123e75ae31/europe/2027-07.json"
     },
     {
       "region": "japan",
       "month": "2026-11",
       "total": 112,
-      "path": "snapshots/f05cfa58808a94c1/japan/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2026-11.json"
     },
     {
       "region": "japan",
       "month": "2026-12",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2026-12.json"
     },
     {
       "region": "japan",
       "month": "2027-01",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-01.json"
     },
     {
       "region": "japan",
       "month": "2027-02",
       "total": 784,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-02.json"
     },
     {
       "region": "japan",
       "month": "2027-03",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-03.json"
     },
     {
       "region": "japan",
       "month": "2027-04",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-04.json"
     },
     {
       "region": "japan",
       "month": "2027-05",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-05.json"
     },
     {
       "region": "japan",
       "month": "2027-06",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-06.json"
     },
     {
       "region": "japan",
       "month": "2027-07",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-07.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-07.json"
     },
     {
       "region": "japan",
       "month": "2027-10",
       "total": 868,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-10.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-10.json"
     },
     {
       "region": "japan",
       "month": "2027-11",
       "total": 840,
-      "path": "snapshots/f05cfa58808a94c1/japan/2027-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/japan/2027-11.json"
     },
     {
       "region": "north-america",
       "month": "2026-11",
       "total": 208,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2026-11.json"
     },
     {
       "region": "north-america",
       "month": "2026-12",
       "total": 1612,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2026-12.json"
     },
     {
       "region": "north-america",
       "month": "2027-01",
       "total": 1612,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-01.json"
     },
     {
       "region": "north-america",
       "month": "2027-02",
       "total": 1456,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-02.json"
     },
     {
       "region": "north-america",
       "month": "2027-03",
       "total": 1612,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-03.json"
     },
     {
       "region": "north-america",
       "month": "2027-04",
       "total": 1560,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-04.json"
     },
     {
       "region": "north-america",
       "month": "2027-05",
       "total": 1612,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-05.json"
     },
     {
       "region": "north-america",
       "month": "2027-06",
       "total": 1560,
-      "path": "snapshots/f05cfa58808a94c1/north-america/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/north-america/2027-06.json"
     },
     {
       "region": "oceania",
       "month": "2026-11",
       "total": 64,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2026-11.json"
     },
     {
       "region": "oceania",
       "month": "2026-12",
       "total": 496,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2026-12.json"
     },
     {
       "region": "oceania",
       "month": "2027-01",
       "total": 496,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-01.json"
     },
     {
       "region": "oceania",
       "month": "2027-02",
       "total": 448,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-02.json"
     },
     {
       "region": "oceania",
       "month": "2027-03",
       "total": 496,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-03.json"
     },
     {
       "region": "oceania",
       "month": "2027-04",
       "total": 480,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-04.json"
     },
     {
       "region": "oceania",
       "month": "2027-05",
       "total": 496,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-05.json"
     },
     {
       "region": "oceania",
       "month": "2027-06",
       "total": 480,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-06.json"
     },
     {
       "region": "oceania",
       "month": "2027-07",
       "total": 124,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-07.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-07.json"
     },
     {
       "region": "oceania",
       "month": "2027-10",
       "total": 124,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-10.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-10.json"
     },
     {
       "region": "oceania",
       "month": "2027-11",
       "total": 120,
-      "path": "snapshots/f05cfa58808a94c1/oceania/2027-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/oceania/2027-11.json"
     },
     {
       "region": "southeast-asia",
       "month": "2026-11",
       "total": 160,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2026-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2026-11.json"
     },
     {
       "region": "southeast-asia",
       "month": "2026-12",
       "total": 1240,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2026-12.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2026-12.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-01",
       "total": 1240,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-01.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-01.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-02",
       "total": 1120,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-02.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-02.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-03",
       "total": 1240,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-03.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-03.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-04",
       "total": 1200,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-04.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-04.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-05",
       "total": 1240,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-05.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-05.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-06",
       "total": 1200,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-06.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-06.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-07",
-      "total": 1054,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-07.json"
+      "total": 1240,
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-07.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-10",
       "total": 1178,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-10.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-10.json"
     },
     {
       "region": "southeast-asia",
       "month": "2027-11",
       "total": 1080,
-      "path": "snapshots/f05cfa58808a94c1/southeast-asia/2027-11.json"
+      "path": "snapshots/ee2bd2123e75ae31/southeast-asia/2027-11.json"
     }
   ],
   "source": "KOREAN_AIR_PUBLIC_AWARD_CALENDAR",
@@ -493,8 +499,8 @@
       "2027-10",
       "2027-11"
     ],
-    "last_success_at": "2026-11-28T07:42:31.094169+00:00"
+    "last_success_at": "2026-11-28T08:16:19.457179+00:00"
   },
-  "last_success_at": "2026-11-28T07:42:31.094169+00:00",
+  "last_success_at": "2026-11-28T08:16:19.457179+00:00",
   "last_error": null
 }
