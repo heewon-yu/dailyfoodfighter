@@ -509,16 +509,16 @@
     root.append(summary(rows));
     root.append(shareBar(rows));
 
-    const sortSelect = Air.el("select", { class: "air-select", "aria-label": "좌석 정렬", style: "width:auto;max-width:100%;min-width:0" });
+    const sortSelect = Air.el("select", { class: "air-select", "aria-label": "좌석 정렬", style: "width:auto;max-width:100%;min-width:0;min-height:36px;padding:6px 24px 6px 8px;font-size:12px;line-height:1.4" });
     for (const [key, label] of Object.entries(SORT_LABEL)) sortSelect.append(new Option(label, key));
     sortSelect.value = state.sort;
     sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
 
     root.append(Air.el("div", { class: "air-results-head" }, [
       Air.el("h2", { text: "일등석 예약 가능" }),
-      Air.el("p", { class: "air-results-summary" }, [
-        Air.el("span", null, [Air.el("b", { text: String(rows.length) }), "건"]),
-        Air.el("span", { text: DIRECTION_LABEL[state.direction] + (state.airport ? ` · ${Air.airportShort(state.airport)} (${state.airport})` : "") }),
+      Air.el("div", { class: "air-results-summary", style: "font-size:11px;align-items:center;gap:4px 6px;margin:0" }, [
+        Air.el("span", { style: "white-space:nowrap", text: `${rows.length}건` }),
+        (state.direction !== "all" || state.airport) ? Air.el("span", { text: (state.direction !== "all" ? DIRECTION_LABEL[state.direction] : "") + (state.airport ? ` ${Air.airportShort(state.airport)} (${state.airport})` : "") }) : null,
         state.region ? Air.el("span", { text: state.region }) : null,
         sortSelect
       ])
