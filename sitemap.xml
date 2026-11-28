@@ -23,12 +23,16 @@ layout: null
   {%- endfor -%}
   {%- for file in site.static_files -%}
     {%- assign file_path = file.path | default: file.url | remove_first: '/' | prepend: '/' -%}
+    {%- comment -%}
+      2026-11-28: Cloudflare Pages는 /x.html → /x 로 308 리다이렉트한다(html extension stripping).
+      사이트맵에는 리다이렉트되는 .html 주소 대신 실제 200을 주는 확장자 없는 주소를 적는다.
+    {%- endcomment -%}
     {%- if file_path contains '.html' and file_path != '/404.html' and file_path != '/index.html' and file_path != '/google81fcb2814d57fb59.html' and file_path != '/naver031f6ec0eddfeb355eee1fc5387422aa.html' -%}
       {%- unless file_path contains '/assets/' -%}
         {%- if file_path contains '/index.html' -%}
   <url><loc>{{ file_path | remove: 'index.html' | absolute_url | uri_escape | xml_escape }}</loc><lastmod>{{ static_lastmod }}</lastmod></url>
         {%- else -%}
-  <url><loc>{{ file_path | absolute_url | uri_escape | xml_escape }}</loc><lastmod>{{ static_lastmod }}</lastmod></url>
+  <url><loc>{{ file_path | remove: '.html' | absolute_url | uri_escape | xml_escape }}</loc><lastmod>{{ static_lastmod }}</lastmod></url>
         {%- endif -%}
       {%- endunless -%}
     {%- endif -%}

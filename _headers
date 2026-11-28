@@ -23,3 +23,6 @@
 
 /feed.xml
   Cache-Control: public, max-age=3600
+
+/feed-ko.xml
+  Cache-Control: public, max-age=3600
